@@ -89,6 +89,8 @@ model Post {
   excerpt     String?
   published   Boolean   @default(false)
   publishedAt DateTime?
+  broadcastAt DateTime?               // when this post was emailed to subscribers
+  broadcastCount Int    @default(0)   // how many subscribers it reached
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   @@unique([creatorId, slug])

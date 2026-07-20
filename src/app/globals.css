@@ -167,3 +167,56 @@ button.small{padding:6px 12px;font-size:12px;}
 .ownedtag{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;white-space:nowrap;}
 .fusionbox{background:#f3eee4;border-left:3px solid var(--gold);border-radius:6px;padding:12px 14px;font-size:13px;color:var(--slate);line-height:1.5;margin:16px 0;}
 .fusionbox b{color:var(--ink);}
+
+/* ---- OWNED content home: post list on the page ---- */
+.ownedposts{margin-top:24px;text-align:left;border-top:1px solid var(--line);padding-top:16px;}
+.ownedpostshead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
+.ownedpostshead span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.rsslink{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-weight:700;}
+.rsslink:hover{color:var(--gold);}
+.ownedpost{display:block;text-decoration:none;padding:11px 0;border-bottom:1px solid var(--line);}
+.ownedpost:last-child{border-bottom:0;}
+.ownedposttitle{display:block;font-family:Georgia,serif;font-size:16px;color:var(--ink);font-weight:700;}
+.ownedpostex{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:3px;}
+.ownedpost:hover .ownedposttitle{color:var(--gold-lt);}
+
+/* ---- Single post page + prose ---- */
+.postmain{max-width:680px;margin:0 auto;}
+.postback{display:inline-block;font-size:12.5px;color:var(--muted);text-decoration:none;font-weight:600;margin:0 0 18px;}
+.postback:hover{color:var(--ink);}
+.post{margin-bottom:26px;}
+.posttitle{font-family:Georgia,serif;font-size:34px;line-height:1.1;color:var(--ink);margin:0 0 6px;}
+.postdate{font-size:12.5px;color:var(--muted);margin:0 0 22px;}
+.prose{font-size:16px;line-height:1.7;color:#26304a;}
+.prose h1,.prose h2,.prose h3,.prose h4{font-family:Georgia,serif;color:var(--ink);line-height:1.25;margin:1.5em 0 .5em;}
+.prose h1{font-size:26px;}.prose h2{font-size:22px;}.prose h3{font-size:18px;}.prose h4{font-size:16px;}
+.prose p{margin:0 0 1.1em;}
+.prose a{color:var(--gold-lt);text-decoration:underline;}
+.prose ul,.prose ol{margin:0 0 1.1em;padding-left:1.4em;}
+.prose li{margin:.3em 0;}
+.prose blockquote{border-left:3px solid var(--gold);margin:1.2em 0;padding:.2em 0 .2em 1em;color:var(--slate);font-style:italic;}
+.prose code{background:#f0ebe0;border-radius:4px;padding:1px 5px;font-size:.9em;font-family:ui-monospace,Menlo,monospace;}
+.prose pre{background:var(--ink);color:#eee7d8;border-radius:8px;padding:14px 16px;overflow-x:auto;margin:1.2em 0;}
+.prose pre code{background:none;padding:0;color:inherit;}
+.prose hr{border:0;border-top:1px solid var(--line);margin:1.6em 0;}
+
+/* ---- Writer ---- */
+.writer{margin-top:8px;}
+.writergrid{display:grid;grid-template-columns:1fr 240px;gap:22px;}
+@media(max-width:760px){.writergrid{grid-template-columns:1fr;}}
+.wtitle{font-family:Georgia,serif;font-size:22px;font-weight:700;padding:10px 12px;margin-bottom:10px;}
+.writertabs{display:flex;align-items:center;gap:6px;margin-bottom:8px;}
+.wtab{background:transparent;border:1.4px solid var(--line);border-radius:30px;padding:5px 14px;font-size:12.5px;font-weight:700;color:var(--muted);}
+.wtab.on{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.wmd{margin-left:auto;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+.wbody{width:100%;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;line-height:1.6;}
+.writeredit .prose{border:1.4px solid var(--line);border-radius:8px;padding:16px 18px;min-height:280px;}
+.writerlist{border-left:1px solid var(--line);padding-left:18px;}
+@media(max-width:760px){.writerlist{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:14px;}}
+.writerlisthead{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:10px;}
+.postitem{display:flex;align-items:center;gap:4px;margin-bottom:4px;}
+.postitem.on .postitembtn{background:#f3eee4;}
+.postitembtn{flex:1;text-align:left;background:transparent;border:0;border-radius:6px;padding:8px 9px;cursor:pointer;display:flex;flex-direction:column;gap:2px;}
+.postittitle{font-size:13.5px;font-weight:600;color:var(--ink);}
+.poststate{font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;}
+.poststate.pub{color:#2f7a54;}.poststate.draft{color:var(--muted);}

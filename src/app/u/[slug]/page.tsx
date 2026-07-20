@@ -10,9 +10,18 @@ export default async function OwnedPage({ params }: { params: { slug: string } }
   if (!prisma) notFound();
   const creator = await prisma.creator.findUnique({
     where: { slug: params.slug },
-    include: { ownedLinks: { orderBy: { position: "asc" } } },
+    include: {
+      ownedLinks: { orderBy: { position: "asc" } },
+      // published posts, newest first — the content home
+    },
   });
   if (!creator || !creator.ownedPublished) notFound();
+  const posts = await prisma.post.findMany({
+    where: { creatorId: creator.id, published: true },
+    orderBy: { publishedAt: "desc" },
+    take: 20,
+    select: { slug: true, title: true, excerpt: true, publishedAt: true },
+  });
 
   const name = creator.displayName || creator.slug;
   return (
@@ -39,6 +48,21 @@ export default async function OwnedPage({ params }: { params: { slug: string } }
             </a>
           ))}
         </div>
+
+        {posts.length > 0 && (
+          <div className="ownedposts">
+            <div className="ownedpostshead">
+              <span>Writing</span>
+              <a href={`/u/${creator.slug}/rss.xml`} className="rsslink" target="_blank" rel="noopener noreferrer">RSS</a>
+            </div>
+            {posts.map((p) => (
+              <a key={p.slug} className="ownedpost" href={`/u/${creator.slug}/${p.slug}`}>
+                <span className="ownedposttitle">{p.title}</span>
+                {p.excerpt && <span className="ownedpostex">{p.excerpt}</span>}
+              </a>
+            ))}
+          </div>
+        )}
 
         <a className="ownedfoot" href="/">Measured by The Ownership Index</a>
       </div>

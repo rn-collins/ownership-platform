@@ -127,3 +127,43 @@ button.ghost{background:transparent;color:var(--ink);}
 .planlift{font-family:Georgia,serif;font-weight:700;font-size:13px;color:#7fd0a8;white-space:nowrap;}
 .planaction{font-size:14.5px;color:#fff;line-height:1.4;font-weight:600;}
 .planwhy{font-size:12.5px;color:#9aa0ad;line-height:1.45;margin-top:4px;}
+
+/* ---- OWNED public page ---- */
+.owned{display:flex;justify-content:center;padding:20px 0 40px;}
+.ownedcard{width:100%;max-width:460px;text-align:center;}
+.ownedavatar{width:74px;height:74px;border-radius:50%;background:var(--ink);color:var(--paper);font-family:Georgia,serif;font-size:32px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+.ownedname{font-family:Georgia,serif;font-size:28px;color:var(--ink);margin:0 0 4px;}
+.ownedhead{font-size:15px;color:var(--slate);font-weight:600;margin:0 0 8px;}
+.ownedbio{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0 0 18px;}
+.ownedcapture{display:flex;gap:8px;margin:0 0 18px;}
+.ownedinput{flex:1;border:1.4px solid var(--line);border-radius:30px;padding:11px 16px;font-family:inherit;font-size:14px;}
+.ownedinput:focus{outline:none;border-color:var(--gold);}
+.ownedsub{background:var(--ink);color:var(--paper);border:1.5px solid var(--ink);}
+.ownedlinks{display:flex;flex-direction:column;gap:11px;}
+.ownedlink{display:flex;justify-content:center;align-items:center;gap:8px;position:relative;text-decoration:none;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:15px 18px;font-size:15px;font-weight:600;color:var(--ink);transition:border-color .12s,transform .05s;}
+.ownedlink:hover{border-color:var(--ink);}
+.ownedlink:active{transform:scale(.995);}
+.ownedlink.own{border-color:var(--gold);}
+.ownedbadge{position:absolute;right:14px;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.ownedfoot{display:inline-block;margin-top:22px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-weight:700;}
+.ownedfoot:hover{color:var(--gold);}
+
+/* ---- OWNED editor ---- */
+.ownededit{margin-top:8px;}
+.fld{display:block;margin:0 0 14px;}
+.fld > span{display:block;font-size:12.5px;font-weight:700;color:var(--ink);margin:0 0 6px;}
+.fld .fh,.chkrow .fh{font-weight:400;color:var(--muted);font-style:normal;}
+.fh{font-size:11.5px;color:var(--muted);}
+.slugrow{display:flex;align-items:center;gap:0;}
+.slugpre{font-size:14px;color:var(--muted);padding:0 4px 0 0;font-weight:600;}
+.chkrow{display:flex;gap:10px;align-items:flex-start;margin:0 0 14px;font-size:13.5px;color:var(--slate);line-height:1.4;}
+.chkrow input{margin-top:2px;accent-color:var(--gold);}
+.linkedit{margin:18px 0;border-top:1px solid var(--line);padding-top:14px;}
+.linkedithead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12.5px;font-weight:700;color:var(--ink);}
+.linkrow{display:flex;gap:7px;align-items:center;margin-bottom:8px;}
+.linkrow .opentext{padding:8px 10px;font-size:13px;}
+.linkrow .opentext:first-child{max-width:140px;}
+button.small{padding:6px 12px;font-size:12px;}
+.ownedtag{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;white-space:nowrap;}
+.fusionbox{background:#f3eee4;border-left:3px solid var(--gold);border-radius:6px;padding:12px 14px;font-size:13px;color:var(--slate);line-height:1.5;margin:16px 0;}
+.fusionbox b{color:var(--ink);}

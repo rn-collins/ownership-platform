@@ -5,6 +5,7 @@
   "description": "The Ownership Index — creator ownership scoring platform. Build the graph, not the quiz.",
   "scripts": {
     "dev": "next dev",
+    "postinstall": "prisma generate",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

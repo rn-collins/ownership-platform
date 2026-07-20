@@ -22,6 +22,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             {user ? (
               <>
                 <a href="/dashboard">Dashboard</a>
+                <a href="/dashboard/owned">OWNED</a>
                 <form action="/auth/signout" method="post"><button type="submit" className="navlink">Sign out</button></form>
               </>
             ) : (

@@ -37,6 +37,43 @@ model Creator {
   facts         Fact[]
   assessments   Assessment[]
   scores        ScoreEvent[]
+
+  // ---- OWNED: the creator's own page. Land they own, not rent. ----
+  slug          String?  @unique          // rncollins.com/u/<slug>
+  ownedHeadline String?
+  ownedBio      String?
+  customDomain  String?  @unique          // their own domain, when connected
+  emailCapture  Boolean  @default(false)  // owned-audience capture enabled
+  ownedPublished Boolean @default(false)
+  ownedUpdatedAt DateTime?
+  ownedLinks    OwnedLink[]
+}
+
+// A single link/block on a creator's OWNED page. Ordered, typed so the fusion
+// engine can tell an owned-audience destination (newsletter, membership) from a
+// rented one (a social profile) when it writes evidence into the graph.
+model OwnedLink {
+  id        String   @id @default(cuid())
+  creator   Creator  @relation(fields: [creatorId], references: [id])
+  creatorId String
+  label     String
+  url       String
+  kind      String   @default("link")   // link | newsletter | membership | shop | social
+  owned     Boolean  @default(false)     // true = destination the creator owns
+  position  Int      @default(0)
+  createdAt DateTime @default(now())
+  @@index([creatorId, position])
+}
+
+// A subscriber the creator owns directly — the whole point of OWNED. This is the
+// relationship no platform can revoke. Grows the creator's owned-audience evidence.
+model Subscriber {
+  id        String   @id @default(cuid())
+  creatorId String
+  email     String
+  createdAt DateTime @default(now())
+  @@unique([creatorId, email])
+  @@index([creatorId])
 }
 
 model Org {

@@ -1,0 +1,117 @@
+// The Ownership Graph — data foundation (v1.5+).
+// The score is a projection of facts through a versioned methodology.
+// Facts carry provenance and a trust tier; scores are immutable, reproducible
+// events. This schema is the graph, not a quiz results table.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---- Methodology as versioned data ----
+model MethodologyVersion {
+  id          String   @id @default(cuid())
+  version     String   @unique          // e.g. "0.2.0"
+  publishedAt DateTime @default(now())
+  aggregation String   @default("additive")
+  weights     Json                        // { audience: 1, rights: 1, ... }
+  notes       String?
+  scores      ScoreEvent[]
+}
+
+// ---- Identity & tenancy ----
+model Creator {
+  id            String   @id @default(cuid())
+  authUserId    String?  @unique          // Supabase auth user id, when signed in
+  createdAt     DateTime @default(now())
+  displayName   String?
+  region        String?
+  archetype     String?                   // segment for weighting (v2)
+  primaryPlatform String?
+  followerBand  String?
+  consents      Consent[]
+  facts         Fact[]
+  assessments   Assessment[]
+  scores        ScoreEvent[]
+}
+
+model Org {
+  id        String       @id @default(cuid())
+  name      String
+  createdAt DateTime     @default(now())
+  roster    RosterEntry[]
+}
+
+model RosterEntry {
+  id        String  @id @default(cuid())
+  org       Org     @relation(fields: [orgId], references: [id])
+  orgId     String
+  creatorId String
+  label     String?
+  @@unique([orgId, creatorId])
+}
+
+// ---- Consent ledger (personal data only on explicit, versioned consent) ----
+model Consent {
+  id        String   @id @default(cuid())
+  creator   Creator  @relation(fields: [creatorId], references: [id])
+  creatorId String
+  scope     String                        // e.g. "benchmark", "verification:payments"
+  version   String
+  grantedAt DateTime @default(now())
+  revokedAt DateTime?
+}
+
+// ---- The fact: heart of the graph. Evidence-tiered, sourced, superseding ----
+model Fact {
+  id                 String   @id @default(cuid())
+  creator            Creator  @relation(fields: [creatorId], references: [id])
+  creatorId          String
+  subject            String                 // e.g. "audience", or an asset id
+  predicate          String                 // e.g. "A1", "owns_copyright"
+  value              Float
+  evidenceTier       Float    @default(0.4) // 0.4 self | 0.8 auto | 1.0 audited
+  source             String                 // "self-report" | "connector:stripe" | "audit:reviewer:x"
+  observedAt         DateTime @default(now())
+  methodologyRelevant Boolean @default(true)
+  supersedesId       String?                // history preserved, not overwritten
+  consentScope       String?
+  @@index([creatorId, predicate])
+}
+
+// ---- Assessment + immutable, reproducible score events ----
+model Assessment {
+  id             String   @id @default(cuid())
+  creator        Creator? @relation(fields: [creatorId], references: [id])
+  creatorId      String?
+  createdAt      DateTime @default(now())
+  source         String   @default("self")   // self | verified
+  responses      Json                          // scored items { A1: 3, ... }
+  research       Json?                         // research battery { P1: "...", G4: 3, ... }
+  researchVersion String?                      // research module version, e.g. "0.2.0"
+  anonymous      Boolean  @default(true)       // no identity when true
+  total          Int?                          // computed score snapshot (for signed-in saves)
+  overallBand    String?
+  confidence     Float?
+  scores         ScoreEvent[]
+}
+
+model ScoreEvent {
+  id                   String   @id @default(cuid())
+  assessment           Assessment @relation(fields: [assessmentId], references: [id])
+  assessmentId         String
+  creator              Creator?  @relation(fields: [creatorId], references: [id])
+  creatorId            String?
+  methodology          MethodologyVersion @relation(fields: [methodologyVersionId], references: [id])
+  methodologyVersionId String
+  total                Int
+  overallBand          String
+  dimensionScores      Json                 // { audience: 14, ... }
+  confidence           Float
+  computedAt           DateTime @default(now())
+  @@index([creatorId, computedAt])
+}

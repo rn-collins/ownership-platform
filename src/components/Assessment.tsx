@@ -20,6 +20,7 @@ export function Assessment() {
   const [research, setResearch] = useState<ResearchAnswers>({});
   const [submitted, setSubmitted] = useState(false);
   const [step, setStep] = useState(0);
+  const [shared, setShared] = useState(false);
   const [assessmentId] = useState(() =>
     typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
   );
@@ -79,6 +80,25 @@ export function Assessment() {
     setSubmitted(true);
   }
 
+  // Share the score — native share sheet where available, clipboard otherwise.
+  // Built for the "post your score" growth loop: one tap to spread the Index.
+  async function shareScore() {
+    const r = assess(responses);
+    const url = typeof window !== "undefined" ? `${window.location.origin}/assess` : "/assess";
+    const text = `I scored ${r.total}/100 on The Ownership Index — it measures how much of your creator business you actually own: audience, rights, revenue, likeness, and business. Take it:`;
+    try {
+      if (typeof navigator !== "undefined" && navigator.share) {
+        await navigator.share({ title: "The Ownership Index", text, url });
+        return;
+      }
+      await navigator.clipboard.writeText(`${text} ${url}`);
+      setShared(true);
+      setTimeout(() => setShared(false), 2500);
+    } catch {
+      /* user dismissed the share sheet — no-op */
+    }
+  }
+
   function setResearchAnswer(item: ResearchItem, value: string) {
     if (item.type === "multi") {
       setResearch((r) => {
@@ -96,18 +116,6 @@ export function Assessment() {
     DIMENSIONS.forEach((d) => (v[d.key] = result?.dimensions.find((x) => x.key === d.key)?.raw ?? 0));
     return v;
   }, [result]);
-
-  const roadmap = useMemo(() => {
-    const rows: { dim: string; q: string; now: string; next: string; score: number }[] = [];
-    INSTRUMENT.forEach((d) =>
-      d.items.forEach((it) => {
-        const cur = responses[it.id];
-        if (cur == null || cur >= 5) return;
-        rows.push({ dim: d.name, q: it.q, now: it.options[cur], next: it.options[cur + 1], score: cur });
-      }),
-    );
-    return rows.sort((a, b) => a.score - b.score).slice(0, 4);
-  }, [responses]);
 
   // Precise, engine-computed plan: the five highest-priority moves and the exact
   // score they would produce. This is the "worth paying for" part.
@@ -188,20 +196,6 @@ export function Assessment() {
             </div>
           )}
 
-          <div className="road">
-            <h3>Your roadmap</h3>
-            <p className="rsub">The highest-leverage moves first, drawn from your lowest-scoring answers.</p>
-            {roadmap.length > 0 ? roadmap.map((r, i) => (
-              <div key={i} className="step">
-                <div className="d">{r.dim}</div>
-                <div className="now">Now: {r.now}</div>
-                <div className="next"><b>Next step →</b> {r.next}</div>
-              </div>
-            )) : (
-              <div className="step"><div className="next">You are at the top of every measure answered. The question becomes whether you can carry it, the human half of the study.</div></div>
-            )}
-          </div>
-
           <div className="research">
             <h3>The fuller picture</h3>
             <p className="rsub">A few taps across your rights, revenue, brand, wellbeing and trajectory. Anonymous, matched to your score. The more you share, the sharper your picture.</p>
@@ -261,19 +255,26 @@ export function Assessment() {
                   </div>
                   <p className="projsub">Make these {plan.length} moves and your Ownership Score rises from {result.total} to <b>{projected}</b> out of 100. Each is exact, computed from your answers.</p>
                 </div>
-                {plan.map((a, i) => (
-                  <div key={a.itemId} className="planstep">
-                    <span className="fwn">{i + 1}</span>
-                    <div className="planbody">
-                      <div className="planhead">
-                        <span className="plandim">{a.dimensionName}</span>
-                        <span className="planlift">+{a.lift} {a.lift === 1 ? "pt" : "pts"}</span>
+                {(() => {
+                  const seenWhy = new Set<string>();
+                  return plan.map((a, i) => {
+                    const showWhy = !seenWhy.has(a.dimension);
+                    seenWhy.add(a.dimension);
+                    return (
+                      <div key={a.itemId} className="planstep">
+                        <span className="fwn">{i + 1}</span>
+                        <div className="planbody">
+                          <div className="planhead">
+                            <span className="plandim">{a.dimensionName}</span>
+                            <span className="planlift">+{a.lift} {a.lift === 1 ? "pt" : "pts"}</span>
+                          </div>
+                          <div className="planaction">{ITEM_ACTIONS[a.itemId]}</div>
+                          {showWhy && <div className="planwhy">{DIMENSION_WHY[a.dimension]}</div>}
+                        </div>
                       </div>
-                      <div className="planaction">{ITEM_ACTIONS[a.itemId]}</div>
-                      <div className="planwhy">{DIMENSION_WHY[a.dimension]}</div>
-                    </div>
-                  </div>
-                ))}
+                    );
+                  });
+                })()}
               </>
             ) : (
               <p className="fwsub">You are at the top of every measure. The question now is whether you can carry it — the human half of this research.</p>
@@ -286,7 +287,8 @@ export function Assessment() {
 
           <p className="disc">Your answers are collected anonymously. Score reproducible under methodology v{result.methodologyVersion}.</p>
           <div className="actions">
-            <button className="ghost" onClick={() => { setSubmitted(false); setResponses({}); setResearch({}); setStep(0); }}>Start again</button>
+            <button className="primary" onClick={shareScore}>{shared ? "Link copied ✓" : "Share my score"}</button>
+            <button className="ghost" onClick={() => { setSubmitted(false); setResponses({}); setResearch({}); setStep(0); setShared(false); }}>Start again</button>
           </div>
         </div>
       )}

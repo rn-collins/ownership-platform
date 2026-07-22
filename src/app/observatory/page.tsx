@@ -19,6 +19,10 @@ export default function ObservatoryPage() {
 
       <ObservatoryMap />
 
+      <p className="rsub" style={{ margin: "10px 0 20px" }}>
+        <a href="/observatory/episodes" className="fwlink">Watch the show — &ldquo;The Job That Didn&apos;t Exist&rdquo; →</a>
+      </p>
+
       <div className="card">
         <h3>Are you one of these people?</h3>
         <p>Take the Portfolio Professional Index — five minutes — and find out how much of an institution you already are inside your organization. <a href="/assess/professional" className="fwlink">Take the index →</a></p>

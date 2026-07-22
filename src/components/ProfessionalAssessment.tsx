@@ -174,6 +174,11 @@ export function ProfessionalAssessment() {
             )}
           </div>
 
+          <div className="fwcta" style={{ marginTop: 18 }}>
+            <a href="/observatory"><button className="primary">See the map &amp; nominate someone</button></a>
+            <a href="/observatory" className="fwlink">Explore The Observatory →</a>
+          </div>
+
           <p className="disc">Portfolio Professional Index · methodology v{result.methodologyVersion}. Part of The Observatory.</p>
           <div className="actions">
             <button className="primary" onClick={shareScore}>{shared ? "Link copied ✓" : "Share my score"}</button>

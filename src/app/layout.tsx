@@ -16,7 +16,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <div className="wrap">
           <nav className="nav">
             <a href="/">Ownership Index</a>
-            <a href="/assess">Take the assessment</a>
+            <a href="/assess">Assess</a>
+            <a href="/assess/professional">Portfolio Professional</a>
+            <a href="/observatory">The Observatory</a>
             <a href="/methodology">Methodology</a>
             <span style={{ marginLeft: "auto" }} />
             {user ? (

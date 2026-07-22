@@ -97,6 +97,52 @@ model Post {
   @@index([creatorId, published, publishedAt])
 }
 
+// ---- THE OBSERVATORY (Portfolio Professional franchise) ----
+// A nomination: "someone whose job didn't exist until them." The audience builds
+// the map and the guest pipeline. Personal data minimal and consent-light.
+model Nomination {
+  id             String   @id @default(cuid())
+  nomineeName    String
+  nomineeOrg     String?
+  nomineeRole    String?                        // the role built around them
+  why            String   @db.Text
+  nominatorEmail String?
+  source         String   @default("web")
+  status         String   @default("new")       // new | reviewing | invited | featured | declined
+  createdAt      DateTime @default(now())
+  @@index([status, createdAt])
+}
+
+// A guest on the show (an individual-as-institution), optionally linked to a
+// nomination and to their index score. Node on the foresight map.
+model Guest {
+  id            String    @id @default(cuid())
+  name          String
+  org           String?
+  role          String?                         // the role that was built around them
+  roleCreated   Boolean   @default(false)       // true = the job didn't exist until them
+  domain        String?                         // segment for the map
+  indexScore    Int?                            // Portfolio Professional Index score
+  band          String?
+  createdAt     DateTime  @default(now())
+  episodes      Episode[]
+  @@index([domain])
+}
+
+// An episode of the show ("The Job That Didn't Exist").
+model Episode {
+  id          String   @id @default(cuid())
+  guest       Guest    @relation(fields: [guestId], references: [id])
+  guestId     String
+  title       String
+  youtubeUrl  String?
+  venue       String   @default("stage")        // lyft | stage | office | remote
+  signal      String?  @db.Text                 // the "here's where this is headed" line
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  @@index([guestId])
+}
+
 model Org {
   id        String       @id @default(cuid())
   name      String

@@ -1,19 +1,23 @@
 import { ObservatoryNominate } from "@/components/ObservatoryNominate";
+import { ObservatoryMap } from "@/components/ObservatoryMap";
 
 export const metadata = {
-  title: "The Observatory — how work is being rebuilt around individuals",
-  description: "A living observatory of the individual-as-institution: the people whose roles were built around them, measured and mapped.",
+  title: "The Observatory — how individuals are becoming institutions",
+  description: "A living observatory of the individual-as-institution: creators and professionals whose work and roles are being built around them, measured and mapped.",
 };
 
 export default function ObservatoryPage() {
   return (
     <main>
       <p className="eyebrow">The Observatory</p>
-      <h1>The job that didn&apos;t exist.</h1>
+      <h1>The individual is becoming an institution.</h1>
       <p className="lede">
-        Work is quietly flipping from &ldquo;get hired for a role&rdquo; to &ldquo;the role gets built around you.&rdquo;
-        The Observatory measures it, maps it, and shows where it&apos;s headed — the individual becoming an institution.
+        Across the economy — creators and professionals alike — work is flipping from &ldquo;get hired for a role&rdquo;
+        to &ldquo;the role gets built around you.&rdquo; The Observatory measures it, maps it, and shows where it&apos;s
+        headed. This is a preview of how everyone will work.
       </p>
+
+      <ObservatoryMap />
 
       <div className="card">
         <h3>Are you one of these people?</h3>

@@ -19,11 +19,7 @@ export default function ObservatoryPage() {
 
       <ObservatoryMap />
 
-      <p className="rsub" style={{ margin: "10px 0 20px" }}>
-        <a href="/observatory/episodes" className="fwlink">Watch the show — &ldquo;The Job That Didn&apos;t Exist&rdquo; →</a>
-      </p>
-
-      <div className="card">
+      <div className="card" style={{ marginTop: 18 }}>
         <h3>Are you one of these people?</h3>
         <p>Measure yourself in five minutes and see how much of an institution you already are.
         <a href="/assess/creator" className="fwlink"> Ownership Index (creators) →</a>&nbsp;&nbsp;·&nbsp;&nbsp;

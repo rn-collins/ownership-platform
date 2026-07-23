@@ -19,7 +19,7 @@ export default async function GuestPage({ params }: { params: { id: string } }) 
   return (
     <main>
       <a href="/observatory/episodes" className="postback">← The Show</a>
-      <p className="eyebrow">The Observatory · Guest</p>
+      <p className="eyebrow">Institutions of One · Guest</p>
       <h1>{guest.name}</h1>
       {guest.role && <p className="lede">{guest.role}{guest.org ? ` · ${guest.org}` : ""}{guest.roleCreated ? " — a role that didn't exist until them." : ""}</p>}
 

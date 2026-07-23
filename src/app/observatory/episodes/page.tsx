@@ -20,7 +20,7 @@ export default async function EpisodesPage() {
 
   return (
     <main>
-      <p className="eyebrow">The Observatory · The Show</p>
+      <p className="eyebrow">Institutions of One · The Show</p>
       <h1>The Job That Didn&apos;t Exist</h1>
       <p className="lede">
         Conversations with people whose role was built around them — filmed in motion and live on stage. Each one ends
@@ -45,7 +45,7 @@ export default async function EpisodesPage() {
         </div>
       ) : (
         <div className="card">
-          <h3>The first episodes are being filmed.</h3>
+          <h3>The first conversations are being lined up.</h3>
           <p>The show launches with a small set of founding conversations. Want in? <a href="/assess/professional" className="fwlink">Take the index</a> to see if you&apos;re one of them, or <a href="/observatory" className="fwlink">nominate someone</a> whose job didn&apos;t exist until them.</p>
         </div>
       )}

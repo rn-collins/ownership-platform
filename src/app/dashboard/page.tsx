@@ -26,7 +26,7 @@ export default async function Dashboard() {
         <p className="eyebrow">Your dashboard</p>
         <h1>Signed in</h1>
         <p className="lede">The database isn&apos;t configured in this environment yet, so there&apos;s nothing to show. Once <code>DATABASE_URL</code> is set, your saved assessments appear here.</p>
-        <p><a href="/assess" className="fwlink">Take the assessment →</a></p>
+        <p><a href="/assess/creator" className="fwlink">Take the assessment →</a></p>
       </main>
     );
   }
@@ -53,7 +53,7 @@ export default async function Dashboard() {
         <p className="eyebrow">Your dashboard</p>
         <h1>Nothing saved yet</h1>
         <p className="lede">Take the assessment and your score will save here so you can watch it climb over time.</p>
-        <p><a href="/assess"><button className="primary">Take the assessment</button></a></p>
+        <p><a href="/assess/creator"><button className="primary">Take the assessment</button></a></p>
       </main>
     );
   }
@@ -148,7 +148,7 @@ export default async function Dashboard() {
           <p className="fwsub">You are at the top of every measure. The question now is whether you can carry it.</p>
         )}
         <div className="fwcta">
-          <a href="/assess"><button className="primary">Re-assess and update my score</button></a>
+          <a href="/assess/creator"><button className="primary">Re-assess and update my score</button></a>
           <a href="/methodology" className="fwlink">How the score works →</a>
         </div>
       </div>

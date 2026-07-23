@@ -85,7 +85,7 @@ export function Assessment() {
   // Built for the "post your score" growth loop: one tap to spread the Index.
   async function shareScore() {
     const r = assess(responses);
-    const url = typeof window !== "undefined" ? `${window.location.origin}/assess` : "/assess";
+    const url = typeof window !== "undefined" ? `${window.location.origin}/assess/creator` : "/assess/creator";
     const text = `I scored ${r.total}/100 on The Ownership Index — it measures how much of your creator business you actually own: audience, rights, revenue, likeness, and business. Take it:`;
     try {
       if (typeof navigator !== "undefined" && navigator.share) {

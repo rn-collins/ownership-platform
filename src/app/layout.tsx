@@ -16,7 +16,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <div className="wrap">
           <nav className="nav">
             <a href="/">Institutions of One</a>
-            <a href="/assess">Ownership Index</a>
+            <a href="/assess/creator">Ownership Index</a>
             <a href="/assess/professional">Portfolio Professional</a>
             <a href="/observatory">The Observatory</a>
             <a href="/methodology">Methodology</a>

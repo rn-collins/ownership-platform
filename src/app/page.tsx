@@ -17,7 +17,7 @@ export default function Home() {
       <div className="card">
         <h3>The Ownership Index <span className="gold">·</span> creators</h3>
         <p>How much of their business a creator actually owns — audience, rights, revenue, identity, and infrastructure —
-        scored to 100. <a href="/assess" className="fwlink">Take the Ownership Index →</a></p>
+        scored to 100. <a href="/assess/creator" className="fwlink">Take the Ownership Index →</a></p>
       </div>
       <div className="card">
         <h3>The Portfolio Professional <span className="gold">·</span> professionals</h3>

@@ -9,12 +9,12 @@ export const metadata = {
 export default function ObservatoryPage() {
   return (
     <main>
-      <p className="eyebrow">The Observatory</p>
+      <p className="eyebrow">Institutions of One · The Observatory</p>
       <h1>The individual is becoming an institution.</h1>
       <p className="lede">
         Across the economy — creators and professionals alike — work is flipping from &ldquo;get hired for a role&rdquo;
-        to &ldquo;the role gets built around you.&rdquo; The Observatory measures it, maps it, and shows where it&apos;s
-        headed. This is a preview of how everyone will work.
+        to &ldquo;the role gets built around you.&rdquo; The Observatory is the map: it links both indices into one living
+        picture of who is already living the shift, and where it&apos;s headed. A preview of how everyone will work.
       </p>
 
       <ObservatoryMap />
@@ -25,7 +25,9 @@ export default function ObservatoryPage() {
 
       <div className="card">
         <h3>Are you one of these people?</h3>
-        <p>Take the Portfolio Professional Index — five minutes — and find out how much of an institution you already are inside your organization. <a href="/assess/professional" className="fwlink">Take the index →</a></p>
+        <p>Measure yourself in five minutes and see how much of an institution you already are.
+        <a href="/assess/creator" className="fwlink"> Ownership Index (creators) →</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+        <a href="/assess/professional" className="fwlink">Portfolio Professional (professionals) →</a></p>
       </div>
 
       <h2 style={{ fontFamily: "Georgia, serif", fontSize: 22, marginTop: 30, marginBottom: 4 }}>Nominate someone</h2>

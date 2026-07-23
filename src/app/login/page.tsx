@@ -19,7 +19,7 @@ export default function LoginPage() {
 
   return (
     <main>
-      <p className="eyebrow">The Ownership Index</p>
+      <p className="eyebrow">Institutions of One · Ownership Index</p>
       <h1>Save your results</h1>
       <p className="lede">Enter your email and we will send you a one-tap sign-in link. Your assessment saves to your account so you can track your ownership over time.</p>
 

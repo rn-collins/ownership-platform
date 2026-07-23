@@ -61,7 +61,7 @@ export const SEED: Node[] = [
   { name: "Simon Cook", role: "CEO, Cannes LIONS", domain: "Agency", kind: "professional" },
   { name: "Marc Pritchard", role: "Chief Brand Officer, P&G · Cannes icon", domain: "Fashion & Brand", kind: "professional" },
 
-  // Polymaths
+  // Polymaths (deep mastery across fields) — charted by their primary lens
   { name: "Reid Hoffman", role: "Founder · VC · author · podcaster", domain: "Venture", kind: "professional" },
   { name: "Fei-Fei Li", role: "AI scientist · founder (World Labs) · author", domain: "AI", kind: "professional" },
   { name: "Neri Oxman", role: "Design · materials science · founder (OXMAN)", domain: "Design", kind: "professional" },

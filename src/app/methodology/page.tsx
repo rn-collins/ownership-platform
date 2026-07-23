@@ -13,7 +13,7 @@ const BANDS = [
 export default function MethodologyPage() {
   return (
     <main>
-      <p className="eyebrow">The Portfolio Creator · Ownership Index</p>
+      <p className="eyebrow">Institutions of One · Ownership Index</p>
       <h1>Methodology</h1>
       <p className="lede">
         The Ownership Index is a composite instrument built to the OECD/JRC standard for composite indicators. Five

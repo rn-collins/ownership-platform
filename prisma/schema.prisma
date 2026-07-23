@@ -113,6 +113,23 @@ model Nomination {
   @@index([status, createdAt])
 }
 
+// The research audience — anyone who opts in to join The Observatory's research
+// and updates (from an index result, the map, or the site). Distinct from
+// Subscriber (a creator's OWNED audience). Consent-first: a row exists only on an
+// explicit opt-in, and the consent text is versioned for the record.
+model ResearchSubscriber {
+  id             String   @id @default(cuid())
+  email          String   @unique
+  name           String?
+  handle         String?                        // social handle, optional
+  source         String   @default("site")      // index_creator | index_pro | observatory | site
+  interest       String?                         // creator | professional | both
+  consent        Boolean  @default(false)
+  consentVersion String   @default("2026-07")
+  createdAt      DateTime @default(now())
+  @@index([source, createdAt])
+}
+
 // A guest on the show (an individual-as-institution), optionally linked to a
 // nomination and to their index score. Node on the foresight map.
 model Guest {

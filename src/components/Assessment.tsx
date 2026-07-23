@@ -5,6 +5,7 @@ import { assess, improvementPlan, projectedScore, DIMENSIONS, type DimensionKey 
 import { INSTRUMENT, OVERALL_COPY, DIMENSION_WHY, ITEM_ACTIONS } from "@/lib/instrument";
 import { RESEARCH_MODULES, APP_RESEARCH_MODULE_KEYS, isResearchItemHidden, type ResearchItem } from "@/lib/research";
 import { Radar } from "./Radar";
+import { ResearchOptIn } from "@/components/ResearchOptIn";
 
 type Responses = Record<string, number>;
 type ResearchAnswers = Record<string, string | string[]>;
@@ -284,6 +285,8 @@ export function Assessment() {
               <a href="/methodology" className="fwlink">How the score works →</a>
             </div>
           </div>
+
+          <ResearchOptIn source="index_creator" interest="creator" heading="Want your results and what comes next?" />
 
           <p className="disc">Your answers are collected anonymously. Score reproducible under methodology v{result.methodologyVersion}.</p>
           <div className="actions">

@@ -9,6 +9,7 @@ import {
   PROFESSIONAL_ITEM_ACTIONS,
 } from "@/lib/engine_professional";
 import { PROFESSIONAL_INSTRUMENT, PROFESSIONAL_DIMENSIONS, type PDimensionKey } from "@/lib/instrument_professional";
+import { ResearchOptIn } from "@/components/ResearchOptIn";
 
 type Responses = Record<string, number>;
 
@@ -179,7 +180,9 @@ export function ProfessionalAssessment() {
             <a href="/observatory" className="fwlink">Explore The Observatory →</a>
           </div>
 
-          <p className="disc">Portfolio Professional Index · methodology v{result.methodologyVersion}. Part of The Observatory.</p>
+          <ResearchOptIn source="index_pro" interest="professional" heading="Want your results and what comes next?" />
+
+          <p className="disc">Portfolio Professional Index · methodology v{result.methodologyVersion}. Part of Institutions of One.</p>
           <div className="actions">
             <button className="primary" onClick={shareScore}>{shared ? "Link copied ✓" : "Share my score"}</button>
             <button className="ghost" onClick={() => { setSubmitted(false); setResponses({}); setStep(0); setShared(false); }}>Start again</button>

@@ -38,7 +38,7 @@ export function ObservatoryMap({ nodes = SEED }: { nodes?: Node[] }) {
         {placed.map((n, i) => (
           <g key={i} onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)} style={{ cursor: "pointer" }}>
             <circle cx={n.x} cy={n.y} r={hover === i ? 8 : 5.5}
-              fill={n.kind === "professional" ? "#c8a468" : "#8fa1c7"}
+              fill={n.kind === "creator" ? "#5bbfa5" : "#c8a468"}
               stroke={n.created ? "#e6c68a" : "none"} strokeWidth={n.created ? 1.5 : 0} />
           </g>
         ))}
@@ -54,9 +54,9 @@ export function ObservatoryMap({ nodes = SEED }: { nodes?: Node[] }) {
         })()}
       </svg>
       <div className="obsmaplegend">
-        <span><i className="dot pro" /> Role built around them</span>
-        <span><i className="dot poly" /> Polymath / range</span>
-        <span className="obsmaphint">Hover a node · {placed.length} charted · grows with every nomination</span>
+        <span><i className="dot pro" /> Professional · Portfolio Professional</span>
+        <span><i className="dot creator" /> Creator · Ownership Index</span>
+        <span className="obsmaphint">Ringed = the role was built around them · hover a node · {placed.length} charted</span>
       </div>
     </div>
   );

@@ -260,3 +260,6 @@ button.small{padding:6px 12px;font-size:12px;}
 .optinconsent{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--slate);
   line-height:1.45;margin-bottom:12px;cursor:pointer;}
 .optinconsent input{margin-top:2px;accent-color:var(--gold);}
+
+/* Observatory map: creator node legend swatch */
+.obsmaplegend .dot.creator{background:#5bbfa5;}

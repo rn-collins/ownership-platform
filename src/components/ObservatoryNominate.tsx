@@ -22,7 +22,7 @@ export function ObservatoryNominate() {
     return (
       <div className="card">
         <h3>They're on the map.</h3>
-        <p>Thank you — every nomination helps chart how work is being rebuilt around individuals. Know your own score? <a href="/assess/professional" className="fwlink">Take the Portfolio Professional Index →</a></p>
+        <p>Thank you — every nomination helps chart how work is being rebuilt around individuals. Know your own score? <a href="/assess/professional" className="fwlink">Take the Portfolio Professional →</a></p>
       </div>
     );
   }

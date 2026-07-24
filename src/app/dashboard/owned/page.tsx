@@ -34,7 +34,7 @@ export default async function OwnedDashboard() {
 
   return (
     <main>
-      <p className="eyebrow">OWNED</p>
+      <p className="eyebrow">My page</p>
       <h1>Your page. Your land.</h1>
       <p className="lede">Build the home base you control, not a profile you rent. Every owned destination you add is verified evidence that raises your Ownership Score. <a href="/dashboard/owned/write" className="fwlink">Write posts →</a></p>
       <OwnedEditor initial={initial} dbReady={!!prisma} />

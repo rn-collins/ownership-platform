@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { limit } from "@/lib/ratelimit";
+import { logError } from "@/lib/log";
 
 // A visitor subscribing on a creator's OWNED page. The creator owns this
 // relationship directly — no platform sits between them. Accepts a form POST and
@@ -10,6 +12,10 @@ export async function POST(req: Request) {
   const email = String(form?.get("email") ?? "").trim().toLowerCase();
   const origin = new URL(req.url).origin;
   const back = slug ? `${origin}/u/${slug}?subscribed=1` : `${origin}/`;
+
+  const ipKey = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "anon";
+  const { success } = await limit(`ownedsub:${ipKey}`);
+  if (!success) return NextResponse.redirect(back, { status: 303 });
 
   const valid = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
   if (!valid || !slug || !prisma) return NextResponse.redirect(back, { status: 303 });
@@ -23,8 +29,9 @@ export async function POST(req: Request) {
         create: { creatorId: creator.id, email },
       });
     }
-  } catch {
-    // swallow — never block the visitor on a storage hiccup
+  } catch (err) {
+    logError("owned.subscribe.upsert", err);
+    // never block the visitor on a storage hiccup
   }
   return NextResponse.redirect(back, { status: 303 });
 }

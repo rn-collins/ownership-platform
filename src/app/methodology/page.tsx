@@ -18,7 +18,8 @@ export default function MethodologyPage() {
       <h1>Methodology</h1>
       <p className="lede">
         Institutions of One measures one shift — the individual becoming an institution — through two composite
-        instruments, each built to the OECD/JRC standard for composite indicators. Five dimensions, four items each,
+        instruments, each built following the OECD/JRC framework for composite indicators (empirical validation is
+        underway). Five dimensions, four items each,
         every item scored 0 to 5 on behaviourally-anchored options, to a total of 100. Same rigor, two lenses: the
         <b> Ownership Index</b> for creators and the <b>Portfolio Professional</b> for professionals.
       </p>

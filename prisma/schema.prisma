@@ -73,6 +73,7 @@ model Subscriber {
   creatorId String
   email     String
   createdAt DateTime @default(now())
+  unsubscribedAt DateTime?
   @@unique([creatorId, email])
   @@index([creatorId])
 }
@@ -123,10 +124,12 @@ model ResearchSubscriber {
   name           String?
   handle         String?                        // social handle, optional
   source         String   @default("site")      // index_creator | index_pro | observatory | site
-  interest       String?                         // creator | professional | both
+  interest       String?                         // creator | professional | both | newsletter
   consent        Boolean  @default(false)
   consentVersion String   @default("2026-07")
   createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now()) @updatedAt
+  unsubscribedAt DateTime?                        // set on unsubscribe; row + consent record kept
   @@index([source, createdAt])
 }
 
@@ -139,7 +142,7 @@ model Guest {
   role          String?                         // the role that was built around them
   roleCreated   Boolean   @default(false)       // true = the job didn't exist until them
   domain        String?                         // segment for the map
-  indexScore    Int?                            // Portfolio Professional Index score
+  indexScore    Int?                            // Portfolio Professional score
   band          String?
   createdAt     DateTime  @default(now())
   episodes      Episode[]
@@ -210,15 +213,21 @@ model Assessment {
   creator        Creator? @relation(fields: [creatorId], references: [id])
   creatorId      String?
   createdAt      DateTime @default(now())
+  // Which instrument produced this row. Disambiguates shared item IDs (e.g. "A1"
+  // means different things in the Ownership vs Portfolio Professional item banks)
+  // now that both instruments persist into this one table.
+  instrument     String   @default("ownership") // ownership | portfolio_professional
   source         String   @default("self")   // self | verified
   responses      Json                          // scored items { A1: 3, ... }
   research       Json?                         // research battery { P1: "...", G4: 3, ... }
+  methodologyVersion String?                   // scored-instrument version, e.g. "0.2.0"
   researchVersion String?                      // research module version, e.g. "0.2.0"
   anonymous      Boolean  @default(true)       // no identity when true
   total          Int?                          // computed score snapshot (for signed-in saves)
   overallBand    String?
   confidence     Float?
   scores         ScoreEvent[]
+  @@index([instrument, createdAt])
 }
 
 model ScoreEvent {

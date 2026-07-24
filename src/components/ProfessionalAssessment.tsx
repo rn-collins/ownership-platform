@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   assessProfessional,
   professionalPlan,
@@ -66,6 +66,22 @@ export function ProfessionalAssessment() {
   }
 
   const result = useMemo(() => (submitted ? assessProfessional(responses) : null), [submitted, responses]);
+
+  // Anonymous server capture once submitted — no identity, only the banded answers,
+  // stamped with the instrument + methodology version. No-op if the API/DB isn't wired.
+  useEffect(() => {
+    if (!submitted) return;
+    void fetch("/api/benchmark", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        responses,
+        instrument: "portfolio_professional",
+        methodologyVersion: result?.methodologyVersion,
+      }),
+    }).catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submitted]);
   const plan = useMemo(() => (submitted ? professionalPlan(responses).slice(0, 5) : []), [submitted, responses]);
   const projected = useMemo(
     () => (submitted ? professionalProjected(responses, plan.map((a) => a.itemId)) : 0),
@@ -80,9 +96,9 @@ export function ProfessionalAssessment() {
   async function shareScore() {
     const r = assessProfessional(responses);
     const url = typeof window !== "undefined" ? `${window.location.origin}/assess/professional` : "/assess/professional";
-    const text = `I scored ${r.total}/100 on the Portfolio Professional Index — it measures how much of an "institution" you are inside your organization: your capability, value, mandate, authority, and thesis. Take it:`;
+    const text = `I scored ${r.total}/100 on the Portfolio Professional — it measures how much of an "institution" you are inside your organization: your capability, value, mandate, authority, and thesis. Take it:`;
     try {
-      if (typeof navigator !== "undefined" && navigator.share) { await navigator.share({ title: "Portfolio Professional Index", text, url }); return; }
+      if (typeof navigator !== "undefined" && navigator.share) { await navigator.share({ title: "Portfolio Professional", text, url }); return; }
       await navigator.clipboard.writeText(`${text} ${url}`);
       setShared(true);
       setTimeout(() => setShared(false), 2500);
@@ -122,7 +138,7 @@ export function ProfessionalAssessment() {
               <div className="big">{result.total}<span className="of"> / 100</span></div>
               <div className="bandlbl">{result.overall.label}</div>
               <div className="bandnote">{result.overall.copy}</div>
-              <div className="conf"><span className="pill">Self-reported</span>An evidence-verified assessment raises this.</div>
+              <div className="conf"><span className="pill">Self-reported</span>Evidence verification will raise this.</div>
             </div>
             <PRadar values={radarValues} />
           </div>
@@ -182,7 +198,7 @@ export function ProfessionalAssessment() {
 
           <ResearchOptIn source="index_pro" interest="professional" heading="Want your results and what comes next?" />
 
-          <p className="disc">Portfolio Professional Index · methodology v{result.methodologyVersion}. Part of Institutions of One.</p>
+          <p className="disc">Portfolio Professional · methodology v{result.methodologyVersion}. Part of Institutions of One.</p>
           <div className="actions">
             <button className="primary" onClick={shareScore}>{shared ? "Link copied ✓" : "Share my score"}</button>
             <button className="ghost" onClick={() => { setSubmitted(false); setResponses({}); setStep(0); setShared(false); }}>Start again</button>

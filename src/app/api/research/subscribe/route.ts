@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
+import { beehiivSubscribe } from "@/lib/beehiiv";
+import { limit } from "@/lib/ratelimit";
+import { logError } from "@/lib/log";
 
 // Opt-in to The Observatory research list — the audience engine behind the two
 // indices and the map. Consent-first: personal data is stored ONLY when consent
@@ -16,35 +19,49 @@ const schema = z.object({
 });
 
 export async function POST(req: Request) {
+  const ipKey = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "anon";
+  const { success } = await limit(`subscribe:${ipKey}`);
+  if (!success) return NextResponse.json({ ok: false, error: "rate_limited" }, { status: 429 });
+
   const body = await req.json().catch(() => null);
   const parsed = schema.safeParse(body);
   if (!parsed.success) return NextResponse.json({ ok: false, error: "invalid" }, { status: 422 });
   const d = parsed.data;
   const email = d.email.trim().toLowerCase();
 
-  if (!prisma) return NextResponse.json({ ok: true, stored: false });
-
-  try {
-    await prisma.researchSubscriber.upsert({
-      where: { email },
-      update: {
-        name: d.name || undefined,
-        handle: d.handle || undefined,
-        source: d.source,
-        interest: d.interest || undefined,
-        consent: true,
-      },
-      create: {
-        email,
-        name: d.name || null,
-        handle: d.handle || null,
-        source: d.source,
-        interest: d.interest || null,
-        consent: true,
-      },
-    });
-    return NextResponse.json({ ok: true, stored: true });
-  } catch {
-    return NextResponse.json({ ok: true, stored: false });
+  // Dual-write. 1) Consent-first row is the source of truth for the research
+  // list (only written with explicit consent). 2) Push to beehiiv so the
+  // newsletter is one owned list. Beehiiv is best-effort: a failure there never
+  // loses the consented subscriber.
+  let stored = false;
+  if (prisma) {
+    try {
+      await prisma.researchSubscriber.upsert({
+        where: { email },
+        update: {
+          name: d.name || undefined,
+          handle: d.handle || undefined,
+          source: d.source,
+          interest: d.interest || undefined,
+          consent: true,
+        },
+        create: {
+          email,
+          name: d.name || null,
+          handle: d.handle || null,
+          source: d.source,
+          interest: d.interest || null,
+          consent: true,
+        },
+      });
+      stored = true;
+    } catch (err) {
+      logError("research.subscribe.upsert", err);
+      stored = false;
+    }
   }
+
+  const beehiiv = await beehiivSubscribe({ email, source: d.source });
+
+  return NextResponse.json({ ok: true, stored, synced: beehiiv.synced });
 }

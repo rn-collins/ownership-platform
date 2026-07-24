@@ -1,4 +1,4 @@
-// The Portfolio Professional Index — instrument v0.1.
+// The Portfolio Professional — instrument v0.1.
 // The enterprise projection of the ownership engine: measures how much of an
 // "individual-as-institution" a professional is inside their organization.
 // Self-contained data (no imports) so it's inert until wired into a generalized
@@ -87,7 +87,7 @@ export const PROFESSIONAL_INSTRUMENT: PDimension[] = [
       "It runs largely without me",
       "It runs indefinitely; I built it to outlast me",
     ]},
-    { id: "V4", q: "Can you point to organizational value (decisions, revenue, retention) traceable to what you built?", options: [
+    { id: "V4", q: "Can you point to organizational value that is traceable to what you built?", options: [
       "None I can name",
       "Anecdotal only",
       "Some, loosely attributed",
@@ -113,13 +113,13 @@ export const PROFESSIONAL_INSTRUMENT: PDimension[] = [
       "I set most of my mandate",
       "I set my own mandate",
     ]},
-    { id: "M3", q: "Do you have the time, tools, and permission to build, not just deliver?", options: [
-      "Deliver only",
+    { id: "M3", q: "How much room do you have to build something new, not just deliver what's assigned?", options: [
+      "None — delivery only",
       "Rare slack to build",
       "Some room",
       "Real room, if I push",
-      "Genuine support to build",
-      "Resources and air cover to build",
+      "Genuine room to build",
+      "Building is an expected part of my role",
     ]},
     { id: "M4", q: "If you proposed a new function or role, how likely is it created?", options: [
       "Not a chance",

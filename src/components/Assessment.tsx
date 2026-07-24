@@ -58,7 +58,7 @@ export function Assessment() {
     void fetch("/api/benchmark", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ responses, research }),
+      body: JSON.stringify({ responses, research, instrument: "ownership", methodologyVersion: r.methodologyVersion }),
     }).catch(() => {});
   }
 
@@ -168,7 +168,7 @@ export function Assessment() {
               <div className="bandnote">{OVERALL_COPY[result.overall.key]}</div>
               <div className="conf">
                 <span className="pill">Confidence: {result.confidence.label}</span>
-                Self-reported. An evidence-verified assessment raises this.
+                Self-reported. Evidence verification will raise this.
               </div>
             </div>
             <Radar values={radarValues} />

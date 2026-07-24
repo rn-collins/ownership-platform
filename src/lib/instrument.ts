@@ -7,8 +7,8 @@ export interface Dimension { key: DimensionKey; name: string; items: Item[]; }
 
 export const INSTRUMENT: Dimension[] = [
   { key: "audience", name: "Audience Ownership", items: [
-    { id: "A1", q: "How much of your audience can you reach directly, off-platform (email, SMS, an owned app or community)?",
-      options: ["None. I have no way to contact them off-platform.","A tiny fraction, under 1% of my following.","A small owned list, roughly 1 to 5%.","A real owned channel, roughly 5 to 15%.","A large owned base, roughly 15 to 30%.","I can reach the majority of my audience directly, any time."] },
+    { id: "A1", q: "What share of your audience can you reach directly through a channel you own (such as an email list)?",
+      options: ["None — no way to reach them off-platform.","Under 1% of my following.","Roughly 1 to 5%.","Roughly 5 to 15%.","Roughly 15 to 30%.","More than 30% — I can reach most of them directly."] },
     { id: "A2", q: "If your main platform account vanished tomorrow, what happens to your audience relationship?",
       options: ["It is gone. Total wipeout.","I keep a handful of contacts, no real channel.","I could reach a minority through owned channels.","I could reach a meaningful share and rebuild slowly.","I could reach most of them and rebuild in weeks.","Barely a dent. My owned channels carry the relationship."] },
     { id: "A3", q: "Where do your reach and revenue actually come from?",
@@ -19,12 +19,12 @@ export const INSTRUMENT: Dimension[] = [
   { key: "rights", name: "Content & Rights", items: [
     { id: "R1", q: "In a typical brand deal, what happens to the copyright in the content you make?",
       options: ["I assign all rights, perpetual and exclusive, for a flat fee.","I usually assign broad rights by default.","I grant broad rights but push back sometimes.","I grant limited rights on most deals.","I retain copyright as standard.","I retain copyright and license tightly, always."] },
-    { id: "R2", q: "How wide is the usage you grant brands (time, channels, territories)?",
-      options: ["Unlimited and perpetual.","Very broad, rarely limited.","Broad, occasionally scoped.","Usually time-boxed.","Time-boxed and channel-limited by default.","Tightly scoped and priced on every deal."] },
+    { id: "R2", q: "How long can a brand keep using the content you make for them?",
+      options: ["Forever — usage never expires.","Effectively unlimited.","A long, loosely-defined window.","A defined period of a year or more.","A defined period under a year.","A short, specific window set on each deal."] },
     { id: "R3", q: "Do you own and make money from your back-catalogue of content?",
       options: ["I do not track or own it.","I own some but never use it.","I own it, occasionally reuse it.","I reuse it, no direct income.","I license or repurpose it for income sometimes.","My catalogue is an active, owned income line."] },
     { id: "R4", q: "Do you charge brands for usage rights and whitelisting (running your content as their ads)?",
-      options: ["Never. It is reused for free.","Rarely, and I forget to.","Sometimes, inconsistently.","Often, when I remember.","Usually, as standard.","Always, priced and tracked."] },
+      options: ["Never — it is reused for free.","Rarely.","Sometimes, inconsistently.","Often.","Usually.","On every deal where it applies."] },
   ]},
   { key: "revenue", name: "Revenue Ownership", items: [
     { id: "V1", q: "How many meaningful income streams do you have?",
@@ -42,13 +42,13 @@ export const INSTRUMENT: Dimension[] = [
     { id: "I2", q: "Do your contracts control how your likeness and voice can be used?",
       options: ["No clauses at all.","Rarely addressed.","Basic likeness clause sometimes.","Likeness controlled on most deals.","Likeness and voice controlled as standard.","Fully controlled, licensed and priced every time."] },
     { id: "I3", q: "Do your agreements address AI and synthetic use of your likeness and voice (deepfakes, cloning, AI training)?",
-      options: ["Never mentioned.","Vaguely, once or twice.","A basic clause occasionally.","Addressed on most new deals.","Explicit AI-use clauses as standard.","Comprehensive AI, cloning and training terms, always."] },
+      options: ["Never mentioned.","Vaguely, once or twice.","A basic clause occasionally.","Addressed on most new deals.","Explicit AI-use clauses by default.","AI, cloning and training terms specified on every new deal."] },
     { id: "I4", q: "Could you detect and act on someone misusing your face or voice?",
       options: ["No idea it was even happening.","I might notice by chance.","I would notice but could not act.","I could act slowly, no process.","I monitor and have a takedown route.","Active monitoring and a real enforcement path."] },
   ]},
   { key: "infra", name: "Business Infrastructure", items: [
-    { id: "B1", q: "What is the legal and financial structure behind you?",
-      options: ["Just me, no entity, personal accounts.","Registered self-employed, mixed finances.","A company, separate finances.","A company with proper bookkeeping.","A company, accountant, clean systems.","A structured business, advisers and clean governance."] },
+    { id: "B1", q: "What legal business structure sits behind what you do?",
+      options: ["No entity — just me personally.","Registered self-employed / sole trader.","A single registered company.","A company with a clear ownership structure.","A company with formal governance (board or advisers).","A structured group of entities (holding, IP, trading)."] },
     { id: "B2", q: "Do you work from your own contracts and templates?",
       options: ["No contracts, handshake deals.","Occasional, borrowed contracts.","A basic template I sometimes use.","My own contract for most work.","Standard contracts on everything.","A full, lawyer-reviewed contract suite."] },
     { id: "B3", q: "Who does the work beyond you (team, agency, delegation)?",

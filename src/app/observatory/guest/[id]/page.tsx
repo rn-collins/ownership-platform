@@ -28,7 +28,7 @@ export default async function GuestPage({ params }: { params: { id: string } }) 
           <div>
             <div className="big">{guest.indexScore}<span className="of"> / 100</span></div>
             {guest.band && <div className="bandlbl">{guest.band}</div>}
-            <div className="bandnote">Portfolio Professional Index — how much of an institution they are inside their organization.</div>
+            <div className="bandnote">Portfolio Professional — how much of an institution they are inside their organization.</div>
           </div>
         </div>
       )}

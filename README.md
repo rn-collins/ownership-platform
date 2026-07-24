@@ -45,7 +45,7 @@ skipped and rate-limiting is a no-op. Copy `.env.example` → `.env.local` and f
   Auth/Storage keys for later. Once `DATABASE_URL` is set:
   ```bash
   npm run db:generate
-  npm run db:push        # creates the Ownership Graph tables in Supabase
+  npm run db:migrate -- --name init   # baseline migration → creates the Ownership Graph tables (see MIGRATIONS.md)
   ```
 - **Upstash Redis** — rate-limits the public API (`/api/assess`, `/api/benchmark`).
 - **Resend** — transactional email + the owned newsletter (OWNED). Verify `rncollins.com` in Resend.

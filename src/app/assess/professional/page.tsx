@@ -1,7 +1,7 @@
 import { ProfessionalAssessment } from "@/components/ProfessionalAssessment";
 import { PROFESSIONAL_METHODOLOGY_VERSION } from "@/lib/instrument_professional";
 
-export const metadata = { title: "Take the Portfolio Professional Index" };
+export const metadata = { title: "Take the Portfolio Professional" };
 
 export default function ProfessionalAssessPage() {
   return (

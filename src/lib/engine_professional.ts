@@ -1,4 +1,4 @@
-// Portfolio Professional Index — scoring engine (self-contained).
+// Portfolio Professional — scoring engine (self-contained).
 // Mirrors the creator engine's math but is fully independent so it cannot affect
 // the live creator flow. 5 dimensions x 4 items x 0-5 = 100; each item point is
 // exactly one total point, so improvement lift is exact.

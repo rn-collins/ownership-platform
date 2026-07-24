@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { limit } from "@/lib/ratelimit";
+import { logError } from "@/lib/log";
 import { RESEARCH_VERSION } from "@/lib/research";
 
 // Anonymous benchmark write. The stored record holds ONLY the banded answers and
@@ -10,6 +11,8 @@ import { RESEARCH_VERSION } from "@/lib/research";
 const schema = z.object({
   responses: z.record(z.string(), z.number().min(0).max(5)),
   research: z.record(z.string(), z.any()).optional(),
+  instrument: z.enum(["ownership", "portfolio_professional"]).default("ownership"),
+  methodologyVersion: z.string().max(20).optional(),
 });
 
 export async function POST(req: Request) {
@@ -27,15 +30,18 @@ export async function POST(req: Request) {
   try {
     await prisma.assessment.create({
       data: {
+        instrument: parsed.data.instrument,
         source: "self",
         anonymous: true,
         responses: parsed.data.responses,
         research: parsed.data.research ?? undefined,
+        methodologyVersion: parsed.data.methodologyVersion,
         researchVersion: RESEARCH_VERSION,
       },
     });
     return NextResponse.json({ ok: true, stored: true });
-  } catch {
+  } catch (err) {
+    logError("benchmark.create", err);
     return NextResponse.json({ ok: true, stored: false });
   }
 }

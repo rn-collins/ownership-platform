@@ -13,8 +13,9 @@ export default function ObservatoryPage() {
       <h1>The individual is becoming an institution.</h1>
       <p className="lede">
         Across the economy — creators and professionals alike — work is flipping from &ldquo;get hired for a role&rdquo;
-        to &ldquo;the role gets built around you.&rdquo; The Observatory is the map: it links both indices into one living
-        picture of who is already living the shift, and where it&apos;s headed. A preview of how everyone will work.
+        to &ldquo;the role gets built around you.&rdquo; The Observatory is the map: a living picture of the people already
+        living the shift, drawn from public evidence and consented nominations. Filter it, search it, and open any node to
+        see the case.
       </p>
 
       <ObservatoryMap />
@@ -27,7 +28,7 @@ export default function ObservatoryPage() {
       </div>
 
       <h2 style={{ fontFamily: "Georgia, serif", fontSize: 22, marginTop: 30, marginBottom: 4 }}>Nominate someone</h2>
-      <p className="rsub" style={{ marginBottom: 14 }}>Know someone whose job didn&apos;t exist until them? Put them on the map. The best nominations become guests on the show.</p>
+      <p className="rsub" style={{ marginBottom: 14 }}>Know someone whose role was built around them, or who owns their work in a way that would outlast any platform? Put them on the map. Added only with consent — a project about ownership models it.</p>
       <ObservatoryNominate />
     </main>
   );

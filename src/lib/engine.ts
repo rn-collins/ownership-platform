@@ -67,6 +67,9 @@ export function dimensionBand(raw: number): number {
   return raw <= 4 ? 0 : raw <= 8 ? 1 : raw <= 12 ? 2 : raw <= 16 ? 3 : 4;
 }
 
+// PROVISIONAL band cutoffs (80/55/30). These are not yet derived from a score
+// distribution — they will be replaced by norming once enough responses land.
+// Treat the labels as directional, not calibrated, until then.
 export function overallBand(total: number): { key: string; label: string } {
   if (total >= 80) return { key: "owned", label: "Owned institution" };
   if (total >= 55) return { key: "building", label: "Building ownership" };

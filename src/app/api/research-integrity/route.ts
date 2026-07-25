@@ -8,6 +8,12 @@ export const dynamic = "force-dynamic";
 const CLASSES: RecordClass[] = ["canonical", "recoverable", "ambiguous", "unusable"];
 
 export async function GET() {
+  if (!prisma) {
+    return NextResponse.json(
+      { error: "Research-integrity diagnostic is unavailable because the database is not configured." },
+      { status: 503 },
+    );
+  }
   try {
     const rows = await prisma.assessment.findMany({
       select: {
@@ -68,4 +74,3 @@ export async function GET() {
     );
   }
 }
-

@@ -7,6 +7,7 @@ import { RESEARCH_MODULES, APP_RESEARCH_MODULE_KEYS, isResearchItemHidden, type 
 import { Radar } from "./Radar";
 import { ResearchOptIn } from "@/components/ResearchOptIn";
 import { BenchmarkBadge } from "@/components/BenchmarkBadge";
+import { ProjectionDumbbell } from "@/components/ProjectionDumbbell";
 
 type Responses = Record<string, number>;
 type ResearchAnswers = Record<string, string | string[]>;
@@ -259,6 +260,7 @@ export function Assessment() {
                   </div>
                   <p className="projsub">Make these {plan.length} moves and your Ownership Score rises from {result.total} to <b>{projected}</b> out of 100. Each is exact, computed from your answers.</p>
                 </div>
+                <ProjectionDumbbell rows={result.dimensions.map((d) => ({ name: d.name, current: d.raw, projected: d.raw + plan.filter((p) => p.dimension === d.key).reduce((s, p) => s + p.lift, 0) }))} />
                 {(() => {
                   const seenWhy = new Set<string>();
                   return plan.map((a, i) => {

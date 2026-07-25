@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/db";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: public page cached, refreshed within a minute
 
 // A creator's RSS feed: owned, portable distribution no platform can gate. Part of
 // the "land you own" promise — readers can follow without an algorithm in between.

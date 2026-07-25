@@ -31,9 +31,14 @@ export async function middleware(req: NextRequest) {
   const rewrite = tenantRewrite(req);
   if (rewrite) return rewrite;
 
+  // Expose the pathname to server components (so the root layout can drop its
+  // chrome for /embed/* without a route-group refactor).
+  const requestHeaders = new Headers(req.headers);
+  requestHeaders.set("x-pathname", req.nextUrl.pathname);
+
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  const res = NextResponse.next({ request: req });
+  const res = NextResponse.next({ request: { headers: requestHeaders } });
   if (!url || !key) return res;
 
   const supabase = createServerClient(url, key, {

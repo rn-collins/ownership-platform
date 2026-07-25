@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { prisma } from "@/lib/db";
 import { renderMarkdown } from "@/lib/markdown";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: public page cached, refreshed within a minute
 
 async function load(slug: string, postSlug: string) {
   if (!prisma) return null;

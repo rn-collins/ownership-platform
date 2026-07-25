@@ -364,6 +364,21 @@ button.small{padding:6px 12px;font-size:12px;}
   color:#aab0c0;font-size:13.5px;max-width:280px;line-height:1.5;pointer-events:none;}
 .obs-empty b{color:#fff;display:block;font-family:Georgia,serif;font-size:16px;margin-bottom:4px;}
 
+/* ============ Projection dumbbell (before/after) ============ */
+.dumb{margin:6px 0 16px;padding:14px 0 2px;border-top:1px solid #2a3145;}
+.dumb-head{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-lt);font-weight:700;margin-bottom:10px;}
+.dumb-row{display:flex;align-items:center;gap:12px;padding:6px 0;}
+.dumb-lbl{width:150px;font-size:12.5px;color:#eee7d8;flex:none;}
+.dumb-track{position:relative;flex:1;height:14px;background:#26304a;border-radius:8px;}
+.dumb-conn{position:absolute;top:50%;transform:translateY(-50%);height:3px;background:var(--gold-lt);border-radius:3px;}
+.dumb-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;border:2px solid #141b2e;}
+.dumb-dot.now{background:#8a92a6;}
+.dumb-dot.next{background:var(--gold-lt);}
+.dumb-delta{width:36px;text-align:right;font-family:Georgia,serif;font-weight:700;font-size:13px;color:#7fd0a8;flex:none;}
+.dumb-key{display:flex;gap:16px;margin-top:8px;font-size:11px;color:#9aa0ad;}
+.dumb-key span{display:inline-flex;align-items:center;gap:6px;}
+.dumb-key .dumb-dot{position:static;transform:none;}
+
 /* ============ Benchmark badge + counter ============ */
 .bench{margin:16px 0 4px;padding:12px 16px;border-left:3px solid var(--gold);background:#f3eee4;border-radius:8px;}
 .bench-pct{display:block;font-family:Georgia,serif;font-size:19px;font-weight:700;color:var(--ink);}
@@ -384,6 +399,12 @@ button.small{padding:6px 12px;font-size:12px;}
 .find-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
 .find-bar{width:100%;background:var(--gold);border-radius:3px 3px 0 0;min-height:2px;}
 .find-xlabel{font-size:9.5px;color:var(--muted);margin-top:4px;}
+
+/* ============ Embed (iframe) ============ */
+.embed-wrap{padding:8px;}
+.embed-main{margin:0;}
+.embed-credit{display:inline-block;margin-top:6px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-weight:700;}
+.embed-credit:hover{color:var(--gold);}
 
 /* ============ Print / "Save as PDF" report ============ */
 @media print {

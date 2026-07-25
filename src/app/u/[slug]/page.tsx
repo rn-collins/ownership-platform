@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: public page cached, refreshed within a minute
 
 // A creator's OWNED page — land they own. Public, no chrome, their name up top.
 // This is the antithesis of a rented profile: it lives on the platform's domain

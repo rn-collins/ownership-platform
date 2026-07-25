@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 import { getUser } from "@/lib/supabase/server";
 
@@ -35,6 +36,16 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Embed views render chrome-less so partners/press can iframe them cleanly.
+  const isEmbed = (headers().get("x-pathname") || "").startsWith("/embed");
+  if (isEmbed) {
+    return (
+      <html lang="en">
+        <body><div className="embed-wrap">{children}</div></body>
+      </html>
+    );
+  }
+
   const user = await getUser();
   return (
     <html lang="en">
@@ -84,7 +95,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               Cannes Lions 2027. A project about ownership models it: subscribers are added only with explicit consent, and
               people appear on The Observatory only from public evidence or consented nominations.
             </p>
-            <p className="foot-copy">© {new Date().getFullYear()} RN Collins · Institutions of One</p>
+            <p className="foot-copy">
+              © {new Date().getFullYear()} RN Collins · Institutions of One ·{" "}
+              <a href="/privacy" style={{ color: "inherit" }}>Privacy &amp; data use</a> ·{" "}
+              <a href="/methodology" style={{ color: "inherit" }}>How to cite</a>
+            </p>
           </footer>
         </div>
       </body>

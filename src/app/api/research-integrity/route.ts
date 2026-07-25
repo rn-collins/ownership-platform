@@ -30,8 +30,8 @@ export async function GET() {
     const counts = Object.fromEntries(CLASSES.map((key) => [key, 0])) as Record<RecordClass, number>;
     const byInstrument: Record<string, Record<RecordClass, number>> = {};
     const reasons: Record<string, number> = {};
-    let earliest: Date | null = null;
-    let latest: Date | null = null;
+    let earliestMs: number | null = null;
+    let latestMs: number | null = null;
 
     for (const row of rows) {
       const diagnosis = classifyAssessmentRecord(row);
@@ -40,8 +40,9 @@ export async function GET() {
       byInstrument[instrument] ??= Object.fromEntries(CLASSES.map((key) => [key, 0])) as Record<RecordClass, number>;
       byInstrument[instrument][diagnosis.classification] += 1;
       reasons[diagnosis.reason] = (reasons[diagnosis.reason] ?? 0) + 1;
-      earliest = !earliest || row.createdAt < earliest ? row.createdAt : earliest;
-      latest = !latest || row.createdAt > latest ? row.createdAt : latest;
+      const createdMs = row.createdAt.getTime();
+      earliestMs = earliestMs == null ? createdMs : Math.min(earliestMs, createdMs);
+      latestMs = latestMs == null ? createdMs : Math.max(latestMs, createdMs);
     }
 
     return NextResponse.json({
@@ -55,8 +56,8 @@ export async function GET() {
         .map(([reason, count]) => ({ reason, count }))
         .sort((a, b) => b.count - a.count),
       temporalCoverage: {
-        earliest: earliest?.toISOString() ?? null,
-        latest: latest?.toISOString() ?? null,
+        earliest: earliestMs == null ? null : new Date(earliestMs).toISOString(),
+        latest: latestMs == null ? null : new Date(latestMs).toISOString(),
       },
       publicFindingsEligibility: counts.canonical,
       definitions: {

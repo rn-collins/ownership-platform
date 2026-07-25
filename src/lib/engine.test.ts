@@ -34,16 +34,16 @@ describe("scoring", () => {
 });
 
 describe("confidence", () => {
-  it("full self-report is Indicative (0.4)", () => {
+  it("full self-report is labeled Self-reported (0.4)", () => {
     const c = assess(perfect).confidence;
     expect(c.overall).toBe(0.4);
-    expect(c.label).toBe("Indicative");
+    expect(c.label).toBe("Self-reported");
   });
-  it("audited evidence lifts to Verified", () => {
+  it("audited evidence is independently reviewed", () => {
     const tiers = Object.fromEntries(ALL.map((k) => [k, EVIDENCE_TIER.audited]));
     const c = confidence(perfect, tiers);
     expect(c.overall).toBe(1);
-    expect(c.label).toBe("Verified");
+    expect(c.label).toBe("Independently reviewed");
   });
 });
 

@@ -14,6 +14,8 @@ import {
   type InstrumentId,
 } from "@/lib/research-governance";
 import { MeasuredCounter } from "@/components/MeasuredCounter";
+import { ITEM_CONTENT_REVIEW, REVIEW_SUMMARY } from "@/lib/item-content-review";
+import { RESEARCH_BATTERY_REGISTRY } from "@/lib/research-battery-governance";
 
 export const metadata = { title: "Methodology — Institutions of One" };
 
@@ -79,6 +81,47 @@ export default function MethodologyPage() {
           described as validated measures of those psychological variables.
         </p>
       </div>
+
+      <h2 className="dimhead" style={{ marginTop: 34 }}>Item-level content review</h2>
+      <div className="card">
+        <p>
+          All forty scored items have now been reviewed against their intended construct, response process, verifiability,
+          structural fairness, and the logic of their response anchors. The review recommends retaining {REVIEW_SUMMARY.retain},
+          revising {REVIEW_SUMMARY.revise}, splitting {REVIEW_SUMMARY.split}, and deferring {REVIEW_SUMMARY.defer} pending
+          evidence. These findings do not silently alter the current instruments. Any accepted wording, option, dimension,
+          weighting, or scoring change will receive a new instrument version and a cross-version comparability statement.
+        </p>
+      </div>
+      {ITEM_CONTENT_REVIEW.map((item) => (
+        <div key={`${item.instrument}:${item.itemId}`} className="card">
+          <p className="eyebrow">
+            {instrumentName(item.instrument)} · {item.itemId} · {item.disposition} · {item.risk} risk
+          </p>
+          <h3>{item.constructAlignment}</h3>
+          <p><b>Finding:</b> {item.finding}</p>
+          <p><b>Revision rule:</b> {item.revisionRule}</p>
+        </div>
+      ))}
+
+      <h2 className="dimhead" style={{ marginTop: 34 }}>Optional research-battery registry</h2>
+      <div className="card">
+        <p>
+          The optional battery does not feed either score. Its items are governed as descriptive covariates,
+          psychological correlate candidates, criterion or outcome candidates, data-quality flags, and qualitative
+          evidence. Items are not combined merely because they appear in one module.
+        </p>
+      </div>
+      {RESEARCH_BATTERY_REGISTRY.map((construct) => (
+        <div key={construct.id} className="card">
+          <p className="eyebrow">{construct.id} · {construct.module} · {construct.validationState.replaceAll("_", " ")}</p>
+          <h3>{construct.label}</h3>
+          <p><b>Role:</b> {construct.role}.</p>
+          <p><b>Definition:</b> {construct.constructDefinition}</p>
+          <p><b>Mapped items:</b> {construct.itemIds.join(", ")}</p>
+          <p><b>Primary risks:</b> {construct.primaryRisks.join("; ")}.</p>
+          <p><b>Permissible use:</b> {construct.permissibleUse}</p>
+        </div>
+      ))}
 
       <h2 className="dimhead" style={{ marginTop: 34 }}>Canonical construct registry</h2>
       {CONSTRUCT_REGISTRY.map((construct) => (

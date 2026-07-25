@@ -221,6 +221,34 @@ export const CLAIM_POLICY: Record<ClaimStrength, { permitted: boolean; rule: str
   causal: { permitted: false, rule: "Not permitted from current cross-sectional self-report data; requires a defensible causal design." },
 };
 
+export const DATA_FIELD_REGISTRY = [
+  { field: "Assessment.id", role: "database row identifier", construct: null, analysisUse: "lineage only", inclusionRule: "never treated as a respondent identity" },
+  { field: "Assessment.creatorId", role: "optional authenticated-account link", construct: null, analysisUse: "excluded from anonymous public findings", inclusionRule: "requires explicit authenticated use and applicable consent" },
+  { field: "Assessment.createdAt", role: "event timestamp", construct: null, analysisUse: "coverage, release, and temporal diagnostics", inclusionRule: "must not be presented as a response or outcome date without qualification" },
+  { field: "Assessment.instrument", role: "instrument discriminator", construct: null, analysisUse: "selects item bank and scoring method", inclusionRule: "must be ownership or portfolio_professional and agree with item identifiers" },
+  { field: "Assessment.source", role: "provenance category", construct: null, analysisUse: "evidence-status stratification", inclusionRule: "does not itself establish verification" },
+  { field: "Assessment.responses", role: "scored response object", construct: "mapped item-by-item through CONSTRUCT_REGISTRY", analysisUse: "dimension and total calculation", inclusionRule: "exactly twenty expected integer values from 0 through 5" },
+  { field: "Assessment.research", role: "optional research responses plus reserved event metadata", construct: "research-module constructs require a separate registry", analysisUse: "supplemental analysis and canonical event linkage", inclusionRule: "reserved keys are not substantive responses" },
+  { field: "research.__assessmentId", role: "opaque client-generated assessment-event key", construct: null, analysisUse: "one-record-per-assessment upsert", inclusionRule: "required for canonical anonymous rows; not an identity claim" },
+  { field: "research.__resultSchemaVersion", role: "persistence-contract version", construct: null, analysisUse: "findings eligibility", inclusionRule: `must equal ${RESULT_SCHEMA_VERSION} for current canonical rows` },
+  { field: "Assessment.methodologyVersion", role: "scoring-method version", construct: null, analysisUse: "reproducibility and release comparability", inclusionRule: "must match the instrument's current version for current findings" },
+  { field: "Assessment.researchVersion", role: "optional-module version", construct: null, analysisUse: "research-question lineage", inclusionRule: "must not be confused with the scored-instrument version" },
+  { field: "Assessment.anonymous", role: "identity-link status", construct: null, analysisUse: "privacy and cohort handling", inclusionRule: "anonymous means no account link in this table; it does not promise statistical anonymity under every combination of fields" },
+  { field: "Assessment.total", role: "computed score snapshot", construct: "formative composite summary", analysisUse: "descriptive score distribution", inclusionRule: "must reproduce from responses under the recorded methodology" },
+  { field: "Assessment.overallBand", role: "provisional score label", construct: null, analysisUse: "participant-facing interpretation", inclusionRule: "not a norm, diagnosis, or validated category" },
+  { field: "Assessment.confidence", role: "evidence-coverage score", construct: null, analysisUse: "provenance summary", inclusionRule: "must be labeled evidence status, not statistical confidence or psychometric reliability" },
+] as const;
+
+export const PUBLIC_SURFACE_REGISTRY = [
+  { surface: "/", knowledgeRole: "program thesis and navigation", permitted: "state the research question and identify the program", prohibited: "present the theory as an established population trend" },
+  { surface: "/assess/creator", knowledgeRole: "Ownership Index administration and individual descriptive result", permitted: "report selected conditions, calculated score, provisional band, and conditional rescoring", prohibited: "legal, financial, predictive, causal, or population claims" },
+  { surface: "/assess/professional", knowledgeRole: "Portfolio Professional administration and individual descriptive result", permitted: "report selected conditions, calculated score, provisional band, and conditional rescoring", prohibited: "rank intelligence, talent, worth, employability, or future success" },
+  { surface: "/findings", knowledgeRole: "aggregate descriptive evidence", permitted: "complete current-version counts and distributions with sample and uncertainty disclosures", prohibited: "legacy-row inclusion, population generalization, prediction, or causation" },
+  { surface: "/methodology", knowledgeRole: "construct, scoring, evidence, limitation, and claim governance", permitted: "document exact current method and validation status", prohibited: "call the instruments validated before supporting studies exist" },
+  { surface: "/observatory", knowledgeRole: "theory-building case map", permitted: "map public cases, nominations, and declared signals", prohibited: "treat selected cases as representative proof or a validated ranking" },
+  { surface: "/about", knowledgeRole: "researcher, independence, funding, and governance disclosure", permitted: "describe credentials, status, funding, and firewalls precisely", prohibited: "use credentials as evidence that an instrument is valid" },
+] as const;
+
 const expectedIds = (instrument: InstrumentId) =>
   Object.values(instrument === "ownership" ? ITEM_IDS : PROFESSIONAL_ITEM_IDS).flat();
 
@@ -301,4 +329,3 @@ export const CONSTRUCT_BY_ITEM = new Map(
 export function constructForItem(instrument: InstrumentId, itemId: string) {
   return CONSTRUCT_BY_ITEM.get(`${instrument}:${itemId}`);
 }
-

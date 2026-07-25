@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { getUser } from "@/lib/supabase/server";
-import { assess } from "@/lib/engine";
+import { assess, ITEM_IDS, METHODOLOGY_VERSION } from "@/lib/engine";
 import { RESEARCH_VERSION } from "@/lib/research";
 
 // Saves an assessment to the SIGNED-IN creator's account (Supabase auth via cookie).
@@ -20,6 +20,11 @@ export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
   const parsed = schema.safeParse(body);
   if (!parsed.success) return NextResponse.json({ error: "invalid" }, { status: 422 });
+  const expected = new Set(Object.values(ITEM_IDS).flat());
+  const received = Object.keys(parsed.data.responses);
+  if (received.length !== expected.size || !received.every((id) => expected.has(id))) {
+    return NextResponse.json({ error: "incomplete_assessment" }, { status: 422 });
+  }
 
   const result = assess(parsed.data.responses);
 
@@ -33,9 +38,11 @@ export async function POST(req: Request) {
       data: {
         creatorId: creator.id,
         anonymous: false,
+        instrument: "ownership",
         source: "self",
         responses: parsed.data.responses,
         research: parsed.data.research ?? undefined,
+        methodologyVersion: METHODOLOGY_VERSION,
         researchVersion: RESEARCH_VERSION,
         total: result.total,
         overallBand: result.overall.label,

@@ -60,7 +60,7 @@ export function Assessment() {
     void fetch("/api/benchmark", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ responses, research, instrument: "ownership", methodologyVersion: r.methodologyVersion }),
+      body: JSON.stringify({ responses, research, instrument: "ownership", assessmentId }),
     }).catch(() => {});
   }
 
@@ -169,7 +169,7 @@ export function Assessment() {
               <div className="bandlbl">{result.overall.label}</div>
               <div className="bandnote">{OVERALL_COPY[result.overall.key]}</div>
               <div className="conf">
-                <span className="pill">Confidence: {result.confidence.label}</span>
+                <span className="pill">Evidence status: {result.confidence.label}</span>
                 Self-reported. Evidence verification will raise this.
               </div>
             </div>
@@ -258,7 +258,7 @@ export function Assessment() {
                     <span className="projarrow">→</span>
                     <span className="projnext">{projected}</span>
                   </div>
-                  <p className="projsub">Make these {plan.length} moves and your Ownership Score rises from {result.total} to <b>{projected}</b> out of 100. Each is exact, computed from your answers.</p>
+                  <p className="projsub">If your circumstances later matched these {plan.length} response conditions, the current methodology would calculate <b>{projected}</b> out of 100, compared with {result.total} today.</p>
                 </div>
                 <ProjectionDumbbell rows={result.dimensions.map((d) => ({ name: d.name, current: d.raw, projected: d.raw + plan.filter((p) => p.dimension === d.key).reduce((s, p) => s + p.lift, 0) }))} />
                 {(() => {

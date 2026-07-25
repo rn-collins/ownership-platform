@@ -91,7 +91,7 @@ export function confidence(responses: Responses, tiers: EvidenceTierMap = {}) {
     acc += c; n += 1;
   }
   const overall = Math.round((acc / n) * 100) / 100;
-  const label = overall >= 0.8 ? "Verified" : overall >= 0.5 ? "Substantiated" : "Indicative";
+  const label = overall >= 0.95 ? "Independently reviewed" : overall >= 0.7 ? "Corroborated" : "Self-reported";
   return { overall, byDimension, label };
 }
 

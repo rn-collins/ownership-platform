@@ -15,9 +15,12 @@ export default function PrivacyPage() {
 
       <div className="card">
         <h3>The anonymous assessments</h3>
-        <p>When you take an index, only your banded answers and the computed score are stored — no name, no email, no
-        identity. Your IP address is used briefly to prevent abuse and is never stored. This is what keeps the research
-        dataset genuinely anonymous, and it is the data that anchors the Cannes Lions 2027 report.</p>
+        <p>When you take an index, the system stores your banded answers, computed score, instrument and methodology
+        versions, and an opaque assessment-event identifier — no name, email, or account identity. The identifier lets
+        later optional research answers update the same assessment instead of creating duplicate respondents; it is not
+        used to identify you. Your IP address is used briefly to prevent abuse and is never stored. Optional research
+        answers are stored with the same anonymous assessment and are not added to the public findings unless the record
+        passes the stated completion and version checks.</p>
       </div>
 
       <div className="card">

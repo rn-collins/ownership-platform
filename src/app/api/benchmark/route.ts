@@ -19,7 +19,7 @@ const postSchema = z.object({
   responses: z.record(z.string(), z.number().min(0).max(5)),
   research: z.record(z.string(), z.any()).optional(),
   instrument: z.enum(["ownership", "portfolio_professional"]).default("ownership"),
-  assessmentId: z.string().uuid(),
+  assessmentId: z.string().min(8).max(100),
 });
 
 const RESULT_SCHEMA_VERSION = "0.2.1";

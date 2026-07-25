@@ -133,6 +133,20 @@ model ResearchSubscriber {
   @@index([source, createdAt])
 }
 
+// A partnership inquiry from the Partner page. Minimal, consent-light business
+// contact data (not research data). Guarded route; triaged like a nomination.
+model PartnerInquiry {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  organization String?
+  kind         String   @default("unspecified") // research | data_sponsor | title_sponsor | advertiser | other
+  message      String   @db.Text
+  status       String   @default("new")         // new | reviewing | in_conversation | closed
+  createdAt    DateTime @default(now())
+  @@index([status, createdAt])
+}
+
 // A guest on the show (an individual-as-institution), optionally linked to a
 // nomination and to their index score. Node on the foresight map.
 model Guest {

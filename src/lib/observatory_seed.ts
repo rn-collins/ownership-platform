@@ -72,3 +72,16 @@ export const OBSERVATORY_DOMAINS = [
   "Media", "Creator Economy", "Consumer", "Fashion & Brand", "Agency", "Venture",
   "Finance", "Business", "Tech", "AI", "Design", "Science", "Government",
 ];
+
+// Stable URL slug for a node, for deep-linkable profile pages (/observatory/[slug]).
+export function nodeSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/\(.*?\)/g, "")        // drop parentheticals
+    .replace(/[^a-z0-9]+/g, "-")    // non-alphanumerics → hyphen
+    .replace(/^-+|-+$/g, "");        // trim hyphens
+}
+
+export function findNodeBySlug(slug: string): Node | undefined {
+  return SEED.find((n) => nodeSlug(n.name) === slug);
+}

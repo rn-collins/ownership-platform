@@ -6,6 +6,7 @@ import { INSTRUMENT, OVERALL_COPY, DIMENSION_WHY, ITEM_ACTIONS } from "@/lib/ins
 import { RESEARCH_MODULES, APP_RESEARCH_MODULE_KEYS, isResearchItemHidden, type ResearchItem } from "@/lib/research";
 import { Radar } from "./Radar";
 import { ResearchOptIn } from "@/components/ResearchOptIn";
+import { BenchmarkBadge } from "@/components/BenchmarkBadge";
 
 type Responses = Record<string, number>;
 type ResearchAnswers = Record<string, string | string[]>;
@@ -174,6 +175,8 @@ export function Assessment() {
             <Radar values={radarValues} />
           </div>
 
+          <BenchmarkBadge instrument="ownership" score={result.total} />
+
           <div className="bars">
             {result.dimensions.map((d) => (
               <div key={d.key} className="bar">
@@ -286,7 +289,7 @@ export function Assessment() {
             </div>
           </div>
 
-          <ResearchOptIn source="index_creator" interest="creator" heading="Want your results and what comes next?" />
+          <ResearchOptIn source="index_creator" interest="creator" heading="Want your results and what comes next?" report={{ total: result.total, band: result.overall.label, instrument: "ownership" }} />
 
           <p className="disc">Your answers are collected anonymously. Score reproducible under methodology v{result.methodologyVersion}.</p>
           <div className="actions">

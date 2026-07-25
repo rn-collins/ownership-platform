@@ -31,6 +31,11 @@ export const RESEARCH_MODULES: ResearchModule[] = [
     { id: "P12", q: "Representation", type: "single", options: ["Independent","Manager/agent","Agency/MCN","Network"] },
   ]},
   { key: "wellbeing", name: "How it feels to carry it", lens: "Psychology · the human half", items: [
+    // Attention check: a correct response is "Disagree" (index 1). Used only to
+    // screen inattentive/straight-lined records out of the research dataset; it is
+    // never scored and never shown as a result. Straight-lining (zero variance
+    // across this block) is flagged at analysis time.
+    { id: "ATTN1", q: "Attention check — to help us keep the data clean, please select “Disagree” for this item.", type: "likert", options: LIKERT, tag: "outcome" },
     { id: "G1", q: "I feel in control of what I create and how.", type: "likert", options: LIKERT },
     { id: "G2", q: "I feel skilled and effective at what I do.", type: "likert", options: LIKERT },
     { id: "G3", q: "I feel genuinely connected to my audience.", type: "likert", options: LIKERT },

@@ -1,5 +1,6 @@
 import { ObservatoryMap } from "@/components/ObservatoryMap";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { MeasuredCounter } from "@/components/MeasuredCounter";
 import { SEED } from "@/lib/observatory_seed";
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
           capability, rights, and durable value. Reach and activity are measured everywhere. <b>Ownership and durability —
           the part that actually makes someone an institution — are measured nowhere.</b>
         </p>
-        <p className="hero-lede">Institutions of One measures it, in public: one method, two lenses, a living map.</p>
+        <p className="hero-lede"><b>The individual is becoming an institution. Institutions of One measures what makes that real</b> — in public: one method, two lenses, a living map.</p>
         <div className="hero-cta">
           <a href="/assess"><button className="primary">Measure yourself</button></a>
           <a href="#map" className="hero-link">See the map ↓</a>
@@ -27,6 +28,7 @@ export default function Home() {
           <span><b>2</b> instruments</span>
           <span className="hero-dot">·</span>
           <span><b>{SEED.length}</b> charted so far</span>
+          <MeasuredCounter prefix="· " suffix="measured" />
           <span className="hero-dot">·</span>
           <span>toward a flagship report at <b>Cannes Lions 2027</b></span>
         </div>

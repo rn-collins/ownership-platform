@@ -4,11 +4,17 @@ import { useState } from "react";
 
 type Source = "index_creator" | "index_pro" | "observatory" | "site";
 
+type Report = { total: number; band: string; instrument: "ownership" | "portfolio_professional" };
+
 type Props = {
   source?: Source;
   interest?: string; // creator | professional | both
   heading?: string;
   blurb?: string;
+  // When provided, joining unlocks a downloadable share card + a printable report.
+  // The score, percentile, and plan remain free on the page; this is the value the
+  // email earns — give-before-ask, not a paywall.
+  report?: Report;
 };
 
 // Consent-forward opt-in to The Observatory research list. A project about
@@ -20,6 +26,7 @@ export function ResearchOptIn({
   interest,
   heading = "Get your results — and join the research",
   blurb = "New findings, essays, and where the map is headed. No spam; unsubscribe anytime.",
+  report,
 }: Props) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -40,10 +47,19 @@ export function ResearchOptIn({
   }
 
   if (state === "done") {
+    const cardHref = report
+      ? `/api/og/score?total=${report.total}&band=${encodeURIComponent(report.band)}&instrument=${report.instrument}`
+      : null;
     return (
       <div className="optin optin-done">
         <h3 className="optinh">You&rsquo;re in.</h3>
         <p className="optinsub">Thank you for joining the research — you&rsquo;ll hear from me at Institutions of One.</p>
+        {report && (
+          <div className="actions" style={{ marginTop: 4 }}>
+            <a href={cardHref!} target="_blank" rel="noopener noreferrer"><button className="primary">Download your score card</button></a>
+            <button className="ghost" onClick={() => window.print()}>Save your full report (PDF)</button>
+          </div>
+        )}
       </div>
     );
   }

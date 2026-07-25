@@ -238,6 +238,10 @@ button.small{padding:6px 12px;font-size:12px;}
 .obs-built{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--slate);font-weight:600;cursor:pointer;white-space:nowrap;}
 .obs-built input{accent-color:var(--gold);}
 .obs-stage{position:relative;}
+.obs-zoom{position:absolute;top:12px;left:12px;z-index:2;display:flex;flex-direction:column;gap:4px;}
+.obs-zoom button{width:30px;height:30px;padding:0;border-radius:8px;border:1px solid #2f3a55;background:rgba(20,27,46,.9);color:#eee7d8;font-size:16px;line-height:1;cursor:pointer;font-weight:700;}
+.obs-zoom button:hover{border-color:var(--gold-lt);color:#fff;}
+.obs-svg g:focus-visible circle{stroke:#fff;stroke-width:2;}
 .obs-svg{display:block;border-radius:14px;}
 .obs-panel{position:absolute;top:14px;right:14px;width:260px;max-width:calc(100% - 28px);background:rgba(20,27,46,.96);backdrop-filter:blur(3px);
   border:1px solid #2f3a55;border-radius:12px;padding:16px 16px 18px;color:#eee7d8;box-shadow:0 10px 34px rgba(0,0,0,.34);}
@@ -359,6 +363,39 @@ button.small{padding:6px 12px;font-size:12px;}
 .obs-empty{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;
   color:#aab0c0;font-size:13.5px;max-width:280px;line-height:1.5;pointer-events:none;}
 .obs-empty b{color:#fff;display:block;font-family:Georgia,serif;font-size:16px;margin-bottom:4px;}
+
+/* ============ Benchmark badge + counter ============ */
+.bench{margin:16px 0 4px;padding:12px 16px;border-left:3px solid var(--gold);background:#f3eee4;border-radius:8px;}
+.bench-pct{display:block;font-family:Georgia,serif;font-size:19px;font-weight:700;color:var(--ink);}
+.bench-sub{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:2px;}
+.measured{font-size:13px;color:var(--muted);}
+.measured b{color:var(--ink);font-family:Georgia,serif;font-weight:700;}
+
+/* ============ Findings / State of Ownership ============ */
+.findings{margin:18px 0 0;display:grid;gap:16px;}
+.find-panel{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:#fff;}
+.find-title{font-family:Georgia,serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:12px;}
+.find-for{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-left:6px;}
+.find-empty{font-size:14px;color:var(--slate);line-height:1.6;margin:0;}
+.find-stats{display:flex;gap:30px;margin:0 0 16px;flex-wrap:wrap;}
+.find-big{display:block;font-family:Georgia,serif;font-size:40px;line-height:1;color:var(--ink);font-weight:700;}
+.find-lbl{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:4px;}
+.find-hist{display:flex;align-items:flex-end;gap:6px;height:120px;padding-top:8px;}
+.find-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+.find-bar{width:100%;background:var(--gold);border-radius:3px 3px 0 0;min-height:2px;}
+.find-xlabel{font-size:9.5px;color:var(--muted);margin-top:4px;}
+
+/* ============ Print / "Save as PDF" report ============ */
+@media print {
+  .nav, .foot, .optin, .actions, .stepper, .fwcta, .obs-controls, .nl { display: none !important; }
+  .wrap { max-width: 100%; padding: 0; }
+  .scorecard, .forward { background: #fff !important; color: #1b2233 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .scorecard .big, .forward h3, .projnext { color: #141b2e !important; }
+  .bandnote, .fwsub, .planwhy, .projsub { color: #3a4256 !important; }
+  .bar .fill, .find-bar, .progressfill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a[href]:after { content: ""; }
+  body { background: #fff; }
+}
 
 /* ============ Footer ============ */
 .foot{margin-top:56px;padding-top:26px;border-top:1px solid var(--line);}

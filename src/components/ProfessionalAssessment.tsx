@@ -10,6 +10,7 @@ import {
 } from "@/lib/engine_professional";
 import { PROFESSIONAL_INSTRUMENT, PROFESSIONAL_DIMENSIONS, type PDimensionKey } from "@/lib/instrument_professional";
 import { ResearchOptIn } from "@/components/ResearchOptIn";
+import { BenchmarkBadge } from "@/components/BenchmarkBadge";
 
 type Responses = Record<string, number>;
 
@@ -143,6 +144,8 @@ export function ProfessionalAssessment() {
             <PRadar values={radarValues} />
           </div>
 
+          <BenchmarkBadge instrument="portfolio_professional" score={result.total} />
+
           <div className="bars">
             {result.dimensions.map((d) => (
               <div key={d.key} className="bar">
@@ -196,7 +199,7 @@ export function ProfessionalAssessment() {
             <a href="/observatory" className="fwlink">Explore The Observatory →</a>
           </div>
 
-          <ResearchOptIn source="index_pro" interest="professional" heading="Want your results and what comes next?" />
+          <ResearchOptIn source="index_pro" interest="professional" heading="Want your results and what comes next?" report={{ total: result.total, band: result.overall.label, instrument: "portfolio_professional" }} />
 
           <p className="disc">Portfolio Professional · methodology v{result.methodologyVersion}. Part of Institutions of One.</p>
           <div className="actions">

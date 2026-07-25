@@ -45,7 +45,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <a href="/assess/creator">Ownership Index</a>
             <a href="/assess/professional">Portfolio Professional</a>
             <a href="/observatory">The Observatory</a>
+            <a href="/findings">Findings</a>
             <a href="/methodology">Methodology</a>
+            <a href="/about">About</a>
             <span style={{ marginLeft: "auto" }} />
             {user ? (
               <>
@@ -65,12 +67,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <a href="/assess/creator">Ownership Index</a>
                 <a href="/assess/professional">Portfolio Professional</a>
                 <a href="/observatory">The Observatory</a>
+                <a href="/findings">Findings</a>
                 <a href="/methodology">Methodology</a>
               </div>
               <div className="foot-col">
                 <span className="foot-h">Institutions of One</span>
                 <a href="/">Home</a>
-                <a href="/assess">Measure yourself</a>
+                <a href="/about">About</a>
+                <a href="/partner">Partner</a>
                 <a href="mailto:collins.ra@northeastern.edu">Contact</a>
                 <a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </div>

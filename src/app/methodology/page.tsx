@@ -1,6 +1,7 @@
 import { INSTRUMENT } from "@/lib/instrument";
 import { METHODOLOGY_VERSION } from "@/lib/engine";
 import { PROFESSIONAL_INSTRUMENT, PROFESSIONAL_OVERALL, PROFESSIONAL_METHODOLOGY_VERSION } from "@/lib/instrument_professional";
+import { MeasuredCounter } from "@/components/MeasuredCounter";
 
 export const metadata = { title: "Methodology — Institutions of One" };
 
@@ -62,6 +63,37 @@ export default function MethodologyPage() {
         <p>Both instruments write to one graph. The Observatory is the map that links their scores — creators measured by
         the Ownership Index, professionals by the Portfolio Professional — into a single, living picture of the movement.
         A person can carry a score on either lens, or both.</p>
+      </div>
+
+      {/* Limitations — stated plainly, not buried */}
+      <h2 className="dimhead" style={{ marginTop: 34 }}>What this does not claim</h2>
+      <div className="card">
+        <p>These are self-report instruments. A result is <b>indicative, not validated</b>: it has no clinical, legal, or
+        predictive standing, and it should not be read as one. Weighting is equal by default and the band cutoffs are
+        provisional until the score distribution is normed. The five dimensions are treated as distinct pending empirical
+        factor analysis, which may show that some combine. Self-report caps confidence at &ldquo;Indicative,&rdquo; and
+        the sample self-selects toward the ownership-minded — a bias the eventual report will name and, where possible,
+        correct. Reliability, factor structure, and norms will be published here as the sample grows.</p>
+      </div>
+
+      {/* Live sample size */}
+      <div className="card">
+        <h3>Sample to date</h3>
+        <p><MeasuredCounter suffix="anonymous assessments recorded across both instruments." /> Reliability statistics
+        (Cronbach&rsquo;s α / McDonald&rsquo;s ω) and percentile norms publish here once the sample is large enough to
+        report them honestly. No readings appear until then.</p>
+      </div>
+
+      {/* How to cite */}
+      <h2 className="dimhead" style={{ marginTop: 24 }}>How to cite</h2>
+      <div className="card">
+        <p style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>
+          Collins, RN. Institutions of One: The Ownership Index (v{METHODOLOGY_VERSION}) and The Portfolio Professional
+          (v{PROFESSIONAL_METHODOLOGY_VERSION}). Independent research program, {new Date().getFullYear()}.
+          ownership-platform.vercel.app
+        </p>
+        <p style={{ marginTop: 8 }}>Please cite the version number — results are reproducible under the version that
+        computed them. For the full methodology paper, data-use terms, or a research-partner conversation, get in touch.</p>
       </div>
 
       <p className="disc" style={{ marginTop: 24 }}>

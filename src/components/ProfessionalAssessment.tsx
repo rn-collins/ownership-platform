@@ -60,6 +60,9 @@ export function ProfessionalAssessment() {
   const [submitted, setSubmitted] = useState(false);
   const [step, setStep] = useState(0);
   const [shared, setShared] = useState(false);
+  const [assessmentId] = useState(() =>
+    typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+  );
 
   function chooseCore(index: number, value: number) {
     const id = CORE[index].id;
@@ -79,7 +82,7 @@ export function ProfessionalAssessment() {
       body: JSON.stringify({
         responses,
         instrument: "portfolio_professional",
-        methodologyVersion: result?.methodologyVersion,
+        assessmentId,
       }),
     }).catch(() => {});
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -140,7 +143,7 @@ export function ProfessionalAssessment() {
               <div className="big">{result.total}<span className="of"> / 100</span></div>
               <div className="bandlbl">{result.overall.label}</div>
               <div className="bandnote">{result.overall.copy}</div>
-              <div className="conf"><span className="pill">Self-reported</span>Evidence verification will raise this.</div>
+              <div className="conf"><span className="pill">Evidence status: self-reported</span>No independent corroboration is included in this result.</div>
             </div>
             <PRadar values={radarValues} />
           </div>
@@ -167,7 +170,7 @@ export function ProfessionalAssessment() {
                     <span className="projarrow">→</span>
                     <span className="projnext">{projected}</span>
                   </div>
-                  <p className="projsub">Make these {plan.length} moves and your score rises from {result.total} to <b>{projected}</b> out of 100. Each is exact, computed from your answers.</p>
+                  <p className="projsub">If your circumstances later matched these {plan.length} response conditions, the current methodology would calculate <b>{projected}</b> out of 100, compared with {result.total} today.</p>
                 </div>
                 <ProjectionDumbbell rows={result.dimensions.map((d) => ({ name: d.name, current: d.raw, projected: d.raw + plan.filter((p) => p.dimension === d.key).reduce((s, p) => s + p.lift, 0) }))} />
                 {(() => {

@@ -8,6 +8,8 @@ import {
 import {
   CLAIM_POLICY,
   CONSTRUCT_REGISTRY,
+  DATA_FIELD_REGISTRY,
+  PUBLIC_SURFACE_REGISTRY,
   THEORY_REGISTRY,
   type InstrumentId,
 } from "@/lib/research-governance";
@@ -108,6 +110,26 @@ export default function MethodologyPage() {
         <div key={strength} className="card">
           <h3>{strength[0].toUpperCase() + strength.slice(1)} claims · {policy.permitted ? "permitted with conditions" : "not currently permitted"}</h3>
           <p>{policy.rule}</p>
+        </div>
+      ))}
+
+      <h2 className="dimhead" style={{ marginTop: 34 }}>Page and claim registry</h2>
+      {PUBLIC_SURFACE_REGISTRY.map((entry) => (
+        <div key={entry.surface} className="card">
+          <h3>{entry.surface} · {entry.knowledgeRole}</h3>
+          <p><b>Permitted:</b> {entry.permitted}.</p>
+          <p><b>Prohibited:</b> {entry.prohibited}.</p>
+        </div>
+      ))}
+
+      <h2 className="dimhead" style={{ marginTop: 34 }}>Database-field registry</h2>
+      {DATA_FIELD_REGISTRY.map((entry) => (
+        <div key={entry.field} className="card">
+          <h3>{entry.field}</h3>
+          <p><b>Role:</b> {entry.role}.</p>
+          <p><b>Construct mapping:</b> {entry.construct ?? "none; administrative or provenance field"}.</p>
+          <p><b>Analysis use:</b> {entry.analysisUse}.</p>
+          <p><b>Inclusion rule:</b> {entry.inclusionRule}.</p>
         </div>
       ))}
 

@@ -59,7 +59,7 @@ export function FindingsView() {
       <Panel title="The Ownership Index" forWhom="creators" d={own} />
       <Panel title="The Portfolio Professional" forWhom="professionals" d={pro} />
       <p className="disc">
-        Anonymous, self-reported, and provisional by design. Distributions shown in 10-point bins. A percentile appears on
+        Anonymous, self-reported, and provisional by design. Only complete, current-version, one-record-per-assessment rows are included. Historical raw rows are preserved but excluded pending reconciliation. Distributions are shown in 10-point bins. A percentile appears on
         your own result once the sample is large enough to report without noise. Method and limits on the{" "}
         <a href="/methodology" className="fwlink">methodology page</a>.
       </p>

@@ -9,7 +9,9 @@ export type Node = {
   role: string;
   domain: string;
   kind: "professional" | "creator"; // the two lenses: Portfolio Professional · Ownership Index
-  created?: boolean; // (professionals) the role was built around them
+  created?: boolean; // the public record flags a role materially built around the person
+  verificationStatus?: "provisional" | "in_review" | "verified" | "disputed" | "rejected";
+  evidenceCoverage?: number | null;
 };
 
 export const SEED: Node[] = [

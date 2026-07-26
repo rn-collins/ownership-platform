@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { requireResearcher } from "@/lib/researcher-auth";
@@ -11,6 +12,7 @@ const code = z.object({ action: z.literal("code"), sessionId: z.string().min(1),
 const revision = z.object({ action: z.literal("revision"), instrument: z.enum(["ownership", "portfolio_professional"]), sourceVersion: z.string(), targetVersion: z.string().regex(/-candidate\./), itemId: z.string().max(10), changeType: z.enum(["retain", "clarify", "split", "reanchor", "route", "defer", "remove"]), beforeValue: z.record(z.unknown()), afterValue: z.record(z.unknown()), rationale: z.string().min(20).max(10000), evidenceCodeIds: z.array(z.string()).min(1), decisionStatus: z.enum(["proposed", "approved", "rejected"]) });
 const gate = z.object({ action: z.literal("gate"), instrument: z.enum(["ownership", "portfolio_professional"]), candidateVersion: z.string(), gate: z.enum(ACTIVATION_REQUIREMENTS as unknown as [string, ...string[]]), status: z.enum(["not_met", "met", "waived"]), evidence: z.record(z.unknown()) });
 const bodySchema = z.discriminatedUnion("action", [schedule, sessionStatus, code, revision, gate]);
+const json = (value: unknown) => value as Prisma.InputJsonValue;
 
 export async function GET() {
   const researcher = await requireResearcher();
@@ -57,17 +59,18 @@ export async function POST(req: Request) {
     if (d.action === "revision") {
       const codeCount = await prisma.responseProcessCode.count({ where: { id: { in: d.evidenceCodeIds }, itemId: d.itemId } });
       if (codeCount !== d.evidenceCodeIds.length) return NextResponse.json({ error: "evidence_link_invalid" }, { status: 422 });
+      const data = { changeType: d.changeType, beforeValue: json(d.beforeValue), afterValue: json(d.afterValue), rationale: d.rationale, evidenceCodeIds: json(d.evidenceCodeIds), decisionStatus: d.decisionStatus, reviewedBy: d.decisionStatus === "approved" ? researcher.email : null, reviewedAt: d.decisionStatus === "approved" ? new Date() : null };
       const row = await prisma.instrumentRevision.upsert({
         where: { instrument_targetVersion_itemId: { instrument: d.instrument, targetVersion: d.targetVersion, itemId: d.itemId } },
-        update: { changeType: d.changeType, beforeValue: d.beforeValue, afterValue: d.afterValue, rationale: d.rationale, evidenceCodeIds: d.evidenceCodeIds, decisionStatus: d.decisionStatus, reviewedBy: d.decisionStatus === "approved" ? researcher.email : null, reviewedAt: d.decisionStatus === "approved" ? new Date() : null },
-        create: { instrument: d.instrument, sourceVersion: d.sourceVersion, targetVersion: d.targetVersion, itemId: d.itemId, changeType: d.changeType, beforeValue: d.beforeValue, afterValue: d.afterValue, rationale: d.rationale, evidenceCodeIds: d.evidenceCodeIds, decisionStatus: d.decisionStatus, proposedBy: researcher.email, reviewedBy: d.decisionStatus === "approved" ? researcher.email : null, reviewedAt: d.decisionStatus === "approved" ? new Date() : null },
+        update: data,
+        create: { ...data, instrument: d.instrument, sourceVersion: d.sourceVersion, targetVersion: d.targetVersion, itemId: d.itemId, proposedBy: researcher.email },
       });
       return NextResponse.json({ ok: true, row });
     }
     const row = await prisma.validationGateDecision.upsert({
       where: { instrument_candidateVersion_gate: { instrument: d.instrument, candidateVersion: d.candidateVersion, gate: d.gate } },
-      update: { status: d.status, evidence: d.evidence, decidedBy: researcher.email, decidedAt: new Date() },
-      create: { instrument: d.instrument, candidateVersion: d.candidateVersion, gate: d.gate, status: d.status, evidence: d.evidence, decidedBy: researcher.email, decidedAt: new Date() },
+      update: { status: d.status, evidence: json(d.evidence), decidedBy: researcher.email, decidedAt: new Date() },
+      create: { instrument: d.instrument, candidateVersion: d.candidateVersion, gate: d.gate, status: d.status, evidence: json(d.evidence), decidedBy: researcher.email, decidedAt: new Date() },
     });
     return NextResponse.json({ ok: true, row });
   } catch (err) {

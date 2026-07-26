@@ -50,12 +50,17 @@ const observation = z.object({
   measurementMethod: z.enum(["direct_assessment","coded_public_evidence","consented_interview","administrative_record"]),
   instrumentVersion: z.string().trim().max(120).optional(), evidenceCoverage: z.number().min(0).max(1).optional(),
 });
+const reviewEntity = z.object({
+  action: z.literal("review_entity"), entityType: z.enum(["relationship","event","construct_observation"]),
+  entityId: z.string().min(1), verificationStatus: z.enum(["unreviewed","partially_supported","verified","disputed","rejected"]),
+  publicStatus: z.enum(["draft","public","withheld"]), note: z.string().trim().min(10).max(10000),
+});
 const caseDecision = z.object({
   action: z.literal("case_decision"), caseId: z.string().min(1),
   verificationStatus: z.enum(["provisional","in_review","verified","disputed","rejected"]),
   publicStatus: z.enum(["draft","public","withheld"]), note: z.string().trim().min(10).max(10000),
 });
-const bodySchema = z.discriminatedUnion("action", [updateCase,createClaim,attachEvidence,reviewClaim,relationship,event,observation,caseDecision]);
+const bodySchema = z.discriminatedUnion("action", [updateCase,createClaim,attachEvidence,reviewClaim,relationship,event,observation,reviewEntity,caseDecision]);
 const json = (value: unknown) => JSON.parse(JSON.stringify(value)) as Prisma.InputJsonValue;
 
 async function audit(researcher: { id: string; email: string }, data: {
@@ -172,6 +177,32 @@ export async function POST(req: Request) {
         measurementMethod:d.measurementMethod,instrumentVersion:d.instrumentVersion||null,evidenceCoverage:d.evidenceCoverage,
       }});
       await audit(researcher,{caseId:d.caseId,action:"create",entityType:"construct_observation",entityId:row.id,afterValue:row});
+      return NextResponse.json({ok:true,row});
+    }
+    if (d.action === "review_entity") {
+      let before: any;
+      let row: any;
+      let caseId: string;
+      if (d.entityType === "relationship") {
+        before = await prisma.observatoryRelationship.findUniqueOrThrow({where:{id:d.entityId}});
+        caseId = before.fromCaseId;
+        if (d.publicStatus==="public" && !["verified","partially_supported"].includes(d.verificationStatus))
+          return NextResponse.json({error:"public_relationship_requires_support"},{status:422});
+        row = await prisma.observatoryRelationship.update({where:{id:d.entityId},data:{verificationStatus:d.verificationStatus,publicStatus:d.publicStatus}});
+      } else if (d.entityType === "event") {
+        before = await prisma.observatoryEvent.findUniqueOrThrow({where:{id:d.entityId}});
+        caseId = before.caseId;
+        if (d.publicStatus==="public" && !["verified","partially_supported"].includes(d.verificationStatus))
+          return NextResponse.json({error:"public_event_requires_support"},{status:422});
+        row = await prisma.observatoryEvent.update({where:{id:d.entityId},data:{verificationStatus:d.verificationStatus,publicStatus:d.publicStatus}});
+      } else {
+        before = await prisma.observatoryConstructObservation.findUniqueOrThrow({where:{id:d.entityId}});
+        caseId = before.caseId;
+        if (d.publicStatus==="public" && d.verificationStatus!=="verified")
+          return NextResponse.json({error:"public_observation_requires_verification"},{status:422});
+        row = await prisma.observatoryConstructObservation.update({where:{id:d.entityId},data:{verificationStatus:d.verificationStatus,publicStatus:d.publicStatus}});
+      }
+      await audit(researcher,{caseId,action:"review",entityType:d.entityType,entityId:d.entityId,beforeValue:before,afterValue:row,note:d.note});
       return NextResponse.json({ok:true,row});
     }
     const before=await prisma.observatoryCase.findUniqueOrThrow({where:{id:d.caseId}});

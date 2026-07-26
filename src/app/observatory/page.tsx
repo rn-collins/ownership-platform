@@ -36,10 +36,10 @@ export default async function ObservatoryPage() {
       <p className="eyebrow">Institutions of One · The Observatory</p>
       <h1>The individual is becoming an institution.</h1>
       <p className="lede">
-        Across the economy — creators and professionals alike — work is flipping from &ldquo;get hired for a role&rdquo;
-        to &ldquo;the role gets built around you.&rdquo; The Observatory is the map: a living picture of the people already
-        living the shift, drawn from public evidence and consented nominations. Filter it, search it, and open any node to
-        see the case.
+        Across the economy, creators and professionals are assembling work, ownership, authority, and infrastructure in
+        new combinations. The Observatory is the evidence system for studying those arrangements. It begins with a
+        provisional case directory and will add verified claims, sources, timelines, relationships, comparisons, and
+        analytics as the underlying evidence is reviewed.
       </p>
 
       <ObservatoryMap nodes={nodes} />

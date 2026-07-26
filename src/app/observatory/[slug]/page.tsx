@@ -10,7 +10,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   if (!n) return { title: "Profile — The Observatory" };
   return {
     title: `${n.name} — The Observatory | Institutions of One`,
-    description: `${n.name}: ${n.role}. On The Observatory, the living map of individuals becoming institutions.`,
+    description: `${n.name}: a provisional Institutions of One Observatory case record requiring claim-level source verification.`,
   };
 }
 
@@ -26,38 +26,72 @@ export default function ObservatoryProfile({ params }: { params: { slug: string 
   return (
     <main>
       <p className="eyebrow">Institutions of One · The Observatory</p>
-      <a href="/observatory" className="postback">← Back to the map</a>
+      <a href="/observatory" className="postback">← Back to the Observatory</a>
       <h1 style={{ marginTop: 6 }}>{n.name}</h1>
       <p className="lede">{n.role}.</p>
 
       <div className="obs-panel-meta" style={{ margin: "10px 0 20px" }}>
         <span className="obs-chip">{n.domain}</span>
         <span className="obs-chip">{isCreator ? "Creator" : "Professional"}</span>
-        {n.created && <span className="obs-chip built">The role was built around them</span>}
+        {n.created && <span className="obs-chip built">Provisional role-built flag</span>}
+        <span className="obs-chip">Evidence review pending</span>
       </div>
 
-      <div className="card">
-        <h3>Why they&rsquo;re on the map</h3>
+      <div className="card" style={{ borderLeft: "4px solid #b98f4d" }}>
+        <h3>Record status: provisional</h3>
         <p>
-          {n.name} is charted on the <b>{lens}</b> lens — the one for {forWhom}. {isCreator
-            ? "They belong here as a case of owning the work: audience, rights, and business that would outlast any single platform."
-            : n.created
-              ? "They belong here as a case of a role invented around a person — a capability the organization could not get elsewhere, so it built the seat to fit."
-              : "They belong here as a case of an individual whose influence and capability are portable — earned, and theirs to carry."}
-          {" "}The map is drawn from public evidence and consented nominations; this profile reflects what is on the record.
+          This page currently preserves an entry from the original Observatory roster. It is not a completed research
+          profile, assessment result, ranking, or verified classification. The label below is the starting claim to be
+          checked—not the conclusion of that review.
+        </p>
+      </div>
+
+      <h2 className="dimhead">What the roster currently says</h2>
+      <div className="card">
+        <p><b>Recorded role label:</b> {n.role}.</p>
+        <p><b>Provisional field:</b> {n.domain}.</p>
+        <p><b>Provisional case category:</b> {isCreator ? "creator" : "professional"}.</p>
+        {n.created && <p><b>Provisional classification:</b> the role may have been created or materially shaped around this person.</p>}
+      </div>
+
+      <h2 className="dimhead">Interpretive question</h2>
+      <div className="card">
+        <p>
+          This case is queued for review through the <b>{lens}</b> research lens for {forWhom}. The review must determine
+          whether documented evidence supports claims about ownership, portability, professional infrastructure,
+          role-creation, institutional dependence, or another construct. Placement in this queue does not answer those
+          questions.
+        </p>
+      </div>
+
+      <h2 className="dimhead">Evidence still required</h2>
+      <div className="card">
+        <p>
+          Before this profile can be treated as verified, it needs dated sources, claim-by-claim citations, relevant
+          organizations and relationships, a timeline, contrary or limiting evidence, construct mappings, review status,
+          and permissible public language. Missing information remains missing; it is not converted into a zero.
+        </p>
+      </div>
+
+      <h2 className="dimhead">Available analysis</h2>
+      <div className="card">
+        <p>
+          No Observatory score has been calculated for this person. No psychological characteristic has been inferred.
+          This provisional record is excluded from rankings, statistical models, and construct-level comparisons until
+          the necessary evidence is recorded and reviewed.
         </p>
       </div>
 
       <div className="card">
-        <h3>Measure yourself on the same lens</h3>
+        <h3>Use the related public instrument</h3>
         <p>
-          Curious how you&rsquo;d chart? Take the {lens} — five minutes, and you&rsquo;ll see where you land.
-          {" "}<a href={assessHref} className="fwlink">Take the {lens} →</a>
+          The {lens} is a separate self-report experience. Taking it measures the respondent&rsquo;s answers; it does not
+          validate this public case record.{" "}<a href={assessHref} className="fwlink">Open the {lens} →</a>
         </p>
       </div>
 
       <div className="actions">
-        <a href="/observatory"><button className="primary">Explore the full map</button></a>
+        <a href="/observatory"><button className="primary">Explore all cases</button></a>
         <a href="/observatory" style={{ textDecoration: "none" }}><span className="progress">Nominate someone →</span></a>
       </div>
     </main>

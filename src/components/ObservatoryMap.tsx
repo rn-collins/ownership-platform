@@ -112,6 +112,8 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
     pros: placed.filter((n) => n.kind === "professional").length,
     fields: new Set(placed.map((n) => n.domain)).size,
     roleBuilt: placed.filter((n) => n.created).length,
+    verified: placed.filter((n) => n.verificationStatus === "verified").length,
+    provisional: placed.filter((n) => n.verificationStatus !== "verified").length,
   }), [placed]);
 
   // Zoom / pan
@@ -129,17 +131,15 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
       {!embed && (
         <>
           <div className="find-stats" aria-label="Observatory coverage summary" style={{ marginTop: 18 }}>
-            <div><span className="find-big">{counts.total}</span><span className="find-lbl">provisional cases</span></div>
+            <div><span className="find-big">{counts.total}</span><span className="find-lbl">public cases</span></div>
             <div><span className="find-big">{counts.fields}</span><span className="find-lbl">fields represented</span></div>
             <div><span className="find-big">{counts.roleBuilt}</span><span className="find-lbl">role-built flags</span></div>
-            <div><span className="find-big">0</span><span className="find-lbl">fully verified case records</span></div>
+            <div><span className="find-big">{counts.verified}</span><span className="find-lbl">reviewed case records</span></div>
           </div>
           <div className="card" style={{ margin: "12px 0 14px", borderLeft: "4px solid #b98f4d" }}>
             <h3>Current evidence status</h3>
             <p>
-              The original 41-name roster has been preserved as a provisional research queue. Its short labels are not
-              complete evidence records, scores, or validated classifications. Cases will become verified only after
-              their claims, sources, dates, relationships, and uncertainties are reviewed in the new evidence system.
+              The directory contains {counts.verified} reviewed {counts.verified === 1 ? "case" : "cases"} and {counts.provisional} provisional {counts.provisional === 1 ? "entry" : "entries"}. A green check identifies a case whose displayed claims, sources, dates, relationships, and limitations have passed the current review gate.
             </p>
           </div>
           <div className="obs-lens" role="group" aria-label="Choose Observatory view" style={{ marginBottom: 12 }}>
@@ -196,19 +196,19 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
       {!embed && viewMode === "directory" && (
         <section aria-label="Filtered Observatory cases">
           <p className="meta" style={{ marginBottom: 10 }}>
-            Showing {shown.length} of {counts.total} provisional cases. Select a case to inspect what is known, what is
-            interpreted, and what evidence is still missing.
+            Showing {shown.length} of {counts.total} public cases. Select a case to inspect what is documented, what is interpreted, and what evidence is still missing.
           </p>
           <div className="roster">
             {shown.map((n) => (
               <article className="rostercard" key={n.i}>
                 <div className="rostername">
                   {n.name}
+                  {n.verificationStatus === "verified" && <span className="rosterflag" style={{background:"#2f7a54",color:"#fff"}}>reviewed case</span>}
                   {n.created && <span className="rosterflag">role-built flag</span>}
                 </div>
                 <p className="rosterrole">{n.role}</p>
                 <p className="rosterdomain">{n.kind === "creator" ? "Creator case" : "Professional case"} · {n.domain}</p>
-                <p className="meta" style={{ margin: "9px 0 8px" }}>Evidence status: provisional roster entry</p>
+                <p className="meta" style={{ margin: "9px 0 8px" }}>Evidence status: {n.verificationStatus === "verified" ? `reviewed · ${Math.round((n.evidenceCoverage ?? 0)*100)}% workflow coverage` : "provisional roster entry"}</p>
                 <a className="fwlink" href={`/observatory/${nodeSlug(n.name)}`}>Inspect case record →</a>
               </article>
             ))}
@@ -280,6 +280,10 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
                   />
                 )}
                 <circle cx={x} cy={y} r={r} fill={n.kind === "creator" ? CREATOR : PRO} />
+                {n.verificationStatus === "verified" && <>
+                  <rect x={x+7} y={y-14} width={14} height={14} rx={3} fill="#2f7a54" stroke="#fff" strokeWidth={1}/>
+                  <text x={x+14} y={y-3.5} fill="#fff" fontSize={10} fontWeight={700} textAnchor="middle" pointerEvents="none">✓</text>
+                </>}
               </g>
             );
           })}
@@ -309,6 +313,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
             <p className="obs-panel-role">{sel.role}</p>
             <div className="obs-panel-meta">
               <span className="obs-chip">{sel.domain}</span>
+              {sel.verificationStatus === "verified" && <span className="obs-chip" style={{background:"#2f7a54",color:"#fff"}}>Reviewed evidence</span>}
               {sel.created && <span className="obs-chip built">The role was built around them</span>}
             </div>
             <a href={`/observatory/${nodeSlug(sel.name)}`} className="obs-panel-cta">View full profile →</a>
@@ -320,6 +325,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
         <div className="obs-legend" aria-label="Map key">
           <span><i className="dot creator" /> <strong>Teal:</strong> creator case <b>{counts.creators}</b></span>
           <span><i className="dot pro" /> <strong>Gold:</strong> professional case <b>{counts.pros}</b></span>
+          <span><i aria-hidden="true" style={{ display:"inline-grid",placeItems:"center",width:14,height:14,borderRadius:3,background:"#2f7a54",color:"#fff",fontStyle:"normal",marginRight:8,fontSize:10 }}>✓</i> <strong>Green check:</strong> reviewed case <b>{counts.verified}</b></span>
           <span><i aria-hidden="true" style={{ display: "inline-block", width: 10, height: 10, border: "1.8px solid #141b2e", transform: "rotate(45deg)", marginRight: 8 }} /> <strong>White diamond on map:</strong> role built around the person</span>
           <span className="obs-legend-hint">{shown.length} of {counts.total} cases shown{q || lens !== "all" || domain !== "all" || builtOnly ? " (filtered)" : ""} · Click a dot for its case · drag to pan · +/− to zoom</span>
         </div>

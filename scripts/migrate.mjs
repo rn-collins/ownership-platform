@@ -50,6 +50,13 @@ try {
 }
 
 try {
+  execSync("prisma migrate resolve --rolled-back 20260726224500_load_neri_oxman_review_package", { stdio: "ignore" });
+  console.log("[migrate] cleared the rolled-back Neri Oxman attempt for safe retry.");
+} catch {
+  // Expected when this migration is not recorded as failed.
+}
+
+try {
   execSync("prisma migrate deploy", { stdio: "inherit" });
 } catch (e) {
   console.error("[migrate] migrate deploy failed.");

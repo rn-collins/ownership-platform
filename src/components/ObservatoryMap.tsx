@@ -169,7 +169,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
         </div>
       )}
 
-      {!embed && (
+      {!embed && viewMode === "map" && (
         <section className="card" aria-labelledby="observatory-reading-guide" style={{ margin: "12px 0 16px" }}>
           <h3 id="observatory-reading-guide">How to read this Observatory</h3>
           <p style={{ marginBottom: 10 }}>

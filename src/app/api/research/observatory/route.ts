@@ -129,10 +129,10 @@ export async function POST(req: Request) {
       const claim = await prisma.observatoryClaim.findUniqueOrThrow({where:{id:d.claimId}});
       const source = await prisma.observatorySource.upsert({where:{url:d.url},update:{
         title:d.title,publisher:d.publisher||null,sourceType:d.sourceType,publishedAt:d.publishedAt?new Date(d.publishedAt):null,
-        accessedAt:new Date(d.accessedAt),primarySource:d.primarySource,
+        accessedAt:new Date(d.accessedAt),primarySource:d.primarySource,publicStatus:"public",
       },create:{
         url:d.url,title:d.title,publisher:d.publisher||null,sourceType:d.sourceType,publishedAt:d.publishedAt?new Date(d.publishedAt):null,
-        accessedAt:new Date(d.accessedAt),primarySource:d.primarySource,
+        accessedAt:new Date(d.accessedAt),primarySource:d.primarySource,publicStatus:"public",
       }});
       const row = await prisma.observatoryClaimEvidence.upsert({
         where:{claimId_sourceId_supportType:{claimId:d.claimId,sourceId:source.id,supportType:d.supportType}},

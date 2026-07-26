@@ -27,7 +27,7 @@ VALUES
 ('obs_src_sr_s11','https://techcrunch.com/2019/10/16/shonda-rhimes-iheartmedia/','Shonda Rhimes signs podcast deal with iHeartMedia','TechCrunch','independent_reporting','2019-10-16T00:00:00Z','2026-07-26T00:00:00Z',false,'public',CURRENT_TIMESTAMP),
 ('obs_src_sr_s12','https://ew.com/tv/netflix-sues-unofficial-bridgerton-musical-creators-for-infringement/','Netflix sues Unofficial Bridgerton Musical creators','Entertainment Weekly','independent_reporting','2022-07-30T00:00:00Z','2026-07-26T00:00:00Z',false,'public',CURRENT_TIMESTAMP),
 ('obs_src_sr_s13','https://www.shondaland.com/shonda/shonda-rhimes-and-betsy-beers-on-shondaland-s-growth-and-what-s-next','Rhimes and Beers on Shondaland growth','Shondaland','first_party_retrospective',NULL,'2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP)
-ON CONFLICT ("url") DO UPDATE SET "title"=EXCLUDED."title","publisher"=EXCLUDED."publisher","sourceType"=EXCLUDED."sourceType","publishedAt"=EXCLUDED."publishedAt","accessedAt"=EXCLUDED."accessedAt","primarySource"=EXCLUDED."primarySource","publicStatus"='public';
+ON CONFLICT ("id") DO UPDATE SET "title"=EXCLUDED."title","publisher"=EXCLUDED."publisher","sourceType"=EXCLUDED."sourceType","publishedAt"=EXCLUDED."publishedAt","accessedAt"=EXCLUDED."accessedAt","primarySource"=EXCLUDED."primarySource","publicStatus"='public';
 
 INSERT INTO "ObservatoryClaim"
 ("id","caseId","claimType","statement","constructId","epistemicStatus","verificationStatus","confidence","permissibleLanguage","contradictionNote","publicStatus","createdAt","updatedAt")

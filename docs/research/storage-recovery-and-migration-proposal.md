@@ -6,6 +6,8 @@ Status: proposal only; no SQL in this document is authorization to write.
 
 The Vercel project now has a sensitive `DATABASE_URL` variable scoped to Production and Preview. Its value is not recorded in the repository or this document. The identified Supabase project is `ownership-platform` in Canada Central, and its `public` schema was empty when inspected in the Supabase Table Editor: no application tables, migrations, or backups were visible. This means the project cannot supply historical assessment records unless another project or backup is identified.
 
+Connection verification is performed through a fresh PR preview so that authentication and the committed migration are tested before production release.
+
 ## Recovery gates
 
 1. Identify the Supabase organization and exact existing project by dashboard metadata.

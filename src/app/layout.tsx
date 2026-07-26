@@ -80,6 +80,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <a href="/observatory">The Observatory</a>
                 <a href="/findings">Findings</a>
                 <a href="/methodology">Methodology</a>
+                <a href="/methodology/candidates">Candidate study</a>
               </div>
               <div className="foot-col">
                 <span className="foot-h">Institutions of One</span>

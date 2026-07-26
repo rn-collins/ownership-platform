@@ -364,3 +364,139 @@ model InstrumentActivationDecision {
   createdAt        DateTime @default(now())
   @@unique([instrument, candidateVersion])
 }
+
+
+// ---- Observatory evidence architecture ----
+// These records separate a case from the claims made about it and the evidence
+// supporting each claim. Public visibility is controlled per record.
+model ObservatoryCase {
+  id                 String   @id @default(cuid())
+  slug               String   @unique
+  displayName        String
+  caseType           String
+  primaryField       String?
+  jurisdiction       String?
+  headline           String?
+  summary            String?  @db.Text
+  inclusionRationale String?  @db.Text
+  verificationStatus String   @default("provisional")
+  evidenceCoverage   Float?
+  consentStatus      String   @default("public_evidence")
+  publicStatus       String   @default("draft")
+  firstObservedAt    DateTime?
+  lastReviewedAt     DateTime?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  claims             ObservatoryClaim[]
+  events             ObservatoryEvent[]
+  relationshipsFrom  ObservatoryRelationship[] @relation("ObservatoryRelationshipFrom")
+  relationshipsTo    ObservatoryRelationship[] @relation("ObservatoryRelationshipTo")
+  observations       ObservatoryConstructObservation[]
+  @@index([caseType, primaryField])
+  @@index([verificationStatus, publicStatus])
+}
+
+model ObservatorySource {
+  id              String   @id @default(cuid())
+  url             String   @unique
+  title           String
+  publisher       String?
+  sourceType      String
+  publishedAt     DateTime?
+  accessedAt      DateTime
+  archivedUrl     String?
+  primarySource   Boolean  @default(false)
+  publicStatus    String   @default("internal")
+  createdAt       DateTime @default(now())
+  claims          ObservatoryClaimEvidence[]
+  @@index([sourceType, primarySource])
+}
+
+model ObservatoryClaim {
+  id                 String   @id @default(cuid())
+  case               ObservatoryCase @relation(fields: [caseId], references: [id])
+  caseId             String
+  claimType          String
+  statement          String   @db.Text
+  constructId        String?
+  epistemicStatus    String   @default("observed")
+  verificationStatus String   @default("unreviewed")
+  confidence         Float?
+  permissibleLanguage String? @db.Text
+  contradictionNote  String?  @db.Text
+  publicStatus       String   @default("draft")
+  observedAt         DateTime?
+  lastReviewedAt     DateTime?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  evidence           ObservatoryClaimEvidence[]
+  @@index([caseId, claimType])
+  @@index([verificationStatus, publicStatus])
+}
+
+model ObservatoryClaimEvidence {
+  id            String   @id @default(cuid())
+  claim         ObservatoryClaim @relation(fields: [claimId], references: [id])
+  claimId       String
+  source        ObservatorySource @relation(fields: [sourceId], references: [id])
+  sourceId      String
+  supportType   String   @default("supports")
+  exactPassage  String?  @db.Text
+  locator       String?
+  analystNote   String?  @db.Text
+  createdAt     DateTime @default(now())
+  @@unique([claimId, sourceId, supportType])
+  @@index([sourceId])
+}
+
+model ObservatoryRelationship {
+  id             String   @id @default(cuid())
+  fromCase       ObservatoryCase @relation("ObservatoryRelationshipFrom", fields: [fromCaseId], references: [id])
+  fromCaseId     String
+  toCase         ObservatoryCase? @relation("ObservatoryRelationshipTo", fields: [toCaseId], references: [id])
+  toCaseId       String?
+  targetType     String
+  targetName     String
+  relationshipType String
+  startedAt      DateTime?
+  endedAt        DateTime?
+  verificationStatus String @default("unreviewed")
+  publicStatus   String   @default("draft")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  @@index([fromCaseId, relationshipType])
+  @@index([targetType, targetName])
+}
+
+model ObservatoryEvent {
+  id                 String   @id @default(cuid())
+  case               ObservatoryCase @relation(fields: [caseId], references: [id])
+  caseId             String
+  eventType          String
+  title              String
+  description        String?  @db.Text
+  occurredAt         DateTime?
+  precision          String   @default("unknown")
+  verificationStatus String   @default("unreviewed")
+  publicStatus       String   @default("draft")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  @@index([caseId, occurredAt])
+}
+
+model ObservatoryConstructObservation {
+  id                 String   @id @default(cuid())
+  case               ObservatoryCase @relation(fields: [caseId], references: [id])
+  caseId             String
+  constructId        String
+  valueNumeric       Float?
+  valueCategory      String?
+  measurementMethod  String
+  instrumentVersion  String?
+  evidenceCoverage   Float?
+  verificationStatus String   @default("unreviewed")
+  observedAt         DateTime?
+  publicStatus       String   @default("draft")
+  createdAt          DateTime @default(now())
+  @@index([caseId, constructId, observedAt])
+}

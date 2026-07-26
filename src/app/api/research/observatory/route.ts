@@ -284,30 +284,6 @@ export async function POST(req: Request) {
       return NextResponse.json({ok:true,caseId:d.caseId,packageId:d.packageId});
     }
     const before=await prisma.observatoryCase.findUniqueOrThrow({where:{id:d.caseId}});
-      const [claims,relationships,events]=await Promise.all([
-        prisma.observatoryClaim.findMany({where:{caseId:d.caseId,id:{in:d.claimIds}},include:{evidence:true}}),
-        prisma.observatoryRelationship.findMany({where:{fromCaseId:d.caseId,id:{in:d.relationshipIds}}}),
-        prisma.observatoryEvent.findMany({where:{caseId:d.caseId,id:{in:d.eventIds}}}),
-      ]);
-      if (claims.length!==d.claimIds.length || claims.some(row=>row.evidence.length===0))
-        return NextResponse.json({error:"package_claims_require_evidence"},{status:422});
-      if (relationships.length!==d.relationshipIds.length || relationships.some(row=>!row.sourceId))
-        return NextResponse.json({error:"package_relationships_require_sources"},{status:422});
-      if (events.length!==d.eventIds.length || events.some(row=>!row.sourceId))
-        return NextResponse.json({error:"package_events_require_sources"},{status:422});
-      await prisma.$transaction([
-        prisma.observatoryClaim.updateMany({where:{caseId:d.caseId,id:{in:d.claimIds}},data:{verificationStatus:"verified",publicStatus:"public",confidence:0.98,lastReviewedAt:new Date()}}),
-        prisma.observatoryRelationship.updateMany({where:{fromCaseId:d.caseId,id:{in:d.relationshipIds}},data:{verificationStatus:"verified",publicStatus:"public"}}),
-        prisma.observatoryEvent.updateMany({where:{caseId:d.caseId,id:{in:d.eventIds}},data:{verificationStatus:"verified",publicStatus:"public"}}),
-        prisma.observatoryCase.update({where:{id:d.caseId},data:{verificationStatus:"verified",publicStatus:"public",evidenceCoverage:d.evidenceCoverage,lastReviewedAt:new Date()}}),
-      ]);
-      await audit(researcher,{caseId:d.caseId,action:"review_package",entityType:"case",entityId:d.caseId,beforeValue:before,afterValue:{
-        packageId:d.packageId,claimIds:d.claimIds,relationshipIds:d.relationshipIds,eventIds:d.eventIds,
-        verificationStatus:"verified",publicStatus:"public",evidenceCoverage:d.evidenceCoverage,
-      },note:d.note});
-      return NextResponse.json({ok:true,caseId:d.caseId,packageId:d.packageId});
-    }
-    const before=await prisma.observatoryCase.findUniqueOrThrow({where:{id:d.caseId}});
     if (d.verificationStatus==="verified") {
       const supported=await prisma.observatoryClaim.count({where:{caseId:d.caseId,verificationStatus:"verified",evidence:{some:{}}}});
       if (supported===0) return NextResponse.json({error:"verified_case_requires_verified_evidenced_claim"},{status:422});

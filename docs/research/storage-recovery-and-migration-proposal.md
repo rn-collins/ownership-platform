@@ -2,9 +2,9 @@
 
 Status: proposal only; no SQL in this document is authorization to write.
 
-## Confirmed Vercel state
+## Confirmed connection state
 
-The production project currently has no project environment variables, no attached integrations, and no connected Vercel storage resource. The application therefore cannot open its intended PostgreSQL connection. This state does not establish whether the former Supabase project or its records still exist.
+The Vercel project now has a sensitive `DATABASE_URL` variable scoped to Production and Preview. Its value is not recorded in the repository or this document. The identified Supabase project is `ownership-platform` in Canada Central, and its `public` schema was empty when inspected in the Supabase Table Editor: no application tables, migrations, or backups were visible. This means the project cannot supply historical assessment records unless another project or backup is identified.
 
 ## Recovery gates
 
@@ -14,7 +14,7 @@ The production project currently has no project environment variables, no attach
 4. Determine whether tables are absent, exactly compatible, compatible with drift, or conflicting.
 5. Only after a compatible schema is established, connect Vercel using Supabase’s supported pooled production URL and least-privilege application role. Set variable names/scopes without logging values.
 6. Redeploy, confirm `/api/research-integrity` can connect, and run only the aggregate diagnostic.
-7. Create a baseline migration from the observed schema; do not run `migrate dev`, `db push`, `CREATE TABLE`, or destructive reconciliation against production.
+7. Establish the committed migration baseline without recreating or overwriting pre-existing application tables.
 
 ## Read-only schema verification
 
@@ -38,9 +38,11 @@ Also report temporal coverage by calendar month and instrument, but suppress any
 
 ## Baseline procedure
 
-If the database already matches the Prisma schema, generate a baseline migration SQL from the repository schema in an isolated environment, compare its normalized schema signature to production, commit it as `prisma/migrations/<timestamp>_baseline/migration.sql`, and only then propose marking that migration applied. `prisma migrate resolve --applied` is a production metadata write and requires separate review immediately before execution.
+Because the identified database had no application tables, the repository migration is treated as an initial forward migration, not as proof of recovered historical storage. Preview must authenticate successfully, apply the committed baseline, and expose the aggregate diagnostic before the migration is released to production.
 
-If production differs, first commit an introspected schema snapshot and a drift report. Do not alter production to force a match. Design forward-only migrations from the actual production state.
+If a different database is later identified with an existing compatible schema, generate a baseline migration SQL from the repository schema in an isolated environment, compare its normalized schema signature to that database, and propose marking the migration applied. `prisma migrate resolve --applied` is a production metadata write and requires separate review immediately before execution.
+
+If an existing database differs, first commit an introspected schema snapshot and a drift report. Do not alter it to force a match. Design forward-only migrations from the actual state.
 
 ## Separate recoverable-row migration
 

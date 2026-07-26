@@ -19,6 +19,15 @@ if (!process.env.DATABASE_URL) {
   console.log("[migrate] no DATABASE_URL set — skipping migrate deploy.");
   process.exit(0);
 }
+// Recover the one known failed, transaction-rolled-back import before retrying it.
+// This is migration-specific and becomes a no-op after successful application.
+try {
+  execSync("prisma migrate resolve --rolled-back 20260727010000_marques_brownlee_review_package_110", { stdio: "ignore" });
+  console.log("[migrate] cleared the rolled-back Marques 1.1.0 attempt for safe retry.");
+} catch {
+  // Expected when this migration is not recorded as failed.
+}
+
 try {
   execSync("prisma migrate deploy", { stdio: "inherit" });
 } catch (e) {

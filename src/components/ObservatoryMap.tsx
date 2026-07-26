@@ -143,6 +143,30 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
         </div>
       )}
 
+      {!embed && (
+        <section className="card" aria-labelledby="observatory-reading-guide" style={{ margin: "12px 0 16px" }}>
+          <h3 id="observatory-reading-guide">How to read this Observatory</h3>
+          <p style={{ marginBottom: 10 }}>
+            This is a <strong>directory of documented cases</strong>, grouped by field. It is not a score chart, ranking,
+            network analysis, or statistical model.
+          </p>
+          <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "7px 14px", margin: 0, fontSize: 13.5, lineHeight: 1.5 }}>
+            <dt><strong>Each dot</strong></dt>
+            <dd style={{ margin: 0 }}>One person whose public case is included in the Observatory.</dd>
+            <dt><strong>Dot color</strong></dt>
+            <dd style={{ margin: 0 }}>Teal identifies a creator case; gold identifies a professional case. These are research lenses, not scores.</dd>
+            <dt><strong>Field label</strong></dt>
+            <dd style={{ margin: 0 }}>The person’s primary field, such as Media, Science, or Tech.</dd>
+            <dt><strong>Dot position</strong></dt>
+            <dd style={{ margin: 0 }}>Dots are placed near their field label and spaced to avoid overlap. Left, right, height, distance, and the overall shape have no measured meaning.</dd>
+            <dt><strong>Gold outline</strong></dt>
+            <dd style={{ margin: 0 }}>The case is flagged as an example of an employer or institution creating or materially shaping a role around that person.</dd>
+            <dt><strong>Click a dot</strong></dt>
+            <dd style={{ margin: 0 }}>See the person, role, field, classification, and link to the documented case profile.</dd>
+          </dl>
+        </section>
+      )}
+
       <div className="obs-stage">
         <div className="obs-zoom">
           <button aria-label="Zoom in" onClick={() => zoom(1.25)}>+</button>
@@ -230,10 +254,11 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
       </div>
 
       {!embed && (
-        <div className="obs-legend">
-          <span><i className="dot creator" /> Creator · Ownership Index <b>{counts.creators}</b></span>
-          <span><i className="dot pro" /> Professional · Portfolio Professional <b>{counts.pros}</b></span>
-          <span className="obs-legend-hint">Ringed = the role was built around them · {shown.length} of {counts.total} shown{q || lens !== "all" || domain !== "all" || builtOnly ? " (filtered)" : ""} · drag to pan, +/− to zoom</span>
+        <div className="obs-legend" aria-label="Map key">
+          <span><i className="dot creator" /> <strong>Teal:</strong> creator case <b>{counts.creators}</b></span>
+          <span><i className="dot pro" /> <strong>Gold:</strong> professional case <b>{counts.pros}</b></span>
+          <span><i className="dot pro" style={{ background: "transparent" }} /> <strong>Gold outline:</strong> role built around the person</span>
+          <span className="obs-legend-hint">{shown.length} of {counts.total} cases shown{q || lens !== "all" || domain !== "all" || builtOnly ? " (filtered)" : ""} · Click a dot for its case · drag to pan · +/− to zoom</span>
         </div>
       )}
     </div>

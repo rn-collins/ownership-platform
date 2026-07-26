@@ -12,7 +12,7 @@ VALUES
 ('obs_src_mb_panels_price','https://www.theverge.com/2024/10/11/24267900/marques-brownlee-mkbhd-price-panels-wallpaper-app','MKBHD says Panels failed on price','The Verge','reported_first_person_response','2024-10-11T00:00:00Z','2026-07-26T00:00:00Z',false,'public',CURRENT_TIMESTAMP),
 ('obs_src_mb_panels_close','https://www.theverge.com/news/835090/mkbhd-panels-wallpaper-app-shutdown','MKBHD is taking down Panels','The Verge','reported_first_party_notice','2025-12-01T00:00:00Z','2026-07-26T00:00:00Z',false,'public',CURRENT_TIMESTAMP),
 ('obs_src_mb_panels_metrics','https://techcrunch.com/2025/12/01/mkbhds-wallpaper-app-panels-is-shutting-down/','Panels wallpaper app is shutting down','TechCrunch','independent_reporting','2025-12-01T00:00:00Z','2026-07-26T00:00:00Z',false,'public',CURRENT_TIMESTAMP)
-ON CONFLICT ("url") DO UPDATE SET
+ON CONFLICT ("id") DO UPDATE SET
 "title"=EXCLUDED."title","publisher"=EXCLUDED."publisher","sourceType"=EXCLUDED."sourceType",
 "publishedAt"=EXCLUDED."publishedAt","accessedAt"=EXCLUDED."accessedAt",
 "primarySource"=EXCLUDED."primarySource","publicStatus"='public';

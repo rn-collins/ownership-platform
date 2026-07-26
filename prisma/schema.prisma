@@ -394,6 +394,7 @@ model ObservatoryCase {
   relationshipsTo    ObservatoryRelationship[] @relation("ObservatoryRelationshipTo")
   observations       ObservatoryConstructObservation[]
   auditEvents        ObservatoryAuditEvent[]
+  reviewPackages     ObservatoryReviewPackage[]
   @@index([caseType, primaryField])
   @@index([verificationStatus, publicStatus])
 }
@@ -513,6 +514,26 @@ model ObservatoryConstructObservation {
   @@index([caseId, constructId, observedAt])
 }
 
+
+model ObservatoryReviewPackage {
+  id               String   @id @default(cuid())
+  packageId        String   @unique
+  case             ObservatoryCase @relation(fields: [caseId], references: [id])
+  caseId           String
+  version          String
+  dossierPath      String?
+  contentHash      String?
+  manifest         Json
+  evidenceCoverage Float?
+  status           String   @default("draft")
+  reviewedByUserId String?
+  reviewedByEmail  String?
+  reviewedAt       DateTime?
+  publishedAt      DateTime?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  @@index([caseId, status])
+}
 
 model ObservatoryAuditEvent {
   id              String   @id @default(cuid())

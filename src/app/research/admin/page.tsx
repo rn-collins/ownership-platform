@@ -12,6 +12,7 @@ export default async function ResearchAdminPage() {
     <p className="eyebrow">Restricted · authorized researchers only</p>
     <h1>Cognitive interview operations</h1>
     <p className="lede">Screening, scheduling, session evidence, revision records, and activation gates. Candidate scoring remains disabled.</p>
+    <p className="meta"><a href="/research/observatory">Open the Observatory Studio →</a></p>
     <ResearchConsole />
   </main>;
 }

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { SEED, nodeSlug, findNodeBySlug } from "@/lib/observatory_seed";
+import { SEED, nodeSlug, findNodeBySlug, type Node } from "@/lib/observatory_seed";
+import { prisma } from "@/lib/db";
 
 export function generateStaticParams() {
   return SEED.map((n) => ({ slug: nodeSlug(n.name) }));
@@ -14,8 +15,28 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function ObservatoryProfile({ params }: { params: { slug: string } }) {
-  const n = findNodeBySlug(params.slug);
+export default async function ObservatoryProfile({ params }: { params: { slug: string } }) {
+  let n: Node | undefined = findNodeBySlug(params.slug);
+  let databaseStatus = "provisional";
+  let evidenceCoverage: number | null = null;
+  if (prisma) {
+    try {
+      const record = await prisma.observatoryCase.findUnique({ where: { slug: params.slug } });
+      if (record) {
+        n = {
+          name: record.displayName,
+          role: record.headline ?? "Case record under evidence review",
+          domain: record.primaryField ?? "Unclassified",
+          kind: record.caseType === "creator" ? "creator" : "professional",
+          created: record.roleBuiltFlag,
+        };
+        databaseStatus = record.verificationStatus;
+        evidenceCoverage = record.evidenceCoverage;
+      }
+    } catch {
+      // Static roster fallback keeps the public case route available.
+    }
+  }
   if (!n) notFound();
 
   const isCreator = n.kind === "creator";
@@ -38,13 +59,15 @@ export default function ObservatoryProfile({ params }: { params: { slug: string 
       </div>
 
       <div className="card" style={{ borderLeft: "4px solid #b98f4d" }}>
-        <h3>Record status: provisional</h3>
+        <h3>Record status: {databaseStatus.replaceAll("_", " ")}</h3>
         <p>
-          This page currently preserves an entry from the original Observatory roster. It is not a completed research
+          This page currently preserves an entry from the original Observatory roster in the canonical case database. It is not a completed research
           profile, assessment result, ranking, or verified classification. The label below is the starting claim to be
           checked—not the conclusion of that review.
         </p>
       </div>
+
+      <p className="meta">Evidence coverage: {evidenceCoverage == null ? "not yet calculated" : `${Math.round(evidenceCoverage * 100)}%`}.</p>
 
       <h2 className="dimhead">What the roster currently says</h2>
       <div className="card">

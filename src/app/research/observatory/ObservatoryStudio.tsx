@@ -4,8 +4,9 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 
 type Evidence = { id:string; supportType:string; source:{ title:string; url:string; sourceType:string; primarySource:boolean } };
 type Claim = { id:string; claimType:string; statement:string; epistemicStatus:string; verificationStatus:string; confidence?:number|null; publicStatus:string; evidence:Evidence[] };
-type Relation = { id:string; targetType:string; targetName:string; relationshipType:string; verificationStatus:string };
-type EventRow = { id:string; title:string; occurredAt?:string|null; verificationStatus:string };
+type LinkedSource = { title:string; url:string; publisher?:string|null; primarySource:boolean };
+type Relation = { id:string; targetType:string; targetName:string; relationshipType:string; verificationStatus:string; source?:LinkedSource|null; exactPassage?:string|null; sourceLocator?:string|null };
+type EventRow = { id:string; title:string; occurredAt?:string|null; verificationStatus:string; source?:LinkedSource|null; exactPassage?:string|null; sourceLocator?:string|null };
 type Observation = { id:string; constructId:string; valueNumeric?:number|null; valueCategory?:string|null; measurementMethod:string; verificationStatus:string };
 type Audit = { id:string; action:string; entityType:string; entityId:string; actorEmail:string; note?:string|null; createdAt:string };
 type CaseRow = {
@@ -162,17 +163,31 @@ export function ObservatoryStudio() {
         <form onSubmit={e=>{ e.preventDefault(); const form=e.currentTarget; const f=new FormData(form); run({
           action:"create_relationship",caseId:selected.id,targetType:f.get("targetType"),targetName:f.get("targetName"),
           relationshipType:f.get("relationshipType"),startedAt:iso(f.get("startedAt")),endedAt:iso(f.get("endedAt")),
-        },"Relationship created.",form); }}>
+          sourceUrl:f.get("sourceUrl"),sourceTitle:f.get("sourceTitle"),sourcePublisher:f.get("sourcePublisher")||undefined,
+          sourceType:f.get("sourceType"),sourcePrimary:f.get("sourcePrimary")==="on",
+          sourcePublishedAt:iso(f.get("sourcePublishedAt")),exactPassage:f.get("exactPassage")||undefined,
+          sourceLocator:f.get("sourceLocator")||undefined,
+        },"Relationship created with source.",form); }}>
           <p>
             <select name="targetType"><option value="organization">Organization</option><option value="person">Person</option><option value="platform">Platform</option><option value="asset">Asset</option><option value="venture">Venture</option><option value="institution">Institution</option></select>{" "}
             <input name="targetName" required placeholder="Target name"/>{" "}
             <input name="relationshipType" required placeholder="founded, employed_by, owns"/>
           </p>
           <p><label>Started <input type="datetime-local" name="startedAt"/></label>{" "}<label>Ended <input type="datetime-local" name="endedAt"/></label></p>
+          <fieldset><legend>Required supporting source</legend>
+            <p><input type="url" name="sourceUrl" required placeholder="Source URL" style={{width:"100%"}}/></p>
+            <p><input name="sourceTitle" required placeholder="Source title"/>{" "}<input name="sourcePublisher" placeholder="Publisher"/>{" "}
+              <select name="sourceType"><option value="company_record">Company record</option><option value="official_record">Official record</option><option value="first_person">First person</option><option value="government">Government</option><option value="academic">Academic</option><option value="journalism">Journalism</option><option value="other">Other</option></select>{" "}
+              <label><input type="checkbox" name="sourcePrimary"/> Primary source</label>
+            </p>
+            <p><label>Published <input type="datetime-local" name="sourcePublishedAt"/></label>{" "}<input name="sourceLocator" placeholder="Section or locator"/></p>
+            <p><textarea name="exactPassage" rows={2} placeholder="Exact supporting passage" style={{width:"100%"}}/></p>
+          </fieldset>
           <button type="submit">Create relationship</button>
         </form>
         {selected.relationshipsFrom.map(r=><div key={r.id} style={{borderTop:"1px solid #e5e0d6",paddingTop:10,marginTop:10}}>
           <p>{r.relationshipType} → {r.targetName} ({r.targetType}) · <b>{r.verificationStatus}</b></p>
+          <p className="meta">{r.source ? <><a href={r.source.url} target="_blank" rel="noreferrer">{r.source.title}</a>{r.source.primarySource?" · primary source":""}</> : "No linked source — publication blocked"}</p>
           <form onSubmit={e=>{e.preventDefault();const f=new FormData(e.currentTarget);run({
             action:"review_entity",entityType:"relationship",entityId:r.id,verificationStatus:f.get("verificationStatus"),
             publicStatus:f.get("publicStatus"),note:f.get("note"),
@@ -190,16 +205,30 @@ export function ObservatoryStudio() {
         <form onSubmit={e=>{ e.preventDefault(); const form=e.currentTarget; const f=new FormData(form); run({
           action:"create_event",caseId:selected.id,eventType:f.get("eventType"),title:f.get("title"),
           description:f.get("description")||undefined,occurredAt:iso(f.get("occurredAt")),precision:f.get("precision"),
-        },"Event created.",form); }}>
+          sourceUrl:f.get("sourceUrl"),sourceTitle:f.get("sourceTitle"),sourcePublisher:f.get("sourcePublisher")||undefined,
+          sourceType:f.get("sourceType"),sourcePrimary:f.get("sourcePrimary")==="on",
+          sourcePublishedAt:iso(f.get("sourcePublishedAt")),exactPassage:f.get("exactPassage")||undefined,
+          sourceLocator:f.get("sourceLocator")||undefined,
+        },"Event created with source.",form); }}>
           <p><input name="eventType" required placeholder="event type"/>{" "}<input name="title" required placeholder="Title"/></p>
           <p><label>Date <input type="datetime-local" name="occurredAt"/></label>{" "}
             <select name="precision"><option value="day">Day</option><option value="month">Month</option><option value="year">Year</option><option value="approximate">Approximate</option><option value="unknown">Unknown</option></select>
           </p>
           <p><textarea name="description" rows={2} placeholder="Description" style={{width:"100%"}}/></p>
+          <fieldset><legend>Required supporting source</legend>
+            <p><input type="url" name="sourceUrl" required placeholder="Source URL" style={{width:"100%"}}/></p>
+            <p><input name="sourceTitle" required placeholder="Source title"/>{" "}<input name="sourcePublisher" placeholder="Publisher"/>{" "}
+              <select name="sourceType"><option value="company_record">Company record</option><option value="official_record">Official record</option><option value="first_person">First person</option><option value="government">Government</option><option value="academic">Academic</option><option value="journalism">Journalism</option><option value="other">Other</option></select>{" "}
+              <label><input type="checkbox" name="sourcePrimary"/> Primary source</label>
+            </p>
+            <p><label>Published <input type="datetime-local" name="sourcePublishedAt"/></label>{" "}<input name="sourceLocator" placeholder="Section or locator"/></p>
+            <p><textarea name="exactPassage" rows={2} placeholder="Exact supporting passage" style={{width:"100%"}}/></p>
+          </fieldset>
           <button type="submit">Create event</button>
         </form>
         {selected.events.map(r=><div key={r.id} style={{borderTop:"1px solid #e5e0d6",paddingTop:10,marginTop:10}}>
           <p>{r.title} · {r.occurredAt?new Date(r.occurredAt).toLocaleDateString():"date unknown"} · <b>{r.verificationStatus}</b></p>
+          <p className="meta">{r.source ? <><a href={r.source.url} target="_blank" rel="noreferrer">{r.source.title}</a>{r.source.primarySource?" · primary source":""}</> : "No linked source — publication blocked"}</p>
           <form onSubmit={e=>{e.preventDefault();const f=new FormData(e.currentTarget);run({
             action:"review_entity",entityType:"event",entityId:r.id,verificationStatus:f.get("verificationStatus"),
             publicStatus:f.get("publicStatus"),note:f.get("note"),

@@ -274,6 +274,19 @@ export function ObservatoryStudio() {
       <section className="card">
         <h2>6. Verification and publication</h2>
         <p>Verification requires a verified claim with linked evidence. A newly published case must be verified. Existing provisional roster records remain visible but labeled.</p>
+        {selected.slug==="issa-rae" && selected.verificationStatus!=="verified" && <div style={{border:"2px solid #b98f4d",padding:16,margin:"16px 0"}}>
+          <h3>Issa Rae review package 1.0.0</h3>
+          <p>This bounded package contains nine sourced claims, six sourced relationships, four sourced timeline events, explicit claim restrictions, and no psychological or financial inference.</p>
+          <p><b>Publication effect:</b> the listed records and the case become verified and public. The decision is recorded with your researcher identity and the package manifest remains versioned in the repository.</p>
+          <button type="button" onClick={()=>{if(window.confirm("Publish Issa Rae review package 1.0.0 with the documented limitations?")) run({
+            action:"review_package",caseId:selected.id,packageId:"issa-rae-1.0.0",
+            claimIds:["obs_claim_ir_c01","obs_claim_ir_c02","obs_claim_ir_c03","obs_claim_ir_c04","obs_claim_ir_c05","obs_claim_ir_c06","obs_claim_ir_c07","obs_claim_ir_c08","obs_claim_ir_c09"],
+            relationshipIds:["obs_rel_ir_r01","obs_rel_ir_r02","obs_rel_ir_r03","obs_rel_ir_r04","obs_rel_ir_r05","obs_rel_ir_r06"],
+            eventIds:["obs_event_ir_e01","obs_event_ir_e02","obs_event_ir_e03","obs_event_ir_e04"],
+            evidenceCoverage:0.78,
+            note:"Approved Issa Rae review package 1.0.0 for public release. Verification is limited to the cited factual claims; ownership percentages, financial outcomes, platform independence, and psychological attributes remain unverified.",
+          },"Issa Rae package 1.0.0 published.");}}>Review and publish package 1.0.0</button>
+        </div>}
         <form onSubmit={e=>{ e.preventDefault(); const f=new FormData(e.currentTarget); run({
           action:"case_decision",caseId:selected.id,verificationStatus:f.get("verificationStatus"),
           publicStatus:f.get("publicStatus"),note:f.get("note"),

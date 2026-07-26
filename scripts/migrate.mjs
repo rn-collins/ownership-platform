@@ -43,6 +43,13 @@ try {
 }
 
 try {
+  execSync("prisma migrate resolve --rolled-back 20260726214500_claire_zau_review_package_110", { stdio: "ignore" });
+  console.log("[migrate] cleared the rolled-back Claire Zau attempt for safe retry.");
+} catch {
+  // Expected when this migration is not recorded as failed.
+}
+
+try {
   execSync("prisma migrate deploy", { stdio: "inherit" });
 } catch (e) {
   console.error("[migrate] migrate deploy failed.");

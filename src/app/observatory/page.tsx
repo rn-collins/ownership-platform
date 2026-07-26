@@ -3,7 +3,7 @@ import { ObservatoryMap } from "@/components/ObservatoryMap";
 
 export const metadata = {
   title: "The Observatory — how individuals are becoming institutions",
-  description: "A living observatory of the individual-as-institution: creators and professionals whose work and roles are being built around them, measured and mapped.",
+  description: "A browsable collection of documented creator and professional cases, grouped by field.",
 };
 
 export default function ObservatoryPage() {

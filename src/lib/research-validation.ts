@@ -109,13 +109,28 @@ export type ApprovedRevision = {
   reviewedAt: string;
 };
 
+export type CandidateGenerationAuthorization = {
+  round1Gate: "met";
+  approvedRevisionCount: number;
+  expectedRevisionCount: number;
+  generatedBy: string;
+  generatedAt: string;
+};
+
 export function generateRevisedCandidate(
   source: InstrumentCandidate,
   targetVersion: string,
   revisions: readonly ApprovedRevision[],
+  authorization: CandidateGenerationAuthorization,
 ): InstrumentCandidate {
   if (!targetVersion.includes("-candidate.")) throw new Error("Candidate version required");
+  if (authorization.round1Gate !== "met") throw new Error("Round 1 completion gate required");
+  if (!authorization.generatedBy || !authorization.generatedAt) throw new Error("Dated generation authorization required");
   const applicable = revisions.filter((r) => r.instrument === source.id && r.sourceVersion === source.version && r.targetVersion === targetVersion);
+  if (!applicable.length) throw new Error("At least one approved revision is required");
+  if (authorization.approvedRevisionCount !== applicable.length || authorization.expectedRevisionCount !== applicable.length) {
+    throw new Error("Approved revision ledger is incomplete");
+  }
   for (const revision of applicable) {
     if (!revision.evidenceCodeIds.length || !revision.reviewedBy || !revision.reviewedAt) throw new Error(`Unreviewed revision: ${revision.itemId}`);
     if (!source.items.some((item) => item.id === revision.itemId)) throw new Error(`Unknown item: ${revision.itemId}`);

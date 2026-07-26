@@ -32,7 +32,13 @@ describe("candidate validation operations", () => {
       evidenceCodeIds: ["code-1"],
       reviewedBy: "researcher@example.org",
       reviewedAt: "2026-07-26T00:00:00Z",
-    }]);
+    }], {
+      round1Gate: "met",
+      approvedRevisionCount: 1,
+      expectedRevisionCount: 1,
+      generatedBy: "researcher@example.org",
+      generatedAt: "2026-07-26T00:00:00Z",
+    });
     expect(revised.version).toBe("0.3.0-candidate.2");
     expect(revised.scoringStatus).toBe("prohibited_pending_validation");
     expect(revised.items[0].prompt).toContain("Clarified");
@@ -43,7 +49,36 @@ describe("candidate validation operations", () => {
     expect(() => generateRevisedCandidate(OWNERSHIP_INDEX_0_3_0_CANDIDATE, "0.3.0-candidate.2", [{
       instrument: "ownership", sourceVersion: OWNERSHIP_INDEX_0_3_0_CANDIDATE.version, targetVersion: "0.3.0-candidate.2", itemId: original.id,
       decisionStatus: "approved", afterValue: original, evidenceCodeIds: [], reviewedBy: "researcher@example.org", reviewedAt: "2026-07-26T00:00:00Z",
-    }])).toThrow("Unreviewed revision");
+    }], {
+      round1Gate: "met",
+      approvedRevisionCount: 1,
+      expectedRevisionCount: 1,
+      generatedBy: "researcher@example.org",
+      generatedAt: "2026-07-26T00:00:00Z",
+    })).toThrow("Unreviewed revision");
+  });
+
+
+  it("refuses candidate.2 generation before the Round 1 gate and complete ledger", () => {
+    const original = OWNERSHIP_INDEX_0_3_0_CANDIDATE.items[0];
+    const revisions = [{
+      instrument: "ownership" as const,
+      sourceVersion: OWNERSHIP_INDEX_0_3_0_CANDIDATE.version,
+      targetVersion: "0.3.0-candidate.2",
+      itemId: original.id,
+      decisionStatus: "approved" as const,
+      afterValue: original,
+      evidenceCodeIds: ["code-1"],
+      reviewedBy: "researcher@example.org",
+      reviewedAt: "2026-07-26T00:00:00Z",
+    }];
+    expect(() => generateRevisedCandidate(OWNERSHIP_INDEX_0_3_0_CANDIDATE, "0.3.0-candidate.2", revisions, {
+      round1Gate: "met",
+      approvedRevisionCount: 0,
+      expectedRevisionCount: 1,
+      generatedBy: "researcher@example.org",
+      generatedAt: "2026-07-26T00:00:00Z",
+    })).toThrow("Approved revision ledger is incomplete");
   });
 
   it("defines distinct completion gates for detection and retest rounds", () => {

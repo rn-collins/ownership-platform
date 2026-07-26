@@ -9,7 +9,8 @@ type Relation = { id:string; targetType:string; targetName:string; relationshipT
 type EventRow = { id:string; title:string; occurredAt?:string|null; verificationStatus:string; source?:LinkedSource|null; exactPassage?:string|null; sourceLocator?:string|null };
 type Observation = { id:string; constructId:string; valueNumeric?:number|null; valueCategory?:string|null; measurementMethod:string; verificationStatus:string };
 type Audit = { id:string; action:string; entityType:string; entityId:string; actorEmail:string; note?:string|null; createdAt:string };
-type PackageManifest = { claimIds?:string[]; relationshipIds?:string[]; eventIds?:string[]; observationIds?:string[]; limitations?:string[] };\ntype ReviewPackage = { id:string; packageId:string; version:string; dossierPath?:string|null; contentHash?:string|null; manifest:PackageManifest; evidenceCoverage?:number|null; status:string; reviewedByEmail?:string|null; reviewedAt?:string|null; publishedAt?:string|null; createdAt:string };
+type PackageManifest = { claimIds?:string[]; relationshipIds?:string[]; eventIds?:string[]; observationIds?:string[]; limitations?:string[] };
+type ReviewPackage = { id:string; packageId:string; version:string; dossierPath?:string|null; contentHash?:string|null; manifest:PackageManifest; evidenceCoverage?:number|null; status:string; reviewedByEmail?:string|null; reviewedAt?:string|null; publishedAt?:string|null; createdAt:string };
 type CaseRow = {
   id:string; slug:string; displayName:string; caseType:string; primaryField?:string|null; jurisdiction?:string|null;
   headline?:string|null; summary?:string|null; inclusionRationale?:string|null; roleBuiltFlag:boolean;

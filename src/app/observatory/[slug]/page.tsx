@@ -11,8 +11,9 @@ type PublicClaim = {
   verificationStatus:string; confidence:number|null; permissibleLanguage:string|null; contradictionNote:string|null;
   lastReviewedAt:Date|null; evidence:PublicEvidence[];
 };
-type PublicRelation = { id:string; targetType:string; targetName:string; relationshipType:string; startedAt:Date|null; endedAt:Date|null; verificationStatus:string };
-type PublicEvent = { id:string; eventType:string; title:string; description:string|null; occurredAt:Date|null; precision:string; verificationStatus:string };
+type LinkedSource = { title:string; url:string; publisher:string|null; sourceType:string; publishedAt:Date|null; primarySource:boolean };
+type PublicRelation = { id:string; targetType:string; targetName:string; relationshipType:string; startedAt:Date|null; endedAt:Date|null; verificationStatus:string; exactPassage:string|null; sourceLocator:string|null; source:LinkedSource|null };
+type PublicEvent = { id:string; eventType:string; title:string; description:string|null; occurredAt:Date|null; precision:string; verificationStatus:string; exactPassage:string|null; sourceLocator:string|null; source:LinkedSource|null };
 type PublicObservation = { id:string; constructId:string; valueNumeric:number|null; valueCategory:string|null; measurementMethod:string; instrumentVersion:string|null; evidenceCoverage:number|null; observedAt:Date|null };
 
 export function generateStaticParams() {
@@ -50,10 +51,12 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
           },
           relationshipsFrom: {
             where: { publicStatus:"public", verificationStatus:{ in:["verified","partially_supported"] } },
+            include: { source:true },
             orderBy: [{ relationshipType:"asc" },{ targetName:"asc" }],
           },
           events: {
             where: { publicStatus:"public", verificationStatus:{ in:["verified","partially_supported"] } },
+            include: { source:true },
             orderBy: { occurredAt:"asc" },
           },
           observations: {
@@ -156,7 +159,10 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
           <td>{r.relationshipType.replaceAll("_"," ")}</td><td>{r.targetName}</td><td>{r.targetType}</td>
           <td>{r.startedAt?date(r.startedAt):"unknown"}–{r.endedAt?date(r.endedAt):"present/unknown"}</td><td>{r.verificationStatus.replaceAll("_"," ")}</td>
         </tr>)}</tbody>
-      </table></div>
+      </table>
+      <h4>Relationship sources</h4>
+      <ul>{publicRelationships.map(r=><li key={r.id+"-source"}>{r.source ? <><a href={r.source.url} target="_blank" rel="noreferrer">{r.source.title}</a>{r.source.publisher ? ", "+r.source.publisher : ""}{r.source.primarySource ? " · Primary source" : ""}{r.sourceLocator ? " · "+r.sourceLocator : ""}{r.exactPassage ? <blockquote>{r.exactPassage}</blockquote> : null}</> : "Source unavailable"}</li>)}</ul>
+      </div>
     </>}
 
     {publicEvents.length > 0 && <>
@@ -166,6 +172,9 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
         <h3>{event.title}</h3>
         {event.description && <p>{event.description}</p>}
         <p className="meta">{event.eventType.replaceAll("_"," ")} · {event.verificationStatus.replaceAll("_"," ")}</p>
+        {event.source && <p><b>Source:</b> <a href={event.source.url} target="_blank" rel="noreferrer">{event.source.title}</a>{event.source.publisher ? ", "+event.source.publisher : ""}{event.source.primarySource ? " · Primary source" : ""}</p>}
+        {event.exactPassage && <blockquote>{event.exactPassage}</blockquote>}
+        {event.sourceLocator && <p className="meta">Locator: {event.sourceLocator}</p>}
       </div>)}
     </>}
 

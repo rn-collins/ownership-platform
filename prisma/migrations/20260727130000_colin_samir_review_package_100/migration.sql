@@ -26,7 +26,7 @@ VALUES
 ('obs_src_cs_adobe','https://www.adobe.com/max/2025/sessions/creator-support-qa-with-colin-and-samir-os555.html','Creator Support Q&A with Colin and Samir','Adobe MAX','institutional_record','2025-10-28T00:00:00Z','2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
 ('obs_src_cs_event','https://www.tubefilter.com/2026/03/10/colin-and-samir-press-publish-la-creator-event/','Press Publish LA','Tubefilter','independent_reporting','2026-03-10T00:00:00Z','2026-07-26T00:00:00Z',false,'public',CURRENT_TIMESTAMP),
 ('obs_src_cs_linkedin','https://www.linkedin.com/company/colin-and-samir','Colin & Samir company page','LinkedIn / Colin & Samir','issuer_platform_record',NULL,'2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP)
-ON CONFLICT ("url") DO UPDATE SET "title"=EXCLUDED."title","publisher"=EXCLUDED."publisher","sourceType"=EXCLUDED."sourceType","publishedAt"=EXCLUDED."publishedAt","accessedAt"=EXCLUDED."accessedAt","primarySource"=EXCLUDED."primarySource","publicStatus"='public';
+ON CONFLICT ("id") DO UPDATE SET "url"=EXCLUDED."url", "title"=EXCLUDED."title","publisher"=EXCLUDED."publisher","sourceType"=EXCLUDED."sourceType","publishedAt"=EXCLUDED."publishedAt","accessedAt"=EXCLUDED."accessedAt","primarySource"=EXCLUDED."primarySource","publicStatus"='public';
 
 INSERT INTO "ObservatoryClaim"
 ("id","caseId","claimType","statement","constructId","epistemicStatus","verificationStatus","confidence","permissibleLanguage","contradictionNote","publicStatus","createdAt","updatedAt")

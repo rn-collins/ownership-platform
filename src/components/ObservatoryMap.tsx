@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { SEED, OBSERVATORY_DOMAINS as DOMAINS, nodeSlug, type Node } from "@/lib/observatory_seed";
 
 type Lens = "all" | "creator" | "professional";
+type ObservatoryView = "directory" | "map";
 type Placed = Node & { i: number; ax: number; ay: number; fx: number; fy: number };
 
 const CREATOR = "#5bbfa5";
@@ -46,6 +47,7 @@ function layout(nodes: Node[]): Placed[] {
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
 export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]; embed?: boolean }) {
+  const [viewMode, setViewMode] = useState<ObservatoryView>("directory");
   const [lens, setLens] = useState<Lens>("all");
   const [domain, setDomain] = useState<string | "all">("all");
   const [builtOnly, setBuiltOnly] = useState(false);
@@ -108,6 +110,8 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
     total: placed.length,
     creators: placed.filter((n) => n.kind === "creator").length,
     pros: placed.filter((n) => n.kind === "professional").length,
+    fields: new Set(placed.map((n) => n.domain)).size,
+    roleBuilt: placed.filter((n) => n.created).length,
   }), [placed]);
 
   // Zoom / pan
@@ -122,6 +126,28 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
 
   return (
     <div className="obs">
+      {!embed && (
+        <>
+          <div className="find-stats" aria-label="Observatory coverage summary" style={{ marginTop: 18 }}>
+            <div><span className="find-big">{counts.total}</span><span className="find-lbl">provisional cases</span></div>
+            <div><span className="find-big">{counts.fields}</span><span className="find-lbl">fields represented</span></div>
+            <div><span className="find-big">{counts.roleBuilt}</span><span className="find-lbl">role-built flags</span></div>
+            <div><span className="find-big">0</span><span className="find-lbl">fully verified case records</span></div>
+          </div>
+          <div className="card" style={{ margin: "12px 0 14px", borderLeft: "4px solid #b98f4d" }}>
+            <h3>Current evidence status</h3>
+            <p>
+              The original 41-name roster has been preserved as a provisional research queue. Its short labels are not
+              complete evidence records, scores, or validated classifications. Cases will become verified only after
+              their claims, sources, dates, relationships, and uncertainties are reviewed in the new evidence system.
+            </p>
+          </div>
+          <div className="obs-lens" role="group" aria-label="Choose Observatory view" style={{ marginBottom: 12 }}>
+            <button type="button" className={`obs-tab${viewMode === "directory" ? " on" : ""}`} onClick={() => setViewMode("directory")}>Case directory</button>
+            <button type="button" className={`obs-tab${viewMode === "map" ? " on" : ""}`} onClick={() => setViewMode("map")}>Field map</button>
+          </div>
+        </>
+      )}
       {!embed && (
         <div className="obs-controls">
           <div className="obs-lens">
@@ -154,7 +180,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
             <dt><strong>Each dot</strong></dt>
             <dd style={{ margin: 0 }}>One person whose public case is included in the Observatory.</dd>
             <dt><strong>Dot color</strong></dt>
-            <dd style={{ margin: 0 }}>Teal identifies a creator case; gold identifies a professional case. These are research lenses, not scores.</dd>
+            <dd style={{ margin: 0 }}>Teal identifies a creator case; gold identifies a professional case. These are provisional case categories, not assessment results or scores.</dd>
             <dt><strong>Field label</strong></dt>
             <dd style={{ margin: 0 }}>The person’s primary field, such as Media, Science, or Tech.</dd>
             <dt><strong>Dot position</strong></dt>
@@ -167,7 +193,31 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
         </section>
       )}
 
-      <div className="obs-stage">
+      {!embed && viewMode === "directory" && (
+        <section aria-label="Filtered Observatory cases">
+          <p className="meta" style={{ marginBottom: 10 }}>
+            Showing {shown.length} of {counts.total} provisional cases. Select a case to inspect what is known, what is
+            interpreted, and what evidence is still missing.
+          </p>
+          <div className="roster">
+            {shown.map((n) => (
+              <article className="rostercard" key={n.i}>
+                <div className="rostername">
+                  {n.name}
+                  {n.created && <span className="rosterflag">role-built flag</span>}
+                </div>
+                <p className="rosterrole">{n.role}</p>
+                <p className="rosterdomain">{n.kind === "creator" ? "Creator case" : "Professional case"} · {n.domain}</p>
+                <p className="meta" style={{ margin: "9px 0 8px" }}>Evidence status: provisional roster entry</p>
+                <a className="fwlink" href={`/observatory/${nodeSlug(n.name)}`}>Inspect case record →</a>
+              </article>
+            ))}
+          </div>
+          {shown.length === 0 && <div className="card"><p>No cases match these filters.</p></div>}
+        </section>
+      )}
+
+      <div className="obs-stage" style={{ display: embed || viewMode === "map" ? "block" : "none" }}>
         <div className="obs-zoom">
           <button aria-label="Zoom in" onClick={() => zoom(1.25)}>+</button>
           <button aria-label="Zoom out" onClick={() => zoom(0.8)}>−</button>

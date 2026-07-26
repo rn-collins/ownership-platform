@@ -29,6 +29,7 @@ export default function CognitiveInterviewStudyPage() {
         <h2>Current study versions</h2>
         <p>Ownership Index <b>{OWNERSHIP_INDEX_0_3_0_CANDIDATE.version}</b> and Portfolio Professional <b>{PORTFOLIO_PROFESSIONAL_0_2_0_CANDIDATE.version}</b>.</p>
         <p>Neither candidate is scored. Interview responses do not generate a result, ranking, diagnosis, eligibility decision, or professional judgment.</p>
+        <p><a className="fwlink" href="/research/recruitment">Review Round 1 recruitment and sampling goals →</a></p>
         <p><a className="fwlink" href="/methodology/candidates">Review every candidate item and response option →</a></p>
       </div>
       <h2 className="dimhead">What participation involves</h2>

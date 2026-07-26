@@ -23,6 +23,8 @@ export default async function ObservatoryPage() {
           domain: record.primaryField ?? "Unclassified",
           kind: record.caseType === "creator" ? "creator" : "professional",
           created: record.roleBuiltFlag,
+          verificationStatus: record.verificationStatus as Node["verificationStatus"],
+          evidenceCoverage: record.evidenceCoverage,
         }));
       }
     } catch {

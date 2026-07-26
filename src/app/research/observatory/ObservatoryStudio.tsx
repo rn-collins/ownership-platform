@@ -9,7 +9,7 @@ type Relation = { id:string; targetType:string; targetName:string; relationshipT
 type EventRow = { id:string; title:string; occurredAt?:string|null; verificationStatus:string; source?:LinkedSource|null; exactPassage?:string|null; sourceLocator?:string|null };
 type Observation = { id:string; constructId:string; valueNumeric?:number|null; valueCategory?:string|null; measurementMethod:string; verificationStatus:string };
 type Audit = { id:string; action:string; entityType:string; entityId:string; actorEmail:string; note?:string|null; createdAt:string };
-type ReviewPackage = { id:string; packageId:string; version:string; dossierPath?:string|null; contentHash?:string|null; manifest:unknown; evidenceCoverage?:number|null; status:string; reviewedByEmail?:string|null; reviewedAt?:string|null; publishedAt?:string|null; createdAt:string };
+type PackageManifest = { claimIds?:string[]; relationshipIds?:string[]; eventIds?:string[]; observationIds?:string[]; limitations?:string[] };\ntype ReviewPackage = { id:string; packageId:string; version:string; dossierPath?:string|null; contentHash?:string|null; manifest:PackageManifest; evidenceCoverage?:number|null; status:string; reviewedByEmail?:string|null; reviewedAt?:string|null; publishedAt?:string|null; createdAt:string };
 type CaseRow = {
   id:string; slug:string; displayName:string; caseType:string; primaryField?:string|null; jurisdiction?:string|null;
   headline?:string|null; summary?:string|null; inclusionRationale?:string|null; roleBuiltFlag:boolean;
@@ -276,22 +276,64 @@ export function ObservatoryStudio() {
         <h2>6. Verification and publication</h2>
         <p>Verification requires a verified claim with linked evidence. A newly published case must be verified. Existing provisional roster records remain visible but labeled.</p>
         {selected.reviewPackages.length===0 ? <p className="meta">No versioned review package has been loaded for this case.</p> :
-          selected.reviewPackages.map(pkg=><div key={pkg.id} style={{border:pkg.status==="draft"?"2px solid #b98f4d":"1px solid #d8d2c7",padding:16,margin:"16px 0"}}>
-            <h3>Review package {pkg.version}</h3>
-            <p><b>Package ID:</b> <code>{pkg.packageId}</code> · <b>Status:</b> {pkg.status.replaceAll("_"," ")}</p>
-            <p className="meta">
-              Evidence coverage: {pkg.evidenceCoverage==null?"not calculated":Math.round(pkg.evidenceCoverage*100)+"%"}
-              {pkg.dossierPath?" · Dossier: "+pkg.dossierPath:""}
-              {pkg.contentHash?" · Version: "+pkg.contentHash.slice(0,10):""}
-            </p>
-            {pkg.status==="draft" ? <>
-              <p><b>Publication effect:</b> the package manifest is validated server-side. Every included claim must have evidence, and every included relationship and event must have a source. Eligible records and the case then become verified and public under your researcher identity.</p>
-              <button type="button" onClick={()=>{if(window.confirm(`Publish review package ${pkg.packageId}? This records you as the accountable reviewer.`)) run({
-                action:"review_package",caseId:selected.id,packageId:pkg.packageId,
-                note:`Approved versioned review package ${pkg.packageId} for public release. Verification is limited to the package manifest, linked evidence, documented restrictions, and stated evidence coverage.`,
-              },`Review package ${pkg.packageId} published.`);}}>Review and publish {pkg.version}</button>
-            </> : <p><b>Published:</b> {pkg.publishedAt?new Date(pkg.publishedAt).toLocaleString():"date unavailable"}{pkg.reviewedByEmail?" · "+pkg.reviewedByEmail:""}</p>}
-          </div>)}
+          selected.reviewPackages.map(pkg=>{
+            const claimIds = Array.isArray(pkg.manifest?.claimIds) ? pkg.manifest.claimIds : [];
+            const relationshipIds = Array.isArray(pkg.manifest?.relationshipIds) ? pkg.manifest.relationshipIds : [];
+            const eventIds = Array.isArray(pkg.manifest?.eventIds) ? pkg.manifest.eventIds : [];
+            const includedClaims = selected.claims.filter(item=>claimIds.includes(item.id));
+            const excludedClaims = selected.claims.filter(item=>!claimIds.includes(item.id));
+            const includedRelationships = selected.relationshipsFrom.filter(item=>relationshipIds.includes(item.id));
+            const excludedRelationships = selected.relationshipsFrom.filter(item=>!relationshipIds.includes(item.id));
+            const includedEvents = selected.events.filter(item=>eventIds.includes(item.id));
+            const excludedEvents = selected.events.filter(item=>!eventIds.includes(item.id));
+            const limitations = Array.isArray(pkg.manifest?.limitations) ? pkg.manifest.limitations : [];
+            return <div key={pkg.id} style={{border:pkg.status==="draft"?"2px solid #b98f4d":"1px solid #d8d2c7",padding:16,margin:"16px 0"}}>
+              <h3>Review package {pkg.version}</h3>
+              <p><b>Package ID:</b> <code>{pkg.packageId}</code> · <b>Status:</b> {pkg.status.replaceAll("_"," ")}</p>
+              <p className="meta">
+                Evidence coverage: {pkg.evidenceCoverage==null?"not calculated":Math.round(pkg.evidenceCoverage*100)+"%"}
+                {pkg.dossierPath?" · Dossier: "+pkg.dossierPath:""}
+                {pkg.contentHash?" · Version: "+pkg.contentHash.slice(0,10):""}
+              </p>
+              <div style={{borderTop:"1px solid #d8d2c7",paddingTop:12,marginTop:12}}>
+                <h4>Included if you approve this package</h4>
+                <p className="meta">{includedClaims.length} claims · {includedRelationships.length} relationships · {includedEvents.length} events</p>
+                <details open><summary><b>Claims ({includedClaims.length})</b></summary>
+                  {includedClaims.length===0?<p className="meta">None included.</p>:<ul>{includedClaims.map(item=><li key={item.id}><code>{item.id}</code> · {item.statement}</li>)}</ul>}
+                </details>
+                <details><summary><b>Relationships ({includedRelationships.length})</b></summary>
+                  {includedRelationships.length===0?<p className="meta">None included.</p>:<ul>{includedRelationships.map(item=><li key={item.id}><code>{item.id}</code> · {item.relationshipType} → {item.targetName}</li>)}</ul>}
+                </details>
+                <details><summary><b>Events ({includedEvents.length})</b></summary>
+                  {includedEvents.length===0?<p className="meta">None included.</p>:<ul>{includedEvents.map(item=><li key={item.id}><code>{item.id}</code> · {item.title}</li>)}</ul>}
+                </details>
+              </div>
+              <div style={{borderTop:"1px solid #d8d2c7",paddingTop:12,marginTop:12}}>
+                <h4>Excluded from this publication decision</h4>
+                <p className="meta">These records remain draft. Approving this package will not verify or publish them.</p>
+                <details open><summary><b>Claims ({excludedClaims.length})</b></summary>
+                  {excludedClaims.length===0?<p className="meta">None excluded.</p>:<ul>{excludedClaims.map(item=><li key={item.id}><code>{item.id}</code> · {item.statement}</li>)}</ul>}
+                </details>
+                <details><summary><b>Relationships ({excludedRelationships.length})</b></summary>
+                  {excludedRelationships.length===0?<p className="meta">None excluded.</p>:<ul>{excludedRelationships.map(item=><li key={item.id}><code>{item.id}</code> · {item.relationshipType} → {item.targetName}</li>)}</ul>}
+                </details>
+                <details><summary><b>Events ({excludedEvents.length})</b></summary>
+                  {excludedEvents.length===0?<p className="meta">None excluded.</p>:<ul>{excludedEvents.map(item=><li key={item.id}><code>{item.id}</code> · {item.title}</li>)}</ul>}
+                </details>
+              </div>
+              <div style={{borderTop:"1px solid #d8d2c7",paddingTop:12,marginTop:12}}>
+                <h4>Package limitations</h4>
+                {limitations.length===0?<p className="meta">No package-specific limitations recorded.</p>:<ul>{limitations.map((item,index)=><li key={index}>{item.replaceAll("_"," ")}</li>)}</ul>}
+              </div>
+              {pkg.status==="draft" ? <>
+                <p><b>Publication effect:</b> only the manifest items shown under “Included” are validated server-side and eligible to become verified and public. Approval records you as the accountable reviewer. Excluded records remain draft.</p>
+                <button type="button" onClick={()=>{if(window.confirm(`Publish review package ${pkg.packageId}? Only the displayed included records will be published. This records you as the accountable reviewer.`)) run({
+                  action:"review_package",caseId:selected.id,packageId:pkg.packageId,
+                  note:`Approved versioned review package ${pkg.packageId} for public release. Verification is limited to the package manifest, linked evidence, documented restrictions, and stated evidence coverage.`,
+                },`Review package ${pkg.packageId} published.`);}}>Review and publish {pkg.version}</button>
+              </> : <p><b>Published:</b> {pkg.publishedAt?new Date(pkg.publishedAt).toLocaleString():"date unavailable"}{pkg.reviewedByEmail?" · "+pkg.reviewedByEmail:""}</p>}
+            </div>;
+          })}
         <form onSubmit={e=>{ e.preventDefault(); const f=new FormData(e.currentTarget); run({
           action:"case_decision",caseId:selected.id,verificationStatus:f.get("verificationStatus"),
           publicStatus:f.get("publicStatus"),note:f.get("note"),

@@ -1,13 +1,12 @@
 -- Neri Oxman 1.0.0 draft-only public-evidence review package.
 -- No publication, verification, scoring, psychological inference, or saturation claim.
 
-INSERT INTO "ObservatoryCase"
-("id","slug","displayName","currentTitle","primaryOrganization","roleBuiltFlag","verificationStatus","publicStatus","createdAt","updatedAt")
-VALUES
-('obs_case_neri_oxman','neri-oxman','Neri Oxman','Founder','OXMAN',false,'unreviewed','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
-ON CONFLICT ("slug") DO UPDATE SET
-"displayName"=EXCLUDED."displayName","currentTitle"=EXCLUDED."currentTitle","primaryOrganization"=EXCLUDED."primaryOrganization",
-"roleBuiltFlag"=false,"verificationStatus"='unreviewed',"publicStatus"='draft',"updatedAt"=CURRENT_TIMESTAMP;
+UPDATE "ObservatoryCase"
+SET "headline"='Designer, architect, researcher and OXMAN founder with institution-bounded creative, scientific and company roles.',
+    "summary"='A role- and holder-bounded account separating MIT, Mediated Matter, Material Ecology, OXMAN, museums, publishers, patent relationships and distributed project labor.',
+    "inclusionRationale"='Tests whether a prominent designer-founder can be represented without conflating research leadership, sole invention, company ownership, institutional IP, project rights, financing, impact or psychology.',
+    "roleBuiltFlag"=false,"verificationStatus"='in_review',"evidenceCoverage"=0.88,"publicStatus"='draft',"updatedAt"=CURRENT_TIMESTAMP
+WHERE "slug"='neri-oxman';
 
 INSERT INTO "ObservatorySource"
 ("id","url","title","publisher","sourceType","publishedAt","accessedAt","primarySource","publicStatus","createdAt")

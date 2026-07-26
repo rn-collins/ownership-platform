@@ -171,7 +171,18 @@ export function ObservatoryStudio() {
           <p><label>Started <input type="datetime-local" name="startedAt"/></label>{" "}<label>Ended <input type="datetime-local" name="endedAt"/></label></p>
           <button type="submit">Create relationship</button>
         </form>
-        <ul>{selected.relationshipsFrom.map(r=><li key={r.id}>{r.relationshipType} → {r.targetName} ({r.targetType}) · {r.verificationStatus}</li>)}</ul>
+        {selected.relationshipsFrom.map(r=><div key={r.id} style={{borderTop:"1px solid #e5e0d6",paddingTop:10,marginTop:10}}>
+          <p>{r.relationshipType} → {r.targetName} ({r.targetType}) · <b>{r.verificationStatus}</b></p>
+          <form onSubmit={e=>{e.preventDefault();const f=new FormData(e.currentTarget);run({
+            action:"review_entity",entityType:"relationship",entityId:r.id,verificationStatus:f.get("verificationStatus"),
+            publicStatus:f.get("publicStatus"),note:f.get("note"),
+          },"Relationship review saved.");}}>
+            <select name="verificationStatus" defaultValue={r.verificationStatus}><option value="unreviewed">Unreviewed</option><option value="partially_supported">Partially supported</option><option value="verified">Verified</option><option value="disputed">Disputed</option><option value="rejected">Rejected</option></select>{" "}
+            <select name="publicStatus" defaultValue="draft"><option value="draft">Draft</option><option value="public">Public</option><option value="withheld">Withheld</option></select>{" "}
+            <input name="note" required minLength={10} placeholder="Decision rationale"/>{" "}
+            <button type="submit">Review</button>
+          </form>
+        </div>)}
       </section>
 
       <section className="card">
@@ -187,7 +198,18 @@ export function ObservatoryStudio() {
           <p><textarea name="description" rows={2} placeholder="Description" style={{width:"100%"}}/></p>
           <button type="submit">Create event</button>
         </form>
-        <ul>{selected.events.map(r=><li key={r.id}>{r.title} · {r.occurredAt?new Date(r.occurredAt).toLocaleDateString():"date unknown"} · {r.verificationStatus}</li>)}</ul>
+        {selected.events.map(r=><div key={r.id} style={{borderTop:"1px solid #e5e0d6",paddingTop:10,marginTop:10}}>
+          <p>{r.title} · {r.occurredAt?new Date(r.occurredAt).toLocaleDateString():"date unknown"} · <b>{r.verificationStatus}</b></p>
+          <form onSubmit={e=>{e.preventDefault();const f=new FormData(e.currentTarget);run({
+            action:"review_entity",entityType:"event",entityId:r.id,verificationStatus:f.get("verificationStatus"),
+            publicStatus:f.get("publicStatus"),note:f.get("note"),
+          },"Event review saved.");}}>
+            <select name="verificationStatus" defaultValue={r.verificationStatus}><option value="unreviewed">Unreviewed</option><option value="partially_supported">Partially supported</option><option value="verified">Verified</option><option value="disputed">Disputed</option><option value="rejected">Rejected</option></select>{" "}
+            <select name="publicStatus" defaultValue="draft"><option value="draft">Draft</option><option value="public">Public</option><option value="withheld">Withheld</option></select>{" "}
+            <input name="note" required minLength={10} placeholder="Decision rationale"/>{" "}
+            <button type="submit">Review</button>
+          </form>
+        </div>)}
       </section>
 
       <section className="card">
@@ -206,7 +228,18 @@ export function ObservatoryStudio() {
           </p>
           <button type="submit">Create observation</button>
         </form>
-        <ul>{selected.observations.map(o=><li key={o.id}>{o.constructId}: {o.valueNumeric??o.valueCategory??"missing"} · {o.measurementMethod} · {o.verificationStatus}</li>)}</ul>
+        {selected.observations.map(o=><div key={o.id} style={{borderTop:"1px solid #e5e0d6",paddingTop:10,marginTop:10}}>
+          <p>{o.constructId}: {o.valueNumeric??o.valueCategory??"missing"} · {o.measurementMethod} · <b>{o.verificationStatus}</b></p>
+          <form onSubmit={e=>{e.preventDefault();const f=new FormData(e.currentTarget);run({
+            action:"review_entity",entityType:"construct_observation",entityId:o.id,verificationStatus:f.get("verificationStatus"),
+            publicStatus:f.get("publicStatus"),note:f.get("note"),
+          },"Observation review saved.");}}>
+            <select name="verificationStatus" defaultValue={o.verificationStatus}><option value="unreviewed">Unreviewed</option><option value="partially_supported">Partially supported</option><option value="verified">Verified</option><option value="disputed">Disputed</option><option value="rejected">Rejected</option></select>{" "}
+            <select name="publicStatus" defaultValue="draft"><option value="draft">Draft</option><option value="public">Public</option><option value="withheld">Withheld</option></select>{" "}
+            <input name="note" required minLength={10} placeholder="Decision rationale"/>{" "}
+            <button type="submit">Review</button>
+          </form>
+        </div>)}
       </section>
 
       <section className="card">

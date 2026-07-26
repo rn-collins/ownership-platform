@@ -411,6 +411,8 @@ model ObservatorySource {
   publicStatus    String   @default("internal")
   createdAt       DateTime @default(now())
   claims          ObservatoryClaimEvidence[]
+  relationships   ObservatoryRelationship[]
+  events          ObservatoryEvent[]
   @@index([sourceType, primarySource])
 }
 
@@ -464,6 +466,10 @@ model ObservatoryRelationship {
   endedAt        DateTime?
   verificationStatus String @default("unreviewed")
   publicStatus   String   @default("draft")
+  source         ObservatorySource? @relation(fields: [sourceId], references: [id])
+  sourceId       String?
+  exactPassage   String?  @db.Text
+  sourceLocator  String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
   @@index([fromCaseId, relationshipType])
@@ -481,6 +487,10 @@ model ObservatoryEvent {
   precision          String   @default("unknown")
   verificationStatus String   @default("unreviewed")
   publicStatus       String   @default("draft")
+  source             ObservatorySource? @relation(fields: [sourceId], references: [id])
+  sourceId           String?
+  exactPassage       String?  @db.Text
+  sourceLocator      String?
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
   @@index([caseId, occurredAt])

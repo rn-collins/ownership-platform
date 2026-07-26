@@ -38,11 +38,21 @@ const relationship = z.object({
   targetType: z.enum(["person","organization","platform","asset","venture","institution"]),
   targetName: z.string().trim().min(1).max(300), relationshipType: z.string().trim().min(1).max(120),
   startedAt: z.string().datetime().optional(), endedAt: z.string().datetime().optional(),
+  sourceUrl: z.string().url().max(2000), sourceTitle: z.string().trim().min(1).max(500),
+  sourcePublisher: z.string().trim().max(300).optional(),
+  sourceType: z.enum(["official_record","company_record","first_person","government","academic","journalism","other"]),
+  sourcePrimary: z.boolean(), sourcePublishedAt: z.string().datetime().optional(),
+  exactPassage: optionalText, sourceLocator: z.string().trim().max(500).optional(),
 });
 const event = z.object({
   action: z.literal("create_event"), caseId: z.string().min(1), eventType: z.string().trim().min(1).max(120),
   title: z.string().trim().min(1).max(500), description: optionalText,
   occurredAt: z.string().datetime().optional(), precision: z.enum(["day","month","year","approximate","unknown"]),
+  sourceUrl: z.string().url().max(2000), sourceTitle: z.string().trim().min(1).max(500),
+  sourcePublisher: z.string().trim().max(300).optional(),
+  sourceType: z.enum(["official_record","company_record","first_person","government","academic","journalism","other"]),
+  sourcePrimary: z.boolean(), sourcePublishedAt: z.string().datetime().optional(),
+  exactPassage: optionalText, sourceLocator: z.string().trim().max(500).optional(),
 });
 const observation = z.object({
   action: z.literal("create_observation"), caseId: z.string().min(1), constructId: z.string().trim().min(1).max(120),
@@ -84,8 +94,8 @@ export async function GET() {
     const cases = await prisma.observatoryCase.findMany({
       include: {
         claims: { include: { evidence: { include: { source: true } } }, orderBy: { createdAt: "desc" } },
-        relationshipsFrom: { orderBy: { createdAt: "desc" } },
-        events: { orderBy: { occurredAt: "desc" } },
+        relationshipsFrom: { include: { source: true }, orderBy: { createdAt: "desc" } },
+        events: { include: { source: true }, orderBy: { occurredAt: "desc" } },
         observations: { orderBy: { createdAt: "desc" } },
         auditEvents: { orderBy: { createdAt: "desc" }, take: 30 },
       },
@@ -155,17 +165,37 @@ export async function POST(req: Request) {
       return NextResponse.json({ok:true,row});
     }
     if (d.action === "create_relationship") {
+      const source=await prisma.observatorySource.upsert({where:{url:d.sourceUrl},update:{
+        title:d.sourceTitle,publisher:d.sourcePublisher||null,sourceType:d.sourceType,
+        publishedAt:d.sourcePublishedAt?new Date(d.sourcePublishedAt):null,accessedAt:new Date(),
+        primarySource:d.sourcePrimary,publicStatus:"public",
+      },create:{
+        url:d.sourceUrl,title:d.sourceTitle,publisher:d.sourcePublisher||null,sourceType:d.sourceType,
+        publishedAt:d.sourcePublishedAt?new Date(d.sourcePublishedAt):null,accessedAt:new Date(),
+        primarySource:d.sourcePrimary,publicStatus:"public",
+      }});
       const row=await prisma.observatoryRelationship.create({data:{
         fromCaseId:d.caseId,targetType:d.targetType,targetName:d.targetName,relationshipType:d.relationshipType,
         startedAt:d.startedAt?new Date(d.startedAt):null,endedAt:d.endedAt?new Date(d.endedAt):null,
+        sourceId:source.id,exactPassage:d.exactPassage||null,sourceLocator:d.sourceLocator||null,
       }});
       await audit(researcher,{caseId:d.caseId,action:"create",entityType:"relationship",entityId:row.id,afterValue:row});
       return NextResponse.json({ok:true,row});
     }
     if (d.action === "create_event") {
+      const source=await prisma.observatorySource.upsert({where:{url:d.sourceUrl},update:{
+        title:d.sourceTitle,publisher:d.sourcePublisher||null,sourceType:d.sourceType,
+        publishedAt:d.sourcePublishedAt?new Date(d.sourcePublishedAt):null,accessedAt:new Date(),
+        primarySource:d.sourcePrimary,publicStatus:"public",
+      },create:{
+        url:d.sourceUrl,title:d.sourceTitle,publisher:d.sourcePublisher||null,sourceType:d.sourceType,
+        publishedAt:d.sourcePublishedAt?new Date(d.sourcePublishedAt):null,accessedAt:new Date(),
+        primarySource:d.sourcePrimary,publicStatus:"public",
+      }});
       const row=await prisma.observatoryEvent.create({data:{
         caseId:d.caseId,eventType:d.eventType,title:d.title,description:d.description||null,
         occurredAt:d.occurredAt?new Date(d.occurredAt):null,precision:d.precision,
+        sourceId:source.id,exactPassage:d.exactPassage||null,sourceLocator:d.sourceLocator||null,
       }});
       await audit(researcher,{caseId:d.caseId,action:"create",entityType:"event",entityId:row.id,afterValue:row});
       return NextResponse.json({ok:true,row});
@@ -186,14 +216,14 @@ export async function POST(req: Request) {
       if (d.entityType === "relationship") {
         before = await prisma.observatoryRelationship.findUniqueOrThrow({where:{id:d.entityId}});
         caseId = before.fromCaseId;
-        if (d.publicStatus==="public" && !["verified","partially_supported"].includes(d.verificationStatus))
-          return NextResponse.json({error:"public_relationship_requires_support"},{status:422});
+        if (d.publicStatus==="public" && (!["verified","partially_supported"].includes(d.verificationStatus) || !before.sourceId))
+          return NextResponse.json({error:"public_relationship_requires_linked_source"},{status:422});
         row = await prisma.observatoryRelationship.update({where:{id:d.entityId},data:{verificationStatus:d.verificationStatus,publicStatus:d.publicStatus}});
       } else if (d.entityType === "event") {
         before = await prisma.observatoryEvent.findUniqueOrThrow({where:{id:d.entityId}});
         caseId = before.caseId;
-        if (d.publicStatus==="public" && !["verified","partially_supported"].includes(d.verificationStatus))
-          return NextResponse.json({error:"public_event_requires_support"},{status:422});
+        if (d.publicStatus==="public" && (!["verified","partially_supported"].includes(d.verificationStatus) || !before.sourceId))
+          return NextResponse.json({error:"public_event_requires_linked_source"},{status:422});
         row = await prisma.observatoryEvent.update({where:{id:d.entityId},data:{verificationStatus:d.verificationStatus,publicStatus:d.publicStatus}});
       } else {
         before = await prisma.observatoryConstructObservation.findUniqueOrThrow({where:{id:d.entityId}});

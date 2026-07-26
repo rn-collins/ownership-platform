@@ -20,12 +20,22 @@ export function generateStaticParams() {
   return SEED.map((n) => ({ slug: nodeSlug(n.name) }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const n = findNodeBySlug(params.slug);
-  if (!n) return { title: "Profile — The Observatory" };
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  let name = findNodeBySlug(params.slug)?.name;
+  if (!name && prisma) {
+    try {
+      const record = await prisma.observatoryCase.findUnique({
+        where:{slug:params.slug}, select:{displayName:true,publicStatus:true},
+      });
+      if (record?.publicStatus === "public") name = record.displayName;
+    } catch {
+      // Metadata falls back safely when the evidence store is unavailable.
+    }
+  }
+  if (!name) return { title: "Profile — The Observatory" };
   return {
-    title: `${n.name} — The Observatory | Institutions of One`,
-    description: `${n.name}: an evidence-aware case record in the Institutions of One Observatory.`,
+    title: `${name} — The Observatory | Institutions of One`,
+    description: `${name}: an evidence-aware case record in the Institutions of One Observatory.`,
   };
 }
 

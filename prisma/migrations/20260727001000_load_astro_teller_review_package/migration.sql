@@ -1,0 +1,93 @@
+-- Astro Teller public-evidence review package 1.0.0.
+-- Draft only. Does not publish, verify, score, infer psychology, attribute collective labor, or mark saturation complete.
+
+UPDATE "ObservatoryCase"
+SET "headline"='Moonshot-factory leader operating inside Alphabet, Google LLC and project-specific institutional systems.',
+    "summary"='A role-, entity-, project-, rights- and time-bounded account separating X leadership, project teams, graduates, closures, earlier companies and media work.',
+    "inclusionRationale"='Tests the unusual Captain of Moonshots title without converting title novelty into personal role construction, ownership, sole invention, causal performance or psychology.',
+    "roleBuiltFlag"=false,"verificationStatus"='in_review',"evidenceCoverage"=0.88,"publicStatus"='draft',"updatedAt"=CURRENT_TIMESTAMP
+WHERE "slug"='astro-teller';
+
+INSERT INTO "ObservatorySource"
+("id","url","title","publisher","sourceType","publishedAt","accessedAt","primarySource","publicStatus","createdAt")
+VALUES
+('obs_src_ast10_bio','https://x.company/astro-teller/','Astro Teller','X','official_biography',NULL,'2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_ast10_factory','https://x.company/factory/','The Factory','X','operating_model',NULL,'2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_ast10_press','https://x.company/press/','X Press','X','institutional_press_index',NULL,'2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_ast10_flight','https://x.company/blog/posts/drawing-up-a-flight-plan-for-moonshots/','Drawing Up a Flight Plan for Moonshots','X','authored_institutional_post','2016-09-08T00:00:00Z','2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_ast10_fail','https://x.company/blog/posts/ted-celebrating-failure/','The Unexpected Benefit of Celebrating Failure','X','institutional_post','2016-05-09T00:00:00Z','2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_ast10_pod','https://x.company/moonshotpodcast/','The Moonshot Podcast','X','media_page',NULL,'2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_ast10_skip','https://x.company/projects/skip/','Skip','X','project_record',NULL,'2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_ast10_10k','https://www.sec.gov/Archives/edgar/data/1652044/000130817926000344/goog014907-ars.pdf','Alphabet 2025 Annual Report','Alphabet','annual_report','2026-02-04T00:00:00Z','2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_ast10_hertz','https://www.hertzfoundation.org/people/astro-teller/','Astro Teller','Hertz Foundation','fellow_biography',NULL,'2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_ast10_stan','https://stvp.stanford.edu/people/astro-teller','Astro Teller','Stanford Technology Ventures Program','institutional_biography',NULL,'2026-07-26T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_ast10_reut','https://www.reuters.com/technology/alphabets-moonshot-lab-cuts-jobs-seeks-outside-investors-bloomberg-news-2024-01-22/','Alphabet moonshot lab cuts jobs and seeks outside investors','Reuters','restructuring_reporting','2024-01-22T00:00:00Z','2026-07-26T00:00:00Z',false,'public',CURRENT_TIMESTAMP)
+ON CONFLICT ("url") DO UPDATE SET "title"=EXCLUDED."title","publisher"=EXCLUDED."publisher","sourceType"=EXCLUDED."sourceType","publishedAt"=EXCLUDED."publishedAt","accessedAt"=EXCLUDED."accessedAt","primarySource"=EXCLUDED."primarySource","publicStatus"='public';
+
+INSERT INTO "ObservatoryClaim"
+("id","caseId","claimType","statement","constructId","epistemicStatus","verificationStatus","confidence","permissibleLanguage","contradictionNote","publicStatus","createdAt","updatedAt")
+VALUES
+('obs_claim_ast10_c01',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'formal_role','X identifies Teller as Captain of Moonshots and says he steers X projects.','formal_role','primary_record','unreviewed',NULL,'Captain of Moonshots at X.','No worldwide-first CEO-equivalence or title-authorship claim.','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_claim_ast10_c02',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'entity_boundary','X identifies itself as Alphabet moonshot factory and a division of Google LLC.','entity_boundary','primary_record','unreviewed',NULL,'Leads within an Alphabet and Google institutional structure.','No personal ownership of X Alphabet assets or projects.','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_claim_ast10_c03',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'distributed_labor','X describes teams of inventors engineers designers and makers using shared labs and partners.','distributed_creation','primary_record','unreviewed',NULL,'Leads a multidisciplinary moonshot factory.','No lone-inventor or complete-labor attribution.','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_claim_ast10_c04',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'portfolio_process','X investigates hundreds of ideas and advances only a small subset through testing and de-risking.','formal_process','primary_record','unreviewed',NULL,'Oversees a portfolio-selection process.','No proof Teller personally selected invented or terminated each project.','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_claim_ast10_c05',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'graduation_boundary','Graduated projects become company-specific systems with separate teams governance capital and rights.','entity_boundary','primary_record','unreviewed',NULL,'Led the institutional factory from which projects graduated.','No ownership sole creation or sole causal credit.','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_claim_ast10_c06',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'mixed_outcomes','The public record includes discontinued projects as well as graduates.','adverse_evidence','primary_and_reported','unreviewed',NULL,'Led X during project closures as well as graduations.','No personal-failure waste motive or success-only inference.','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_claim_ast10_c07',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'economic_boundary','Alphabet Other Bets reporting consolidates multiple businesses and does not isolate X or Teller.','economic_attribution','primary_record','unreviewed',NULL,'X operates within Alphabet broader Other Bets structure.','No X-only or Teller-only revenue loss valuation or wealth inference.','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_claim_ast10_c08',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'management_proposition','Teller publicly advocates rapid testing and celebrating useful failure.','stated_method','attributed_statement','unreviewed',NULL,'Articulates a management philosophy centered on learning.','No validated causal effect or psychological inference.','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_claim_ast10_c09',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'historic_roles','Institutional biographies document earlier co-founding and executive roles in several companies.','time_bounded_authority','institutional_record','unreviewed',NULL,'Previously co-founded and led multiple companies.','No complete ownership continuous control or current authority.','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_claim_ast10_c10',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'claim_restriction','No reviewed record establishes title authorship complete authority compensation ownership project IP transaction economics isolated performance or psychology.','claim_restriction','observed','unreviewed',NULL,'Those domains remain unverified.','Absence of public evidence is not evidence of absence.','draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+ON CONFLICT ("id") DO NOTHING;
+
+INSERT INTO "ObservatoryClaimEvidence"
+("id","claimId","sourceId","supportType","exactPassage","locator","analystNote","createdAt")
+VALUES
+('obs_ev_ast10_c01','obs_claim_ast10_c01',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/astro-teller/' LIMIT 1),'supports',NULL,'Official biography','Current title and broad remit.',CURRENT_TIMESTAMP),
+('obs_ev_ast10_c02','obs_claim_ast10_c02',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/factory/' LIMIT 1),'supports',NULL,'Institutional footer and factory description','Entity boundary.',CURRENT_TIMESTAMP),
+('obs_ev_ast10_c03','obs_claim_ast10_c03',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/factory/' LIMIT 1),'supports',NULL,'Teams and labs','Distributed labor.',CURRENT_TIMESTAMP),
+('obs_ev_ast10_c04','obs_claim_ast10_c04',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/factory/' LIMIT 1),'supports',NULL,'Journey of a Moonshot','Portfolio process.',CURRENT_TIMESTAMP),
+('obs_ev_ast10_c05','obs_claim_ast10_c05',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/press/' LIMIT 1),'supports',NULL,'Graduates','Separate company systems.',CURRENT_TIMESTAMP),
+('obs_ev_ast10_c06','obs_claim_ast10_c06',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/press/' LIMIT 1),'supports',NULL,'Project chronology','Mixed outcomes.',CURRENT_TIMESTAMP),
+('obs_ev_ast10_c07','obs_claim_ast10_c07',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.sec.gov/Archives/edgar/data/1652044/000130817926000344/goog014907-ars.pdf' LIMIT 1),'supports',NULL,'Other Bets segment','Consolidated results.',CURRENT_TIMESTAMP),
+('obs_ev_ast10_c08','obs_claim_ast10_c08',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/blog/posts/ted-celebrating-failure/' LIMIT 1),'supports',NULL,'Institutional post','Attributed proposition.',CURRENT_TIMESTAMP),
+('obs_ev_ast10_c09','obs_claim_ast10_c09',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.hertzfoundation.org/people/astro-teller/' LIMIT 1),'supports',NULL,'Career biography','Historic roles.',CURRENT_TIMESTAMP)
+ON CONFLICT ("claimId","sourceId","supportType") DO NOTHING;
+
+INSERT INTO "ObservatoryRelationship"
+("id","fromCaseId","targetType","targetName","relationshipType","startedAt","endedAt","verificationStatus","publicStatus","sourceId","exactPassage","sourceLocator","createdAt","updatedAt")
+VALUES
+('obs_rel_ast10_x',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'organization','X Google LLC and Alphabet','captain_of_moonshots_and_institutional_leader','2010-01-01T00:00:00Z',NULL,'unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/astro-teller/' LIMIT 1),NULL,'Exact appointment and title chronology unresolved',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_rel_ast10_teams',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'institutional_network','X project teams','portfolio_steering_relationship',NULL,NULL,'unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/factory/' LIMIT 1),NULL,'Project leads staff labs and partners preserved',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_rel_ast10_grads',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'company_network','Graduated companies','former_factory_relationship',NULL,NULL,'unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/press/' LIMIT 1),NULL,'Separate entities governance capital IP and outcomes',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_rel_ast10_closed',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'project_network','Discontinued X projects','leadership_during_project_endpoints',NULL,NULL,'unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/press/' LIMIT 1),NULL,'Decision records and causal allocation unresolved',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_rel_ast10_body',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'company','BodyMedia','former_cofounder_and_executive','1999-01-01T00:00:00Z','2007-12-31T00:00:00Z','unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.hertzfoundation.org/people/astro-teller/' LIMIT 1),NULL,'Cofounders board investors ownership and proceeds unresolved',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_rel_ast10_cere',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'company','Cerebellum Capital','former_cofounder_and_executive','2007-01-01T00:00:00Z','2010-12-31T00:00:00Z','unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://stvp.stanford.edu/people/astro-teller' LIMIT 1),NULL,'Fund ownership economics and present status unresolved',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_rel_ast10_media',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'media_network','Books talks and Moonshot Podcast','author_speaker_and_host',NULL,NULL,'unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/moonshotpodcast/' LIMIT 1),NULL,'Coauthors publishers producers platforms and rights preserved',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+ON CONFLICT ("id") DO NOTHING;
+
+INSERT INTO "ObservatoryEvent"
+("id","caseId","eventType","title","description","occurredAt","precision","verificationStatus","publicStatus","sourceId","exactPassage","sourceLocator","createdAt","updatedAt")
+VALUES
+('obs_event_ast10_1999',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'company_role','BodyMedia founding executive period begins','Institutional biographies date the period from 1999.','1999-01-01T00:00:00Z','year','unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.hertzfoundation.org/people/astro-teller/' LIMIT 1),NULL,'Company-specific historic role',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_event_ast10_2007',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'company_role','Cerebellum Capital founding executive period begins','Institutional biographies date the transition from 2007.','2007-01-01T00:00:00Z','year','unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://stvp.stanford.edu/people/astro-teller' LIMIT 1),NULL,'Ownership and economics unresolved',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_event_ast10_2010',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'appointment','Google X leadership begins approximately','Public biographies place Teller at Google X from approximately 2010.','2010-01-01T00:00:00Z','year','unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/astro-teller/' LIMIT 1),NULL,'Appointment instrument and initial title unavailable',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_event_ast10_2016',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'public_statement','Failure-management talk published','X published Teller management proposition.','2016-05-09T00:00:00Z','day','unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/blog/posts/ted-celebrating-failure/' LIMIT 1),NULL,'Not validated causal result',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_event_ast10_2021',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'project_endpoint','Loon winding-down period','X chronology records Loon final-flight material.','2021-01-01T00:00:00Z','month','unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://x.company/press/' LIMIT 1),NULL,'No personal-failure inference',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_event_ast10_2024',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'restructuring','Reported X layoffs and outside-capital strategy','Reporting described institutional restructuring.','2024-01-22T00:00:00Z','day','unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.reuters.com/technology/alphabets-moonshot-lab-cuts-jobs-seeks-outside-investors-bloomberg-news-2024-01-22/' LIMIT 1),NULL,'Motive and individual decisions unresolved',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+ON CONFLICT ("id") DO NOTHING;
+
+INSERT INTO "ObservatoryReviewPackage"
+("id","packageId","caseId","version","dossierPath","contentHash","manifest","evidenceCoverage","status","createdAt","updatedAt")
+VALUES
+('obs_package_astro_teller_100','astro-teller-1.0.0',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'1.0.0','research/observatory/dossiers/astro-teller-1.0.0.md','6d34835c0c6fd7afe5576fa2f68b19a72eaa8332',
+'{"claimIds":["obs_claim_ast10_c01","obs_claim_ast10_c02","obs_claim_ast10_c03","obs_claim_ast10_c04","obs_claim_ast10_c05","obs_claim_ast10_c06","obs_claim_ast10_c07","obs_claim_ast10_c08","obs_claim_ast10_c09","obs_claim_ast10_c10"],"relationshipIds":["obs_rel_ast10_x","obs_rel_ast10_teams","obs_rel_ast10_grads","obs_rel_ast10_closed","obs_rel_ast10_body","obs_rel_ast10_cere","obs_rel_ast10_media"],"eventIds":["obs_event_ast10_1999","obs_event_ast10_2007","obs_event_ast10_2010","obs_event_ast10_2016","obs_event_ast10_2021","obs_event_ast10_2024"],"observationIds":[],"limitations":["saturation_open","role_built_flag_false","title_authorship_unverified","legal_office_equivalence_unverified","distributed_institutional_labor","graduate_ownership_unverified","consolidated_other_bets_not_x_only","mixed_project_outcomes","ip_contracts_and_economics_unverified","causality_unmeasured","psychological_attributes_unmeasured","scoring_prohibited"]}'::jsonb,
+0.88,'draft',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+ON CONFLICT ("packageId") DO NOTHING;
+
+INSERT INTO "ObservatoryAuditEvent"
+("id","caseId","actorUserId","actorEmail","action","entityType","entityId","afterValue","note","createdAt")
+VALUES
+('obs_audit_astro_teller_100',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='astro-teller' LIMIT 1),'system:versioned-import','system@institutions-of-one.local','import_review_package','review_package','obs_package_astro_teller_100',
+'{"packageId":"astro-teller-1.0.0","claimsLoaded":10,"relationshipsLoaded":7,"eventsLoaded":6,"publication":"draft","saturation":"open","roleBuiltFlag":false}'::jsonb,
+'Public-evidence package imported as draft. Title origin, entity boundaries, distributed labor, mixed outcomes, ownership, consolidated finances, IP, contracts, causality, psychology and saturation restrictions remain active.',CURRENT_TIMESTAMP)
+ON CONFLICT ("id") DO NOTHING;

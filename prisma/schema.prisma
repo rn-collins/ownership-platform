@@ -12,62 +12,53 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// ---- Methodology as versioned data ----
 model MethodologyVersion {
   id          String   @id @default(cuid())
-  version     String   @unique          // e.g. "0.2.0"
+  version     String   @unique
   publishedAt DateTime @default(now())
   aggregation String   @default("additive")
-  weights     Json                        // { audience: 1, rights: 1, ... }
+  weights     Json
   notes       String?
   scores      ScoreEvent[]
 }
 
-// ---- Identity & tenancy ----
 model Creator {
   id            String   @id @default(cuid())
-  authUserId    String?  @unique          // Supabase auth user id, when signed in
+  authUserId    String?  @unique
   createdAt     DateTime @default(now())
   displayName   String?
   region        String?
-  archetype     String?                   // segment for weighting (v2)
+  archetype     String?
   primaryPlatform String?
   followerBand  String?
   consents      Consent[]
   facts         Fact[]
   assessments   Assessment[]
   scores        ScoreEvent[]
-
-  // ---- OWNED: the creator's own page. Land they own, not rent. ----
-  slug          String?  @unique          // rncollins.com/u/<slug>
+  slug          String?  @unique
   ownedHeadline String?
   ownedBio      String?
-  customDomain  String?  @unique          // their own domain, when connected
-  emailCapture  Boolean  @default(false)  // owned-audience capture enabled
+  customDomain  String?  @unique
+  emailCapture  Boolean  @default(false)
   ownedPublished Boolean @default(false)
   ownedUpdatedAt DateTime?
   ownedLinks    OwnedLink[]
   posts         Post[]
 }
 
-// A single link/block on a creator's OWNED page. Ordered, typed so the fusion
-// engine can tell an owned-audience destination (newsletter, membership) from a
-// rented one (a social profile) when it writes evidence into the graph.
 model OwnedLink {
   id        String   @id @default(cuid())
   creator   Creator  @relation(fields: [creatorId], references: [id])
   creatorId String
   label     String
   url       String
-  kind      String   @default("link")   // link | newsletter | membership | shop | social
-  owned     Boolean  @default(false)     // true = destination the creator owns
+  kind      String   @default("link")
+  owned     Boolean  @default(false)
   position  Int      @default(0)
   createdAt DateTime @default(now())
   @@index([creatorId, position])
 }
 
-// A subscriber the creator owns directly — the whole point of OWNED. This is the
-// relationship no platform can revoke. Grows the creator's owned-audience evidence.
 model Subscriber {
   id        String   @id @default(cuid())
   creatorId String
@@ -78,100 +69,86 @@ model Subscriber {
   @@index([creatorId])
 }
 
-// OWNED v2.2 — the content home. Posts a creator publishes on land they own:
-// their words, their URL, their RSS. The antithesis of a rented feed.
 model Post {
   id          String    @id @default(cuid())
   creator     Creator   @relation(fields: [creatorId], references: [id])
   creatorId   String
   slug        String
   title       String
-  body        String    @db.Text     // markdown
+  body        String    @db.Text
   excerpt     String?
   published   Boolean   @default(false)
   publishedAt DateTime?
-  broadcastAt DateTime?               // when this post was emailed to subscribers
-  broadcastCount Int    @default(0)   // how many subscribers it reached
+  broadcastAt DateTime?
+  broadcastCount Int    @default(0)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   @@unique([creatorId, slug])
   @@index([creatorId, published, publishedAt])
 }
 
-// ---- THE OBSERVATORY (Portfolio Professional franchise) ----
-// A nomination: "someone whose job didn't exist until them." The audience builds
-// the map and the guest pipeline. Personal data minimal and consent-light.
 model Nomination {
   id             String   @id @default(cuid())
   nomineeName    String
   nomineeOrg     String?
-  nomineeRole    String?                        // the role built around them
+  nomineeRole    String?
   why            String   @db.Text
   nominatorEmail String?
   source         String   @default("web")
-  status         String   @default("new")       // new | reviewing | invited | featured | declined
+  status         String   @default("new")
   createdAt      DateTime @default(now())
   @@index([status, createdAt])
 }
 
-// The research audience — anyone who opts in to join The Observatory's research
-// and updates (from an index result, the map, or the site). Distinct from
-// Subscriber (a creator's OWNED audience). Consent-first: a row exists only on an
-// explicit opt-in, and the consent text is versioned for the record.
 model ResearchSubscriber {
   id             String   @id @default(cuid())
   email          String   @unique
   name           String?
-  handle         String?                        // social handle, optional
-  source         String   @default("site")      // index_creator | index_pro | observatory | site
-  interest       String?                         // creator | professional | both | newsletter
+  handle         String?
+  source         String   @default("site")
+  interest       String?
   consent        Boolean  @default(false)
   consentVersion String   @default("2026-07")
   createdAt      DateTime @default(now())
   updatedAt      DateTime @default(now()) @updatedAt
-  unsubscribedAt DateTime?                        // set on unsubscribe; row + consent record kept
+  unsubscribedAt DateTime?
   @@index([source, createdAt])
 }
 
-// A partnership inquiry from the Partner page. Minimal, consent-light business
-// contact data (not research data). Guarded route; triaged like a nomination.
 model PartnerInquiry {
   id           String   @id @default(cuid())
   name         String
   email        String
   organization String?
-  kind         String   @default("unspecified") // research | data_sponsor | title_sponsor | advertiser | other
+  kind         String   @default("unspecified")
   message      String   @db.Text
-  status       String   @default("new")         // new | reviewing | in_conversation | closed
+  status       String   @default("new")
   createdAt    DateTime @default(now())
   @@index([status, createdAt])
 }
 
-// A guest on the show (an individual-as-institution), optionally linked to a
-// nomination and to their index score. Node on the foresight map.
 model Guest {
   id            String    @id @default(cuid())
   name          String
   org           String?
-  role          String?                         // the role that was built around them
-  roleCreated   Boolean   @default(false)       // true = the job didn't exist until them
-  domain        String?                         // segment for the map
-  indexScore    Int?                            // Portfolio Professional score
+  role          String?
+  roleCreated   Boolean   @default(false)
+  domain        String?
+  indexScore    Int?
   band          String?
   createdAt     DateTime  @default(now())
   episodes      Episode[]
   @@index([domain])
 }
 
-// An episode of the show ("The Job That Didn't Exist").
 model Episode {
   id          String   @id @default(cuid())
   guest       Guest    @relation(fields: [guestId], references: [id])
   guestId     String
   title       String
   youtubeUrl  String?
-  venue       String   @default("stage")        // lyft | stage | office | remote
-  signal      String?  @db.Text                 // the "here's where this is headed" line
+  venue       String   @default("stage")
+  signal      String?  @db.Text
   publishedAt DateTime?
   createdAt   DateTime @default(now())
   @@index([guestId])
@@ -193,51 +170,45 @@ model RosterEntry {
   @@unique([orgId, creatorId])
 }
 
-// ---- Consent ledger (personal data only on explicit, versioned consent) ----
 model Consent {
   id        String   @id @default(cuid())
   creator   Creator  @relation(fields: [creatorId], references: [id])
   creatorId String
-  scope     String                        // e.g. "benchmark", "verification:payments"
+  scope     String
   version   String
   grantedAt DateTime @default(now())
   revokedAt DateTime?
 }
 
-// ---- The fact: heart of the graph. Evidence-tiered, sourced, superseding ----
 model Fact {
   id                 String   @id @default(cuid())
   creator            Creator  @relation(fields: [creatorId], references: [id])
   creatorId          String
-  subject            String                 // e.g. "audience", or an asset id
-  predicate          String                 // e.g. "A1", "owns_copyright"
+  subject            String
+  predicate          String
   value              Float
-  evidenceTier       Float    @default(0.4) // 0.4 self | 0.8 auto | 1.0 audited
-  source             String                 // "self-report" | "connector:stripe" | "audit:reviewer:x"
+  evidenceTier       Float    @default(0.4)
+  source             String
   observedAt         DateTime @default(now())
   methodologyRelevant Boolean @default(true)
-  supersedesId       String?                // history preserved, not overwritten
+  supersedesId       String?
   consentScope       String?
   @@index([creatorId, predicate])
 }
 
-// ---- Assessment + immutable, reproducible score events ----
 model Assessment {
   id             String   @id @default(cuid())
   creator        Creator? @relation(fields: [creatorId], references: [id])
   creatorId      String?
   createdAt      DateTime @default(now())
-  // Which instrument produced this row. Disambiguates shared item IDs (e.g. "A1"
-  // means different things in the Ownership vs Portfolio Professional item banks)
-  // now that both instruments persist into this one table.
-  instrument     String   @default("ownership") // ownership | portfolio_professional
-  source         String   @default("self")   // self | verified
-  responses      Json                          // scored items { A1: 3, ... }
-  research       Json?                         // research battery { P1: "...", G4: 3, ... }
-  methodologyVersion String?                   // scored-instrument version, e.g. "0.2.0"
-  researchVersion String?                      // research module version, e.g. "0.2.0"
-  anonymous      Boolean  @default(true)       // no identity when true
-  total          Int?                          // computed score snapshot (for signed-in saves)
+  instrument     String   @default("ownership")
+  source         String   @default("self")
+  responses      Json
+  research       Json?
+  methodologyVersion String?
+  researchVersion String?
+  anonymous      Boolean  @default(true)
+  total          Int?
   overallBand    String?
   confidence     Float?
   scores         ScoreEvent[]
@@ -254,8 +225,142 @@ model ScoreEvent {
   methodologyVersionId String
   total                Int
   overallBand          String
-  dimensionScores      Json                 // { audience: 14, ... }
+  dimensionScores      Json
   confidence           Float
   computedAt           DateTime @default(now())
   @@index([creatorId, computedAt])
+}
+
+// ---- Candidate instrument validation operations ----
+// Contact details are kept on the participant record; public reporting uses studyCode.
+// No candidate scores or assessment results are stored in this subsystem.
+model ResearchParticipant {
+  id                 String   @id @default(cuid())
+  studyCode          String   @unique
+  email              String   @unique
+  name               String?
+  ageEligible        Boolean
+  remoteEligible     Boolean
+  relevantExperience Boolean
+  instrumentInterest String
+  profile            Json
+  accessNeeds        String?  @db.Text
+  availability       Json
+  consentVersion     String
+  consentedAt        DateTime
+  quotationConsent   Boolean  @default(false)
+  recordingConsent   Boolean  @default(false)
+  contactConsent     Boolean
+  withdrawalTokenHash String  @unique
+  status             String   @default("screened")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  withdrawnAt        DateTime?
+  sessions           CognitiveInterviewSession[]
+  @@index([status, createdAt])
+}
+
+model CognitiveInterviewSession {
+  id                String   @id @default(cuid())
+  participant       ResearchParticipant @relation(fields: [participantId], references: [id])
+  participantId     String
+  instrument        String
+  candidateVersion  String
+  round             Int
+  status            String   @default("requested")
+  scheduledStart    DateTime?
+  scheduledEnd      DateTime?
+  timezone          String?
+  meetingLocation   String?
+  researcherUserId  String?
+  researcherEmail   String?
+  consentReconfirmedAt DateTime?
+  recordingUsed     Boolean  @default(false)
+  notes             String?  @db.Text
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  codes              ResponseProcessCode[]
+  @@index([instrument, round, status])
+  @@index([participantId, createdAt])
+}
+
+model ResponseProcessCode {
+  id          String   @id @default(cuid())
+  session     CognitiveInterviewSession @relation(fields: [sessionId], references: [id])
+  sessionId   String
+  itemId      String
+  domain      String
+  severity    String
+  evidence    String   @db.Text
+  proposedAction String?
+  coderUserId String
+  createdAt   DateTime @default(now())
+  @@index([itemId, domain, severity])
+  @@index([sessionId])
+}
+
+model InstrumentRevision {
+  id               String   @id @default(cuid())
+  instrument       String
+  sourceVersion    String
+  targetVersion    String
+  itemId           String
+  changeType       String
+  beforeValue      Json
+  afterValue       Json
+  rationale        String   @db.Text
+  evidenceCodeIds  Json
+  decisionStatus   String   @default("proposed")
+  proposedBy       String
+  reviewedBy       String?
+  reviewedAt       DateTime?
+  createdAt        DateTime @default(now())
+  @@unique([instrument, targetVersion, itemId])
+  @@index([instrument, sourceVersion, decisionStatus])
+}
+
+model ValidationGateDecision {
+  id             String   @id @default(cuid())
+  instrument     String
+  candidateVersion String
+  gate           String
+  status         String   @default("not_met")
+  evidence       Json
+  decidedBy      String?
+  decidedAt      DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  @@unique([instrument, candidateVersion, gate])
+}
+
+model PilotProtocolRecord {
+  id                String   @id @default(cuid())
+  instrument        String
+  candidateVersion  String
+  protocolVersion   String
+  preregistrationUrl String?
+  preregisteredAt   DateTime?
+  analysisPlanHash  String
+  samplingPlan      Json
+  missingDataPlan   Json
+  fairnessPlan      Json
+  status            String   @default("draft")
+  approvedBy        String?
+  approvedAt        DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  @@unique([instrument, candidateVersion, protocolVersion])
+}
+
+model InstrumentActivationDecision {
+  id               String   @id @default(cuid())
+  instrument       String
+  candidateVersion String
+  decision         String   @default("blocked")
+  gateSnapshot     Json
+  methodologyRecordUrl String?
+  decidedBy        String?
+  decidedAt        DateTime?
+  createdAt        DateTime @default(now())
+  @@unique([instrument, candidateVersion])
 }

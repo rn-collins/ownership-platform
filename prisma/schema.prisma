@@ -379,6 +379,7 @@ model ObservatoryCase {
   headline           String?
   summary            String?  @db.Text
   inclusionRationale String?  @db.Text
+  roleBuiltFlag      Boolean  @default(false)
   verificationStatus String   @default("provisional")
   evidenceCoverage   Float?
   consentStatus      String   @default("public_evidence")

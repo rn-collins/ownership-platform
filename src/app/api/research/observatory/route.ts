@@ -70,7 +70,15 @@ const caseDecision = z.object({
   verificationStatus: z.enum(["provisional","in_review","verified","disputed","rejected"]),
   publicStatus: z.enum(["draft","public","withheld"]), note: z.string().trim().min(10).max(10000),
 });
-const bodySchema = z.discriminatedUnion("action", [updateCase,createClaim,attachEvidence,reviewClaim,relationship,event,observation,reviewEntity,caseDecision]);
+const reviewPackage = z.object({
+  action: z.literal("review_package"), caseId: z.string().min(1), packageId: z.string().trim().min(1).max(200),
+  claimIds: z.array(z.string().min(1)).min(1).max(100),
+  relationshipIds: z.array(z.string().min(1)).max(100),
+  eventIds: z.array(z.string().min(1)).max(100),
+  evidenceCoverage: z.number().min(0).max(1),
+  note: z.string().trim().min(20).max(10000),
+});
+const bodySchema = z.discriminatedUnion("action", [updateCase,createClaim,attachEvidence,reviewClaim,relationship,event,observation,reviewEntity,caseDecision,reviewPackage]);
 const json = (value: unknown) => JSON.parse(JSON.stringify(value)) as Prisma.InputJsonValue;
 
 async function audit(researcher: { id: string; email: string }, data: {
@@ -234,6 +242,31 @@ export async function POST(req: Request) {
       }
       await audit(researcher,{caseId,action:"review",entityType:d.entityType,entityId:d.entityId,beforeValue:before,afterValue:row,note:d.note});
       return NextResponse.json({ok:true,row});
+    }
+    if (d.action === "review_package") {
+      const before=await prisma.observatoryCase.findUniqueOrThrow({where:{id:d.caseId}});
+      const [claims,relationships,events]=await Promise.all([
+        prisma.observatoryClaim.findMany({where:{caseId:d.caseId,id:{in:d.claimIds}},include:{evidence:true}}),
+        prisma.observatoryRelationship.findMany({where:{fromCaseId:d.caseId,id:{in:d.relationshipIds}}}),
+        prisma.observatoryEvent.findMany({where:{caseId:d.caseId,id:{in:d.eventIds}}}),
+      ]);
+      if (claims.length!==d.claimIds.length || claims.some(row=>row.evidence.length===0))
+        return NextResponse.json({error:"package_claims_require_evidence"},{status:422});
+      if (relationships.length!==d.relationshipIds.length || relationships.some(row=>!row.sourceId))
+        return NextResponse.json({error:"package_relationships_require_sources"},{status:422});
+      if (events.length!==d.eventIds.length || events.some(row=>!row.sourceId))
+        return NextResponse.json({error:"package_events_require_sources"},{status:422});
+      await prisma.$transaction([
+        prisma.observatoryClaim.updateMany({where:{caseId:d.caseId,id:{in:d.claimIds}},data:{verificationStatus:"verified",publicStatus:"public",confidence:0.98,lastReviewedAt:new Date()}}),
+        prisma.observatoryRelationship.updateMany({where:{fromCaseId:d.caseId,id:{in:d.relationshipIds}},data:{verificationStatus:"verified",publicStatus:"public"}}),
+        prisma.observatoryEvent.updateMany({where:{caseId:d.caseId,id:{in:d.eventIds}},data:{verificationStatus:"verified",publicStatus:"public"}}),
+        prisma.observatoryCase.update({where:{id:d.caseId},data:{verificationStatus:"verified",publicStatus:"public",evidenceCoverage:d.evidenceCoverage,lastReviewedAt:new Date()}}),
+      ]);
+      await audit(researcher,{caseId:d.caseId,action:"review_package",entityType:"case",entityId:d.caseId,beforeValue:before,afterValue:{
+        packageId:d.packageId,claimIds:d.claimIds,relationshipIds:d.relationshipIds,eventIds:d.eventIds,
+        verificationStatus:"verified",publicStatus:"public",evidenceCoverage:d.evidenceCoverage,
+      },note:d.note});
+      return NextResponse.json({ok:true,caseId:d.caseId,packageId:d.packageId});
     }
     const before=await prisma.observatoryCase.findUniqueOrThrow({where:{id:d.caseId}});
     if (d.verificationStatus==="verified") {

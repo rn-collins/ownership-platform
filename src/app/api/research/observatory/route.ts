@@ -72,11 +72,14 @@ const caseDecision = z.object({
 });
 const reviewPackage = z.object({
   action: z.literal("review_package"), caseId: z.string().min(1), packageId: z.string().trim().min(1).max(200),
-  claimIds: z.array(z.string().min(1)).min(1).max(100),
-  relationshipIds: z.array(z.string().min(1)).max(100),
-  eventIds: z.array(z.string().min(1)).max(100),
-  evidenceCoverage: z.number().min(0).max(1),
   note: z.string().trim().min(20).max(10000),
+});
+const packageManifest = z.object({
+  claimIds: z.array(z.string().min(1)).min(1).max(100),
+  relationshipIds: z.array(z.string().min(1)).max(100).default([]),
+  eventIds: z.array(z.string().min(1)).max(100).default([]),
+  observationIds: z.array(z.string().min(1)).max(100).default([]),
+  limitations: z.array(z.string()).max(100).default([]),
 });
 const bodySchema = z.discriminatedUnion("action", [updateCase,createClaim,attachEvidence,reviewClaim,relationship,event,observation,reviewEntity,caseDecision,reviewPackage]);
 const json = (value: unknown) => JSON.parse(JSON.stringify(value)) as Prisma.InputJsonValue;
@@ -106,6 +109,7 @@ export async function GET() {
         events: { include: { source: true }, orderBy: { occurredAt: "desc" } },
         observations: { orderBy: { createdAt: "desc" } },
         auditEvents: { orderBy: { createdAt: "desc" }, take: 30 },
+        reviewPackages: { orderBy: { createdAt: "desc" } },
       },
       orderBy: [{ verificationStatus: "asc" }, { displayName: "asc" }],
       take: 500,
@@ -245,6 +249,41 @@ export async function POST(req: Request) {
     }
     if (d.action === "review_package") {
       const before=await prisma.observatoryCase.findUniqueOrThrow({where:{id:d.caseId}});
+      const reviewPackageRow=await prisma.observatoryReviewPackage.findUniqueOrThrow({where:{packageId:d.packageId}});
+      if (reviewPackageRow.caseId!==d.caseId) return NextResponse.json({error:"package_case_mismatch"},{status:422});
+      if (reviewPackageRow.status!=="draft") return NextResponse.json({error:"package_not_draft"},{status:409});
+      const manifestParsed=packageManifest.safeParse(reviewPackageRow.manifest);
+      if (!manifestParsed.success) return NextResponse.json({error:"invalid_package_manifest"},{status:422});
+      const manifest=manifestParsed.data;
+      const [claims,relationships,events]=await Promise.all([
+        prisma.observatoryClaim.findMany({where:{caseId:d.caseId,id:{in:manifest.claimIds}},include:{evidence:true}}),
+        prisma.observatoryRelationship.findMany({where:{fromCaseId:d.caseId,id:{in:manifest.relationshipIds}}}),
+        prisma.observatoryEvent.findMany({where:{caseId:d.caseId,id:{in:manifest.eventIds}}}),
+      ]);
+      if (claims.length!==manifest.claimIds.length || claims.some(row=>row.evidence.length===0))
+        return NextResponse.json({error:"package_claims_require_evidence"},{status:422});
+      if (relationships.length!==manifest.relationshipIds.length || relationships.some(row=>!row.sourceId))
+        return NextResponse.json({error:"package_relationships_require_sources"},{status:422});
+      if (events.length!==manifest.eventIds.length || events.some(row=>!row.sourceId))
+        return NextResponse.json({error:"package_events_require_sources"},{status:422});
+      const reviewedAt=new Date();
+      await prisma.$transaction([
+        prisma.observatoryClaim.updateMany({where:{caseId:d.caseId,id:{in:manifest.claimIds}},data:{verificationStatus:"verified",publicStatus:"public",confidence:0.98,lastReviewedAt:reviewedAt}}),
+        prisma.observatoryRelationship.updateMany({where:{fromCaseId:d.caseId,id:{in:manifest.relationshipIds}},data:{verificationStatus:"verified",publicStatus:"public"}}),
+        prisma.observatoryEvent.updateMany({where:{caseId:d.caseId,id:{in:manifest.eventIds}},data:{verificationStatus:"verified",publicStatus:"public"}}),
+        prisma.observatoryCase.update({where:{id:d.caseId},data:{verificationStatus:"verified",publicStatus:"public",evidenceCoverage:reviewPackageRow.evidenceCoverage,lastReviewedAt:reviewedAt}}),
+        prisma.observatoryReviewPackage.update({where:{id:reviewPackageRow.id},data:{
+          status:"published",reviewedByUserId:researcher.id,reviewedByEmail:researcher.email,
+          reviewedAt,publishedAt:reviewedAt,
+        }}),
+      ]);
+      await audit(researcher,{caseId:d.caseId,action:"review_package",entityType:"review_package",entityId:reviewPackageRow.id,beforeValue:reviewPackageRow,afterValue:{
+        packageId:d.packageId,manifest,verificationStatus:"verified",publicStatus:"public",
+        evidenceCoverage:reviewPackageRow.evidenceCoverage,
+      },note:d.note});
+      return NextResponse.json({ok:true,caseId:d.caseId,packageId:d.packageId});
+    }
+    const before=await prisma.observatoryCase.findUniqueOrThrow({where:{id:d.caseId}});
       const [claims,relationships,events]=await Promise.all([
         prisma.observatoryClaim.findMany({where:{caseId:d.caseId,id:{in:d.claimIds}},include:{evidence:true}}),
         prisma.observatoryRelationship.findMany({where:{fromCaseId:d.caseId,id:{in:d.relationshipIds}}}),

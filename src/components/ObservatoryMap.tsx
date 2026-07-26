@@ -159,7 +159,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
             <dd style={{ margin: 0 }}>The person’s primary field, such as Media, Science, or Tech.</dd>
             <dt><strong>Dot position</strong></dt>
             <dd style={{ margin: 0 }}>Dots are placed near their field label and spaced to avoid overlap. Left, right, height, distance, and the overall shape have no measured meaning.</dd>
-            <dt><strong>Gold outline</strong></dt>
+            <dt><strong>White diamond</strong></dt>
             <dd style={{ margin: 0 }}>The case is flagged as an example of an employer or institution creating or materially shaping a role around that person.</dd>
             <dt><strong>Click a dot</strong></dt>
             <dd style={{ margin: 0 }}>See the person, role, field, classification, and link to the documented case profile.</dd>
@@ -215,8 +215,21 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
                 onClick={() => selectNode(n.i)}
                 onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectNode(n.i); } }}
                 style={{ cursor: "pointer", opacity: on ? 1 : 0.13, transition: "opacity .2s", outline: "none" }}>
-                {isSel && <circle cx={x} cy={y} r={r + 6} fill="none" stroke={n.kind === "creator" ? CREATOR : PRO} strokeWidth={1.2} opacity={0.5} />}
-                <circle cx={x} cy={y} r={r} fill={n.kind === "creator" ? CREATOR : PRO} stroke={n.created ? "#e6c68a" : "none"} strokeWidth={n.created ? 1.6 : 0} />
+                {isSel && <circle cx={x} cy={y} r={r + 7} fill="none" stroke="#ffffff" strokeWidth={1.4} opacity={0.85} />}
+                {n.created && (
+                  <rect
+                    x={x - r - 4}
+                    y={y - r - 4}
+                    width={(r + 4) * 2}
+                    height={(r + 4) * 2}
+                    rx={2}
+                    fill="none"
+                    stroke="#ffffff"
+                    strokeWidth={1.8}
+                    transform={`rotate(45 ${x} ${y})`}
+                  />
+                )}
+                <circle cx={x} cy={y} r={r} fill={n.kind === "creator" ? CREATOR : PRO} />
               </g>
             );
           })}
@@ -257,7 +270,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]
         <div className="obs-legend" aria-label="Map key">
           <span><i className="dot creator" /> <strong>Teal:</strong> creator case <b>{counts.creators}</b></span>
           <span><i className="dot pro" /> <strong>Gold:</strong> professional case <b>{counts.pros}</b></span>
-          <span><i className="dot pro" style={{ background: "transparent" }} /> <strong>Gold outline:</strong> role built around the person</span>
+          <span><i aria-hidden="true" style={{ display: "inline-block", width: 10, height: 10, border: "1.8px solid #141b2e", transform: "rotate(45deg)", marginRight: 8 }} /> <strong>White diamond on map:</strong> role built around the person</span>
           <span className="obs-legend-hint">{shown.length} of {counts.total} cases shown{q || lens !== "all" || domain !== "all" || builtOnly ? " (filtered)" : ""} · Click a dot for its case · drag to pan · +/− to zoom</span>
         </div>
       )}

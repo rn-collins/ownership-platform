@@ -393,6 +393,7 @@ model ObservatoryCase {
   relationshipsFrom  ObservatoryRelationship[] @relation("ObservatoryRelationshipFrom")
   relationshipsTo    ObservatoryRelationship[] @relation("ObservatoryRelationshipTo")
   observations       ObservatoryConstructObservation[]
+  auditEvents        ObservatoryAuditEvent[]
   @@index([caseType, primaryField])
   @@index([verificationStatus, publicStatus])
 }
@@ -500,4 +501,23 @@ model ObservatoryConstructObservation {
   publicStatus       String   @default("draft")
   createdAt          DateTime @default(now())
   @@index([caseId, constructId, observedAt])
+}
+
+
+model ObservatoryAuditEvent {
+  id              String   @id @default(cuid())
+  case            ObservatoryCase? @relation(fields: [caseId], references: [id])
+  caseId          String?
+  actorUserId     String
+  actorEmail      String
+  action          String
+  entityType      String
+  entityId        String
+  beforeValue     Json?
+  afterValue      Json?
+  note            String?  @db.Text
+  createdAt       DateTime @default(now())
+  @@index([caseId, createdAt])
+  @@index([entityType, entityId, createdAt])
+  @@index([actorEmail, createdAt])
 }

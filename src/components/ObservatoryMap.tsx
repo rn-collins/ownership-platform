@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useMemo, useState, type CSSProperties } from "react";
 import { SEED, OBSERVATORY_DOMAINS as DOMAINS, nodeSlug, type Node } from "@/lib/observatory_seed";
+import { CASE_NARRATIVES } from "@/lib/case_narratives";
+import { getCaseResearch } from "@/lib/case_research";
 import styles from "./ObservatoryExplorer.module.css";
 
 type View = "discover" | "patterns" | "compare" | "composition" | "gaps";
@@ -17,6 +19,32 @@ const VIEW_COPY: Record<View, [string,string]> = {
 };
 const PRIMARY_VIEWS: View[] = ["discover", "patterns", "compare"];
 const CONTEXT_VIEWS: View[] = ["composition", "gaps"];
+
+
+function evidenceComparison(node: Node) {
+  const slug = nodeSlug(node.name);
+  const narrative = CASE_NARRATIVES[slug];
+  const research = getCaseResearch(slug);
+  const unknowns = research?.unknowns ?? narrative?.unresolved ?? [];
+  const controlUnknown = unknowns.find((item) => /own|control|right|equity|govern|decision|data|intellectual property/i.test(item));
+  const continuityUnknown = unknowns.find((item) => /surviv|continu|persist|without|depend|founder|holder|leave|absence/i.test(item));
+
+  return {
+    built: narrative?.structuralTurn ?? research?.chronology.at(-1)?.event ?? "The present record has not yet isolated the principal structure built in this case.",
+    portable: narrative?.careerArc ?? "The present record does not yet establish which capability, evidence, relationships, or authority traveled.",
+    controlled: controlUnknown
+      ? `Not yet established: ${controlUnknown}`
+      : "Public evidence does not establish private contracts, equity, decision rights, audience data, or intellectual-property control.",
+    dependencies: research?.complication[0] ?? "Institutional, platform, capital, team, and distribution dependencies require further review.",
+    continuable: continuityUnknown
+      ? `Durability remains open: ${continuityUnknown}`
+      : "The record does not yet show what would continue through absence, succession, or platform change.",
+    complication: research?.complication[1] ?? research?.complication[0] ?? "No case-level complication has yet been recorded.",
+    unknown: unknowns[0] ?? "The most important unknown has not yet been isolated.",
+    reviewed: research?.reviewed,
+    sourceCount: research?.sources.length ?? narrative?.sources.length ?? 0,
+  };
+}
 
 function tally<T extends string>(items:T[]):Array<[T,number]> {
   const counts = new Map<T,number>();
@@ -84,8 +112,8 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
     {view==="compare"&&<section aria-labelledby="compare-title">
       <div className={styles.intro}><div><p className={styles.kicker}>Case comparator</p><h2 id="compare-title">Difference is where the argument gets interesting.</h2></div><p>Choose two people. This does not score either career; it makes their visible structures and unanswered questions easier to contrast.</p></div>
       <div className={styles.comparePicker}>{[0,1].map((slot)=><label key={slot}>Case {slot+1}<select value={compare[slot]??""} onChange={(event)=>setCompare((current)=>{const next=[...current];next[slot]=event.target.value;return next.filter(Boolean).slice(0,2);})}><option value="">Choose a person</option>{nodes.map((n)=><option value={n.name} key={n.name}>{n.name}</option>)}</select></label>)}</div>
-      {selectedCompare.length===2?<div className={styles.comparison}>{selectedCompare.map((n,index)=><article key={n.name} style={{"--accent":ACCENTS[index]} as CSSProperties}><p className={styles.kicker}>{n.tension}</p><h3>{n.name}</h3><p className={styles.role}>{n.role}</p><p className={styles.caseQuestionLabel}>Question this case helps us investigate</p><blockquote>{n.question}</blockquote><dl><div><dt>Field</dt><dd>{n.domain}</dd></div><div><dt>Central tension</dt><dd>{n.tension}</dd></div><div><dt>Do not assume</dt><dd>Visibility proves ownership, control, portability, or durability.</dd></div></dl><Link href={`/observatory/${nodeSlug(n.name)}`}>Examine the evidence for {n.name} →</Link></article>)}</div>:<div className={styles.empty}>Choose two different cases to begin.</div>}
-      {selectedCompare.length===2&&<div className={styles.compareQuestions}><h3>Questions the contrast creates</h3><ul><li>What can each person carry if the current institution or platform disappears?</li><li>Which relationships, rights, audiences, or systems appear personally controlled—and which remain unknown?</li><li>Does the difference come from field, career stage, organizational form, or the evidence currently available?</li></ul></div>}
+      {selectedCompare.length===2&&selectedCompare[0].name!==selectedCompare[1].name?<div className={styles.comparison}>{selectedCompare.map((n,index)=>{const evidence=evidenceComparison(n);return <article key={n.name} style={{"--accent":ACCENTS[index]} as CSSProperties}><p className={styles.kicker}>{evidence.sourceCount} linked sources{evidence.reviewed?` · reviewed ${evidence.reviewed}`:""}</p><h3>{n.name}</h3><p className={styles.role}>{n.role}</p><p className={styles.caseQuestionLabel}>Question this case helps us investigate</p><blockquote>{n.question}</blockquote><dl><div><dt>What was built</dt><dd>{evidence.built}</dd></div><div><dt>What could travel</dt><dd>{evidence.portable}</dd></div><div><dt>What was controlled</dt><dd>{evidence.controlled}</dd></div><div><dt>What depended on another institution</dt><dd>{evidence.dependencies}</dd></div><div><dt>What could continue</dt><dd>{evidence.continuable}</dd></div><div><dt>Strongest complication</dt><dd>{evidence.complication}</dd></div><div><dt>Most important unknown</dt><dd>{evidence.unknown}</dd></div></dl><Link href={`/observatory/${nodeSlug(n.name)}`}>Open the complete evidence record for {n.name} →</Link></article>})}</div>:<div className={styles.empty}>Choose two different cases to begin.</div>}
+      {selectedCompare.length===2&&selectedCompare[0].name!==selectedCompare[1].name&&<div className={styles.compareQuestions}><h3>Read the contrast carefully</h3><ul><li>Compare documented structures, not fame, field, or title.</li><li>“Not established” means the public evidence cannot support the conclusion yet—not that the asset, right, or capacity does not exist.</li><li>Ask whether the difference comes from career structure or simply from unequal evidence coverage.</li></ul></div>}
     </section>}
 
     {view==="composition"&&<section aria-labelledby="composition-title">

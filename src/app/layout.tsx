@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
 import "./launch-fixes.css";
+import "./design-system.css";
 import { getUser } from "@/lib/supabase/server";
 
 const SITE_URL = "https://ownership-platform.vercel.app";

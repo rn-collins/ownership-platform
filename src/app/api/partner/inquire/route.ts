@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { limit } from "@/lib/ratelimit";
-import { logError } from "@/lib/log";
+import { logError } from "@/lib/log";\nimport { Resend } from "resend";
 
 // A partnership inquiry. Guarded + rate-limited. Stores minimal business contact
 // data (not research data). No-ops cleanly if the DB isn't configured.

@@ -1,68 +1,119 @@
-# The Ownership Platform
+# Institutions of One
 
-The creator ownership scoring platform for **The Portfolio Creator** research programme.
-Build the graph, not the quiz: the Ownership Index score is a reproducible projection of an
-evidenced ownership graph through a versioned methodology.
+Institutions of One is an independent research programme studying how people turn individual
+capability into durable, portable, ownable institutional power.
 
-## What is here (v1)
+This repository is the programme's working research platform. It contains measurement
+instruments, validation operations, an evidence-governed Observatory, longitudinal research
+infrastructure, public research surfaces, and participation and partnership workflows.
 
-- `src/lib/engine.ts` — the pure, typed, unit-tested scoring engine. Single source of truth for the math.
-- `src/lib/instrument.ts` — the 20-item instrument (methodology data).
-- `src/components/Assessment.tsx` + `Radar.tsx` — the interactive self-assessment.
-- `src/app/` — landing, `/assess`, `/methodology`, and `POST /api/assess` (stateless scoring).
-- `prisma/schema.prisma` — the Ownership Graph: facts (evidence-tiered, sourced), consent ledger,
-  immutable score events, orgs/rosters. Not wired into v1 UI; it is the foundation for v1.5+.
-- `CLAUDE.md` — deploy rule and architecture invariants.
+The project is broader than a creator quiz. The Ownership Index is one instrument within the
+programme, and the Portfolio Professional instrument is a related but distinct line of inquiry.
+Neither candidate instrument should be described as validated, normed, or activated until its
+recorded research gates are met.
 
-## Run locally
+## Public functions
+
+The platform is being organized around five public jobs:
+
+1. **Understand the phenomenon** — explain the Institutions of One theory, constructs, limits,
+   and research questions.
+2. **Measure yourself** — provide clearly labeled candidate instruments and useful results
+   without overstating validation.
+3. **Explore the evidence** — publish reviewed Observatory cases, sources, relationships, and
+   longitudinal events.
+4. **Follow the research** — release methods, findings, corrections, briefs, and articles.
+5. **Participate or partner** — support research participation, nominations, institutional
+   partnerships, and responsible commercial inquiries without compromising research independence.
+
+## Core research constructs
+
+The programme must keep these related concepts analytically distinct:
+
+- **Capability** — what a person can reliably do.
+- **Portability** — whether that capability and its evidence travel across employers, platforms,
+  clients, and jurisdictions.
+- **Ownership** — which audiences, rights, assets, data, relationships, and revenue channels the
+  person or their entity controls.
+- **Institutionalization** — the extent to which capability has been converted into repeatable
+  systems, roles, records, governance, and continuity beyond a single act of labor.
+- **Authority** — recognized permission or legitimacy to decide, convene, publish, transact, or
+  set standards.
+- **Durability** — whether the system survives shocks, absence, platform change, or personnel
+  turnover.
+- **Optionality** — the number and quality of viable paths available without dependence on a
+  single gatekeeper.
+- **Distribution** — the ability to reach people and move work, ideas, products, or opportunities.
+- **Capture** — who retains the economic, reputational, informational, and strategic value created.
+- **Leverage and economic power** — the capacity to produce effects disproportionate to direct
+  labor and to negotiate from control rather than dependence.
+
+These definitions are the current theoretical baseline. Instrument mappings and empirical
+relationships remain research questions until supported by the validation programme.
+
+## What is implemented
+
+- A pure, typed Ownership Index scoring engine and versioned item bank.
+- Interactive assessment and stateless assessment API.
+- Evidence tiers, immutable score-event architecture, and versioned methodology records.
+- Candidate-instrument validation operations, including participant records, cognitive interview
+  sessions, response-process coding, revision records, gate decisions, pilot protocols, and
+  activation decisions.
+- An Observatory evidence model separating cases, claims, sources, relationships, events,
+  construct observations, audit history, and reviewer packages.
+- Consent, privacy, nomination, research-subscription, and partner-inquiry infrastructure.
+- Longitudinal and publication-oriented data foundations.
+- Automated tests and production migrations in the deployment build.
+
+## Current status
+
+The infrastructure is substantial, but the research programme is not yet complete.
+
+- Published scoring remains provisional and must not be represented as validated or normed.
+- Candidate-instrument validation and activation gates remain controlling.
+- Observatory dossiers remain draft unless their review and publication states say otherwise.
+- Cross-case findings require a deliberately sampled, sufficiently reviewed cohort.
+- The public theory, methodology, findings, and participation journey still require final
+  integration and end-to-end launch verification.
+- The MrBeast evidence thread is frozen. No additional subject-level research should displace
+  whole-program completion work.
+
+## Current completion sequence
+
+Future work should follow this dependency order:
+
+1. Lock and publish the theoretical architecture and construct boundaries.
+2. Reconcile the Ownership Index and Portfolio Professional instrument purposes, mappings,
+   overlap, evidence requirements, version states, and validation gates.
+3. Align the public information architecture to the five public functions above.
+4. Establish and complete a bounded, representative first Observatory cohort.
+5. Produce the first defensible cross-case findings and research publications.
+6. Verify the complete production journey, including consent, privacy, accessibility, mobile
+   behavior, database operations, corrections, analytics, and deployment state.
+
+This sequence—not the nearest unfinished case dossier—governs future “proceed” instructions.
+
+## Local development
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
-npm test           # engine unit tests (the merge gate)
-npm run build      # production build
+npm run dev
+npm test
+npm run build
 ```
 
-## Deploy (only this way)
+The production build runs database migrations, tests, and the Next.js build.
 
-```bash
-git add .
-git commit -m "..."
-git push origin main
-```
+## Deployment
 
-Vercel’s GitHub integration auto-deploys to production in 60–90s. **Never** use the Vercel CLI
-(`vercel`, `vercel --prod`) — the free tier has a 100-deploy/day limit. First deploy: create the
-GitHub repo, push, then in the Vercel dashboard import the repo (framework auto-detected as Next.js)
-and deploy. Set env vars in the dashboard.
+Production deploys only through commits pushed to `main` and the repository's Vercel
+integration. Do not deploy with the Vercel CLI.
 
-## Backend (Supabase + Upstash + Resend)
+## Optional services
 
-All optional for local dev — with no keys, the app still runs and builds; benchmark writes are
-skipped and rate-limiting is a no-op. Copy `.env.example` → `.env.local` and fill in.
+- **Postgres / Prisma** — research records, evidence, consent, reviews, and immutable events.
+- **Upstash Redis** — public API rate limiting.
+- **Resend** — transactional and research communications.
 
-- **Supabase** — Postgres via Prisma (`DATABASE_URL`, pooled/transaction URL for serverless), plus
-  Auth/Storage keys for later. Once `DATABASE_URL` is set:
-  ```bash
-  npm run db:generate
-  npm run db:migrate -- --name init   # baseline migration → creates the Ownership Graph tables (see MIGRATIONS.md)
-  ```
-- **Upstash Redis** — rate-limits the public API (`/api/assess`, `/api/benchmark`).
-- **Resend** — transactional email + the owned newsletter (OWNED). Verify `rncollins.com` in Resend.
-
-`POST /api/benchmark` writes an **anonymous** assessment record (banded answers + research modules,
-no identity; the IP is used only as an ephemeral rate-limit key and is never stored).
-
-## Security
-
-`next@14.2.5` has an advisory. Bump to the latest patched 14.x before shipping:
-
-```bash
-npm i next@14 && npm run build
-```
-
-## Roadmap
-
-See the programme docs: `BLUEPRINT.md`, `TECHNICAL_SPEC.md`, `EXPANSION_SPEC.md`, `ARCHITECTURE.md`.
-Next: accounts + event log (v1.5), verification subsystem + agency portfolio (v2), connectors +
-standing Index + API (v3), durability model (v4).
+See `.env.example`, `MIGRATIONS.md`, and the source-level architecture rules for configuration
+and operational constraints.

@@ -1,7 +1,7 @@
 import { ObservatoryNominate } from "@/components/ObservatoryNominate";
 import { ObservatoryMap } from "@/components/ObservatoryMap";
 import { prisma } from "@/lib/db";
-import { SEED, type Node } from "@/lib/observatory_seed";
+import { SEED, nodeSlug, type Node } from "@/lib/observatory_seed";
 
 export const metadata = {
   title: "The Observatory — Institutions of One",
@@ -17,15 +17,19 @@ export default async function ObservatoryPage() {
         orderBy: [{ primaryField: "asc" }, { displayName: "asc" }],
       });
       if (records.length > 0) {
-        nodes = records.map((record) => ({
-          name: record.displayName,
-          role: record.headline ?? "Case under review",
-          domain: record.primaryField ?? "Unclassified",
-          kind: record.caseType === "creator" ? "creator" : "professional",
-          created: record.roleBuiltFlag,
-          verificationStatus: record.verificationStatus as Node["verificationStatus"],
-          evidenceCoverage: record.evidenceCoverage,
-        }));
+        const recordsBySlug = new Map(records.map((record) => [record.slug, record]));
+        nodes = SEED.map((seed) => {
+          const record = recordsBySlug.get(nodeSlug(seed.name));
+          if (!record) return seed;
+          return {
+            ...seed,
+            // The reviewed evidence store enriches the canonical 41-case roster.
+            // A partial database must never shrink the public methodology pilot.
+            role: record.verificationStatus === "verified" && record.headline ? record.headline : seed.role,
+            verificationStatus: record.verificationStatus as Node["verificationStatus"],
+            evidenceCoverage: record.evidenceCoverage,
+          };
+        });
       }
     } catch {
       nodes = SEED;

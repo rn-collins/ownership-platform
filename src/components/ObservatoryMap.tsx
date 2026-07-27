@@ -9,12 +9,14 @@ type View = "discover" | "patterns" | "compare" | "composition" | "gaps";
 type Pattern = { tension: string; domain: string } | null;
 const ACCENTS = ["#ff6b55", "#20b8a6", "#f2bd3f", "#8b78d1", "#3d9fc1", "#e36e9a", "#ca9840"];
 const VIEW_COPY: Record<View, [string,string]> = {
-  discover:["Discover","Follow a question into one career."],
-  patterns:["Patterns","See where questions repeat across fields."],
-  compare:["Compare","Put two different arrangements side by side."],
-  composition:["Inside the 41","See who is represented—and who is not."],
-  gaps:["Who is missing?","Find the careers and fields the project still needs."],
+  discover:["Find a case","Start with a question you recognize."],
+  patterns:["Trace a pattern","Follow one tension across different fields."],
+  compare:["Compare cases","See what changes when the structure changes."],
+  composition:["About the collection","Understand what these 41 can—and cannot—show."],
+  gaps:["Shape the next 41","See the missing perspectives and add one."],
 };
+const PRIMARY_VIEWS: View[] = ["discover", "patterns", "compare"];
+const CONTEXT_VIEWS: View[] = ["composition", "gaps"];
 
 function tally<T extends string>(items:T[]):Array<[T,number]> {
   const counts = new Map<T,number>();
@@ -48,9 +50,20 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
   };
 
   return <div className={styles.shell}>
-    <nav className={styles.switcher} aria-label="Ways to explore the 41 cases">
-      {(Object.keys(VIEW_COPY) as View[]).map((key)=><button type="button" key={key} className={view===key?styles.active:""} onClick={()=>setView(key)}><strong>{VIEW_COPY[key][0]}</strong><span>{VIEW_COPY[key][1]}</span></button>)}
-    </nav>
+    <div className={styles.viewChooser}>
+      <div>
+        <p className={styles.switcherLabel}>Use the cases</p>
+        <nav className={styles.switcher} aria-label="Ways to use the 41 cases">
+          {PRIMARY_VIEWS.map((key)=><button type="button" key={key} className={view===key?styles.active:""} aria-pressed={view===key} onClick={()=>setView(key)}><strong>{VIEW_COPY[key][0]}</strong><span>{VIEW_COPY[key][1]}</span></button>)}
+        </nav>
+      </div>
+      <div>
+        <p className={styles.switcherLabel}>Understand and extend the research</p>
+        <nav className={`${styles.switcher} ${styles.contextSwitcher}`} aria-label="About and contribute to the collection">
+          {CONTEXT_VIEWS.map((key)=><button type="button" key={key} className={view===key?styles.active:""} aria-pressed={view===key} onClick={()=>setView(key)}><strong>{VIEW_COPY[key][0]}</strong><span>{VIEW_COPY[key][1]}</span></button>)}
+        </nav>
+      </div>
+    </div>
 
     {view==="discover"&&<section aria-labelledby="discover-title">
       <div className={styles.intro}><div><p className={styles.kicker}>41 careers · no leaderboard</p><h2 id="discover-title">Begin with the question, not the résumé.</h2></div><p>Start with a question that sounds like something you have wondered about your own work. Then meet the person whose career makes that question real.</p></div>

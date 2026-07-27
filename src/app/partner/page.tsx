@@ -1,73 +1,70 @@
 import { PartnerInquiry } from "@/components/PartnerInquiry";
 
 export const metadata = {
-  title: "Partner — Institutions of One",
-  description:
-    "How organizations partner with Institutions of One: a defined value-exchange for research partners, data and title sponsors, and advertisers — with the independence of the research protected in writing.",
+  title: "Participate or partner — Institutions of One",
+  description: "Ways to contribute to or support the Institutions of One research program.",
 };
 
-const TIERS: { name: string; who: string; give: string; get: string }[] = [
+const paths = [
   {
-    name: "Research partner",
-    who: "Events, media companies, and platforms with an audience of creators or professionals (SXSW, POSSIBLE, Digiday, and peers).",
-    give: "Distribution and an official designation — a stage, a co-branded release, the instrument offered to your audience.",
-    get: "A proprietary data cut built for you, the two instruments for your audience, and a co-branded finding with your name on the research. A value-exchange, not a media buy.",
+    name: "Research and distribution partner",
+    who: "Organizations, communities, events, and media platforms that serve creators or professionals.",
+    work: "Invite a relevant audience to participate, host a research conversation, or collaborate on a clearly defined question.",
+    result: "An agreed research output or audience-specific analysis, with methods and limitations stated publicly.",
   },
   {
-    name: "Chapter / data sponsor",
-    who: "Brands and institutions that want to own a section of the flagship report.",
-    give: "Support for one chapter or data cut of the Cannes Lions 2027 report.",
-    get: "Named association with a specific, defensible finding; early access to that cut; a citable artifact you can circulate.",
+    name: "Data or report supporter",
+    who: "Organizations interested in supporting a particular research question, field, or publication.",
+    work: "Fund a defined portion of data collection, analysis, reporting, or public communication.",
+    result: "Transparent acknowledgment and access to the published work. Funding does not confer control over methods or findings.",
   },
   {
-    name: "Title sponsor",
-    who: "One organization that wants top association with the year's flagship research.",
-    give: "Lead support for the report and its launch moment.",
-    get: "Top billing on the report and the Cannes launch, and first association with the category as it forms.",
+    name: "Interview or case participant",
+    who: "Creators, professionals, employers, and experts with relevant experience or evidence.",
+    work: "Contribute an interview, case material, methodological feedback, or contextual expertise.",
+    result: "Participation terms, attribution, confidentiality, and consent are agreed before material is used.",
   },
   {
-    name: "Advertiser / activation",
-    who: "Brands buying attention and a brand-aligned experience (for example, an in-context interview series).",
-    give: "A sponsorship of a defined activation or series.",
-    get: "Reach into an engaged audience and an experience only this program can offer — priced on audience and exclusivity, not on a promise.",
+    name: "Editorial or event collaboration",
+    who: "Publications, conferences, universities, and professional communities.",
+    work: "Develop a briefing, article, panel, workshop, interview series, or research presentation.",
+    result: "A scoped public-facing collaboration tailored to the audience and grounded in the project’s evidence.",
   },
 ];
 
 export default function PartnerPage() {
   return (
     <main>
-      <p className="eyebrow">Institutions of One · Partner</p>
-      <h1>Partner with the research — on terms that protect it.</h1>
+      <p className="eyebrow">Institutions of One · Participate or partner</p>
+      <h1>Help investigate how work, ownership, and authority are changing.</h1>
       <p className="lede">
-        Institutions of One is building the first public measurement of ownership and durability for the
-        individual-as-institution, toward a flagship report at Cannes Lions 2027. Partnership makes that research reach
-        further and land harder. It is defined work with a defined exchange — not &ldquo;partner with us.&rdquo;
+        Institutions of One can work with organizations that have a relevant audience, research question, dataset, case,
+        or public forum. Each collaboration begins with a defined purpose, contribution, output, and disclosure plan.
       </p>
 
-      <div className="card" style={{ borderLeftColor: "var(--gold)", borderLeft: "4px solid var(--gold)" }}>
-        <h3>What money can never touch</h3>
-        <p>Every partnership is disclosed publicly. Sponsors fund the work; they never touch the scores, the items, or the
-        findings. The measurement is independent by design and the methodology is versioned, so anyone can see exactly
-        what produced a result. Independence is the asset — for the research and for you.</p>
+      <div className="card" style={{ borderLeft: "4px solid var(--gold)" }}>
+        <h3>Research independence</h3>
+        <p>
+          Partners may support the work, improve access, or help frame useful questions. They do not determine scores,
+          suppress results, or purchase a preferred conclusion. Material financial support and substantive collaborations
+          are disclosed with the resulting work.
+        </p>
       </div>
 
-      <h2 className="dimhead" style={{ marginTop: 30 }}>Ways to partner</h2>
-      {TIERS.map((t) => (
-        <div key={t.name} className="card">
-          <h3>{t.name}</h3>
-          <p><b>Who it&rsquo;s for.</b> {t.who}</p>
-          <p style={{ marginTop: 6 }}><b>You bring.</b> {t.give}</p>
-          <p style={{ marginTop: 6 }}><b>You receive.</b> {t.get}</p>
+      <h2 className="dimhead" style={{ marginTop: 30 }}>Ways to participate</h2>
+      {paths.map((path) => (
+        <div key={path.name} className="card">
+          <h3>{path.name}</h3>
+          <p><b>For:</b> {path.who}</p>
+          <p style={{ marginTop: 6 }}><b>Possible work:</b> {path.work}</p>
+          <p style={{ marginTop: 6 }}><b>Expected result:</b> {path.result}</p>
         </div>
       ))}
 
-      <p className="disc" style={{ marginTop: 14 }}>
-        Figures are set in conversation, against audience and scope. For a one-page brief you can circulate internally,{" "}
-        <a href="/partner-brief.pdf" className="fwlink" target="_blank" rel="noopener noreferrer">download the partner brief (PDF)</a>.
-      </p>
-
       <h2 className="dimhead" style={{ marginTop: 30 }}>Start a conversation</h2>
-      <p className="rsub" style={{ marginBottom: 14 }}>A sentence or two on the fit you see is enough. Every note is read and answered personally.</p>
+      <p className="rsub" style={{ marginBottom: 14 }}>
+        Share the organization, audience, question, or collaboration you have in mind. A short note is enough to begin.
+      </p>
       <PartnerInquiry />
     </main>
   );

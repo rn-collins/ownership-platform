@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ProfessionalAssessPage() {
   return (
-    <main>
+    <main className="instrument-page professional-page">
       <p className="eyebrow">Institutions of One · Portfolio Professional</p>
       <h1>How far does your expertise travel beyond your current role?</h1>
       <p className="lede">

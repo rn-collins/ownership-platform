@@ -18,7 +18,7 @@ export default function LoginPage() {
   }
 
   return (
-    <main>
+    <main className="login-page">
       <p className="eyebrow">Institutions of One · Sign in</p>
       <h1>Return to your saved results.</h1>
       <p className="lede">Enter the email associated with your account. We will send a secure sign-in link.</p>

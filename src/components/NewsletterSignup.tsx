@@ -34,7 +34,7 @@ export function NewsletterSignup({
       {state === "done" ? (
         <div className="nl-done">
           <span className="nl-check">✓</span>
-          <div><b>Thank you.</b><p>Check your inbox for confirmation.</p></div>
+          <div><b>You’re on the list.</b><p>The next I/1 Field Note will arrive by email.</p></div>
         </div>
       ) : (
         <div className="nl-form">
@@ -44,7 +44,7 @@ export function NewsletterSignup({
           </div>
           <label className="nl-consent">
             <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} />
-            <span>Yes, email me occasional Institutions of One updates. I can unsubscribe at any time.</span>
+            <span>Yes, send me the monthly I/1 Field Note by email through Beehiiv. I can unsubscribe at any time.</span>
           </label>
           {state === "error" && <p className="nl-err">We could not complete the signup. Please try again.</p>}
         </div>

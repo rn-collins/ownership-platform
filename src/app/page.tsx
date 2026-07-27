@@ -13,11 +13,10 @@ export default function Home() {
         <h1 className="hero-h1">The person is becoming the institution.</h1>
         <p className="hero-lede">
           A creator can become a studio. A strategist can become a school of thought. A scientist, designer, lawyer, or
-          operator can build a body of work that travels farther than any title. Institutions of One studies what makes
-          that power portable—and who ultimately owns what it creates.
+          operator can build a body of work that travels farther than any title. Institutions of One studies a practical question: when your job, platform, client, or title changes, what parts of your work still belong to you—and what can keep growing?
         </p>
         <div className="hero-cta">
-          <a className="button-primary" href="/methodology">Enter the idea</a>
+          <a className="button-primary" href="/methodology">See how it works</a>
           <a href="/observatory" className="hero-link">Meet the people →</a>
         </div>
         <p className="hero-note">Creators · cultural operators · polymaths · portfolio professionals · the organizations working with them</p>
@@ -27,14 +26,14 @@ export default function Home() {
         <p className="manifesto-kicker">The old bargain</p>
         <p className="manifesto-line">Institutions held the name, the audience, the infrastructure, and the authority. People supplied the work.</p>
         <p className="manifesto-kicker">The emerging one</p>
-        <p className="manifesto-line accent">The most interesting people are learning to carry those things with them.</p>
+        <p className="manifesto-line accent">More people are building names, audiences, methods, and businesses that can move with them.</p>
       </section>
 
       <section className="editorial-section">
         <div className="section-number">02</div>
         <div className="section-intro">
           <p className="eyebrow">The inquiry</p>
-          <h2 className="display-h2">Not “How influential are you?”<br/>Something harder.</h2>
+          <h2 className="display-h2">Influence is visible.<br/>The structure underneath it is not.</h2>
         </div>
         <div className="question-grid">
           <article><span>01</span><h3>Does your work travel?</h3><p>Can your expertise, reputation, relationships, and opportunities move across jobs, platforms, and industries?</p></article>
@@ -48,7 +47,7 @@ export default function Home() {
         <div className="section-intro">
           <p className="eyebrow">Two lenses, one changing world</p>
           <h2 className="display-h2">What you can carry.<br/>What you can control.</h2>
-          <p className="sec-sub">The pilots examine related questions from opposite sides. Their scores are never combined.</p>
+          <p className="sec-sub">Choose the question that matches your work. One assessment examines what you control; the other examines what you can carry between roles and organizations.</p>
         </div>
         <div className="lensgrid">
           <a className="lenscard creator" href="/assess/creator">
@@ -70,16 +69,16 @@ export default function Home() {
       <section className="editorial-section mapsec">
         <div className="section-number">04</div>
         <div className="sec-head">
-          <div><p className="eyebrow">The Observatory</p><h2 className="display-h2">Study the architecture<br/>behind the person.</h2><p className="sec-sub">Cases across culture, media, science, design, technology, law, and business reveal different ways individual work becomes institutional power.</p></div>
+          <div><p className="eyebrow">The Observatory</p><h2 className="display-h2">Study the architecture<br/>behind the person.</h2><p className="sec-sub">Explore 41 public careers to see what each person built, what still depends on an employer or platform, and what the public record cannot tell us.</p></div>
           <a href="/observatory" className="sec-link">Open the Observatory →</a>
         </div>
-        <ObservatoryMap />
+        <ObservatoryMap embed />
       </section>
 
       <section className="closing-call">
         <p className="eyebrow">The I/1 Edit</p>
         <h2>One original idea about work, power, ownership, and the person becoming the institution.</h2>
-        <p>Every other week, subscribers receive the complete edition by email. Each edition is archived here; LinkedIn and X carry selected excerpts back to I of 1.</p>
+        <p>Every other week, the inbox edition gives you the central argument and strongest case moments. The permanent web edition adds sources, interactive tools, updates, and related cases.</p>
         <NewsletterSignup source="site" />
       </section>
     </main>

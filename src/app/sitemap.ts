@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const publicRoutes = [
     "",
     "/methodology",
+    "/methodology/candidates",
     "/assess",
     "/assess/creator",
     "/assess/professional",

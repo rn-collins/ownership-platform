@@ -518,3 +518,12 @@ function narrativeResearch(slug: string): CaseResearchRecord | undefined {
       "Career outcomes belong partly to teams, employers, partners, platforms, capital providers, and inherited institutional infrastructure; the record does not permit sole-credit attribution.",
       ...narrative.unresolved.slice(0, 1).map((item) => "Open complication: " + item),
     ],
+    unknowns: narrative.unresolved,
+    payoff: narrative.whyItMatters,
+    sources,
+  };
+}
+
+export function getCaseResearch(slug: string) {
+  return CASE_RESEARCH[slug] ?? narrativeResearch(slug);
+}

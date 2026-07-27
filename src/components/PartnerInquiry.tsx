@@ -3,59 +3,39 @@
 import { useState } from "react";
 
 const KINDS = [
-  ["research", "Research partner (value-exchange)"],
-  ["data_sponsor", "Chapter / data sponsor"],
-  ["title_sponsor", "Title sponsor (the report)"],
-  ["advertiser", "Advertiser / activation"],
-  ["other", "Something else"],
+  ["research", "Research or distribution partnership"],
+  ["data_sponsor", "Data or report support"],
+  ["title_sponsor", "Interview or case participation"],
+  ["advertiser", "Editorial or event collaboration"],
+  ["other", "Another idea"],
 ] as const;
 
 export function PartnerInquiry() {
-  const [f, setF] = useState({ name: "", email: "", organization: "", kind: "research", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", organization: "", kind: "research", message: "" });
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
-  function set<K extends keyof typeof f>(k: K, v: string) { setF((s) => ({ ...s, [k]: v })); }
-
-  const valid = f.name.trim() && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email) && f.message.trim() && state !== "sending";
+  function set<K extends keyof typeof form>(key: K, value: string) { setForm((current) => ({ ...current, [key]: value })); }
+  const valid = form.name.trim() && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email) && form.message.trim() && state !== "sending";
 
   async function submit() {
     setState("sending");
-    const res = await fetch("/api/partner/inquire", {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(f),
+    const response = await fetch("/api/partner/inquire", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form),
     }).catch(() => null);
-    setState(res && res.ok ? "done" : "error");
+    setState(response && response.ok ? "done" : "error");
   }
 
-  if (state === "done") {
-    return (
-      <div className="card">
-        <h3>Thank you — this is on my desk.</h3>
-        <p>I read every partnership note myself and reply personally. If it&rsquo;s time-sensitive, mention a date and I&rsquo;ll prioritise it.</p>
-      </div>
-    );
-  }
+  if (state === "done") return <div className="card"><h3>Thank you.</h3><p>Your note has been received. RN Collins will reply directly.</p></div>;
 
   return (
     <div className="ownededit">
-      <label className="fld"><span>Your name</span>
-        <input className="opentext" value={f.name} onChange={(e) => set("name", e.target.value)} placeholder="Who are you?" />
-      </label>
-      <label className="fld"><span>Work email</span>
-        <input className="opentext" value={f.email} onChange={(e) => set("email", e.target.value)} placeholder="you@company.com" />
-      </label>
-      <label className="fld"><span>Organization <em className="fh">(optional)</em></span>
-        <input className="opentext" value={f.organization} onChange={(e) => set("organization", e.target.value)} placeholder="Where?" />
-      </label>
-      <label className="fld"><span>What kind of partnership?</span>
-        <select className="opentext" value={f.kind} onChange={(e) => set("kind", e.target.value)}>
-          {KINDS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
-        </select>
-      </label>
-      <label className="fld"><span>What do you have in mind?</span>
-        <textarea className="opentext" rows={4} value={f.message} onChange={(e) => set("message", e.target.value)} placeholder="A sentence or two on the fit you see." />
-      </label>
+      <label className="fld"><span>Name</span><input className="opentext" value={form.name} onChange={(event) => set("name", event.target.value)} /></label>
+      <label className="fld"><span>Email</span><input className="opentext" value={form.email} onChange={(event) => set("email", event.target.value)} placeholder="you@organization.com" /></label>
+      <label className="fld"><span>Organization <em className="fh">(optional)</em></span><input className="opentext" value={form.organization} onChange={(event) => set("organization", event.target.value)} /></label>
+      <label className="fld"><span>Area of interest</span><select className="opentext" value={form.kind} onChange={(event) => set("kind", event.target.value)}>{KINDS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
+      <label className="fld"><span>What would you like to explore?</span><textarea className="opentext" rows={4} value={form.message} onChange={(event) => set("message", event.target.value)} placeholder="A short description of the question, audience, case, or collaboration." /></label>
       <div className="actions">
-        <button className="primary" disabled={!valid} onClick={submit}>{state === "sending" ? "Sending…" : "Start the conversation"}</button>
-        {state === "error" && <span className="disc" style={{ margin: 0 }}>Something went wrong — try again.</span>}
+        <button className="primary" disabled={!valid} onClick={submit}>{state === "sending" ? "Sending…" : "Send inquiry"}</button>
+        {state === "error" && <span className="disc" style={{ margin: 0 }}>We could not send the note. Please try again.</span>}
       </div>
     </div>
   );

@@ -32,7 +32,7 @@ This ledger verifies public biographical/role claims only. It does not establish
 | Peter Diamandis | Engineer, physician, and founder and executive chairman of XPRIZE | Verified | Not claimed | [XPRIZE profile](https://www.xprize.org/people/peter-h-diamandis-m-d) |
 | Noubar Afeyan | Inventor, entrepreneur, and founder and CEO of Flagship Pioneering | Verified | Not claimed | [Flagship profile](https://www.flagshippioneering.com/people/noubar-afeyan) |
 | Nadir Godrej | Chemical engineer, business leader, and poet | Verified | Not claimed | [Godrej Industries profile](https://www.godrejindustries.com/know-us/leadership/nadir-godrej-bod) |
-| MrBeast (Jimmy Donaldson) | Creator and founder of Beast Industries | Corroborated | Ownership proportions and private governance not established here | [TIME profile of Beast Industries](https://time.com/7295719/mrbeast-jimmy-donaldson-beast-industries/) |
+| MrBeast (Jimmy Donaldson) | Creator and founder of Beast Industries | Corroborated | Ownership proportions and private governance not established here | [The Verge on Beast Industries](https://www.theverge.com/tech/876080/mrbeast-step-mobile-banking-app) |
 | Huda Kattan | Founder of Huda Beauty | Verified | Ownership proportions and control not inferred | [Huda Beauty about page](https://hudabeauty.com/en-us/pages/about-us-1) |
 | Marques Brownlee | Technology creator and producer | Narrowed/verified | “Studio founder” removed because the public record reviewed did not establish the organizational claim precisely | [Official MKBHD site](https://mkbhd.com/) |
 | Jack Conte | Co-founder and CEO of Patreon | Verified | Not claimed | [Conte’s Patreon page](https://www.patreon.com/cw/jackconte) |

@@ -63,5 +63,5 @@ export async function POST(req: Request) {
 
   const beehiiv = await beehiivSubscribe({ email, source: d.source });
 
-  return NextResponse.json({ ok: true, stored, synced: beehiiv.synced });
+  if (!stored && !beehiiv.synced) {\n    return NextResponse.json({ ok: false, stored: false, synced: false, error: "not_saved" }, { status: 503 });\n  }\n\n  return NextResponse.json({ ok: true, stored, synced: beehiiv.synced });
 }

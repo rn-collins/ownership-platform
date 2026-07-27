@@ -4,7 +4,7 @@ import styles from "./research.module.css";
 
 export default function ProfileLayout({ children, params }: { children: ReactNode; params: { slug: string } }) {
   const research = getCaseResearch(params.slug);
-  const exactSourceCount = research?.sources.filter((source) => !/^https?:\/\/[^/]+\/?$/.test(source.href)).length ?? 0;
+  const exactSourceCount = research?.sources.filter((source) => !(/^https?:\/\/[^/]+\/?$/.test(source.href) || /\/(technology(?:\/artificial-intelligence)?|business|news|climate-environment|topic\/person\/marc-lore)\/?$/.test(source.href))).length ?? 0;
   const broadSourceCount = (research?.sources.length ?? 0) - exactSourceCount;
   return <>
     {children}

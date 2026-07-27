@@ -24,7 +24,7 @@ export function PartnerInquiry() {
     setState(response && response.ok ? "done" : "error");
   }
 
-  if (state === "done") return <div className="card"><h3>Thank you.</h3><p>Your note has been received. RN Collins will reply directly.</p></div>;
+  if (state === "done") return <div className="card"><h3>Received by RN Collins.</h3><p>Your inquiry has been saved and routed directly to RN. Expect a personal reply—not an automated sales sequence.</p></div>;
 
   return (
     <div className="ownededit">
@@ -35,7 +35,7 @@ export function PartnerInquiry() {
       <label className="fld"><span>What would you like to explore?</span><textarea className="opentext" rows={4} value={form.message} onChange={(event) => set("message", event.target.value)} placeholder="A short description of the question, audience, case, or collaboration." /></label>
       <div className="actions">
         <button className="primary" disabled={!valid} onClick={submit}>{state === "sending" ? "Sending…" : "Send inquiry"}</button>
-        {state === "error" && <span className="disc" style={{ margin: 0 }}>We could not send the note. Please try again.</span>}
+        {state === "error" && <span className="disc" style={{ margin: 0 }}>The form did not deliver your note. Please email <a href="mailto:collins.ra@northeastern.edu">collins.ra@northeastern.edu</a> instead.</span>}
       </div>
     </div>
   );

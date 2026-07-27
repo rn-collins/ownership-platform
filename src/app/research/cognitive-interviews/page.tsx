@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function CognitiveInterviewStudyPage() {
   return (
-    <main>
+    <main className="study-page">
       <p className="eyebrow">Institutions of One · Participate in the research</p>
       <h1>Help make the assessment questions clearer, fairer, and more useful.</h1>
       <p className="lede">

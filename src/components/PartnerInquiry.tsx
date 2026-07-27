@@ -24,7 +24,7 @@ export function PartnerInquiry() {
     setState(response && response.ok ? "done" : "error");
   }
 
-  if (state === "done") return <div className="card"><h3>Received by RN Collins.</h3><p>Your inquiry has been saved and routed directly to RN. Expect a personal reply—not an automated sales sequence.</p></div>;
+  if (state === "done") return <div className="card"><h3>Inquiry received.</h3><p>Your note has been saved for RN Collins to review. If you receive a reply, it will be personal—not an automated sales sequence.</p></div>;
 
   return (
     <form className="ownededit" onSubmit={(event) => { event.preventDefault(); void submit(); }}>

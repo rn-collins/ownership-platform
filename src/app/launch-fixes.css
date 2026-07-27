@@ -247,3 +247,11 @@ textarea:focus-visible { outline: 3px solid var(--io-focus); outline-offset: 3px
   .obs-tension-wrap { margin-left: -18px; margin-right: -18px; border-left: 0; border-right: 0; }
   .profile-question { margin-left: -18px; margin-right: -18px; box-shadow: 6px 6px 0 var(--io-acid); }
 }
+
+.edit-index-page .edit-feature + .edit-feature { margin-top: 16px; }
+.edit-feature-latest { background: var(--io-acid); color: var(--io-black); }
+.edition-threshold-grid.edition-four { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.edition-test-list p { margin: 0 0 14px; }
+@media (max-width: 700px) {
+  .edition-threshold-grid.edition-four { grid-template-columns: 1fr; }
+}

@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/findings",
     "/edit",
     "/edit/001",
+    "/edit/002",
     "/partner",
     "/about",
     "/research/cognitive-interviews",

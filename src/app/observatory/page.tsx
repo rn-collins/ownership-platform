@@ -95,6 +95,13 @@ export default async function ObservatoryPage() {
       <a className="button-primary" href="/observatory/resources">Open the Case Resource Studio →</a>
     </section>
 
+    <section style={{ margin: "0 0 42px", padding: "28px 32px", border: "1px solid #141b2e", background: "#f3eddf" }} aria-labelledby="documentation-heading">
+      <p className="eyebrow">Do not confuse a profile with a completed case</p>
+      <h2 id="documentation-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>See which records are saturated—and what the other cases still require.</h2>
+      <p style={{ maxWidth: 760 }}>The documentation ledger distinguishes the two claim-level benchmark records from the 39 provisional research leads and publishes the ten-layer completion standard.</p>
+      <a className="button-primary" href="/observatory/documentation">Open the Case Documentation Ledger →</a>
+    </section>
+
     <ObservatoryMap nodes={nodes} initialView="directory" />
 
     <section id="nominate" style={{ marginTop: 64 }} aria-labelledby="nominate-heading">

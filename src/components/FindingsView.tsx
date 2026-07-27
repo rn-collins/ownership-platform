@@ -5,45 +5,43 @@ import { useEffect, useState } from "react";
 type Agg = { n: number; enough: boolean; mean?: number; median?: number; distribution?: number[] };
 
 function useAgg(instrument: string) {
-  const [d, setD] = useState<Agg | null>(null);
+  const [data, setData] = useState<Agg | null>(null);
   useEffect(() => {
-    let live = true;
-    fetch(`/api/benchmark?instrument=${instrument}`).then((r) => r.json()).then((j) => { if (live) setD(j); }).catch(() => {});
-    return () => { live = false; };
+    let active = true;
+    fetch(`/api/benchmark?instrument=${instrument}`).then((response) => response.json())
+      .then((result) => { if (active) setData(result); }).catch(() => {});
+    return () => { active = false; };
   }, [instrument]);
-  return d;
+  return data;
 }
 
-function Panel({ title, forWhom, d }: { title: string; forWhom: string; d: Agg | null }) {
-  if (!d) return <div className="find-panel"><div className="find-title">{title}</div><p className="find-empty">Loading…</p></div>;
+function Panel({ title, audience, data }: { title: string; audience: string; data: Agg | null }) {
+  if (!data) return <div className="find-panel"><div className="find-title">{title}</div><p className="find-empty">Loading…</p></div>;
+  if (!data.enough) return (
+    <div className="find-panel">
+      <div className="find-title">{title} <span className="find-for">{audience}</span></div>
+      <p className="find-empty">
+        {data.n > 0
+          ? `${data.n.toLocaleString()} responses so far. Aggregate results will appear when the reporting threshold is reached.`
+          : "No aggregate results are available yet."}
+      </p>
+    </div>
+  );
 
-  if (!d.enough) {
-    return (
-      <div className="find-panel">
-        <div className="find-title">{title} <span className="find-for">{forWhom}</span></div>
-        <p className="find-empty">
-          {d.n > 0
-            ? `${d.n.toLocaleString()} measured so far. The first readings publish here once the sample is large enough to report honestly.`
-            : "No readings yet. This fills in as people measure themselves — the research, in public."}
-        </p>
-      </div>
-    );
-  }
-
-  const max = Math.max(1, ...(d.distribution ?? [1]));
+  const max = Math.max(1, ...(data.distribution ?? [1]));
   return (
     <div className="find-panel">
-      <div className="find-title">{title} <span className="find-for">{forWhom}</span></div>
+      <div className="find-title">{title} <span className="find-for">{audience}</span></div>
       <div className="find-stats">
-        <div><span className="find-big">{d.mean}</span><span className="find-lbl">mean score</span></div>
-        <div><span className="find-big">{d.median}</span><span className="find-lbl">median</span></div>
-        <div><span className="find-big">{d.n.toLocaleString()}</span><span className="find-lbl">measured</span></div>
+        <div><span className="find-big">{data.mean}</span><span className="find-lbl">mean score</span></div>
+        <div><span className="find-big">{data.median}</span><span className="find-lbl">median score</span></div>
+        <div><span className="find-big">{data.n.toLocaleString()}</span><span className="find-lbl">responses</span></div>
       </div>
-      <div className="find-hist" aria-label="Score distribution in 10-point bins">
-        {(d.distribution ?? []).map((c, i) => (
-          <div key={i} className="find-bar-wrap" title={`${i * 10}–${i * 10 + 9}: ${c}`}>
-            <div className="find-bar" style={{ height: `${(c / max) * 100}%` }} />
-            <span className="find-xlabel">{i * 10}</span>
+      <div className="find-hist" aria-label="Score distribution in ten-point ranges">
+        {(data.distribution ?? []).map((count, index) => (
+          <div key={index} className="find-bar-wrap" title={`${index * 10}–${index * 10 + 9}: ${count}`}>
+            <div className="find-bar" style={{ height: `${(count / max) * 100}%` }} />
+            <span className="find-xlabel">{index * 10}</span>
           </div>
         ))}
       </div>
@@ -52,16 +50,15 @@ function Panel({ title, forWhom, d }: { title: string; forWhom: string; d: Agg |
 }
 
 export function FindingsView() {
-  const own = useAgg("ownership");
-  const pro = useAgg("portfolio_professional");
+  const ownership = useAgg("ownership");
+  const professional = useAgg("portfolio_professional");
   return (
     <div className="findings">
-      <Panel title="The Ownership Index" forWhom="creators" d={own} />
-      <Panel title="The Portfolio Professional" forWhom="professionals" d={pro} />
+      <Panel title="Ownership Index" audience="creators and independent operators" data={ownership} />
+      <Panel title="Portfolio Professional" audience="professionals" data={professional} />
       <p className="disc">
-        Anonymous, self-reported, and provisional by design. Only complete, current-version, one-record-per-assessment rows are included. Historical raw rows are preserved but excluded pending reconciliation. Distributions are shown in 10-point bins. A percentile appears on
-        your own result once the sample is large enough to report without noise. Method and limits on the{" "}
-        <a href="/methodology" className="fwlink">methodology page</a>.
+        Results are anonymous, self-reported, and exploratory. Only complete responses to the current assessment versions
+        are included. Score distributions are shown in ten-point ranges. See the <a href="/methodology" className="fwlink">methodology and limitations</a>.
       </p>
     </div>
   );

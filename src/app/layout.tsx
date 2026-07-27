@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   applicationName: "Institutions of One",
   authors: [{ name: "RN Collins" }],
   keywords: ["Institutions of One", "Ownership Index", "Portfolio Professional", "independent creators", "portfolio careers", "RN Collins"],
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website", siteName: "Institutions of One", title: TITLE, description: DESC, url: SITE_URL,
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Institutions of One" }],

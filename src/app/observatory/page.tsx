@@ -38,7 +38,7 @@ export default async function ObservatoryPage() {
   const fields = new Set(FIRST_OBSERVATORY_COHORT.map((member) => member.field)).size;
 
   return (
-    <main>
+    <main className="observatory-page">
       <p className="eyebrow">Institutions of One · The Observatory</p>
       <h1>How individual institutions take shape in the real world.</h1>
       <p className="lede">

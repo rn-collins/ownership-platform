@@ -3,6 +3,7 @@ import { PartnerInquiry } from "@/components/PartnerInquiry";
 export const metadata = {
   title: "Participate or partner — Institutions of One",
   description: "Ways to contribute to or support the Institutions of One research program.",
+  alternates: { canonical: "/partner" },
 };
 
 const paths = [

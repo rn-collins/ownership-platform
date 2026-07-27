@@ -1,6 +1,7 @@
 export const metadata = {
   title: "Assessments — Institutions of One",
   description: "Choose one of two pilot assessments exploring ownership or professional portability.",
+  alternates: { canonical: "/assess" },
 };
 
 export default function AssessChooserPage() {

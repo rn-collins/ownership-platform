@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { SEED, nodeSlug, findNodeBySlug, type Node } from "@/lib/observatory_seed";
 import { prisma } from "@/lib/db";
 import styles from "./profile.module.css";
-import { CASE_NARRATIVES } from "@/lib/case_narratives";\nimport { getCaseResearch } from "@/lib/case_research";
+import { CASE_NARRATIVES } from "@/lib/case_narratives";
+import { getCaseResearch } from "@/lib/case_research";
 import CaseLab from "./CaseLab";
 
 type Evidence = { id: string; supportType: string; exactPassage: string | null; locator: string | null; source: { title: string; url: string; publisher: string | null; publishedAt: Date | null; primarySource: boolean } };
@@ -50,7 +51,8 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
     "Institution vs individual": { meaning: "how a person stewards, changes, or speaks through an institution whose authority predates and exceeds them", lookFor: "the difference between personal decisions and inherited rules, reputation, resources, and symbolic power", comparison: "Ask what changed because of this leader and what belongs to the institution itself." },
   };
   const guide = tensionGuides[node.tension ?? ""] ?? { meaning: "how ownership, portability, authority, and dependence interact", lookFor: "the assets, relationships, systems, and permissions surrounding the work", comparison: "Ask what changes if the career loses its largest source of support." };
-  const narrative = CASE_NARRATIVES[params.slug];\n  const researchRecord = getCaseResearch(params.slug);
+  const narrative = CASE_NARRATIVES[params.slug];
+  const researchRecord = getCaseResearch(params.slug);
   const currentIndex = SEED.findIndex((candidate) => nodeSlug(candidate.name) === params.slug);
   const previous = currentIndex > 0 ? SEED[currentIndex - 1] : undefined;
   const next = currentIndex >= 0 && currentIndex < SEED.length - 1 ? SEED[currentIndex + 1] : undefined;
@@ -73,7 +75,9 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
       <a href="#understand"><span>01</span>Understand</a><a href="#trace"><span>02</span>Trace</a><a href="#examine"><span>03</span>Examine</a><a href="#test"><span>04</span>Test</a><a href="#compare"><span>05</span>Compare</a><a href="#verify"><span>06</span>Verify</a>
     </nav>
 
-    {researchRecord?.documentationLevel === "provisional" && <p className={styles.warning}><strong>Documentation status:</strong> This is a provisional research profile, not yet a claim-level saturated case. Use it as a research lead and inspect the source limits below. <Link href="/observatory/documentation">See what completion requires →</Link></p>}\n\n    {narrative ? <>
+    {researchRecord?.documentationLevel === "provisional" && <p className={styles.warning}><strong>Documentation status:</strong> This is a provisional research profile, not yet a claim-level saturated case. Use it as a research lead and inspect the source limits below. <Link href="/observatory/documentation">See what completion requires →</Link></p>}
+
+    {narrative ? <>
       <section className={styles.section} id="understand" aria-labelledby="career-story">
         <p className={styles.kicker}>01 · Understand</p><h2 id="career-story">The human story—and the structural question</h2><p>{narrative.careerArc}</p>
         <div className={styles.payoff}><p className={styles.kicker}>The immediate payoff</p><h3>What this case changes</h3><p>{narrative.whyItMatters}</p></div>

@@ -4,6 +4,7 @@ import { METHODOLOGY_VERSION } from "@/lib/engine";
 export const metadata = {
   title: "Ownership Index — Institutions of One",
   description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.",
+  alternates: { canonical: "/assess/creator" },
 };
 
 export default function CreatorAssessPage() {

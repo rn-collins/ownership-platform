@@ -133,7 +133,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
 
     <h2 className="dimhead">The working portrait</h2>
     <div className="card">
-      <p><b>Why this case is legible:</b> {n.role}.</p>
+      <p><b>Working description:</b> {n.role}.</p>
       <p><b>Field:</b> {n.domain}.</p>
       <p><b>Research lens:</b> {lens}.</p>
       {n.created && <p><b>Question under study:</b> Was this role created or materially reshaped around the person doing it? The flag identifies a question for evidence review, not a settled conclusion.</p>}
@@ -201,7 +201,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
     </>}
 
     {!hasPublicEvidence && <>
-      <h2 className="dimhead">Evidence review</h2>
+      <h2 className="dimhead">What we still need to establish</h2>
       <div className="card">
         <h3>The public evidence review for this case is not finished yet.</h3>
         <p>The next step is to establish the key claims with dated sources, relationships, timeline evidence, and meaningful contrary evidence. Until then, open questions stay open; missing information is never treated as proof of absence.</p>

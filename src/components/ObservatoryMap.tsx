@@ -50,6 +50,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
   const [viewMode, setViewMode] = useState<ObservatoryView>(initialView);
   const [lens, setLens] = useState<Lens>("all");
   const [domain, setDomain] = useState<string | "all">("all");
+  const [tension, setTension] = useState<string | "all">("all");
   const [builtOnly, setBuiltOnly] = useState(false);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<number | null>(null);
@@ -59,6 +60,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
   const drag = useRef<{ x: number; y: number } | null>(null);
 
   const usedDomains = useMemo(() => DOMAINS.filter((d) => nodes.some((n) => n.domain === d)), [nodes]);
+  const usedTensions = useMemo(() => Array.from(new Set(nodes.map((n) => n.tension).filter(Boolean))) as string[], [nodes]);
   const placed = useMemo(() => layout(nodes), [nodes]);
 
   // Read filters from the URL on mount; write them back as they change (deep-linkable).
@@ -67,6 +69,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
     if (p.get("lens")) setLens(p.get("lens") as Lens);
     if (p.get("domain")) setDomain(p.get("domain")!);
     if (p.get("built") === "1") setBuiltOnly(true);
+    if (p.get("tension")) setTension(p.get("tension")!);
     if (p.get("q")) setQuery(p.get("q")!);
   }, []);
   useEffect(() => {
@@ -75,10 +78,11 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
     if (lens !== "all") p.set("lens", lens);
     if (domain !== "all") p.set("domain", domain);
     if (builtOnly) p.set("built", "1");
+    if (tension !== "all") p.set("tension", tension);
     if (query) p.set("q", query);
     const qs = p.toString();
     window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
-  }, [lens, domain, builtOnly, query, embed]);
+  }, [lens, domain, builtOnly, tension, query, embed]);
 
   // Settle animation on mount.
   useEffect(() => {
@@ -98,7 +102,8 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
     if (lens !== "all" && n.kind !== lens) return false;
     if (domain !== "all" && n.domain !== domain) return false;
     if (builtOnly && !n.created) return false;
-    if (q && !(`${n.name} ${n.role} ${n.domain}`.toLowerCase().includes(q))) return false;
+    if (tension !== "all" && n.tension !== tension) return false;
+    if (q && !(`${n.name} ${n.role} ${n.domain} ${n.tension ?? ""} ${n.question ?? ""}`.toLowerCase().includes(q))) return false;
     return true;
   }
   const shown = placed.filter(matches);
@@ -131,22 +136,29 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
       {!embed && (
         <>
           <div className="find-stats" aria-label="Observatory coverage summary" style={{ marginTop: 18 }}>
-            <div><span className="find-big">{counts.total}</span><span className="find-lbl">public cases</span></div>
-            <div><span className="find-big">{counts.fields}</span><span className="find-lbl">fields represented</span></div>
-            <div><span className="find-big">{counts.roleBuilt}</span><span className="find-lbl">role-built flags</span></div>
-            <div><span className="find-big">{counts.verified}</span><span className="find-lbl">reviewed case records</span></div>
+            <div><span className="find-big">{counts.total}</span><span className="find-lbl">people to explore</span></div>
+            <div><span className="find-big">{usedTensions.length}</span><span className="find-lbl">career tensions</span></div>
+            <div><span className="find-big">{counts.fields}</span><span className="find-lbl">fields in conversation</span></div>
+            <div><span className="find-big">∞</span><span className="find-lbl">questions still open</span></div>
           </div>
-          <div className="card" style={{ margin: "12px 0 14px", borderLeft: "4px solid #b98f4d" }}>
-            <h3>Current evidence status</h3>
-            <p>
-              The directory contains {counts.verified} reviewed {counts.verified === 1 ? "case" : "cases"} and {counts.provisional} provisional {counts.provisional === 1 ? "entry" : "entries"}. A green check identifies a case whose displayed claims, sources, dates, relationships, and limitations have passed the current review gate.
-            </p>
+          <div className="obs-status-note">
+            <b>Read this as an investigation, not a leaderboard.</b>
+            <span>Each person opens a question about power, portability, ownership, or dependence. Public facts support the starting point; the interpretation stays open to challenge.</span>
           </div>
-          <div className="obs-lens" role="group" aria-label="Choose Observatory view" style={{ marginBottom: 12 }}>
-            <button type="button" className={`obs-tab${viewMode === "directory" ? " on" : ""}`} onClick={() => setViewMode("directory")}>Case directory</button>
-            <button type="button" className={`obs-tab${viewMode === "map" ? " on" : ""}`} onClick={() => setViewMode("map")}>Field map</button>
+          <div className="obs-lens obs-view-switch" role="group" aria-label="Choose Observatory view" style={{ marginBottom: 12 }}>
+            <button type="button" className={`obs-tab${viewMode === "directory" ? " on" : ""}`} onClick={() => setViewMode("directory")}>People & questions</button>
+            <button type="button" className={`obs-tab${viewMode === "map" ? " on" : ""}`} onClick={() => setViewMode("map")}>See the field</button>
           </div>
         </>
+      )}
+      {!embed && (
+        <div className="obs-tension-wrap">
+          <p className="eyebrow">Start with a tension</p>
+          <div className="obs-tensions" role="group" aria-label="Filter by career tension">
+            <button type="button" className={`obs-tension${tension === "all" ? " on" : ""}`} onClick={() => setTension("all")}>Surprise me</button>
+            {usedTensions.map((item) => <button type="button" key={item} className={`obs-tension${tension === item ? " on" : ""}`} onClick={() => setTension(item)}>{item}</button>)}
+          </div>
+        </div>
       )}
       {!embed && (
         <div className="obs-controls">
@@ -164,7 +176,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
           </select>
           <label className="obs-built">
             <input type="checkbox" checked={builtOnly} onChange={(e) => setBuiltOnly(e.target.checked)} />
-            <span>Role built around them</span>
+            <span>Roles shaped around a person</span>
           </label>
         </div>
       )}
@@ -195,21 +207,24 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
 
       {!embed && viewMode === "directory" && (
         <section aria-label="Filtered Observatory cases">
-          <p className="meta" style={{ marginBottom: 10 }}>
-            Showing {shown.length} of {counts.total} public cases. Select a case to inspect what is documented, what is interpreted, and what evidence is still missing.
-          </p>
+          <div className="obs-result-line">
+            <span>{shown.length} of {counts.total}</span>
+            <p>{tension === "all" ? "Every case begins with a live question." : `Exploring “${tension}.”`}</p>
+          </div>
           <div className="roster">
-            {shown.map((n) => (
-              <article className="rostercard" key={n.i}>
-                <div className="rostername">
-                  {n.name}
-                  {n.verificationStatus === "verified" && <span className="rosterflag" style={{background:"#2f7a54",color:"#fff"}}>reviewed case</span>}
-                  {n.created && <span className="rosterflag">role-built flag</span>}
+            {shown.map((n, index) => (
+              <article className="rostercard obs-story-card" key={n.i}>
+                <div className="obs-card-top">
+                  <span className="obs-card-number">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="obs-card-tension">{n.tension}</span>
                 </div>
+                <h3 className="rostername">{n.name}</h3>
                 <p className="rosterrole">{n.role}</p>
-                <p className="rosterdomain">{n.kind === "creator" ? "Creator case" : "Professional case"} · {n.domain}</p>
-                <p className="meta" style={{ margin: "9px 0 8px" }}>Evidence status: {n.verificationStatus === "verified" ? `reviewed · ${Math.round((n.evidenceCoverage ?? 0)*100)}% workflow coverage` : "provisional roster entry"}</p>
-                <a className="fwlink" href={`/observatory/${nodeSlug(n.name)}`}>Inspect case record →</a>
+                <p className="obs-card-question">{n.question}</p>
+                <div className="obs-card-bottom">
+                  <span>{n.domain}</span>
+                  <a href={`/observatory/${nodeSlug(n.name)}`}>Open the case →</a>
+                </div>
               </article>
             ))}
           </div>

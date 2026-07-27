@@ -41,17 +41,17 @@ export function NewsletterSignup({
           <div><b>You’re on the list.</b><p>The next I/1 Field Note will arrive by email.</p></div>
         </div>
       ) : (
-        <div className="nl-form">
+        <form className="nl-form" onSubmit={(event) => { event.preventDefault(); void submit(); }}>
           <div className="nl-row">
             <input className="nl-input" type="email" inputMode="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" aria-label="Email address" />
-            <button className="nl-btn" disabled={!valid} onClick={submit}>{state === "sending" ? "Joining…" : "Join the Field Note"}</button>
+            <button className="nl-btn" type="submit" disabled={!valid}>{state === "sending" ? "Joining…" : "Join the Field Note"}</button>
           </div>
           <label className="nl-consent">
             <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} />
             <span>Yes, send me the monthly I/1 Field Note by email through Beehiiv. I can unsubscribe at any time.</span>
           </label>
           {state === "error" && <p className="nl-err">Your address was not saved. Please try again.</p>}
-        </div>
+        </form>
       )}
     </section>
   );

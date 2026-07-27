@@ -12,8 +12,8 @@ const VIEW_COPY: Record<View, [string,string]> = {
   discover:["Discover","Follow a question into one career."],
   patterns:["Patterns","See where questions repeat across fields."],
   compare:["Compare","Put two different arrangements side by side."],
-  composition:["41-case readout","See what this pilot contains—and overweights."],
-  gaps:["What is missing","Turn empty space into the next research question."],
+  composition:["Inside the 41","See who is represented—and who is not."],
+  gaps:["Who is missing?","Find the careers and fields the project still needs."],
 };
 
 function tally<T extends string>(items:T[]):Array<[T,number]> {
@@ -53,10 +53,10 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
     </nav>
 
     {view==="discover"&&<section aria-labelledby="discover-title">
-      <div className={styles.intro}><div><p className={styles.kicker}>41 careers · no leaderboard</p><h2 id="discover-title">Begin with the question, not the résumé.</h2></div><p>Each case is here because it makes a structural tension visible. Choose what pulls you in; the evidence and uncertainty appear only when they become useful.</p></div>
+      <div className={styles.intro}><div><p className={styles.kicker}>41 careers · no leaderboard</p><h2 id="discover-title">Begin with the question, not the résumé.</h2></div><p>Start with a question that sounds like something you have wondered about your own work. Then meet the person whose career makes that question real.</p></div>
       <div className={styles.tensions} aria-label="Career tensions"><button type="button" className={tension==="all"?styles.active:""} onClick={()=>setTension("all")}>Surprise me</button>{tensions.map((item)=><button type="button" key={item} className={tension===item?styles.active:""} onClick={()=>setTension(item)}>{item}</button>)}</div>
       <div className={styles.controls}><input value={query} onChange={(event)=>setQuery(event.target.value)} aria-label="Search people and questions" placeholder="Try a person, role, field, or idea…"/><select value={domain} onChange={(event)=>setDomain(event.target.value)} aria-label="Choose a field"><option value="all">Every field</option>{domains.map((item)=><option value={item} key={item}>{item}</option>)}</select></div>
-      <div className={styles.result}><strong>{shown.length} {shown.length===1?"case":"cases"}</strong><span>Save two to compare their underlying arrangements.</span></div>
+      <div className={styles.result}><strong>{shown.length} {shown.length===1?"case":"cases"}</strong><span>Choose two people to see what their careers depend on—and what differs.</span></div>
       {shown.length?<div className={styles.grid}>{shown.map((n,index)=><CaseCard key={n.name} node={n} index={index} compareActive={compare.includes(n.name)} onCompare={()=>toggleCompare(n.name)}/>)}</div>:<div className={styles.empty}><strong>Nothing here—yet.</strong><p>Broaden the search or treat the absence as a nomination prompt.</p></div>}
     </section>}
 
@@ -71,13 +71,13 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
     {view==="compare"&&<section aria-labelledby="compare-title">
       <div className={styles.intro}><div><p className={styles.kicker}>Case comparator</p><h2 id="compare-title">Difference is where the argument gets interesting.</h2></div><p>Choose two people. This does not score either career; it makes their visible structures and unanswered questions easier to contrast.</p></div>
       <div className={styles.comparePicker}>{[0,1].map((slot)=><label key={slot}>Case {slot+1}<select value={compare[slot]??""} onChange={(event)=>setCompare((current)=>{const next=[...current];next[slot]=event.target.value;return next.filter(Boolean).slice(0,2);})}><option value="">Choose a person</option>{nodes.map((n)=><option value={n.name} key={n.name}>{n.name}</option>)}</select></label>)}</div>
-      {selectedCompare.length===2?<div className={styles.comparison}>{selectedCompare.map((n,index)=><article key={n.name} style={{"--accent":ACCENTS[index]} as CSSProperties}><p className={styles.kicker}>{n.tension}</p><h3>{n.name}</h3><p className={styles.role}>{n.role}</p><blockquote>{n.question}</blockquote><dl><div><dt>Field</dt><dd>{n.domain}</dd></div><div><dt>Lens</dt><dd>{n.kind==="creator"?"Creator":"Professional"}</dd></div><div><dt>Role shaped around person?</dt><dd>{n.created?"Flagged for investigation":"Not flagged in this pilot"}</dd></div></dl><Link href={`/observatory/${nodeSlug(n.name)}`}>Investigate this case →</Link></article>)}</div>:<div className={styles.empty}>Choose two different cases to begin.</div>}
+      {selectedCompare.length===2?<div className={styles.comparison}>{selectedCompare.map((n,index)=><article key={n.name} style={{"--accent":ACCENTS[index]} as CSSProperties}><p className={styles.kicker}>{n.tension}</p><h3>{n.name}</h3><p className={styles.role}>{n.role}</p><blockquote>{n.question}</blockquote><dl><div><dt>Field</dt><dd>{n.domain}</dd></div><div><dt>Lens</dt><dd>{n.kind==="creator"?"Creator":"Professional"}</dd></div><div><dt>Role shaped around person?</dt><dd>{n.created?"Flagged for investigation":"Not flagged in this pilot"}</dd></div></dl><Link href={`/observatory/${nodeSlug(n.name)}`}>Explore {n.name} →</Link></article>)}</div>:<div className={styles.empty}>Choose two different cases to begin.</div>}
       {selectedCompare.length===2&&<div className={styles.compareQuestions}><h3>Questions the contrast creates</h3><ul><li>What can each person carry if the current institution or platform disappears?</li><li>Which relationships, rights, audiences, or systems appear personally controlled—and which remain unknown?</li><li>Does the difference come from field, career stage, organizational form, or the evidence currently available?</li></ul></div>}
     </section>}
 
     {view==="composition"&&<section aria-labelledby="composition-title">
       <div className={styles.intro}><div><p className={styles.kicker}>Descriptive analysis</p><h2 id="composition-title">What the pilot can show—and what it currently overweights.</h2></div><p>These are counts inside a deliberately selected 41-case pilot. They describe this roster, not the workforce, creator economy, or prevalence of institutionhood.</p></div>
-      <div className={styles.statGrid}><article><strong>41</strong><span>purposefully selected cases</span></article><article><strong>{nodes.length-creatorCount}</strong><span>professional cases</span></article><article><strong>{creatorCount}</strong><span>creator cases</span></article><article><strong>{roleBuiltCount}</strong><span>role-built flags to investigate</span></article></div>
+      <div className={styles.statGrid}><article><strong>41</strong><span>purposefully selected cases</span></article><article><strong>{nodes.length-creatorCount}</strong><span>professional cases</span></article><article><strong>{creatorCount}</strong><span>creator cases</span></article><article><strong>{roleBuiltCount}</strong><span>roles that may have been shaped around one person</span></article></div>
       <div className={styles.chartGrid}><BarList title="Tensions represented" items={tensionCounts} max={maxTension}/><BarList title="Fields represented" items={domainCounts} max={maxDomain}/></div>
       <div className={styles.analysisNote}><h3>Responsible quantitative uses</h3><p>Counts, shares, cross-tabs, concentration, representation gaps, and change across future roster versions. Not causal inference, ranking, prediction, psychological diagnosis, or population estimates.</p></div>
     </section>}
@@ -91,7 +91,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
 }
 
 function CaseCard({node,index,compareActive=false,onCompare}:{node:Node;index:number;compareActive?:boolean;onCompare?:()=>void}) {
-  return <article className={styles.card} style={{"--accent":ACCENTS[index%ACCENTS.length]} as CSSProperties}><div className={styles.top}><span className={styles.tension}>{node.tension??"Open question"}</span><span className={styles.domain}>{node.domain}</span></div><p className={styles.question}>{node.question??"What does this career make possible—and what makes it fragile?"}</p><div className={styles.identity}><h3>{node.name}</h3><p>{node.role}</p><div className={styles.cardActions}><Link href={`/observatory/${nodeSlug(node.name)}`}>Open the investigation →</Link>{onCompare&&<button type="button" className={compareActive?styles.saved:""} onClick={onCompare}>{compareActive?"Saved to compare":"Compare"}</button>}</div></div></article>;
+  return <article className={styles.card} style={{"--accent":ACCENTS[index%ACCENTS.length]} as CSSProperties}><div className={styles.top}><span className={styles.tension}>{node.tension??"Open question"}</span><span className={styles.domain}>{node.domain}</span></div><p className={styles.question}>{node.question??"What does this career make possible—and what makes it fragile?"}</p><div className={styles.identity}><h3>{node.name}</h3><p>{node.role}</p><div className={styles.cardActions}><Link href={`/observatory/${nodeSlug(node.name)}`}>See why this career matters →</Link>{onCompare&&<button type="button" className={compareActive?styles.saved:""} onClick={onCompare}>{compareActive?"Saved to compare":"Compare"}</button>}</div></div></article>;
 }
 
 function BarList({title,items,max}:{title:string;items:Array<[string,number]>;max:number}) {

@@ -313,3 +313,35 @@ textarea:focus-visible { outline: 3px solid var(--io-focus); outline-offset: 3px
 }
 
 .edit-edition-page.edition-002::before { content: "THE I/1 EDIT / 002"; }
+
+
+/* Question lab — show the research process as an experience. */
+.candidate-page { max-width: 1100px; }
+.candidate-page > h1 { max-width: 1050px; font-size: clamp(54px,7vw,96px); line-height: .9; }
+.candidate-hook { max-width: 820px; margin: 30px 0 70px; font-size: clamp(21px,2.7vw,34px); line-height: 1.15; }
+.candidate-status {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  padding: 34px; background: var(--io-acid); border: 2px solid var(--io-black);
+}
+.candidate-status span { font-size: 10px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+.candidate-status h2 { margin: 10px 0 0; font: 700 clamp(38px,5vw,66px)/.95 Georgia,serif; }
+.candidate-status > div:last-child { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-content: end; }
+.candidate-status p { margin: 0; padding-top: 12px; border-top: 2px solid var(--io-black); }
+.candidate-rule { margin: 60px 0; padding: 40px; background: var(--io-black); color: white; }
+.candidate-rule blockquote { margin: 16px 0 0; max-width: 900px; font: 700 clamp(34px,5vw,64px)/.98 Georgia,serif; }
+.candidate-steps { border-top: 2px solid var(--io-black); }
+.candidate-steps > article {
+  display: grid; grid-template-columns: 48px minmax(180px,.55fr) minmax(280px,1fr);
+  gap: 20px; align-items: start; padding: 24px 0; border-bottom: 2px solid var(--io-black);
+}
+.candidate-steps article > span { font: 700 12px/1.5 ui-monospace,SFMono-Regular,monospace; }
+.candidate-steps h2 { margin: 0; font: 700 clamp(28px,3.2vw,44px)/1 Georgia,serif; }
+.candidate-steps article p { margin: 0; font-size: 16px; line-height: 1.55; }
+.candidate-invite { margin: 70px 0 30px; padding: clamp(28px,5vw,60px); background: #e9dcff; border: 2px solid var(--io-black); box-shadow: 10px 10px 0 var(--io-black); }
+.candidate-invite h2 { margin: 8px 0; font: 700 clamp(42px,5.5vw,72px)/.95 Georgia,serif; }
+.candidate-invite > p:not(.eyebrow) { max-width: 760px; font-size: 18px; line-height: 1.55; margin-bottom: 24px; }
+@media (max-width: 700px) {
+  .candidate-status,.candidate-status > div:last-child { grid-template-columns: 1fr; }
+  .candidate-steps > article { grid-template-columns: 36px 1fr; }
+  .candidate-steps article p { grid-column: 2; }
+}

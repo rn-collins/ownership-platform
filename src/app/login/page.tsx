@@ -5,11 +5,11 @@ import { getSupabaseBrowser } from "@/lib/supabase/client";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "sent" | "error" | "unconfigured">("idle");
+  const [state, setState] = useState<"idle" | "sent" | "error">("idle");
 
   async function sendLink() {
     const supabase = getSupabaseBrowser();
-    if (!supabase) { setState("unconfigured"); return; }
+    if (!supabase) { setState("error"); return; }
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
@@ -19,20 +19,18 @@ export default function LoginPage() {
 
   return (
     <main>
-      <p className="eyebrow">Institutions of One · Ownership Index</p>
-      <h1>Save your results</h1>
-      <p className="lede">Enter your email and we will send you a one-tap sign-in link. Your assessment saves to your account so you can track your ownership over time.</p>
-
+      <p className="eyebrow">Institutions of One · Sign in</p>
+      <h1>Return to your saved results.</h1>
+      <p className="lede">Enter the email associated with your account. We will send a secure sign-in link.</p>
       {state === "sent" ? (
-        <div className="card"><h3>Check your email</h3><p>We sent a sign-in link to {email}.</p></div>
+        <div className="card"><h3>Check your email</h3><p>A sign-in link was sent to {email}.</p></div>
       ) : (
         <div className="actions" style={{ gap: 10 }}>
-          <input className="opentext" style={{ maxWidth: 320 }} type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <button className="primary" onClick={sendLink} disabled={!email}>Send my link</button>
+          <input className="opentext" style={{ maxWidth: 320 }} type="email" placeholder="you@example.com" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <button className="primary" onClick={sendLink} disabled={!email}>Send sign-in link</button>
         </div>
       )}
-      {state === "error" && <p className="disc">Something went wrong. Try again.</p>}
-      {state === "unconfigured" && <p className="disc">Auth is not configured yet (set the Supabase env vars).</p>}
+      {state === "error" && <p className="disc">We could not send the link. Please try again or contact RN Collins for help.</p>}
     </main>
   );
 }

@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main>
+    <main className="privacy-page">
       <p className="eyebrow">Institutions of One · Privacy</p>
       <h1>Privacy &amp; data use</h1>
       <p className="lede">

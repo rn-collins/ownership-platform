@@ -81,6 +81,20 @@ export default async function ObservatoryPage() {
       <a className="button-primary" href="/observatory/findings">Open Living Findings →</a>
     </section>
 
+    <section style={{ margin: "0 0 20px", padding: "28px 32px", border: "1px solid #141b2e", background: "#f2e95a" }} aria-labelledby="teaching-heading">
+      <p className="eyebrow">Classroom, team, and conference use</p>
+      <h2 id="teaching-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>Practice structural reasoning with the evidence.</h2>
+      <p style={{ maxWidth: 760 }}>Generate facilitator-ready exercises for classifying assets, reconstructing dependencies, testing explanations, identifying evidence that would change a conclusion, and redesigning work under constraint.</p>
+      <a className="button-primary" href="/observatory/teaching">Open Teaching & Workshop Mode →</a>
+    </section>
+
+    <section style={{ margin: "0 0 42px", padding: "28px 32px", border: "1px solid #141b2e", background: "#d9d0ff" }} aria-labelledby="resources-heading">
+      <p className="eyebrow">One record, several responsible forms</p>
+      <h2 id="resources-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>Build a source-bounded production brief.</h2>
+      <p style={{ maxWidth: 760 }}>Turn a case into a visual explainer, worksheet, discussion guide, short audio story, carousel, newsletter argument, teaching exercise, constellation, research question, or organization-facing workshop.</p>
+      <a className="button-primary" href="/observatory/resources">Open the Case Resource Studio →</a>
+    </section>
+
     <ObservatoryMap nodes={nodes} initialView="directory" />
 
     <section id="nominate" style={{ marginTop: 64 }} aria-labelledby="nominate-heading">

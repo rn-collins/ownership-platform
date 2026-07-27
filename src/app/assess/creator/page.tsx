@@ -1,19 +1,23 @@
 import { Assessment } from "@/components/Assessment";
 import { METHODOLOGY_VERSION } from "@/lib/engine";
 
-export const metadata = { title: "The Ownership Index — how much of your work do you own?" };
+export const metadata = {
+  title: "Ownership Index — Institutions of One",
+  description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.",
+};
 
 export default function CreatorAssessPage() {
   return (
     <main>
       <p className="eyebrow">Institutions of One · Ownership Index</p>
-      <h1>How much of your business do you actually own?</h1>
+      <h1>How much of the system behind your work do you control?</h1>
       <p className="lede">
-        Reach is easy to count. Ownership isn&rsquo;t. Twenty questions across five dimensions — audience, rights,
-        revenue, identity, and infrastructure. No sign-up; answered anonymously. You leave with a score to 100, your
-        risk exposure, and the exact, ranked moves that turn rented reach into something you own.
+        This twenty-question pilot examines five areas: audience, rights, revenue, identity, and infrastructure. Your
+        result offers a structured picture of where control is concentrated and where dependence may remain.
       </p>
-      <p className="meta">Methodology v{METHODOLOGY_VERSION} · five dimensions, four questions each, scored to 100.</p>
+      <p className="meta">
+        Methodology v{METHODOLOGY_VERSION} · anonymous · approximately five minutes · exploratory, not diagnostic or normed
+      </p>
       <Assessment />
     </main>
   );

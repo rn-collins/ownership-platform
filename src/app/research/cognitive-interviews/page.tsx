@@ -8,6 +8,8 @@ export const metadata = {
   title: "Assessment interview study — Institutions of One",
   description: "Volunteer to help improve future questions in the Institutions of One pilot assessments.",
   alternates: { canonical: "/research/cognitive-interviews" },
+  openGraph: { title: "Assessment interview study — Institutions of One", description: "Volunteer to help improve future questions in the Institutions of One pilot assessments.", url: "/research/cognitive-interviews", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "Assessment interview study — Institutions of One", description: "Volunteer to help improve future questions in the Institutions of One pilot assessments.", images: ["/og.png"] },
 };
 
 export default function CognitiveInterviewStudyPage() {

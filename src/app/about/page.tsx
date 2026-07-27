@@ -1,72 +1,61 @@
 export const metadata = {
   title: "About — Institutions of One",
-  description:
-    "Who is behind Institutions of One, why it exists, how it is funded, and the consent and independence commitments that govern the research. By RN Collins.",
+  description: "The purpose, researcher, independence, and development of Institutions of One.",
 };
 
 export default function AboutPage() {
   return (
     <main>
       <p className="eyebrow">Institutions of One · About</p>
-      <h1>Who is behind this, and why to trust it.</h1>
+      <h1>A research project about the people building careers larger than a job.</h1>
       <p className="lede">
-        Institutions of One is an independent research program measuring a shift most of us are living through: work is
-        moving from &ldquo;get hired for a role&rdquo; to &ldquo;the role gets built around you.&rdquo; Individuals —
-        creators and professionals alike — are becoming institutions in themselves. Reach and activity are measured
-        everywhere. Ownership and durability, the part that actually makes someone an institution, are measured almost
-        nowhere. This is where that gets measured, in public.
+        Institutions of One began with a simple observation: organizations routinely measure reach, productivity, and
+        performance, but rarely measure whether the value a person creates becomes portable, durable, and meaningfully
+        theirs. The project studies that gap across creators and professionals.
       </p>
 
       <div className="card">
-        <h3>The person doing the work</h3>
+        <h3>RN Collins</h3>
         <p>
-          I&rsquo;m RN Collins — an independent researcher, writer, and self-taught builder. I hold an M.S. in
-          neuroscience from Boston University School of Medicine and am a J.D. candidate at Northeastern Law, with five
-          peer-reviewed publications. I&rsquo;ve done qualitative research with large-language-model tooling since 2021,
-          starting at Harvard Business School, and I taught myself Python without a computer-science background — which is
-          how a writer and researcher became someone who ships. I write in public as a columnist and across more than
-          twenty pieces in the trade press, and I built and self-host a 143-article law library. The measurement platform
-          you&rsquo;re reading — two instruments, a live map, the research backend — is one of dozens of things I&rsquo;ve
-          designed and deployed. I mention the range only because it&rsquo;s the point: I study people who own their work,
-          and I try to live the same way.
+          I am an independent researcher, writer, consultant, and J.D. candidate at Northeastern University School of Law.
+          My background spans neuroscience, developmental psychology, medical education, qualitative research, emerging
+          industries, and the design of research and intelligence systems. That interdisciplinary path shapes this project:
+          it treats work as a psychological, organizational, economic, technological, and legal phenomenon at once.
         </p>
       </div>
 
       <div className="card">
-        <h3>How this is funded — and what money can never touch</h3>
+        <h3>Why this research matters</h3>
         <p>
-          The program is supported in part by disclosed partners: tools I use and, over time, advertisers and event and
-          report sponsors. Two commitments make that safe. Every partnership is disclosed publicly. And sponsors fund the
-          work — they never touch the scores, the items, or the findings. The measurement is independent by design, and
-          the methodology is versioned so anyone can see exactly what produced a result and when it changed.
+          A large audience does not necessarily mean ownership. Specialized expertise does not necessarily travel outside
+          an employer. A personal brand does not necessarily become a durable business. By separating capability, authority,
+          portability, ownership, and institutional support, the project aims to give people and organizations better
+          language for understanding what is actually being built.
         </p>
       </div>
 
       <div className="card">
-        <h3>How your data is treated</h3>
+        <h3>Independence and funding</h3>
         <p>
-          A project about ownership has to model it. The anonymous assessments store only banded answers — no identity —
-          and your IP is used briefly to prevent abuse and never stored. Nothing personal is kept without an explicit,
-          versioned consent, and people appear on the public Observatory only from public evidence or a consented
-          nomination. You can join the research and leave it whenever you like.
-          {" "}
-          <a href="/methodology" className="fwlink">Read the methodology →</a>
+          Institutions of One is independently led. Partnerships and financial support may fund data collection,
+          analysis, publication, or events, but they do not buy control of assessment scores or research conclusions.
+          Material support will be disclosed with the work it enables.
         </p>
       </div>
 
       <div className="card">
-        <h3>Where this is going</h3>
+        <h3>Current stage</h3>
         <p>
-          I&rsquo;ll say plainly where it stands: the framework and both instruments are built; the live measurement is
-          underway now, one assessment and one nomination at a time. It builds toward a flagship report at Cannes Lions
-          2027. Early by design — which is exactly why what you measure and who you nominate now helps shape the finished
-          picture.
+          The project is in active pilot development. Two assessments are collecting exploratory responses, the
+          Observatory is building a documented comparative case base, and the methods will continue to be tested and
+          revised. The long-term aim is a public research program that produces useful evidence for workers, creators,
+          organizations, policymakers, and the industries redesigning how work happens.
         </p>
       </div>
 
       <div className="actions">
-        <a href="/assess"><button className="primary">Measure yourself</button></a>
-        <a href="/observatory" style={{ textDecoration: "none" }}><span className="progress">Explore The Observatory →</span></a>
+        <a href="/methodology"><button className="primary">Read the methodology</button></a>
+        <a href="/partner" className="hero-link">Participate or partner →</a>
       </div>
 
       <p className="disc" style={{ marginTop: 22 }}>

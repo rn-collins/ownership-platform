@@ -46,35 +46,35 @@ export default async function ObservatoryPage() {
   return (
     <main className="observatory-page">
       <p className="eyebrow">Institutions of One · The Observatory</p>
-      <h1>Forty-one lives. One methodology under pressure.</h1>
+      <h1>Forty-one people. Seven tensions. No neat answers.</h1>
       <p className="lede">
-        The Observatory studies how creators and professionals turn work into something portable, ownable, authoritative,
-        and durable. The map lets you move across fields, compare institutional forms, and see where public evidence is
-        strong, thin, or still unresolved.
+        The Observatory is a living collection of careers that break ordinary labels. Start with a tension—owned versus
+        rented, portable versus embedded, one field versus many—then follow the people who make that tension impossible
+        to ignore.
       </p>
 
       <section className="card" aria-labelledby="pilot-heading" style={{ marginTop: 18, borderLeft: "4px solid #b98f4d" }}>
-        <p className="eyebrow">The 41-case methodology pilot</p>
-        <h2 id="pilot-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30 }}>Why these cases are here before participant data exists</h2>
+        <p className="eyebrow">Why these 41</p>
+        <h2 id="pilot-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30 }}>What can 41 wildly different careers teach us?</h2>
         <p>
-          All {nodes.length} public cases—{creators} creator cases and {professionals} professional cases across {fields} fields—form
-          the first stress test of the research method. They test whether the same questions can describe very different
-          careers, distinguish documented facts from interpretation, expose missing evidence, and support useful comparison
-          without forcing everyone into one model of success.
+          These {nodes.length} people—{creators} creators and {professionals} professionals across {fields} fields—were chosen
+          because their careers put pressure on easy ideas about success. Some built companies. Some changed institutions
+          from inside. Some carried authority across fields. Some became inseparable from the platform or employer that
+          made their scale possible.
         </p>
         <p>
-          This is theory-building case research, not validation data, a representative workforce sample, or a ranking.
-          The point is to test and improve the methodology now; later participant data will test the assessments in a
-          different way.
+          They are not winners, templates, or proof that the framework is correct. They are provocations: public cases that
+          help us ask sharper questions, notice missing evidence, and compare structures without pretending every career
+          should end in the same place.
         </p>
       </section>
 
-      <h2 className="dimhead" style={{ marginTop: 54 }}>Explore the Observatory map</h2>
+      <h2 className="dimhead" style={{ marginTop: 54 }}>Choose what you want to understand</h2>
       <p className="rsub" style={{ marginBottom: 18 }}>
-        Switch between the visual field map and the searchable directory. Every dot opens a case record; filters reveal
-        contrasts across creators, professionals, fields, and roles built around a particular person.
+        Begin with a career tension, search for someone you know, or step back to see the whole field. Every person opens
+        a question you can carry into your own work.
       </p>
-      <ObservatoryMap nodes={nodes} initialView="map" />
+      <ObservatoryMap nodes={nodes} initialView="directory" />
 
       <div className="card" style={{ marginTop: 28 }}>
         <h3>What inclusion means</h3>

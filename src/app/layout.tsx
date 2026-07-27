@@ -4,8 +4,8 @@ import "./globals.css";
 import { getUser } from "@/lib/supabase/server";
 
 const SITE_URL = "https://ownership-platform.vercel.app";
-const TITLE = "Institutions of One — research on work, ownership, and individual institutional power";
-const DESC = "Independent research on how creators and professionals build portable expertise, authority, ownership, and durable systems around their work.";
+const TITLE = "Institutions of One — when a person becomes an infrastructure";
+const DESC = "An independent research and editorial project about creators and professionals building portable authority, owned value, and durable systems around their work.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: DESC,
   applicationName: "Institutions of One",
   authors: [{ name: "RN Collins" }],
-  keywords: ["Institutions of One", "Ownership Index", "Portfolio Professional", "creator economy", "future of work", "RN Collins"],
+  keywords: ["Institutions of One", "Ownership Index", "Portfolio Professional", "independent creators", "portfolio careers", "RN Collins"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website", siteName: "Institutions of One", title: TITLE, description: DESC, url: SITE_URL,
@@ -30,50 +30,32 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en">
       <body>
-        <div className="wrap">
-          <nav className="nav" aria-label="Primary">
-            <a href="/">Institutions of One</a>
-            <a href="/methodology">Research</a>
-            <a href="/assess">Assessments</a>
-            <a href="/observatory">Observatory</a>
-            <a href="/findings">Findings</a>
-            <a href="/partner">Participate</a>
-            <span style={{ marginLeft: "auto" }} />
-            {user ? <>
-              <a href="/dashboard">Dashboard</a>
-              <a href="/dashboard/owned">My page</a>
-              <form action="/auth/signout" method="post"><button type="submit" className="navlink">Sign out</button></form>
-            </> : <a href="/login">Sign in</a>}
-          </nav>
+        <div className="site-shell">
+          <header className="site-header">
+            <a className="brand" href="/" aria-label="Institutions of One home">
+              <span className="brand-mark">I/1</span>
+              <span className="brand-name">Institutions<br/>of One</span>
+            </a>
+            <nav className="nav" aria-label="Primary">
+              <a href="/methodology">The idea</a>
+              <a href="/observatory">People</a>
+              <a href="/assess">Measure</a>
+              <a href="/findings">Dispatches</a>
+              <a href="/partner">Work with us</a>
+              {user ? <><a href="/dashboard">Dashboard</a><form action="/auth/signout" method="post"><button type="submit" className="navlink">Sign out</button></form></> : <a className="nav-signin" href="/login">Sign in</a>}
+            </nav>
+          </header>
 
-          {children}
+          <div className="wrap">{children}</div>
 
           <footer className="foot">
+            <div className="foot-statement">What happens when the person is no longer just the talent—but the infrastructure?</div>
             <div className="foot-cols">
-              <div className="foot-col">
-                <span className="foot-h">Explore</span>
-                <a href="/methodology">Research and methodology</a>
-                <a href="/assess">Pilot assessments</a>
-                <a href="/observatory">The Observatory</a>
-                <a href="/findings">Early findings</a>
-              </div>
-              <div className="foot-col">
-                <span className="foot-h">About</span>
-                <a href="/about">About RN Collins and the project</a>
-                <a href="/partner">Participate or partner</a>
-                <a href="/privacy">Privacy and data use</a>
-              </div>
-              <div className="foot-col">
-                <span className="foot-h">Contact</span>
-                <a href="mailto:collins.ra@northeastern.edu">collins.ra@northeastern.edu</a>
-                <a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              </div>
+              <div className="foot-col"><span className="foot-h">Study</span><a href="/methodology">The idea and method</a><a href="/assess">Pilot assessments</a><a href="/observatory">The Observatory</a><a href="/findings">Research dispatches</a></div>
+              <div className="foot-col"><span className="foot-h">Join</span><a href="/partner">Participate or partner</a><a href="/research/cognitive-interviews">Join an interview</a><a href="/about">About RN Collins</a></div>
+              <div className="foot-col"><span className="foot-h">Contact</span><a href="mailto:collins.ra@northeastern.edu">Email</a><a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/privacy">Privacy</a></div>
             </div>
-            <p className="foot-note">
-              Institutions of One is an independent research project by RN Collins. Pilot results and case research are
-              published with their methods, limitations, and evidence status.
-            </p>
-            <p className="foot-copy">© {new Date().getFullYear()} RN Collins · Institutions of One · <a href="/privacy" style={{ color: "inherit" }}>Privacy</a></p>
+            <p className="foot-copy">© {new Date().getFullYear()} RN Collins · Independent research in public</p>
           </footer>
         </div>
       </body>

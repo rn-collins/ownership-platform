@@ -51,7 +51,12 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
   };
   const guide = tensionGuides[node.tension ?? ""] ?? { meaning: "how ownership, portability, authority, and dependence interact", lookFor: "the assets, relationships, systems, and permissions surrounding the work", comparison: "Ask what changes if the career loses its largest source of support." };
   const narrative = CASE_NARRATIVES[params.slug];
+  const currentIndex = SEED.findIndex((candidate) => nodeSlug(candidate.name) === params.slug);
+  const previous = currentIndex > 0 ? SEED[currentIndex - 1] : undefined;
+  const next = currentIndex >= 0 && currentIndex < SEED.length - 1 ? SEED[currentIndex + 1] : undefined;
   const related = SEED.filter((candidate) => candidate.name !== node!.name && (candidate.tension === node!.tension || candidate.domain === node!.domain)).slice(0, 3);
+  const independentSourceCount = narrative?.sources.filter((source) => source.independent).length ?? 0;
+  const institutionalSourceCount = (narrative?.sources.length ?? 0) - independentSourceCount;
   const reviewed = status === "verified";
   const date = (value: Date) => new Intl.DateTimeFormat("en", { year: "numeric", month: "long", day: "numeric" }).format(value);
 
@@ -73,13 +78,14 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
         <p>{narrative.structuralTurn}</p>
       </section>
       <div className={styles.storyGrid}>
-        <section className={styles.section}><h2>What this case helps us see</h2><p>{narrative.whyItMatters}</p><p><strong>The lens:</strong> In this case, {(node.tension ?? "the career tension").toLowerCase()} means {guide.meaning}.</p><p><strong>Read with care:</strong> This is an interpretation of documented public facts, not a judgment of the person or proof of private ownership and power.</p></section>
-        <aside className={styles.aside}><h3>Questions the record cannot yet answer</h3><ul>{narrative.unresolved.map((item) => <li key={item}>{item}</li>)}</ul></aside>
+        <section className={styles.section}><h2>What this case teaches</h2><p>{narrative.whyItMatters}</p><p><strong>The structural interpretation:</strong> In this case, {(node.tension ?? "the career tension").toLowerCase()} means {guide.meaning}.</p><p><strong>Read with care:</strong> This is an interpretation of documented public facts, not a judgment of the person or proof of private ownership and power.</p></section>
+        <aside className={styles.aside}><h3>Counterevidence, limits, and unknowns</h3><ul>{narrative.unresolved.map((item) => <li key={item}>{item}</li>)}</ul></aside>
       </div>
       <section className={styles.evidence} aria-labelledby="narrative-sources">
         <p className={styles.kicker}>Sources for this profile</p>
         <h2 id="narrative-sources">Follow the evidence</h2>
-        <p className={styles.evidenceIntro}>Independent reporting is labeled. First-party sources establish what an organization or person publicly announced about itself; they do not independently prove performance, ownership, or impact.</p>
+        <p className={styles.evidenceIntro}>This profile currently uses {narrative.sources.length} linked source{narrative.sources.length === 1 ? "" : "s"}: {independentSourceCount} independent and {institutionalSourceCount} first-party or institutional. Independent reporting is labeled. First-party sources establish what an organization or person publicly announced about itself; they do not independently prove performance, ownership, causation, or impact.</p>
+        {independentSourceCount === 0 && <p><strong>Evidence warning:</strong> This profile does not yet have an independent source. Treat the career account as a documented starting point, not an independently verified conclusion.</p>}
         <ol>{narrative.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a>{source.independent ? " · Independent reporting" : " · First-party or institutional source"}</li>)}</ol>
       </section>
     </> : <div className={styles.storyGrid}>
@@ -89,6 +95,6 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
 
     {claims.length > 0 ? <section className={styles.evidence} aria-labelledby="record-heading"><p className={styles.kicker}>The public record</p><h2 id="record-heading">What we can responsibly say</h2><p className={styles.evidenceIntro}>These are bounded claims supported by the sources attached to them. Open the evidence only when you want to inspect how a statement was established or qualified.</p>{claims.map((claim) => <article className={styles.claim} key={claim.id}><span className={styles.label}>{claim.claimType.replaceAll("_", " ")} · {claim.verificationStatus.replaceAll("_", " ")}</span><h3>{claim.permissibleLanguage || claim.statement}</h3>{claim.contradictionNote && <p><strong>Important qualification:</strong> {claim.contradictionNote}</p>}<details><summary>Inspect the evidence ({claim.evidence.length})</summary><div className={styles.sources}>{claim.evidence.length ? <ol>{claim.evidence.map((item) => <li key={item.id}><a href={item.source.url} target="_blank" rel="noreferrer">{item.source.title}</a>{item.source.publisher ? ` — ${item.source.publisher}` : ""}{item.source.publishedAt ? ` (${date(item.source.publishedAt)})` : ""}{item.source.primarySource ? " · Primary source" : ""}{item.exactPassage && <blockquote>{item.exactPassage}</blockquote>}{item.locator && <p>Location: {item.locator}</p>}</li>)}</ol> : <p>No public citation is attached yet.</p>}</div></details></article>)}</section> : !narrative ? <section className={styles.unknown}><h2>What we are still researching</h2><p>We have verified the role description, but this page does not yet contain a complete career account. We are still sourcing the turning points, relationships, ownership arrangements, dependencies, and evidence that might complicate the first interpretation. Until those sources are attached, we leave those questions open.</p></section> : null}
 
-    <section className={styles.next}><p className={styles.kicker}>Keep exploring</p><h2>See how the same question changes in another career.</h2><div className={styles.links}>{related.map((person) => <Link href={`/observatory/${nodeSlug(person.name)}`} key={person.name}>{person.name} →</Link>)}</div></section>
+    <nav className={styles.next} aria-label="Profile navigation"><p className={styles.kicker}>Continue through the Observatory</p><h2>Move in sequence—or follow the same tension into another career.</h2><div className={styles.links}>{previous && <Link href={`/observatory/${nodeSlug(previous.name)}`}>← Previous: {previous.name}</Link>}<Link href="/observatory">All 41 people</Link>{next && <Link href={`/observatory/${nodeSlug(next.name)}`}>Next: {next.name} →</Link>}</div><div className={styles.links}>{related.map((person) => <Link href={`/observatory/${nodeSlug(person.name)}`} key={person.name}>Compare with {person.name} →</Link>)}</div></nav>
   </main>;
 }

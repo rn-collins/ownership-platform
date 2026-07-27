@@ -75,8 +75,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
           },
         },
       });
-      if (record) {
-        if (record.publicStatus !== "public") notFound();
+      if (record?.publicStatus === "public") {
         n = {
           name:record.displayName, role:record.headline ?? "Case record under evidence review",
           domain:record.primaryField ?? "Unclassified",

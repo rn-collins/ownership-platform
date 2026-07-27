@@ -3,6 +3,18 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 export const metadata = {
   title: "The I/1 Edit — Institutions of One",
   description: "Original ideas, cases, conversations, and visual findings about how a person becomes an institution.",
+  alternates: { canonical: "/edit" },
+  openGraph: {
+    title: "The I/1 Edit",
+    description: "Original ideas, cases, conversations, and visual findings about how a person becomes an institution.",
+    url: "/edit",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The I/1 Edit",
+    description: "Original ideas, cases, conversations, and visual findings about how a person becomes an institution.",
+  },
 };
 
 export default function EditPage() {

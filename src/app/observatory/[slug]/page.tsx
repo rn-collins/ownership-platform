@@ -33,9 +33,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
   }
   if (!name) return { title: "Profile — The Observatory" };
+  const canonical = `/observatory/${params.slug}`;
+  const title = `${name} — The Observatory | Institutions of One`;
+  const description = `${name}: a public case exploring how individual work becomes portable, ownable, authoritative, or durable.`;
   return {
-    title: `${name} — The Observatory | Institutions of One`,
-    description: `${name}: an evidence-aware case record in the Institutions of One Observatory.`,
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: { title, description, url: canonical, images: ["/og.png"] },
+    twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
   };
 }
 
@@ -85,6 +91,8 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
           domain: seedRecord?.domain ?? record.primaryField ?? "Unclassified",
           kind: seedRecord?.kind ?? (record.caseType === "creator" ? "creator" : "professional"),
           created: seedRecord?.created ?? record.roleBuiltFlag,
+          tension: seedRecord?.tension,
+          question: seedRecord?.question,
         };
         databaseStatus = record.verificationStatus;
         evidenceCoverage = record.evidenceCoverage;
@@ -109,38 +117,35 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
   const date = (value:Date|null) => value ? new Intl.DateTimeFormat("en",{year:"numeric",month:"short",day:"numeric"}).format(value) : "date not established";
 
   return <main className="profile-page">
-    <p className="eyebrow">Institutions of One · The Observatory</p>
-    <a href="/observatory" className="postback">← Back to the Observatory</a>
+    <a href="/observatory" className="postback">← All 41 people</a>
+    <p className="eyebrow">{n.tension ?? "A career that breaks the label"}</p>
     <h1 style={{marginTop:6}}>{n.name}</h1>
     <p className="lede">{n.role}.</p>
 
-    <div className="obs-panel-meta" style={{margin:"10px 0 20px"}}>
-      <span className="obs-chip">{n.domain}</span>
-      <span className="obs-chip">{isCreator ? "Creator" : "Professional"}</span>
-      {n.created && <span className="obs-chip built">{databaseStatus==="verified" ? "Documented role-built case" : "Role-built question"}</span>}
-      <span className="obs-chip">{databaseStatus.replaceAll("_"," ")}</span>
+    <section className="profile-question" aria-labelledby="case-question">
+      <span>The question</span>
+      <h2 id="case-question">{n.question ?? "What does this career reveal about ownership, portability, authority, and dependence?"}</h2>
+      <p>This is the reason to study the case—not a verdict about the person.</p>
+    </section>
+
+    <div className="profile-facts">
+      <span>{n.domain}</span>
+      <span>{isCreator ? "Creator lens" : "Professional lens"}</span>
+      {n.created && <span>A role shaped around a person</span>}
     </div>
 
-    <div className="card" style={{borderLeft:`4px solid ${databaseStatus==="verified" ? "#2f7a54" : "#b98f4d"}`}}>
-      <h3>{databaseStatus==="verified" ? "What the evidence establishes" : "Why this person is in the pilot"}</h3>
-      <p>
-        {databaseStatus==="verified"
-          ? "The claims shown below have passed the Observatory’s current evidence review. That review applies only to what is displayed here—not to every possible claim or interpretation about this person."
-          : "This person is part of the 41-case methodology pilot because their work puts the research questions under useful pressure. The description below is a starting point for investigation—not a score, ranking, endorsement, or finished judgment."}
-      </p>
-      <p className="meta">
-        {databaseStatus==="verified"
-          ? `Public evidence reviewed${lastReviewedAt ? ` · Updated ${date(lastReviewedAt)}` : ""}`
-          : "Public pilot entry · Evidence review in progress"}
-      </p>
-    </div>
-
-    <h2 className="dimhead">The working portrait</h2>
-    <div className="card">
-      <p><b>Working description:</b> {n.role}.</p>
-      <p><b>Field:</b> {n.domain}.</p>
-      <p><b>Research lens:</b> {lens}.</p>
-      {n.created && <p><b>Question under study:</b> Was this role created or materially reshaped around the person doing it? The flag identifies a question for evidence review, not a settled conclusion.</p>}
+    <h2 className="dimhead">What we know going in</h2>
+    <div className="profile-start">
+      <p>{n.role}.</p>
+      <p>The case enters through the <b>{lens}</b>. That lens helps organize questions; it does not assign this person a score.</p>
+      <details>
+        <summary>Research status and limits</summary>
+        <p>
+          {databaseStatus==="verified"
+            ? `The public material shown below has passed the current evidence review${lastReviewedAt ? ` as of ${date(lastReviewedAt)}` : ""}. That review applies only to the claims displayed here.`
+            : "This is a public pilot entry. Its role description has been checked and narrowed, but the full case record is still being developed. Open questions remain open."}
+        </p>
+      </details>
     </div>
 
     {publicClaims.length > 0 && <>
@@ -227,8 +232,8 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
     </div>
 
     <div className="actions">
-      <a href="/observatory"><button className="primary">Explore all cases</button></a>
-      <a href="/observatory" style={{textDecoration:"none"}}><span className="progress">Nominate someone →</span></a>
+      <a href="/observatory" className="primary-link">Explore all 41 people</a>
+      <a href="/observatory#nominate" className="text-link">Nominate someone →</a>
     </div>
   </main>;
 }

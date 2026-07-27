@@ -507,3 +507,76 @@ h1,h2,h3{letter-spacing:-.025em;}
   .lensgrid{grid-template-columns:1fr}.lenscard+ .lenscard{border-left:0!important;border-top:1px solid var(--io-black)!important}.lenscard{min-height:330px}
   .foot{padding:56px 20px 28px}.foot-cols{grid-template-columns:1fr;gap:30px}
 }
+
+
+/* === Route-specific editorial art direction · July 2026 === */
+.editorial-page,.choice-page,.instrument-page,.observatory-page,.findings-page,.partner-page,.about-page,.study-page,.privacy-page,.login-page{
+  --route-accent:var(--io-rust);position:relative;padding-top:82px;max-width:none;
+}
+.editorial-page>h1,.choice-page>h1,.instrument-page>h1,.observatory-page>h1,.findings-page>h1,.partner-page>h1,.about-page>h1,.study-page>h1,.privacy-page>h1,.login-page>h1{
+  max-width:1100px;font-family:Georgia,serif;font-size:clamp(54px,7.6vw,108px);line-height:.91;letter-spacing:-.055em;margin:20px 0 32px;color:var(--io-black);
+}
+.editorial-page>.lede,.choice-page>.lede,.instrument-page>.lede,.observatory-page>.lede,.findings-page>.lede,.partner-page>.lede,.about-page>.lede,.study-page>.lede,.privacy-page>.lede,.login-page>.lede{
+  max-width:780px;font-size:clamp(18px,2vw,25px);line-height:1.38;color:var(--io-black);margin-bottom:54px;
+}
+.editorial-page:before,.choice-page:before,.instrument-page:before,.observatory-page:before,.findings-page:before,.partner-page:before,.about-page:before,.study-page:before,.privacy-page:before,.login-page:before{
+  content:"I / 1";position:absolute;right:0;top:70px;font:900 14px/1 Arial,sans-serif;letter-spacing:-.05em;background:var(--io-black);color:var(--io-acid);padding:13px 14px;
+}
+.editorial-page .dimhead,.partner-page .dimhead,.study-page .dimhead{
+  margin:76px 0 0!important;padding:18px 0;border-top:2px solid var(--io-black);border-bottom:1px solid var(--io-black);font:900 12px/1 Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;
+}
+.editorial-page .card,.partner-page .card,.about-page .card,.study-page .card,.privacy-page .card{
+  display:grid;grid-template-columns:minmax(210px,.7fr) minmax(0,1.7fr);gap:44px;margin:0;padding:34px 0;border:0;border-bottom:1px solid var(--io-black);background:transparent;
+}
+.editorial-page .card h3,.partner-page .card h3,.about-page .card h3,.study-page .card h2,.privacy-page .card h3{
+  font-family:Georgia,serif;font-size:clamp(25px,3vw,38px);line-height:1.05;margin:0;color:var(--io-black);
+}
+.editorial-page .card p,.editorial-page .card ul,.partner-page .card p,.about-page .card p,.study-page .card p,.study-page .card ol,.privacy-page .card p{
+  font-size:16px;line-height:1.65;margin-top:0;color:#3f3b35;
+}
+.choice-page{--route-accent:var(--io-blue);}
+.choice-page .card{display:grid;grid-template-columns:80px 1fr;gap:28px;min-height:260px;margin:0;padding:36px;border:1px solid var(--io-black);border-radius:0;background:#d9d0ff;}
+.choice-page .card+.card{border-top:0;background:var(--io-acid);}
+.choice-page .card:before{content:"A";font:900 64px/.8 Arial,sans-serif;letter-spacing:-.08em;}
+.choice-page .card+.card:before{content:"B";}
+.choice-page .card h3{font-size:clamp(30px,4vw,54px);line-height:1;font-family:Georgia,serif;}
+.choice-page .card p{font-size:17px;line-height:1.55;max-width:720px;}
+.instrument-page{padding-bottom:40px;}
+.ownership-page{--route-accent:var(--io-rust);}
+.professional-page{--route-accent:var(--io-blue);}
+.instrument-page>.meta{border-top:1px solid var(--io-black);border-bottom:1px solid var(--io-black);padding:16px 0;margin-bottom:48px;text-transform:uppercase;letter-spacing:.12em;color:var(--io-black);}
+.instrument-page .stepper{max-width:880px;margin:0 auto;padding:54px;background:var(--io-cream);border:1px solid var(--io-black);}
+.instrument-page .qbig{font-size:clamp(30px,4vw,48px);line-height:1.08;}
+.instrument-page .optcard{border-radius:0;border-color:var(--io-black);background:transparent;padding:18px 20px;}
+.instrument-page .optcard:hover,.instrument-page .optcard.sel{background:var(--io-black);color:white;}
+.observatory-page{--route-accent:var(--io-acid);}
+.observatory-page>.card:first-of-type{margin:70px 0 60px!important;padding:42px!important;border:1px solid var(--io-black)!important;border-left:14px solid var(--io-black)!important;border-radius:0;background:var(--io-acid);}
+.observatory-page .roster{grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--io-black);}
+.observatory-page .rostercard{border:0;border-right:1px solid var(--io-black);border-bottom:1px solid var(--io-black);border-radius:0;background:transparent;padding:22px;min-height:190px;}
+.observatory-page .rostername{font-size:21px;}
+.findings-page{--route-accent:var(--io-blue);}
+.findings-page>.lede:nth-of-type(2){display:inline-block;background:var(--io-blue);color:white;padding:18px 22px;margin-top:-22px;}
+.findings-page .findings{grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--io-black);}
+.findings-page .find-panel{border:0;border-right:1px solid var(--io-black);border-radius:0;background:var(--io-cream);padding:34px;min-height:320px;}
+.partner-page{--route-accent:var(--io-blue);}
+.partner-page>.card:first-of-type{grid-template-columns:1fr;margin:50px 0!important;padding:36px!important;border:0!important;background:var(--io-black);color:white;}
+.partner-page>.card:first-of-type h3{color:var(--io-acid);}
+.partner-page>.card:first-of-type p{color:#eee;}
+.about-page{--route-accent:var(--io-rust);}
+.about-page>.card:first-of-type{margin-top:70px;border-top:2px solid var(--io-black);}
+.about-page>.card:first-of-type h3:before{content:"The founder";display:block;font:900 10px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--io-rust);margin-bottom:18px;}
+.study-page{--route-accent:var(--io-acid);}
+.privacy-page{--route-accent:var(--io-blue);}
+.login-page{min-height:650px;}
+.login-page .actions{max-width:720px;background:var(--io-acid);border:1px solid var(--io-black);padding:34px;}
+.login-page .opentext{border-radius:0;border:1px solid var(--io-black);padding:14px;background:white;}
+@media(max-width:800px){
+  .editorial-page,.choice-page,.instrument-page,.observatory-page,.findings-page,.partner-page,.about-page,.study-page,.privacy-page,.login-page{padding-top:52px;}
+  .editorial-page:before,.choice-page:before,.instrument-page:before,.observatory-page:before,.findings-page:before,.partner-page:before,.about-page:before,.study-page:before,.privacy-page:before,.login-page:before{display:none;}
+  .editorial-page>h1,.choice-page>h1,.instrument-page>h1,.observatory-page>h1,.findings-page>h1,.partner-page>h1,.about-page>h1,.study-page>h1,.privacy-page>h1,.login-page>h1{font-size:52px;}
+  .editorial-page .card,.partner-page .card,.about-page .card,.study-page .card,.privacy-page .card{grid-template-columns:1fr;gap:12px;padding:26px 0;}
+  .choice-page .card{grid-template-columns:1fr;padding:25px;min-height:0}.choice-page .card:before{font-size:42px;}
+  .instrument-page .stepper{padding:26px 20px;margin-left:-20px;margin-right:-20px;border-left:0;border-right:0;}
+  .observatory-page .roster{grid-template-columns:1fr}.observatory-page .rostercard{min-height:0;border-right:0;}
+  .findings-page .findings{grid-template-columns:1fr}.findings-page .find-panel{border-right:0;border-bottom:1px solid var(--io-black);}
+}

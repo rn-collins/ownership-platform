@@ -265,6 +265,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
                 onClick={() => selectNode(n.i)}
                 onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectNode(n.i); } }}
                 style={{ cursor: "pointer", opacity: on ? 1 : 0.13, transition: "opacity .2s", outline: "none" }}>
+                <circle aria-hidden="true" cx={x} cy={y} r={22} fill="transparent" />
                 {isSel && <circle cx={x} cy={y} r={r + 7} fill="none" stroke="#ffffff" strokeWidth={1.4} opacity={0.85} />}
                 {n.created && (
                   <rect

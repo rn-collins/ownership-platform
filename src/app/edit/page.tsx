@@ -45,15 +45,27 @@ export default function EditPage() {
         </div>
       </section>
 
+      <a className="edit-feature edit-feature-latest" href="/edit/002">
+        <span className="edit-feature-number">002</span>
+        <div>
+          <p className="eyebrow">Latest edition · July 2026</p>
+          <h2>Your career has a supply chain.</h2>
+          <p>
+            Dependence is unavoidable. The danger is a dependency you cannot see, replace, negotiate with, or survive without.
+          </p>
+          <strong>Read Edition 002 →</strong>
+        </div>
+      </a>
+
       <a className="edit-feature" href="/edit/001">
         <span className="edit-feature-number">001</span>
         <div>
-          <p className="eyebrow">First edition · Preview</p>
+          <p className="eyebrow">Edition 001 · July 2026</p>
           <h2>When does one person become an institution?</h2>
           <p>
             What does a person have to build, carry, and control before their work begins to function like an institution?
           </p>
-          <strong>Read the edition preview →</strong>
+          <strong>Read Edition 001 →</strong>
         </div>
       </a>
 

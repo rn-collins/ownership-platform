@@ -46,8 +46,8 @@ function layout(nodes: Node[]): Placed[] {
 
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
-export function ObservatoryMap({ nodes = SEED, embed = false }: { nodes?: Node[]; embed?: boolean }) {
-  const [viewMode, setViewMode] = useState<ObservatoryView>("directory");
+export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "directory" }: { nodes?: Node[]; embed?: boolean; initialView?: ObservatoryView }) {
+  const [viewMode, setViewMode] = useState<ObservatoryView>(initialView);
   const [lens, setLens] = useState<Lens>("all");
   const [domain, setDomain] = useState<string | "all">("all");
   const [builtOnly, setBuiltOnly] = useState(false);

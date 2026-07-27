@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function AssessChooserPage() {
   return (
-    <main>
+    <main className="choice-page">
       <p className="eyebrow">Institutions of One · Assessments</p>
       <h1>What part of your work do you want to examine?</h1>
       <p className="lede">

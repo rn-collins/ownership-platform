@@ -51,7 +51,7 @@ export default function EditPage() {
           <h2>Receive the complete edition.</h2>
           <p>No platform fragments. No vague “updates.” The full work arrives in your inbox and remains readable here.</p>
         </div>
-        <NewsletterSignup source="edit-index" />
+        <NewsletterSignup source="site" />
       </section>
     </main>
   );

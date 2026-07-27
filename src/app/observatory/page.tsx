@@ -1,12 +1,12 @@
 import { ObservatoryNominate } from "@/components/ObservatoryNominate";
 import { ObservatoryMap } from "@/components/ObservatoryMap";
 import { prisma } from "@/lib/db";
-import { FIRST_COHORT_VERSION, FIRST_OBSERVATORY_COHORT } from "@/lib/observatory-cohort";
+import { FIRST_OBSERVATORY_COHORT } from "@/lib/observatory-cohort";
 import { SEED, type Node } from "@/lib/observatory_seed";
 
 export const metadata = {
-  title: "The Observatory — how individuals are becoming institutions",
-  description: "A browsable collection of documented creator and professional cases, grouped by field.",
+  title: "The Observatory — Institutions of One",
+  description: "Documented cases showing how creators and professionals build ownership, authority, and durable systems around their work.",
 };
 
 export default async function ObservatoryPage() {
@@ -20,7 +20,7 @@ export default async function ObservatoryPage() {
       if (records.length > 0) {
         nodes = records.map((record) => ({
           name: record.displayName,
-          role: record.headline ?? "Case record under evidence review",
+          role: record.headline ?? "Case under review",
           domain: record.primaryField ?? "Unclassified",
           kind: record.caseType === "creator" ? "creator" : "professional",
           created: record.roleBuiltFlag,
@@ -29,51 +29,39 @@ export default async function ObservatoryPage() {
         }));
       }
     } catch {
-      // Preserve the public Observatory if the database is temporarily unavailable.
       nodes = SEED;
     }
   }
 
-  const creatorCount = FIRST_OBSERVATORY_COHORT.filter((member) => member.caseType === "creator").length;
-  const professionalCount = FIRST_OBSERVATORY_COHORT.length - creatorCount;
-  const fieldCount = new Set(FIRST_OBSERVATORY_COHORT.map((member) => member.field)).size;
+  const creators = FIRST_OBSERVATORY_COHORT.filter((member) => member.caseType === "creator").length;
+  const professionals = FIRST_OBSERVATORY_COHORT.length - creators;
+  const fields = new Set(FIRST_OBSERVATORY_COHORT.map((member) => member.field)).size;
 
   return (
     <main>
       <p className="eyebrow">Institutions of One · The Observatory</p>
-      <h1>The individual is becoming an institution.</h1>
+      <h1>How individual institutions take shape in the real world.</h1>
       <p className="lede">
-        Across the economy, creators and professionals are assembling work, ownership, authority, and infrastructure in
-        new combinations. The Observatory is the evidence system for studying those arrangements. The directory is a
-        provisional map; reviewed cases and cross-case findings are governed separately.
+        The Observatory documents creators and professionals who offer useful cases for studying ownership, authority,
+        portability, and durable infrastructure. It brings public evidence into one place so patterns can be compared
+        across careers and industries.
       </p>
 
-      <section className="card" aria-labelledby="first-cohort-heading" style={{ marginTop: 18, borderLeft: "4px solid #b98f4d" }}>
-        <p className="eyebrow">First theory-building cohort · v{FIRST_COHORT_VERSION}</p>
-        <h2 id="first-cohort-heading" style={{ fontFamily: "Georgia, serif", fontSize: 22 }}>
-          Twelve bounded cases, selected before cross-case analysis
-        </h2>
+      <section className="card" aria-labelledby="cohort-heading" style={{ marginTop: 18, borderLeft: "4px solid #b98f4d" }}>
+        <p className="eyebrow">Initial comparative cohort</p>
+        <h2 id="cohort-heading" style={{ fontFamily: "Georgia, serif", fontSize: 22 }}>Twelve cases across different forms of work</h2>
         <p>
-          The first cohort contains {creatorCount} creator cases and {professionalCount} professional cases across {fieldCount} fields.
-          It is deliberately varied for theory building; it is not a statistically representative sample of a population.
-          Selection does not verify a person&apos;s roster description, imply endorsement, or assign either instrument score.
-        </p>
-        <p>
-          Cross-case findings remain blocked until at least eight cohort cases have passed review with at least 80% workflow
-          coverage, including at least four creator and four professional cases. MrBeast is retained as one context case but
-          frozen from further source-expansion research until eight other cohort subjects are reviewed, except for a documented
-          correction or contradiction.
+          The first comparative cohort includes {creators} creator cases and {professionals} professional cases across {fields} fields.
+          It was selected to examine contrasting ways individuals build audiences, businesses, expertise, authority, and
+          institutional support. It is a theory-building sample, not a statistically representative portrait of the workforce.
         </p>
         <div className="roster" style={{ marginTop: 14 }}>
           {FIRST_OBSERVATORY_COHORT.map((member) => (
             <article className="rostercard" key={member.slug}>
               <div className="rostername">{member.displayName}</div>
               <p className="rosterrole">{member.institutionalForm}</p>
-              <p className="rosterdomain">{member.caseType === "creator" ? "Creator case" : "Professional case"} · {member.field}</p>
+              <p className="rosterdomain">{member.caseType === "creator" ? "Creator" : "Professional"} · {member.field}</p>
               <p className="meta" style={{ margin: "9px 0 0" }}>{member.selectionReason}</p>
-              {member.researchRestriction && (
-                <p className="meta" style={{ margin: "9px 0 0" }}><b>Research restriction:</b> {member.researchRestriction}</p>
-              )}
             </article>
           ))}
         </div>
@@ -82,19 +70,17 @@ export default async function ObservatoryPage() {
       <ObservatoryMap nodes={nodes} />
 
       <div className="card" style={{ marginTop: 18 }}>
-        <h3>Measurement is separate from case inclusion</h3>
+        <h3>What inclusion means</h3>
         <p>
-          The two candidate instruments are voluntary self-report measures. A person&apos;s presence in the Observatory or
-          first cohort does not produce, predict, or substitute for an instrument result.
-          <a href="/assess/creator" className="fwlink"> Ownership Index →</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-          <a href="/assess/professional" className="fwlink"> Portfolio Professional →</a>
+          Inclusion identifies a useful case for research. It is not an endorsement, ranking, or assessment result.
+          Profiles distinguish reviewed evidence from provisional information and can be corrected as better sources emerge.
         </p>
       </div>
 
-      <h2 style={{ fontFamily: "Georgia, serif", fontSize: 22, marginTop: 30, marginBottom: 4 }}>Nominate someone</h2>
+      <h2 style={{ fontFamily: "Georgia, serif", fontSize: 22, marginTop: 30, marginBottom: 4 }}>Suggest a case</h2>
       <p className="rsub" style={{ marginBottom: 14 }}>
-        Nominations expand the candidate directory; they do not automatically enter the bounded first cohort or become
-        verified cases. Added only with consent—a project about ownership models it.
+        Know someone whose career or business would add a meaningful contrast? Submit a nomination for research review.
+        A nomination does not guarantee public inclusion.
       </p>
       <ObservatoryNominate />
     </main>

@@ -104,7 +104,7 @@ export default function EditionOnePage() {
           The I/1 Edit arrives every other week through Beehiiv. The complete edition also lives here as part of the
           permanent I of 1 archive; LinkedIn and X carry selected excerpts.
         </p>
-        <NewsletterSignup source="edit-001" />
+        <NewsletterSignup source="site" />
       </section>
     </main>
   );

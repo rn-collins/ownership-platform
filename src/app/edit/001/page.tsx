@@ -1,3 +1,4 @@
+import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 export const metadata = {
@@ -220,6 +221,8 @@ export default function EditionOnePage() {
           If the role disappeared, the platform changed its rules, the distributor walked away, or the employer kept the system, what would still be yours to continue?
         </blockquote>
       </section>
+
+      <EditionLab edition="001" />
 
       <section className="edition-opening" aria-labelledby="sources-heading">
         <p className="eyebrow">Sources and limits</p>

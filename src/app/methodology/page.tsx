@@ -5,6 +5,8 @@ export const metadata = {
   title: "Methodology — Institutions of One",
   description: "What Institutions of One measures, how the pilot assessments work, and the limits of the current research.",
   alternates: { canonical: "/methodology" },
+  openGraph: { title: "Methodology — Institutions of One", description: "What Institutions of One measures, how the pilot assessments work, and the limits of the current research.", url: "/methodology", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "Methodology — Institutions of One", description: "What Institutions of One measures, how the pilot assessments work, and the limits of the current research.", images: ["/og.png"] },
 };
 
 const ownershipDimensions = [

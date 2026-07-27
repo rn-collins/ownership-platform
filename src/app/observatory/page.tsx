@@ -6,6 +6,7 @@ import { SEED, nodeSlug, type Node } from "@/lib/observatory_seed";
 export const metadata = {
   title: "The Observatory — Institutions of One",
   description: "A 41-case methodology pilot mapping how creators and professionals build ownership, authority, portability, and durable infrastructure.",
+  alternates: { canonical: "/observatory" },
 };
 
 export default async function ObservatoryPage() {

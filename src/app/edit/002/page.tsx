@@ -1,3 +1,4 @@
+import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 export const metadata = {
@@ -184,6 +185,8 @@ export default function EditionTwoPage() {
         </blockquote>
       </section>
 
+      <EditionLab edition="002" />
+
       <section className="edition-opening" aria-labelledby="sources-heading">
         <p className="eyebrow">Sources and limits</p>
         <h2 id="sources-heading">What supports this edition</h2>
@@ -203,7 +206,7 @@ export default function EditionTwoPage() {
       <section className="edition-subscribe">
         <p className="eyebrow">The I/1 Edit</p>
         <h2>One original argument, every other week.</h2>
-        <p>The complete edition arrives by email through Beehiiv and remains in the permanent I of 1 archive.</p>
+        <p>The inbox edition delivers the argument and strongest case moments through Beehiiv. The cited, interactive, updateable edition lives permanently here.</p>
         <NewsletterSignup source="site" />
       </section>
     </main>

@@ -94,6 +94,80 @@ export const PORTFOLIO_PROFESSIONAL_0_2_0_CANDIDATE: InstrumentCandidate = {
   ],
 };
 
+export const INSTRUMENT_RECONCILIATION = {
+  programmeQuestion:
+    "How do people convert individual capability into durable, portable, ownable institutional power?",
+  ownership: {
+    activePilotVersion: "0.2.0",
+    candidateVersion: OWNERSHIP_INDEX_0_3_0_CANDIDATE.version,
+    primaryUnit: "a person-operated business or creator enterprise",
+    primaryQuestion:
+      "How much control does the respondent retain over the audiences, rights, income channels, identity assets, and operating infrastructure through which value is created and captured?",
+    domains: [
+      "audience and first-party data control",
+      "content, licensing, and reusable-rights control",
+      "income ownership, recurrence, and concentration",
+      "name, likeness, voice, and synthetic-use control",
+      "business separation, contracting, transferability, and continuity",
+    ],
+    excludes: [
+      "general talent or professional competence",
+      "portfolio coherence by itself",
+      "organizational recognition by itself",
+      "clinical, legal, financial, or employment evaluation",
+    ],
+  },
+  portfolioProfessional: {
+    activePilotVersion: "0.1.0",
+    candidateVersion: PORTFOLIO_PROFESSIONAL_0_2_0_CANDIDATE.version,
+    primaryUnit: "a professional's capability across roles, organizations, and projects",
+    primaryQuestion:
+      "How far has the respondent converted capability into portable evidence, reusable systems, organizational adoption, negotiated mandate, recognized authority, and a compounding direction?",
+    domains: [
+      "capability development, artifacts, legibility, and portability",
+      "adoption, transferability, continuity, and traceable value",
+      "role shaping, autonomy, innovation latitude, and receptivity",
+      "referral, recognition, professional audience access, and opportunity",
+      "portfolio coherence, compounding, legibility, and future direction",
+    ],
+    excludes: [
+      "ownership of business assets or intellectual property unless an item asks directly",
+      "enterprise financial performance",
+      "employee value, promotability, or job performance",
+      "clinical, legal, financial, or employment evaluation",
+    ],
+  },
+  overlapRules: [
+    {
+      topic: "portability",
+      ownershipMeaning: "whether controlled audiences, rights, revenue channels, identity assets, and operations survive a platform, client, or key-person dependency",
+      portfolioMeaning: "whether capability and credible evidence can travel to and operate in another role or setting",
+    },
+    {
+      topic: "continuity",
+      ownershipMeaning: "whether the business can meet planned obligations without the respondent's routine labor",
+      portfolioMeaning: "whether a documented capability continues to produce acceptable results through others",
+    },
+    {
+      topic: "audience and authority",
+      ownershipMeaning: "exportable direct audience access and first-party data governance",
+      portfolioMeaning: "professional recognition, referral, direct relationships, and reputation-linked opportunity",
+    },
+    {
+      topic: "institutionalization",
+      ownershipMeaning: "formal control and continuity of the value-capture system",
+      portfolioMeaning: "conversion of individual know-how into reusable, adopted, legible practice",
+    },
+  ],
+  reportingRules: [
+    "Report the two instruments separately; do not combine their totals into a single score.",
+    "Do not interpret equal numeric totals as equivalent construct levels across instruments.",
+    "Do not infer ownership from Portfolio Professional results or capability from Ownership Index results.",
+    "Active pilot results are exploratory and provisionally scored; candidate-item responses are unscored and cannot be merged with active-pilot scores.",
+    "A future combined Institutions of One measure requires a separately preregistered model and validation study.",
+  ],
+} as const;
+
 export const CANDIDATE_ACTIVATION_GATES = [
   "Complete two cognitive-interview rounds per instrument with revisions logged between rounds.",
   "Include participants across career stage, jurisdiction, business model, disability/care context, and platform dependence relevant to intended use.",

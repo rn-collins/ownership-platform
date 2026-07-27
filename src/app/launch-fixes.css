@@ -1,0 +1,51 @@
+/* Launch-quality corrections layered after the core visual system. */
+
+:root {
+  --io-focus: #ff4f2e;
+}
+
+::selection { background: var(--io-acid); color: var(--io-black); }
+
+/* The A/B card pseudo-label occupies column one; keep all card copy together in column two. */
+.choice-page .card > h3,
+.choice-page .card > p { grid-column: 2; }
+.choice-page .card > h3 { margin-top: 0; }
+.choice-page .card > p { max-width: 740px; }
+.choice-page .card .fwlink { display: block; margin-top: 20px; }
+
+/* Make the Observatory's signature map feel intentional, not hidden behind a utility switch. */
+.observatory-page .obs-stage { border: 2px solid var(--io-black); box-shadow: 10px 10px 0 var(--io-acid); }
+.observatory-page .obs-lens[aria-label="Choose Observatory view"] { border-bottom: 2px solid var(--io-black); padding-bottom: 12px; }
+.obs-tab:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible { outline: 3px solid var(--io-focus); outline-offset: 3px; }
+
+/* Small authored details that can recur as I/1 signatures. */
+.editorial-page .dimhead::before,
+.partner-page .dimhead::before,
+.study-page .dimhead::before { content: "I/1  "; color: var(--io-rust); letter-spacing: -.03em; }
+.eyebrow { text-wrap: balance; }
+.hero-h1,.display-h2,.editorial-page > h1,.choice-page > h1,.instrument-page > h1,.observatory-page > h1,.findings-page > h1,.partner-page > h1,.about-page > h1,.study-page > h1,.privacy-page > h1,.login-page > h1 { text-wrap: balance; }
+
+@media (max-width: 800px) {
+  .choice-page .card > h3,
+  .choice-page .card > p { grid-column: 1; }
+  .choice-page .card { gap: 16px; }
+  .choice-page .card h3 { font-size: clamp(32px, 10vw, 46px); }
+  .editorial-page > h1,.choice-page > h1,.instrument-page > h1,.observatory-page > h1,.findings-page > h1,.partner-page > h1,.about-page > h1,.study-page > h1,.privacy-page > h1,.login-page > h1 { font-size: clamp(42px, 13vw, 56px); line-height: .94; }
+  .instrument-page .stepper { width: auto; max-width: none; }
+  .instrument-page .qbig { font-size: clamp(30px, 9vw, 42px); }
+  .observatory-page .obs-stage { box-shadow: 6px 6px 0 var(--io-acid); }
+}
+
+@media (max-width: 520px) {
+  .wrap { padding-left: 18px; padding-right: 18px; }
+  .site-header { padding-left: 18px; padding-right: 18px; }
+  .hero-h1 { font-size: clamp(50px, 15vw, 72px); }
+  .nl-row { display: grid; grid-template-columns: 1fr; }
+  .nl-btn { width: 100%; }
+  .find-stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}

@@ -104,7 +104,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
   const hasPublicEvidence = publicClaims.length + publicRelationships.length + publicEvents.length + publicObservations.length > 0;
   const date = (value:Date|null) => value ? new Intl.DateTimeFormat("en",{year:"numeric",month:"short",day:"numeric"}).format(value) : "date not established";
 
-  return <main>
+  return <main className="profile-page">
     <p className="eyebrow">Institutions of One · The Observatory</p>
     <a href="/observatory" className="postback">← Back to the Observatory</a>
     <h1 style={{marginTop:6}}>{n.name}</h1>
@@ -113,33 +113,34 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
     <div className="obs-panel-meta" style={{margin:"10px 0 20px"}}>
       <span className="obs-chip">{n.domain}</span>
       <span className="obs-chip">{isCreator ? "Creator" : "Professional"}</span>
-      {n.created && <span className="obs-chip built">{databaseStatus==="verified" ? "Reviewed role-built classification" : "Provisional role-built flag"}</span>}
+      {n.created && <span className="obs-chip built">{databaseStatus==="verified" ? "Documented role-built case" : "Role-built question"}</span>}
       <span className="obs-chip">{databaseStatus.replaceAll("_"," ")}</span>
     </div>
 
     <div className="card" style={{borderLeft:`4px solid ${databaseStatus==="verified" ? "#2f7a54" : "#b98f4d"}`}}>
-      <h3>{databaseStatus==="verified" ? "Verified case record" : "Provisional case record"}</h3>
+      <h3>{databaseStatus==="verified" ? "What we still need to established" : "Why this person is in the pilot"}</h3>
       <p>
         {databaseStatus==="verified"
-          ? "This case has passed the Observatory’s current claim-and-evidence review gate. Verification applies only to the claims displayed below; it does not validate every possible inference about this person."
-          : "This entry remains in the research queue. Its name, role label, field, and flags are starting records to investigate—not completed measurements, rankings, or validated classifications."}
+          ? "The claims shown below have passed the Observatory’s current evidence review. That review applies only to what is displayed here—not to every possible claim or interpretation about this person."
+          : "This person is part of the 41-case methodology pilot because their work puts the research questions under useful pressure. The description below is a starting point for investigation—not a score, ranking, endorsement, or finished judgment."}
       </p>
       <p className="meta">
-        Evidence coverage: {evidenceCoverage==null ? "not yet calculated" : `${Math.round(evidenceCoverage*100)}%`}
-        {" · "}Last reviewed: {lastReviewedAt ? date(lastReviewedAt) : "not yet reviewed"}
+        {databaseStatus==="verified"
+          ? `Public evidence reviewed${lastReviewedAt ? ` · Updated ${date(lastReviewedAt)}` : ""}`
+          : "Public pilot entry · Evidence review in progress"}
       </p>
     </div>
 
-    <h2 className="dimhead">Recorded case information</h2>
+    <h2 className="dimhead">The working portrait</h2>
     <div className="card">
-      <p><b>Role label:</b> {n.role}.</p>
-      <p><b>Primary field:</b> {n.domain}.</p>
-      <p><b>Case category:</b> {isCreator ? "creator" : "professional"}.</p>
-      {n.created && <p><b>Role-built field:</b> the record flags the role as potentially created or materially shaped around this person. See the reviewed claims below for any public evidentiary basis.</p>}
+      <p><b>Why this case is legible:</b> {n.role}.</p>
+      <p><b>Field:</b> {n.domain}.</p>
+      <p><b>Research lens:</b> {lens}.</p>
+      {n.created && <p><b>Question under study:</b> Was this role created or materially reshaped around the person doing it? The flag identifies a question for evidence review, not a settled conclusion.</p>}
     </div>
 
     {publicClaims.length > 0 && <>
-      <h2 className="dimhead">Reviewed claims and sources</h2>
+      <h2 className="dimhead">What the evidence supports</h2>
       {publicClaims.map(claim=><article className="card" key={claim.id}>
         <p className="eyebrow">{claim.claimType.replaceAll("_"," ")} · {claim.epistemicStatus} · {claim.verificationStatus.replaceAll("_"," ")}</p>
         <h3>{claim.permissibleLanguage || claim.statement}</h3>
@@ -202,24 +203,23 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
     {!hasPublicEvidence && <>
       <h2 className="dimhead">Evidence review</h2>
       <div className="card">
-        <h3>No reviewed evidence has been published for this case yet.</h3>
-        <p>Dated sources, atomic claims, relevant relationships, timeline events, contrary evidence, construct mappings, and review decisions are still required. Missing information remains missing; it is not converted into a zero.</p>
+        <h3>The public evidence review for this case is not finished yet.</h3>
+        <p>The next step is to establish the key claims with dated sources, relationships, timeline evidence, and meaningful contrary evidence. Until then, open questions stay open; missing information is never treated as proof of absence.</p>
       </div>
     </>}
 
-    <h2 className="dimhead">Interpretive boundary</h2>
+    <h2 className="dimhead">How to read this case</h2>
     <div className="card">
       <p>
-        This case is examined through the <b>{lens}</b> research lens for {forWhom}. The record may inform theory-building
-        about ownership, portability, professional infrastructure, role creation, or institutional dependence. Case
-        inclusion does not establish prevalence or causation. No psychological characteristic is inferred unless an
-        appropriately consented and identified measurement method supports it.
+        This case is viewed through the <b>{lens}</b>, one of two distinct research lenses used by Institutions of One.
+        It may sharpen questions about ownership, portability, authority, role creation, or dependence on an organization.
+        Inclusion does not mean endorsement, ranking, causation, or psychological assessment.
       </p>
     </div>
 
     <div className="card">
-      <h3>Use the related public instrument</h3>
-      <p>The {lens} is a separate self-report experience. Taking it measures the respondent’s answers; it does not validate this public case record.{" "}<a href={assessHref} className="fwlink">Open the {lens} →</a></p>
+      <h3>Turn the question toward your own work</h3>
+      <p>The {lens} is a separate self-reflection pilot. Your answers describe your own work; they do not confirm or change this public case.{" "}<a href={assessHref} className="fwlink">Open the {lens} →</a></p>
     </div>
 
     <div className="actions">

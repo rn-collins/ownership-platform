@@ -1,6 +1,7 @@
 export const metadata = {
   title: "About — Institutions of One",
   description: "The purpose, researcher, independence, and development of Institutions of One.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

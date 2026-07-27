@@ -10,6 +10,7 @@ export type CaseResearchSource = {
 };
 
 export type CaseResearchRecord = {
+  documentationLevel: "saturated" | "provisional";
   reviewed: string;
   chronology: { date: string; event: string; sourceIds: string[] }[];
   interpretation: string;
@@ -21,6 +22,7 @@ export type CaseResearchRecord = {
 
 export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
   "josephus-allmond": {
+    documentationLevel: "saturated",
     reviewed: "2026-07-27",
     chronology: [
       { date: "Before March 2026", event: "Allmond worked as a Southern Environmental Law Center staff attorney, litigating utility-regulation matters before Virginia’s State Corporation Commission. He also served on the Commission on Electric Utility Regulation.", sourceIds: ["va-bio", "whro-profile"] },
@@ -47,6 +49,7 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
     ],
   },
   "kunal-shah": {
+    documentationLevel: "saturated",
     reviewed: "2026-07-27",
     chronology: [
       { date: "2010–2015", event: "Shah co-founded FreeCharge and sold it to Snapdeal, establishing a record in Indian consumer payments.", sourceIds: ["reuters-analysis"] },
@@ -130,6 +133,7 @@ function narrativeResearch(slug: string): CaseResearchRecord | undefined {
   }));
   const sourceIds = sources.map((source) => source.id);
   return {
+    documentationLevel: "provisional",
     reviewed: "2026-07-27",
     chronology: [
       { ...milestone, sourceIds },

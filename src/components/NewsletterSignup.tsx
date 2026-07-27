@@ -30,9 +30,7 @@ export function NewsletterSignup({
         <p className="nl-kicker">The I/1 Edit</p>
         <h3 className="nl-title">One sharp idea. Every other week. In your inbox.</h3>
         <p className="nl-sub">
-          One original idea about how individual work becomes institutional power, grounded in a case, conversation,
-          or visual finding—plus what the research is changing and a meaningful way to take part. Beehiiv delivers
-          the complete edition. Each edition is also archived on I of 1; LinkedIn and X carry selected excerpts.
+          One original argument about work, power, and ownership—made concrete through real careers. The email is a satisfying read on its own. The web edition adds sources, interactive tools, updates, and more cases to explore.
         </p>
       </div>
       {state === "done" ? (

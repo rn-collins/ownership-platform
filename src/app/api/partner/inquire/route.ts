@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { Resend } from "resend";
 import { prisma } from "@/lib/db";
 import { limit } from "@/lib/ratelimit";
-import { logError } from "@/lib/log";\nimport { Resend } from "resend";
+import { logError } from "@/lib/log";
 
-// A partnership inquiry. Guarded + rate-limited. Stores minimal business contact
-// data (not research data). No-ops cleanly if the DB isn't configured.
 const schema = z.object({
   name: z.string().min(1).max(120),
   email: z.string().email().max(200),
@@ -24,21 +23,53 @@ export async function POST(req: Request) {
   if (!parsed.success) return NextResponse.json({ ok: false, error: "invalid" }, { status: 422 });
   const d = parsed.data;
 
-  if (!prisma) return NextResponse.json({ ok: true, stored: false });
-
-  try {
-    await prisma.partnerInquiry.create({
-      data: {
-        name: d.name,
-        email: d.email.trim().toLowerCase(),
-        organization: d.organization || null,
-        kind: d.kind,
-        message: d.message,
-      },
-    });
-    return NextResponse.json({ ok: true, stored: true });
-  } catch (err) {
-    logError("partner.inquire", err);
-    return NextResponse.json({ ok: true, stored: false });
+  let stored = false;
+  if (prisma) {
+    try {
+      await prisma.partnerInquiry.create({
+        data: {
+          name: d.name,
+          email: d.email.trim().toLowerCase(),
+          organization: d.organization || null,
+          kind: d.kind,
+          message: d.message,
+        },
+      });
+      stored = true;
+    } catch (err) {
+      logError("partner.inquire.store", err);
+    }
   }
+
+  let notified = false;
+  const resendKey = process.env.RESEND_API_KEY;
+  const from = process.env.RESEND_FROM_EMAIL;
+  if (resendKey && from) {
+    try {
+      const resend = new Resend(resendKey);
+      const result = await resend.emails.send({
+        from,
+        to: process.env.INQUIRY_TO_EMAIL || "collins.ra@northeastern.edu",
+        replyTo: d.email,
+        subject: `Institutions of One inquiry — ${d.kind}`,
+        text: [
+          `Name: ${d.name}`,
+          `Email: ${d.email}`,
+          `Organization: ${d.organization || "Not provided"}`,
+          `Interest: ${d.kind}`,
+          "",
+          d.message,
+        ].join("\n"),
+      });
+      notified = !result.error;
+    } catch (err) {
+      logError("partner.inquire.notify", err);
+    }
+  }
+
+  if (!stored && !notified) {
+    return NextResponse.json({ ok: false, stored: false, notified: false, error: "not_received" }, { status: 503 });
+  }
+
+  return NextResponse.json({ ok: true, stored, notified });
 }

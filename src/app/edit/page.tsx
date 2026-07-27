@@ -30,7 +30,7 @@ export default function EditPage() {
       <section className="edit-promise">
         <div>
           <p className="eyebrow">What arrives</p>
-          <h2>One complete edition. Not a feed of updates.</h2>
+          <h2>One idea, designed for two different reading moments.</h2>
         </div>
         <div>
           <p>
@@ -71,8 +71,8 @@ export default function EditPage() {
       <section className="edit-signup">
         <div>
           <p className="eyebrow">Every other week</p>
-          <h2>Receive the complete edition.</h2>
-          <p>No platform fragments. No vague “updates.” The full work arrives in your inbox and remains readable here.</p>
+          <h2>Receive the inbox edition.</h2>
+          <p>A self-contained reading experience in your inbox, with a path into the cited, interactive web edition when you want to go deeper.</p>
         </div>
         <NewsletterSignup source="site" />
       </section>

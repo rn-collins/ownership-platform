@@ -1,5 +1,6 @@
 import {
   CANDIDATE_ACTIVATION_GATES,
+  INSTRUMENT_RECONCILIATION,
   OWNERSHIP_INDEX_0_3_0_CANDIDATE,
   PORTFOLIO_PROFESSIONAL_0_2_0_CANDIDATE,
   type InstrumentCandidate,
@@ -35,6 +36,16 @@ export default function CandidateInstrumentsPage() {
         <h2>Current candidate status</h2>
         <p>Ownership Index <b>v0.3.0-candidate.1</b> and Portfolio Professional <b>v0.2.0-candidate.1</b> are proposed future item banks.</p>
         <p>They are deliberately unscored inside the interview study. That boundary prevents feedback about wording from being mistaken for an assessment of the participant.</p>
+      </div>
+      <h2 className="dimhead">What each instrument measures</h2>
+      <div className="card">
+        <h3>Ownership Index</h3>
+        <p>{INSTRUMENT_RECONCILIATION.ownership.primaryQuestion}</p>
+        <p><b>Unit:</b> {INSTRUMENT_RECONCILIATION.ownership.primaryUnit}.</p>
+        <h3>Portfolio Professional</h3>
+        <p>{INSTRUMENT_RECONCILIATION.portfolioProfessional.primaryQuestion}</p>
+        <p><b>Unit:</b> {INSTRUMENT_RECONCILIATION.portfolioProfessional.primaryUnit}.</p>
+        <p><b>Boundary:</b> The instruments answer related but different questions. Their totals are reported separately, are not interchangeable, and cannot be combined into an Institutions of One score without a separately preregistered and validated model.</p>
       </div>
       <h2 className="dimhead">Requirements before a candidate can replace an active pilot</h2>
       <p>These requirements apply only to adopting and scoring the proposed candidate item banks. They are not requirements for Institutions of One or the active public pilots to exist.</p>

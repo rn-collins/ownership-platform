@@ -5,91 +5,47 @@ import { SEED, nodeSlug, type Node } from "@/lib/observatory_seed";
 
 export const metadata = {
   title: "The Observatory — Institutions of One",
-  description: "A 41-case methodology pilot mapping how creators and professionals build ownership, authority, portability, and durable infrastructure.",
+  description: "Explore 41 careers through the questions they raise about ownership, power, portability, and dependence.",
   alternates: { canonical: "/observatory" },
-  openGraph: { title: "The Observatory — Institutions of One", description: "A 41-case methodology pilot mapping how creators and professionals build ownership, authority, portability, and durable infrastructure.", url: "/observatory", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "The Observatory — Institutions of One", description: "A 41-case methodology pilot mapping how creators and professionals build ownership, authority, portability, and durable infrastructure.", images: ["/og.png"] },
+  openGraph: { title: "The Observatory — Institutions of One", description: "Explore 41 careers through the questions they raise about ownership, power, portability, and dependence.", url: "/observatory", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "The Observatory — Institutions of One", description: "Explore 41 careers through the questions they raise about ownership, power, portability, and dependence.", images: ["/og.png"] },
 };
 
 export default async function ObservatoryPage() {
   let nodes: Node[] = SEED;
   if (prisma) {
     try {
-      const records = await prisma.observatoryCase.findMany({
-        where: { publicStatus: "public" },
-        orderBy: [{ primaryField: "asc" }, { displayName: "asc" }],
-      });
-      if (records.length > 0) {
-        const recordsBySlug = new Map(records.map((record) => [record.slug, record]));
+      const records = await prisma.observatoryCase.findMany({ where: { publicStatus: "public" }, orderBy: [{ primaryField: "asc" }, { displayName: "asc" }] });
+      if (records.length) {
+        const bySlug = new Map(records.map((record) => [record.slug, record]));
         nodes = SEED.map((seed) => {
-          const record = recordsBySlug.get(nodeSlug(seed.name));
+          const record = bySlug.get(nodeSlug(seed.name));
           if (!record) return seed;
-          return {
-            ...seed,
-            // The reviewed evidence store enriches the canonical 41-case roster.
-            // A partial database must never shrink the public methodology pilot.
-            role: record.verificationStatus === "verified" && record.headline ? record.headline : seed.role,
-            verificationStatus: record.verificationStatus as Node["verificationStatus"],
-            evidenceCoverage: record.evidenceCoverage,
-          };
+          return { ...seed, role: record.verificationStatus === "verified" && record.headline ? record.headline : seed.role, verificationStatus: record.verificationStatus as Node["verificationStatus"], evidenceCoverage: record.evidenceCoverage };
         });
       }
-    } catch {
-      nodes = SEED;
-    }
+    } catch { nodes = SEED; }
   }
 
-  const creators = nodes.filter((member) => member.kind === "creator").length;
-  const professionals = nodes.length - creators;
-  const fields = new Set(nodes.map((member) => member.domain)).size;
+  return <main className="observatory-page">
+    <p className="eyebrow">The Observatory</p>
+    <h1>Forty-one careers that refuse to fit inside one box.</h1>
+    <p className="lede">Not a ranking. Not a hall of fame. This is a place to investigate how people build work that can travel, survive, compound, and sometimes become bigger than a job title.</p>
 
-  return (
-    <main className="observatory-page">
-      <p className="eyebrow">Institutions of One · The Observatory</p>
-      <h1>Forty-one people. Seven tensions. No neat answers.</h1>
-      <p className="lede">
-        The Observatory is a living collection of careers that break ordinary labels. Start with a tension—owned versus
-        rented, portable versus embedded, one field versus many—then follow the people who make that tension impossible
-        to ignore.
-      </p>
+    <section className="card" aria-labelledby="why-heading" style={{ marginTop: 18, borderLeft: "4px solid #b98f4d" }}>
+      <p className="eyebrow">Why these people?</p>
+      <h2 id="why-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30 }}>Each career makes a different problem visible.</h2>
+      <p>Some people own the company but rent the audience. Some transform an institution but cannot take its machinery with them. Some work across so many fields that ordinary labels stop helping. We put these cases beside one another to see the choices, dependencies, and unanswered questions that a résumé hides.</p>
+      <p><strong>The point is not to copy them.</strong> The point is to notice structures you can use to understand your own work—and to see what public information cannot establish.</p>
+    </section>
 
-      <section className="card" aria-labelledby="pilot-heading" style={{ marginTop: 18, borderLeft: "4px solid #b98f4d" }}>
-        <p className="eyebrow">Why these 41</p>
-        <h2 id="pilot-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30 }}>What can 41 wildly different careers teach us?</h2>
-        <p>
-          These {nodes.length} people—{creators} creators and {professionals} professionals across {fields} fields—were chosen
-          because their careers put pressure on easy ideas about success. Some built companies. Some changed institutions
-          from inside. Some carried authority across fields. Some became inseparable from the platform or employer that
-          made their scale possible.
-        </p>
-        <p>
-          They are not winners, templates, or proof that the framework is correct. They are provocations: public cases that
-          help us ask sharper questions, notice missing evidence, and compare structures without pretending every career
-          should end in the same place.
-        </p>
-      </section>
+    <ObservatoryMap nodes={nodes} initialView="directory" />
 
-      <h2 className="dimhead" style={{ marginTop: 54 }}>Choose what you want to understand</h2>
-      <p className="rsub" style={{ marginBottom: 18 }}>
-        Begin with a career tension, search for someone you know, or step back to see the whole field. Every person opens
-        a question you can carry into your own work.
-      </p>
-      <ObservatoryMap nodes={nodes} initialView="directory" />
-
-      <div className="card" style={{ marginTop: 28 }}>
-        <h3>What inclusion means</h3>
-        <p>
-          Inclusion means a case can teach the method something. It is not an endorsement, ranking, or assessment result.
-          Case records separate sourced evidence from working interpretation and invite corrections when stronger evidence appears.
-        </p>
-      </div>
-
-      <h2 id="nominate" style={{ fontFamily: "Georgia, serif", fontSize: 30, marginTop: 48, marginBottom: 4 }}>Who would challenge the Observatory?</h2>
-      <p className="rsub" style={{ marginBottom: 14 }}>
-        Suggest someone whose work reveals a structure, contradiction, or field the current 41 cases miss. Nominations are
-        reviewed for what they add to the research—not for fame.
-      </p>
+    <section id="nominate" style={{ marginTop: 64 }} aria-labelledby="nominate-heading">
+      <p className="eyebrow">Add a missing perspective</p>
+      <h2 id="nominate-heading" style={{ fontFamily: "Georgia, serif", fontSize: 36, marginBottom: 8 }}>Whose career would make us ask a better question?</h2>
+      <p className="rsub" style={{ marginBottom: 18 }}>Tell us about someone whose work does not fit the patterns you see here—or exposes a pattern we have missed. They do not need to be famous. We care about what their career helps everyone understand.</p>
       <ObservatoryNominate />
-    </main>
-  );
+    </section>
+  </main>;
 }

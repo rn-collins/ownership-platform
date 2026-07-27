@@ -27,30 +27,30 @@ export function NewsletterSignup({
   return (
     <section className={`nl nl-${variant}`}>
       <div className="nl-copy">
-        <p className="nl-kicker">The I/1 Field Note</p>
-        <h3 className="nl-title">One email. Once a month. Something worth carrying.</h3>
+        <p className="nl-kicker">The I/1 Edit</p>
+        <h3 className="nl-title">The full edition. Every other week. In your inbox.</h3>
         <p className="nl-sub">
-          A monthly Beehiiv newsletter with one sharp idea, a case or visual finding, what the research is changing,
-          and an invitation when there is a meaningful way to take part. LinkedIn and X may carry excerpts;
-          subscribers receive the complete edition by email.
+          One original idea about how individual work becomes institutional power, grounded in a case, conversation,
+          or visual finding—plus what the research is changing and a meaningful way to take part. Beehiiv delivers
+          the complete edition. Each edition is also archived on I of 1; LinkedIn and X carry selected excerpts.
         </p>
       </div>
       {state === "done" ? (
         <div className="nl-done">
           <span className="nl-check">✓</span>
-          <div><b>You’re on the list.</b><p>The next I/1 Field Note will arrive by email.</p></div>
+          <div><b>You’re subscribed.</b><p>The next I/1 Edit will arrive by email.</p></div>
         </div>
       ) : (
         <form className="nl-form" onSubmit={(event) => { event.preventDefault(); void submit(); }}>
           <div className="nl-row">
             <input className="nl-input" type="email" inputMode="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" aria-label="Email address" />
-            <button className="nl-btn" type="submit" disabled={!valid}>{state === "sending" ? "Joining…" : "Join the Field Note"}</button>
+            <button className="nl-btn" type="submit" disabled={!valid}>{state === "sending" ? "Subscribing…" : "Get The I/1 Edit"}</button>
           </div>
           <label className="nl-consent">
             <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} />
-            <span>Yes, send me the monthly I/1 Field Note by email through Beehiiv. I can unsubscribe at any time.</span>
+            <span>Yes, email me The I/1 Edit every other week through Beehiiv. I can unsubscribe at any time.</span>
           </label>
-          {state === "error" && <p className="nl-err">Your address was not saved. Please try again.</p>}
+          {state === "error" && <p className="nl-err">Your subscription was not completed. Please try again.</p>}
         </form>
       )}
     </section>

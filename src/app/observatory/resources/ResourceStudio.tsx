@@ -1,0 +1,18 @@
+"use client";
+import Link from "next/link";import {useState} from "react";import {SEED,nodeSlug} from "@/lib/observatory_seed";import {getCaseResearch} from "@/lib/case_research";import styles from "./resources.module.css";
+const FORMATS=[
+["Visual explainer","Show the structural turn, the infrastructure surrounding it, one dependency, and one unresolved question."],
+["Worksheet","Guide a reader through Build–Carry–Control–Continue, then require evidence and uncertainty for every answer."],
+["Discussion guide","Frame an opening question, a case claim, a complication, a countercase prompt, and a closing research question."],
+["Short audio story","Build a 3–5 minute narrative around one documented transition without assigning private motives."],
+["Social carousel","Use 6–8 slides: hook, chronology, structure, dependency, complication, unknown, and source invitation."],
+["Newsletter argument","Develop one contestable claim from the case, test it against the complication, and end with the unresolved question."],
+["Teaching exercise","Ask participants to classify, map, contest, or redesign the structure using cited evidence."],
+["Case constellation","Place the case beside three structural neighbors and one countercase; explain each relationship."],
+["Research question","Convert the most important unknown into an answerable evidence-acquisition plan."],
+["Organization workshop","Use the case to examine role design, continuity, dependency, and institutional memory without treating the person as a template."]
+] as const;
+export function ResourceStudio(){const [slug,setSlug]=useState(nodeSlug(SEED[0].name));const [format,setFormat]=useState(0);const person=SEED.find(p=>nodeSlug(p.name)===slug)!;const r=getCaseResearch(slug)!;const f=FORMATS[format];
+return <div className={styles.studio}><div className={styles.controls}><label>Case<select value={slug} onChange={e=>setSlug(e.target.value)}>{SEED.map(p=><option key={p.name} value={nodeSlug(p.name)}>{p.name}</option>)}</select></label><label>Output<select value={format} onChange={e=>setFormat(Number(e.target.value))}>{FORMATS.map((x,i)=><option value={i} key={x[0]}>{x[0]}</option>)}</select></label></div>
+<section className={styles.brief}><p className={styles.kicker}>Production brief</p><h2>{f[0]} · {person.name}</h2><p className={styles.intent}>{f[1]}</p><div className={styles.grid}><article><h3>Anchor claim</h3><p>{r.interpretation}</p></article><article><h3>Required complication</h3><p>{r.complication[0]}</p></article><article><h3>Do not overclaim</h3><p>{r.unknowns[0]||"Private ownership, control, contracts, and causation remain unestablished unless the record says otherwise."}</p></article><article><h3>Evidence floor</h3><p>Use the linked sources for each factual statement. Label inference. Preserve unknowns. Add a countercase before generalizing.</p></article></div><h3>Suggested structure</h3><ol><li>Open with the structural question, not celebrity or success.</li><li>Establish the relevant chronology with citations.</li><li>Explain what was built, carried, controlled, and capable of continuing.</li><li>Surface dependency and the strongest competing explanation.</li><li>End with what evidence would change the interpretation.</li></ol><div className={styles.actions}><Link href={"/observatory/"+slug}>Open case and sources →</Link><Link href={"/observatory/countercases?case="+slug}>Add a countercase →</Link></div></section>
+<aside className={styles.guardrail}><strong>Generation boundary</strong><span>This Studio assembles a responsible brief from the current record. It does not manufacture quotations, ownership facts, causal claims, audio, graphics, or finished publication assets.</span></aside></div>}

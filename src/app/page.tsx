@@ -77,7 +77,7 @@ export default function Home() {
       <section className="closing-call">
         <p className="eyebrow">Follow the research</p>
         <h2>We are building the language for a kind of work the old categories cannot hold.</h2>
-        <p>Essays, field notes, case research, and early findings—published as the picture develops.</p>
+        <p>The complete monthly edition lives in your inbox: one idea, one case or visual finding, and what the research is changing. LinkedIn and X carry excerpts back here.</p>
         <NewsletterSignup source="site" />
       </section>
     </main>

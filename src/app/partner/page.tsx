@@ -34,7 +34,7 @@ const paths = [
 
 export default function PartnerPage() {
   return (
-    <main>
+    <main className="partner-page">
       <p className="eyebrow">Institutions of One · Participate or partner</p>
       <h1>Help investigate how work, ownership, and authority are changing.</h1>
       <p className="lede">

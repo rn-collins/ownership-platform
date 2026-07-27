@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main>
+    <main className="about-page">
       <p className="eyebrow">Institutions of One · About</p>
       <h1>A research project about the people building careers larger than a job.</h1>
       <p className="lede">

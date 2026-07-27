@@ -1,54 +1,99 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import { SEED, OBSERVATORY_DOMAINS as DOMAINS, nodeSlug, type Node } from "@/lib/observatory_seed";
 import styles from "./ObservatoryExplorer.module.css";
 
-type View = "people" | "patterns";
+type View = "discover" | "patterns" | "compare" | "composition" | "gaps";
 type Pattern = { tension: string; domain: string } | null;
-const ACCENTS = ["#e76f51", "#2a9d8f", "#e9c46a", "#7f6bb2", "#3b82a0", "#d06b8b", "#b98f4d"];
+const ACCENTS = ["#ff6b55", "#20b8a6", "#f2bd3f", "#8b78d1", "#3d9fc1", "#e36e9a", "#ca9840"];
+const VIEW_COPY: Record<View, [string,string]> = {
+  discover:["Discover","Follow a question into one career."],
+  patterns:["Patterns","See where questions repeat across fields."],
+  compare:["Compare","Put two different arrangements side by side."],
+  composition:["41-case readout","See what this pilot contains—and overweights."],
+  gaps:["What is missing","Turn empty space into the next research question."],
+};
+
+function tally<T extends string>(items:T[]):Array<[T,number]> {
+  const counts = new Map<T,number>();
+  items.forEach((item)=>counts.set(item,(counts.get(item)??0)+1));
+  return [...counts.entries()].sort((a,b)=>b[1]-a[1]);
+}
 
 export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "directory" }: { nodes?: Node[]; embed?: boolean; initialView?: "directory" | "map" }) {
-  const [view, setView] = useState<View>(initialView === "map" ? "patterns" : "people");
-  const [tension, setTension] = useState("all");
-  const [domain, setDomain] = useState("all");
-  const [query, setQuery] = useState("");
-  const [pattern, setPattern] = useState<Pattern>(null);
-  const tensions = useMemo(() => Array.from(new Set(nodes.map((n) => n.tension).filter(Boolean))) as string[], [nodes]);
-  const domains = useMemo(() => DOMAINS.filter((item) => nodes.some((n) => n.domain === item)), [nodes]);
-  const shown = useMemo(() => { const q = query.trim().toLowerCase(); return nodes.filter((n) => (tension === "all" || n.tension === tension) && (domain === "all" || n.domain === domain) && (!q || `${n.name} ${n.role} ${n.domain} ${n.tension ?? ""} ${n.question ?? ""}`.toLowerCase().includes(q))); }, [nodes, tension, domain, query]);
-  const selectedCases = pattern ? nodes.filter((n) => n.tension === pattern.tension && n.domain === pattern.domain) : [];
+  const [view,setView] = useState<View>(initialView === "map" ? "patterns" : "discover");
+  const [tension,setTension] = useState("all");
+  const [domain,setDomain] = useState("all");
+  const [query,setQuery] = useState("");
+  const [pattern,setPattern] = useState<Pattern>(null);
+  const [compare,setCompare] = useState<string[]>([nodes[0]?.name,nodes.find((n)=>n.kind==="creator")?.name].filter(Boolean) as string[]);
+  const tensions = useMemo(()=>Array.from(new Set(nodes.map((n)=>n.tension).filter(Boolean))) as string[],[nodes]);
+  const domains = useMemo(()=>DOMAINS.filter((item)=>nodes.some((n)=>n.domain===item)),[nodes]);
+  const shown = useMemo(()=>{const q=query.trim().toLowerCase();return nodes.filter((n)=>(tension==="all"||n.tension===tension)&&(domain==="all"||n.domain===domain)&&(!q||`${n.name} ${n.role} ${n.domain} ${n.tension??""} ${n.question??""}`.toLowerCase().includes(q)));},[nodes,tension,domain,query]);
+  const selectedCases = pattern ? nodes.filter((n)=>n.tension===pattern.tension&&n.domain===pattern.domain) : [];
+  const selectedCompare = compare.map((name)=>nodes.find((n)=>n.name===name)).filter(Boolean) as Node[];
+  const tensionCounts = useMemo(()=>tally(nodes.map((n)=>n.tension??"Uncoded")),[nodes]);
+  const domainCounts = useMemo(()=>tally(nodes.map((n)=>n.domain)),[nodes]);
+  const creatorCount = nodes.filter((n)=>n.kind==="creator").length;
+  const roleBuiltCount = nodes.filter((n)=>n.created).length;
+  const maxTension = tensionCounts[0]?.[1]??1;
+  const maxDomain = domainCounts[0]?.[1]??1;
 
-  if (embed) return <div className={styles.grid}>{nodes.slice(0, 4).map((n, index) => <CaseCard key={n.name} node={n} index={index} />)}</div>;
+  if (embed) return <div className={styles.grid}>{nodes.slice(0,4).map((n,index)=><CaseCard key={n.name} node={n} index={index}/>)}</div>;
+
+  const toggleCompare=(name:string)=>{
+    setCompare((current)=>current.includes(name)?current.filter((item)=>item!==name):current.length<2?[...current,name]:[current[1],name]);
+  };
 
   return <div className={styles.shell}>
-    <div className={styles.switcher} role="group" aria-label="Choose how to explore the Observatory">
-      <button type="button" className={view === "people" ? styles.active : ""} onClick={() => setView("people")}>Meet the people</button>
-      <button type="button" className={view === "patterns" ? styles.active : ""} onClick={() => setView("patterns")}>See the patterns</button>
-    </div>
-    {view === "people" ? <section aria-labelledby="people-view-title">
-      <div className={styles.intro}><h2 id="people-view-title">Start with a question you cannot stop thinking about.</h2><p>Every case begins with a live tension—not a score or a success story. Choose one, search someone you know, or wander.</p></div>
-      <div className={styles.tensions} aria-label="Career tensions">
-        <button type="button" className={tension === "all" ? styles.active : ""} onClick={() => setTension("all")}>Show me everything</button>
-        {tensions.map((item) => <button type="button" key={item} className={tension === item ? styles.active : ""} onClick={() => setTension(item)}>{item}</button>)}
+    <nav className={styles.switcher} aria-label="Ways to explore the 41 cases">
+      {(Object.keys(VIEW_COPY) as View[]).map((key)=><button type="button" key={key} className={view===key?styles.active:""} onClick={()=>setView(key)}><strong>{VIEW_COPY[key][0]}</strong><span>{VIEW_COPY[key][1]}</span></button>)}
+    </nav>
+
+    {view==="discover"&&<section aria-labelledby="discover-title">
+      <div className={styles.intro}><div><p className={styles.kicker}>41 careers · no leaderboard</p><h2 id="discover-title">Begin with the question, not the résumé.</h2></div><p>Each case is here because it makes a structural tension visible. Choose what pulls you in; the evidence and uncertainty appear only when they become useful.</p></div>
+      <div className={styles.tensions} aria-label="Career tensions"><button type="button" className={tension==="all"?styles.active:""} onClick={()=>setTension("all")}>Surprise me</button>{tensions.map((item)=><button type="button" key={item} className={tension===item?styles.active:""} onClick={()=>setTension(item)}>{item}</button>)}</div>
+      <div className={styles.controls}><input value={query} onChange={(event)=>setQuery(event.target.value)} aria-label="Search people and questions" placeholder="Try a person, role, field, or idea…"/><select value={domain} onChange={(event)=>setDomain(event.target.value)} aria-label="Choose a field"><option value="all">Every field</option>{domains.map((item)=><option value={item} key={item}>{item}</option>)}</select></div>
+      <div className={styles.result}><strong>{shown.length} {shown.length===1?"case":"cases"}</strong><span>Save two to compare their underlying arrangements.</span></div>
+      {shown.length?<div className={styles.grid}>{shown.map((n,index)=><CaseCard key={n.name} node={n} index={index} compareActive={compare.includes(n.name)} onCompare={()=>toggleCompare(n.name)}/>)}</div>:<div className={styles.empty}><strong>Nothing here—yet.</strong><p>Broaden the search or treat the absence as a nomination prompt.</p></div>}
+    </section>}
+
+    {view==="patterns"&&<section aria-labelledby="patterns-title">
+      <div className={styles.intro}><div><p className={styles.kicker}>Pattern map</p><h2 id="patterns-title">Where does the same tension appear in a different world?</h2></div><p>Rows are research tensions. Columns are fields. Color and number show how many of these 41 cases sit at the intersection—nothing more.</p></div>
+      <div className={styles.mapWrap}><div className={styles.mapLegend}><span><i className={styles.low}/>one case</span><span><i className={styles.high}/>two or more</span><span>Empty = not yet represented</span></div>
+        <div className={styles.matrix} style={{"--columns":domains.length} as CSSProperties}><div className={styles.corner}>Tension × field</div>{domains.map((item)=><div className={styles.colHead} key={item}>{item}</div>)}{tensions.flatMap((row)=>[<div className={styles.rowHead} key={`${row}-label`}>{row}</div>,...domains.map((col)=>{const count=nodes.filter((n)=>n.tension===row&&n.domain===col).length;return <button type="button" key={`${row}-${col}`} className={`${styles.cell} ${count>1?styles.cellStrong:""}`} disabled={!count} aria-label={`${count} ${count===1?"case":"cases"} about ${row} in ${col}`} onClick={()=>setPattern({tension:row,domain:col})}>{count||"·"}</button>;})])}</div>
+        {pattern?<div className={styles.mapSelection}><button type="button" onClick={()=>setPattern(null)} aria-label="Close pattern">×</button><p className={styles.kicker}>Selected intersection</p><h3>{pattern.tension} × {pattern.domain}</h3><p>{selectedCases.length===1?"One case begins here. Compare it with another field before treating it as a pattern.":`${selectedCases.length} cases let us compare how the same tension behaves in one field.`}</p><div className={styles.mapList}>{selectedCases.map((n)=><Link className={styles.mapPerson} href={`/observatory/${nodeSlug(n.name)}`} key={n.name}><strong>{n.name}</strong><span>{n.question}</span></Link>)}</div></div>:<p className={styles.prompt}>Choose a numbered cell. The people and questions behind that intersection will open here.</p>}
       </div>
-      <div className={styles.controls}><input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="Search people and questions" placeholder="Search a person, role, field, or question…" /><select value={domain} onChange={(event) => setDomain(event.target.value)} aria-label="Choose a field"><option value="all">Every field</option>{domains.map((item) => <option value={item} key={item}>{item}</option>)}</select></div>
-      <div className={styles.result}><strong>{shown.length} {shown.length === 1 ? "case" : "cases"}</strong><span>Open one to see what the career makes visible—and what public evidence still cannot tell us.</span></div>
-      {shown.length ? <div className={styles.grid}>{shown.map((n, index) => <CaseCard key={n.name} node={n} index={index} />)}</div> : <div className={styles.empty}><strong>No match yet.</strong><p>Try a broader word, another field, or show every tension.</p></div>}
-    </section> : <section aria-labelledby="pattern-view-title">
-      <div className={styles.intro}><h2 id="pattern-view-title">Where do the same career questions appear in different worlds?</h2><p>This map has a literal meaning: rows are tensions, columns are fields, and each number is the count of cases at that intersection.</p></div>
-      <div className={styles.mapWrap}><p className={styles.mapHelp}>Choose a numbered cell to reveal the people behind it. Empty cells are useful too: they show where this 41-case pilot has not yet looked.</p>
-        <div className={styles.matrix} style={{ "--columns": domains.length } as React.CSSProperties}>
-          <div className={styles.corner}>Tension × field</div>{domains.map((item) => <div className={styles.colHead} key={item}>{item}</div>)}
-          {tensions.flatMap((row) => [<div className={styles.rowHead} key={`${row}-label`}>{row}</div>, ...domains.map((col) => { const count = nodes.filter((n) => n.tension === row && n.domain === col).length; return <button type="button" key={`${row}-${col}`} className={styles.cell} disabled={!count} aria-label={`${count} ${count === 1 ? "case" : "cases"} about ${row} in ${col}`} onClick={() => setPattern({ tension: row, domain: col })}>{count || "·"}</button>; })])}
-        </div>
-        {pattern && <div className={styles.mapSelection}><h3>{pattern.tension} in {pattern.domain}</h3><p>{selectedCases.length} {selectedCases.length === 1 ? "career asks" : "careers ask"} this question in a different way.</p><div className={styles.mapList}>{selectedCases.map((n) => <Link className={styles.mapPerson} href={`/observatory/${nodeSlug(n.name)}`} key={n.name}><strong>{n.name}</strong><span>{n.question}</span></Link>)}</div></div>}
-      </div>
+    </section>}
+
+    {view==="compare"&&<section aria-labelledby="compare-title">
+      <div className={styles.intro}><div><p className={styles.kicker}>Case comparator</p><h2 id="compare-title">Difference is where the argument gets interesting.</h2></div><p>Choose two people. This does not score either career; it makes their visible structures and unanswered questions easier to contrast.</p></div>
+      <div className={styles.comparePicker}>{[0,1].map((slot)=><label key={slot}>Case {slot+1}<select value={compare[slot]??""} onChange={(event)=>setCompare((current)=>{const next=[...current];next[slot]=event.target.value;return next.filter(Boolean).slice(0,2);})}><option value="">Choose a person</option>{nodes.map((n)=><option value={n.name} key={n.name}>{n.name}</option>)}</select></label>)}</div>
+      {selectedCompare.length===2?<div className={styles.comparison}>{selectedCompare.map((n,index)=><article key={n.name} style={{"--accent":ACCENTS[index]} as CSSProperties}><p className={styles.kicker}>{n.tension}</p><h3>{n.name}</h3><p className={styles.role}>{n.role}</p><blockquote>{n.question}</blockquote><dl><div><dt>Field</dt><dd>{n.domain}</dd></div><div><dt>Lens</dt><dd>{n.kind==="creator"?"Creator":"Professional"}</dd></div><div><dt>Role shaped around person?</dt><dd>{n.created?"Flagged for investigation":"Not flagged in this pilot"}</dd></div></dl><Link href={`/observatory/${nodeSlug(n.name)}`}>Investigate this case →</Link></article>)}</div>:<div className={styles.empty}>Choose two different cases to begin.</div>}
+      {selectedCompare.length===2&&<div className={styles.compareQuestions}><h3>Questions the contrast creates</h3><ul><li>What can each person carry if the current institution or platform disappears?</li><li>Which relationships, rights, audiences, or systems appear personally controlled—and which remain unknown?</li><li>Does the difference come from field, career stage, organizational form, or the evidence currently available?</li></ul></div>}
+    </section>}
+
+    {view==="composition"&&<section aria-labelledby="composition-title">
+      <div className={styles.intro}><div><p className={styles.kicker}>Descriptive analysis</p><h2 id="composition-title">What the pilot can show—and what it currently overweights.</h2></div><p>These are counts inside a deliberately selected 41-case pilot. They describe this roster, not the workforce, creator economy, or prevalence of institutionhood.</p></div>
+      <div className={styles.statGrid}><article><strong>41</strong><span>purposefully selected cases</span></article><article><strong>{nodes.length-creatorCount}</strong><span>professional cases</span></article><article><strong>{creatorCount}</strong><span>creator cases</span></article><article><strong>{roleBuiltCount}</strong><span>role-built flags to investigate</span></article></div>
+      <div className={styles.chartGrid}><BarList title="Tensions represented" items={tensionCounts} max={maxTension}/><BarList title="Fields represented" items={domainCounts} max={maxDomain}/></div>
+      <div className={styles.analysisNote}><h3>Responsible quantitative uses</h3><p>Counts, shares, cross-tabs, concentration, representation gaps, and change across future roster versions. Not causal inference, ranking, prediction, psychological diagnosis, or population estimates.</p></div>
+    </section>}
+
+    {view==="gaps"&&<section aria-labelledby="gaps-title">
+      <div className={styles.intro}><div><p className={styles.kicker}>Research agenda</p><h2 id="gaps-title">The blank cells are not nothing. They are instructions.</h2></div><p>A blank means this roster has not yet paired a field with a tension. It does not mean no such person exists.</p></div>
+      <div className={styles.gapGrid}>{tensions.map((row)=>{const missing=domains.filter((col)=>!nodes.some((n)=>n.tension===row&&n.domain===col));return <article key={row}><span>{nodes.filter((n)=>n.tension===row).length} current cases</span><h3>{row}</h3><p>Not yet represented in {missing.slice(0,4).join(", ")}{missing.length>4?` + ${missing.length-4} more`:""}.</p><Link href="/observatory#nominate">Nominate a case that changes this →</Link></article>})}</div>
+      <div className={styles.analysisNote}><h3>Qualitative work this roster supports</h3><p>Within-case narrative analysis, cross-case comparison, thematic coding, typology building, negative-case analysis, process tracing, dependency mapping, and evidence-gap analysis. Every interpretation should remain traceable to dated claims and revisable as cases deepen.</p></div>
     </section>}
   </div>;
 }
 
-function CaseCard({ node, index }: { node: Node; index: number }) {
-  return <Link href={`/observatory/${nodeSlug(node.name)}`} className={styles.card} style={{ "--accent": ACCENTS[index % ACCENTS.length] } as React.CSSProperties}><div className={styles.top}><span className={styles.tension}>{node.tension ?? "Open question"}</span><span className={styles.domain}>{node.domain}</span></div><p className={styles.question}>{node.question ?? "What does this career make possible—and what makes it fragile?"}</p><div className={styles.identity}><h3>{node.name}</h3><p>{node.role}</p><span className={styles.open}>Follow this question →</span></div></Link>;
+function CaseCard({node,index,compareActive=false,onCompare}:{node:Node;index:number;compareActive?:boolean;onCompare?:()=>void}) {
+  return <article className={styles.card} style={{"--accent":ACCENTS[index%ACCENTS.length]} as CSSProperties}><div className={styles.top}><span className={styles.tension}>{node.tension??"Open question"}</span><span className={styles.domain}>{node.domain}</span></div><p className={styles.question}>{node.question??"What does this career make possible—and what makes it fragile?"}</p><div className={styles.identity}><h3>{node.name}</h3><p>{node.role}</p><div className={styles.cardActions}><Link href={`/observatory/${nodeSlug(node.name)}`}>Open the investigation →</Link>{onCompare&&<button type="button" className={compareActive?styles.saved:""} onClick={onCompare}>{compareActive?"Saved to compare":"Compare"}</button>}</div></div></article>;
+}
+
+function BarList({title,items,max}:{title:string;items:Array<[string,number]>;max:number}) {
+  return <article className={styles.barCard}><h3>{title}</h3><div>{items.map(([label,value])=><div className={styles.barRow} key={label}><span>{label}</span><div><i style={{width:`${Math.max(6,(value/max)*100)}%`}}/></div><strong>{value}</strong></div>)}</div></article>;
 }

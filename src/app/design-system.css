@@ -1,0 +1,52 @@
+/* Institutions of One — canonical public design layer
+   Loaded last. This file intentionally defines shared primitives while route
+   modules retain layout-specific composition. */
+:root{
+  --i1-ink:#11100e;
+  --i1-paper:#f4efe5;
+  --i1-paper-deep:#e9e0d1;
+  --i1-acid:#dfff00;
+  --i1-lilac:#d9d0ff;
+  --i1-rust:#b74a2a;
+  --i1-blue:#173f8f;
+  --i1-rule:1px solid var(--i1-ink);
+  --i1-reading:72ch;
+  --i1-page:1240px;
+  --i1-gutter:clamp(20px,4vw,52px);
+  --i1-space-1:8px;
+  --i1-space-2:16px;
+  --i1-space-3:24px;
+  --i1-space-4:40px;
+  --i1-space-5:64px;
+  --i1-space-6:96px;
+}
+html{scroll-behavior:smooth;background:var(--i1-paper);color:var(--i1-ink)}
+body{background:var(--i1-paper);color:var(--i1-ink);font-family:Arial,Helvetica,sans-serif}
+::selection{background:var(--i1-acid);color:var(--i1-ink)}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--i1-blue);outline-offset:3px}
+:where(button,input,select,textarea){font:inherit}
+:where(button,a){touch-action:manipulation}
+.wrap{width:min(100%,var(--i1-page));margin-inline:auto;padding-inline:var(--i1-gutter)}
+.site-header{width:min(100%,var(--i1-page));margin-inline:auto;padding-inline:var(--i1-gutter);border-bottom:var(--i1-rule)}
+.site-header,.foot{border-color:var(--i1-ink)}
+.nav a,.navlink,.nav-signin{min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover,.navlink:hover,.foot a:hover{text-decoration-thickness:2px;text-underline-offset:4px}
+main{isolation:isolate}
+main :where(p,li){text-wrap:pretty}
+main :where(h1,h2,h3){text-wrap:balance}
+main :where(p,li):not([class]){max-width:var(--i1-reading)}
+main :where(a):not([class]){color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+main :where(a):not([class]):hover{text-decoration-thickness:3px}
+:where(.card,.panel,.callout){border-radius:0}
+:where(.btn,.button,button[type="submit"]){border-radius:0;min-height:48px;font-weight:800}
+:where(.eyebrow,.kicker){font-size:11px;line-height:1.2;letter-spacing:.12em;text-transform:uppercase;font-weight:900}
+.foot{width:min(100%,var(--i1-page));margin-inline:auto;padding-inline:var(--i1-gutter);border-top:var(--i1-rule)}
+@media(max-width:860px){
+  .site-header{align-items:flex-start}
+  .nav{gap:4px 12px}
+  .wrap{padding-inline:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

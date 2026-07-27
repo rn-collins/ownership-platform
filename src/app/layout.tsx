@@ -6,7 +6,7 @@ import { getUser } from "@/lib/supabase/server";
 const SITE_URL = "https://ownership-platform.vercel.app";
 const TITLE = "Institutions of One — measuring how individuals become institutions";
 const DESC =
-  "An independent research program measuring the shift from 'get hired for a role' to 'the role gets built around you.' Two instruments — the Ownership Index (creators) and the Portfolio Professional (professionals) — and The Observatory, a living map that links them, toward a flagship report at Cannes Lions 2027. By RN Collins.";
+  "An independent research program studying how people turn individual capability into durable, portable, ownable institutional power. Understand the theory, measure yourself, explore the evidence, follow the research, and participate or partner.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -51,14 +51,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en">
       <body>
         <div className="wrap">
-          <nav className="nav">
+          <nav className="nav" aria-label="Primary">
             <a href="/">Institutions of One</a>
-            <a href="/assess/creator">Ownership Index</a>
-            <a href="/assess/professional">Portfolio Professional</a>
-            <a href="/observatory">The Observatory</a>
-            <a href="/findings">Findings</a>
-            <a href="/methodology">Methodology</a>
-            <a href="/about">About</a>
+            <a href="/methodology">Understand</a>
+            <a href="/assess">Measure</a>
+            <a href="/observatory">Explore</a>
+            <a href="/findings">Follow</a>
+            <a href="/partner">Participate / Partner</a>
             <span style={{ marginLeft: "auto" }} />
             {user ? (
               <>
@@ -74,20 +73,24 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <footer className="foot">
             <div className="foot-cols">
               <div className="foot-col">
-                <span className="foot-h">The research</span>
-                <a href="/assess/creator">Ownership Index</a>
-                <a href="/assess/professional">Portfolio Professional</a>
-                <a href="/observatory">The Observatory</a>
-                <a href="/findings">Findings</a>
-                <a href="/methodology">Methodology</a>
-                <a href="/methodology/candidates">Candidate study</a>
+                <span className="foot-h">Use the research</span>
+                <a href="/methodology">Understand</a>
+                <a href="/assess">Measure yourself</a>
+                <a href="/observatory">Explore the evidence</a>
+                <a href="/findings">Follow the research</a>
+                <a href="/partner">Participate or partner</a>
               </div>
               <div className="foot-col">
-                <span className="foot-h">Institutions of One</span>
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/partner">Partner</a>
-                <a href="mailto:collins.ra@northeastern.edu">Contact</a>
+                <span className="foot-h">Research record</span>
+                <a href="/assess/creator">Ownership Index</a>
+                <a href="/assess/professional">Portfolio Professional</a>
+                <a href="/methodology/candidates">Candidate study</a>
+                <a href="/about">About and independence</a>
+                <a href="/privacy">Privacy &amp; data use</a>
+              </div>
+              <div className="foot-col">
+                <span className="foot-h">Contact</span>
+                <a href="mailto:collins.ra@northeastern.edu">Email RN Collins</a>
                 <a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </div>
             </div>

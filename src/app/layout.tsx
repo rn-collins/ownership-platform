@@ -39,7 +39,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </a>
             <nav className="nav" aria-label="Primary">
               <a href="/methodology">The idea</a>
-              <a href="/observatory">People</a>\n              <a href="/observatory/apply">Apply</a>\n              <a href="/observatory/dependencies">Dependencies</a>
+              <a href="/observatory">People</a>
+              <a href="/observatory/apply">Apply</a>
+              <a href="/observatory/dependencies">Dependencies</a>
               <a href="/assess">Measure</a>
               <a href="/edit">Read</a>
               <a href="/partner">Work with us</a>

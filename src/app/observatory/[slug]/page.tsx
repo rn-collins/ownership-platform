@@ -76,11 +76,15 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
         },
       });
       if (record?.publicStatus === "public") {
+        const seedRecord = n;
         n = {
-          name:record.displayName, role:record.headline ?? "Case record under evidence review",
-          domain:record.primaryField ?? "Unclassified",
-          kind:record.caseType === "creator" ? "creator" : "professional",
-          created:record.roleBuiltFlag,
+          name: record.displayName,
+          role: record.verificationStatus === "verified" && record.headline
+            ? record.headline
+            : seedRecord?.role ?? "Case record under evidence review",
+          domain: seedRecord?.domain ?? record.primaryField ?? "Unclassified",
+          kind: seedRecord?.kind ?? (record.caseType === "creator" ? "creator" : "professional"),
+          created: seedRecord?.created ?? record.roleBuiltFlag,
         };
         databaseStatus = record.verificationStatus;
         evidenceCoverage = record.evidenceCoverage;

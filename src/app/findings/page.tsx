@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function FindingsPage() {
   return (
-    <main>
+    <main className="findings-page">
       <p className="eyebrow">Institutions of One · Findings</p>
       <h1>What the pilot data shows so far.</h1>
       <p className="lede">

@@ -34,12 +34,10 @@ export default function EditPage() {
         </div>
         <div>
           <p>
-            Subscribers receive the full edition by email through Beehiiv. Every edition also becomes a permanent,
-            shareable page here. LinkedIn and X carry selected excerpts that lead readers back to the complete work.
+            Subscribers receive a self-contained inbox edition through Beehiiv: the central argument and the strongest case moments, edited for email. The permanent web edition lives here with citations, interactive tools, updates, and related cases. LinkedIn and X introduce one idea at a time and point readers to the edition or subscription.
           </p>
           <p>
-            A typical edition contains one argument, the evidence or case behind it, what it changes, and an invitation
-            only when there is a meaningful way to participate.
+            Every edition has the same intellectual core but uses each channel for a different reading experience. You never need to click away to understand the email; you visit the site when you want to test the idea, inspect the evidence, or keep exploring.
           </p>
         </div>
       </section>

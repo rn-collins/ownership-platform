@@ -4,15 +4,17 @@ import styles from "./research.module.css";
 
 export default function ProfileLayout({ children, params }: { children: ReactNode; params: { slug: string } }) {
   const research = getCaseResearch(params.slug);
+  const exactSourceCount = research?.sources.filter((source) => !/^https?:\/\/[^/]+\/?$/.test(source.href)).length ?? 0;
+  const broadSourceCount = (research?.sources.length ?? 0) - exactSourceCount;
   return <>
     {children}
     {research && <section className={styles.deep} aria-labelledby="deep-record-heading">
       <header className={styles.head}>
         <div>
-          <p className={styles.kicker}>Source-deepened case record</p>
+          <p className={styles.kicker}>Sourced case record</p>
           <h2 id="deep-record-heading">What happened, what it may mean, and where the evidence stops.</h2>
         </div>
-        <span className={styles.reviewed}>Reviewed {research.reviewed}</span>
+        <span className={styles.reviewed}>Reviewed {research.reviewed} · {exactSourceCount}/{research.sources.length} exact links</span>
       </header>
 
       <div className={styles.timeline} aria-label="Sourced career chronology">
@@ -30,7 +32,8 @@ export default function ProfileLayout({ children, params }: { children: ReactNod
       <section className={styles.payoff}><h3>What this case teaches</h3><p>{research.payoff}</p></section>
 
       <section className={styles.sources} aria-labelledby="deep-sources-heading">
-        <h3 id="deep-sources-heading">Claim-level sources</h3>
+        <h3 id="deep-sources-heading">Sources used in this record</h3>
+        {broadSourceCount > 0 && <p><strong>Source-precision warning:</strong> {broadSourceCount} inherited link{broadSourceCount === 1 ? "" : "s"} still lead to a publisher or organization landing page rather than the exact supporting item. Those links identify a research lead, not claim-level verification.</p>}
         <ol>{research.sources.map((source) => <li id={source.id} key={source.id}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a><span className={styles.kind}>{source.kind} · {source.publisher} · {source.published}</span></li>)}</ol>
       </section>
     </section>}

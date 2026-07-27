@@ -5,6 +5,8 @@ export const metadata = {
   title: "Research & findings — Institutions of One",
   description: "What the 41-case methodology pilot and anonymous Institutions of One assessments are beginning to reveal.",
   alternates: { canonical: "/findings" },
+  openGraph: { title: "Research & findings — Institutions of One", description: "What the 41-case methodology pilot and anonymous Institutions of One assessments are beginning to reveal.", url: "/findings", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "Research & findings — Institutions of One", description: "What the 41-case methodology pilot and anonymous Institutions of One assessments are beginning to reveal.", images: ["/og.png"] },
 };
 
 export default function FindingsPage() {

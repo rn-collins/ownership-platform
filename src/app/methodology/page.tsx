@@ -4,6 +4,7 @@ import { PROFESSIONAL_METHODOLOGY_VERSION } from "@/lib/instrument_professional"
 export const metadata = {
   title: "Methodology — Institutions of One",
   description: "What Institutions of One measures, how the pilot assessments work, and the limits of the current research.",
+  alternates: { canonical: "/methodology" },
 };
 
 const ownershipDimensions = [

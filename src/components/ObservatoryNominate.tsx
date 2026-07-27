@@ -5,49 +5,22 @@ import { useState } from "react";
 export function ObservatoryNominate() {
   const [f, setF] = useState({ nomineeName: "", nomineeOrg: "", nomineeRole: "", why: "", nominatorEmail: "" });
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
-
-  function set<K extends keyof typeof f>(k: K, v: string) { setF((s) => ({ ...s, [k]: v })); }
-
+  function set<K extends keyof typeof f>(key: K, value: string) { setF((current) => ({ ...current, [key]: value })); }
   async function submit() {
     setState("sending");
-    const res = await fetch("/api/observatory/nominate", {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(f),
-    }).catch(() => null);
-    if (res && res.ok) { setState("done"); } else { setState("error"); }
+    const response = await fetch("/api/observatory/nominate", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(f) }).catch(() => null);
+    setState(response?.ok ? "done" : "error");
   }
+  const canSend = Boolean(f.nomineeName.trim() && f.why.trim() && state !== "sending");
 
-  const canSend = f.nomineeName.trim() && f.why.trim() && state !== "sending";
+  if (state === "done") return <div className="card" role="status"><p className="eyebrow">Suggestion received</p><h3>Thank you for making the Observatory wider.</h3><p>We will look at what this person’s career could help the project see. A nomination starts a review; it does not automatically create a public profile.</p></div>;
 
-  if (state === "done") {
-    return (
-      <div className="card">
-        <h3>Nomination received.</h3>
-        <p>Thank you—your suggestion will be reviewed for what it adds to the methodology pilot. Want to examine your own work? <a href="/assess/professional" className="fwlink">Open the Portfolio Professional pilot →</a></p>
-      </div>
-    );
-  }
-
-  return (
-    <form className="ownededit" onSubmit={(event) => { event.preventDefault(); void submit(); }}>
-      <label className="fld"><span>Their name</span>
-        <input className="opentext" name="nomineeName" required value={f.nomineeName} onChange={(e) => set("nomineeName", e.target.value)} placeholder="Who is it?" />
-      </label>
-      <label className="fld"><span>Company <em className="fh">(optional)</em></span>
-        <input className="opentext" name="nomineeOrg" value={f.nomineeOrg} onChange={(e) => set("nomineeOrg", e.target.value)} placeholder="Where?" />
-      </label>
-      <label className="fld"><span>Their role <em className="fh">(optional)</em></span>
-        <input className="opentext" name="nomineeRole" value={f.nomineeRole} onChange={(e) => set("nomineeRole", e.target.value)} placeholder="How do they describe their work?" />
-      </label>
-      <label className="fld"><span>Why them?</span>
-        <textarea className="opentext" name="why" required rows={3} value={f.why} onChange={(e) => set("why", e.target.value)} placeholder="What makes their work useful for this research?" />
-      </label>
-      <label className="fld"><span>Your email <em className="fh">(optional — if you'd like a reply)</em></span>
-        <input className="opentext" name="nominatorEmail" type="email" autoComplete="email" value={f.nominatorEmail} onChange={(e) => set("nominatorEmail", e.target.value)} placeholder="you@example.com" />
-      </label>
-      <div className="actions">
-        <button className="primary" type="submit" disabled={!canSend}>{state === "sending" ? "Sending…" : "Submit nomination"}</button>
-        {state === "error" && <span className="disc" style={{ margin: 0 }}>Something went wrong — try again.</span>}
-      </div>
-    </form>
-  );
+  return <form className="ownededit" onSubmit={(event) => { event.preventDefault(); void submit(); }}>
+    <label className="fld"><span>Who should we look at?</span><input className="opentext" name="nomineeName" required value={f.nomineeName} onChange={(event) => set("nomineeName", event.target.value)} placeholder="Their name" /></label>
+    <label className="fld"><span>Where do they do this work? <em className="fh">(optional)</em></span><input className="opentext" name="nomineeOrg" value={f.nomineeOrg} onChange={(event) => set("nomineeOrg", event.target.value)} placeholder="Company, community, institution, or independently" /></label>
+    <label className="fld"><span>How would you describe what they do? <em className="fh">(optional)</em></span><input className="opentext" name="nomineeRole" value={f.nomineeRole} onChange={(event) => set("nomineeRole", event.target.value)} placeholder="Use your own words—no perfect title needed" /></label>
+    <label className="fld"><span>What would their career help us understand?</span><textarea className="opentext" name="why" required rows={4} value={f.why} onChange={(event) => set("why", event.target.value)} placeholder="For example: a form of ownership, dependence, authority, or work across fields that the current cases miss." /></label>
+    <label className="fld"><span>May we follow up with you? <em className="fh">(optional)</em></span><input className="opentext" name="nominatorEmail" type="email" autoComplete="email" value={f.nominatorEmail} onChange={(event) => set("nominatorEmail", event.target.value)} placeholder="Your email" /></label>
+    <div className="actions"><button className="primary" type="submit" disabled={!canSend}>{state === "sending" ? "Sending…" : "Suggest this person"}</button>{state === "error" && <span className="disc" role="alert" style={{ margin: 0 }}>We could not save this yet. Please try again.</span>}</div>
+  </form>;
 }

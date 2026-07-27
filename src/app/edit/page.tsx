@@ -7,35 +7,52 @@ export const metadata = {
 
 export default function EditPage() {
   return (
-    <main className="findings-page">
+    <main className="findings-page edit-index-page">
       <p className="eyebrow">The publication · The I/1 Edit</p>
-      <h1>The full idea—not the social-media fragment.</h1>
+      <h1>Ideas for people whose work no longer fits inside a title.</h1>
       <p className="lede">
-        Every other week, The I/1 Edit follows one question about work, power, ownership, and what happens when a
-        person becomes the infrastructure. Each edition begins with an original argument and grounds it in a case,
+        Every other week, The I/1 Edit takes one question about work, power, ownership, and individual institutional
+        capacity—and follows it far enough to become useful. Each edition joins an original argument with a case,
         conversation, or visual finding from Institutions of One.
       </p>
 
-      <section className="card" style={{ marginBottom: 34 }}>
-        <p className="eyebrow">What arrives</p>
-        <h2 style={{ fontFamily: "Georgia, serif", fontSize: 34 }}>One idea worth keeping.</h2>
-        <p>
-          The complete edition includes the argument, the evidence or case behind it, what it changes in the research,
-          and an invitation only when there is a meaningful way to participate. Beehiiv delivers it to subscribers.
-          LinkedIn and X publish selected excerpts that point back to the full work.
-        </p>
+      <section className="edit-promise">
+        <div>
+          <p className="eyebrow">What arrives</p>
+          <h2>One complete edition. Not a feed of updates.</h2>
+        </div>
+        <div>
+          <p>
+            Subscribers receive the full edition by email through Beehiiv. Every edition also becomes a permanent,
+            shareable page here. LinkedIn and X carry selected excerpts that lead readers back to the complete work.
+          </p>
+          <p>
+            A typical edition contains one argument, the evidence or case behind it, what it changes, and an invitation
+            only when there is a meaningful way to participate.
+          </p>
+        </div>
       </section>
 
-      <section className="card" style={{ marginBottom: 34 }}>
-        <p className="eyebrow">Edition 001 · In development</p>
-        <h2 style={{ fontFamily: "Georgia, serif", fontSize: 34 }}>The first edition will open the central question.</h2>
-        <p>
-          What does a person have to build, carry, and control before their work begins to function like an institution?
-          The first edition will introduce the argument and show how the Observatory tests it across radically different careers.
-        </p>
-      </section>
+      <a className="edit-feature" href="/edit/001">
+        <span className="edit-feature-number">001</span>
+        <div>
+          <p className="eyebrow">First edition · Preview</p>
+          <h2>When does one person become an institution?</h2>
+          <p>
+            What does a person have to build, carry, and control before their work begins to function like an institution?
+          </p>
+          <strong>Read the edition preview →</strong>
+        </div>
+      </a>
 
-      <NewsletterSignup source="site" />
+      <section className="edit-signup">
+        <div>
+          <p className="eyebrow">Every other week</p>
+          <h2>Receive the complete edition.</h2>
+          <p>No platform fragments. No vague “updates.” The full work arrives in your inbox and remains readable here.</p>
+        </div>
+        <NewsletterSignup source="edit-index" />
+      </section>
     </main>
   );
 }

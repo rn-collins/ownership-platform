@@ -2,121 +2,103 @@ import { METHODOLOGY_VERSION } from "@/lib/engine";
 import { PROFESSIONAL_METHODOLOGY_VERSION } from "@/lib/instrument_professional";
 
 export const metadata = {
-  title: "Methodology — Institutions of One",
-  description: "What Institutions of One measures, how the pilot assessments work, and the limits of the current research.",
+  title: "How it works — Institutions of One",
+  description: "The questions, evidence, scoring, limits, and next tests behind Institutions of One.",
   alternates: { canonical: "/methodology" },
-  openGraph: { title: "Methodology — Institutions of One", description: "What Institutions of One measures, how the pilot assessments work, and the limits of the current research.", url: "/methodology", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Methodology — Institutions of One", description: "What Institutions of One measures, how the pilot assessments work, and the limits of the current research.", images: ["/og.png"] },
+  openGraph: { title: "How it works — Institutions of One", description: "The questions, evidence, scoring, limits, and next tests behind Institutions of One.", url: "/methodology", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "How it works — Institutions of One", description: "The questions, evidence, scoring, limits, and next tests behind Institutions of One.", images: ["/og.png"] },
 };
 
 const ownershipDimensions = [
-  ["Audience", "Whether a creator can reach their audience directly rather than only through a third-party platform."],
-  ["Rights", "Who controls the intellectual property, licensing, and reuse of the work."],
-  ["Revenue", "How much income depends on channels the creator controls or can carry elsewhere."],
-  ["Identity", "Whether the name, reputation, and public identity function as assets the creator can govern."],
-  ["Infrastructure", "Whether the business has systems, relationships, and operating capacity beyond a single platform or project."],
+  ["Audience", "Can you reach people without asking a platform for permission?"],
+  ["Rights", "Who can license, reuse, change, or sell the work?"],
+  ["Revenue", "Could the money move with you if one channel disappeared?"],
+  ["Identity", "Can you govern the name and reputation people recognize?"],
+  ["Infrastructure", "Are there systems and relationships beyond one account or project?"],
 ];
 
 const professionalDimensions = [
-  ["Capability", "Whether expertise is visible and supported by evidence beyond a title or résumé."],
-  ["Systems", "Whether methods have been made reusable, teachable, or transferable."],
-  ["Adoption", "Whether other people or organizations use the person’s work."],
-  ["Mandate", "Whether responsibility and decision-making authority have been explicitly entrusted to the person."],
-  ["Direction", "Whether the person can choose, connect, and sustain a body of work across roles or institutions."],
+  ["Capability", "Can people see proof of what you know beyond a title or résumé?"],
+  ["Systems", "Have you made your methods reusable, teachable, or transferable?"],
+  ["Adoption", "Do other people or organizations use what you built?"],
+  ["Mandate", "Have you been given real authority to decide and act?"],
+  ["Direction", "Can you connect your work across roles without losing the thread?"],
+];
+
+const limits = [
+  "A score is not a diagnosis, percentile, ranking, or measure of human worth.",
+  "People choose whether to participate, so current responses cannot represent everyone.",
+  "The question weights and score bands are hypotheses that still need testing.",
+  "A one-time self-report cannot prove that ownership or portability caused an outcome.",
+  "Career structure is shaped by occupation, geography, disability, caregiving, discrimination, capital, and organizational power.",
 ];
 
 export default function MethodologyPage() {
   return (
-    <main className="method-page">
-      <p className="eyebrow">Institutions of One · Methodology</p>
-      <h1>A transparent pilot for studying work, ownership, and individual institutional power.</h1>
-      <p className="lede">
-        Institutions of One combines voluntary self-assessments with documented public case research. The assessments
-        describe present conditions; the Observatory examines how those conditions appear in real careers and businesses.
-        Neither source alone proves that someone is—or is not—an “institution of one.”
-      </p>
+    <main className="method-page method-2">
+      <p className="eyebrow">The idea · without the fog</p>
+      <h1>Two assessments. Forty-one public cases. One question underneath.</h1>
+      <p className="method-hook">What has a person built around their work—and what can they still carry, control, and continue when the container changes?</p>
 
-      <h2 className="dimhead" style={{ marginTop: 30 }}>What the assessments measure</h2>
-      <div className="card">
-        <h3>Ownership Index</h3>
-        <p>
-          The Ownership Index asks how much control a creator or independent operator has over the assets and channels
-          through which value is created and captured. Its five proposed dimensions are:
-        </p>
-        <ul>{ownershipDimensions.map(([name, description]) => <li key={name}><b>{name}:</b> {description}</li>)}</ul>
-      </div>
-      <div className="card">
-        <h3>Portfolio Professional</h3>
-        <p>
-          The Portfolio Professional assessment asks how far a person’s expertise has developed into a portable and
-          influential practice rather than remaining confined to a single job description. Its five proposed dimensions are:
-        </p>
-        <ul>{professionalDimensions.map(([name, description]) => <li key={name}><b>{name}:</b> {description}</li>)}</ul>
-      </div>
-      <p className="disc">
-        The assessments answer related but different questions. Their totals are not combined or interpreted as equivalent.
-      </p>
+      <section className="method-split">
+        <div><span>01</span><h2>You answer questions about your own work.</h2></div>
+        <p>The pilot assessments create a structured snapshot. They do not declare whether you are an “institution of one.”</p>
+        <div><span>02</span><h2>We examine public careers that complicate the idea.</h2></div>
+        <p>The Observatory uses sourced public facts to open questions, compare structures, and expose what public evidence cannot tell us.</p>
+        <div><span>03</span><h2>The two forms of evidence challenge each other.</h2></div>
+        <p>Self-report shows lived conditions. Public cases show visible structures. Neither is enough by itself.</p>
+      </section>
 
-      <h2 className="dimhead" style={{ marginTop: 30 }}>How scoring works</h2>
-      <div className="card">
-        <p>
-          Each pilot contains twenty questions: four questions for each of five proposed dimensions. Responses are assigned
-          values from 0 to 5 and summed to a score out of 100. Every result records the assessment version used so it can be
-          reproduced if the questions or scoring change later.
-        </p>
-        <p>
-          Current versions: Ownership Index v{METHODOLOGY_VERSION}; Portfolio Professional v{PROFESSIONAL_METHODOLOGY_VERSION}.
-        </p>
-      </div>
+      <section className="method-instruments">
+        <article className="method-instrument creator">
+          <p className="eyebrow">For creators and independent operators</p>
+          <h2>What can you control?</h2>
+          <p>The Ownership Index looks at the assets and channels through which your work creates value.</p>
+          <ol>{ownershipDimensions.map(([name, question], index) => <li key={name}><span>{String(index + 1).padStart(2, "0")}</span><div><b>{name}</b><p>{question}</p></div></li>)}</ol>
+          <a href="/assess/creator">Take the Ownership Index →</a>
+        </article>
+        <article className="method-instrument professional">
+          <p className="eyebrow">For people working across roles or institutions</p>
+          <h2>What can you carry?</h2>
+          <p>Portfolio Professional looks at whether expertise has become visible, reusable, portable, and influential.</p>
+          <ol>{professionalDimensions.map(([name, question], index) => <li key={name}><span>{String(index + 1).padStart(2, "0")}</span><div><b>{name}</b><p>{question}</p></div></li>)}</ol>
+          <a href="/assess/professional">Take Portfolio Professional →</a>
+        </article>
+      </section>
 
-      <h2 className="dimhead" style={{ marginTop: 30 }}>Why psychology matters</h2>
-      <div className="card">
-        <p>
-          Becoming more independent or influential is not only an economic or organizational process. It may also involve
-          perceived control, self-efficacy, autonomy, career adaptability, identity, motivation, and the ability to imagine
-          and pursue future roles. These ideas inform the research questions and future validation work. The current
-          assessments do not diagnose those traits or claim to be validated psychological scales.
-        </p>
-      </div>
+      <section className="method-score">
+        <div>
+          <p className="eyebrow">The score</p>
+          <h2>Twenty questions. Five dimensions. One provisional snapshot.</h2>
+        </div>
+        <div>
+          <p>Each pilot has four questions in each dimension. Answers currently run from 0 to 5 and combine into a score out of 100.</p>
+          <p>Every result records its version so a future change never silently rewrites an earlier result.</p>
+          <p className="meta">Current versions: Ownership Index v{METHODOLOGY_VERSION} · Portfolio Professional v{PROFESSIONAL_METHODOLOGY_VERSION}</p>
+        </div>
+      </section>
 
-      <h2 className="dimhead" style={{ marginTop: 30 }}>The Observatory</h2>
-      <div className="card">
-        <p>
-          The Observatory uses public sources to document how selected creators and professionals organize work, authority,
-          ownership, and infrastructure. Cases are included to compare patterns across fields—not to endorse, rank, or
-          assign assessment scores to the people shown.
-        </p>
-        <p>
-          Public case descriptions distinguish documented facts from interpretation and identify important gaps in the
-          available evidence.
-        </p>
-      </div>
+      <section className="method-psych">
+        <p className="eyebrow">Why psychology belongs here</p>
+        <h2>A career structure is also a human experience.</h2>
+        <p>Control, autonomy, self-belief, adaptability, identity, motivation, and the ability to imagine a future can shape what someone builds or carries. Those ideas inform the research. The current pilots do not diagnose them and are not validated psychological scales.</p>
+      </section>
 
-      <h2 className="dimhead" style={{ marginTop: 30 }}>What the project cannot yet claim</h2>
-      <div className="card">
-        <ul>
-          <li>The scores are not population norms, percentiles, diagnoses, or rankings of human worth.</li>
-          <li>The current sample is voluntary and self-selecting; it does not represent all creators or professionals.</li>
-          <li>Equal weighting and score bands are design choices that require empirical testing.</li>
-          <li>Cross-sectional self-report data cannot establish that ownership or portability causes a particular outcome.</li>
-          <li>Results may reflect occupation, seniority, geography, disability, caregiving, discrimination, access to capital, and organizational power.</li>
-        </ul>
-      </div>
+      <section className="method-limits">
+        <div><p className="eyebrow">Read before interpreting a result</p><h2>What this project cannot claim—yet.</h2></div>
+        <ol>{limits.map((limit, index) => <li key={limit}><span>{String(index + 1).padStart(2, "0")}</span><p>{limit}</p></li>)}</ol>
+      </section>
 
-      <h2 className="dimhead" style={{ marginTop: 30 }}>How the research will be strengthened</h2>
-      <div className="card">
-        <p>
-          The development sequence includes expert content review, interviews about how people understand the questions,
-          item and missing-data analysis, reliability testing, factor analysis, comparisons with established measures,
-          subgroup fairness testing, and later longitudinal research. Material changes to questions or scoring will be
-          released as new versions rather than silently applied to earlier results.
-        </p>
-        <p><a href="/methodology/candidates" className="fwlink">Review proposed future questions →</a></p>
-      </div>
+      <section className="method-next">
+        <p className="eyebrow">How it becomes stronger</p>
+        <h2>Ask. Listen. Test. Revise. Repeat.</h2>
+        <p>Next come expert review, interviews about how people understand each question, missing-data and item analysis, reliability and factor testing, comparisons with established measures, fairness checks, and longitudinal research. Material changes receive new version numbers.</p>
+        <a href="/methodology/candidates">See the proposed next questions →</a>
+      </section>
 
       <div className="actions">
-        <a href="/assess"><button className="primary">Choose an assessment</button></a>
-        <a href="/observatory" className="hero-link">Explore the cases →</a>
+        <a href="/assess" className="primary-link">Choose your assessment</a>
+        <a href="/observatory" className="text-link">Meet the 41 people →</a>
       </div>
     </main>
   );

@@ -7,6 +7,7 @@ import { IntakeForm } from "./IntakeForm";
 export const metadata = {
   title: "Assessment interview study — Institutions of One",
   description: "Volunteer to help improve future questions in the Institutions of One pilot assessments.",
+  alternates: { canonical: "/research/cognitive-interviews" },
 };
 
 export default function CognitiveInterviewStudyPage() {

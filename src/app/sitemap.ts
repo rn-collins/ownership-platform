@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/assess/professional",
     "/observatory",
     "/findings",
+    "/edit",
     "/partner",
     "/about",
     "/research/cognitive-interviews",
@@ -21,8 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...publicRoutes.map((path) => ({
       url: `${SITE_URL}${path}`,
-      changeFrequency: path === "" ? "weekly" as const : "monthly" as const,
-      priority: path === "" ? 1 : path === "/observatory" ? 0.9 : 0.7,
+      changeFrequency: path === "" || path === "/edit" ? "weekly" as const : "monthly" as const,
+      priority: path === "" ? 1 : path === "/observatory" || path === "/edit" ? 0.9 : 0.7,
     })),
     ...SEED.map((person) => ({
       url: `${SITE_URL}/observatory/${nodeSlug(person.name)}`,

@@ -4,6 +4,8 @@ export const metadata = {
   title: "Participate or partner — Institutions of One",
   description: "Ways to contribute to or support the Institutions of One research program.",
   alternates: { canonical: "/partner" },
+  openGraph: { title: "Participate or partner — Institutions of One", description: "Ways to contribute to or support the Institutions of One research program.", url: "/partner", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "Participate or partner — Institutions of One", description: "Ways to contribute to or support the Institutions of One research program.", images: ["/og.png"] },
 };
 
 const paths = [

@@ -74,6 +74,13 @@ export default async function ObservatoryPage() {
       <a className="button-primary" href="/observatory/evidence">Open the Evidence Explorer →</a>
     </section>
 
+    <section style={{ margin: "0 0 42px", padding: "28px 32px", border: "1px solid #141b2e", background: "#d9d0ff" }} aria-labelledby="living-findings-heading">
+      <p className="eyebrow">Watch the research evolve</p>
+      <h2 id="living-findings-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>See what the collection currently supports—and what it cannot yet claim.</h2>
+      <p style={{ maxWidth: 760 }}>Generate provisional patterns, emerging exceptions, unresolved research gaps, framework-changing cases, and a review ledger directly from the standardized case records.</p>
+      <a className="button-primary" href="/observatory/findings">Open Living Findings →</a>
+    </section>
+
     <ObservatoryMap nodes={nodes} initialView="directory" />
 
     <section id="nominate" style={{ marginTop: 64 }} aria-labelledby="nominate-heading">

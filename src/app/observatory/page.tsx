@@ -46,11 +46,18 @@ export default async function ObservatoryPage() {
       <a className="button-primary" href="/observatory/apply">Apply the cases to my work →</a>
     </section>
 
-    <section style={{ margin: "0 0 42px", padding: "28px 32px", border: "1px solid #141b2e", background: "#eef1f6" }} aria-labelledby="dependencies-heading">
+    <section style={{ margin: "0 0 20px", padding: "28px 32px", border: "1px solid #141b2e", background: "#eef1f6" }} aria-labelledby="dependencies-heading">
       <p className="eyebrow">A different way into the collection</p>
       <h2 id="dependencies-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>Explore what the work depends upon.</h2>
       <p style={{ maxWidth: 760 }}>Filter the 41 cases by employer, platform, title, capital, audience access, personal visibility, public mandate, founder involvement, intellectual property, and distribution partners.</p>
       <a className="button-primary" href="/observatory/dependencies">Open the Dependency Explorer →</a>
+    </section>
+
+    <section style={{ margin: "0 0 42px", padding: "28px 32px", border: "1px solid #141b2e", background: "#f3eddf" }} aria-labelledby="countercases-heading">
+      <p className="eyebrow">Resist the easy lesson</p>
+      <h2 id="countercases-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>Find the case that complicates the conclusion.</h2>
+      <p style={{ maxWidth: 760 }}>Start with any case, see the lesson it may appear to support, and examine a structurally different case before deciding the lesson generally follows.</p>
+      <a className="button-primary" href="/observatory/countercases">Open the Countercase Finder →</a>
     </section>
 
     <ObservatoryMap nodes={nodes} initialView="directory" />

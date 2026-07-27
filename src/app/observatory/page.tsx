@@ -67,6 +67,13 @@ export default async function ObservatoryPage() {
       <a className="button-primary" href="/observatory/timeline">Open the Cross-case Timeline →</a>
     </section>
 
+    <section style={{ margin: "0 0 42px", padding: "28px 32px", border: "1px solid #141b2e", background: "#efe8d8" }} aria-labelledby="evidence-heading">
+      <p className="eyebrow">Inspect the research itself</p>
+      <h2 id="evidence-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>See what the collection knows, how it knows it, and what remains unresolved.</h2>
+      <p style={{ maxWidth: 760 }}>Explore documentation strength, reliance on first-party descriptions, private or unknown ownership, competing evidence, recurring source publishers, and cases that need another review.</p>
+      <a className="button-primary" href="/observatory/evidence">Open the Evidence Explorer →</a>
+    </section>
+
     <ObservatoryMap nodes={nodes} initialView="directory" />
 
     <section id="nominate" style={{ marginTop: 64 }} aria-labelledby="nominate-heading">

@@ -4,6 +4,7 @@ import { MeasuredCounter } from "@/components/MeasuredCounter";
 export const metadata = {
   title: "Research & findings — Institutions of One",
   description: "What the 41-case methodology pilot and anonymous Institutions of One assessments are beginning to reveal.",
+  alternates: { canonical: "/findings" },
 };
 
 export default function FindingsPage() {

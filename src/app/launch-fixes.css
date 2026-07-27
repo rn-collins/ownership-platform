@@ -311,3 +311,5 @@ textarea:focus-visible { outline: 3px solid var(--io-focus); outline-offset: 3px
   .method-instrument > p:not(.eyebrow) { min-height: 0; }
   .method-score,.method-limits { gap: 20px; }
 }
+
+.edit-edition-page.edition-002::before { content: "THE I/1 EDIT / 002"; }

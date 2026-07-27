@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/assess",
     "/assess/creator",
     "/assess/professional",
-    "/observatory",
+    "/observatory",\n    "/observatory/apply",\n    "/observatory/dependencies",
     "/findings",
     "/edit",
     "/edit/001",

@@ -45,7 +45,7 @@ const sources = [
 
 export default function EditionTwoPage() {
   return (
-    <main className="edit-edition-page">
+    <main className="edit-edition-page edition-002">
       <a className="postback" href="/edit">← The I/1 Edit</a>
       <p className="eyebrow">Edition 002 · July 2026</p>
       <h1>Your career has a supply chain.</h1>

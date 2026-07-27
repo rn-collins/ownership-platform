@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/observatory",
     "/findings",
     "/edit",
+    "/edit/001",
     "/partner",
     "/about",
     "/research/cognitive-interviews",
@@ -22,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...publicRoutes.map((path) => ({
       url: `${SITE_URL}${path}`,
-      changeFrequency: path === "" || path === "/edit" ? "weekly" as const : "monthly" as const,
+      changeFrequency: path === "" || path.startsWith("/edit") ? "weekly" as const : "monthly" as const,
       priority: path === "" ? 1 : path === "/observatory" || path === "/edit" ? 0.9 : 0.7,
     })),
     ...SEED.map((person) => ({

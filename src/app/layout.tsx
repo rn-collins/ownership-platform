@@ -42,6 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <a href="/observatory">People</a>
               <a href="/observatory/apply">Apply</a>
               <a href="/observatory/dependencies">Dependencies</a>
+              <a href="/observatory/countercases">Countercases</a>
               <a href="/assess">Measure</a>
               <a href="/edit">Read</a>
               <a href="/partner">Work with us</a>
@@ -54,7 +55,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <footer className="foot">
             <div className="foot-statement">What happens when the person is no longer just the talent—but the infrastructure?</div>
             <div className="foot-cols">
-              <div className="foot-col"><span className="foot-h">Explore</span><a href="/methodology">The idea and method</a><a href="/assess">Pilot assessments</a><a href="/observatory">The Observatory</a><a href="/observatory/apply">Apply the cases to your work</a><a href="/observatory/dependencies">Explore dependencies</a><a href="/findings">Research and findings</a></div>
+              <div className="foot-col"><span className="foot-h">Explore</span><a href="/methodology">The idea and method</a><a href="/assess">Pilot assessments</a><a href="/observatory">The Observatory</a><a href="/observatory/apply">Apply the cases to your work</a><a href="/observatory/dependencies">Explore dependencies</a><a href="/observatory/countercases">Find a countercase</a><a href="/findings">Research and findings</a></div>
               <div className="foot-col"><span className="foot-h">Read</span><a href="/edit">The I/1 Edit</a><a href="/partner">Participate or partner</a><a href="/research/cognitive-interviews">Join an interview</a><a href="/about">About RN Collins</a></div>
               <div className="foot-col"><span className="foot-h">Connect</span><a href="mailto:collins.ra@northeastern.edu">Email</a><a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/privacy">Privacy</a></div>
             </div>

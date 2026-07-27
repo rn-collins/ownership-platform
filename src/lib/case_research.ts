@@ -74,7 +74,66 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "reuters-analysis", label: "Analysis of Shah’s payments background and WhatsApp mandate", href: "https://www.reuters.com/business/whatsapps-pick-indian-fintech-founder-signals-scale-payment-ambitions-2026-06-25/", publisher: "Reuters", published: "2026-06-25", kind: "independent" },
       { id: "verge", label: "Independent account of the WhatsApp leadership transition", href: "https://www.theverge.com/tech/953464/whatsapp-will-cathcart-stepping-down-cred", publisher: "The Verge", published: "2026-06-22", kind: "independent" },
     ],
+  },,
+  "suzie-reider": {
+    documentationLevel: "saturated",
+    reviewed: "2026-07-27",
+    chronology: [
+      { date: "2006", event: "Reider joined YouTube as chief marketing officer before Google's acquisition and later built revenue and marketing functions within Google.", sourceIds: ["middlebury-career", "middlebury-trustee"] },
+      { date: "2019–2020", event: "At Waze, Reider led advertising and sales during the pandemic traffic collapse, when mobility and advertising revenue fell sharply.", sourceIds: ["bi-waze", "modern-retail"] },
+      { date: "December 4–10, 2024", event: "Lyft appointed Reider executive vice president of Lyft Media and Lyft Business, reporting to CEO David Risher.", sourceIds: ["lyft-announcement", "mediapost"] },
+    ],
+    interpretation: "Reider's case tests portability inside large companies: she could carry knowledge of advertising, video, local commerce, and platform monetization across YouTube, Waze, and Lyft, while the audience, data, product, capital, and distribution remained institution-owned.",
+    complication: [
+      "Appointment announcements document senior roles but do not establish how much platform performance was personally caused by Reider rather than teams, acquisitions, market position, and Google's infrastructure.",
+      "The Waze pandemic record shows that even a sophisticated advertising operation remained dependent on mobility behavior and advertiser demand outside the leader's control.",
+      "Public sources do not establish Reider's budgets, internal decision rights, product ownership, or the successor-capability of the businesses she leads.",
+    ],
+    unknowns: [
+      "What binding product, pricing, hiring, and data-access decisions sit with Reider at Lyft?",
+      "Which methods or relationships moved with her from Google, and which remained proprietary or team-embedded?",
+      "What structures would allow Lyft Media and Lyft Business to continue beyond their current executive sponsor?",
+    ],
+    payoff: "The case distinguishes portable executive judgment from portable infrastructure. Reider can carry expertise and credibility; the systems through which they produce value still belong to the companies supplying data, products, teams, and distribution.",
+    sources: [
+      { id: "lyft-announcement", label: "Lyft appointment announcement and reporting line", href: "https://www.lyft.com/blog/posts/lyft-welcomes-suzie-reider", publisher: "Lyft", published: "2024-12-04", kind: "primary" },
+      { id: "middlebury-career", label: "Career chronology across Ziff-Davis, CNET, YouTube, and Waze", href: "https://www.middlebury.edu/middcore/suzie-reider", publisher: "Middlebury College", published: "See linked record", kind: "institutional" },
+      { id: "middlebury-trustee", label: "Institutional biography describing YouTube and Waze leadership", href: "https://www.middlebury.edu/about-middlebury/suzanne-reider-87", publisher: "Middlebury College", published: "See linked record", kind: "institutional" },
+      { id: "mediapost", label: "Independent report on the Lyft appointment", href: "https://www.mediapost.com/publications/article/401629/googles-suzie-reider-joins-lyft.html", publisher: "MediaPost", published: "2024-12-04", kind: "independent" },
+      { id: "bi-waze", label: "Independent report on Waze's pandemic advertising dependence", href: "https://www.businessinsider.com/how-googles-waze-salvaged-its-ad-business-amid-the-coronavirus-2020-6", publisher: "Business Insider", published: "2020-06-04", kind: "independent" },
+      { id: "modern-retail", label: "Interview on Waze traffic and retail-advertising dependence", href: "https://www.modernretail.co/retailers/wazes-suzie-reider-on-the-return-of-road-traffic-and-the-retailers-that-depend-on-it/", publisher: "Modern Retail", published: "2020-11-05", kind: "independent" },
+    ],
   },
+  "kenny-gold": {
+    documentationLevel: "saturated",
+    reviewed: "2026-07-27",
+    chronology: [
+      { date: "Before 2021", event: "Gold led social-media work at Grey Group North America before moving from agency work into consulting.", sourceIds: ["aef-bio", "gold-reflection"] },
+      { date: "2021", event: "Gold joined Deloitte Digital as managing director and head of social, content, and influencer.", sourceIds: ["aef-bio"] },
+      { date: "2023–2025", event: "Public appearances documented Gold's thesis that creators should retain authentic voice, receive support and compensation, and use AI as an enabling tool.", sourceIds: ["buzzincontent", "cmo-podcast", "gold-creator-post"] },
+      { date: "June 2, 2026", event: "Edelman appointed Gold global chief creator officer to lead Edelman Creator across a network of approximately 200 specialists.", sourceIds: ["edelman-announcement", "gold-reflection"] },
+    ],
+    interpretation: "Gold's case examines how a specialist turns a cross-functional practice into an executive mandate across institutions. A thesis, reputation, relationships, and practice-building experience travel; each firm's staff, clients, data, budgets, and authority do not.",
+    complication: [
+      "A first-ever global title signals recognition but does not establish independent budget, hiring authority, or control over regional teams.",
+      "Edelman's approximately 200 creator specialists predated the appointment, so the mandate inherits substantial institutional capacity.",
+      "Gold's public philosophy is evidence of a consistent point of view, not proof that client outcomes or organizational change were caused by him alone.",
+    ],
+    unknowns: [
+      "Which global standards, budgets, hiring decisions, and client decisions can Gold make rather than influence?",
+      "What portion of Deloitte Digital's creator capability can be attributed to Gold rather than distributed teams?",
+      "Will Edelman's creator mandate become durable governance, methods, and succession capacity beyond its first global officeholder?",
+    ],
+    payoff: "The case separates carrying a field-building point of view from controlling the institution that adopts it. Durability depends on decision rights, routines, distributed capability, and succession—not the novelty of the title.",
+    sources: [
+      { id: "edelman-announcement", label: "Edelman appointment, reporting line, mandate, and existing team scale", href: "https://www.edelman.com/news-awards/kenny-gold-global-chief-creator-officer", publisher: "Edelman", published: "2026-06-02", kind: "primary" },
+      { id: "gold-reflection", label: "First-person account of moving into consulting and building at Deloitte Digital", href: "https://www.linkedin.com/posts/kennethrgold_nearly-five-years-ago-i-took-a-bet-on-myself-activity-7460702920838246400-2cVb", publisher: "Kenny Gold / LinkedIn", published: "2026", kind: "primary" },
+      { id: "aef-bio", label: "Institutional biography documenting Grey and Deloitte roles", href: "https://aef.com/partnership-programs/honors-night/honors2021/2021-champions/champion-gold/", publisher: "Advertising Educational Foundation", published: "2021", kind: "institutional" },
+      { id: "buzzincontent", label: "Independent report on Gold's creator and AI position", href: "https://www.buzzincontent.com/story/ai-is-an-ally-not-a-replacement-for-creators-deloitte-digital-single-s-kenny-gold/", publisher: "BuzzInContent", published: "2023-06-21", kind: "independent" },
+      { id: "cmo-podcast", label: "Creator-economy roundtable documenting Gold's role and thesis", href: "https://podscan.fm/podcasts/the-cmo-podcast/episodes/the-creator-economy-roundtable-with-brandon-b-kim-larson-youtube-and-kenny-gold-deloitte-digital", publisher: "The CMO Podcast", published: "2025-06-25", kind: "independent" },
+      { id: "gold-creator-post", label: "First-person articulation of creator autonomy in brand partnerships", href: "https://www.linkedin.com/videos/kennethrgold_creatoreconomy-advertising-content-activity-7394014142975721472-eu7w", publisher: "Kenny Gold / LinkedIn", published: "2025", kind: "primary" },
+    ],
+  }
 };
 
 const CASE_MILESTONES: Record<string, { date: string; event: string }> = {

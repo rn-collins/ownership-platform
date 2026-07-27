@@ -75,9 +75,9 @@ export default function Home() {
       </section>
 
       <section className="closing-call">
-        <p className="eyebrow">Follow the research</p>
-        <h2>We are building the language for a kind of work the old categories cannot hold.</h2>
-        <p>The complete monthly edition lives in your inbox: one idea, one case or visual finding, and what the research is changing. LinkedIn and X carry excerpts back here.</p>
+        <p className="eyebrow">The I/1 Edit</p>
+        <h2>One original idea about work, power, ownership, and the person becoming the institution.</h2>
+        <p>Every other week, subscribers receive the complete edition by email. Each edition is archived here; LinkedIn and X carry selected excerpts back to I of 1.</p>
         <NewsletterSignup source="site" />
       </section>
     </main>

@@ -39,6 +39,13 @@ export default async function ObservatoryPage() {
       <p><strong>The point is not to copy them.</strong> The point is to notice structures you can use to understand your own work—and to see what public information cannot establish.</p>
     </section>
 
+    <section style={{ margin: "58px 0 42px", padding: "38px", border: "1px solid #141b2e", background: "#f2e95a" }} aria-labelledby="apply-heading">
+      <p className="eyebrow">Start somewhere more personal</p>
+      <h2 id="apply-heading" style={{ fontFamily: "Georgia, serif", fontSize: "clamp(34px, 4vw, 56px)", lineHeight: 1, maxWidth: 860, margin: "10px 0 16px" }}>Bring the structure of your work into the Observatory.</h2>
+      <p style={{ maxWidth: 760, fontSize: 17, lineHeight: 1.55 }}>Describe your current career arrangement and receive a private, unscored pathway through three cases and one countercase—with questions to carry back into your own work.</p>
+      <a className="button-primary" href="/observatory/apply">Apply the cases to my work →</a>
+    </section>
+
     <ObservatoryMap nodes={nodes} initialView="directory" />
 
     <section id="nominate" style={{ marginTop: 64 }} aria-labelledby="nominate-heading">

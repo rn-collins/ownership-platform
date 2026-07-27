@@ -21,22 +21,22 @@ ON CONFLICT ("id") DO NOTHING;
 INSERT INTO "ObservatoryClaimEvidence"
 ("id","claimId","sourceId","supportType","exactPassage","locator","analystNote","createdAt")
 VALUES
-('obs_ev_mb18_c42','obs_claim_mb18_c42','obs_src_mb18_bitmine_10q_may31','supports',NULL,'Note 6 side-letter status as of May 31 2026','Later filing independently supplies the May 31 endpoint.',CURRENT_TIMESTAMP),
-('obs_ev_mb18_c43','obs_claim_mb18_c43','obs_src_mb18_bitmine_10q_may31','supports',NULL,'Note 6 carrying amount as of May 31 2026','Cost-basis carrying amount is not current fair value.',CURRENT_TIMESTAMP),
-('obs_ev_mb18_c44','obs_claim_mb18_c44','obs_src_mb18_bitmine_10q_may31','supports',NULL,'Note 6 impairment statement for nine months ended May 31 2026','Period-bounded investor accounting statement.',CURRENT_TIMESTAMP),
-('obs_ev_mb18_c45','obs_claim_mb18_c45','obs_src_mb18_bitmine_10q_may31','supports',NULL,'Comparison with immutable dossier 1.7.0 chronology correction','New support does not retroactively change the sufficiency of the earlier source.',CURRENT_TIMESTAMP)
+('obs_ev_mb18_c42','obs_claim_mb18_c42',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.sec.gov/Archives/edgar/data/1829311/000162828026048157/bmnr-20260531.htm' LIMIT 1),'supports',NULL,'Note 6 side-letter status as of May 31 2026','Later filing independently supplies the May 31 endpoint.',CURRENT_TIMESTAMP),
+('obs_ev_mb18_c43','obs_claim_mb18_c43',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.sec.gov/Archives/edgar/data/1829311/000162828026048157/bmnr-20260531.htm' LIMIT 1),'supports',NULL,'Note 6 carrying amount as of May 31 2026','Cost-basis carrying amount is not current fair value.',CURRENT_TIMESTAMP),
+('obs_ev_mb18_c44','obs_claim_mb18_c44',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.sec.gov/Archives/edgar/data/1829311/000162828026048157/bmnr-20260531.htm' LIMIT 1),'supports',NULL,'Note 6 impairment statement for nine months ended May 31 2026','Period-bounded investor accounting statement.',CURRENT_TIMESTAMP),
+('obs_ev_mb18_c45','obs_claim_mb18_c45',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.sec.gov/Archives/edgar/data/1829311/000162828026048157/bmnr-20260531.htm' LIMIT 1),'supports',NULL,'Comparison with immutable dossier 1.7.0 chronology correction','New support does not retroactively change the sufficiency of the earlier source.',CURRENT_TIMESTAMP)
 ON CONFLICT ("claimId","sourceId","supportType") DO NOTHING;
 
 INSERT INTO "ObservatoryRelationship"
 ("id","fromCaseId","targetType","targetName","relationshipType","startedAt","endedAt","verificationStatus","publicStatus","sourceId","exactPassage","sourceLocator","createdAt","updatedAt")
 VALUES
-('obs_rel_mb18_bitmine_may31_accounting',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='mrbeast' LIMIT 1),'organization','BitMine Immersion Technologies','outside_minority_investor_with_may31_accounting_and_side_letter_status','2026-01-15T00:00:00Z',NULL,'unreviewed','draft','obs_src_mb18_bitmine_10q_may31',NULL,'May 31 carrying amount and side-letter status; no personal-economics inference',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+('obs_rel_mb18_bitmine_may31_accounting',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='mrbeast' LIMIT 1),'organization','BitMine Immersion Technologies','outside_minority_investor_with_may31_accounting_and_side_letter_status','2026-01-15T00:00:00Z',NULL,'unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.sec.gov/Archives/edgar/data/1829311/000162828026048157/bmnr-20260531.htm' LIMIT 1),NULL,'May 31 carrying amount and side-letter status; no personal-economics inference',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
 ON CONFLICT ("id") DO NOTHING;
 
 INSERT INTO "ObservatoryEvent"
 ("id","caseId","eventType","title","description","occurredAt","precision","verificationStatus","publicStatus","sourceId","exactPassage","sourceLocator","createdAt","updatedAt")
 VALUES
-('obs_event_mb18_2026_may31',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='mrbeast' LIMIT 1),'investment_accounting_and_side_letter_status','BitMine May 31 Beast Industries accounting and side-letter status','BitMine reported a $186.024 million carrying amount no nine-month impairment and no additional side-letter purchase through May 31.','2026-05-31T00:00:00Z','day','unreviewed','draft','obs_src_mb18_bitmine_10q_may31',NULL,'Date-specific accounting and contractual-status disclosure not current fair value or personal economics',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+('obs_event_mb18_2026_may31',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='mrbeast' LIMIT 1),'investment_accounting_and_side_letter_status','BitMine May 31 Beast Industries accounting and side-letter status','BitMine reported a $186.024 million carrying amount no nine-month impairment and no additional side-letter purchase through May 31.','2026-05-31T00:00:00Z','day','unreviewed','draft',(SELECT "id" FROM "ObservatorySource" WHERE "url"='https://www.sec.gov/Archives/edgar/data/1829311/000162828026048157/bmnr-20260531.htm' LIMIT 1),NULL,'Date-specific accounting and contractual-status disclosure not current fair value or personal economics',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
 ON CONFLICT ("id") DO NOTHING;
 
 INSERT INTO "ObservatoryReviewPackage"

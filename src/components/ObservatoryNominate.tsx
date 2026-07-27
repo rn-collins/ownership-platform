@@ -22,7 +22,7 @@ export function ObservatoryNominate() {
     return (
       <div className="card">
         <h3>Nomination received.</h3>
-        <p>Thank you—your suggestion will be reviewed for what it adds to the methodology pilot. Know your own score? <a href="/assess/professional" className="fwlink">Take the Portfolio Professional →</a></p>
+        <p>Thank you—your suggestion will be reviewed for what it adds to the methodology pilot. Want to examine your own work? <a href="/assess/professional" className="fwlink">Open the Portfolio Professional pilot →</a></p>
       </div>
     );
   }
@@ -36,16 +36,16 @@ export function ObservatoryNominate() {
         <input className="opentext" name="nomineeOrg" value={f.nomineeOrg} onChange={(e) => set("nomineeOrg", e.target.value)} placeholder="Where?" />
       </label>
       <label className="fld"><span>Their role <em className="fh">(optional)</em></span>
-        <input className="opentext" name="nomineeRole" value={f.nomineeRole} onChange={(e) => set("nomineeRole", e.target.value)} placeholder="The role built around them" />
+        <input className="opentext" name="nomineeRole" value={f.nomineeRole} onChange={(e) => set("nomineeRole", e.target.value)} placeholder="How do they describe their work?" />
       </label>
       <label className="fld"><span>Why them?</span>
-        <textarea className="opentext" name="why" required rows={3} value={f.why} onChange={(e) => set("why", e.target.value)} placeholder="What did they build that the company then built a role around?" />
+        <textarea className="opentext" name="why" required rows={3} value={f.why} onChange={(e) => set("why", e.target.value)} placeholder="What makes their work useful for this research?" />
       </label>
       <label className="fld"><span>Your email <em className="fh">(optional — if you'd like a reply)</em></span>
         <input className="opentext" name="nominatorEmail" type="email" autoComplete="email" value={f.nominatorEmail} onChange={(e) => set("nominatorEmail", e.target.value)} placeholder="you@example.com" />
       </label>
       <div className="actions">
-        <button className="primary" type="submit" disabled={!canSend}>{state === "sending" ? "Sending…" : "Put them on the map"}</button>
+        <button className="primary" type="submit" disabled={!canSend}>{state === "sending" ? "Sending…" : "Submit nomination"}</button>
         {state === "error" && <span className="disc" style={{ margin: 0 }}>Something went wrong — try again.</span>}
       </div>
     </form>

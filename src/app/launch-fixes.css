@@ -49,3 +49,31 @@ textarea:focus-visible { outline: 3px solid var(--io-focus); outline-offset: 3px
   .nl-btn { width: 100%; }
   .find-stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
+
+
+/* Reliable touch targets for the Observatory and public forms. */
+.obs-tab,
+.obs-zoom button,
+.obs-panel-x,
+.obs-panel-cta,
+.nl-btn,
+.partner-page button,
+.study-page button,
+.login-page button {
+  min-height: 44px;
+}
+.obs-tab,
+.obs-zoom button,
+.obs-panel-x {
+  min-width: 44px;
+}
+.nl-input,
+.partner-page input,
+.partner-page select,
+.partner-page textarea,
+.study-page input,
+.study-page select,
+.study-page textarea,
+.login-page input {
+  min-height: 44px;
+}

@@ -4,6 +4,20 @@ export const metadata = {
   title: "When Does One Person Become an Institution? — The I/1 Edit",
   description:
     "Edition 001 of The I/1 Edit introduces the build, carry, and control framework for understanding when individual work begins to function institutionally.",
+  alternates: { canonical: "/edit/001" },
+  openGraph: {
+    title: "When Does One Person Become an Institution?",
+    description:
+      "Build, Carry, Control: a working model for understanding when individual work begins to function institutionally.",
+    url: "/edit/001",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "When Does One Person Become an Institution?",
+    description:
+      "Build, Carry, Control: a working model for understanding when individual work begins to function institutionally.",
+  },
 };
 
 const thresholds = [

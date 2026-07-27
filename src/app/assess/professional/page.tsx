@@ -4,6 +4,7 @@ import { PROFESSIONAL_METHODOLOGY_VERSION } from "@/lib/instrument_professional"
 export const metadata = {
   title: "Portfolio Professional — Institutions of One",
   description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.",
+  alternates: { canonical: "/assess/professional" },
 };
 
 export default function ProfessionalAssessPage() {

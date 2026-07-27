@@ -1,6 +1,7 @@
 export const metadata = {
   title: "Privacy & data use — Institutions of One",
   description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

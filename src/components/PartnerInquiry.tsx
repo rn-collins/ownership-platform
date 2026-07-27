@@ -27,17 +27,17 @@ export function PartnerInquiry() {
   if (state === "done") return <div className="card"><h3>Received by RN Collins.</h3><p>Your inquiry has been saved and routed directly to RN. Expect a personal reply—not an automated sales sequence.</p></div>;
 
   return (
-    <div className="ownededit">
-      <label className="fld"><span>Name</span><input className="opentext" value={form.name} onChange={(event) => set("name", event.target.value)} /></label>
-      <label className="fld"><span>Email</span><input className="opentext" value={form.email} onChange={(event) => set("email", event.target.value)} placeholder="you@organization.com" /></label>
-      <label className="fld"><span>Organization <em className="fh">(optional)</em></span><input className="opentext" value={form.organization} onChange={(event) => set("organization", event.target.value)} /></label>
-      <label className="fld"><span>Area of interest</span><select className="opentext" value={form.kind} onChange={(event) => set("kind", event.target.value)}>{KINDS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
-      <label className="fld"><span>What would you like to explore?</span><textarea className="opentext" rows={4} value={form.message} onChange={(event) => set("message", event.target.value)} placeholder="A short description of the question, audience, case, or collaboration." /></label>
+    <form className="ownededit" onSubmit={(event) => { event.preventDefault(); void submit(); }}>
+      <label className="fld"><span>Name</span><input className="opentext" name="name" autoComplete="name" required value={form.name} onChange={(event) => set("name", event.target.value)} /></label>
+      <label className="fld"><span>Email</span><input className="opentext" name="email" type="email" autoComplete="email" required value={form.email} onChange={(event) => set("email", event.target.value)} placeholder="you@organization.com" /></label>
+      <label className="fld"><span>Organization <em className="fh">(optional)</em></span><input className="opentext" name="organization" autoComplete="organization" value={form.organization} onChange={(event) => set("organization", event.target.value)} /></label>
+      <label className="fld"><span>Area of interest</span><select className="opentext" name="kind" value={form.kind} onChange={(event) => set("kind", event.target.value)}>{KINDS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
+      <label className="fld"><span>What would you like to explore?</span><textarea className="opentext" name="message" required rows={4} value={form.message} onChange={(event) => set("message", event.target.value)} placeholder="A short description of the question, audience, case, or collaboration." /></label>
       <div className="actions">
-        <button className="primary" disabled={!valid} onClick={submit}>{state === "sending" ? "Sending…" : "Send inquiry"}</button>
+        <button className="primary" type="submit" disabled={!valid}>{state === "sending" ? "Sending…" : "Send inquiry"}</button>
         {state === "error" && <span className="disc" style={{ margin: 0 }}>The form did not deliver your note. Please email <a href="mailto:collins.ra@northeastern.edu">collins.ra@northeastern.edu</a> instead.</span>}
       </div>
       <p className="meta">Your note is stored in the private project database and, when email delivery is available, sent directly to RN Collins. Your address is used only to respond to this inquiry.</p>
-    </div>
+    </form>
   );
 }

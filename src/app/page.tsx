@@ -2,6 +2,8 @@ import { ObservatoryMap } from "@/components/ObservatoryMap";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { SEED } from "@/lib/observatory_seed";
 
+export const metadata = { alternates: { canonical: "/" } };
+
 export default function Home() {
   return (
     <main className="home">

@@ -27,9 +27,13 @@ export function NewsletterSignup({
   return (
     <section className={`nl nl-${variant}`}>
       <div className="nl-copy">
-        <p className="nl-kicker">Research updates</p>
-        <h3 className="nl-title">Follow Institutions of One</h3>
-        <p className="nl-sub">Receive new essays, findings, case research, and opportunities to participate.</p>
+        <p className="nl-kicker">The I/1 Field Note</p>
+        <h3 className="nl-title">One email. Once a month. Something worth carrying.</h3>
+        <p className="nl-sub">
+          A monthly Beehiiv newsletter with one sharp idea, a case or visual finding, what the research is changing,
+          and an invitation when there is a meaningful way to take part. LinkedIn and X may carry excerpts;
+          subscribers receive the complete edition by email.
+        </p>
       </div>
       {state === "done" ? (
         <div className="nl-done">
@@ -40,13 +44,13 @@ export function NewsletterSignup({
         <div className="nl-form">
           <div className="nl-row">
             <input className="nl-input" type="email" inputMode="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" aria-label="Email address" />
-            <button className="nl-btn" disabled={!valid} onClick={submit}>{state === "sending" ? "Joining…" : "Subscribe"}</button>
+            <button className="nl-btn" disabled={!valid} onClick={submit}>{state === "sending" ? "Joining…" : "Join the Field Note"}</button>
           </div>
           <label className="nl-consent">
             <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} />
             <span>Yes, send me the monthly I/1 Field Note by email through Beehiiv. I can unsubscribe at any time.</span>
           </label>
-          {state === "error" && <p className="nl-err">We could not complete the signup. Please try again.</p>}
+          {state === "error" && <p className="nl-err">Your address was not saved. Please try again.</p>}
         </div>
       )}
     </section>

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   CANDIDATE_ACTIVATION_GATES,
+  INSTRUMENT_RECONCILIATION,
   OWNERSHIP_INDEX_0_3_0_CANDIDATE,
   PORTFOLIO_PROFESSIONAL_0_2_0_CANDIDATE,
 } from "./candidate-instruments";
@@ -32,4 +33,13 @@ describe("candidate instrument release boundaries", () => {
     expect(CANDIDATE_ACTIVATION_GATES.some((gate) => gate.includes("separate pilot"))).toBe(true);
     expect(CANDIDATE_ACTIVATION_GATES.some((gate) => gate.includes("methodology record"))).toBe(true);
   });
+  it("keeps the instruments analytically distinct", () => {
+    expect(INSTRUMENT_RECONCILIATION.ownership.primaryUnit)
+      .not.toBe(INSTRUMENT_RECONCILIATION.portfolioProfessional.primaryUnit);
+    expect(INSTRUMENT_RECONCILIATION.reportingRules)
+      .toContain("Report the two instruments separately; do not combine their totals into a single score.");
+    expect(INSTRUMENT_RECONCILIATION.overlapRules.map((rule) => rule.topic))
+      .toEqual(["portability", "continuity", "audience and authority", "institutionalization"]);
+  });
+
 });

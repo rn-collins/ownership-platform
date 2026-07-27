@@ -53,11 +53,18 @@ export default async function ObservatoryPage() {
       <a className="button-primary" href="/observatory/dependencies">Open the Dependency Explorer →</a>
     </section>
 
-    <section style={{ margin: "0 0 42px", padding: "28px 32px", border: "1px solid #141b2e", background: "#f3eddf" }} aria-labelledby="countercases-heading">
+    <section style={{ margin: "0 0 20px", padding: "28px 32px", border: "1px solid #141b2e", background: "#f3eddf" }} aria-labelledby="countercases-heading">
       <p className="eyebrow">Resist the easy lesson</p>
       <h2 id="countercases-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>Find the case that complicates the conclusion.</h2>
       <p style={{ maxWidth: 760 }}>Start with any case, see the lesson it may appear to support, and examine a structurally different case before deciding the lesson generally follows.</p>
       <a className="button-primary" href="/observatory/countercases">Open the Countercase Finder →</a>
+    </section>
+
+    <section style={{ margin: "0 0 42px", padding: "28px 32px", border: "1px solid #141b2e", background: "#b9d7ce" }} aria-labelledby="timeline-heading">
+      <p className="eyebrow">Read change across time</p>
+      <h2 id="timeline-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>Trace structural turns across all 41 cases.</h2>
+      <p style={{ maxWidth: 760 }}>Examine employment becoming independence, attention becoming a company, titles becoming mandates, practices becoming institutions, founder-led work becoming successor-capable, and platform access moving toward direct distribution.</p>
+      <a className="button-primary" href="/observatory/timeline">Open the Cross-case Timeline →</a>
     </section>
 
     <ObservatoryMap nodes={nodes} initialView="directory" />

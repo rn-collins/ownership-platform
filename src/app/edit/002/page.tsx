@@ -203,6 +203,11 @@ export default function EditionTwoPage() {
         <p>Corrections or material primary sources can be submitted through the <a href="/about">About page</a>. Substantive corrections will be dated here.</p>
       </section>
 
+      <nav className="edition-status" aria-label="Edition navigation">
+        <div><p className="eyebrow">Read in sequence</p><h2>Build the idea from the beginning.</h2></div>
+        <div><a href="/edit/001"><strong>← Edition 001</strong><br/>When does one person become an institution?</a><p><a href="/edit">See every edition →</a></p></div>
+      </nav>
+
       <section className="edition-subscribe">
         <p className="eyebrow">The I/1 Edit</p>
         <h2>One original argument, every other week.</h2>

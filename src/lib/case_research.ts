@@ -366,6 +366,88 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "teklos-announcement", label: "First-person Tory Burch appointment statement", href: "https://www.linkedin.com/posts/klitosteklos_tory-burch-appoints-klitos-teklos-chief-brand-activity-7482395717081387008-NNk2", publisher: "Klitos Teklos / LinkedIn", published: "2026-07", kind: "primary" },
     ],
   },
+  "charlotte-tansill": {
+    documentationLevel: "saturated",
+    reviewed: "2026-07-27",
+    chronology: [
+      { date: "Approximately 2008–2021", event: "Tansill developed within Ogilvy over more than a decade across strategy and transformation roles, ultimately becoming global chief strategy officer for Ogilvy PR.", sourceIds: ["ogilvy-cso", "provokemedia-profile", "mediapost-appointment"] },
+      { date: "2022–2025", event: "Ogilvy elevated Tansill to president of PR, social and influence for North America, placing previously distinct practices within one regional remit.", sourceIds: ["prweek-ogilvy", "provokemedia-profile", "prweek-power"] },
+      { date: "2024", event: "Tansill was one of many credited leaders on the Michael CeraVe campaign, an integrated CeraVe, WPP Onefluence, Ogilvy, creator, media, production, and talent effort that used earned, social, influencer, paid, and owned channels.", sourceIds: ["one-show-credits", "shorty-credits", "ogilvy-cerave", "wharton-interview"] },
+      { date: "November 24, 2025", event: "Publicis Creative U.S. appointed Tansill to the newly created role of president, social, creator and earned, reporting to global chief strategy officer Carla Serrano and joining the U.S. leadership team.", sourceIds: ["lbb-appointment", "prweek-publicis", "mediapost-appointment"] },
+    ],
+    interpretation: "Tansill's case tests whether an integration practice developed inside one agency network can travel into a new first-holder mandate. Her strategic judgment, relationships, campaign experience, and earned-first thesis travel; Publicis's clients, staff, data, budgets, intellectual property, and distribution remain institution-controlled.",
+    complication: [
+      "The Publicis role is described as collaboration across existing leaders and teams. A consolidated remit does not by itself establish consolidated budgets, staffing, approvals, client authority, or operating systems.",
+      "Michael CeraVe is evidence of integrated work, but award records identify a large multi-organization team. They do not support sole-credit attribution to Tansill or isolate her causal contribution to the campaign's reach and awards.",
+      "The appointment moved Tansill from one large holding-company network to another. It demonstrates executive portability, not independence from employer-owned infrastructure.",
+      "Most evidence describes appointments, remit, recognition, and campaign outputs; it does not yet establish whether Publicis changed workflows, incentives, measurement, or client outcomes under the new structure.",
+      "Because the Publicis office is new, continuity beyond its first holder and resilience through another reorganization remain untested.",
+    ],
+    unknowns: [
+      "Which budgets, hiring decisions, pricing, client assignments, data, and creative approvals are actually integrated under Tansill?",
+      "Which methods and relationships could she lawfully carry from Ogilvy, and which remained WPP-owned, client-owned, confidential, or team-embedded?",
+      "How will Publicis distinguish and reconcile social, creator, earned, paid, and creative performance when incentives conflict?",
+      "What measurable operating or client outcomes can be attributed to the new mandate rather than Publicis's inherited agencies and teams?",
+      "What governance, documentation, distributed capability, and succession would allow the integrated practice to survive Tansill or another group reorganization?",
+    ],
+    payoff: "A cross-functional title can recognize portable integration expertise, but it becomes institutional only when reporting lines are matched by decision rights, shared systems, evidence of changed work, and successor-capable practice.",
+    sources: [
+      { id: "ogilvy-cso", label: "Ogilvy announcement of Tansill's global PR strategy role", href: "https://www.ogilvy.com/ideas/ogilvy-pr-appoints-global-chief-creative-officer-and-global-chief-strategy-officer", publisher: "Ogilvy", published: "2021-06-14", kind: "primary" },
+      { id: "prweek-ogilvy", label: "Independent report on the North America PR, social and influence promotion", href: "https://www.prweek.com/article/1809894/ogilvy-pr-ups-charlotte-tansill-president-pr-social-influence", publisher: "PRWeek", published: "2022", kind: "independent" },
+      { id: "provokemedia-profile", label: "Independent industry profile of Ogilvy tenure and integrated-work thesis", href: "https://www.provokemedia.com/ranking-and-data/innovator-25/innovator-25-2024/innovator-25-americas-2024/charlotte-tansill", publisher: "PRovoke Media", published: "2024", kind: "independent" },
+      { id: "prweek-power", label: "Independent 2025 role and career profile", href: "https://www.prweek.com/article/1926246/prweek-power-list-2025-30-charlotte-tansill-ogilvy-pr", publisher: "PRWeek", published: "2025-07-23", kind: "independent" },
+      { id: "ogilvy-cerave", label: "Ogilvy account of the campaign's integrated channel structure", href: "https://www.ogilvy.com/ideas/how-cerave-broke-mold-won-super-bowl", publisher: "Ogilvy", published: "2024-07-10", kind: "primary" },
+      { id: "wharton-interview", label: "Joint interview with Tansill and CeraVe executive Adam Kornblum", href: "https://knowledge.wharton.upenn.edu/podcast/marketing-matters/charlotte-tansill-adam-kornblum-on-ceraves-super-bowl-ad-campaign/", publisher: "Wharton School", published: "2024", kind: "institutional" },
+      { id: "one-show-credits", label: "Detailed multi-organization campaign credit record", href: "https://www.oneclub.org/awards/theoneshow/-award/52822/michael-cerave/", publisher: "The One Club for Creativity", published: "2024", kind: "institutional" },
+      { id: "shorty-credits", label: "Additional client, agency, creator, and production credits", href: "https://shortyawards.com/17th/cerave-michael-cerave", publisher: "Shorty Awards", published: "2025", kind: "institutional" },
+      { id: "lbb-appointment", label: "Publicis appointment, reporting line, leadership membership, and remit", href: "https://lbbonline.com/news/Charlotte-Tansill-Publicis-Creative-US-President-Social-Creator-Earned", publisher: "Little Black Book", published: "2025-11-24", kind: "independent" },
+      { id: "prweek-publicis", label: "Independent report on the newly created Publicis role", href: "https://www.prweek.com/article/1940878/publicis-creative-us-hires-charlotte-tansill-president-social-creator-earned", publisher: "PRWeek", published: "2025-11-24", kind: "independent" },
+      { id: "mediapost-appointment", label: "Independent career chronology and Publicis remit", href: "https://www.mediapost.com/publications/article/410937/ogilvy-veteran-tansill-will-lead-us-social-creato.html", publisher: "MediaPost", published: "2025-11-25", kind: "independent" },
+    ],
+  },
+  "mo-gawdat": {
+    documentationLevel: "saturated",
+    reviewed: "2026-07-27",
+    chronology: [
+      { date: "Before 2007", event: "Gawdat built a technology-business career that included IBM, NCR, and approximately seven years at Microsoft before joining Google.", sourceIds: ["guardian-profile", "gawdat-site"] },
+      { date: "2007–2018", event: "He worked at Google and became chief business officer of X, Google's moonshot organization; the public record supports a business leadership role, not sole authorship of X's technologies or research.", sourceIds: ["guardian-profile", "ai-for-good", "gawdat-site"] },
+      { date: "2014–2017", event: "After the death of his son Ali, Gawdat developed his personal happiness framework, published Solve for Happy, and began the One Billion Happy mission.", sourceIds: ["guardian-profile", "macmillan-solve", "gawdat-site"] },
+      { date: "2020–2024", event: "He distributed his work directly through Slo Mo, an ad-free interview podcast that accumulated more than 300 episodes, while publishing additional books on AI, thought, and stress.", sourceIds: ["apple-podcast", "gawdat-site", "macmillan-scary"] },
+      { date: "May–June 2023", event: "Flight Story appointed Gawdat chief AI officer to advise the agency and its clients on AI adoption and regulation.", sourceIds: ["tech-eu-flightstory", "businesscloud-flightstory"] },
+      { date: "2025–2026", event: "Gawdat co-founded Emma, an AI relationship and matchmaking product, moving from commentary about AI and human flourishing into a product whose emotional, clinical, privacy, and commercial claims require separate scrutiny.", sourceIds: ["emma-site", "emma-announcement", "sharjah-emma"] },
+    ],
+    interpretation: "Gawdat's case tests how institutional credibility becomes a personally distributed body of books, talks, podcasting, advocacy, advisory work, and a new company. His experience, voice, frameworks, audience, and some publishing assets travel; Google X's research authority, teams, data, technologies, and governance do not.",
+    complication: [
+      "Chief business officer experience at X supports technology commercialization and organizational knowledge, but it is not equivalent to being an AI research scientist, clinical psychologist, therapist, or sole creator of X's technical work.",
+      "The happiness equation is presented as Gawdat's engineering-derived framework and personal interpretation. Public profiles do not establish it as a validated scientific model or clinical intervention.",
+      "Slo Mo and the books create more direct distribution than an employed role, yet reach still depends on publishers, podcast platforms, social platforms, event organizers, guests, and Gawdat's personal visibility.",
+      "Flight Story's commercial relationship means public AI commentary can coexist with advisory incentives; Emma adds a direct product interest in AI-mediated relationships.",
+      "Emma's company descriptions and founder statements do not establish therapeutic efficacy, safety outcomes, privacy governance, model behavior, or the credentials and authority behind “therapist-backed” features.",
+    ],
+    unknowns: [
+      "Which entities own the One Billion Happy name, book rights, podcast archive and feed, audience data, speaking materials, courses, trademarks, and derivative content?",
+      "What formal structure, governance, funding, measurement, and succession—if any—support One Billion Happy beyond Gawdat's personal advocacy?",
+      "Which public claims about happiness, stress, consciousness, AI timelines, and employment are evidence-based findings, personal frameworks, commercial forecasts, or rhetorical scenarios?",
+      "What equity, board, product, data, and decision rights does Gawdat hold in Flight Story engagements and Emma?",
+      "What privacy, clinical-safety, crisis-response, bias, efficacy, age, and accountability controls govern Emma's relationship and coaching features?",
+      "Which parts of the public platform could continue with comparable authority, trust, and demand without Gawdat's voice and former-Google credential?",
+    ],
+    payoff: "Institutional credibility can help launch an owned public platform, but authority does not travel whole. Durable and trustworthy independence requires clear rights, evidence standards, conflict disclosure, governance, distributed expertise, and succession.",
+    sources: [
+      { id: "guardian-profile", label: "Independent profile of the Google career, bereavement, and happiness framework", href: "https://www.theguardian.com/technology/2017/apr/30/google-mo-gawdat-solve-for-happy-interview", publisher: "The Guardian", published: "2017-04-30", kind: "independent" },
+      { id: "gawdat-site", label: "Current first-person career, books, podcast, and venture account", href: "https://www.mogawdat.com/", publisher: "Mo Gawdat", published: "Current record", kind: "primary" },
+      { id: "ai-for-good", label: "Institutional biography documenting former X role and public platform", href: "https://aiforgood.itu.int/speaker/mo-gawdat/", publisher: "International Telecommunication Union", published: "Current record", kind: "institutional" },
+      { id: "macmillan-solve", label: "Publisher record for Solve for Happy and its stated framework", href: "https://www.panmacmillan.com/authors/mo-gawdat/solve-for-happy/9781501157592", publisher: "Pan Macmillan", published: "2017", kind: "institutional" },
+      { id: "macmillan-scary", label: "Publisher record for Scary Smart and its AI thesis", href: "https://www.panmacmillan.com/authors/mo-gawdat/scary-smart/9781529077650", publisher: "Pan Macmillan", published: "2021", kind: "institutional" },
+      { id: "apple-podcast", label: "Platform record for Slo Mo ownership, run, and episode count", href: "https://podcasts.apple.com/us/podcast/slo-mo-a-podcast-with-mo-gawdat/id1508914142", publisher: "Apple Podcasts", published: "2020–2024", kind: "institutional" },
+      { id: "tech-eu-flightstory", label: "Independent report on Flight Story's chief AI officer appointment", href: "https://tech.eu/2023/05/31/ex-google-x-mo-gawdat-joins-flight-story-as-lead-on-how-ai-will-impact-the-digital-marketing-firm/", publisher: "Tech.eu", published: "2023-06-01", kind: "independent" },
+      { id: "businesscloud-flightstory", label: "Independent corroboration of the Flight Story appointment", href: "https://businesscloud.co.uk/news/former-google-x-chief-to-head-up-ai-at-flight-story/", publisher: "BusinessCloud", published: "2023-06-01", kind: "independent" },
+      { id: "emma-site", label: "Current company claims, founder role, and therapist-backed positioning", href: "https://emma.love/", publisher: "Emma", published: "Current record", kind: "primary" },
+      { id: "emma-announcement", label: "First-person introduction of the Emma product", href: "https://www.linkedin.com/posts/mogawdat_ive-been-talking-for-several-years-about-activity-7361688826286686209-OOvp", publisher: "Mo Gawdat / LinkedIn", published: "2025", kind: "primary" },
+      { id: "sharjah-emma", label: "Independent event report on Emma's stated boundaries and accountability", href: "https://sharjah24.ae/en/Articles/2026/02/01/AL018", publisher: "Sharjah 24", published: "2026-02-01", kind: "independent" },
+      { id: "businessinsider-ai-jobs", label: "Independent report contrasting Gawdat's job-loss prediction with other industry views", href: "https://www.businessinsider.com/ex-google-exec-predicts-end-of-white-collar-jobs-starting-in-2027-2025-8", publisher: "Business Insider", published: "2025-08-04", kind: "independent" },
+    ],
+  },
 };
 
 const CASE_MILESTONES: Record<string, { date: string; event: string }> = {
@@ -436,12 +518,3 @@ function narrativeResearch(slug: string): CaseResearchRecord | undefined {
       "Career outcomes belong partly to teams, employers, partners, platforms, capital providers, and inherited institutional infrastructure; the record does not permit sole-credit attribution.",
       ...narrative.unresolved.slice(0, 1).map((item) => "Open complication: " + item),
     ],
-    unknowns: narrative.unresolved,
-    payoff: narrative.whyItMatters,
-    sources,
-  };
-}
-
-export function getCaseResearch(slug: string) {
-  return CASE_RESEARCH[slug] ?? narrativeResearch(slug);
-}

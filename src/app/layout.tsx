@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
+import "./launch-fixes.css";
 import { getUser } from "@/lib/supabase/server";
 
 const SITE_URL = "https://ownership-platform.vercel.app";
@@ -40,7 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <a href="/methodology">The idea</a>
               <a href="/observatory">People</a>
               <a href="/assess">Measure</a>
-              <a href="/findings">Dispatches</a>
+              <a href="/findings">Findings</a>
               <a href="/partner">Work with us</a>
               {user ? <><a href="/dashboard">Dashboard</a><form action="/auth/signout" method="post"><button type="submit" className="navlink">Sign out</button></form></> : <a className="nav-signin" href="/login">Sign in</a>}
             </nav>
@@ -51,9 +52,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <footer className="foot">
             <div className="foot-statement">What happens when the person is no longer just the talent—but the infrastructure?</div>
             <div className="foot-cols">
-              <div className="foot-col"><span className="foot-h">Study</span><a href="/methodology">The idea and method</a><a href="/assess">Pilot assessments</a><a href="/observatory">The Observatory</a><a href="/findings">Research dispatches</a></div>
-              <div className="foot-col"><span className="foot-h">Join</span><a href="/partner">Participate or partner</a><a href="/research/cognitive-interviews">Join an interview</a><a href="/about">About RN Collins</a></div>
-              <div className="foot-col"><span className="foot-h">Contact</span><a href="mailto:collins.ra@northeastern.edu">Email</a><a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/privacy">Privacy</a></div>
+              <div className="foot-col"><span className="foot-h">Explore</span><a href="/methodology">The idea and method</a><a href="/assess">Pilot assessments</a><a href="/observatory">The Observatory</a><a href="/findings">Research and findings</a></div>
+              <div className="foot-col"><span className="foot-h">Take part</span><a href="/partner">Participate or partner</a><a href="/research/cognitive-interviews">Join an interview</a><a href="/about">About RN Collins</a></div>
+              <div className="foot-col"><span className="foot-h">Connect</span><a href="mailto:collins.ra@northeastern.edu">Email</a><a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/privacy">Privacy</a></div>
             </div>
             <p className="foot-copy">© {new Date().getFullYear()} RN Collins · Independent research in public</p>
           </footer>

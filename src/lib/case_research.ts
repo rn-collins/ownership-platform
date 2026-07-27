@@ -133,7 +133,7 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "cmo-podcast", label: "Creator-economy roundtable documenting Gold's role and thesis", href: "https://podscan.fm/podcasts/the-cmo-podcast/episodes/the-creator-economy-roundtable-with-brandon-b-kim-larson-youtube-and-kenny-gold-deloitte-digital", publisher: "The CMO Podcast", published: "2025-06-25", kind: "independent" },
       { id: "gold-creator-post", label: "First-person articulation of creator autonomy in brand partnerships", href: "https://www.linkedin.com/videos/kennethrgold_creatoreconomy-advertising-content-activity-7394014142975721472-eu7w", publisher: "Kenny Gold / LinkedIn", published: "2025", kind: "primary" },
     ],
-  }
+  },
   "steven-bartlett": {
     documentationLevel: "saturated",
     reviewed: "2026-07-27",

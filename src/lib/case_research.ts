@@ -134,11 +134,6 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "gold-creator-post", label: "First-person articulation of creator autonomy in brand partnerships", href: "https://www.linkedin.com/videos/kennethrgold_creatoreconomy-advertising-content-activity-7394014142975721472-eu7w", publisher: "Kenny Gold / LinkedIn", published: "2025", kind: "primary" },
     ],
   }
-};
-
-const CASE_MILESTONES: Record<string, { date: string; event: string }> = {
-  "suzie-reider": { date: "2006–2024", event: "Reider moved from CNET into a 17-year Google career spanning YouTube and Waze, then joined Lyft to lead Lyft Media and Lyft Business." },
-  "kenny-gold": { date: "June 2, 2026", event: "Edelman appointed Gold its first global chief creator officer after he built Deloitte Digital’s social-and-creator practice." },
   "steven-bartlett": {
     documentationLevel: "saturated",
     reviewed: "2026-07-27",
@@ -211,6 +206,13 @@ const CASE_MILESTONES: Record<string, { date: string; event: string }> = {
       { id: "linkedin-career", label: "Self-maintained role chronology", href: "https://www.linkedin.com/in/ashleyrudder1", publisher: "Ashley Rudder / LinkedIn", published: "Current record", kind: "primary" },
     ],
   },
+};
+
+const CASE_MILESTONES: Record<string, { date: string; event: string }> = {
+  "suzie-reider": { date: "2006–2024", event: "Reider moved from CNET into a 17-year Google career spanning YouTube and Waze, then joined Lyft to lead Lyft Media and Lyft Business." },
+  "kenny-gold": { date: "June 2, 2026", event: "Edelman appointed Gold its first global chief creator officer after he built Deloitte Digital’s social-and-creator practice." },
+  "steven-bartlett": { date: "2017–present", event: "Bartlett developed The Diary of a CEO from a founder-hosted podcast into the center of a wider media and venture system." },
+  "ashley-rudder": { date: "2023–2024", event: "Rudder held first-of-kind chief creator officer roles at Whalar and Deutsch New York." },
   "gordon-glenister": { date: "2010s–2020s", event: "Glenister moved from trade-association leadership into influencer-marketing field building, consulting, publishing, and convening." },
   "claire-zau": { date: "2026", event: "Lightspeed recruited Zau into a dual seed-investing and new-media role after she built an independent technology audience." },
   "brad-keywell": { date: "2000s–2020s", event: "Keywell co-founded technology companies, built Lightbank and Chicago Ideas, taught entrepreneurship, and developed a public art practice." },

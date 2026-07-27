@@ -4,9 +4,8 @@ import "./globals.css";
 import { getUser } from "@/lib/supabase/server";
 
 const SITE_URL = "https://ownership-platform.vercel.app";
-const TITLE = "Institutions of One — measuring how individuals become institutions";
-const DESC =
-  "An independent research program studying how people turn individual capability into durable, portable, ownable institutional power. Understand the theory, measure yourself, explore the evidence, follow the research, and participate or partner.";
+const TITLE = "Institutions of One — research on work, ownership, and individual institutional power";
+const DESC = "Independent research on how creators and professionals build portable expertise, authority, ownership, and durable systems around their work.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -14,37 +13,18 @@ export const metadata: Metadata = {
   description: DESC,
   applicationName: "Institutions of One",
   authors: [{ name: "RN Collins" }],
-  keywords: [
-    "Institutions of One", "Ownership Index", "Portfolio Professional", "The Observatory",
-    "creator economy", "individual as institution", "RN Collins", "Cannes Lions 2027",
-  ],
+  keywords: ["Institutions of One", "Ownership Index", "Portfolio Professional", "creator economy", "future of work", "RN Collins"],
   alternates: { canonical: "/" },
   openGraph: {
-    type: "website",
-    siteName: "Institutions of One",
-    title: TITLE,
-    description: DESC,
-    url: SITE_URL,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Institutions of One — measuring how individuals become institutions" }],
+    type: "website", siteName: "Institutions of One", title: TITLE, description: DESC, url: SITE_URL,
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Institutions of One" }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESC,
-    images: ["/og.png"],
-  },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og.png"] },
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  // Embed views render chrome-less so partners/press can iframe them cleanly.
   const isEmbed = (headers().get("x-pathname") || "").startsWith("/embed");
-  if (isEmbed) {
-    return (
-      <html lang="en">
-        <body><div className="embed-wrap">{children}</div></body>
-      </html>
-    );
-  }
+  if (isEmbed) return <html lang="en"><body><div className="embed-wrap">{children}</div></body></html>;
 
   const user = await getUser();
   return (
@@ -53,57 +33,47 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <div className="wrap">
           <nav className="nav" aria-label="Primary">
             <a href="/">Institutions of One</a>
-            <a href="/methodology">Understand</a>
-            <a href="/assess">Measure</a>
-            <a href="/observatory">Explore</a>
-            <a href="/findings">Follow</a>
-            <a href="/partner">Participate / Partner</a>
+            <a href="/methodology">Research</a>
+            <a href="/assess">Assessments</a>
+            <a href="/observatory">Observatory</a>
+            <a href="/findings">Findings</a>
+            <a href="/partner">Participate</a>
             <span style={{ marginLeft: "auto" }} />
-            {user ? (
-              <>
-                <a href="/dashboard">Dashboard</a>
-                <a href="/dashboard/owned">My page</a>
-                <form action="/auth/signout" method="post"><button type="submit" className="navlink">Sign out</button></form>
-              </>
-            ) : (
-              <a href="/login">Sign in</a>
-            )}
+            {user ? <>
+              <a href="/dashboard">Dashboard</a>
+              <a href="/dashboard/owned">My page</a>
+              <form action="/auth/signout" method="post"><button type="submit" className="navlink">Sign out</button></form>
+            </> : <a href="/login">Sign in</a>}
           </nav>
+
           {children}
+
           <footer className="foot">
             <div className="foot-cols">
               <div className="foot-col">
-                <span className="foot-h">Use the research</span>
-                <a href="/methodology">Understand</a>
-                <a href="/assess">Measure yourself</a>
-                <a href="/observatory">Explore the evidence</a>
-                <a href="/findings">Follow the research</a>
-                <a href="/partner">Participate or partner</a>
+                <span className="foot-h">Explore</span>
+                <a href="/methodology">Research and methodology</a>
+                <a href="/assess">Pilot assessments</a>
+                <a href="/observatory">The Observatory</a>
+                <a href="/findings">Early findings</a>
               </div>
               <div className="foot-col">
-                <span className="foot-h">Research record</span>
-                <a href="/assess/creator">Ownership Index</a>
-                <a href="/assess/professional">Portfolio Professional</a>
-                <a href="/methodology/candidates">Candidate study</a>
-                <a href="/about">About and independence</a>
-                <a href="/privacy">Privacy &amp; data use</a>
+                <span className="foot-h">About</span>
+                <a href="/about">About RN Collins and the project</a>
+                <a href="/partner">Participate or partner</a>
+                <a href="/privacy">Privacy and data use</a>
               </div>
               <div className="foot-col">
                 <span className="foot-h">Contact</span>
-                <a href="mailto:collins.ra@northeastern.edu">Email RN Collins</a>
+                <a href="mailto:collins.ra@northeastern.edu">collins.ra@northeastern.edu</a>
                 <a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </div>
             </div>
             <p className="foot-note">
-              Institutions of One is an independent research program by RN Collins, building toward a flagship report at
-              Cannes Lions 2027. A project about ownership models it: subscribers are added only with explicit consent, and
-              people appear on The Observatory only from public evidence or consented nominations.
+              Institutions of One is an independent research project by RN Collins. Pilot results and case research are
+              published with their methods, limitations, and evidence status.
             </p>
-            <p className="foot-copy">
-              © {new Date().getFullYear()} RN Collins · Institutions of One ·{" "}
-              <a href="/privacy" style={{ color: "inherit" }}>Privacy &amp; data use</a> ·{" "}
-              <a href="/methodology" style={{ color: "inherit" }}>How to cite</a>
-            </p>
+            <p className="foot-copy">© {new Date().getFullYear()} RN Collins · Institutions of One · <a href="/privacy" style={{ color: "inherit" }}>Privacy</a></p>
           </footer>
         </div>
       </body>

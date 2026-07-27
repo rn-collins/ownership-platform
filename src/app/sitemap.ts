@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/observatory",
     "/observatory/apply",
     "/observatory/dependencies",
+    "/observatory/countercases",
     "/findings",
     "/edit",
     "/edit/001",

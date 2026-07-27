@@ -118,7 +118,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
     </div>
 
     <div className="card" style={{borderLeft:`4px solid ${databaseStatus==="verified" ? "#2f7a54" : "#b98f4d"}`}}>
-      <h3>{databaseStatus==="verified" ? "What we still need to established" : "Why this person is in the pilot"}</h3>
+      <h3>{databaseStatus==="verified" ? "What the evidence establishes" : "Why this person is in the pilot"}</h3>
       <p>
         {databaseStatus==="verified"
           ? "The claims shown below have passed the Observatory’s current evidence review. That review applies only to what is displayed here—not to every possible claim or interpretation about this person."

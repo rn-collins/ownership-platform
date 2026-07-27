@@ -84,7 +84,7 @@ export default async function ObservatoryPage() {
         </p>
       </div>
 
-      <h2 style={{ fontFamily: "Georgia, serif", fontSize: 30, marginTop: 48, marginBottom: 4 }}>Who would challenge the map?</h2>
+      <h2 id="nominate" style={{ fontFamily: "Georgia, serif", fontSize: 30, marginTop: 48, marginBottom: 4 }}>Who would challenge the Observatory?</h2>
       <p className="rsub" style={{ marginBottom: 14 }}>
         Suggest someone whose work reveals a structure, contradiction, or field the current 41 cases miss. Nominations are
         reviewed for what they add to the research—not for fame.

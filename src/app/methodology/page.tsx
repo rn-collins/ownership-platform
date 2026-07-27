@@ -24,7 +24,7 @@ const professionalDimensions = [
 
 export default function MethodologyPage() {
   return (
-    <main>
+    <main className="method-page">
       <p className="eyebrow">Institutions of One · Methodology</p>
       <h1>A transparent pilot for studying work, ownership, and individual institutional power.</h1>
       <p className="lede">

@@ -23,9 +23,8 @@ export default function EditPage() {
       <p className="eyebrow">The publication · The I/1 Edit</p>
       <h1>Ideas for people whose work no longer fits inside a title.</h1>
       <p className="lede">
-        Every other week, The I/1 Edit takes one question about work, power, ownership, and individual institutional
-        capacity—and follows it far enough to become useful. Each edition joins an original argument with a case,
-        conversation, or visual finding from Institutions of One.
+        Every other week, The I/1 Edit takes one question about work, power, and ownership—and follows it far enough
+        to become useful. Each edition asks how a person can make work travel, last, and matter beyond the next assignment.
       </p>
 
       <section className="edit-promise">

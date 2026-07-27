@@ -1,0 +1,20 @@
+.deep{max-width:1180px;margin:-36px auto 90px;padding:0 0 12px;border-top:6px solid var(--i1-ink)}
+.head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:start;padding:44px 0 28px}
+.kicker{font-size:11px;line-height:1.2;letter-spacing:.12em;text-transform:uppercase;font-weight:900;color:var(--i1-rust);margin:0 0 12px}
+.head h2{font:700 clamp(38px,5vw,68px)/.95 Georgia,serif;letter-spacing:-.04em;margin:0;max-width:850px}
+.reviewed{border:1px solid var(--i1-ink);padding:10px 12px;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.timeline{border-top:1px solid var(--i1-ink)}
+.event{display:grid;grid-template-columns:minmax(120px,.32fr) minmax(0,1.68fr);gap:32px;padding:28px 0;border-bottom:1px solid var(--i1-ink)}
+.event time{font-size:12px;font-weight:900;color:var(--i1-rust);text-transform:uppercase;letter-spacing:.08em}
+.event p{font-size:17px;line-height:1.6;margin:0;max-width:74ch}
+.cites{font-size:11px;font-weight:900;color:#5d554c}
+.read{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px;border:1px solid var(--i1-ink)}
+.read section{padding:34px}.read section+section{border-left:1px solid var(--i1-ink);background:var(--i1-lilac)}
+.read h3{font:700 30px/1.05 Georgia,serif;margin:0 0 14px}.read p,.read li{font-size:15px;line-height:1.65}
+.payoff{margin:0;padding:46px;background:var(--i1-acid);border:1px solid var(--i1-ink);border-top:0}
+.payoff h3{font:700 clamp(32px,4vw,52px)/1 Georgia,serif;margin:0 0 16px}.payoff p{font-size:20px;line-height:1.5;max-width:76ch}
+.sources{padding:52px 0}.sources h3{font:700 36px Georgia,serif;margin:0 0 20px}.sources ol{list-style:none;padding:0;margin:0;counter-reset:deep}
+.sources li{counter-increment:deep;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;padding:18px 0;border-top:1px solid var(--i1-ink);font-size:14px;line-height:1.5}
+.sources li:before{content:counter(deep,decimal-leading-zero);color:var(--i1-rust);font-weight:900}
+.sources a{color:inherit;font-weight:800;text-underline-offset:4px}.kind{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+@media(max-width:760px){.deep{margin-inline:0}.head,.event,.read{grid-template-columns:1fr}.reviewed{justify-self:start}.read section+section{border-left:0;border-top:1px solid var(--i1-ink)}.read section,.payoff{padding:28px 20px}.sources li{grid-template-columns:36px 1fr}.kind{grid-column:2}}

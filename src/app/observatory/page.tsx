@@ -7,6 +7,8 @@ export const metadata = {
   title: "The Observatory — Institutions of One",
   description: "A 41-case methodology pilot mapping how creators and professionals build ownership, authority, portability, and durable infrastructure.",
   alternates: { canonical: "/observatory" },
+  openGraph: { title: "The Observatory — Institutions of One", description: "A 41-case methodology pilot mapping how creators and professionals build ownership, authority, portability, and durable infrastructure.", url: "/observatory", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "The Observatory — Institutions of One", description: "A 41-case methodology pilot mapping how creators and professionals build ownership, authority, portability, and durable infrastructure.", images: ["/og.png"] },
 };
 
 export default async function ObservatoryPage() {

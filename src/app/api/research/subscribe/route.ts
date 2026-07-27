@@ -5,17 +5,13 @@ import { beehiivSubscribe } from "@/lib/beehiiv";
 import { limit } from "@/lib/ratelimit";
 import { logError } from "@/lib/log";
 
-// Opt-in to The Observatory research list — the audience engine behind the two
-// indices and the map. Consent-first: personal data is stored ONLY when consent
-// is explicitly true. Guarded: no-ops cleanly if the DB isn't configured, so it
-// builds and runs before the backend is wired.
 const schema = z.object({
   email: z.string().email().max(200),
   name: z.string().max(120).optional().or(z.literal("")),
   handle: z.string().max(120).optional().or(z.literal("")),
   source: z.enum(["index_creator", "index_pro", "observatory", "site"]).default("site"),
   interest: z.string().max(40).optional().or(z.literal("")),
-  consent: z.literal(true), // must explicitly opt in — no consent, no row
+  consent: z.literal(true),
 });
 
 export async function POST(req: Request) {
@@ -29,10 +25,6 @@ export async function POST(req: Request) {
   const d = parsed.data;
   const email = d.email.trim().toLowerCase();
 
-  // Dual-write. 1) Consent-first row is the source of truth for the research
-  // list (only written with explicit consent). 2) Push to beehiiv so the
-  // newsletter is one owned list. Beehiiv is best-effort: a failure there never
-  // loses the consented subscriber.
   let stored = false;
   if (prisma) {
     try {
@@ -57,11 +49,13 @@ export async function POST(req: Request) {
       stored = true;
     } catch (err) {
       logError("research.subscribe.upsert", err);
-      stored = false;
     }
   }
 
   const beehiiv = await beehiivSubscribe({ email, source: d.source });
+  if (!stored && !beehiiv.synced) {
+    return NextResponse.json({ ok: false, stored: false, synced: false, error: "not_saved" }, { status: 503 });
+  }
 
-  if (!stored && !beehiiv.synced) {\n    return NextResponse.json({ ok: false, stored: false, synced: false, error: "not_saved" }, { status: 503 });\n  }\n\n  return NextResponse.json({ ok: true, stored, synced: beehiiv.synced });
+  return NextResponse.json({ ok: true, stored, synced: beehiiv.synced });
 }

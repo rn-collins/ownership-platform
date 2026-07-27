@@ -37,6 +37,7 @@ export function PartnerInquiry() {
         <button className="primary" disabled={!valid} onClick={submit}>{state === "sending" ? "Sending…" : "Send inquiry"}</button>
         {state === "error" && <span className="disc" style={{ margin: 0 }}>The form did not deliver your note. Please email <a href="mailto:collins.ra@northeastern.edu">collins.ra@northeastern.edu</a> instead.</span>}
       </div>
+      <p className="meta">Your note is stored in the private project database and, when email delivery is available, sent directly to RN Collins. Your address is used only to respond to this inquiry.</p>
     </div>
   );
 }

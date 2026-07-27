@@ -5,6 +5,8 @@ export const metadata = {
   title: "Ownership Index — Institutions of One",
   description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.",
   alternates: { canonical: "/assess/creator" },
+  openGraph: { title: "Ownership Index — Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", url: "/assess/creator", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "Ownership Index — Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", images: ["/og.png"] },
 };
 
 export default function CreatorAssessPage() {

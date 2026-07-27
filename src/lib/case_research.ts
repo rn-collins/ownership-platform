@@ -74,7 +74,7 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "reuters-analysis", label: "Analysis of Shah’s payments background and WhatsApp mandate", href: "https://www.reuters.com/business/whatsapps-pick-indian-fintech-founder-signals-scale-payment-ambitions-2026-06-25/", publisher: "Reuters", published: "2026-06-25", kind: "independent" },
       { id: "verge", label: "Independent account of the WhatsApp leadership transition", href: "https://www.theverge.com/tech/953464/whatsapp-will-cathcart-stepping-down-cred", publisher: "The Verge", published: "2026-06-22", kind: "independent" },
     ],
-  },,
+  },
   "suzie-reider": {
     documentationLevel: "saturated",
     reviewed: "2026-07-27",

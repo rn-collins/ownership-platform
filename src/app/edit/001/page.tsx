@@ -3,12 +3,12 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 export const metadata = {
   title: "When Does One Person Become an Institution? — The I/1 Edit",
   description:
-    "Edition 001 of The I/1 Edit introduces the build, carry, and control framework for understanding when individual work begins to function institutionally.",
+    "Edition 001 of The I/1 Edit introduces Build, Carry, and Control: a framework for examining when a person's work begins to function institutionally.",
   alternates: { canonical: "/edit/001" },
   openGraph: {
     title: "When Does One Person Become an Institution?",
     description:
-      "Build, Carry, Control: a working model for understanding when individual work begins to function institutionally.",
+      "Six contrasting cases reveal why visibility, ownership, portability, and institutional consequence are not the same thing.",
     url: "/edit/001",
     type: "article",
   },
@@ -16,7 +16,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "When Does One Person Become an Institution?",
     description:
-      "Build, Carry, Control: a working model for understanding when individual work begins to function institutionally.",
+      "Six contrasting cases reveal why visibility, ownership, portability, and institutional consequence are not the same thing.",
   },
 };
 
@@ -26,21 +26,74 @@ const thresholds = [
     name: "Build",
     question: "What exists because this person made it exist?",
     body:
-      "A body of work is only the beginning. Institutional capacity appears when ideas become methods, relationships become networks, attention becomes an audience, and repeated effort becomes an operating system other people can recognize or use.",
+      "Look for a recognizable body of work, methods, relationships, audience, and operating capacity—not merely output or attention.",
   },
   {
     number: "02",
     name: "Carry",
     question: "What survives when the container changes?",
     body:
-      "A title can confer authority without making it portable. The harder test is whether capability, reputation, systems, relationships, and opportunity can travel across an employer, platform, client, format, industry, or moment.",
+      "Look for capability, reputation, systems, relationships, and opportunities that can travel across an employer, platform, client, format, or moment.",
   },
   {
     number: "03",
     name: "Control",
     question: "Who can decide what happens next?",
     body:
-      "Visibility is not ownership. A person may appear powerful while another party controls the audience, rights, revenue, data, identity, or infrastructure. Institutionhood requires examining authority and dependence—not merely reach.",
+      "Look for meaningful authority over identity, access, rights, revenue, data, and the conditions under which the work continues.",
+  },
+];
+
+const sources = [
+  {
+    id: 1,
+    label: "Apple Newsroom, “Jony Ive to form independent design company with Apple as client” (June 27, 2019)",
+    href: "https://www.apple.com/newsroom/2019/06/jony-ive-to-form-independent-design-company-with-apple-as-client/",
+  },
+  {
+    id: 2,
+    label: "Shondaland, “Shonda Rhimes”",
+    href: "https://www.shondaland.com/about-us/shonda-rhimes",
+  },
+  {
+    id: 3,
+    label: "Netflix, “Netflix and Shonda Rhimes Expand Creative Pact” (July 8, 2021)",
+    href: "https://about.netflix.com/news/netflix-and-shonda-rhimes-expand-creative-pact",
+  },
+  {
+    id: 4,
+    label: "Miami-Dade County, “Heat Action Plan 2022”",
+    href: "https://www.miamidade.gov/resources/environment/documents/2022-heat-action-plan.pdf",
+  },
+  {
+    id: 5,
+    label: "Miami-Dade County, employee profile of Jane Gilbert",
+    href: "https://secure.miamidade.gov/employee/ithrive/archive/ithrive-rer-gilbert.page",
+  },
+  {
+    id: 6,
+    label: "Chamberlain Coffee, “About Chamberlain”",
+    href: "https://chamberlaincoffee.com/pages/about-us",
+  },
+  {
+    id: 7,
+    label: "Chamberlain Coffee, café page",
+    href: "https://chamberlaincoffee.com/pages/chamberlain-coffee-cafe",
+  },
+  {
+    id: 8,
+    label: "Lyft, “Lyft welcomes Suzie Reider” (December 4, 2024)",
+    href: "https://www.lyft.com/blog/posts/lyft-welcomes-suzie-reider",
+  },
+  {
+    id: 9,
+    label: "Pieter Levels, “Nomad List Founder” (January 7, 2017)",
+    href: "https://levels.io/nomad-list-founder",
+  },
+  {
+    id: 10,
+    label: "Pieter Levels, “How I built Nomad Jobs” (August 31, 2014)",
+    href: "https://levels.io/how-i-built-a-remote-jobs-board",
   },
 ];
 
@@ -48,28 +101,27 @@ export default function EditionOnePage() {
   return (
     <main className="edit-edition-page">
       <a className="postback" href="/edit">← The I/1 Edit</a>
-      <p className="eyebrow">Edition 001 · Preview</p>
+      <p className="eyebrow">Edition 001 · July 2026</p>
       <h1>When does one person become an institution?</h1>
       <p className="edition-dek">
-        What does a person have to build, carry, and control before their work begins to function like an institution?
+        Visibility can make a person look powerful. Structure determines whether that power can endure, travel, and be governed.
       </p>
 
       <section className="edition-opening">
         <p className="edition-dropcap">
-          The person is becoming a studio, a school of thought, a distribution system, a research program, a company,
-          and sometimes a category. But fame does not make someone an institution. Neither does independence, a large
-          audience, or an impressive title on its own.
+          We know how to describe a famous person, a founder, an executive, a creator, or an expert. We have less useful language for the person whose work has become a studio, a school of thought, a distribution system, an employer, a public function, or a category all at once.
         </p>
         <p>
-          The useful question is structural: what has become durable around the person, what can move with them, and
-          what can they actually govern? Edition 001 will introduce a three-part model for answering that question and
-          show how the 41-case Observatory is being used to test where the model holds—and where it breaks.
+          Calling that person an institution may sound like praise. It should be an analytical question instead. What has the person built? What can they carry when a role or platform changes? What do they actually control?
+        </p>
+        <p>
+          Those questions matter because public visibility routinely collapses different forms of power into one image. A large audience can coexist with weak control over distribution. An executive can create systems of enormous consequence without owning them. A founder can own a company and remain dependent on platforms, clients, vendors, or capital. Independence is never absolute, and dependence is not automatically failure.
         </p>
       </section>
 
       <section className="edition-thresholds" aria-labelledby="thresholds-heading">
         <p className="eyebrow">The working model</p>
-        <h2 id="thresholds-heading">Three thresholds. None is enough alone.</h2>
+        <h2 id="thresholds-heading">Build. Carry. Control.</h2>
         <div className="edition-threshold-grid">
           {thresholds.map((threshold) => (
             <article key={threshold.name}>
@@ -83,40 +135,115 @@ export default function EditionOnePage() {
       </section>
 
       <section className="edition-distinction">
-        <p className="eyebrow">The distinction that matters</p>
+        <p className="eyebrow">A definition, not a compliment</p>
         <blockquote>
-          An institution of one is not a person who does everything alone. It is a person whose work has developed
-          enough structure to create continuity, authority, and consequence beyond a single role—without hiding who
-          supplies the infrastructure or who controls the upside.
+          An institution of one is a person around whom durable capacity has formed: work, methods, relationships, systems, and authority that produce continuity and consequence beyond a single assignment. The phrase does not mean the person works alone, owns everything, or no longer depends on institutions.
         </blockquote>
+      </section>
+
+      <section className="edition-opening">
+        <h2>Build is the easiest dimension to see—and the easiest to overstate.</h2>
+        <p>
+          Build asks what exists because a person made it exist. That can include a company, but it can also include a method, public program, body of work, team, audience, operating system, or shared language. The word <em>build</em> should not erase collaborators. Institutions are collective achievements even when one person is unusually visible within them.
+        </p>
+        <p>
+          Shonda Rhimes is a clear example of build becoming legible as an institution. Her own company biography states that she created Shondaland in 2004.<sup><a href="#source-2">2</a></sup> In 2021, Netflix described an expanded agreement with Rhimes and Shondaland Media that covered feature films and potential gaming and virtual-reality content, while adding live events and experiences to an existing branding and merchandise agreement.<sup><a href="#source-3">3</a></sup> The relevant fact is not simply that Rhimes writes successful television. A named organization, production capacity, partnerships, and extensions across formats now sit around the work.
+        </p>
+        <p>
+          Emma Chamberlain presents a different route. Chamberlain Coffee describes itself as created by Chamberlain, and the brand now markets products, a store network, and a physical café.<sup><a href="#source-6">6</a></sup><sup><a href="#source-7">7</a></sup> That is evidence that attention has been translated into operating activity beyond content. It is not, by itself, evidence of Chamberlain’s precise equity, governance rights, supplier dependence, or control over customer data. “Creator-founded” tells us something important about origin; it does not answer every ownership question.
+        </p>
+        <p>
+          Jane Gilbert shows why build cannot be restricted to private ownership. Miami-Dade County’s 2022 Extreme Heat Action Plan says Gilbert and physician Cheryl Holder co-chaired a 15-member task force that included government, community, private-sector, and scientific participants. The process included six public workshops with 298 community members.<sup><a href="#source-4">4</a></sup> A county profile says Gilbert works across departments and with external partners to implement the plan.<sup><a href="#source-5">5</a></sup> Her institutional consequence comes through coordination inside public infrastructure. Excluding that case because Gilbert does not personally own the program would confuse ownership with institution-building.
+        </p>
+      </section>
+
+      <section className="edition-opening">
+        <h2>Carry is what remains when the container changes.</h2>
+        <p>
+          A title lends authority, staff, information, and distribution. Carry asks what happens when those supports change. Does the person retain a recognized body of work, trusted relationships, methods, demand, or the ability to convene? Can the work move without pretending the former institution contributed nothing?
+        </p>
+        <p>
+          Jony Ive makes the transition visible. In 2019, Apple announced that its chief design officer would leave as an employee, form an independent design company, and count Apple among that company’s primary clients.<sup><a href="#source-1">1</a></sup> The move demonstrated portability: Ive’s reputation and design capacity could support a new organizational container. It also demonstrated continuing dependence: the former employer remained a primary client at the moment of departure. Portability did not require a fiction of total separation.
+        </p>
+        <p>
+          Suzie Reider supplies the opposite view. Lyft’s 2024 announcement of her appointment as head of Lyft Business describes 17 years at Google, including leadership at Waze and the founding of YouTube’s revenue and marketing organization.<sup><a href="#source-8">8</a></sup> Her career suggests that capability, reputation, and operating knowledge can travel between major organizations. But the revenue systems she helped build belonged to the companies whose authority, capital, data, and platforms enabled them. That is not a lesser form of work. It is a different relationship between personal capability and organizational ownership.
+        </p>
+        <p>
+          These two cases prevent a lazy conclusion. Carry is neither “quit your job” nor “start a company.” Ive carried capacity into a new company while retaining a major institutional dependency. Reider carried capability into successive executive roles while the systems remained within employers. The diagnostic question is what traveled, what stayed, and who had the right to decide.
+        </p>
+      </section>
+
+      <section className="edition-opening">
+        <h2>Control is the dimension visibility hides.</h2>
+        <p>
+          Control concerns decisions: who can use the name, reach the audience, change the product, license the work, set prices, retain the data, receive the revenue, or continue after a platform or partner leaves? Public sources rarely disclose every answer. A responsible case study must mark those gaps rather than fill them with admiration.
+        </p>
+        <p>
+          Pieter Levels offers an unusually legible model of direct operation. In his own account, he started Nomad List in 2014 as part of a project to launch 12 startups in 12 months, later describing it as both an information service and a paid membership community.<sup><a href="#source-9">9</a></sup> He separately documented building the remote-work job board that became Remote OK.<sup><a href="#source-10">10</a></sup> These are first-person sources, not audited ownership records. They nevertheless support a bounded claim: Levels presented himself as the builder and operator of products whose identities and revenue mechanisms were not synonymous with an employer’s title.
+        </p>
+        <p>
+          Shondaland and Chamberlain Coffee complicate that apparently clean picture. Both have identities that can extend beyond a single social account, yet each operates through other systems: streaming and distribution partners in Shondaland’s case; commerce, manufacturing, retail, and digital platforms in Chamberlain Coffee’s. Institutional capacity does not eliminate dependencies. The useful issue is whether dependencies are visible, diversified, negotiable, and survivable.
+        </p>
       </section>
 
       <section className="edition-status">
         <div>
-          <p className="eyebrow">What this edition will establish</p>
-          <h2>The premise, the model, and its first real test.</h2>
+          <p className="eyebrow">Why all six cases remain</p>
+          <h2>A contrast set, not a ranking.</h2>
         </div>
         <div>
           <p>
-            The complete edition will separate institutional function from popularity, entrepreneurship, and personal
-            branding; introduce the build–carry–control model; and examine contrasting Observatory cases only where
-            public evidence can support the comparison.
+            Jony Ive tests departure from a powerful employer. Shonda Rhimes tests an owned institutional identity operating through a major distributor. Jane Gilbert tests institution-building inside government. Emma Chamberlain tests the conversion of creator attention into products and place. Suzie Reider tests portable executive capability without personal ownership of the systems built. Pieter Levels tests direct operation of small digital products.
           </p>
           <p>
-            The 41 cases are a methodology pilot, not proof that the model is valid for every person or field. Edition
-            001 will identify what the cases can already help us see, what remains interpretation, and what participant
-            research still needs to test.
+            Removing the employee and public-sector cases would make the framework founder-biased. Removing the creator and independent-operator cases would make it conventionally corporate. All six belong because the disagreement among them is the point.
           </p>
-          <a className="fwlink" href="/observatory">Explore the 41-case methodology pilot →</a>
         </div>
       </section>
 
-      <section className="edition-subscribe">
-        <p className="eyebrow">Receive Edition 001</p>
-        <h2>Read the complete argument when it is released.</h2>
+      <section className="edition-opening">
+        <h2>The first finding is not a score. It is a better set of questions.</h2>
         <p>
-          The I/1 Edit arrives every other week through Beehiiv. The complete edition also lives here as part of the
-          permanent I of 1 archive; LinkedIn and X carry selected excerpts.
+          The 41-person Observatory is a methodology pilot. It tests whether Build, Carry, and Control can organize heterogeneous public cases without collapsing them into celebrity profiles or pretending that public evidence reveals private arrangements. Six cases can expose distinctions; they cannot validate a universal model.
+        </p>
+        <p>
+          The pilot already reveals one methodological risk: the more famous the person, the easier it is to mistake available publicity for available evidence. Press releases can establish appointments, announced agreements, and organizational claims. They usually cannot establish equity percentages, contract durability, data rights, internal decision rules, or what would survive a dispute. Those questions require interviews, documents, participant research, or a clearly stated “unknown.”
+        </p>
+        <p>
+          The model should therefore produce a map of relationships, not a halo. Someone may build extensively, carry little, and control only a narrow layer. Another person may own few formal assets but carry rare capability and exercise substantial authority inside a public institution. Neither pattern is automatically superior. The value lies in seeing the structure clearly enough to make choices.
+        </p>
+      </section>
+
+      <section className="edition-distinction">
+        <p className="eyebrow">The question to carry forward</p>
+        <blockquote>
+          If the role disappeared, the platform changed its rules, the distributor walked away, or the employer kept the system, what would still be yours to continue?
+        </blockquote>
+      </section>
+
+      <section className="edition-opening" aria-labelledby="sources-heading">
+        <p className="eyebrow">Sources and limits</p>
+        <h2 id="sources-heading">What supports this edition</h2>
+        <p>
+          Sources were checked on July 26, 2026. Company and personal sources are used for bounded facts about their own announcements and representations; they are not treated as independent proof of performance, ownership, or value. No private contract, cap table, or participant interview was reviewed for this edition.
+        </p>
+        <ol>
+          {sources.map((source) => (
+            <li id={`source-${source.id}`} key={source.id}>
+              <a href={source.href} target="_blank" rel="noreferrer">{source.label}</a>
+            </li>
+          ))}
+        </ol>
+        <p>
+          Corrections or material primary sources can be submitted through the <a href="/about">About page</a>. Substantive corrections will be dated on this page.
+        </p>
+      </section>
+
+      <section className="edition-subscribe">
+        <p className="eyebrow">The I/1 Edit</p>
+        <h2>One original argument, every other week.</h2>
+        <p>
+          The complete edition arrives by email through Beehiiv and remains here in the permanent I of 1 archive. LinkedIn and X carry selected excerpts that point back to the full work.
         </p>
         <NewsletterSignup source="site" />
       </section>

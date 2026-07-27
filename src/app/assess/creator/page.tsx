@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function CreatorAssessPage() {
   return (
-    <main>
+    <main className="instrument-page ownership-page">
       <p className="eyebrow">Institutions of One · Ownership Index</p>
       <h1>How much of the system behind your work do you control?</h1>
       <p className="lede">

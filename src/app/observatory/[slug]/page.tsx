@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { SEED, nodeSlug, findNodeBySlug, type Node } from "@/lib/observatory_seed";
 import { prisma } from "@/lib/db";
 import styles from "./profile.module.css";
+import { CASE_NARRATIVES } from "@/lib/case_narratives";
 
 type Evidence = { id: string; supportType: string; exactPassage: string | null; locator: string | null; source: { title: string; url: string; publisher: string | null; publishedAt: Date | null; primarySource: boolean } };
 type Claim = { id: string; statement: string; permissibleLanguage: string | null; claimType: string; verificationStatus: string; contradictionNote: string | null; evidence: Evidence[] };
@@ -49,6 +50,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
     "Expertise vs authority": { meaning: "when knowledge becomes permission to decide, allocate resources, or change a field", lookFor: "adoption, mandate, institutional backing, standards, teams, and evidence that other people act on the person's ideas", comparison: "Ask whether the expertise can influence outcomes without the current credential or sponsor." },
   };
   const guide = tensionGuides[node.tension ?? ""] ?? { meaning: "how ownership, portability, authority, and dependence interact", lookFor: "the assets, relationships, systems, and permissions surrounding the work", comparison: "Ask what changes if the career loses its largest source of support." };
+  const narrative = CASE_NARRATIVES[params.slug];
   const related = SEED.filter((candidate) => candidate.name !== node!.name && (candidate.tension === node!.tension || candidate.domain === node!.domain)).slice(0, 3);
   const reviewed = status === "verified";
   const date = (value: Date) => new Intl.DateTimeFormat("en", { year: "numeric", month: "long", day: "numeric" }).format(value);
@@ -62,10 +64,28 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
 
     <section className={styles.question} aria-labelledby="central-question"><span>Why this person is here</span><h2 id="central-question">{node.question ?? "What does this career make possible—and what makes it fragile?"}</h2><p>We use the public record to examine the structure around the career—not to rate the person.</p></section>
 
-    <div className={styles.storyGrid}>
-      <section className={styles.section}><h2>What this question is really asking</h2><p>In {node.name}&apos;s case, <strong>{(node.tension ?? "the career tension").toLowerCase()}</strong> means {guide.meaning}.</p><p><strong>Look for:</strong> {guide.lookFor}.</p><p><strong>Then test the structure:</strong> {guide.comparison}</p><p>This is the interpretive lens—not a conclusion about {node.name}. The sourced public record below determines what we can actually say.</p></section>
-      <aside className={styles.aside}><h3>How certain are we?</h3><p>{reviewed ? `The claims displayed below have passed the current public-evidence review${reviewedAt ? ` as of ${date(reviewedAt)}` : ""}.` : "The role description has been checked and narrowed, but the full evidence review is still in progress."}</p><p>Public sources rarely reveal complete contracts, private economics, informal power, or what would happen if a key relationship ended. We do not fill those gaps with guesses.</p></aside>
-    </div>
+    {narrative ? <>
+      <section className={styles.section} aria-labelledby="career-story">
+        <p className={styles.kicker}>The career story</p>
+        <h2 id="career-story">How the work reached this point</h2>
+        <p>{narrative.careerArc}</p>
+        <h3>The turn that changed the structure</h3>
+        <p>{narrative.structuralTurn}</p>
+      </section>
+      <div className={styles.storyGrid}>
+        <section className={styles.section}><h2>What this case helps us see</h2><p>{narrative.whyItMatters}</p><p><strong>The lens:</strong> In this case, {(node.tension ?? "the career tension").toLowerCase()} means {guide.meaning}.</p><p><strong>Read with care:</strong> This is an interpretation of documented public facts, not a judgment of the person or proof of private ownership and power.</p></section>
+        <aside className={styles.aside}><h3>Questions the record cannot yet answer</h3><ul>{narrative.unresolved.map((item) => <li key={item}>{item}</li>)}</ul></aside>
+      </div>
+      <section className={styles.evidence} aria-labelledby="narrative-sources">
+        <p className={styles.kicker}>Sources for this profile</p>
+        <h2 id="narrative-sources">Follow the evidence</h2>
+        <p className={styles.evidenceIntro}>Independent reporting is labeled. First-party sources establish what an organization or person publicly announced about itself; they do not independently prove performance, ownership, or impact.</p>
+        <ol>{narrative.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a>{source.independent ? " · Independent reporting" : " · First-party or institutional source"}</li>)}</ol>
+      </section>
+    </> : <div className={styles.storyGrid}>
+      <section className={styles.section}><h2>What this question is really asking</h2><p>In {node.name}&apos;s case, <strong>{(node.tension ?? "the career tension").toLowerCase()}</strong> means {guide.meaning}.</p><p><strong>Look for:</strong> {guide.lookFor}.</p><p><strong>Then test the structure:</strong> {guide.comparison}</p></section>
+      <aside className={styles.aside}><h3>Research status</h3><p>This career narrative has not yet passed source review.</p></aside>
+    </div>}
 
     {claims.length > 0 ? <section className={styles.evidence} aria-labelledby="record-heading"><p className={styles.kicker}>The public record</p><h2 id="record-heading">What we can responsibly say</h2><p className={styles.evidenceIntro}>These are bounded claims supported by the sources attached to them. Open the evidence only when you want to inspect how a statement was established or qualified.</p>{claims.map((claim) => <article className={styles.claim} key={claim.id}><span className={styles.label}>{claim.claimType.replaceAll("_", " ")} · {claim.verificationStatus.replaceAll("_", " ")}</span><h3>{claim.permissibleLanguage || claim.statement}</h3>{claim.contradictionNote && <p><strong>Important qualification:</strong> {claim.contradictionNote}</p>}<details><summary>Inspect the evidence ({claim.evidence.length})</summary><div className={styles.sources}>{claim.evidence.length ? <ol>{claim.evidence.map((item) => <li key={item.id}><a href={item.source.url} target="_blank" rel="noreferrer">{item.source.title}</a>{item.source.publisher ? ` — ${item.source.publisher}` : ""}{item.source.publishedAt ? ` (${date(item.source.publishedAt)})` : ""}{item.source.primarySource ? " · Primary source" : ""}{item.exactPassage && <blockquote>{item.exactPassage}</blockquote>}{item.locator && <p>Location: {item.locator}</p>}</li>)}</ol> : <p>No public citation is attached yet.</p>}</div></details></article>)}</section> : <section className={styles.unknown}><h2>What we are still researching</h2><p>We have verified the role description, but this page does not yet contain a complete career account. We are still sourcing the turning points, relationships, ownership arrangements, dependencies, and evidence that might complicate the first interpretation. Until those sources are attached, we leave those questions open.</p></section>}
 

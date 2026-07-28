@@ -1189,7 +1189,7 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "techmagic", label: "Current podcast record establishing the continuing TechMagic media channel", href: "https://shows.acast.com/metaverse-marketing", publisher: "Acast", published: "Current record", kind: "institutional" },
       { id: "mwc-bio", label: "Current conference biography identifying Future Dynamics, Journey, Nokia, and BCG roles", href: "https://www.mwcbarcelona.com/agenda/speakers/17964-cathy-hackl", publisher: "Mobile World Congress", published: "2026-03-03", kind: "institutional" },
     ],
-  }
+  },
 
   "jane-gilbert": {
     documentationLevel: "saturated",
@@ -1269,7 +1269,7 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "coo", label: "Independent interview identifying Murph's move from GitLab to Andela", href: "https://betweentwocoos.com/perfecting-remote-work-operations-with-darren-murph-fmr-gitlab-vp-remote/", publisher: "Between Two COOs", published: "2023-10-17", kind: "independent" },
       { id: "murph-site", label: "Current first-party advisory practice, frameworks, and former GitLab role", href: "https://darrenmurph.com/", publisher: "Darren Murph", published: "Current record", kind: "primary" },
     ],
-  }
+  },
 
   "linda-fisher": {
     documentationLevel: "saturated",
@@ -1638,9 +1638,6 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "worldlabs-about", label: "Company description of team, research thesis, and products", href: "https://www.worldlabs.ai/about", publisher: "World Labs", published: "Current record", kind: "primary" },
     ],
   },
-+
-
-
   "reid-hoffman": {
     documentationLevel: "saturated",
     reviewed: "2026-07-28",

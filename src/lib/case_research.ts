@@ -1096,7 +1096,7 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "reuters-msl", label: "Independent report on Meta Superintelligence Labs and Wang's chief AI officer mandate", href: "https://www.reuters.com/business/meta-deepens-ai-push-with-superintelligence-lab-source-says-2025-06-30/", publisher: "Reuters", published: "2025-06-30", kind: "independent" },
       { id: "reuters-model", label: "Independent report on the division's first model and the investment required to build the team", href: "https://www.reuters.com/sustainability/sustainable-finance-reporting/meta-unveils-first-ai-model-superintelligence-team-2026-04-08/", publisher: "Reuters", published: "2026-04-08", kind: "independent" },
     ],
-  },,
+  },
   "mustafa-suleyman": {
     documentationLevel: "saturated",
     reviewed: "2026-07-27",

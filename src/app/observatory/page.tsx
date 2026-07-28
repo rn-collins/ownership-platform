@@ -97,8 +97,8 @@ export default async function ObservatoryPage() {
 
     <section style={{ margin: "0 0 42px", padding: "28px 32px", border: "1px solid #141b2e", background: "#f3eddf" }} aria-labelledby="documentation-heading">
       <p className="eyebrow">Do not confuse a profile with a completed case</p>
-      <h2 id="documentation-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>See which records are saturated—and what the other cases still require.</h2>
-      <p style={{ maxWidth: 760 }}>The documentation ledger distinguishes the two claim-level benchmark records from the 39 provisional research leads and publishes the ten-layer completion standard.</p>
+      <h2 id="documentation-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>Inspect the completed 41-record research collection.</h2>
+      <p style={{ maxWidth: 760 }}>All 41 case records now meet the current claim-level documentation standard. The ledger shows the evidence depth, remaining unknowns, and ten-layer completion requirements without pretending private facts are knowable.</p>
       <a className="button-primary" href="/observatory/documentation">Open the Case Documentation Ledger →</a>
     </section>
 

@@ -1191,6 +1191,86 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
     ],
   }
 
+  ,"jane-gilbert": {
+    documentationLevel: "saturated",
+    reviewed: "2026-07-27",
+    chronology: [
+      { date: "2016–2020", event: "Gilbert served as the City of Miami's first chief resilience officer, helping develop city and regional resilience strategy, before leaving city government to establish Resilience Consulting.", sourceIds: ["barnard", "arsht"] },
+      { date: "2020–May 2021", event: "After consulting for Miami-Dade on climate planning, Gilbert was appointed the county's first chief heat officer by Mayor Daniella Levine Cava in partnership with the Adrienne Arsht-Rockefeller Foundation Resilience Center.", sourceIds: ["barnard", "governing", "harvard"] },
+      { date: "2021–May 2022", event: "Gilbert co-chaired a 15-member task force with physician and community advocate Cheryl Holder. Its Extreme Heat Action Plan organized work around informing and preparing people, cooling homes and emergency facilities, and cooling neighborhoods.", sourceIds: ["action-plan", "harvard"] },
+      { date: "2022–2023", event: "The county moved parts of the plan into implementation through communications, worker and community protections, and tree-canopy work. A county agreement made Gilbert project manager for school-canopy coordination, but delivery remained distributed across departments, schools, communities, funders, and officials.", sourceIds: ["action-plan", "tree-mou", "governing"] },
+      { date: "2023–2025", event: "Later records show the office coordinating across 34 municipalities and many departments while tree planting, health surveillance, labor protection, cooling, and emergency response remained held by separate authorities and budgets.", sourceIds: ["harvard", "smithsonian", "forestry"] },
+      { date: "By 2026", event: "The Climate Resilience Center described Gilbert as its Chief Heat Ambassador and former Miami-Dade chief heat officer. Her expertise moved into a wider network while county policies, staff, records, appropriations, and implementation duties remained institutional.", sourceIds: ["arsht"] },
+    ],
+    interpretation: "Gilbert's case tests whether a first-of-kind public role can turn a neglected risk into durable coordinating capacity. Her expertise, convening ability, and legible office traveled across consulting, city government, county government, and a wider resilience network; the work itself remained distributed among elected officials, departments, municipalities, schools, clinicians, community representatives, and funders.",
+    complication: [
+      "The 'world's first' title made heat visible but does not prove statutory power, independent budget authority, or causal responsibility for outcomes.",
+      "The action plan was co-produced. Gilbert's leadership should not erase Cheryl Holder, community participants, agencies, staff, elected officials, or implementation partners.",
+      "The Arsht partnership supplied support and international replication, complicating any solely personal or county-created account.",
+      "Plans document commitments more strongly than completed effects; they do not isolate changes in illness, mortality, safety, canopy, cooling access, or temperature caused by the office.",
+      "Moving from county office to ambassadorial work may increase diffusion while reducing direct governmental authority.",
+    ],
+    unknowns: [
+      "What legal or employment mechanism created the office, and how readily could a later administration change it?",
+      "What staff, appropriations, procurement, rulemaking power, and binding decision rights belonged to the office?",
+      "Which plan commitments were funded, completed, evaluated, delayed, or discontinued?",
+      "How were credit, data, methods, and communications divided among Gilbert, Holder, the task force, county departments, and the Arsht center?",
+      "Who succeeded Gilbert, and which routines, duties, dashboards, and budget lines continued?",
+      "What measured outcomes can be attributed to the coordinating structure rather than weather, broader policy, funding, or partner programs?",
+    ],
+    payoff: "Gilbert shows how naming a risk, convening distributed authority, and publishing an action plan can create portable field leadership. It becomes a durable public institution only when mandate, money, duties, measures, and successor capacity outlast the inaugural officeholder.",
+    sources: [
+      { id: "action-plan", label: "Extreme Heat Action Plan: task force, co-chairs, priorities, and proposed actions", href: "https://www.miamidade.gov/resources/environment/documents/2022-heat-action-plan.pdf", publisher: "Miami-Dade County", published: "2022-05", kind: "institutional" },
+      { id: "tree-mou", label: "County record assigning Gilbert project-management duties in a school tree-canopy agreement", href: "https://www.miamidade.gov/govaction/legistarfiles/Matters/Y2023/230560.pdf", publisher: "Miami-Dade County", published: "2023-04-04", kind: "institutional" },
+      { id: "forestry", label: "Urban Forestry Plan documenting shared leadership, public participation, and implementation", href: "https://www.miamidade.gov/resources/environment/documents/urban-forestry-plan.pdf", publisher: "Miami-Dade County", published: "2025", kind: "institutional" },
+      { id: "barnard", label: "Career, consulting transition, county work, and appointment profile", href: "https://envsci.barnard.edu/news/being-first-chief-heat-officer-jane-gilbert-87", publisher: "Barnard College", published: "2022", kind: "institutional" },
+      { id: "harvard", label: "Chief heat officer model, county fragmentation, mandate, and replication", href: "https://datasmart.hks.harvard.edu/role-chief-heat-officers-jane-gilbert", publisher: "Harvard Data-Smart City Solutions", published: "2024-05-13", kind: "independent" },
+      { id: "governing", label: "Independent interview on creation, responsibilities, and implementation", href: "https://www.governing.com/climate/worlds-first-chief-heat-officer-has-tips-for-managing-risks-of-extreme-heat", publisher: "Governing", published: "2023-07-21", kind: "independent" },
+      { id: "smithsonian", label: "Independent reporting on heat conditions, policy work, and durability", href: "https://www.smithsonianmag.com/innovation/how-nations-first-chief-heat-officer-working-keep-miami-cool-180984902/", publisher: "Smithsonian Magazine", published: "2024", kind: "independent" },
+      { id: "arsht", label: "Current biography identifying Chief Heat Ambassador and former county officeholder", href: "https://onebillionresilient.org/expert/jane-gilbert/", publisher: "Climate Resilience Center", published: "Current record", kind: "institutional" },
+    ],
+  },
+  "darren-murph": {
+    documentationLevel: "saturated",
+    reviewed: "2026-07-27",
+    chronology: [
+      { date: "Before 2019", event: "Murph developed a portable writing and editorial practice through technology journalism, authorship, and distributed-team experience. Those credentials preceded GitLab but did not constitute ownership of its remote operating system.", sourceIds: ["murph-site", "running-remote"] },
+      { date: "2019", event: "GitLab hired Murph into a newly formalized Head of Remote role. He joined an already all-remote company whose founders, employees, open handbook, tools, and accumulated practices supplied the institutional base he was asked to articulate and scale.", sourceIds: ["running-remote", "gitlab-blog"] },
+      { date: "2020–2021", event: "During the pandemic, Murph became a visible interpreter of GitLab's methods through guides, interviews, talks, and an emergency resource center. External distribution grew while the handbook remained openly and collectively maintained by GitLab contributors.", sourceIds: ["gitlab-blog", "crowe", "handbook"] },
+      { date: "2021–2022", event: "As GitLab became public and grew across more than 60 countries, Murph described a cross-functional organizational-design remit. Public accounts document collaboration, not unilateral authority over culture, systems, or employment policy.", sourceIds: ["twist", "coursera"] },
+      { date: "2023", event: "Murph left GitLab and was identified as Andela's Vice President of Workplace Design and Remote Experience, carrying methods and credibility without GitLab's workforce, brand, handbook governance, or platform.", sourceIds: ["coo"] },
+      { date: "2024–2026", event: "Murph developed an independent advisory, speaking, and facilitation practice around organizational design, asynchronous work, knowledge systems, and AI transformation. His site presents an 'Org Brain' framework, while private client outcomes, ownership, audience rights, and operating capacity remain undisclosed.", sourceIds: ["murph-site"] },
+    ],
+    interpretation: "Murph's case distinguishes portable institutional authorship from ownership of the institution authored. He helped make GitLab's distributed-work system legible and exportable, then carried the resulting expertise into Andela and independent advisory work. GitLab's handbook, workforce, products, governance, and collective knowledge were never his personal assets.",
+    complication: [
+      "GitLab was all-remote and handbook-first before Murph arrived; his contribution was articulation, systematization, education, and field building rather than sole creation.",
+      "A public handbook makes knowledge portable, but openness does not transfer employees, brand, data, customer relationships, authority, or contributors' labor.",
+      "Pandemic demand amplified remote-work authority; visibility in 2020–2022 does not establish enduring adoption or client outcomes.",
+      "The role crossed people operations, communications, marketing, and organizational design; breadth may increase influence while leaving formal rights diffuse.",
+      "Independent advising increases control over positioning and methods but may deepen dependence on Murph's reputation, selling, speaking, and delivery.",
+    ],
+    unknowns: [
+      "Which handbook sections, frameworks, research products, and programs did Murph originate, co-author, edit, or represent?",
+      "What employment and IP terms governed reuse of methods, language, examples, and materials after GitLab?",
+      "What binding budget, policy, hiring, tooling, or design authority did the role hold?",
+      "Why did the GitLab role end, who inherited its duties, and what continued at comparable quality?",
+      "What was Murph's authority and measured impact at Andela, and why did that role end?",
+      "Who owns the Org Brain name, curriculum, client work, lists, recordings, and derivatives?",
+      "What team, recurring revenue, evaluation evidence, and successor capacity exist beyond Murph's delivery?",
+    ],
+    payoff: "Murph shows that a person can carry a method out of an institution without carrying the institution. The asset is clearest where authorship, rights, evidence, direct distribution, and teachable routines are identifiable; it remains founder-dependent where one person's reputation and delivery remain essential.",
+    sources: [
+      { id: "running-remote", label: "Contemporaneous account of Murph joining GitLab", href: "https://runningremote.com/darren-murph-head-of-remote-gitlab/", publisher: "Running Remote", published: "2020", kind: "independent" },
+      { id: "gitlab-blog", label: "Murph-authored account of GitLab's pre-existing all-remote system and handbook", href: "https://about.gitlab.com/blog/how-to-build-a-more-productive-remote-team/", publisher: "GitLab", published: "2019-12-10", kind: "primary" },
+      { id: "handbook", label: "Current collectively maintained all-remote operating handbook", href: "https://handbook.gitlab.com/handbook/company/culture/all-remote/", publisher: "GitLab", published: "Current record", kind: "primary" },
+      { id: "crowe", label: "Institutional interview on the Head of Remote remit", href: "https://www.crowe.com/global/insights/exclusive-q-a-with-gitlab-head-of-remote", publisher: "Crowe", published: "2021-03-11", kind: "institutional" },
+      { id: "twist", label: "First-person account of cross-functional work and distributed-workforce scale", href: "https://async.twist.com/how-darren-murph-works-async/", publisher: "Twist", published: "2022-09-28", kind: "primary" },
+      { id: "coursera", label: "Institutional interview documenting leadership principles and GitLab role", href: "https://blog.coursera.org/remote-leadership-qa-with-darren-murph-head-of-remote-at-gitlab/", publisher: "Coursera", published: "2023-01-20", kind: "institutional" },
+      { id: "coo", label: "Independent interview identifying Murph's move from GitLab to Andela", href: "https://betweentwocoos.com/perfecting-remote-work-operations-with-darren-murph-fmr-gitlab-vp-remote/", publisher: "Between Two COOs", published: "2023-10-17", kind: "independent" },
+      { id: "murph-site", label: "Current first-party advisory practice, frameworks, and former GitLab role", href: "https://darrenmurph.com/", publisher: "Darren Murph", published: "Current record", kind: "primary" },
+    ],
+  }
+
 };
 
 const CASE_MILESTONES: Record<string, { date: string; event: string }> = {

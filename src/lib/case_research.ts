@@ -1191,7 +1191,7 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
     ],
   }
 
-  ,"jane-gilbert": {
+  "jane-gilbert": {
     documentationLevel: "saturated",
     reviewed: "2026-07-27",
     chronology: [
@@ -1271,7 +1271,7 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
     ],
   }
 
-  ,"linda-fisher": {
+  "linda-fisher": {
     documentationLevel: "saturated",
     reviewed: "2026-07-27",
     chronology: [
@@ -1546,7 +1546,7 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "mmm-rules", label: "Interview on 2026 awards enforcement", href: "https://www.mmm-online.com/news/cannes-lions-boss-on-new-awards-rules/", publisher: "MM+M", published: "2026-06-09", kind: "independent" },
     ],
   },
-"marc-pritchard": {
+  "marc-pritchard": {
     documentationLevel: "saturated",
     reviewed: "2026-07-28",
     chronology: [
@@ -1636,6 +1636,155 @@ export const CASE_RESEARCH: Record<string, CaseResearchRecord> = {
       { id: "reuters-worldlabs", label: "Independent report on World Labs’ co-founders, financing, staffing, and thesis", href: "https://www.reuters.com/technology/artificial-intelligence/ai-godmother-fei-fei-li-raises-230-million-launch-ai-startup-2024-09-13/", publisher: "Reuters", published: "2024-09-13", kind: "independent" },
       { id: "ft-worldlabs", label: "Independent report on World Labs’ formation, financing, and valuation", href: "https://www.ft.com/content/0b210299-4659-4055-8d81-5a493e85432f", publisher: "Financial Times", published: "2024-07-17", kind: "independent" },
       { id: "worldlabs-about", label: "Company description of team, research thesis, and products", href: "https://www.worldlabs.ai/about", publisher: "World Labs", published: "Current record", kind: "primary" },
+    ],
+  },
++
+
+
+  "reid-hoffman": {
+    documentationLevel: "saturated",
+    reviewed: "2026-07-28",
+    chronology: [
+      { date: "2000–2002", event: "Hoffman joined PayPal’s founding-era leadership and served as executive vice president, but the company’s product, network, sale, and later mythology were jointly produced by founders, executives, employees, users, investors, and acquirer eBay.", sourceIds: ["greylock-bio", "hoffman-site"] },
+      { date: "2003–2009", event: "Hoffman co-founded LinkedIn with a multi-person founding team and served as founding CEO and later executive chair. He then joined Greylock as a partner, converting operating experience, capital, and network access into an institutional investing role.", sourceIds: ["greylock-bio", "mit-bio", "hoffman-site"] },
+      { date: "2010–2016", event: "Through Greylock, Hoffman backed companies including Airbnb and helped develop a public portfolio of writing and teaching about networks and scale. Microsoft agreed to acquire LinkedIn for $26.2 billion while retaining its distinct brand and naming Jeff Weiner—not Hoffman—as continuing CEO.", sourceIds: ["mit-bio", "microsoft-acquisition", "microsoft-call"] },
+      { date: "2017–2023", event: "Hoffman joined Microsoft’s board after the LinkedIn acquisition, while continuing as a Greylock partner, author, podcaster, investor, political donor, and early OpenAI supporter. He left OpenAI’s board in 2023, publicly citing potential conflicts as Greylock and Inflection AI increased their AI activity.", sourceIds: ["microsoft-history", "reuters-stepdown", "hoffman-site"] },
+      { date: "2022–2024", event: "Hoffman co-founded and financed Inflection AI with Mustafa Suleyman and Karén Simonyan. After a large financing round, Microsoft hired Suleyman, Simonyan, and much of the team and entered a licensing transaction with Inflection, while Hoffman remained on Inflection’s board.", sourceIds: ["reuters-funding", "reuters-inflection", "ft-inflection"] },
+      { date: "2024–2026", event: "Hoffman extended his personally recognizable distribution system through books, podcasts, public AI commentary, and co-founding Manas AI. In June 2026, Microsoft disclosed that he would not stand for re-election after nearly a decade on its board, stating that the decision did not arise from a disagreement with the company.", sourceIds: ["hoffman-site", "reuters-stepdown"] },
+      { date: "Documented adverse boundary", event: "Hoffman has acknowledged and expressed regret for interactions with Jeffrey Epstein connected to fundraising for MIT. The episode is evidence that network access can transmit reputational and governance risk as readily as opportunity; public records do not support treating due diligence as an incidental personal matter.", sourceIds: ["wsj-epstein", "mit-epstein-report"] },
+    ],
+    interpretation: "Hoffman’s unusually portable asset is not LinkedIn itself. It is a compound system of network judgment, capital access, recruiting credibility, institutional board access, media distribution, and a repeatable vocabulary for scaling. Each vehicle that expresses that system—LinkedIn, Microsoft, Greylock funds, Inflection, Manas AI, podcasts, books, and political organizations—has different owners, contributors, fiduciary duties, conflicts, and continuity risks.",
+    complication: [
+      "LinkedIn was co-founded, financed, built, governed, and operated by many people; Microsoft acquired the company and its platform while Jeff Weiner remained CEO. Founder visibility does not establish continuing product control or sole authorship.",
+      "Greylock investments are fund activity involving partners, limited partners, investment committees, portfolio founders, and employees. Hoffman's reputation may source and support deals without making the resulting companies or returns personally produced.",
+      "The Inflection-to-Microsoft transition complicates a clean founder-building narrative: Microsoft hired key people and licensed technology, investors received a structured outcome, and the original company continued under new leadership rather than proving an independently durable consumer-AI institution.",
+      "Simultaneous roles across Microsoft, Greylock, OpenAI, Inflection, and other AI companies created actual or perceived conflicts. Recusal, disclosure, board departure, and transaction structure are part of the institution—not afterthoughts.",
+      "Books and podcasts increase direct distribution but rely on co-authors, producers, guests, publishers, platforms, sponsors, and editorial labor. Audience reach is not identical to owned audience data or successor capacity.",
+      "Political giving and philanthropic network-building create public influence without the disclosure, fiduciary structure, or measurement rules of a single operating company.",
+      "The Epstein relationship is adverse evidence about elite-network due diligence, accountability, and the possibility that trusted institutional intermediaries can normalize unacceptable association.",
+    ],
+    unknowns: [
+      "What equity, voting rights, board authority, information rights, recusals, and conflict controls govern Hoffman’s current positions across Greylock, Inflection, Manas AI, and portfolio companies?",
+      "Which LinkedIn-era methods, data, intellectual property, relationships, or contractual rights remained portable after Microsoft’s acquisition?",
+      "How were value, intellectual property, employee obligations, investor returns, and continuing liabilities allocated in the Inflection–Microsoft licensing-and-hiring transaction?",
+      "What evidence distinguishes Hoffman’s investment selection and operating contribution from the work of Greylock partners, portfolio founders, employees, co-investors, and market conditions?",
+      "Who owns the archives, formats, feeds, audience data, derivative rights, and commercial relationships surrounding Hoffman’s podcasts, books, and other media?",
+      "What disclosure and governance standards apply when commercial investment, board service, policy advocacy, philanthropy, and political activity overlap?",
+      "Which parts of the Hoffman system can continue at comparable quality, access, and trust without his personal network, capital, voice, and reputation?",
+    ],
+    payoff: "Hoffman demonstrates that a person can carry a powerful network-and-capital operating system across institutions without owning the institutions it activates. The durability test is whether rights, conflicts, attribution, decision rules, and successor capacity remain legible when one person simultaneously operates as founder, investor, director, publisher, donor, and public advocate.",
+    sources: [
+      { id: "hoffman-site", label: "First-party account of current companies, media, and AI priorities", href: "https://www.reidhoffman.org/", publisher: "Reid Hoffman", published: "Current record", kind: "primary" },
+      { id: "greylock-bio", label: "Institutional biography covering PayPal, LinkedIn, and Greylock roles", href: "https://greylock.com/team/reid-hoffman/", publisher: "Greylock", published: "Current record", kind: "institutional" },
+      { id: "mit-bio", label: "Institutional biography describing operating and investment roles", href: "https://www.ccc.mit.edu/person/reid-hoffman/", publisher: "MIT", published: "Current record", kind: "institutional" },
+      { id: "microsoft-acquisition", label: "Microsoft and LinkedIn acquisition announcement, price, and operating structure", href: "https://news.microsoft.com/source/2016/06/13/microsoft-to-acquire-linkedin/", publisher: "Microsoft", published: "2016-06-13", kind: "primary" },
+      { id: "microsoft-call", label: "Transaction call documenting Hoffman’s shareholder support and Weiner’s continuing CEO role", href: "https://news.microsoft.com/speeches/microsoft-and-linkedin-conference-call-chris-suh-satya-nadella-jeff-weiner-amy-hood-brad-smith/", publisher: "Microsoft", published: "2016-06-13", kind: "primary" },
+      { id: "microsoft-history", label: "Microsoft corporate history and board record", href: "https://news.microsoft.com/facts-about-microsoft/", publisher: "Microsoft", published: "Current historical record", kind: "institutional" },
+      { id: "reuters-funding", label: "Independent report on Inflection’s founders, financing, investors, and staffing", href: "https://www.reuters.com/technology/inflection-ai-raises-13-bln-funding-microsoft-others-2023-06-29/", publisher: "Reuters", published: "2023-06-29", kind: "independent" },
+      { id: "reuters-inflection", label: "Independent report on Microsoft’s Inflection licensing and hiring transaction", href: "https://www.reuters.com/technology/microsoft-agreed-pay-inflection-650-mln-while-hiring-its-staff-information-2024-03-21/", publisher: "Reuters", published: "2024-03-21", kind: "independent" },
+      { id: "ft-inflection", label: "Independent report on leadership transfer, continuing company, and Hoffman’s board role", href: "https://www.ft.com/content/5feedf3a-ff7a-4c89-9b1d-f9b48834ff4c", publisher: "Financial Times", published: "2024-03-19", kind: "independent" },
+      { id: "reuters-stepdown", label: "Independent report on Microsoft board tenure and 2026 decision not to seek re-election", href: "https://www.reuters.com/business/linkedin-co-founder-reid-hoffman-step-down-microsofts-board-2026-06-05/", publisher: "Reuters", published: "2026-06-05", kind: "independent" },
+      { id: "wsj-epstein", label: "Independent reporting on Hoffman’s Epstein interactions and stated regret", href: "https://www.wsj.com/articles/jeffrey-epstein-reid-hoffman-elon-musk-bill-gates-5071d976", publisher: "The Wall Street Journal", published: "2023-05-03", kind: "independent" },
+      { id: "mit-epstein-report", label: "Independent investigation commissioned by MIT into Epstein fundraising and institutional controls", href: "https://facultygovernance.mit.edu/sites/default/files/20200121GoodwinProcterReport.pdf", publisher: "Goodwin Procter / MIT", published: "2020-01-10", kind: "institutional" },
+    ],
+  },
+  "neri-oxman": {
+    documentationLevel: "saturated",
+    reviewed: "2026-07-28",
+    chronology: [
+      { date: "2005–2010", event: "Oxman entered MIT’s doctoral program, developed material-aware design computation, and completed a PhD in 2010. MIT records credit her with coining ‘Material Ecology,’ while the dissertation and field drew on computation, architecture, engineering, biology, and prior institutional research traditions.", sourceIds: ["mit-overview", "mit-vilcek", "mit-thesis"] },
+      { date: "2010–2020", event: "As an MIT professor, Oxman directed the Mediated Matter group. Its projects joined computational design, digital fabrication, materials science, synthetic biology, and craft through the work of named students, researchers, engineers, institutional labs, funders, and industry collaborators.", sourceIds: ["mit-answers", "mit-glass", "mit-vespers"] },
+      { date: "2015–2020", event: "The Mediated Matter group received funding associated with Jeffrey Epstein after MIT had designated him a disqualified donor. MIT’s commissioned investigation documented institutional approval failures, confidentiality practices, and a proposed $100,000 gift for Oxman’s work; reporting separately connected her lab to $125,000 in funding.", sourceIds: ["mit-epstein-report", "axios-epstein"] },
+      { date: "2020–2022", event: "Oxman left MIT and translated the research identity into an independent, privately organized practice. Exhibitions and a later MIT Press monograph preserved the authored ‘Material Ecology’ frame while also documenting work produced by the Mediated Matter group.", sourceIds: ["mit-press", "sfmoma", "mit-overview"] },
+      { date: "2023–2024", event: "OXMAN emerged as a New York design-and-research company and publicly launched in 2024 with a multidisciplinary team spanning architecture, product design, engineering, biology, chemistry, computation, and fabrication.", sourceIds: ["oxman-company", "oxman-launch"] },
+      { date: "January 2024", event: "Business Insider identified passages in Oxman’s dissertation and other work that it said lacked proper quotation or attribution. Oxman acknowledged citation errors and said she would review the material; Business Insider’s parent later stated that it stood by the reporting after review.", sourceIds: ["bi-plagiarism", "ap-review"] },
+      { date: "2024–2026", event: "OXMAN presented projects and commercial partnerships under a unified company identity. Public materials establish a coherent research program and team, but do not disclose the company’s ownership, capital structure, project economics, IP allocation, scientific validation, environmental lifecycle performance, or succession design.", sourceIds: ["oxman-home", "oxman-company", "goodman"] },
+    ],
+    interpretation: "Oxman’s case tests whether a highly authored academic research identity can cross into a private company without erasing the institutional infrastructure and collective labor that formed it. ‘Material Ecology’ is portable as a thesis, aesthetic, vocabulary, and convening mechanism; the experiments, patents, tools, data, funding, facilities, publications, and artifacts attach to particular teams and legal entities.",
+    complication: [
+      "MIT and OXMAN materials often place Oxman’s name at the center, but project pages identify students, researchers, engineers, laboratories, manufacturers, curators, and scientific collaborators whose contribution is constitutive rather than auxiliary.",
+      "A new company can consolidate brand and decision-making while making prior institutional boundaries harder to see. Public sources do not establish which MIT-developed methods, patents, artifacts, datasets, or relationships moved legally into OXMAN.",
+      "The Epstein funding record is adverse evidence about donor diligence, institutional secrecy, power, and the vulnerability of research agendas to opaque philanthropy. MIT’s failures do not remove the responsibility of principal investigators to understand and question funding provenance.",
+      "The plagiarism reporting is adverse evidence about documentation and attribution in a practice built partly on intellectual synthesis. Oxman acknowledged errors, while the publisher’s review supported the reporting; the public record does not establish the full outcome of any MIT review or corrections process.",
+      "Design prototypes and exhibitions demonstrate possibility, not independently validated scalability, biodegradability, lifecycle benefit, manufacturability, safety, or commercial performance.",
+      "OXMAN’s multidisciplinary breadth may reduce dependence on a single discipline while increasing dependence on specialized staff, facilities, suppliers, scientific controls, capital, and founder-directed integration.",
+      "Marriage to a major investor and public advocate can supply capital, visibility, and protection while also creating conflict, governance, and reputational questions that company materials do not resolve.",
+    ],
+    unknowns: [
+      "What entity owns OXMAN, who financed it, what voting and board rights exist, and what related-party relationships or conflicts are disclosed?",
+      "Which patents, software, datasets, biological materials, fabrication systems, artifacts, names, and other rights remain with MIT, collaborators, sponsors, museums, suppliers, or OXMAN?",
+      "How are former Mediated Matter contributors credited, compensated, and permitted to reuse work now presented within Oxman’s continuing authored identity?",
+      "What independent scientific, environmental, lifecycle, safety, and commercial evidence supports OXMAN’s claims for its materials, buildings, products, and production systems?",
+      "What corrections, institutional findings, or provenance reviews followed the plagiarism reporting, and how are citation and research-integrity controls governed now?",
+      "What donor, investor, client, and partner diligence prevents a repetition of the Epstein funding failures?",
+      "Can OXMAN maintain its thesis, quality, funding, partnerships, and public authority without Oxman’s direct authorship and reputation?",
+    ],
+    payoff: "Oxman shows that an intellectual field can become a portable institution only if the transition preserves provenance. The durable asset is not a founder-branded synthesis alone; it is a traceable system of contributors, rights, evidence, funding controls, validation, and succession that lets nature-centered claims withstand scrutiny beyond the person who names them.",
+    sources: [
+      { id: "mit-overview", label: "MIT biography and institutional account of Material Ecology", href: "https://www.media.mit.edu/people/neri/overview/", publisher: "MIT Media Lab", published: "Archived/current record", kind: "institutional" },
+      { id: "mit-vilcek", label: "MIT account of doctoral formation and the Material Ecology research frame", href: "https://news.mit.edu/2014/media-labs-neri-oxman-awarded-vilcek-prize-", publisher: "MIT News", published: "2014-01-31", kind: "institutional" },
+      { id: "mit-thesis", label: "Oxman’s doctoral dissertation record", href: "https://dspace.mit.edu/handle/1721.1/59192", publisher: "MIT DSpace", published: "2010", kind: "primary" },
+      { id: "mit-answers", label: "Institutional profile describing the Mediated Matter group and its interdisciplinary work", href: "https://www.media.mit.edu/articles/neri-oxman-has-all-the-answers/", publisher: "MIT Media Lab", published: "2019-08-09", kind: "institutional" },
+      { id: "mit-glass", label: "Project record naming Glass I researchers and collaborating MIT institutions", href: "https://www.media.mit.edu/projects/g3p/overview/", publisher: "MIT Media Lab", published: "Archived project record", kind: "institutional" },
+      { id: "mit-vespers", label: "Project record crediting Oxman, Mediated Matter members, Stratasys, and named collaborators", href: "https://www.media.mit.edu/projects/vespers/overview/", publisher: "MIT Media Lab", published: "2016", kind: "institutional" },
+      { id: "mit-epstein-report", label: "Independent investigation commissioned by MIT into Epstein donations and institutional controls", href: "https://facultygovernance.mit.edu/sites/default/files/20200121GoodwinProcterReport.pdf", publisher: "Goodwin Procter / MIT", published: "2020-01-10", kind: "institutional" },
+      { id: "axios-epstein", label: "Independent report on funding to Oxman’s lab and related communications", href: "https://www.axios.com/2019/09/14/joi-jeffrey-epstein-ties-mit-media-lab-professor", publisher: "Axios", published: "2019-09-14", kind: "independent" },
+      { id: "mit-press", label: "Publisher account of the Mediated Matter monograph and research history", href: "https://mitpress.mit.edu/9780262049177/mediated-matter/", publisher: "MIT Press", published: "2024", kind: "institutional" },
+      { id: "sfmoma", label: "Museum exhibition record for Nature × Humanity", href: "https://www.sfmoma.org/exhibition/neri-oxman-material-ecology/", publisher: "San Francisco Museum of Modern Art", published: "2022", kind: "institutional" },
+      { id: "oxman-home", label: "Company mission and current project system", href: "https://www.oxman.com/", publisher: "OXMAN", published: "Current record", kind: "primary" },
+      { id: "oxman-company", label: "Company record of projects, partnerships, and public launch", href: "https://oxman.com/company", publisher: "OXMAN", published: "Current record", kind: "primary" },
+      { id: "oxman-launch", label: "Company launch announcement naming the multidisciplinary team", href: "https://www.prnewswire.com/news-releases/neri-oxman-launches-oxman-a-revolutionary-practice-transforming-design-generation-manufacturing-and-construction-for-the-simultaneous-benefit-of-humans-and-the-natural-environment-302263320.html", publisher: "OXMAN / PR Newswire", published: "2024-10-01", kind: "primary" },
+      { id: "goodman", label: "Partner announcement documenting OXMAN’s first industry collaboration", href: "https://us.goodman.com/about-goodman/media-center/latest-news/2024/oxman-announces-partnership-with-goodman-group", publisher: "Goodman Group", published: "2024-09-26", kind: "institutional" },
+      { id: "bi-plagiarism", label: "Investigation of attribution and citation problems in academic work", href: "https://www.businessinsider.com/neri-oxman-plagiarize-wikipedia-mit-dissertation-2024-1", publisher: "Business Insider", published: "2024-01-05", kind: "independent" },
+      { id: "ap-review", label: "Independent report that Business Insider and its parent stood by the investigation after review", href: "https://apnews.com/article/c8d7817314772b1b5443f656d0e2ae74", publisher: "Associated Press", published: "2024-01-14", kind: "independent" },
+    ],
+  },
+  "brian-may": {
+    documentationLevel: "saturated",
+    reviewed: "2026-07-28",
+    chronology: [
+      { date: "1968–1974", event: "May studied mathematics and physics at Imperial College and began doctoral research on zodiacal dust. He paused the doctorate as Queen’s music career became commercially viable, carrying unfinished scientific work rather than converting the university project into a personal institution.", sourceIds: ["imperial-archive", "imperial-thesis", "queen-bio"] },
+      { date: "1970–1991", event: "May, Freddie Mercury, Roger Taylor, and John Deacon built Queen through distinct songwriting, performance, recording, production, management, label, touring, and technical contributions. May wrote major works and developed a recognizable guitar practice, but the band’s institution and catalog were collectively produced.", sourceIds: ["queen-bio", "queen-history", "guardian-rights"] },
+      { date: "1991–2005", event: "After Mercury’s death, Queen’s surviving members and the Mercury estate continued managing catalog, tribute, theatrical, archival, and performance activity through changing partnerships. May also pursued solo music, publishing, animal-welfare advocacy, and stereoscopic imaging.", sourceIds: ["queen-bio", "queen-history", "save-me", "lsc"] },
+      { date: "2006–2007", event: "May returned to Imperial, completed observational and interpretive work, submitted A Survey of Radial Velocities in the Zodiacal Dust Cloud, and received the PhD. Imperial’s record preserves the thesis as a scholarly output assessed within the university rather than a celebrity credential granted by reputation.", sourceIds: ["imperial-thesis", "imperial-lecture"] },
+      { date: "2008–2016", event: "May continued scientific communication, stereoscopy, and animal-welfare work and co-founded Asteroid Day with collaborators. The United Nations later recognized June 30 as International Asteroid Day, showing how celebrity attention can help convene a public institution without making its scientific or diplomatic authority personal property.", sourceIds: ["asteroid-day", "un-asteroid", "save-me"] },
+      { date: "2017–2023", event: "May applied stereoscopic-image expertise to planetary-science collaborations, including NASA’s New Horizons and OSIRIS-REx work. Accounts of the Bennu mission describe his contribution to stereoscopic visualization while locating mission authority, data, engineering, and sample-return success within large scientific teams and agencies.", sourceIds: ["nasa-bennu", "space-bennu", "lsc"] },
+      { date: "2024", event: "Reporting said Queen’s members and Mercury’s estate, as equal shareholders in Queen Productions, agreed a catalog-and-rights transaction with Sony valued around £1 billion. The reported transaction demonstrates jointly held economic rights and institutional bargaining power; public reporting does not expose every excluded right, tax consequence, governance term, or future creative-control provision.", sourceIds: ["guardian-rights", "variety-rights"] },
+      { date: "2025–2026", event: "May continued Queen performance activity, scientific communication, stereoscopic publishing, and advocacy after experiencing health events. The portfolio is broad but remains dependent on collaborators, touring partners, archives, scientific institutions, charitable governance, and May’s personal participation.", sourceIds: ["queen-bio", "save-me", "lsc"] },
+    ],
+    interpretation: "May is a rare discontinuous-career case: a collective creative institution created enough capital and autonomy for an interrupted scientific identity to be resumed decades later, while science, stereoscopy, advocacy, and Queen each remained governed by different collaborators and rights. What travels is curiosity, technical skill, reputation, capital, and convening power—not the band, the university, the missions, or the charities themselves.",
+    complication: [
+      "Queen’s music cannot be attributed to May alone. Songs, recordings, performances, business value, and continuing demand reflect four band members, producers, engineers, managers, labels, crews, performers, audiences, and the Mercury estate.",
+      "May’s doctorate is evidence of completed scholarly work, not proof that later mission outcomes or astrophysical findings were personally caused by him. His scientific collaborations depend on agency data, peer expertise, instruments, and institutional review.",
+      "Celebrity can widen access to scientific and advocacy institutions while also distorting credit, media attention, and perceptions of expertise. The record must distinguish communicator, specialist contributor, funder, and governing authority.",
+      "The Queen catalog transaction monetizes collectively held rights but may reduce future control over recordings, publishing, name, likeness, licensing, or distribution depending on private terms.",
+      "Advocacy through Save Me Trust is institutionally separate from Queen, May’s personal brand, and scientific work; mission alignment does not establish governance quality, outcome measurement, or community consensus.",
+      "A portfolio that appears unusually durable still relies on May’s health, image, performance, signature sound, archives, and relationships. Continuation of Queen-branded activity is not identical to succession of his personal role.",
+      "Public sources do not permit a clean calculation of May’s personal ownership, proceeds, licensing control, charitable transfers, or the contractual boundaries among Queen entities and partners.",
+    ],
+    unknowns: [
+      "Which recording, publishing, name, likeness, merchandising, theatrical, archive, digital, and future-project rights were sold, retained, licensed, or excluded in the Sony transaction?",
+      "How are voting, consent, revenue, liability, and succession rights allocated among May, Taylor, Deacon, the Mercury estate, Queen Productions, and other Queen entities?",
+      "Which scientific outputs credit May as author, specialist contributor, communicator, or funder, and what data, software, image, and publication rights attach to each?",
+      "How are London Stereoscopic Company intellectual property, archives, publishing economics, collaborator credit, and succession governed?",
+      "What governance, funding, outcome measures, conflicts, and leadership succession apply to Save Me Trust and Asteroid Day?",
+      "Which parts of May’s public portfolio can continue with comparable legitimacy and quality without his direct performance, scientific interpretation, advocacy, or reputation?",
+    ],
+    payoff: "May demonstrates that an Institution of One can include long interruption and return without collapsing every field into one brand. The durable design is plural: collective ownership where work was collective, institutional validation where expertise was earned, explicit contributor credit, and separate governance for music, science, publishing, advocacy, and legacy.",
+    sources: [
+      { id: "queen-bio", label: "Official biography covering Queen, solo work, science, stereoscopy, and advocacy", href: "https://www.queenonline.com/brian_may", publisher: "Queen", published: "Current record", kind: "primary" },
+      { id: "queen-history", label: "Official Queen history and band chronology", href: "https://www.queenonline.com/queen", publisher: "Queen", published: "Current historical record", kind: "primary" },
+      { id: "imperial-thesis", label: "Imperial repository record and full 2007 doctoral thesis", href: "https://spiral.imperial.ac.uk/entities/publication/3d426771-aa65-4ac5-a546-42b23881e3db", publisher: "Imperial College London", published: "2007", kind: "institutional" },
+      { id: "imperial-archive", label: "Imperial archive account of May’s 1970–1974 doctoral research period", href: "https://blogs.imperial.ac.uk/videoarchive/tag/physics/", publisher: "Imperial College London", published: "Archived record", kind: "institutional" },
+      { id: "imperial-lecture", label: "Imperial account of May’s post-PhD lecture on zodiacal dust", href: "https://www.imperial.ac.uk/news/21834/zodiacal-dust-stuff-the-annual-alumni/", publisher: "Imperial College London", published: "2007-11-22", kind: "institutional" },
+      { id: "lsc", label: "Company record of May’s stereoscopic publishing and collaborations", href: "https://www.londonstereo.com/", publisher: "London Stereoscopic Company", published: "Current record", kind: "primary" },
+      { id: "save-me", label: "Charity mission, campaigns, and organizational activity", href: "https://savemetrust.org/", publisher: "Save Me Trust", published: "Current record", kind: "institutional" },
+      { id: "asteroid-day", label: "Institutional history of Asteroid Day and its co-founders", href: "https://asteroidday.org/about/", publisher: "Asteroid Foundation", published: "Current record", kind: "institutional" },
+      { id: "un-asteroid", label: "United Nations record recognizing International Asteroid Day", href: "https://www.un.org/en/observances/asteroid-day", publisher: "United Nations", published: "Current record", kind: "institutional" },
+      { id: "nasa-bennu", label: "NASA mission account of OSIRIS-REx and the Bennu sample-return collaboration", href: "https://science.nasa.gov/mission/osiris-rex/", publisher: "NASA", published: "Current mission record", kind: "institutional" },
+      { id: "space-bennu", label: "Independent interview on May’s stereoscopic contribution to OSIRIS-REx", href: "https://www.space.com/brian-may-osiris-rex-bennu-interview", publisher: "Space.com", published: "2023-08-04", kind: "independent" },
+      { id: "guardian-rights", label: "Independent report on Queen Productions ownership and the proposed catalog transaction", href: "https://www.theguardian.com/music/article/2024/may/29/sony-music-talks-queen-music-catalogue-1bn", publisher: "The Guardian", published: "2024-05-29", kind: "independent" },
+      { id: "variety-rights", label: "Independent report on the Queen rights transaction and reported price", href: "https://variety.com/2024/music/news/queen-catalog-acquired-by-sony-music-1-billion-1236042619/", publisher: "Variety", published: "2024-06-19", kind: "independent" },
     ],
   },
 };

@@ -5,10 +5,10 @@ import { SEED, nodeSlug, type Node } from "@/lib/observatory_seed";
 
 export const metadata = {
   title: "The Observatory — Institutions of One",
-  description: "Explore and compare 41 evidence-backed career cases through ownership, authority, portability, and dependence.",
+  description: "Explore and compare 41 evidence-backed career cases by asking what each person built, what they could carry, what they controlled, and what could continue.",
   alternates: { canonical: "/observatory" },
-  openGraph: { title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases through ownership, authority, portability, and dependence.", url: "/observatory", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases through ownership, authority, portability, and dependence.", images: ["/og.png"] },
+  openGraph: { title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases by asking what each person built, what they could carry, what they controlled, and what could continue.", url: "/observatory", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases by asking what each person built, what they could carry, what they controlled, and what could continue.", images: ["/og.png"] },
 };
 
 export default async function ObservatoryPage({ searchParams }: { searchParams?: { mode?: string } }) {
@@ -30,7 +30,7 @@ export default async function ObservatoryPage({ searchParams }: { searchParams?:
   return <main className="observatory-page">
     <p className="eyebrow">The Observatory</p>
     <h1>Explore the structure behind 41 public careers.</h1>
-    <p className="lede">Compare evidence-backed cases through four questions: what did this person build, what could travel with them, what did they control, and what could continue without them? Start with a question, a person, or a structural tension.</p>
+    <p className="lede">Compare evidence-backed cases through four questions: what did this person build, what could travel with them, what did they control, and what could continue without them? Start with a person, a question about work, or a recurring problem shown across several careers.</p>
 
     <section className="card" aria-labelledby="purpose-heading" style={{ marginTop: 18, borderLeft: "4px solid #b98f4d" }}>
       <p className="eyebrow">What this is for</p>
@@ -42,9 +42,9 @@ export default async function ObservatoryPage({ searchParams }: { searchParams?:
     <ObservatoryMap nodes={nodes} initialView={searchParams?.mode === "compare" ? "compare" : searchParams?.mode === "patterns" ? "patterns" : "directory"} />
 
     <section style={{ margin: "64px 0 22px" }} aria-labelledby="investigate-heading">
-      <p className="eyebrow">Go beyond a profile</p>
-      <h2 id="investigate-heading" style={{ fontFamily: "Georgia, serif", fontSize: "clamp(34px, 4vw, 52px)", lineHeight: 1.05, maxWidth: 880 }}>Three ways to interrogate the collection.</h2>
-      <p className="rsub">Each view answers a different question. None changes the underlying case evidence.</p>
+      <p className="eyebrow">Use the collection</p>
+      <h2 id="investigate-heading" style={{ fontFamily: "Georgia, serif", fontSize: "clamp(34px, 4vw, 52px)", lineHeight: 1.05, maxWidth: 880 }}>Three ways to examine the cases.</h2>
+      <p className="rsub">Each tool helps you ask a different question about the same 41 evidence records.</p>
     </section>
 
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18, marginBottom: 42 }}>
@@ -58,15 +58,15 @@ export default async function ObservatoryPage({ searchParams }: { searchParams?:
       <section style={{ padding: "28px", border: "1px solid #141b2e", background: "#f3eddf" }} aria-labelledby="countercases-heading">
         <p className="eyebrow">What would challenge the lesson?</p>
         <h3 id="countercases-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30, margin: "8px 0" }}>Find a countercase</h3>
-        <p>Start with one case, surface the tempting conclusion, and examine a structurally different case before generalizing.</p>
+        <p>Start with one case, identify the conclusion it may suggest, and examine a structurally different case before applying that conclusion elsewhere.</p>
         <a className="button-primary" href="/observatory/countercases">Challenge a conclusion →</a>
       </section>
 
       <section style={{ padding: "28px", border: "1px solid #141b2e", background: "#b9d7ce" }} aria-labelledby="apply-heading">
         <p className="eyebrow">What does this reveal about my work?</p>
         <h3 id="apply-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30, margin: "8px 0" }}>Apply the cases</h3>
-        <p>Describe a career arrangement and receive a private, unscored pathway through three cases and one countercase.</p>
-        <a className="button-primary" href="/observatory/apply">Apply the research →</a>
+        <p>Choose a problem in your own work and receive a private, unscored reading path through three relevant cases and one case that complicates the apparent lesson.</p>
+        <a className="button-primary" href="/observatory/apply">Apply the cases to your work →</a>
       </section>
     </div>
 
@@ -87,8 +87,8 @@ export default async function ObservatoryPage({ searchParams }: { searchParams?:
 
     <section id="nominate" style={{ marginTop: 64 }} aria-labelledby="nominate-heading">
       <p className="eyebrow">Extend the public collection</p>
-      <h2 id="nominate-heading" style={{ fontFamily: "Georgia, serif", fontSize: 36, marginBottom: 8 }}>Whose career would make us ask a better question?</h2>
-      <p className="rsub" style={{ marginBottom: 18 }}>Suggest someone whose work complicates the current patterns. They do not need to be famous; the value is what their structure helps everyone understand.</p>
+      <h2 id="nominate-heading" style={{ fontFamily: "Georgia, serif", fontSize: 36, marginBottom: 8 }}>Whose career would help the collection examine something it currently misses?</h2>
+      <p className="rsub" style={{ marginBottom: 18 }}>Suggest a person whose career adds a missing field, work arrangement, dependency, or point of comparison. The person does not need to be famous.</p>
       <ObservatoryNominate />
     </section>
   </main>;

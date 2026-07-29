@@ -22,10 +22,10 @@ export default function MethodologyPage() {
     <section className="method-example"><div><p className="eyebrow">A concrete example</p><h2>A global executive leaves a famous company.</h2></div><div><p>Their reputation may travel immediately. Their team, budget, customer data, patents, distribution, decision rights, and employer-owned work may not.</p><p>Calling the person “successful,” “independent,” or “a personal brand” does not resolve that difference. Institutions of One separates the structure into questions that can be investigated.</p></div></section>
 
     <section className="method-four" aria-labelledby="four-questions"><p className="eyebrow">The four questions underneath the project</p><h2 id="four-questions" className="display-h2">Build. Carry. Control. Continue.</h2><div>
-      <article><span>01</span><h3>What did the person build?</h3><p>A body of work, method, audience, business, role, relationship network, team, or way of thinking.</p></article>
-      <article><span>02</span><h3>What can move with them?</h3><p>Reputation, proof, relationships, skills, methods, demand, and opportunities that remain available when a role, employer, platform, client, or work arrangement changes.</p></article>
-      <article><span>03</span><h3>What can they govern?</h3><p>Identity, rights, audience access, revenue channels, data, decisions, and the conditions under which the work is used.</p></article>
-      <article><span>04</span><h3>What could continue?</h3><p>Work, systems, relationships, or authority that can persist when a role, platform, employer, or other essential dependency changes.</p></article>
+      <article><span>01</span><h3>Build: What did the person create?</h3><p>A body of work, method, audience, business, role, relationship network, team, or way of thinking.</p></article>
+      <article><span>02</span><h3>Carry: What can move with them?</h3><p>Reputation, proof, relationships, skills, methods, demand, and opportunities that remain available when a role, employer, platform, client, or work arrangement changes.</p></article>
+      <article><span>03</span><h3>Control: What can they govern?</h3><p>Identity, rights, audience access, revenue channels, data, decisions, and the conditions under which the work is used.</p></article>
+      <article><span>04</span><h3>Continue: What work, systems, relationships, or authority could persist when an essential dependency changes?</h3><p>An essential dependency may be a role, platform, employer, client, collaborator, source of capital, distributor, or other condition the work relies on.</p></article>
     </div></section>
 
     <section className="method-two-evidence"><p className="eyebrow">Why there are assessments and public cases</p><h2>One reveals lived conditions. The other reveals visible structure.</h2><div className="method-split">

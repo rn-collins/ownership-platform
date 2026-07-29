@@ -65,7 +65,7 @@ export default function EditionTwoPage() {
           A person’s ability to continue may depend on employers, platforms, distributors, clients, retailers, payment systems, manufacturers, collaborators, capital, software, data, reputation, and permission. Some dependencies are chosen. Others come with a role or industry. Some become visible only when they fail.
         </p>
         <p>
-          Edition 001 introduced three questions: what have you built, what can you carry, and what do you control? This edition adds a fourth: <em>what must keep working for any of it to matter?</em>
+          Edition 001 introduced four questions: what did you Build, what can you Carry, what can you Control, and what could Continue? This edition looks closely at Continue by asking what the work depends on now, what could persist if a dependency changed, and what would need to be replaced.
         </p>
       </section>
 

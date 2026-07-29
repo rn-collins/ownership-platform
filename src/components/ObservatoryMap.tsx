@@ -52,8 +52,8 @@ function tally<T extends string>(items:T[]):Array<[T,number]> {
   return [...counts.entries()].sort((a,b)=>b[1]-a[1]);
 }
 
-export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "directory" }: { nodes?: Node[]; embed?: boolean; initialView?: "directory" | "map" }) {
-  const [view,setView] = useState<View>(initialView === "map" ? "patterns" : "discover");
+export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "directory" }: { nodes?: Node[]; embed?: boolean; initialView?: View | "directory" | "map" }) {
+  const [view,setView] = useState<View>(initialView === "map" ? "patterns" : initialView === "directory" ? "discover" : initialView);
   const [tension,setTension] = useState("all");
   const [domain,setDomain] = useState("all");
   const [query,setQuery] = useState("");

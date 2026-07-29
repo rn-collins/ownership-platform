@@ -18,7 +18,7 @@ const PATHWAYS: Record<RouteKey, Pathway> = {
   leave: {
     title: "Leaving an institution without starting over",
     tension: "Portable vs embedded",
-    why: "Your description puts the boundary between what travels with a person and what remains inside an employer, client, or other institutional container at the center.",
+    why: "Your description puts the boundary between what travels with a person and what remains inside an employer, client, or other organization at the center.",
     cases: ["Suzie Reider", "Jony Ive", "Mo Gawdat"],
     countercase: "Marc Pritchard",
     questions: [
@@ -44,7 +44,7 @@ const PATHWAYS: Record<RouteKey, Pathway> = {
   range: {
     title: "Building across several disciplines",
     tension: "One field vs many",
-    why: "Your description makes coherence—not specialization—the structural problem: whether several kinds of work compound through a shared question, method, or infrastructure.",
+    why: "This pathway asks whether several kinds of work connect through a shared question, method, audience, archive, or operating system.",
     cases: ["Neri Oxman", "Brad Keywell", "Fei-Fei Li"],
     countercase: "Brian May",
     questions: [
@@ -143,7 +143,7 @@ export default function ApplyToWork() {
       <a href={"/observatory/" + nodeSlug(people[3]!.name)}>Open the countercase →</a>
     </aside>}
     <section className={styles.takeback}>
-      <p className={styles.kicker}>Take these back to your work</p><h3>Do not answer quickly.</h3>
+      <p className={styles.kicker}>Questions to apply to your work</p><h3>Use these questions after reading the four cases.</h3>
       <ol>{pathway.questions.map((question) => <li key={question}>{question}</li>)}</ol>
     </section>
     <p className={styles.limit}><strong>What this pathway does not establish:</strong> It does not determine what you own, what is legally portable, or what you should do next. It gives you cases and questions that can make the structure easier to see.</p>
@@ -151,14 +151,14 @@ export default function ApplyToWork() {
 
   return <form className={styles.form} onSubmit={build}>
     <section>
-      <div className={styles.step}><span>01</span><div><h2>Which structural pressure feels most alive?</h2><p>This answer selects one of six curator-designed reading pathways.</p></div></div>
+      <div className={styles.step}><span>01</span><div><h2>Which problem best matches your situation?</h2><p>Your choice selects one of six reading paths prepared from the 41 cases.</p></div></div>
       <div className={styles.options}>{PRESSURES.map(([value, label]) => <label key={value} className={pressure === value ? styles.selected : ""}><input type="radio" name="pressure" value={value} checked={pressure === value} onChange={() => setPressure(value)} /><span>{label}</span></label>)}</div>
     </section>
     <section>
       <div className={styles.step}><span>02</span><div><h2>What is happening that these choices do not capture?</h2><p>Optional. One or two sentences are enough. This stays in your browser and is shown back to you only as context.</p></div></div>
       <textarea value={context} onChange={(event) => setContext(event.target.value)} maxLength={600} placeholder="For example: I built a program inside my employer, but the method and relationships are associated with me…" />
     </section>
-    <button className={styles.submit} disabled={!pressure} type="submit">Build my reading pathway →</button>
-    <p className={styles.formLimit}>This tool chooses among six curator-designed pathways. It does not analyze your personality, assess readiness, or predict an outcome.</p>
+    <button className={styles.submit} disabled={!pressure} type="submit">Show my four cases →</button>
+    <p className={styles.formLimit}>This tool chooses among six prepared reading paths. It does not analyze your personality, assess readiness, or predict an outcome.</p>
   </form>;
 }

@@ -37,7 +37,7 @@ const engagements = [
   },
   {
     title: "Use Build–Carry–Control–Continue with a group",
-    copy: "RN adapts the framework for a team, cohort, profession, institution, or community. Participants examine what they are building, what can travel, who controls important conditions, and what can continue through change.",
+    copy: "RN adapts the framework for a team, cohort, profession, institution, or community. Participants examine what they create, what can move with them, what they can govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.",
     outputs: "Executive workshop, team session, assessment pilot, facilitated discussion, or private group readout.",
   },
   {
@@ -58,7 +58,7 @@ export default function PartnerPage() {
       <header className="partner-hero">
         <p className="eyebrow">Ways to work together</p>
         <h1>Bring a question, decision, or piece of work that needs careful attention.</h1>
-        <p className="lede partner-hook">Rayven-Nikkita Collins helps groups understand how valuable work is built, what travels with the people who create it, who controls its conditions, and what allows it to continue.</p>
+        <p className="lede partner-hook">Rayven-Nikkita Collins helps groups understand what people create, what can move with them, what they can govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.</p>
       </header>
 
       <section className="partner-section" aria-labelledby="who-heading">

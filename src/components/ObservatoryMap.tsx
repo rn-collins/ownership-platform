@@ -15,7 +15,7 @@ const VIEW_COPY: Record<View, [string,string]> = {
   patterns:["Trace a pattern","Follow one tension across different fields."],
   compare:["Compare cases","See what changes when the structure changes."],
   composition:["About the collection","Understand what these 41 can—and cannot—show."],
-  gaps:["Shape the next 41","See the missing perspectives and add one."],
+  gaps:["Shape the next 41","See which fields and questions are missing, then suggest a case."],
 };
 const PRIMARY_VIEWS: View[] = ["discover", "patterns", "compare"];
 const CONTEXT_VIEWS: View[] = ["composition", "gaps"];
@@ -86,7 +86,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
         </nav>
       </div>
       <div>
-        <p className={styles.switcherLabel}>Understand and extend the research</p>
+        <p className={styles.switcherLabel}>About the collection</p>
         <nav className={`${styles.switcher} ${styles.contextSwitcher}`} aria-label="About and contribute to the collection">
           {CONTEXT_VIEWS.map((key)=><button type="button" key={key} className={view===key?styles.active:""} aria-pressed={view===key} onClick={()=>setView(key)}><strong>{VIEW_COPY[key][0]}</strong><span>{VIEW_COPY[key][1]}</span></button>)}
         </nav>
@@ -94,11 +94,11 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
     </div>
 
     {view==="discover"&&<section aria-labelledby="discover-title">
-      <div className={styles.intro}><div><p className={styles.kicker}>41 careers · no leaderboard</p><h2 id="discover-title">Begin with the question, not the résumé.</h2></div><p>Start with a question that sounds like something you have wondered about your own work. Then meet the person whose career makes that question real.</p></div>
+      <div className={styles.intro}><div><p className={styles.kicker}>41 careers · no leaderboard</p><h2 id="discover-title">Find a career that helps you examine a question.</h2></div><p>Start with a question that sounds like something you have wondered about your own work. The results connect each question to a public career record.</p></div>
       <div className={styles.tensions} aria-label="Career tensions"><button type="button" className={tension==="all"?styles.active:""} onClick={()=>setTension("all")}>Surprise me</button>{tensions.map((item)=><button type="button" key={item} className={tension===item?styles.active:""} onClick={()=>setTension(item)}>{item}</button>)}</div>
       <div className={styles.controls}><input value={query} onChange={(event)=>setQuery(event.target.value)} aria-label="Search people and questions" placeholder="Try a person, role, field, or idea…"/><select value={domain} onChange={(event)=>setDomain(event.target.value)} aria-label="Choose a field"><option value="all">Every field</option>{domains.map((item)=><option value={item} key={item}>{item}</option>)}</select></div>
       <div className={styles.result}><strong>{shown.length} {shown.length===1?"case":"cases"}</strong><span>Choose two people to see what their careers depend on—and what differs.</span></div>
-      {shown.length?<div className={styles.grid}>{shown.map((n,index)=><CaseCard key={n.name} node={n} index={index} compareActive={compare.includes(n.name)} onCompare={()=>toggleCompare(n.name)}/>)}</div>:<div className={styles.empty}><strong>Nothing here—yet.</strong><p>Broaden the search or treat the absence as a nomination prompt.</p></div>}
+      {shown.length?<div className={styles.grid}>{shown.map((n,index)=><CaseCard key={n.name} node={n} index={index} compareActive={compare.includes(n.name)} onCompare={()=>toggleCompare(n.name)}/>)}</div>:<div className={styles.empty}><strong>No cases match these filters.</strong><p>Remove a filter, change the search, or suggest a case for the collection.</p></div>}
     </section>}
 
     {view==="patterns"&&<section aria-labelledby="patterns-title">
@@ -110,29 +110,29 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
     </section>}
 
     {view==="compare"&&<section aria-labelledby="compare-title">
-      <div className={styles.intro}><div><p className={styles.kicker}>Case comparator</p><h2 id="compare-title">Difference is where the argument gets interesting.</h2></div><p>Choose two people. This does not score either career; it makes their visible structures and unanswered questions easier to contrast.</p></div>
+      <div className={styles.intro}><div><p className={styles.kicker}>Case comparator</p><h2 id="compare-title">Compare two careers and identify what differs.</h2></div><p>Choose two people. This does not score either career; it makes their visible structures and unanswered questions easier to contrast.</p></div>
       <div className={styles.comparePicker}>{[0,1].map((slot)=><label key={slot}>Case {slot+1}<select value={compare[slot]??""} onChange={(event)=>setCompare((current)=>{const next=[...current];next[slot]=event.target.value;return next.filter(Boolean).slice(0,2);})}><option value="">Choose a person</option>{nodes.map((n)=><option value={n.name} key={n.name}>{n.name}</option>)}</select></label>)}</div>
       {selectedCompare.length===2&&selectedCompare[0].name!==selectedCompare[1].name?<div className={styles.comparison}>{selectedCompare.map((n,index)=>{const evidence=evidenceComparison(n);return <article key={n.name} style={{"--accent":ACCENTS[index]} as CSSProperties}><p className={styles.kicker}>{evidence.sourceCount} linked sources{evidence.reviewed?` · reviewed ${evidence.reviewed}`:""}</p><h3>{n.name}</h3><p className={styles.role}>{n.role}</p><p className={styles.caseQuestionLabel}>Question this case helps us investigate</p><blockquote>{n.question}</blockquote><dl><div><dt>What was built</dt><dd>{evidence.built}</dd></div><div><dt>What could travel</dt><dd>{evidence.portable}</dd></div><div><dt>What was controlled</dt><dd>{evidence.controlled}</dd></div><div><dt>What depended on another institution</dt><dd>{evidence.dependencies}</dd></div><div><dt>What could continue</dt><dd>{evidence.continuable}</dd></div><div><dt>Strongest complication</dt><dd>{evidence.complication}</dd></div><div><dt>Most important unknown</dt><dd>{evidence.unknown}</dd></div></dl><Link href={`/observatory/${nodeSlug(n.name)}`}>Open the complete evidence record for {n.name} →</Link></article>})}</div>:<div className={styles.empty}>Choose two different cases to begin.</div>}
       {selectedCompare.length===2&&selectedCompare[0].name!==selectedCompare[1].name&&<div className={styles.compareQuestions}><h3>Read the contrast carefully</h3><ul><li>Compare documented structures, not fame, field, or title.</li><li>“Not established” means the public evidence cannot support the conclusion yet—not that the asset, right, or capacity does not exist.</li><li>Ask whether the difference comes from career structure or simply from unequal evidence coverage.</li></ul></div>}
     </section>}
 
     {view==="composition"&&<section aria-labelledby="composition-title">
-      <div className={styles.intro}><div><p className={styles.kicker}>Descriptive analysis</p><h2 id="composition-title">What the pilot can show—and what it currently overweights.</h2></div><p>These are counts inside a deliberately selected 41-case pilot. They describe this roster, not the workforce, creator economy, or prevalence of institutionhood.</p></div>
+      <div className={styles.intro}><div><p className={styles.kicker}>Descriptive analysis</p><h2 id="composition-title">What the pilot can show—and what it currently overweights.</h2></div><p>These are counts inside a deliberately selected 41-case pilot. They describe this roster, not the workforce, creator economy, or how common any career structure is.</p></div>
       <div className={styles.statGrid}><article><strong>41</strong><span>purposefully selected cases</span></article><article><strong>{nodes.length-creatorCount}</strong><span>professional cases</span></article><article><strong>{creatorCount}</strong><span>creator cases</span></article><article><strong>{roleBuiltCount}</strong><span>roles that may have been shaped around one person</span></article></div>
       <div className={styles.chartGrid}><BarList title="Tensions represented" items={tensionCounts} max={maxTension}/><BarList title="Fields represented" items={domainCounts} max={maxDomain}/></div>
       <div className={styles.analysisNote}><h3>Responsible quantitative uses</h3><p>Counts, shares, cross-tabs, concentration, representation gaps, and change across future roster versions. Not causal inference, ranking, prediction, psychological diagnosis, or population estimates.</p></div>
     </section>}
 
     {view==="gaps"&&<section aria-labelledby="gaps-title">
-      <div className={styles.intro}><div><p className={styles.kicker}>Research agenda</p><h2 id="gaps-title">The blank cells are not nothing. They are instructions.</h2></div><p>A blank means this roster has not yet paired a field with a tension. It does not mean no such person exists.</p></div>
+      <div className={styles.intro}><div><p className={styles.kicker}>Research agenda</p><h2 id="gaps-title">See which combinations of fields and career questions are missing.</h2></div><p>A blank cell means the current 41 cases do not include that combination of field and career question.</p></div>
       <div className={styles.gapGrid}>{tensions.map((row)=>{const missing=domains.filter((col)=>!nodes.some((n)=>n.tension===row&&n.domain===col));return <article key={row}><span>{nodes.filter((n)=>n.tension===row).length} current cases</span><h3>{row}</h3><p>Not yet represented in {missing.slice(0,4).join(", ")}{missing.length>4?` + ${missing.length-4} more`:""}.</p><Link href="/observatory#nominate">Nominate a case that changes this →</Link></article>})}</div>
-      <div className={styles.analysisNote}><h3>Qualitative work this roster supports</h3><p>Within-case narrative analysis, cross-case comparison, thematic coding, typology building, negative-case analysis, process tracing, dependency mapping, and evidence-gap analysis. Every interpretation should remain traceable to dated claims and revisable as cases deepen.</p></div>
+      <div className={styles.analysisNote}><h3>Research methods this collection can support</h3><p>Within-case narrative analysis, cross-case comparison, thematic coding, typology building, negative-case analysis, process tracing, dependency mapping, and evidence-gap analysis. Every interpretation should remain traceable to dated claims and revisable as cases deepen.</p></div>
     </section>}
   </div>;
 }
 
 function CaseCard({node,index,compareActive=false,onCompare}:{node:Node;index:number;compareActive?:boolean;onCompare?:()=>void}) {
-  return <article className={styles.card} style={{"--accent":ACCENTS[index%ACCENTS.length]} as CSSProperties}><div className={styles.top}><span className={styles.tension}>{node.tension??"Open question"}</span><span className={styles.domain}>{node.domain}</span></div><p className={styles.question}>{node.question??"What does this career make possible—and what makes it fragile?"}</p><div className={styles.identity}><h3>{node.name}</h3><p>{node.role}</p><div className={styles.cardActions}><Link href={`/observatory/${nodeSlug(node.name)}`}>See why this career matters →</Link>{onCompare&&<button type="button" className={compareActive?styles.saved:""} onClick={onCompare}>{compareActive?"Saved to compare":"Compare"}</button>}</div></div></article>;
+  return <article className={styles.card} style={{"--accent":ACCENTS[index%ACCENTS.length]} as CSSProperties}><div className={styles.top}><span className={styles.tension}>{node.tension??"Open question"}</span><span className={styles.domain}>{node.domain}</span></div><p className={styles.question}>{node.question??"What does this career make possible—and what makes it fragile?"}</p><div className={styles.identity}><h3>{node.name}</h3><p>{node.role}</p><div className={styles.cardActions}><Link href={`/observatory/${nodeSlug(node.name)}`}>Open the case record →</Link>{onCompare&&<button type="button" className={compareActive?styles.saved:""} onClick={onCompare}>{compareActive?"Saved to compare":"Compare"}</button>}</div></div></article>;
 }
 
 function BarList({title,items,max}:{title:string;items:Array<[string,number]>;max:number}) {

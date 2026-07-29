@@ -100,7 +100,7 @@ export function ProfessionalAssessment() {
   async function shareProfile() {
     const r = assessProfessional(responses);
     const url = typeof window !== "undefined" ? `${window.location.origin}/assess/professional` : "/assess/professional";
-    const text = `I completed the Portfolio Professional pilot — it examines how visible, reusable, portable, and influential your expertise has become across roles and organizations. Take it:`;
+    const text = `I completed the Portfolio Professional pilot. It examines whether evidence of your expertise, reusable methods, adoption, authority, and direction can carry across roles and organizations. Take it:`;
     try {
       if (typeof navigator !== "undefined" && navigator.share) { await navigator.share({ title: "Portfolio Professional", text, url }); return; }
       await navigator.clipboard.writeText(`${text} ${url}`);
@@ -190,13 +190,13 @@ export function ProfessionalAssessment() {
           </div>
 
           <div className="fwcta" style={{ marginTop: 18 }}>
-            <a href="/observatory"><button className="primary">See the map &amp; nominate someone</button></a>
-            <a href="/observatory" className="fwlink">Explore The Observatory →</a>
+            <a href="/observatory"><button className="primary">Explore the 41 public cases</button></a>
+            <a href="/methodology" className="fwlink">See how the profile is calculated →</a>
           </div>
 
           <ResearchOptIn source="index_pro" interest="professional" heading="Want your results and what comes next?" report={{ total: result.total, band: result.overall.label, instrument: "portfolio_professional" }} />
 
-          <p className="disc">Portfolio Professional · methodology v{result.methodologyVersion}. Part of Institutions of One.</p>
+          <p className="disc">Portfolio Professional · methodology v{result.methodologyVersion}. This result was calculated under the current Institutions of One pilot methodology.</p>
           <div className="actions">
             <button className="primary" onClick={shareProfile}>{shared ? "Link copied ✓" : "Share my profile"}</button>
             <button className="ghost" onClick={() => { setSubmitted(false); setResponses({}); setStep(0); setShared(false); }}>Start again</button>

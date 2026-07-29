@@ -1,8 +1,8 @@
 import { PartnerInquiry } from "@/components/PartnerInquiry";
 
 export const metadata = {
-  title: "Build something with Institutions of One",
-  description: "Bring a question, community, case, dataset, publication, or stage to Institutions of One.",
+  title: "Research and workshops for organizations",
+  description: "Use comparative career research to examine key-person dependence, portable authority, intellectual property, succession, and creator or expert partnerships.",
   alternates: { canonical: "/partner" },
   openGraph: { title: "Build something with Institutions of One", description: "Bring a question, community, case, dataset, publication, or stage to Institutions of One.", url: "/partner", images: ["/og.png"] },
   twitter: { card: "summary_large_image", title: "Build something with Institutions of One", description: "Bring a question, community, case, dataset, publication, or stage to Institutions of One.", images: ["/og.png"] },
@@ -20,8 +20,8 @@ export default function PartnerPage() {
   return (
     <main className="partner-page partner-2">
       <p className="eyebrow">Work with Institutions of One</p>
-      <h1>Bring the part only you can bring.</h1>
-      <p className="lede partner-hook">A useful collaboration does not begin with a sponsorship tier. It begins with something worth understanding: a community whose work is changing, a career structure no one has named, a dataset, a case, a stage, or a question that becomes sharper when we investigate it together.</p>
+      <h1>See where exceptional work lives—and what happens when the person leaves.</h1>
+      <p className="lede partner-hook">Institutions of One helps leadership teams examine key-person dependence, portable authority, intellectual-property boundaries, succession, and roles built around visible experts or creators. Engagements can take the form of an executive workshop, comparative case brief, research sprint, assessment pilot, or evidence-backed presentation.</p>
 
       <section className="partner-example">
         <p className="eyebrow">For example</p>
@@ -29,7 +29,7 @@ export default function PartnerPage() {
         <p>An alumni community might help recruit participants. A publication might host the resulting edition. A researcher might challenge the interpretation. A funder might support interviews and analysis. Each contributes something different; none purchases the answer.</p>
       </section>
 
-      <section aria-labelledby="bring-heading"><p className="eyebrow">Five ways to begin</p><h2 id="bring-heading" className="display-h2">What do you already have?</h2>
+      <section aria-labelledby="bring-heading"><p className="eyebrow">Ways to work together</p><h2 id="bring-heading" className="display-h2">Choose the problem you need to understand.</h2>
         <div className="partner-paths">{paths.map((path, index) => <article key={path.prompt}><span>{String(index + 1).padStart(2, "0")}</span><h3>{path.prompt}</h3><p>{path.example}</p><p><b>We could make:</b> {path.make}</p></article>)}</div>
       </section>
 

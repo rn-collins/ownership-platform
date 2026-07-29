@@ -71,10 +71,10 @@ export function dimensionBand(raw: number): number {
 // distribution — they will be replaced by norming once enough responses land.
 // Treat the labels as directional, not calibrated, until then.
 export function overallBand(total: number): { key: string; label: string } {
-  if (total >= 80) return { key: "owned", label: "Owned institution" };
-  if (total >= 55) return { key: "building", label: "Building ownership" };
-  if (total >= 30) return { key: "rented", label: "Mostly rented" };
-  return { key: "mercy", label: "At the platform’s mercy" };
+  if (total >= 80) return { key: "owned", label: "High-control pattern" };
+  if (total >= 55) return { key: "building", label: "Developing control" };
+  if (total >= 30) return { key: "rented", label: "Externally dependent pattern" };
+  return { key: "mercy", label: "Highly externally dependent pattern" };
 }
 
 export function confidence(responses: Responses, tiers: EvidenceTierMap = {}) {

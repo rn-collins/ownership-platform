@@ -9,11 +9,10 @@ export default function Home() {
     <main className="home">
       <section className="hero">
         <div className="hero-index" aria-hidden="true">01 / THE PREMISE</div>
-        <p className="eyebrow">A research and editorial project by RN Collins</p>
+        <p className="eyebrow">A research and editorial project by Rayven-Nikkita Collins</p>
         <h1 className="hero-h1">What will still be yours when the job, platform, or title changes?</h1>
         <p className="hero-lede">
-          A creator can become a studio. A strategist can become a school of thought. A scientist, designer, lawyer, or
-          operator can build a body of work that travels farther than any title. Institutions of One studies a practical question: when your job, platform, client, or title changes, what parts of your work still belong to you—and what can keep growing?
+          People build valuable work inside companies, platforms, professions, communities, and independent practices. Institutions of One studies what happens to that work when a job, platform, client, or title changes: what the person built, what they can carry, what they control, and what can continue.
         </p>
         <div className="hero-cta">
           <a className="button-primary" href="/methodology">Understand the framework</a>
@@ -23,10 +22,10 @@ export default function Home() {
       </section>
 
       <section className="manifesto">
-        <p className="manifesto-kicker">The old bargain</p>
-        <p className="manifesto-line">Institutions held the name, the audience, the infrastructure, and the authority. People supplied the work.</p>
-        <p className="manifesto-kicker">The emerging one</p>
-        <p className="manifesto-line accent">More people are building names, audiences, methods, and businesses that can move with them.</p>
+        <p className="manifesto-kicker">A familiar work structure</p>
+        <p className="manifesto-line">An organization often controls the name, audience, infrastructure, budget, and decision-making authority behind a person’s work.</p>
+        <p className="manifesto-kicker">Another structure</p>
+        <p className="manifesto-line accent">Some people also build names, audiences, methods, relationships, and businesses that can move between roles or continue independently.</p>
       </section>
 
       <section className="editorial-section">
@@ -46,8 +45,8 @@ export default function Home() {
       <section className="editorial-section split-section">
         <div className="section-number">03</div>
         <div className="section-intro">
-          <p className="eyebrow">Two lenses, one changing world</p>
-          <h2 className="display-h2">What you can carry.<br/>What you can control.</h2>
+          <p className="eyebrow">Two pilot assessments</p>
+          <h2 className="display-h2">Examine what you control.<br/>Examine what you can carry.</h2>
           <p className="sec-sub">Choose the question that matches your work. One assessment examines what you control; the other examines what you can carry between roles and organizations.</p>
         </div>
         <div className="lensgrid">
@@ -78,7 +77,7 @@ export default function Home() {
 
       <section className="closing-call">
         <p className="eyebrow">The I/1 Edit</p>
-        <h2>One original idea about work, power, ownership, and the person becoming the institution.</h2>
+        <h2>One original idea about work, power, ownership, and how valuable work is structured around people and organizations.</h2>
         <p>Every other week, the inbox edition gives you the central argument and strongest case moments. The permanent web edition adds sources, case comparisons, updates, and related cases.</p>
         <NewsletterSignup source="site" />
       </section>

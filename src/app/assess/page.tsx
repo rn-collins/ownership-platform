@@ -29,7 +29,7 @@ export default function AssessChooserPage() {
         <h3>How portable and influential has your expertise become?</h3>
         <p>
           The <b>Portfolio Professional</b> assessment is designed for people whose work crosses roles, teams, or
-          organizations. It examines evidence of capability, reusable systems, adoption, mandate, authority, and direction.
+          organizations. It examines evidence of capability, reusable systems, adoption, decision-making authority, and direction.
           <a href="/assess/professional" className="fwlink"> Take the Portfolio Professional →</a>
         </p>
       </div>

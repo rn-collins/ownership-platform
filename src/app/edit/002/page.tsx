@@ -59,10 +59,10 @@ export default function EditionTwoPage() {
           A creator loses access to an account. An executive leaves and discovers that the team, data, budget, and authority belonged to the title. A founder owns the company but not the channel that finds its customers. A writer controls the copyright and still cannot reach a reader without a distributor.
         </p>
         <p>
-          We tend to describe these events as platform risk, career risk, client concentration, or bad luck. They are versions of the same structural problem: individual work has a supply chain.
+          We usually describe these events separately—as platform risk, career risk, client concentration, or bad luck. Structurally, they share one problem: individual work also has a supply chain.
         </p>
         <p>
-          Between a person and their ability to continue sit employers, platforms, distributors, clients, retailers, payment systems, manufacturers, collaborators, capital, software, data, reputation, and permission. Some are chosen. Some are inherited. Some are almost invisible until they fail.
+          A person’s ability to continue may depend on employers, platforms, distributors, clients, retailers, payment systems, manufacturers, collaborators, capital, software, data, reputation, and permission. Some dependencies are chosen. Others come with a role or industry. Some become visible only when they fail.
         </p>
         <p>
           Edition 001 introduced three questions: what have you built, what can you carry, and what do you control? This edition adds a fourth: <em>what must keep working for any of it to matter?</em>
@@ -103,7 +103,7 @@ export default function EditionTwoPage() {
           That distinction matters. Cooper appears highly portable: the host, show identity, audience relationship, and ability to attract another major deal survived a change in platform arrangement. But portability did not make distribution irrelevant. The work moved from one large supply relationship into another.
         </p>
         <p>
-          The interesting question is not whether Cooper is “independent.” It is what she and her company carried into the new agreement, what SiriusXM supplies, what remained available outside exclusivity, and how replaceable each party would be if the relationship changed again.
+          Asking whether Cooper is “independent” hides the useful details. The better questions are what she and her company brought into the agreement, what SiriusXM supplies, what remains available outside the exclusive arrangement, and whether either party could replace the other if the relationship changed.
         </p>
       </section>
 
@@ -113,7 +113,7 @@ export default function EditionTwoPage() {
           In a 2022 YouTube interview, Brownlee described a main channel optimized for polished clarity and a podcast that created room for different kinds of thought. YouTube described the surrounding business as including the WVFRM podcast, an original series, and merchandise.<sup><a href="#source-3">3</a></sup> Brownlee also named YouTube’s discovery advantage directly: people searching for a topic or guest can encounter the podcast there.
         </p>
         <p>
-          Multiple formats can deepen a body of work. They do not automatically diversify its supply chain. A main channel, podcast, clips, and series can all remain dependent on the same discovery system, account relationship, advertising market, or recommendation infrastructure.
+          Multiple formats can deepen a body of work without diversifying its supply chain. A main channel, podcast, clips, and series may all depend on the same discovery system, account relationship, advertising market, or recommendation infrastructure.
         </p>
         <p>
           YouTube itself now describes creators as studios and emphasizes that creators can green-light their own work.<sup><a href="#source-4">4</a></sup> That is a meaningful shift in creative authority. Yet “green-light yourself” and “distribute yourself” are not identical. The platform still supplies discovery, hosting, analytics, monetization tools, and access to viewers.
@@ -132,7 +132,7 @@ export default function EditionTwoPage() {
           Moving from videos into a streaming production and packaged goods creates forms of capacity that are not reducible to a social account. It also introduces different suppliers: a global distributor, production systems, insurers, retailers, manufacturers, logistics, cocoa cooperatives, certification systems, and many others.
         </p>
         <p>
-          Diversification is therefore not simply “have more businesses.” A portfolio can reduce reliance on one revenue source while increasing operational exposure across several supply chains. That may be a rational exchange. The public materials do not tell us the private allocation of ownership, control, liability, or bargaining power across Donaldson, his entities, Amazon, retailers, and other partners.
+          Diversification requires more than having several businesses. A portfolio can reduce reliance on one revenue source while creating operational exposure across several supply chains. That trade may be worthwhile. The public materials cannot tell us how Donaldson, his entities, Amazon, retailers, and other partners privately divide ownership, control, liability, or bargaining power.
         </p>
         <p>
           The case is useful because scale can hide fragility. The more spectacular the output, the easier it is to assume the person controls the system. A supply-chain view asks what must coordinate successfully before the spectacle can exist—and who can stop it.
@@ -148,7 +148,7 @@ export default function EditionTwoPage() {
           The origin story names a real structural problem: discovery and compensation can be supplied by different systems, and attention does not guarantee capture. Membership can diversify revenue and create a more legible relationship with committed supporters.
         </p>
         <p>
-          But Patreon does not abolish infrastructure. It becomes infrastructure. Creators still rely on a company’s product, policies, fees, payments, data practices, and continuity. A tool designed to reduce dependence on advertising algorithms can itself become a concentrated supplier.
+          Patreon does not remove infrastructure; it becomes part of the infrastructure. Creators still rely on the company’s product, policies, fees, payment systems, data practices, and continued operation. A tool that reduces dependence on advertising algorithms can become a new concentrated supplier.
         </p>
         <p>
           This is not a criticism unique to Patreon. Every solution becomes part of somebody else’s stack. The relevant question is whether the new relationship improves visibility, substitutability, bargaining power, and survivability compared with the old one.
@@ -174,7 +174,7 @@ export default function EditionTwoPage() {
           The danger appears when a critical supplier is invisible, irreplaceable, non-negotiable, and fatal if lost. One dependency can be manageable if the terms are clear and the relationship is strong. Ten dependencies can still be fragile if they all ultimately rely on the same account, employer, client, or pool of capital.
         </p>
         <p>
-          This changes career planning. “Build an audience” becomes “know who can reach the audience.” “Create multiple income streams” becomes “check whether the streams fail together.” “Own your work” becomes “identify which rights, records, relationships, and permissions allow the work to continue.” “Be independent” becomes “design dependencies you can understand and survive.”
+          This changes the questions used in career planning. If you want to build an audience, identify who can reach it. If you want several income streams, determine whether they can fail at the same time. If you want to own your work, identify the rights, records, relationships, and permissions that let it continue. If you want independence, design dependencies you can understand and survive.
         </p>
       </section>
 
@@ -205,15 +205,4 @@ export default function EditionTwoPage() {
 
       <nav className="edition-status" aria-label="Edition navigation">
         <div><p className="eyebrow">Read in sequence</p><h2>Build the idea from the beginning.</h2></div>
-        <div><a href="/edit/001"><strong>← Edition 001</strong><br/>When does one person become an institution?</a><p><a href="/edit">See every edition →</a></p></div>
-      </nav>
-
-      <section className="edition-subscribe">
-        <p className="eyebrow">The I/1 Edit</p>
-        <h2>One original argument, every other week.</h2>
-        <p>The inbox edition delivers the argument and strongest case moments through Beehiiv. The cited, interactive, updateable edition lives permanently here.</p>
-        <NewsletterSignup source="site" />
-      </section>
-    </main>
-  );
-}
+        <div><a href="/edit/001"><strong>← Edition 001</strong><br/>When does one person become an institution?</a><p><a href="/edit">See every edition →</a></p><

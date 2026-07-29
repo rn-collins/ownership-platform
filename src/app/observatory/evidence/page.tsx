@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 export default function EvidencePage(){
   return <main className="observatory-page">
     <p className="eyebrow">The Observatory · Evidence Explorer</p>
-    <h1>Investigate the integrity of the collection—not only its conclusions.</h1>
-    <p className="lede">Search how each case is documented, where the record depends on self-description, what remains private or unknown, which interpretations face complications, which publishers recur, and where another review would most improve the research.</p>
+    <h1>See how the 41 cases are documented.</h1>
+    <p className="lede">Search the sources used for each case. See which claims rely on a person or organization describing itself, what remains private or unknown, which evidence complicates an interpretation, which publishers recur, and which records would benefit most from another review.</p>
     <p><a href="/observatory">← The Observatory</a></p>
     <EvidenceExplorer/>
   </main>;

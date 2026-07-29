@@ -10,14 +10,14 @@ export default function Home() {
       <section className="hero">
         <div className="hero-index" aria-hidden="true">01 / THE PREMISE</div>
         <p className="eyebrow">A research and editorial project by RN Collins</p>
-        <h1 className="hero-h1">The person is becoming the institution.</h1>
+        <h1 className="hero-h1">What will still be yours when the job, platform, or title changes?</h1>
         <p className="hero-lede">
           A creator can become a studio. A strategist can become a school of thought. A scientist, designer, lawyer, or
           operator can build a body of work that travels farther than any title. Institutions of One studies a practical question: when your job, platform, client, or title changes, what parts of your work still belong to you—and what can keep growing?
         </p>
         <div className="hero-cta">
-          <a className="button-primary" href="/methodology">See how it works</a>
-          <a href="/observatory" className="hero-link">Meet the people →</a>
+          <a className="button-primary" href="/methodology">Understand the framework</a>
+          <a href="/observatory" className="hero-link">Explore 41 public cases →</a>
         </div>
         <p className="hero-note">Creators · cultural operators · polymaths · portfolio professionals · the organizations working with them</p>
       </section>
@@ -78,7 +78,7 @@ export default function Home() {
       <section className="closing-call">
         <p className="eyebrow">The I/1 Edit</p>
         <h2>One original idea about work, power, ownership, and the person becoming the institution.</h2>
-        <p>Every other week, the inbox edition gives you the central argument and strongest case moments. The permanent web edition adds sources, interactive tools, updates, and related cases.</p>
+        <p>Every other week, the inbox edition gives you the central argument and strongest case moments. The permanent web edition adds sources, case comparisons, updates, and related cases.</p>
         <NewsletterSignup source="site" />
       </section>
     </main>

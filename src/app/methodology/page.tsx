@@ -10,14 +10,14 @@ export const metadata = {
 };
 
 const ownershipDimensions = [["Audience","Can you reach people without asking a platform for permission?"],["Rights","Who can license, reuse, change, or sell the work?"],["Revenue","Could the money move with you if one channel disappeared?"],["Identity","Can you govern the name and reputation people recognize?"],["Infrastructure","Are there systems and relationships beyond one account or project?"]];
-const professionalDimensions = [["Capability","Can people see proof of what you know beyond a title or résumé?"],["Systems","Have you made your methods reusable, teachable, or transferable?"],["Adoption","Do other people or organizations use what you built?"],["Mandate","Have you been given real authority to decide and act?"],["Direction","Can you connect your work across roles without losing the thread?"]];
+const professionalDimensions = [["Capability","Can people see proof of what you know beyond a title or résumé?"],["Systems","Have you made your methods reusable, teachable, or transferable?"],["Adoption","Do other people or organizations use what you built?"],["Decision-making authority","Have you been given real authority to decide and act?"],["Direction","Can you connect your work across roles without losing the thread?"]];
 const limits = ["A profile and its secondary composite are not a diagnosis, percentile, ranking, or measure of human worth.","People choose whether to participate, so current responses cannot represent everyone.","The current question weights and result ranges are provisional and still need testing.","A one-time self-report cannot prove that ownership or portability caused an outcome.","Career structure is shaped by occupation, geography, disability, caregiving, discrimination, capital, and organizational power."];
 
 export default function MethodologyPage() {
   return <main className="method-page method-2">
     <p className="eyebrow">How the inquiry works</p>
     <h1>Begin with a career that looks powerful.</h1>
-    <p className="method-hook">Then ask what the person actually built, what can move with them, what they control, and what still depends on someone else.</p>
+    <p className="method-hook">Then ask what the person created, what can move with them, what they can govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.</p>
 
     <section className="method-example"><div><p className="eyebrow">A concrete example</p><h2>A global executive leaves a famous company.</h2></div><div><p>Their reputation may travel immediately. Their team, budget, customer data, patents, distribution, decision rights, and employer-owned work may not.</p><p>Calling the person “successful,” “independent,” or “a personal brand” does not resolve that difference. Institutions of One separates the structure into questions that can be investigated.</p></div></section>
 

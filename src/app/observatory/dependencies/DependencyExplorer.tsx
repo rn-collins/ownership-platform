@@ -78,7 +78,7 @@ export function DependencyExplorer({ nodes = SEED }: { nodes?: Node[] }) {
     <section className={styles.controls} aria-labelledby="filter-title">
       <div className={styles.controlIntro}>
         <div><p className={styles.kicker}>Dependency filters</p><h2 id="filter-title">What must remain available for the work to continue?</h2></div>
-        <p>Choose one or several forms of dependency. These are research signals found in the public case records—not findings about private contracts, ownership, or financial exposure.</p>
+        <p>Choose one or several forms of dependency. The explorer matches a defined set of dependency terms against the public case summaries, complications, and unknowns. Treat the results as discovery leads, then verify the complete record—not as findings about private contracts, ownership, or financial exposure.</p>
       </div>
       <div className={styles.filters}>
         {DEPENDENCIES.map(([id,label])=><button type="button" key={id} aria-pressed={active.includes(id)} className={active.includes(id)?styles.active:""} onClick={()=>toggle(id)}>{label}<span>{rows.filter((row)=>row.signals.includes(id)).length}</span></button>)}

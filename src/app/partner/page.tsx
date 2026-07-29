@@ -84,7 +84,6 @@ export default function PartnerPage() {
         <p>We first identify the decision or uncertainty that brought you here. RN then recommends the smallest useful engagement, states what information is needed, defines the deliverable and boundaries, and explains what the work can and cannot establish. A short brief may be enough; a workshop, research sprint, pilot, or longer collaboration may be appropriate when the question requires it.</p>
       </section>
 
-      <section className="partner-boundary"><div><p className="eyebrow">Research and commercial boundaries</p><h2>Paying for the work does not buy a preferred answer.</h2></div><div><p>Before work begins, the parties define the question, scope, contributions, deliverables, timing, confidentiality, consent, access, credit, intellectual-property treatment, and disclosure.</p><p>Research support and substantive collaboration are disclosed when appropriate. A client, sponsor, or partner cannot determine a finding, suppress an inconvenient result, change a case record without evidence, or purchase a preferred conclusion.</p></div></section>
 
       <section className="partner-start">
         <p className="eyebrow">Contact RN</p>

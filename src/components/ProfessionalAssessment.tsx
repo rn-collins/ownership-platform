@@ -10,7 +10,6 @@ import {
 } from "@/lib/engine_professional";
 import { PROFESSIONAL_INSTRUMENT, PROFESSIONAL_DIMENSIONS, type PDimensionKey } from "@/lib/instrument_professional";
 import { ResearchOptIn } from "@/components/ResearchOptIn";
-import { BenchmarkBadge } from "@/components/BenchmarkBadge";
 import { ProjectionDumbbell } from "@/components/ProjectionDumbbell";
 
 type Responses = Record<string, number>;
@@ -98,7 +97,7 @@ export function ProfessionalAssessment() {
     return v;
   }, [result]);
 
-  async function shareScore() {
+  async function shareProfile() {
     const r = assessProfessional(responses);
     const url = typeof window !== "undefined" ? `${window.location.origin}/assess/professional` : "/assess/professional";
     const text = `I completed the Portfolio Professional pilot — it examines how visible, reusable, portable, and influential your expertise has become across roles and organizations. Take it:`;
@@ -128,7 +127,7 @@ export function ProfessionalAssessment() {
           <div className="stepnav">
             <button className="ghost" onClick={() => setStep((s) => Math.max(0, s - 1))} disabled={step === 0}>Back</button>
             {step === CORE.length - 1 ? (
-              <button className="primary" onClick={() => setSubmitted(true)} disabled={responses[CORE[step].id] == null}>See my score</button>
+              <button className="primary" onClick={() => setSubmitted(true)} disabled={responses[CORE[step].id] == null}>See my portability profile</button>
             ) : (
               <button className="ghost" onClick={() => setStep((s) => Math.min(CORE.length - 1, s + 1))} disabled={responses[CORE[step].id] == null}>Next</button>
             )}
@@ -140,15 +139,14 @@ export function ProfessionalAssessment() {
         <div className="results">
           <div className="scorecard" style={{ gridTemplateColumns: "1fr 300px" }}>
             <div>
-              <div className="big">{result.total}<span className="of"> / 100</span></div>
+              <p className="eyebrow">Your portability profile</p>
               <div className="bandlbl">{result.overall.label}</div>
               <div className="bandnote">{result.overall.copy}</div>
-              <div className="conf"><span className="pill">Evidence status: self-reported</span>No independent corroboration is included in this result.</div>
+              <div className="conf"><span className="pill">Evidence status: self-reported</span>This pattern is exploratory and is not a rank or identity verdict.<br />Composite index: {result.total} / 100 under the current methodology.</div>
             </div>
             <PRadar values={radarValues} />
           </div>
 
-          <BenchmarkBadge instrument="portfolio_professional" score={result.total} />
 
           <div className="bars">
             {result.dimensions.map((d) => (
@@ -161,17 +159,9 @@ export function ProfessionalAssessment() {
           </div>
 
           <div className="forward">
-            <h3>Your path to Institution of One</h3>
+            <h3>Questions your profile raises</h3>
             {plan.length > 0 ? (
               <>
-                <div className="proj">
-                  <div className="projrow">
-                    <span className="projnow">{result.total}</span>
-                    <span className="projarrow">→</span>
-                    <span className="projnext">{projected}</span>
-                  </div>
-                  <p className="projsub">If your circumstances later matched these {plan.length} response conditions, the current methodology would calculate <b>{projected}</b> out of 100, compared with {result.total} today.</p>
-                </div>
                 <ProjectionDumbbell rows={result.dimensions.map((d) => ({ name: d.name, current: d.raw, projected: d.raw + plan.filter((p) => p.dimension === d.key).reduce((s, p) => s + p.lift, 0) }))} />
                 {(() => {
                   const seen = new Set<string>();
@@ -184,7 +174,7 @@ export function ProfessionalAssessment() {
                         <div className="planbody">
                           <div className="planhead">
                             <span className="plandim">{a.dimensionName}</span>
-                            <span className="planlift">+{a.lift} {a.lift === 1 ? "pt" : "pts"}</span>
+                            <span className="planlift">Changes this dimension</span>
                           </div>
                           <div className="planaction">{PROFESSIONAL_ITEM_ACTIONS[a.itemId]}</div>
                           {showWhy && <div className="planwhy">{PROFESSIONAL_DIMENSION_WHY[a.dimension]}</div>}
@@ -195,7 +185,7 @@ export function ProfessionalAssessment() {
                 })()}
               </>
             ) : (
-              <p className="fwsub">You are at the top of every measure. You are already an institution of one.</p>
+              <p className="fwsub">No change prompts were generated for this response pattern. Review the five dimensions and the framework limits before drawing a conclusion.</p>
             )}
           </div>
 
@@ -208,7 +198,7 @@ export function ProfessionalAssessment() {
 
           <p className="disc">Portfolio Professional · methodology v{result.methodologyVersion}. Part of Institutions of One.</p>
           <div className="actions">
-            <button className="primary" onClick={shareScore}>{shared ? "Link copied ✓" : "Share my score"}</button>
+            <button className="primary" onClick={shareProfile}>{shared ? "Link copied ✓" : "Share my profile"}</button>
             <button className="ghost" onClick={() => { setSubmitted(false); setResponses({}); setStep(0); setShared(false); }}>Start again</button>
           </div>
         </div>

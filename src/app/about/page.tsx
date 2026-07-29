@@ -10,11 +10,11 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <p className="eyebrow">Institutions of One · About</p>
-      <h1>A research project about the people building careers larger than a job.</h1>
+      <h1>A research project about what people build through their work and what can continue when their circumstances change.</h1>
       <p className="lede">
         Institutions of One began with a simple observation: organizations routinely measure reach, productivity, and
         performance, but rarely measure whether the value a person creates becomes portable, durable, and meaningfully
-        theirs. The project studies that gap across creators and professionals.
+        theirs. The project studies that question across creators, independent operators, employees, executives, researchers, public leaders, and other professionals.
       </p>
 
       <div className="card">
@@ -23,7 +23,7 @@ export default function AboutPage() {
           I am an independent researcher, writer, consultant, and J.D. candidate at Northeastern University School of Law.
           My background spans neuroscience, developmental psychology, medical education, qualitative research, emerging
           industries, and the design of research and intelligence systems. That interdisciplinary path shapes this project:
-          it treats work as a psychological, organizational, economic, technological, and legal phenomenon at once.
+          it examines work through psychological, organizational, economic, technological, and legal questions.
         </p>
       </div>
 
@@ -32,8 +32,7 @@ export default function AboutPage() {
         <p>
           A large audience does not necessarily mean ownership. Specialized expertise does not necessarily travel outside
           an employer. A personal brand does not necessarily become a durable business. By separating capability, authority,
-          portability, ownership, and institutional support, the project aims to give people and organizations better
-          language for understanding what is actually being built.
+          portability, ownership, and institutional support, the project aims to give people and organizations clearer language for identifying what the person built, what they can carry, what they control, and what can continue.
         </p>
       </div>
 

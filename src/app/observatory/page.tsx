@@ -5,10 +5,10 @@ import { SEED, nodeSlug, type Node } from "@/lib/observatory_seed";
 
 export const metadata = {
   title: "The Observatory — Institutions of One",
-  description: "Explore and compare 41 evidence-backed career cases by asking what each person built, what they could carry, what they controlled, and what could continue.",
+  description: "Explore and compare 41 evidence-backed career cases by asking what each person built, what could move with them, what they could govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.",
   alternates: { canonical: "/observatory" },
-  openGraph: { title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases by asking what each person built, what they could carry, what they controlled, and what could continue.", url: "/observatory", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases by asking what each person built, what they could carry, what they controlled, and what could continue.", images: ["/og.png"] },
+  openGraph: { title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases by asking what each person built, what could move with them, what they could govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.", url: "/observatory", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases by asking what each person built, what could move with them, what they could govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.", images: ["/og.png"] },
 };
 
 export default async function ObservatoryPage({ searchParams }: { searchParams?: { mode?: string } }) {
@@ -30,7 +30,7 @@ export default async function ObservatoryPage({ searchParams }: { searchParams?:
   return <main className="observatory-page">
     <p className="eyebrow">The Observatory</p>
     <h1>Explore the structure behind 41 public careers.</h1>
-    <p className="lede">Compare evidence-backed cases through four questions: what did this person build, what could travel with them, what did they control, and what could continue without them? Start with a person, a question about work, or a recurring problem shown across several careers.</p>
+    <p className="lede">Compare evidence-backed cases through four questions: what did this person create, what can move with them, what can they govern, and what work, systems, relationships, or authority could persist when an essential dependency changes? Start with a person, a question about work, or a recurring problem shown across several careers.</p>
 
     <section className="card" aria-labelledby="purpose-heading" style={{ marginTop: 18, borderLeft: "4px solid #b98f4d" }}>
       <p className="eyebrow">What this is for</p>
@@ -72,7 +72,7 @@ export default async function ObservatoryPage({ searchParams }: { searchParams?:
 
     <section style={{ margin: "0 0 42px", padding: "34px 32px", border: "1px solid #141b2e", background: "#141b2e", color: "#faf8f4" }} aria-labelledby="organization-heading">
       <p className="eyebrow">Use this work with your group</p>
-      <h2 id="organization-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0", color: "#faf8f4" }}>Understand where valuable work lives, what it depends on, and how it can continue.</h2>
+      <h2 id="organization-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0", color: "#faf8f4" }}>Understand where valuable work lives, what it depends on, and what could persist when an essential dependency changes.</h2>
       <p style={{ maxWidth: 860, color: "#e5e0d6" }}>RN works with companies, professional firms, universities, research teams, nonprofits, public institutions, creative organizations, communities, and other groups. The framework can support continuity planning, role and partnership design, research, workshops, practical tools, and ongoing decisions.</p>
       <p style={{ maxWidth: 860, color: "#e5e0d6" }}>The cases offer concrete comparisons for examining your own situation. The engagement is shaped around the question your group needs to answer or the work it needs to produce.</p>
       <a className="button-primary" href="/partner" style={{ display: "inline-block", marginTop: 8 }}>See ways to work together →</a>

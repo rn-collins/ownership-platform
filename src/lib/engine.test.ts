@@ -7,22 +7,22 @@ const zero = Object.fromEntries(ALL.map((k) => [k, 0]));
 const renter = Object.fromEntries(ALL.map((k) => [k, 1]));
 
 describe("scoring", () => {
-  it("perfect scores 100 / owned", () => {
+  it("perfect responses produce a 100-point composite and a high-control pattern", () => {
     const r = assess(perfect);
     expect(r.total).toBe(100);
-    expect(r.overall.label).toBe("Owned institution");
+    expect(r.overall.label).toBe("High-control pattern");
     r.dimensions.forEach((d) => expect(d.raw).toBe(20));
   });
-  it("zero scores 0 / at mercy", () => {
+  it("zero responses produce a 0-point composite and a highly externally dependent pattern", () => {
     const r = assess(zero);
     expect(r.total).toBe(0);
-    expect(r.overall.label).toBe("At the platform’s mercy");
+    expect(r.overall.label).toBe("Highly externally dependent pattern");
   });
-  it("dimension + overall band boundaries", () => {
+  it("dimension and overall band boundaries use the current descriptive labels", () => {
     expect(dimensionBand(4)).toBe(0);
     expect(dimensionBand(17)).toBe(4);
-    expect(overallBand(30).label).toBe("Mostly rented");
-    expect(overallBand(80).label).toBe("Owned institution");
+    expect(overallBand(30).label).toBe("Externally dependent pattern");
+    expect(overallBand(80).label).toBe("High-control pattern");
   });
   it("geometric aggregation punishes imbalance", () => {
     const imb: Record<string, number> = {};

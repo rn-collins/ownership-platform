@@ -12,9 +12,9 @@ export default function ApplyPage() {
   return <main className={styles.page}>
     <a className={styles.back} href="/observatory">← The Observatory</a>
     <header className={styles.hero}>
-      <p className={styles.kicker}>Apply it to my work</p>
-      <h1>Begin with your work.<br/>Then read the cases differently.</h1>
-      <p>Choose the structural pressure you want to examine—not a judgment about your worth, talent, or potential. We will give you a private reading pathway: one structural tension, three cases to examine in sequence, one case that resists the obvious lesson, and questions to take back to your work.</p>
+      <p className={styles.kicker}>Apply the cases to your work</p>
+      <h1>Choose a question about your work.<br/>Receive four relevant cases.</h1>
+      <p>Choose the problem you want to examine. The tool will show one recurring tension, three relevant cases, one case that complicates the apparent lesson, and questions you can apply to your situation. Your selection and optional note stay in your browser.</p>
       <div className={styles.promise}><span>No diagnosis</span><span>No score</span><span>No account required</span><span>Nothing is saved</span></div>
     </header>
     <ApplyToWork />

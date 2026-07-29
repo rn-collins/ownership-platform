@@ -92,8 +92,8 @@ export const ITEM_ACTIONS: Record<string, string> = {
 };
 
 export const OVERALL_COPY: Record<string, string> = {
-  owned: "You own the audience, the rights and the business. The remaining question is whether the person at the centre can carry it, the other half of this research.",
-  building: "You are moving from rented to owned. The trajectory is set here, and small deliberate moves compound fast.",
-  rented: "You are visible, but much of the value still sits with the platforms and the brands, not with you.",
-  mercy: "Real reach, very little ownership. One rule change could reset you to zero. Every measure below is movable.",
+  owned: "Your responses indicate substantial control across audience, rights, revenue, identity, and infrastructure. Review the individual dimensions because important dependencies may still remain.",
+  building: "Your responses indicate meaningful control in several areas, with other parts of the work still dependent on platforms, clients, partners, or outside infrastructure.",
+  rented: "Your responses indicate that several parts of the work depend on platforms, clients, brands, or infrastructure controlled elsewhere.",
+  mercy: "Your responses indicate extensive dependence on platforms, clients, brands, or infrastructure controlled elsewhere. The dimensional profile shows where those dependencies are concentrated.",
 };

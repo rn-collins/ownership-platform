@@ -32,13 +32,14 @@ export default function Home() {
       <section className="editorial-section">
         <div className="section-number">02</div>
         <div className="section-intro">
-          <p className="eyebrow">The inquiry</p>
-          <h2 className="display-h2">Influence is visible.<br/>The structure underneath it is not.</h2>
+          <p className="eyebrow">The Build–Carry–Control–Continue framework</p>
+          <h2 className="display-h2">Four questions reveal the structure beneath a career.</h2>
         </div>
         <div className="question-grid">
-          <article><span>01</span><h3>Does your work travel?</h3><p>Can your expertise, reputation, relationships, and opportunities move across jobs, platforms, and industries?</p></article>
-          <article><span>02</span><h3>Do you own the upside?</h3><p>Who controls the audience, rights, identity, income channels, data, and operating systems your work produces?</p></article>
-          <article><span>03</span><h3>Can it outlast the moment?</h3><p>Have your methods and ideas become durable enough to survive a role, launch, algorithm, employer, or trend?</p></article>
+          <article><span>01</span><h3>Build</h3><p>What body of work, method, audience, product, or operating system did the person create?</p></article>
+          <article><span>02</span><h3>Carry</h3><p>What expertise, reputation, relationships, and opportunities can move with them?</p></article>
+          <article><span>03</span><h3>Control</h3><p>What do they own or govern—and what still belongs to an employer, platform, investor, or collaborator?</p></article>
+          <article><span>04</span><h3>Continue</h3><p>What can keep working after a role ends, a platform changes, or the person steps away?</p></article>
         </div>
       </section>
 

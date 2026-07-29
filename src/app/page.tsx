@@ -18,7 +18,7 @@ export default function Home() {
           <a className="button-primary" href="/methodology">Understand the framework</a>
           <a href="/observatory" className="hero-link">Explore 41 public cases →</a>
         </div>
-        <p className="hero-note">Creators · cultural operators · polymaths · portfolio professionals · the organizations working with them</p>
+        <p className="hero-note">Creators · employees · executives · independent professionals · researchers · public leaders · the groups working with them</p>
       </section>
 
       <section className="manifesto">
@@ -69,7 +69,7 @@ export default function Home() {
       <section className="editorial-section mapsec">
         <div className="section-number">04</div>
         <div className="sec-head">
-          <div><p className="eyebrow">The Observatory</p><h2 className="display-h2">Study the architecture<br/>behind the person.</h2><p className="sec-sub">Explore 41 public careers to see what each person built, what still depends on an employer or platform, and what the public record cannot tell us.</p></div>
+          <div><p className="eyebrow">The Observatory</p><h2 className="display-h2">Examine the structure<br/>behind the work.</h2><p className="sec-sub">Explore 41 public careers to see what each person built, what still depends on an employer or platform, and what the public record cannot tell us.</p></div>
           <a href="/observatory" className="sec-link">Open the Observatory →</a>
         </div>
         <ObservatoryMap embed />

@@ -46,8 +46,8 @@ const engagements = [
     outputs: "Talk, class, panel, live program, article, report, special edition, curriculum, worksheet, decision tool, or evidence-backed interactive.",
   },
   {
-    title: "Stay involved while the work changes",
-    copy: "RN can advise through a transition, pilot, partnership, research program, or evolving body of work. This gives the group continued help interpreting new information and making the next decision.",
+    title: "Provide ongoing advice during change",
+    copy: "RN can advise through a transition, pilot, partnership, research program, or evolving body of work. RN helps the group interpret new information, review progress, and make decisions as the situation develops.",
     outputs: "Ongoing advisory support, scheduled reviews, working sessions, research updates, or implementation guidance.",
   },
 ];
@@ -64,8 +64,8 @@ export default function PartnerPage() {
       <section className="partner-section" aria-labelledby="who-heading">
         <div className="partner-section-intro">
           <p className="eyebrow">Who RN works with</p>
-          <h2 id="who-heading" className="display-h2">Any group can begin with the question in front of it.</h2>
-          <p>RN works across industries, professions, institutions, creative fields, research settings, public-interest work, and communities. You can arrive with an early observation, a live decision, a recurring problem, or a defined project.</p>
+          <h2 id="who-heading" className="display-h2">RN works with groups across sectors, professions, and communities.</h2>
+          <p>RN works across industries, professions, institutions, creative fields, research settings, public-interest work, and communities. Bring an early observation, a decision that needs to be made, a recurring problem, or a defined project.</p>
         </div>
         <div className="partner-audiences">
           {audiences.map((audience) => <p key={audience}>{audience}</p>)}
@@ -75,7 +75,7 @@ export default function PartnerPage() {
       <section className="partner-section partner-help" aria-labelledby="help-heading">
         <div className="partner-section-intro">
           <p className="eyebrow">Engagements</p>
-          <h2 id="help-heading" className="display-h2">Six ways RN can support the work.</h2>
+          <h2 id="help-heading" className="display-h2">Choose the kind of help your group needs.</h2>
           <p>Each engagement begins with the result your group needs: a decision, shared understanding, a plan, a piece of research, a practical resource, or continued guidance.</p>
         </div>
         <div className="partner-services">
@@ -85,7 +85,7 @@ export default function PartnerPage() {
               <div>
                 <h3>{item.title}</h3>
                 <p>{item.copy}</p>
-                <p className="partner-outputs"><strong>Possible results:</strong> {item.outputs}</p>
+                <p className="partner-outputs"><strong>Possible deliverables:</strong> {item.outputs}</p>
               </div>
             </article>
           ))}

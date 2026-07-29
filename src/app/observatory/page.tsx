@@ -70,6 +70,14 @@ export default async function ObservatoryPage() {
       </section>
     </div>
 
+    <section style={{ margin: "0 0 42px", padding: "34px 32px", border: "1px solid #141b2e", background: "#141b2e", color: "#faf8f4" }} aria-labelledby="organization-heading">
+      <p className="eyebrow">Why this matters to organizations</p>
+      <h2 id="organization-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0", color: "#faf8f4" }}>See the structure around exceptional people before it becomes a risk.</h2>
+      <p style={{ maxWidth: 860, color: "#e5e0d6" }}>The same questions that clarify an individual career also help organizations examine key-person dependence, portable authority, partnership design, intellectual-property boundaries, succession, and whether a role has become an institution—or remains inseparable from one person.</p>
+      <p style={{ maxWidth: 860, color: "#e5e0d6" }}>The cases do not prescribe a universal model. They provide concrete comparisons that make better executive questions possible.</p>
+      <a className="button-primary" href="/partner" style={{ display: "inline-block", marginTop: 8 }}>Explore organizational work →</a>
+    </section>
+
     <section style={{ margin: "0 0 42px", padding: "30px 32px", border: "1px solid #141b2e", background: "#efe8d8" }} aria-labelledby="integrity-heading">
       <p className="eyebrow">Research integrity</p>
       <h2 id="integrity-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>Inspect the evidence without turning methodology into another attraction.</h2>

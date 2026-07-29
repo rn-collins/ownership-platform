@@ -12,7 +12,7 @@ export default function Home() {
         <p className="eyebrow">A research and editorial project by Rayven-Nikkita Collins</p>
         <h1 className="hero-h1">What will still be yours when the job, platform, or title changes?</h1>
         <p className="hero-lede">
-          People build valuable work inside companies, platforms, professions, communities, and independent practices. Institutions of One studies what happens to that work when a job, platform, client, or title changes: what the person built, what they can carry, what they control, and what can continue.
+          People build valuable work inside companies, platforms, professions, communities, and independent practices. Institutions of One studies what happens to that work when a job, platform, client, or title changes: what the person built, what they can carry, what they control, and what work, systems, relationships, or authority could persist when an essential dependency changes.
         </p>
         <div className="hero-cta">
           <a className="button-primary" href="/methodology">Understand the framework</a>
@@ -38,7 +38,7 @@ export default function Home() {
           <article><span>01</span><h3>Build</h3><p>What body of work, method, audience, product, or operating system did the person create?</p></article>
           <article><span>02</span><h3>Carry</h3><p>What expertise, reputation, relationships, and opportunities can move with them?</p></article>
           <article><span>03</span><h3>Control</h3><p>What do they own or govern—and what still belongs to an employer, platform, investor, or collaborator?</p></article>
-          <article><span>04</span><h3>Continue</h3><p>What can keep working after a role ends, a platform changes, or the person steps away?</p></article>
+          <article><span>04</span><h3>Continue</h3><p>What work, systems, relationships, or authority could persist when an essential dependency changes?</p></article>
         </div>
       </section>
 

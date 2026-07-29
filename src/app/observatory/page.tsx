@@ -11,7 +11,7 @@ export const metadata = {
   twitter: { card: "summary_large_image", title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases through ownership, authority, portability, and dependence.", images: ["/og.png"] },
 };
 
-export default async function ObservatoryPage() {
+export default async function ObservatoryPage({ searchParams }: { searchParams?: { mode?: string } }) {
   let nodes: Node[] = SEED;
   if (prisma) {
     try {
@@ -39,7 +39,7 @@ export default async function ObservatoryPage() {
       <p><strong>Use it to test a conclusion.</strong> Open a case, compare it with another, filter by dependency, then find the countercase that makes the easy lesson harder to claim.</p><p>All 41 records use publicly available evidence. The Observatory does not infer private facts or mix participant responses into the public case record.</p>
     </section>
 
-    <ObservatoryMap nodes={nodes} initialView="directory" />
+    <ObservatoryMap nodes={nodes} initialView={searchParams?.mode === "compare" ? "compare" : searchParams?.mode === "patterns" ? "patterns" : "directory"} />
 
     <section style={{ margin: "64px 0 22px" }} aria-labelledby="investigate-heading">
       <p className="eyebrow">Go beyond a profile</p>

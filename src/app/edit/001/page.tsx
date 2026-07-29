@@ -232,4 +232,29 @@ export default function EditionOnePage() {
         </p>
         <ol>
           {sources.map((source) => (
-    
+            <li id={`source-${source.id}`} key={source.id}>
+              <a href={source.href} target="_blank" rel="noreferrer">{source.label}</a>
+            </li>
+          ))}
+        </ol>
+        <p>
+          Corrections or material primary sources can be submitted through the <a href="/about">About page</a>. Substantive corrections will be dated on this page.
+        </p>
+      </section>
+
+      <nav className="edition-status" aria-label="Edition navigation">
+        <div><p className="eyebrow">Continue the inquiry</p><h2>Next: the dependencies beneath the work.</h2></div>
+        <div><a href="/edit/002"><strong>Edition 002 →</strong><br/>Your career has a supply chain.</a></div>
+      </nav>
+
+      <section className="edition-subscribe">
+        <p className="eyebrow">The I/1 Edit</p>
+        <h2>One original argument, every other week.</h2>
+        <p>
+          The inbox edition delivers the central argument and strongest case moments through Beehiiv. This cited, interactive, updateable web edition is the permanent record.
+        </p>
+        <NewsletterSignup source="site" />
+      </section>
+    </main>
+  );
+}

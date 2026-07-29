@@ -58,7 +58,7 @@ export default function PartnerPage() {
       <header className="partner-hero">
         <p className="eyebrow">Ways to work together</p>
         <h1>Bring a question, decision, or piece of work that needs careful attention.</h1>
-        <p className="lede partner-hook">Rayven-Nikkita Collins helps groups understand what people create, what can move with them, what they can govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.</p>
+        <p className="lede partner-hook">RN Collins helps groups understand what people create, what can move with them, what they can govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.</p>
       </header>
 
       <section className="partner-section" aria-labelledby="who-heading">

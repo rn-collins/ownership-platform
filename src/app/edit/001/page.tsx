@@ -110,13 +110,13 @@ export default function EditionOnePage() {
 
       <section className="edition-opening">
         <p className="edition-dropcap">
-          We know how to describe a famous person, a founder, an executive, a creator, or an expert. We have less useful language for the person whose work has become a studio, a school of thought, a distribution system, an employer, a public function, or a category all at once.
+          We have familiar words for a famous person, founder, executive, creator, or expert. We have fewer useful words for someone whose work now operates as a studio, school of thought, distribution system, employer, public function, or several of these at once.
         </p>
         <p>
-          Calling that person an institution may sound like praise. It should be an analytical question instead. What has the person built? What can they carry when a role or platform changes? What do they actually control?
+          Calling someone an institution can sound like praise. Here, it is a question about structure. What has the person built? What can they carry when a role or platform changes? What can they actually control?
         </p>
         <p>
-          Those questions matter because public visibility routinely collapses different forms of power into one image. A large audience can coexist with weak control over distribution. An executive can create systems of enormous consequence without owning them. A founder can own a company and remain dependent on platforms, clients, vendors, or capital. Independence is never absolute, and dependence is not automatically failure.
+          Public visibility often makes different forms of power look the same. A person may have a large audience and little control over distribution. An executive may create consequential systems without owning them. A founder may own a company while depending on platforms, clients, vendors, or capital. No one is completely independent, and dependence alone does not mean failure.
         </p>
       </section>
 
@@ -145,7 +145,7 @@ export default function EditionOnePage() {
       <section className="edition-opening">
         <h2>Build is the easiest dimension to see—and the easiest to overstate.</h2>
         <p>
-          Build asks what exists because a person made it exist. That can include a company, but it can also include a method, public program, body of work, team, audience, operating system, or shared language. The word <em>build</em> should not erase collaborators. Institutions are collective achievements even when one person is unusually visible within them.
+          Build asks what exists because of a person’s work. The answer may be a company, method, public program, body of work, team, audience, operating system, or shared language. Calling something “built” by one person should never erase collaborators. Institutions are collective achievements, even when one person receives most of the public attention.
         </p>
         <p>
           Shonda Rhimes is a clear example of build becoming legible as an institution. Her own company biography states that she created Shondaland in 2004.<sup><a href="#source-2">2</a></sup> In 2021, Netflix described an expanded agreement with Rhimes and Shondaland Media that covered feature films and potential gaming and virtual-reality content, while adding live events and experiences to an existing branding and merchandise agreement.<sup><a href="#source-3">3</a></sup> The relevant fact is not simply that Rhimes writes successful television. A named organization, production capacity, partnerships, and extensions across formats now sit around the work.
@@ -170,14 +170,14 @@ export default function EditionOnePage() {
           Suzie Reider supplies the opposite view. Lyft’s 2024 announcement of her appointment as head of Lyft Business describes 17 years at Google, including leadership at Waze and the founding of YouTube’s revenue and marketing organization.<sup><a href="#source-8">8</a></sup> Her career suggests that capability, reputation, and operating knowledge can travel between major organizations. But the revenue systems she helped build belonged to the companies whose authority, capital, data, and platforms enabled them. That is not a lesser form of work. It is a different relationship between personal capability and organizational ownership.
         </p>
         <p>
-          These two cases prevent a lazy conclusion. Carry is neither “quit your job” nor “start a company.” Ive carried capacity into a new company while retaining a major institutional dependency. Reider carried capability into successive executive roles while the systems remained within employers. The diagnostic question is what traveled, what stayed, and who had the right to decide.
+          These cases rule out a simple conclusion. Carry does not mean “quit your job” or “start a company.” Ive moved his capacity into a new company while keeping a major institutional dependency. Reider moved her capability through successive executive roles while the systems remained with her employers. The questions are what traveled, what stayed, and who retained decision-making authority.
         </p>
       </section>
 
       <section className="edition-opening">
         <h2>Control is the dimension visibility hides.</h2>
         <p>
-          Control concerns decisions: who can use the name, reach the audience, change the product, license the work, set prices, retain the data, receive the revenue, or continue after a platform or partner leaves? Public sources rarely disclose every answer. A responsible case study must mark those gaps rather than fill them with admiration.
+          Control concerns decisions. Who can use the name, reach the audience, change the product, license the work, set prices, retain the data, receive the revenue, or continue after a platform or partner leaves? Public sources rarely answer every question. A responsible case record identifies what remains unknown instead of treating admiration as evidence.
         </p>
         <p>
           Pieter Levels offers an unusually legible model of direct operation. In his own account, he started Nomad List in 2014 as part of a project to launch 12 startups in 12 months, later describing it as both an information service and a paid membership community.<sup><a href="#source-9">9</a></sup> He separately documented building the remote-work job board that became Remote OK.<sup><a href="#source-10">10</a></sup> These are first-person sources, not audited ownership records. They nevertheless support a bounded claim: Levels presented himself as the builder and operator of products whose identities and revenue mechanisms were not synonymous with an employer’s title.
@@ -194,7 +194,7 @@ export default function EditionOnePage() {
         </div>
         <div>
           <p>
-            Jony Ive tests departure from a powerful employer. Shonda Rhimes tests an owned institutional identity operating through a major distributor. Jane Gilbert tests institution-building inside government. Emma Chamberlain tests the conversion of creator attention into products and place. Suzie Reider tests portable executive capability without personal ownership of the systems built. Pieter Levels tests direct operation of small digital products.
+            Jony Ive shows what can move when a person leaves a powerful employer. Shonda Rhimes shows an owned organizational identity working through a major distributor. Jane Gilbert shows institution-building inside government. Emma Chamberlain shows creator attention becoming products and a physical place. Suzie Reider shows executive capability traveling without personal ownership of the systems created. Pieter Levels shows direct operation of small digital products.
           </p>
           <p>
             Removing the employee and public-sector cases would make the framework founder-biased. Removing the creator and independent-operator cases would make it conventionally corporate. All six belong because the disagreement among them is the point.
@@ -232,29 +232,4 @@ export default function EditionOnePage() {
         </p>
         <ol>
           {sources.map((source) => (
-            <li id={`source-${source.id}`} key={source.id}>
-              <a href={source.href} target="_blank" rel="noreferrer">{source.label}</a>
-            </li>
-          ))}
-        </ol>
-        <p>
-          Corrections or material primary sources can be submitted through the <a href="/about">About page</a>. Substantive corrections will be dated on this page.
-        </p>
-      </section>
-
-      <nav className="edition-status" aria-label="Edition navigation">
-        <div><p className="eyebrow">Continue the inquiry</p><h2>Next: the dependencies beneath the work.</h2></div>
-        <div><a href="/edit/002"><strong>Edition 002 →</strong><br/>Your career has a supply chain.</a></div>
-      </nav>
-
-      <section className="edition-subscribe">
-        <p className="eyebrow">The I/1 Edit</p>
-        <h2>One original argument, every other week.</h2>
-        <p>
-          The inbox edition delivers the central argument and strongest case moments through Beehiiv. This cited, interactive, updateable web edition is the permanent record.
-        </p>
-        <NewsletterSignup source="site" />
-      </section>
-    </main>
-  );
-}
+    

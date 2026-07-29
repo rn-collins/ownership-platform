@@ -2,18 +2,18 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 export const metadata = {
   title: "The I/1 Edit — Institutions of One",
-  description: "Original ideas, cases, conversations, and visual findings about how a person becomes an institution.",
+  description: "Original ideas, cases, and evidence about what people build through work, what they can carry, what they control, and what can continue.",
   alternates: { canonical: "/edit" },
   openGraph: {
     title: "The I/1 Edit",
-    description: "Original ideas, cases, conversations, and visual findings about how a person becomes an institution.",
+    description: "Original ideas, cases, and evidence about what people build through work, what they can carry, what they control, and what can continue.",
     url: "/edit",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "The I/1 Edit",
-    description: "Original ideas, cases, conversations, and visual findings about how a person becomes an institution.",
+    description: "Original ideas, cases, and evidence about what people build through work, what they can carry, what they control, and what can continue.",
   },
 };
 
@@ -21,16 +21,16 @@ export default function EditPage() {
   return (
     <main className="findings-page edit-index-page">
       <p className="eyebrow">The publication · The I/1 Edit</p>
-      <h1>Ideas for people whose work no longer fits inside a title.</h1>
+      <h1>Research and ideas about the structure behind people’s work.</h1>
       <p className="lede">
         Every other week, The I/1 Edit takes one question about work, power, and ownership—and follows it far enough
-        to become useful. Each edition asks how a person can make work travel, last, and matter beyond the next assignment.
+        to become useful. Each edition examines what makes work portable, durable, controlled, or dependent on an employer, platform, client, partner, or other institution.
       </p>
 
       <section className="edit-promise">
         <div>
           <p className="eyebrow">What arrives</p>
-          <h2>One idea, designed for two different reading moments.</h2>
+          <h2>Read the argument by email or explore the evidence on the site.</h2>
         </div>
         <div>
           <p>

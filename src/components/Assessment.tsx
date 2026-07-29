@@ -187,8 +187,8 @@ export function Assessment() {
 
           {result.flags.length > 0 && (
             <div className="flagsbox">
-              <h3>Where you are exposed</h3>
-              <p className="fsub">The sharp risks in your current setup, most urgent first.</p>
+              <h3>Dependencies to examine</h3>
+              <p className="fsub">These answers identify areas where your work may depend on access, rights, revenue, identity, or infrastructure controlled elsewhere.</p>
               {result.flags.map((f) => (
                 <div key={f.id} className="flag">
                   <span className={`dot ${f.severity}`} />
@@ -199,8 +199,8 @@ export function Assessment() {
           )}
 
           <div className="research">
-            <h3>The fuller picture</h3>
-            <p className="rsub">A few taps across your rights, revenue, brand, wellbeing and trajectory. Anonymous, connected to this response pattern. The more you share, the sharper your picture.</p>
+            <h3>Optional research questions</h3>
+            <p className="rsub">These optional questions ask about rights, revenue, public identity, wellbeing, and career direction. Answers are stored anonymously with this assessment response and help improve the research. They do not change the profile shown above.</p>
             {(() => {
               const items = APP_RESEARCH.flatMap((m) => m.items).filter((it) => !isResearchItemHidden(it.id, responses));
               const done = items.filter((it) => {
@@ -246,7 +246,7 @@ export function Assessment() {
           </div>
 
           <div className="forward">
-            <h3>Your path forward</h3>
+            <h3>Actions to consider</h3>
             {plan.length > 0 ? (
               <>
                 <ProjectionDumbbell rows={result.dimensions.map((d) => ({ name: d.name, current: d.raw, projected: d.raw + plan.filter((p) => p.dimension === d.key).reduce((s, p) => s + p.lift, 0) }))} />
@@ -272,17 +272,17 @@ export function Assessment() {
                 })()}
               </>
             ) : (
-              <p className="fwsub">You are at the top of every measure. The question now is whether you can carry it — the human half of this research.</p>
+              <p className="fwsub">This response pattern reached the current maximum in every dimension. Review whether the underlying arrangements remain workable through a role, platform, client, or life change.</p>
             )}
             <div className="fwcta">
-              <a href="/login"><button className="primary">Save my plan and track my progress</button></a>
+              <a href="/login"><button className="primary">Create an account to save this plan</button></a>
               <a href="/methodology" className="fwlink">How the profile is calculated →</a>
             </div>
           </div>
 
           <ResearchOptIn source="index_creator" interest="creator" heading="Want your results and what comes next?" report={{ total: result.total, band: result.overall.label, instrument: "ownership" }} />
 
-          <p className="disc">Your answers are collected anonymously. Profile reproducible under methodology v{result.methodologyVersion}.</p>
+          <p className="disc">Your answers are collected anonymously. Result calculated under methodology v{result.methodologyVersion}.</p>
           <div className="actions">
             <button className="primary" onClick={shareProfile}>{shared ? "Link copied ✓" : "Share my profile"}</button>
             <button className="ghost" onClick={() => { setSubmitted(false); setResponses({}); setResearch({}); setStep(0); setShared(false); }}>Start again</button>

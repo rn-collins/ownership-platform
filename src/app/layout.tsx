@@ -21,7 +21,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const user = await getUser();
   return <html lang="en"><body><div className="site-shell">
     <header className="site-header"><a className="brand" href="/" aria-label="Institutions of One home"><span className="brand-mark">I/1</span><span className="brand-name">Institutions<br/>of One</span></a><nav className="nav" aria-label="Primary">
-      <a href="/methodology">The idea</a><a href="/observatory">Observatory</a><a href="/observatory/dependencies">Explore patterns</a><a href="/observatory/apply">Apply the research</a><a href="/assess">Measure</a><a href="/edit">Read</a><a href="/partner">Work with us</a>{user ? <><a href="/dashboard">Dashboard</a><form action="/auth/signout" method="post"><button type="submit" className="navlink">Sign out</button></form></> : <a className="nav-signin" href="/login">Sign in</a>}
+      <a href="/methodology">The idea</a><a href="/observatory">Observatory</a><a href="/assess">Measure</a><a href="/edit">Read</a><a href="/partner">Work with us</a>{user ? <><a href="/dashboard">Dashboard</a><form action="/auth/signout" method="post"><button type="submit" className="navlink">Sign out</button></form></> : <a className="nav-signin" href="/login">Sign in</a>}
     </nav></header>
     <div className="wrap">{children}</div>
     <footer className="foot"><div className="foot-statement">What happens when the person is no longer just the talent—but the infrastructure?</div><div className="foot-cols">

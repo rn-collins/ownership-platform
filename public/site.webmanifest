@@ -1,0 +1,17 @@
+{
+  "name": "Institutions of One",
+  "short_name": "I/1",
+  "description": "A research and editorial project by RN Collins.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3efe5",
+  "theme_color": "#11100e",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

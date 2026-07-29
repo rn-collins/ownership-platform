@@ -208,11 +208,11 @@ export const PROFESSIONAL_OVERALL: { min: number; key: string; label: string; co
 ];
 
 export const PROFESSIONAL_DIMENSION_WHY: Record<PDimensionKey, string> = {
-  capability: "Transferable capability is the asset that outlives any single role. It is what makes you an institution rather than a seat.",
-  value: "Value the organization keeps after you is what turns visibility into leverage — and what a company will restructure to retain.",
-  mandate: "Shaping your own mandate is the difference between a role you fill and a role built around you.",
-  authority: "Recognized authority is portable power: it opens roles, deals, and rooms that a title alone never could.",
-  thesis: "A coherent thesis turns scattered activity into a compounding body of work — the through-line that makes the whole legible.",
+  capability: "Capability you can demonstrate and reuse may remain available when a role or employer changes.",
+  value: "Institutional value asks whether other people use what you built and whether it can continue after a handoff.",
+  mandate: "Mandate and autonomy describe how much room you have to shape priorities, decisions, and new work.",
+  authority: "Visibility and authority describe where your expertise is recognized and whether that recognition creates opportunities beyond one role.",
+  thesis: "A coherent thesis helps other people understand how your projects connect and what the body of work is building toward.",
 };
 
 export const PROFESSIONAL_ITEM_ACTIONS: Record<string, string> = {

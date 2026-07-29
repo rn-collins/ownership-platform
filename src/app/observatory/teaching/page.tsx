@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
-import { TeachingStudio } from "./TeachingStudio";
-export const metadata:Metadata={title:"Teaching & Workshop Mode — The Observatory",description:"Turn Institutions of One cases into evidence-centered classroom, team, and conference exercises.",alternates:{canonical:"/observatory/teaching"}};
-export default function Page(){return <main className="observatory-page"><p className="eyebrow">The Observatory · Teaching & Workshop Mode</p><h1>Use the cases to practice structural reasoning.</h1><p className="lede">Build an exercise around a real case, a constraint, and a question the public record can—and cannot—answer. This mode teaches evidence judgment rather than admiration or imitation.</p><p><a href="/observatory">← Return to all Observatory tools</a></p><TeachingStudio/></main>;}
+import { notFound } from "next/navigation";
+
+export default function Page() {
+  notFound();
+}

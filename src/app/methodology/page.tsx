@@ -25,7 +25,7 @@ export default function MethodologyPage() {
       <article><span>01</span><h3>What did the person build?</h3><p>A body of work, method, audience, business, role, relationship network, team, or way of thinking.</p></article>
       <article><span>02</span><h3>What can move with them?</h3><p>Reputation, proof, relationships, skills, methods, demand, and opportunities that survive a change of container.</p></article>
       <article><span>03</span><h3>What can they govern?</h3><p>Identity, rights, audience access, revenue channels, data, decisions, and the conditions under which the work is used.</p></article>
-      <article><span>04</span><h3>What could stop the work?</h3><p>An employer, platform, client, funder, collaborator, contract, algorithm, credential, or other essential dependency.</p></article>
+      <article><span>04</span><h3>What could continue?</h3><p>Work, systems, relationships, or authority that can persist when a role, platform, employer, or other essential dependency changes.</p></article>
     </div></section>
 
     <section className="method-two-evidence"><p className="eyebrow">Why there are assessments and public cases</p><h2>One reveals lived conditions. The other reveals visible structure.</h2><div className="method-split">

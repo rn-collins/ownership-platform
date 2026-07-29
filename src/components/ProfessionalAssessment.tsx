@@ -100,7 +100,7 @@ export function ProfessionalAssessment() {
   async function shareProfile() {
     const r = assessProfessional(responses);
     const url = typeof window !== "undefined" ? `${window.location.origin}/assess/professional` : "/assess/professional";
-    const text = `I completed the Portfolio Professional pilot. It examines whether evidence of your expertise, reusable methods, adoption, authority, and direction can carry across roles and organizations. Take it:`;
+    const text = `I completed the Portfolio Professional pilot. It examines capability ownership, institutional value, mandate and autonomy, visibility and authority, and whether your work has a coherent thesis. Take it:`;
     try {
       if (typeof navigator !== "undefined" && navigator.share) { await navigator.share({ title: "Portfolio Professional", text, url }); return; }
       await navigator.clipboard.writeText(`${text} ${url}`);

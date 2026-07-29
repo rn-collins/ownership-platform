@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL), title: TITLE, description: DESC, applicationName: "Institutions of One", authors: [{ name: "RN Collins" }], keywords: ["Institutions of One", "Ownership Index", "Portfolio Professional", "independent creators", "portfolio careers", "RN Collins"],
   openGraph: { type: "website", siteName: "Institutions of One", title: TITLE, description: DESC, url: SITE_URL, images: [{ url: "/og.png", width: 1200, height: 630, alt: "Institutions of One" }] },
   twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og.png"] },
+  icons: { icon: "/icon.svg", shortcut: "/icon.svg", apple: "/icon.svg" },
+  manifest: "/site.webmanifest",
+  themeColor: "#11100e",
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -24,7 +27,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <a href="/methodology">How it works</a><a href="/observatory">Explore 41 cases</a><a href="/assess">Assess your work</a><a href="/edit">Read the research</a><a href="/partner">Ways to work together</a>{user ? <><a href="/dashboard">Your dashboard</a><form action="/auth/signout" method="post"><button type="submit" className="navlink">Sign out</button></form></> : null}
     </nav></header>
     <div className="wrap">{children}</div>
-    <footer className="foot"><div className="foot-statement">Institutions of One studies what people build, what they can carry, what they control, and what work, systems, relationships, or authority could persist when an essential dependency changes.</div><div className="foot-cols">
+    <footer className="foot"><a className="foot-brand" href="/" aria-label="Institutions of One home"><span className="brand-mark" aria-hidden="true">I/1</span><span>Institutions of One</span></a><div className="foot-statement">Institutions of One studies what people build, what they can carry, what they control, and what work, systems, relationships, or authority could persist when an essential dependency changes.</div><div className="foot-cols">
       <div className="foot-col"><span className="foot-h">Explore</span><a href="/methodology">The idea and method</a><a href="/observatory">The 41 public cases</a><a href="/observatory/dependencies">Explore dependencies</a><a href="/observatory/countercases">Find a countercase</a><a href="/observatory/apply">Apply the cases to your work</a><a href="/observatory/evidence">Inspect the evidence</a><a href="/observatory/documentation">Research documentation</a></div>
       <div className="foot-col"><span className="foot-h">Participate</span><a href="/assess">Pilot assessments</a><a href="/partner">Ways to work together</a><a href="/research/cognitive-interviews">Join an interview</a><a href="/edit">The I/1 Edit</a><a href="/about">About RN Collins</a></div>
       <div className="foot-col"><span className="foot-h">Connect</span><a href="mailto:collins.ra@northeastern.edu">Email</a><a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/privacy">Privacy</a></div>

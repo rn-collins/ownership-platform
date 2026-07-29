@@ -13,7 +13,7 @@ export default function AssessChooserPage() {
       <h1>What part of your work do you want to examine?</h1>
       <p className="lede">
         The project includes two separate pilot assessments. Choose the one that matches the question you want to answer.
-        You may complete both, but each produces its own result and the scores should not be combined.
+        You may complete both, but each produces its own result and the results answer different questions and should be read separately.
       </p>
 
       <div className="card">
@@ -35,8 +35,7 @@ export default function AssessChooserPage() {
       </div>
 
       <p className="meta" style={{ marginTop: 18 }}>
-        No account is required. Responses are anonymous. Both assessments are pilots, so results are exploratory rather
-        than diagnostic or normative.
+        No account is required. Responses are anonymous. Both assessments are pilots, so results are exploratory and should not be read as diagnoses, rankings, or standards a person must meet.
       </p>
     </main>
   );

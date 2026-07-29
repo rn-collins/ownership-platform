@@ -85,18 +85,18 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
 
       <section className={styles.section} id="trace" aria-labelledby="career-trace">
         <p className={styles.kicker}>02 · Trace</p><h2 id="career-trace">The turn that changed the structure</h2>
-        <div className={styles.turn}><div><span>Before</span><p>The career depended on the roles, institutions, platforms, or fields described above.</p></div><div><span>Turning point</span><p>{narrative.structuralTurn}</p></div><div><span>What changed</span><p>The question becomes what moved with {node.name}, what remained embedded, and what could continue.</p></div></div>
+        <div className={styles.turn}><div><span>Before</span><p>The career depended on the roles, institutions, platforms, or fields described above.</p></div><div><span>Turning point</span><p>{narrative.structuralTurn}</p></div><div><span>What changed</span><p>The question becomes what {node.name} created, what could move with them, what they could govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.</p></div></div>
         <p className={styles.methodNote}>This is a structural chronology, not a résumé. Exact dates and claim-level events appear in the verified public record below when available.</p>
       </section>
 
       <section className={styles.section} id="examine" aria-labelledby="case-structure">
-        <p className={styles.kicker}>03 · Examine</p><h2 id="case-structure">Build, carry, control, continue</h2>
+        <p className={styles.kicker}>03 · Examine</p><h2 id="case-structure">Build, Carry, Control, Continue</h2>
         <p>These are four different questions. Public visibility alone does not answer any of them.</p>
         <div className={styles.framework}>
-          <article><span>Build</span><h3>What was created?</h3><p>Reputation, methods, relationships, products, teams, companies, public capacity, or a recognizable body of work.</p><strong>Look for: {guide.lookFor}.</strong></article>
-          <article><span>Carry</span><h3>What could move?</h3><p>Knowledge, credibility, relationships, proof, or an audience may travel even when data, teams, rights, and budgets do not.</p><strong>{guide.comparison}</strong></article>
-          <article><span>Control</span><h3>What could be governed?</h3><p>Legal ownership, practical decision rights, access, influence, and visibility are not interchangeable.</p><strong>The record must establish control; prominence cannot substitute for evidence.</strong></article>
-          <article><span>Continue</span><h3>What could persist?</h3><p>Durability asks what survives a changed title, employer, platform, administration, distributor, or founder.</p><strong>Unknown where succession, contracts, governance, or operating capacity are private.</strong></article>
+          <article><span>Build</span><h3>What did the person create?</h3><p>Reputation, methods, relationships, products, teams, companies, public capacity, or a recognizable body of work.</p><strong>Look for: {guide.lookFor}.</strong></article>
+          <article><span>Carry</span><h3>What can move with them?</h3><p>Knowledge, credibility, relationships, proof, or an audience may travel even when data, teams, rights, and budgets do not.</p><strong>{guide.comparison}</strong></article>
+          <article><span>Control</span><h3>What can they govern?</h3><p>Legal ownership, practical decision rights, access, influence, and visibility are not interchangeable.</p><strong>The record must establish control; prominence cannot substitute for evidence.</strong></article>
+          <article><span>Continue</span><h3>What work, systems, relationships, or authority could persist when an essential dependency changes?</h3><p>Examine what remains possible when a role, platform, employer, administration, distributor, founder, or other essential dependency changes.</p><strong>Unknown where succession, contracts, governance, or operating capacity are private.</strong></article>
         </div>
         <div className={styles.storyGrid}><section><h3>The principal interpretation</h3><p>Here, {(node.tension ?? "the career tension").toLowerCase()} means {guide.meaning}.</p></section><aside className={styles.aside}><h3>Complications and unknowns</h3><ul>{narrative.unresolved.map((item) => <li key={item}>{item}</li>)}</ul></aside></div>
       </section>

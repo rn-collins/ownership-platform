@@ -9,7 +9,7 @@ export default function Home() {
     <main className="home">
       <section className="hero">
         <div className="hero-index" aria-hidden="true">01 / THE PREMISE</div>
-        <p className="eyebrow">A research and editorial project by Rayven-Nikkita Collins</p>
+        <p className="eyebrow">A research and editorial project by RN Collins</p>
         <h1 className="hero-h1">What will still be yours when the job, platform, or title changes?</h1>
         <p className="hero-lede">
           People build valuable work inside companies, platforms, professions, communities, and independent practices. Institutions of One studies what happens to that work when a job, platform, client, or title changes: what the person built, what they can carry, what they control, and what work, systems, relationships, or authority could persist when an essential dependency changes.

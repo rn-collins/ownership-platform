@@ -12,25 +12,24 @@ export default function PrivacyPage() {
       <p className="eyebrow">Institutions of One · Privacy</p>
       <h1>Privacy &amp; data use</h1>
       <p className="lede">
-        A project about ownership has to model it. This page says plainly what is collected, why, and what you can do
-        about it. If anything here is unclear, ask — the answer will be a person, not a policy.
+        This page explains what the site collects, why it is collected, how it is used, and how to request access or deletion. Questions can be sent directly to Rayven-Nikkita Collins.
       </p>
 
       <div className="card">
         <h3>The anonymous assessments</h3>
-        <p>When you take an index, the system stores your banded answers, computed score, instrument and methodology
-        versions, and an opaque assessment-event identifier — no name, email, or account identity. The identifier lets
+        <p>When you take an index, the system stores your answers grouped by response range, the five-dimensional profile, a secondary composite total, instrument and methodology
+        versions, and a random assessment identifier — no name, email, or account identity. The identifier lets
         later optional research answers update the same assessment instead of creating duplicate respondents; it is not
         used to identify you. Your IP address is used briefly to prevent abuse and is never stored. Optional research
         answers are stored with the same anonymous assessment and are not added to the public findings unless the record
-        passes the stated completion and version checks.</p>
+        contains a complete response from a supported assessment version.</p>
       </div>
 
       <div className="card">
-        <h3>The research list (only with consent)</h3>
-        <p>Your email is stored only when you explicitly opt in, and the consent wording is versioned for the record.
+        <h3>Email updates and the newsletter</h3>
+        <p>Your email is stored only when you explicitly opt in, and the exact consent statement shown when you subscribe is stored with the date and form version.
         It is used to send occasional updates and, if you asked for it, your report. It is never sold. The on-site signup
-        also adds you to the newsletter on beehiiv so it is one list.</p>
+        also adds you to the newsletter on beehiiv so the site and Beehiiv use the same subscriber list.</p>
       </div>
 
       <div className="card">
@@ -38,7 +37,7 @@ export default function PrivacyPage() {
         <p>You can unsubscribe at any time from the link in any email, or on the{" "}
         <a href="/unsubscribe" className="fwlink">unsubscribe page</a>. You can request a copy of your record or its
         deletion — the links in your emails are signed so they work without a login, and you can also email me directly
-        and I will action it. Unsubscribing keeps a minimal consent record for the audit trail; deletion removes the row
+        and I will process the request. Unsubscribing keeps a minimal consent record for the audit trail; deletion removes the row
         entirely.</p>
       </div>
 

@@ -29,14 +29,14 @@ export default async function ObservatoryPage() {
 
   return <main className="observatory-page">
     <p className="eyebrow">The Observatory</p>
-    <h1>Forty-one careers. One question: what actually makes a person’s work durable?</h1>
-    <p className="lede">Explore evidence-backed public cases to see what a person built, what they could carry, what they controlled, what depended on someone else, and what might continue without them.</p>
+    <h1>Explore the structure behind 41 public careers.</h1>
+    <p className="lede">Compare evidence-backed cases through four questions: what did this person build, what could travel with them, what did they control, and what could continue without them? Start with a question, a person, or a structural tension.</p>
 
     <section className="card" aria-labelledby="purpose-heading" style={{ marginTop: 18, borderLeft: "4px solid #b98f4d" }}>
       <p className="eyebrow">What this is for</p>
-      <h2 id="purpose-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30 }}>Use the cases to test a structure—not to imitate a person.</h2>
+      <h2 id="purpose-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30 }}>This is a comparative research collection—not a ranking or hall of fame.</h2>
       <p>Each career makes a different problem visible: a founder who owns the company but rents the audience; an executive whose authority depends on an employer; a creator whose identity is inseparable from the institution; or a public leader whose mandate may not survive succession.</p>
-      <p><strong>The Observatory turns public evidence into comparison.</strong> It does not rank people, infer private facts, or mix participant responses into the case record.</p>
+      <p><strong>Use it to test a conclusion.</strong> Open a case, compare it with another, filter by dependency, then find the countercase that makes the easy lesson harder to claim.</p><p>All 41 records use publicly available evidence. The Observatory does not infer private facts or mix participant responses into the public case record.</p>
     </section>
 
     <ObservatoryMap nodes={nodes} initialView="directory" />

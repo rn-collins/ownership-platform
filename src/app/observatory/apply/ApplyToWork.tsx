@@ -95,13 +95,6 @@ const PATHWAYS: Record<RouteKey, Pathway> = {
   }
 };
 
-const ARRANGEMENTS = [
-  ["institution", "Most of my work happens inside an employer or institution"],
-  ["independent", "I work independently, through clients, products, or projects"],
-  ["mixed", "My work spans employment and independent activity"],
-  ["founder", "I lead something I founded or built around my work"]
-] as const;
-
 const PRESSURES = [
   ["leave", "I may leave a role or institution and do not want to start over"],
   ["attention", "I have visibility or an audience but do not control enough underneath it"],
@@ -111,16 +104,11 @@ const PRESSURES = [
   ["succession", "Too much of the work still depends on me personally"]
 ] as const;
 
-const ROUTE_BY_ARRANGEMENT: Record<string, RouteKey> = {
-  institution: "leave", independent: "platform", mixed: "range", founder: "succession"
-};
-
 export default function ApplyToWork() {
-  const [arrangement, setArrangement] = useState("");
   const [pressure, setPressure] = useState<RouteKey | "">("");
   const [context, setContext] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const route = (pressure || ROUTE_BY_ARRANGEMENT[arrangement] || "range") as RouteKey;
+  const route = (pressure || "range") as RouteKey;
   const pathway = PATHWAYS[route];
 
   const people = useMemo(() => {
@@ -130,7 +118,7 @@ export default function ApplyToWork() {
 
   function build(event: React.FormEvent) {
     event.preventDefault();
-    if (!arrangement || !pressure) return;
+    if (!pressure) return;
     setSubmitted(true);
     requestAnimationFrame(() => document.getElementById("your-pathway")?.scrollIntoView({ behavior: "smooth", block: "start" }));
   }
@@ -163,18 +151,14 @@ export default function ApplyToWork() {
 
   return <form className={styles.form} onSubmit={build}>
     <section>
-      <div className={styles.step}><span>01</span><div><h2>Where does most of your work happen now?</h2><p>Choose the closest arrangement. It does not have to describe everything.</p></div></div>
-      <div className={styles.options}>{ARRANGEMENTS.map(([value, label]) => <label key={value} className={arrangement === value ? styles.selected : ""}><input type="radio" name="arrangement" value={value} checked={arrangement === value} onChange={() => setArrangement(value)} /><span>{label}</span></label>)}</div>
-    </section>
-    <section>
-      <div className={styles.step}><span>02</span><div><h2>Which structural pressure feels most alive?</h2><p>Choose the question you most need the cases to help you examine.</p></div></div>
+      <div className={styles.step}><span>01</span><div><h2>Which structural pressure feels most alive?</h2><p>This answer selects one of six curator-designed reading pathways.</p></div></div>
       <div className={styles.options}>{PRESSURES.map(([value, label]) => <label key={value} className={pressure === value ? styles.selected : ""}><input type="radio" name="pressure" value={value} checked={pressure === value} onChange={() => setPressure(value)} /><span>{label}</span></label>)}</div>
     </section>
     <section>
-      <div className={styles.step}><span>03</span><div><h2>What is happening that these choices do not capture?</h2><p>Optional. One or two sentences are enough. This stays in your browser and is shown back to you only as context.</p></div></div>
+      <div className={styles.step}><span>02</span><div><h2>What is happening that these choices do not capture?</h2><p>Optional. One or two sentences are enough. This stays in your browser and is shown back to you only as context.</p></div></div>
       <textarea value={context} onChange={(event) => setContext(event.target.value)} maxLength={600} placeholder="For example: I built a program inside my employer, but the method and relationships are associated with me…" />
     </section>
-    <button className={styles.submit} disabled={!arrangement || !pressure} type="submit">Build my reading pathway →</button>
+    <button className={styles.submit} disabled={!pressure} type="submit">Build my reading pathway →</button>
     <p className={styles.formLimit}>This tool chooses among six curator-designed pathways. It does not analyze your personality, assess readiness, or predict an outcome.</p>
   </form>;
 }

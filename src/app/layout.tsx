@@ -6,8 +6,8 @@ import "./design-system.css";
 import { getUser } from "@/lib/supabase/server";
 
 const SITE_URL = "https://ownership-platform.vercel.app";
-const TITLE = "Institutions of One — when a person becomes an infrastructure";
-const DESC = "An independent research and editorial project about creators and professionals building portable authority, owned value, and durable systems around their work.";
+const TITLE = "Institutions of One — what people build, carry, control, and continue";
+const DESC = "A research and editorial project examining what people build through work, what they can carry between roles, what they control, and what can continue through change.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL), title: TITLE, description: DESC, applicationName: "Institutions of One", authors: [{ name: "RN Collins" }], keywords: ["Institutions of One", "Ownership Index", "Portfolio Professional", "independent creators", "portfolio careers", "RN Collins"],
@@ -28,6 +28,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <div className="foot-col"><span className="foot-h">Explore</span><a href="/methodology">The idea and method</a><a href="/observatory">The 41 public cases</a><a href="/observatory/dependencies">Explore dependencies</a><a href="/observatory/countercases">Find a countercase</a><a href="/observatory/apply">Apply the cases to your work</a><a href="/observatory/evidence">Inspect the evidence</a><a href="/observatory/documentation">Research documentation</a></div>
       <div className="foot-col"><span className="foot-h">Participate</span><a href="/assess">Pilot assessments</a><a href="/partner">Ways to work together</a><a href="/research/cognitive-interviews">Join an interview</a><a href="/edit">The I/1 Edit</a><a href="/about">About RN Collins</a></div>
       <div className="foot-col"><span className="foot-h">Connect</span><a href="mailto:collins.ra@northeastern.edu">Email</a><a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/privacy">Privacy</a></div>
-    </div><p className="foot-copy">© {new Date().getFullYear()} Rayven-Nikkita Collins · Independent research in public</p></footer>
+    </div><p className="foot-copy">© {new Date().getFullYear()} Rayven-Nikkita Collins · Independent research and editorial work</p></footer>
   </div></body></html>;
 }

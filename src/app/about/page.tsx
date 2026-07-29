@@ -50,7 +50,7 @@ export default function AboutPage() {
         <h3>Current stage</h3>
         <p>
           The project is in active pilot development. Two assessments are collecting exploratory responses, the
-          Observatory is building a documented comparative case base, and the methods will continue to be tested and
+          Observatory contains 41 claim-linked comparative case records, and the methods will continue to be tested and
           revised. The long-term aim is a public research program that produces useful evidence for workers, creators,
           organizations, policymakers, and the industries redesigning how work happens.
         </p>

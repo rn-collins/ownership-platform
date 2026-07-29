@@ -50,3 +50,26 @@ main :where(a):not([class]):hover{text-decoration-thickness:3px}
   html{scroll-behavior:auto}
   *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* Contact surface: accessible dark treatment.
+   The earlier route layer sets white copy, so this final canonical layer must
+   never pair that copy with the pale lilac development treatment. */
+.partner-start{
+  background:var(--i1-ink);
+  color:#fff;
+}
+.partner-start .eyebrow{color:var(--i1-acid)}
+.partner-start h2,
+.partner-start>p{color:#fff}
+.partner-start .partner-form,
+.partner-start .partner-confirmation{
+  background:var(--i1-paper);
+  color:var(--i1-ink);
+}
+.partner-start .partner-form :where(label,span,p),
+.partner-start .partner-confirmation :where(h3,p){color:var(--i1-ink)}
+.partner-start :where(input,select,textarea,button,a):focus-visible{
+  outline:3px solid var(--i1-acid);
+  outline-offset:3px;
+  box-shadow:0 0 0 5px var(--i1-ink);
+}

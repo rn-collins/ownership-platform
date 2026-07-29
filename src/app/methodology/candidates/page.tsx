@@ -16,17 +16,17 @@ const steps = [
   ["Find friction", "We look for confusing words, missing choices, inaccessible formats, and situations the question fails to fit."],
   ["Rewrite", "A revised question goes to new participants. The same person is not asked to approve our fix."],
   ["Test", "Only then do we examine response quality, reliability, structure, and fairness across relevant groups."],
-  ["Decide in public", "An adopted set receives a new version number and an explanation. A failed question is revised or rejected."],
+  ["Publish the decision", "An adopted set receives a new version number and an explanation. A failed question is revised or rejected."],
 ];
 
 export default function CandidateInstrumentsPage() {
   return (
     <main className="candidate-page">
       <a href="/methodology" className="postback">← How the project works</a>
-      <p className="eyebrow">Inside the question lab</p>
-      <h1>Before a question measures anyone, it has to survive being understood.</h1>
+      <p className="eyebrow">Questions being tested</p>
+      <h1>Before an assessment question is used, people need to understand it as intended.</h1>
       <p className="candidate-hook">
-        These drafts are not hidden in a research folder. You can see what is being tested, what has not been earned, and what must happen before a public score changes.
+        This page shows the draft questions being tested, the standards they have not yet met, and the review required before they can change a scored pilot.
       </p>
 
       <section className="candidate-status">
@@ -54,9 +54,9 @@ export default function CandidateInstrumentsPage() {
       </section>
 
       <section className="candidate-invite">
-        <p className="eyebrow">Help break a question before it breaks trust</p>
-        <h2>Your confusion is useful data.</h2>
-        <p>If a word feels vague, a choice erases your situation, or a question assumes resources you do not have, the study needs to hear it.</p>
+        <p className="eyebrow">Help us find unclear or unfair questions</p>
+        <h2>Tell us where a question is hard to answer.</h2>
+        <p>Tell us when a word is vague, none of the choices fits your situation, or a question assumes resources you do not have.</p>
         <a href="/research/cognitive-interviews" className="primary-link">See the interview study</a>
       </section>
 

@@ -4,7 +4,7 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 export const metadata = {
   title: "When Does One Person Become an Institution? — The I/1 Edit",
   description:
-    "Edition 001 of The I/1 Edit introduces Build, Carry, and Control: a framework for examining when a person's work begins to function institutionally.",
+    "Edition 001 of The I/1 Edit introduces Build, Carry, Control, and Continue: four questions for examining when a person’s work begins to function institutionally.",
   alternates: { canonical: "/edit/001" },
   openGraph: {
     title: "When Does One Person Become an Institution?",
@@ -41,7 +41,14 @@ const thresholds = [
     name: "Control",
     question: "Who can decide what happens next?",
     body:
-      "Look for meaningful authority over identity, access, rights, revenue, data, and the conditions under which the work continues.",
+      "Look for meaningful authority over identity, access, rights, revenue, data, and the conditions under which the work is used.",
+  },
+  {
+    number: "04",
+    name: "Continue",
+    question: "What could persist if an essential dependency changed?",
+    body:
+      "Look for work, systems, relationships, or authority that could keep functioning if a role, platform, employer, client, or other essential dependency changed.",
   },
 ];
 
@@ -113,7 +120,7 @@ export default function EditionOnePage() {
           We have familiar words for a famous person, founder, executive, creator, or expert. We have fewer useful words for someone whose work now operates as a studio, school of thought, distribution system, employer, public function, or several of these at once.
         </p>
         <p>
-          Calling someone an institution can sound like praise. Here, it is a question about structure. What has the person built? What can they carry when a role or platform changes? What can they actually control?
+          Calling someone an institution can sound like praise. Here, it is a question about structure. What has the person built? What can they carry when a role or platform changes? What can they actually control? What could continue if an essential role, platform, employer, or relationship changed?
         </p>
         <p>
           Public visibility often makes different forms of power look the same. A person may have a large audience and little control over distribution. An executive may create consequential systems without owning them. A founder may own a company while depending on platforms, clients, vendors, or capital. No one is completely independent, and dependence alone does not mean failure.
@@ -122,7 +129,7 @@ export default function EditionOnePage() {
 
       <section className="edition-thresholds" aria-labelledby="thresholds-heading">
         <p className="eyebrow">The working model</p>
-        <h2 id="thresholds-heading">Build. Carry. Control.</h2>
+        <h2 id="thresholds-heading">Build. Carry. Control. Continue.</h2>
         <div className="edition-threshold-grid">
           {thresholds.map((threshold) => (
             <article key={threshold.name}>
@@ -205,7 +212,7 @@ export default function EditionOnePage() {
       <section className="edition-opening">
         <h2>The first finding is not a score. It is a better set of questions.</h2>
         <p>
-          The 41-person Observatory is a methodology pilot. It tests whether Build, Carry, and Control can organize heterogeneous public cases without collapsing them into celebrity profiles or pretending that public evidence reveals private arrangements. Six cases can expose distinctions; they cannot validate a universal model.
+          The 41-person Observatory is a methodology pilot. It tests whether Build, Carry, Control, and Continue can organize heterogeneous public cases without collapsing them into celebrity profiles or pretending that public evidence reveals private arrangements. Six cases can expose distinctions; they cannot validate a universal model.
         </p>
         <p>
           The pilot already reveals one methodological risk: the more famous the person, the easier it is to mistake available publicity for available evidence. Press releases can establish appointments, announced agreements, and organizational claims. They usually cannot establish equity percentages, contract durability, data rights, internal decision rules, or what would survive a dispute. Those questions require interviews, documents, participant research, or a clearly stated “unknown.”
@@ -218,7 +225,7 @@ export default function EditionOnePage() {
       <section className="edition-distinction">
         <p className="eyebrow">The question to carry forward</p>
         <blockquote>
-          If the role disappeared, the platform changed its rules, the distributor walked away, or the employer kept the system, what would still be yours to continue?
+          If the role disappeared, the platform changed its rules, the distributor walked away, or the employer kept the system, what work, systems, relationships, or authority could continue?
         </blockquote>
       </section>
 

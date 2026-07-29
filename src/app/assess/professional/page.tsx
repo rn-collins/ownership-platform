@@ -15,8 +15,8 @@ export default function ProfessionalAssessPage() {
       <p className="eyebrow">Institutions of One · Portfolio Professional</p>
       <h1>How far does your expertise travel beyond your current role?</h1>
       <p className="lede">
-        This twenty-question pilot examines five areas: visible evidence of capability, reusable systems, organizational
-        adoption, decision-making authority, and a coherent direction across work.
+        This twenty-question pilot examines five areas: capability ownership, institutional value, mandate and autonomy,
+        visibility and authority, and a coherent thesis across your work.
       </p>
       <p className="meta">
         Methodology v{PROFESSIONAL_METHODOLOGY_VERSION} · anonymous · approximately five minutes · exploratory, not diagnostic or normed

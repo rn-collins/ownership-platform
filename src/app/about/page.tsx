@@ -39,7 +39,7 @@ export default function AboutPage() {
       <div className="card">
         <h3>How the work is supported</h3>
         <p>
-          Institutions of One is led by Rayven-Nikkita Collins. Client engagements, research collaborations, and other support
+          Institutions of One is led by RN Collins. Client engagements, research collaborations, and other support
           can fund research, analysis, publication, programs, and events. Each project begins with a clear question, scope,
           role for everyone involved, and explanation of how the resulting work will be used and shared.
         </p>

@@ -31,7 +31,7 @@ export default function MethodologyPage() {
     <section className="method-two-evidence"><p className="eyebrow">Why there are assessments and public cases</p><h2>One reveals lived conditions. The other reveals visible structure.</h2><div className="method-split">
       <div><span>01</span><h2>People answer questions about their own work.</h2></div><p>The pilot assessments can ask about control, portability, and constraints that no public biography reveals. They create provisional self-reported snapshots—not declarations of who is an “institution.”</p>
       <div><span>02</span><h2>Public careers complicate the questions.</h2></div><p>The Observatory checks sourced facts, compares arrangements, and records what remains unknowable. It does not score or diagnose the people.</p>
-      <div><span>03</span><h2>Each evidence stream exposes the other’s blind spots.</h2></div><p>Self-report can describe lived reality but cannot represent everyone. Public evidence can establish visible facts but rarely reveals private contracts, economics, or informal power.</p>
+      <div><span>03</span><h2>Each source answers different questions.</h2></div><p>People can describe conditions that public sources do not show, including private agreements and informal power. Public evidence can verify visible facts across many careers. Reading the two separately helps the project state what is known, what comes from a participant, and what remains unanswered.</p>
     </div></section>
 
     <section className="method-instruments">

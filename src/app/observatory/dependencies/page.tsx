@@ -12,7 +12,7 @@ export default function DependencyExplorerPage() {
     <p className="eyebrow">The Observatory · Dependency Explorer</p>
     <h1>Every independent-looking career still depends on something.</h1>
     <p className="lede">The useful question is not whether dependency exists. It is what the work depends upon, who controls that dependency, whether it can travel, and what happens if access changes.</p>
-    <p><a href="/observatory">← Return to all Observatory tools</a></p>
+    <p><a href="/observatory">← The Observatory</a></p>
     <DependencyExplorer />
   </main>;
 }

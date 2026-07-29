@@ -71,18 +71,18 @@ export default async function ObservatoryPage({ searchParams }: { searchParams?:
     </div>
 
     <section style={{ margin: "0 0 42px", padding: "34px 32px", border: "1px solid #141b2e", background: "#141b2e", color: "#faf8f4" }} aria-labelledby="organization-heading">
-      <p className="eyebrow">Why this matters to organizations</p>
-      <h2 id="organization-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0", color: "#faf8f4" }}>See the structure around exceptional people before it becomes a risk.</h2>
-      <p style={{ maxWidth: 860, color: "#e5e0d6" }}>The same questions that clarify an individual career also help organizations examine key-person dependence, portable authority, partnership design, intellectual-property boundaries, succession, and whether a role has become an institution—or remains inseparable from one person.</p>
-      <p style={{ maxWidth: 860, color: "#e5e0d6" }}>The cases do not prescribe a universal model. They provide concrete comparisons that make better executive questions possible.</p>
-      <a className="button-primary" href="/partner" style={{ display: "inline-block", marginTop: 8 }}>Explore organizational work →</a>
+      <p className="eyebrow">Use this work with your group</p>
+      <h2 id="organization-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0", color: "#faf8f4" }}>Understand where valuable work lives, what it depends on, and how it can continue.</h2>
+      <p style={{ maxWidth: 860, color: "#e5e0d6" }}>RN works with companies, professional firms, universities, research teams, nonprofits, public institutions, creative organizations, communities, and other groups. The framework can support continuity planning, role and partnership design, research, workshops, practical tools, and ongoing decisions.</p>
+      <p style={{ maxWidth: 860, color: "#e5e0d6" }}>The cases offer concrete comparisons for examining your own situation. The engagement is shaped around the question your group needs to answer or the work it needs to produce.</p>
+      <a className="button-primary" href="/partner" style={{ display: "inline-block", marginTop: 8 }}>See ways to work together →</a>
     </section>
 
     <section style={{ margin: "0 0 42px", padding: "30px 32px", border: "1px solid #141b2e", background: "#efe8d8" }} aria-labelledby="integrity-heading">
-      <p className="eyebrow">Research integrity</p>
-      <h2 id="integrity-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>Inspect the evidence without turning methodology into another attraction.</h2>
-      <p style={{ maxWidth: 820 }}>The public cases, private individual responses, and any future deidentified participant research are separate evidence layers. Public cases remain named and source-linked. Participant data is not currently used to alter them.</p>
-      <p><a href="/observatory/evidence">Explore the case evidence →</a> &nbsp; <a href="/observatory/documentation">Review documentation status →</a></p>
+      <p className="eyebrow">Evidence and methods</p>
+      <h2 id="integrity-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>See what supports each case and what remains unknown.</h2>
+      <p style={{ maxWidth: 820 }}>Every public case is built from named, linked sources. The evidence pages show how claims are classified, how thoroughly each case is documented, and which facts the public record cannot establish. Private assessment responses and future participant research remain separate from the named public cases.</p>
+      <p><a href="/observatory/evidence">Examine the evidence →</a> &nbsp; <a href="/observatory/documentation">Check documentation status →</a></p>
     </section>
 
     <section id="nominate" style={{ marginTop: 64 }} aria-labelledby="nominate-heading">

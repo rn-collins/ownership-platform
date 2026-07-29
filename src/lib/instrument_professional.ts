@@ -1,6 +1,6 @@
 // The Portfolio Professional — instrument v0.1.
-// The enterprise projection of the ownership engine: measures how much of an
-// "individual-as-institution" a professional is inside their organization.
+// An exploratory instrument for examining how expertise becomes visible,
+// reusable, adopted, authoritative, and portable across roles.
 // Self-contained data (no imports) so it's inert until wired into a generalized
 // engine at /assess/professional. Mirrors the shape of instrument.ts.
 
@@ -201,10 +201,10 @@ export const PROFESSIONAL_INSTRUMENT: PDimension[] = [
 ];
 
 export const PROFESSIONAL_OVERALL: { min: number; key: string; label: string; copy: string }[] = [
-  { min: 80, key: "institution", label: "Institution of One", copy: "The organization is being built around you; your capability outlives your seat." },
-  { min: 55, key: "emerging", label: "Emerging Institution", copy: "Generative and visible. Your capability is starting to transfer and compound." },
-  { min: 30, key: "specialist", label: "Valued Specialist", copy: "A strong contributor, but the value is still contained in your role and person." },
-  { min: 0, key: "slotted", label: "Slotted Employee", copy: "You fill a defined role. Little transferable capability, mandate, or public authority yet." },
+  { min: 80, key: "institution", label: "Highly portable pattern", copy: "Your responses indicate visible, reusable capability with substantial reach beyond one role. Public evidence and institutional context may complicate that picture." },
+  { min: 55, key: "emerging", label: "Developing portability", copy: "Your responses indicate capability that is becoming visible and reusable, while some dimensions remain tied to the current setting." },
+  { min: 30, key: "specialist", label: "Role-centered pattern", copy: "Your responses indicate meaningful capability whose adoption or portability remains concentrated in the current role." },
+  { min: 0, key: "slotted", label: "Institution-dependent pattern", copy: "Your responses indicate that capability, mandate, or visibility currently depends heavily on the surrounding institution." },
 ];
 
 export const PROFESSIONAL_DIMENSION_WHY: Record<PDimensionKey, string> = {

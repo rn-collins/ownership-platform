@@ -6,7 +6,6 @@ import { INSTRUMENT, OVERALL_COPY, DIMENSION_WHY, ITEM_ACTIONS } from "@/lib/ins
 import { RESEARCH_MODULES, APP_RESEARCH_MODULE_KEYS, isResearchItemHidden, type ResearchItem } from "@/lib/research";
 import { Radar } from "./Radar";
 import { ResearchOptIn } from "@/components/ResearchOptIn";
-import { BenchmarkBadge } from "@/components/BenchmarkBadge";
 import { ProjectionDumbbell } from "@/components/ProjectionDumbbell";
 
 type Responses = Record<string, number>;
@@ -83,12 +82,11 @@ export function Assessment() {
     setSubmitted(true);
   }
 
-  // Share the score — native share sheet where available, clipboard otherwise.
-  // Built for the "post your score" growth loop: one tap to spread the Index.
-  async function shareScore() {
+  // Share the five-dimensional profile without turning the pilot into a rank.
+  async function shareProfile() {
     const r = assess(responses);
     const url = typeof window !== "undefined" ? `${window.location.origin}/assess/creator` : "/assess/creator";
-    const text = `I scored ${r.total}/100 on The Ownership Index — it measures how much of your creator business you actually own: audience, rights, revenue, likeness, and business. Take it:`;
+    const text = `I completed The Ownership Index pilot. It maps where control sits across audience, rights, revenue, identity, and infrastructure. Explore your own profile:`;
     try {
       if (typeof navigator !== "undefined" && navigator.share) {
         await navigator.share({ title: "The Ownership Index", text, url });
@@ -153,7 +151,7 @@ export function Assessment() {
           <div className="stepnav">
             <button className="ghost" onClick={() => setStep((s) => Math.max(0, s - 1))} disabled={step === 0}>Back</button>
             {step === CORE.length - 1 ? (
-              <button className="primary" onClick={onSubmit} disabled={responses[CORE[step].id] == null}>See my Ownership Score</button>
+              <button className="primary" onClick={onSubmit} disabled={responses[CORE[step].id] == null}>See my ownership profile</button>
             ) : (
               <button className="ghost" onClick={() => setStep((s) => Math.min(CORE.length - 1, s + 1))} disabled={responses[CORE[step].id] == null}>Next</button>
             )}
@@ -165,18 +163,17 @@ export function Assessment() {
         <div className="results">
           <div className="scorecard">
             <div>
-              <div className="big">{result.total}<span className="of"> / 100</span></div>
+              <p className="eyebrow">Your ownership profile</p>
               <div className="bandlbl">{result.overall.label}</div>
               <div className="bandnote">{OVERALL_COPY[result.overall.key]}</div>
               <div className="conf">
                 <span className="pill">Evidence status: {result.confidence.label}</span>
-                Self-reported. Evidence verification will raise this.
+                Self-reported. This pattern is exploratory and is not a rank or diagnosis.<br />Composite index: {result.total} / 100 under the current methodology.
               </div>
             </div>
             <Radar values={radarValues} />
           </div>
 
-          <BenchmarkBadge instrument="ownership" score={result.total} />
 
           <div className="bars">
             {result.dimensions.map((d) => (
@@ -203,7 +200,7 @@ export function Assessment() {
 
           <div className="research">
             <h3>The fuller picture</h3>
-            <p className="rsub">A few taps across your rights, revenue, brand, wellbeing and trajectory. Anonymous, matched to your score. The more you share, the sharper your picture.</p>
+            <p className="rsub">A few taps across your rights, revenue, brand, wellbeing and trajectory. Anonymous, connected to this response pattern. The more you share, the sharper your picture.</p>
             {(() => {
               const items = APP_RESEARCH.flatMap((m) => m.items).filter((it) => !isResearchItemHidden(it.id, responses));
               const done = items.filter((it) => {
@@ -252,14 +249,6 @@ export function Assessment() {
             <h3>Your path forward</h3>
             {plan.length > 0 ? (
               <>
-                <div className="proj">
-                  <div className="projrow">
-                    <span className="projnow">{result.total}</span>
-                    <span className="projarrow">→</span>
-                    <span className="projnext">{projected}</span>
-                  </div>
-                  <p className="projsub">If your circumstances later matched these {plan.length} response conditions, the current methodology would calculate <b>{projected}</b> out of 100, compared with {result.total} today.</p>
-                </div>
                 <ProjectionDumbbell rows={result.dimensions.map((d) => ({ name: d.name, current: d.raw, projected: d.raw + plan.filter((p) => p.dimension === d.key).reduce((s, p) => s + p.lift, 0) }))} />
                 {(() => {
                   const seenWhy = new Set<string>();
@@ -272,7 +261,7 @@ export function Assessment() {
                         <div className="planbody">
                           <div className="planhead">
                             <span className="plandim">{a.dimensionName}</span>
-                            <span className="planlift">+{a.lift} {a.lift === 1 ? "pt" : "pts"}</span>
+                            <span className="planlift">Changes this dimension</span>
                           </div>
                           <div className="planaction">{ITEM_ACTIONS[a.itemId]}</div>
                           {showWhy && <div className="planwhy">{DIMENSION_WHY[a.dimension]}</div>}
@@ -287,15 +276,15 @@ export function Assessment() {
             )}
             <div className="fwcta">
               <a href="/login"><button className="primary">Save my plan and track my progress</button></a>
-              <a href="/methodology" className="fwlink">How the score works →</a>
+              <a href="/methodology" className="fwlink">How the profile is calculated →</a>
             </div>
           </div>
 
           <ResearchOptIn source="index_creator" interest="creator" heading="Want your results and what comes next?" report={{ total: result.total, band: result.overall.label, instrument: "ownership" }} />
 
-          <p className="disc">Your answers are collected anonymously. Score reproducible under methodology v{result.methodologyVersion}.</p>
+          <p className="disc">Your answers are collected anonymously. Profile reproducible under methodology v{result.methodologyVersion}.</p>
           <div className="actions">
-            <button className="primary" onClick={shareScore}>{shared ? "Link copied ✓" : "Share my score"}</button>
+            <button className="primary" onClick={shareProfile}>{shared ? "Link copied ✓" : "Share my profile"}</button>
             <button className="ghost" onClick={() => { setSubmitted(false); setResponses({}); setResearch({}); setStep(0); setShared(false); }}>Start again</button>
           </div>
         </div>

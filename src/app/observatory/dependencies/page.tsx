@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 export default function DependencyExplorerPage() {
   return <main className="observatory-page">
     <p className="eyebrow">The Observatory · Dependency Explorer</p>
-    <h1>Every independent-looking career still depends on something.</h1>
-    <p className="lede">The useful question is not whether dependency exists. It is what the work depends upon, who controls that dependency, whether it can travel, and what happens if access changes.</p>
+    <h1>See what each career relies on.</h1>
+    <p className="lede">Filter the 41 cases by the employers, platforms, titles, capital, audiences, founders, rights, and distribution systems that appear relevant. Then open each case to verify what the sources establish.</p>
     <p><a href="/observatory">← The Observatory</a></p>
     <DependencyExplorer />
   </main>;

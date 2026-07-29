@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <p className="eyebrow">Institutions of One · About</p>
-      <h1>A research project about what people build through their work and what can continue when their circumstances change.</h1>
+      <h1>A research project about what people create, what can move with them, what they can govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.</h1>
       <p className="lede">
         Institutions of One began with a simple observation: organizations routinely measure reach, productivity, and
         performance, but rarely measure whether the value a person creates becomes portable, durable, and meaningfully
@@ -32,7 +32,7 @@ export default function AboutPage() {
         <p>
           A large audience does not necessarily mean ownership. Specialized expertise does not necessarily travel outside
           an employer. A personal brand does not necessarily become a durable business. By separating capability, authority,
-          portability, ownership, and institutional support, the project aims to give people and organizations clearer language for identifying what the person built, what they can carry, what they control, and what can continue.
+          portability, ownership, and institutional support, the project aims to give people and organizations clearer language for identifying what the person created, what can move with them, what they can govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.
         </p>
       </div>
 

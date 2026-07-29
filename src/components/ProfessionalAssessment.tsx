@@ -101,7 +101,7 @@ export function ProfessionalAssessment() {
   async function shareScore() {
     const r = assessProfessional(responses);
     const url = typeof window !== "undefined" ? `${window.location.origin}/assess/professional` : "/assess/professional";
-    const text = `I scored ${r.total}/100 on the Portfolio Professional — it measures how much of an "institution" you are inside your organization: your capability, value, mandate, authority, and thesis. Take it:`;
+    const text = `I completed the Portfolio Professional pilot — it examines how visible, reusable, portable, and influential your expertise has become across roles and organizations. Take it:`;
     try {
       if (typeof navigator !== "undefined" && navigator.share) { await navigator.share({ title: "Portfolio Professional", text, url }); return; }
       await navigator.clipboard.writeText(`${text} ${url}`);

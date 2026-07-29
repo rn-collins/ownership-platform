@@ -44,8 +44,7 @@ export default function PrivacyPage() {
 
       <div className="card">
         <h3>The Observatory</h3>
-        <p>People appear on the public map only from public evidence or a consented nomination. If you are on the map and
-        would like to be removed or corrected, contact me and it will be handled promptly.</p>
+        <p>The 41 named case records use publicly available evidence. A nomination begins a private review; it does not automatically create a public record. If a case concerns you and you would like to request a correction or raise a privacy concern, contact me and it will be reviewed promptly.</p>
       </div>
 
       <p className="disc" style={{ marginTop: 16 }}>

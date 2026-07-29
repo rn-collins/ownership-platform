@@ -13,6 +13,8 @@ export default function robots(): MetadataRoute.Robots {
         "/research/admin",
         "/research/observatory",
         "/observatory/guest/",
+        "/observatory/resources",
+        "/observatory/teaching",
         "/login",
         "/auth/",
       ],

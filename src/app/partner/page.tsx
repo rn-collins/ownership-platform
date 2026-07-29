@@ -4,8 +4,8 @@ export const metadata = {
   title: "Research and workshops for organizations",
   description: "Use comparative career research to examine key-person dependence, portable authority, intellectual property, succession, and creator or expert partnerships.",
   alternates: { canonical: "/partner" },
-  openGraph: { title: "Build something with Institutions of One", description: "Bring a question, community, case, dataset, publication, or stage to Institutions of One.", url: "/partner", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Build something with Institutions of One", description: "Bring a question, community, case, dataset, publication, or stage to Institutions of One.", images: ["/og.png"] },
+  openGraph: { title: "Research and workshops for organizations", description: "Examine key-person dependence, portable authority, intellectual-property boundaries, succession, and creator or expert partnerships.", url: "/partner", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "Research and workshops for organizations", description: "Examine key-person dependence, portable authority, intellectual-property boundaries, succession, and creator or expert partnerships.", images: ["/og.png"] },
 };
 
 const paths = [

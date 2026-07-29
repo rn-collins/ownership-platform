@@ -1,9 +1,9 @@
 export const metadata = {
   title: "About — Institutions of One",
-  description: "The purpose, researcher, independence, and development of Institutions of One.",
+  description: "The purpose, researcher, and development of Institutions of One.",
   alternates: { canonical: "/about" },
-  openGraph: { title: "About — Institutions of One", description: "The purpose, researcher, independence, and development of Institutions of One.", url: "/about", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "About — Institutions of One", description: "The purpose, researcher, independence, and development of Institutions of One.", images: ["/og.png"] },
+  openGraph: { title: "About — Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", url: "/about", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "About — Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", images: ["/og.png"] },
 };
 
 export default function AboutPage() {
@@ -38,11 +38,11 @@ export default function AboutPage() {
       </div>
 
       <div className="card">
-        <h3>Independence and funding</h3>
+        <h3>How the work is supported</h3>
         <p>
-          Institutions of One is independently led. Partnerships and financial support may fund data collection,
-          analysis, publication, or events, but they do not buy control of assessment scores or research conclusions.
-          Material support will be disclosed with the work it enables.
+          Institutions of One is led by Rayven-Nikkita Collins. Client engagements, research collaborations, and other support
+          can fund research, analysis, publication, programs, and events. Each project begins with a clear question, scope,
+          role for everyone involved, and explanation of how the resulting work will be used and shared.
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export default function AboutPage() {
 
       <div className="actions">
         <a href="/methodology"><button className="primary">Read the methodology</button></a>
-        <a href="/partner" className="hero-link">Participate or partner →</a>
+        <a href="/partner" className="hero-link">See ways to work together →</a>
       </div>
 
       <p className="disc" style={{ marginTop: 22 }}>

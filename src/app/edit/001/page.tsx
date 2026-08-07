@@ -238,7 +238,7 @@ export default function EditionOnePage() {
         <p className="eyebrow">Sources and limits</p>
         <h2 id="sources-heading">What supports this edition</h2>
         <p>
-          Sources were checked on July 26, 2026. Company and personal sources are used for bounded facts about their own announcements and representations; they are not treated as independent proof of performance, ownership, or value. No private contract, cap table, or participant interview was reviewed for this edition.
+          Sources were rechecked on August 7, 2026. Company and personal sources are used for bounded facts about their own announcements and representations; they are not treated as independent proof of performance, ownership, or value. No private contract, cap table, or participant interview was reviewed for this edition.
         </p>
         <ol>
           {sources.map((source) => (

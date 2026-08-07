@@ -42,16 +42,26 @@ export default function EditPage() {
         </div>
       </section>
 
-      <a className="edit-feature edit-feature-latest" href="/edit/002">
-        <span className="edit-feature-number">002</span>
+      <a className="edit-feature edit-feature-latest" href="/edit/004">
+        <span className="edit-feature-number">004</span>
         <div>
-          <p className="eyebrow">Latest edition · July 2026</p>
-          <h2>Your career has a supply chain.</h2>
+          <p className="eyebrow">Latest edition · August 2026</p>
+          <h2>The exit is part of the architecture.</h2>
           <p>
-            Dependence is unavoidable. The danger is a dependency you cannot see, replace, negotiate with, or survive without.
+            The right to download the parts is not the same as a path for the work to continue somewhere else.
           </p>
-          <strong>Read Edition 002 →</strong>
+          <strong>Read Edition 004 →</strong>
         </div>
+      </a>
+
+      <a className="edit-feature" href="/edit/003">
+        <span className="edit-feature-number">003</span>
+        <div><p className="eyebrow">Edition 003 · August 2026</p><h2>Your archive is not a backup.</h2><p>An export can preserve the objects you made while losing the operating memory that made them useful.</p><strong>Read Edition 003 →</strong></div>
+      </a>
+
+      <a className="edit-feature" href="/edit/002">
+        <span className="edit-feature-number">002</span>
+        <div><p className="eyebrow">Edition 002 · July 2026</p><h2>Your career has a supply chain.</h2><p>Dependence is unavoidable. The danger is a dependency you cannot see, replace, negotiate with, or survive without.</p><strong>Read Edition 002 →</strong></div>
       </a>
 
       <a className="edit-feature" href="/edit/001">

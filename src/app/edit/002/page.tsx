@@ -72,6 +72,7 @@ export default function EditionTwoPage() {
       <section className="edition-thresholds" aria-labelledby="supply-layers">
         <p className="eyebrow">The dependency stack</p>
         <h2 id="supply-layers">Four layers between work and continuity.</h2>
+        <p className="sec-sub">These are supplied functions. They are distinct from the four practical questions used later to test any one dependency.</p>
         <div className="edition-threshold-grid edition-four">
           {layers.map((layer) => (
             <article key={layer.name}>
@@ -129,7 +130,7 @@ export default function EditionTwoPage() {
           Amazon describes <em>Beast Games</em> as a competition series created and hosted by Jimmy Donaldson and distributed through Prime Video; in 2025 it announced two additional seasons.<sup><a href="#source-5">5</a></sup> Feastables separately operates a consumer-products business with its own sourcing commitments, products, retail relationships, and corporate identity.<sup><a href="#source-6">6</a></sup>
         </p>
         <p>
-          Moving from videos into a streaming production and packaged goods creates forms of capacity that are not reducible to a social account. It also introduces different suppliers: a global distributor, production systems, insurers, retailers, manufacturers, logistics, cocoa cooperatives, certification systems, and many others.
+          Moving from videos into a streaming production and packaged goods creates forms of capacity that are not reducible to a social account. Activities at that scale generally require different supplier categories—including distribution, production, insurance, retail, manufacturing, logistics, agricultural sourcing, and certification—even though the cited public materials do not establish every private supplier or term in Donaldson’s actual stack.
         </p>
         <p>
           Diversification requires more than having several businesses. A portfolio can reduce reliance on one revenue source while creating operational exposure across several supply chains. That trade may be worthwhile. The public materials cannot tell us how Donaldson, his entities, Amazon, retailers, and other partners privately divide ownership, control, liability, or bargaining power.
@@ -185,6 +186,13 @@ export default function EditionTwoPage() {
         </blockquote>
       </section>
 
+      <section className="edition-opening">
+        <h2>Seeing a dependency creates the next problem.</h2>
+        <p>
+          Once a critical supplier is visible, the next question is what must survive its loss. Files may need to remain readable, but continuity can also depend on context, permissions, relationships, evidence, and operating memory. Edition 003 asks whether an archive can recover the capability behind the work—not merely preserve its outputs.
+        </p>
+      </section>
+
       <EditionLab edition="002" />
 
       <section className="edition-opening" aria-labelledby="sources-heading">
@@ -205,7 +213,7 @@ export default function EditionTwoPage() {
 
       <nav className="edition-status" aria-label="Edition navigation">
         <div><p className="eyebrow">Read in sequence</p><h2>Build the idea from the beginning.</h2></div>
-        <div><a href="/edit/001"><strong>← Edition 001</strong><br/>When does one person become an institution?</a><p><a href="/edit">See every edition →</a></p></div>
+        <div><a href="/edit/001"><strong>← Edition 001</strong><br/>When does one person become an institution?</a><p><a href="/edit/003"><strong>Edition 003 →</strong><br/>Your archive is not a backup.</a></p></div>
       </nav>
 
       <section className="edition-subscribe">

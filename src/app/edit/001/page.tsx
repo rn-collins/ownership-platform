@@ -147,6 +147,9 @@ export default function EditionOnePage() {
         <blockquote>
           An institution of one is a person around whom durable capacity has formed: work, methods, relationships, systems, and authority that produce continuity and consequence beyond a single assignment. The phrase does not mean the person works alone, owns everything, or no longer depends on institutions.
         </blockquote>
+        <p>
+          The pilot maps dimensions of that capacity. It does not certify that a person has crossed a binary threshold or earned an institutional status.
+        </p>
       </section>
 
       <section className="edition-opening">
@@ -201,7 +204,7 @@ export default function EditionOnePage() {
         </div>
         <div>
           <p>
-            Jony Ive shows what can move when a person leaves a powerful employer. Shonda Rhimes shows an owned organizational identity working through a major distributor. Jane Gilbert shows institution-building inside government. Emma Chamberlain shows creator attention becoming products and a physical place. Suzie Reider shows executive capability traveling without personal ownership of the systems created. Pieter Levels shows direct operation of small digital products.
+            Jony Ive shows what can move when a person leaves a powerful employer. Shonda Rhimes shows a named organizational identity working through a major distributor. Jane Gilbert shows institution-building inside government. Emma Chamberlain shows creator attention becoming products and a physical place. Suzie Reider shows executive capability traveling without personal ownership of the systems created. Pieter Levels shows direct operation of small digital products.
           </p>
           <p>
             Removing the employee and public-sector cases would make the framework founder-biased. Removing the creator and independent-operator cases would make it conventionally corporate. All six belong because the disagreement among them is the point.
@@ -250,7 +253,7 @@ export default function EditionOnePage() {
       </section>
 
       <nav className="edition-status" aria-label="Edition navigation">
-        <div><p className="eyebrow">Continue the inquiry</p><h2>Next: the dependencies beneath the work.</h2></div>
+        <div><p className="eyebrow">Continue the inquiry</p><h2>Continue needs a closer look.</h2><p>Edition 002 examines the suppliers beneath the work and what happens when an essential dependency changes.</p></div>
         <div><a href="/edit/002"><strong>Edition 002 →</strong><br/>Your career has a supply chain.</a></div>
       </nav>
 

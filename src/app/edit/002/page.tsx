@@ -199,7 +199,7 @@ export default function EditionTwoPage() {
         <p className="eyebrow">Sources and limits</p>
         <h2 id="sources-heading">What supports this edition</h2>
         <p>
-          Sources were checked on July 26, 2026. The sources are first-party company announcements and representations. They support bounded facts about announced arrangements, products, and organizational descriptions; they do not independently establish financial performance, private ownership percentages, unpublished contract terms, internal data access, or bargaining power.
+          Sources were rechecked on August 7, 2026. The sources are first-party company announcements and representations. They support bounded facts about announced arrangements, products, and organizational descriptions; they do not independently establish financial performance, private ownership percentages, unpublished contract terms, internal data access, or bargaining power.
         </p>
         <ol>
           {sources.map((source) => (

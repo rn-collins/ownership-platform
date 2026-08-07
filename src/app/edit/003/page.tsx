@@ -81,6 +81,6 @@ export default function EditionThreePage() {
 
     <section className="edition-opening" aria-labelledby="source-desk"><p className="eyebrow">Source Desk</p><h2 id="source-desk">Inspect the primary documentation.</h2><ol>{sources.map(([label,href]) => <li key={href}><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>)}</ol><p><strong>Source status:</strong> Primary platform and legal documentation rechecked 7 August 2026. These sources establish described tools and access structures, not identical functionality for every account, region, plan, role, or export. Recheck at publication and application.</p></section>
     <section className="edition-opening"><p className="eyebrow">Read in sequence</p><p><a href="/edit/002">← Edit 002: the suppliers beneath a career</a></p><p><a href="/edit/004">Next: The Exit Is Part of the Architecture →</a></p></section>
-    <section className="closing-call"><p className="eyebrow">The I/1 Edit</p><h2>Follow the research on work, ownership, continuity, and institutional power.</h2><NewsletterSignup source="edit-003" /></section>
+    <section className="closing-call"><p className="eyebrow">The I/1 Edit</p><h2>Follow the research on work, ownership, continuity, and institutional power.</h2><NewsletterSignup source="site" /></section>
   </main>;
 }

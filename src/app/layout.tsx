@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL), title: TITLE, description: DESC, applicationName: "Institutions of One", authors: [{ name: "RN Collins" }], keywords: ["Institutions of One", "Ownership Index", "Portfolio Professional", "independent creators", "portfolio careers", "RN Collins"],
   openGraph: { type: "website", siteName: "Institutions of One", title: TITLE, description: DESC, url: SITE_URL, images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Institutions of One — what people build, carry, control, and continue" }] },
   twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/opengraph-image"] },
-  icons: { icon: "/icon.svg", shortcut: "/icon.svg", apple: "/icon.svg" },
+  icons: { icon: "/icon-v2.svg", shortcut: "/icon-v2.svg", apple: "/icon-v2.svg" },
   manifest: "/site.webmanifest",
   themeColor: "#11100e",
 };

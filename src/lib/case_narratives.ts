@@ -14,7 +14,7 @@ export const CASE_NARRATIVES: Record<string, CaseNarrative> = {
     unresolved: ["Which methods and relationships traveled between roles?", "How much of the institutional memory depended on Reider personally?", "Which accomplishments are attributable to teams rather than one executive?"],
     sources: [
       { label: "Lyft: Suzie Reider appointment and career history", href: "https://www.lyft.com/blog/posts/lyft-welcomes-suzie-reider" },
-      { label: "Adweek: YouTube’s Suzie Reider on the creator economy", href: "https://www.adweek.com/media/youtube-suzie-reider-cannes-lions/", independent: true },
+      { label: "Modern Retail: Suzie Reider on Waze traffic and the retailers that depend on it", href: "https://www.modernretail.co/retailers/wazes-suzie-reider-on-the-return-of-road-traffic-and-the-retailers-that-depend-on-it/", independent: true },
     ],
   },
   "kenny-gold": {

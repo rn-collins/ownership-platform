@@ -61,12 +61,19 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
   const institutionalSourceCount = (narrative?.sources.length ?? 0) - independentSourceCount;
   const date = (value: Date) => new Intl.DateTimeFormat("en", { year: "numeric", month: "long", day: "numeric" }).format(value);
   const reviewLabel = reviewedAt ? date(reviewedAt) : "July 2026";
+  // `documentationLevel` is this project's own assessment of how deeply a record has been
+  // researched. It is NOT a verification result: `status` (verificationStatus) is the only
+  // field that records whether the claims have actually cleared review, and no case has yet
+  // reached "verified". Label the two separately so neither is read as the other.
+  const depthLabel = researchRecord?.documentationLevel === "saturated" ? "Research depth: claim-level" : "Research depth: provisional";
+  const verificationLabels: Record<string, string> = { verified: "Verification: verified", partially_supported: "Verification: partially supported", in_review: "Verification: in review", provisional: "Verification: not yet verified", disputed: "Verification: disputed", rejected: "Verification: rejected" };
+  const verificationLabel = verificationLabels[status] ?? "Verification: not yet verified";
 
   return <main className={styles.page}>
     <Link href="/observatory" className={styles.back}>← Explore all 41 people</Link>
     <header className={styles.hero}>
       <div><p className={styles.kicker}>{node.tension ?? "An open career question"}</p><h1>{node.name}</h1><p className={styles.role}>{node.role}</p></div>
-      <div className={styles.meta}><span>{node.domain}</span><span>{node.kind === "creator" ? "Creator-led work" : "Work built through organizations"}</span><span>Reviewed {reviewLabel}</span><span>{researchRecord?.documentationLevel === "saturated" ? "Saturated research record" : "Provisional research record"}</span></div>
+      <div className={styles.meta}><span>{node.domain}</span><span>{node.kind === "creator" ? "Creator-led work" : "Work built through organizations"}</span><span>Reviewed {reviewLabel}</span><span>{depthLabel}</span><span>{verificationLabel}</span></div>
     </header>
 
     <section className={styles.question} aria-labelledby="central-question"><span>What this career helps us understand</span><h2 id="central-question">{node.question ?? "What does this career make possible—and what makes it fragile?"}</h2><p>Follow the story, inspect the structure, test a dependency, compare the case, and verify the evidence. This is analysis of a public record—not a rating of the person.</p></section>
@@ -75,7 +82,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
       <a href="#understand"><span>01</span>Understand</a><a href="#trace"><span>02</span>Trace</a><a href="#examine"><span>03</span>Examine</a><a href="#test"><span>04</span>Test</a><a href="#compare"><span>05</span>Compare</a><a href="#verify"><span>06</span>Verify</a>
     </nav>
 
-    {researchRecord?.documentationLevel === "provisional" && <p className={styles.warning}><strong>Documentation status:</strong> This is a provisional research profile, not yet a claim-level saturated case. Use it as a research lead and inspect the source limits below. <Link href="/observatory/documentation">See what completion requires →</Link></p>}
+    <p className={styles.warning}><strong>Documentation status:</strong> {researchRecord?.documentationLevel === "provisional" ? "This is a provisional research profile, not yet a claim-level record. Use it as a research lead and inspect the source limits below." : "This record has been researched to claim level, meaning each statement is tied to a source."} No case on this site has yet completed independent verification review, so treat every statement as sourced reporting rather than a verified finding. <Link href="/observatory/documentation">See what completion requires →</Link></p>
 
     {narrative ? <>
       <section className={styles.section} id="understand" aria-labelledby="career-story">

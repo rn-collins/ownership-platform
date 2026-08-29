@@ -26,15 +26,15 @@ The map treats “Captain of Moonshots” as an unusually tailored role. The rev
 | AST-S06 | https://x.company/blog/posts/ted-celebrating-failure/ | X / institutional post | yes | Attributed management proposition, not validated causal result. |
 | AST-S07 | https://x.company/moonshotpodcast/ | X / media page | yes | Host relationship and production/distribution attribution. |
 | AST-S08 | https://x.company/projects/skip/ | X / project page | yes | Named project team and independent-company transition. |
-| AST-S09 | https://x.company/blog/posts/loon-final-flight/ | X / institutional post | yes | Loon shutdown and team legacy; no personal-failure inference. |
-| AST-S10 | https://x.company/blog/posts/sharing-makani-with-the-world/ | X / institutional post | yes | Makani closure and released materials; rights remain holder-specific. |
+| AST-S09 | https://x.company/blog/posts/loon-s-final-flight/ | X / institutional post | yes | Loon shutdown and team legacy; no personal-failure inference. |
+| AST-S10 | https://x.company/blog/posts/sharing-makani-with-the-world-the-energy-kite-collection/ | X / institutional post | yes | Makani closure and released materials; rights remain holder-specific. |
 | AST-S11 | https://x.company/blog/posts/introducing-intrinsic/ | X / institutional post | yes | Intrinsic graduation and team attribution. |
-| AST-S12 | https://x.company/blog/posts/taara-spins-out/ | X / institutional post | yes | Taara independent-company transition and capital boundaries. |
+| AST-S12 | https://x.company/blog/posts/taara-graduation/ | X / institutional post | yes | Taara independent-company transition and capital boundaries. |
 | AST-S13 | https://www.sec.gov/Archives/edgar/data/1652044/000130817926000344/goog014907-ars.pdf | Alphabet / 2025 annual report | yes | Alphabet structure and consolidated Other Bets results; not X-only. |
 | AST-S14 | https://www.hertzfoundation.org/people/astro-teller/ | Hertz Foundation / fellow biography | yes | Education and earlier company chronology; holder-specific interests unresolved. |
 | AST-S15 | https://stvp.stanford.edu/people/astro-teller | Stanford / institutional biography | yes | Earlier roles, co-founding and executive chronology. |
 | AST-S16 | https://www.reuters.com/technology/alphabets-moonshot-lab-cuts-jobs-seeks-outside-investors-bloomberg-news-2024-01-22/ | Reuters / restructuring reporting | no | Reported layoffs and outside-capital strategy; not proof of motive. |
-| AST-S17 | https://www.theverge.com/2023/2/21/23609842/alphabet-everyday-robots-shut-down-google-x | The Verge / closure reporting | no | Reported Everyday Robots shutdown; secondary and project-bounded. |
+| AST-S17 | https://www.theverge.com/2023/2/24/23613214/everyday-robots-google-alphabet-shut-down | The Verge / closure reporting | no | Reported Everyday Robots shutdown; secondary and project-bounded. |
 
 ## Atomic claim register
 

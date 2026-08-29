@@ -82,7 +82,7 @@ It does **not** establish that Levels personally owns every relevant legal entit
     https://lexfridman.com/pieter-levels-transcript/
 
 12. **My First Million interview publication.** Same evidentiary limitation: useful direct testimony, not an audit.  
-    https://www.mfmpod.com/pieter-levels-making-2-7m-a-year-with-no-employees/
+    https://www.mfmpod.com/pieter-levels-making-27m-a-year-with-no-employees/
 
 Derivative “solo founder” case studies and net-worth sites were reviewed as leads but excluded from the factual chain because they largely recycle Levels’s public statements and apply unsupported valuation multiples.
 

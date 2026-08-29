@@ -27,8 +27,8 @@ The map treats Ive as Apple's first Chief Design Officer. Reviewed evidence supp
 | JIV-S07 | https://www.britishmuseum.org/about-us/governance | British Museum / governance record | yes | Current trustee roster and multi-person governance. |
 | JIV-S08 | https://www.britishmuseum.org/about-us/press/press-releases | British Museum / press index | yes | June 2025 trustee appointment. |
 | JIV-S09 | https://www.britishmuseum.org/sites/default/files/2026-07/Annual_Report_and_Accounts_2025-26.pdf | British Museum / annual report | yes | Trustee service from June 10, 2025; charity governance boundaries. |
-| JIV-S10 | https://www.airbnb.com/resources/hosting-homes/a/a-letter-from-brian-chesky-292 | Airbnb / founder letter | yes | Reported multi-year LoveFrom collaboration; Airbnb ownership and teams preserved. |
-| JIV-S11 | https://www.rca.ac.uk/news-and-events/news/sir-jony-ive-appointed-chancellor/ | Royal College of Art / institutional release | yes | Chancellor appointment and institutional role. |
+| JIV-S10 | https://news.airbnb.com/a-letter-to-hosts/ | Airbnb / founder letter | yes | Reported multi-year LoveFrom collaboration; Airbnb ownership and teams preserved. |
+| JIV-S11 | https://www.rca.ac.uk/news-and-events/news/sir-jony-ive-kbe-appointed-chancellor-of-the-royal-college-of-art/ | Royal College of Art / institutional release | yes | Chancellor appointment and institutional role. |
 | JIV-S12 | https://www.nytimes.com/2022/07/12/technology/jony-ive-apple-lovefrom.html | New York Times / reporting | no | Reports Apple consulting agreement ended; contract remains unavailable. |
 | JIV-S13 | https://www.ft.com/content/8ac40343-2fd1-4035-9664-47c77017d0d3 | Financial Times / transaction reporting | no | Reports io transaction value, prior OpenAI interest and team size; not personal proceeds. |
 | JIV-S14 | https://www.reuters.com/technology/artificial-intelligence/openai-buys-iphone-designer-ives-hardware-startup-names-him-creative-head-2025-05-21/ | Reuters / transaction reporting | no | Reported acquisition structure and valuation; subject to primary boundaries. |

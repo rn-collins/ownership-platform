@@ -21,7 +21,7 @@ Role-built flag: `false`. Public evidence shows a namesake company and formal au
 | EC11-S02 | [2022 Series A reporting](https://www.forbes.com/sites/douglasyu/2022/08/16/chamberlain-coffee-feels-like-an-extension-of-myself-youtube-influencer-emma-chamberlain-founded-coffee-company-closes-7-million-series-a-funding/) | interview/reporting | No | 2022-08-16 | Financing and founder statements |
 | EC11-S03 | [2023 financing announcement](https://www.prnewswire.com/news-releases/chamberlain-coffee-raises-7m-in-funding-from-previous-and-new-investors-301840027.html) | issuer release | Yes | 2023-06-01 | Later financing and named investors |
 | EC11-S04 | [2023 RTD launch](https://www.prnewswire.com/news-releases/chamberlain-coffee-brings-a-new-wave-of-innovation-with-ready-to-drink-latte-launch-301802639.html) | issuer release | Yes | 2023-04-20 | Walmart-exclusive launch |
-| EC11-S05 | [2023 oatmilk reformulation](https://www.prnewswire.com/news-releases/answering-popular-demand-chamberlain-coffee-launches-ready-to-drink-oatmilk-lattes-302012435.html) | issuer release | Yes | 2023-12 | Product change after consumer feedback |
+| EC11-S05 | [2023 oatmilk reformulation](https://www.prnewswire.com/news-releases/answering-popular-demand-chamberlain-coffee-launches-ready-to-drink-oatmilk-lattes-302005687.html) | issuer release | Yes | 2023-12 | Product change after consumer feedback |
 | EC11-S06 | [SEC Form D](https://www.sec.gov/Archives/edgar/data/1982731/000198273124000001/xslFormDX01/primary_doc.xml) | regulatory filing | Yes | 2024-05-15 | Corporate identity, formation year, offering, related persons |
 | EC11-S07 | [Co-CEO appointment](https://www.bevnet.com/news/2024/chamberlain-coffees-influencer-founder-emma-chamberlain-takes-co-ceo-mantle/) | trade reporting | No | 2024-08-15 | Leadership transition |
 | EC11-S08 | [World Coffee Portal appointment report](https://www.worldcoffeeportal.com/news/influencer-emma-chamberlain-assumes-co-ceo-role-at-chamberlain-coffee/) | trade reporting | No | 2024-08-20 | Prior CCO remit, co-CEO and co-leader context |
@@ -33,7 +33,7 @@ Role-built flag: `false`. Public evidence shows a namesake company and formal au
 | EC11-S14 | [Sprudge adverse-financial summary](https://sprudge.com/internal-documents-dont-paint-a-rosy-picture-of-chamberlain-coffee-309553.html) | trade reporting | No | 2025-03-21 | Reported 2024 loss, revenue and projections |
 | EC11-S15 | [Walmart brand storefront](https://www.walmart.com/brand/chamberlaincoffee/10002532) | retailer record | Yes | accessed 2026-07-26 | Retail presence snapshot |
 | EC11-S16 | [Pinterest collaboration report](https://people.com/emma-chamberlain-opens-up-her-sober-journey-exclusive-11754278) | interview/reporting | No | 2025-06-17 | Named co-branded product collaboration |
-| EC11-S17 | [Original 2020 launch reporting](https://www.refinery29.com/en-us/2020/09/10050665/emma-chamberlain-coffee-company-interview) | interview/reporting | No | 2020-09 | Early operating account and launch limits |
+| EC11-S17 | [Original 2020 launch reporting](https://www.refinery29.com/en-us/2020/09/10042481/emma-chamberlain-coffee-merch-brand-interview) | interview/reporting | No | 2020-09 | Early operating account and launch limits |
 
 ## Atomic claims
 

@@ -23,10 +23,10 @@ The chapter operated through BCMA’s institutional structure, members, steering
 
 | ID | Source | Class | Use and limits |
 |---|---|---|---|
-| GG-S01 | [BCMA Influence chapter](https://thebcma.info/about/chapters/bcma-influence.html) | primary institutional | Current chapter description and Glenister title; does not disclose contract, ownership or decision rights. |
+| GG-S01 | [BCMA Influence chapter](https://www.thebcma.info/team.html) | primary institutional | Current chapter description and Glenister title; does not disclose contract, ownership or decision rights. |
 | GG-S02 | [BCMA Influencer Marketing Guidelines](https://www.thebcma.info/onewebmedia/DOWNLOADABLE%20DOCUMENTS/BCMA%20Influencer%20Marketing%20Guidelines%20and%20Best%20Practice%20UK.pdf) | primary institutional PDF | Chapter and founding steering-group evidence; group attribution matters. |
 | GG-S03 | [BCMA Pitch Influence 2020 winners](https://www.thebcma.info/onewebmedia/DOWNLOADABLE%20DOCUMENTS/BCMA%20-%20Pitch%20Influence%202020%20-%20Winners%20Announced.pdf) | primary institutional PDF | Documents Glenister as organizer/head judge and BCMA Global Head. |
-| GG-S04 | [BCMA UK chapter](https://thebcma.info/about/chapters/bcmauk.html) | primary institutional | Current title and advisory-board context. |
+| GG-S04 | [BCMA UK chapter](https://www.thebcma.info/team.html) | primary institutional | Current title and advisory-board context. |
 | GG-S05 | [In Clear Focus interview](https://www.bigeyeagency.com/podcast/influencer-marketing-strategy-with-gordon-glenister) | first-person interview | Detailed joint-launch account with Andrew Canter; attributed, retrospective. |
 | GG-S06 | [Agorapulse profile](https://www.agorapulse.com/partnershipunpacked/gordon-glenister/) | derivative/profile | Repeats that Glenister set up the division in 2019; not independent formation proof. |
 | GG-S07 | [Gordon Glenister site](https://gordonglenister.com/) | first-party current | Current self-described ventures and roles; ownership and performance claims remain issuer statements. |
@@ -36,7 +36,7 @@ The chapter operated through BCMA’s institutional structure, members, steering
 | GG-S11 | [Product Media departure profile](https://www.productmediamagazine.co.uk/goodbye-after-11-years-as-director-general-of-the-bpma-gordon-glenister-is-moving-on/) | trade/profile | Career-transition corroboration; does not establish later BCMA rights. |
 | GG-S12 | [BCMA podcast guest information](https://www.thebcma.info/onewebmedia/Influence%20Global%20Podcast%20Guest%20Information.pdf) | primary operating document | Ties podcast promotion to Glenister and BCMA surfaces; rights and economics undisclosed. |
 | GG-S13 | [Newsfile release on second edition](https://www.newsfilecorp.com/release/218219/Gordon-Glenister-Ltd-Unveils-Highly-Anticipated-Second-Edition-of-Influencer-Marketing-Strategy) | issuer-paid release | Gordon Glenister Ltd and book claims; promotional assertions require attribution. |
-| GG-S14 | [BCMA Cannes 2024 page](https://thebcma.info/cannes24.html) | primary institutional | Demonstrates continuing BCMA programming and institutional context. |
+| GG-S14 | [BCMA Cannes 2024 page](https://www.thebcma.info/) | primary institutional | Demonstrates continuing BCMA programming and institutional context. |
 
 ## Atomic claims
 

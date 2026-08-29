@@ -28,8 +28,8 @@ The map presents May as a musician, astrophysics PhD and publisher. Public evide
 | BMY-S08 | https://www.imperial.ac.uk/news/21834/zodiacal-dust-stuff-the-annual-alumni/ | Imperial College London / institutional news | yes | Research lecture and subject; no broad scientific-impact claim. |
 | BMY-S09 | https://science.nasa.gov/mission/osiris-rex/ | NASA / mission page | yes | Mission and institutional-team context; no sole-mission or sole-discovery inference. |
 | BMY-S10 | https://time.com/5492147/brian-may-ultima-thule/ | TIME / interview and reporting | no | New Horizons data-analysis and stereoscopic role; statements remain attributed. |
-| BMY-S11 | https://londonstereo.com/about-us/ | London Stereoscopic Company / company page | yes | Company history, May and collaborators; no complete cap-table or rights proof. |
-| BMY-S12 | https://londonstereo.com/queen-in-3-d/ | London Stereoscopic Company / product page | yes | Book, photographs and viewer relationship; publication rights remain contract-specific. |
+| BMY-S11 | https://londonstereo.com/introduction.html | London Stereoscopic Company / company page | yes | Company history, May and collaborators; no complete cap-table or rights proof. |
+| BMY-S12 | https://shop.londonstereo.com/BOOK-Q3-D-UPDATED-EDITION.html | London Stereoscopic Company / product page | yes | Book, photographs and viewer relationship; publication rights remain contract-specific. |
 | BMY-S13 | https://patents.google.com/patent/GB2482249A/en | UKIPO-derived patent record | yes | OWL viewer inventorship and assignee record where stated; inventorship differs from ownership. |
 | BMY-S14 | https://savemetrust.co.uk/ | Save Me Trust / charity page | yes | Co-founder attribution and mission; charity assets and outcomes remain institutional. |
 | BMY-S15 | https://savemetrust.co.uk/about/how-it-all-started/ | Save Me Trust / organizational history | yes | 2010 formation and campaigning chronology; first-party impact claims require validation. |

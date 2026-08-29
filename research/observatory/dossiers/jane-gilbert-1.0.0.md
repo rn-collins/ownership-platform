@@ -19,7 +19,7 @@ Proposed headline: **Miami-Dade’s inaugural Chief Heat Officer built a cross-a
 | JG-S02 | [Miami-Dade employee profile](https://secure.miamidade.gov/employee/ithrive/archive/ithrive-rer-gilbert.page) | government profile | Yes | accessed 2026-07-26 | county “first person in history” claim and work |
 | JG-S03 | [World Economic Forum interview](https://www.weforum.org/stories/2023/05/chief-heat-officer/) | first-person institutional interview | Yes | 2023 | role origin and global replication |
 | JG-S04 | [Miami-Dade Extreme Heat portal](https://www.miamidade.gov/heat/) | government program record | Yes | accessed 2026-07-26 | current protocol and outcome claims |
-| JG-S05 | [Miami-Dade Extreme Heat Action Plan](https://www.miamidade.gov/environment/library/2022-heat-action-plan.pdf) | government plan | Yes | 2022 | three goals and nineteen actions |
+| JG-S05 | [Miami-Dade Extreme Heat Action Plan](https://www.miamidade.gov/resources/environment/documents/2022-heat-action-plan.pdf) | government plan | Yes | 2022 | three goals and nineteen actions |
 | JG-S06 | [Peer-reviewed BAMS article](https://journals.ametsoc.org/view/journals/bams/105/5/BAMS-D-23-0055.1.xml) | peer-reviewed research | Yes | 2024 | evidence-building and planning method |
 | JG-S07 | [WLRN department reorganization](https://www.wlrn.org/light/government-politics/2025-02-21/miami-dades-resilience-department-rebrand-staff-cuts) | local public-media reporting | No | 2025-02-21 | role elimination/absorption and planned retirement |
 | JG-S08 | [Climate Resilience Center ambassador appointment](https://onebillionresilient.org/2025/11/06/appoint-chief-heat-ambassador/) | organization release | Yes | 2025-11-06 | post-county role |

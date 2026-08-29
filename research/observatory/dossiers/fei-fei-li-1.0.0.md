@@ -28,13 +28,13 @@ The map presents Li as a scientist, founder, author, and institution-builder. Pu
 | FFL-S08 | https://www.reuters.com/technology/artificial-intelligence/ai-godmother-fei-fei-li-raises-230-million-launch-ai-startup-2024-09-13/ | Reuters / independent journalism | no | 2024 launch financing, cofounders and staffing; financing is company capital. |
 | FFL-S09 | https://www.reuters.com/business/ai-pioneer-fei-fei-lis-world-labs-raises-1-billion-funding-2026-02-18/ | Reuters / independent journalism | no | 2026 financing and investors; no personal proceeds or valuation inference. |
 | FFL-S10 | https://cloud.google.com/blog/products/ai-machine-learning/feifei-li-and-jia-li-join-google-cloud | Google Cloud / company announcement | yes | Google appointment chronology and institutional role. |
-| FFL-S11 | https://www.un.org/scientific-advisory-board/en/about/board-members | United Nations / board register | yes | Scientific Advisory Board membership; advisory role is not UN ownership or executive authority. |
+| FFL-S11 | https://hai.stanford.edu/news/hai-co-director-fei-fei-li-joins-un-secretary-generals-scientific-advisory-board | Stanford HAI / institutional announcement | yes | Records the 2023 appointment to the UN Secretary-General's Scientific Advisory Board. Replaces the UN board register, which 404s and whose current membership list no longer includes Li. Advisory role is not UN ownership or executive authority. |
 | FFL-S12 | https://us.macmillan.com/books/9781250897930/theworldsisee/ | Macmillan / publisher page | yes | Book authorship and publisher relationship; contract, royalties and derivative rights remain private. |
 | FFL-S13 | https://www.sec.gov/Archives/edgar/data/1418091/000156459020024062/twtr-8k_20200511.htm | SEC / Twitter filing | yes | 2020 board appointment; holder-specific securities and governance only. |
 | FFL-S14 | https://www.sec.gov/Archives/edgar/data/1418091/000119312522270119/d396440d8k.htm | SEC / Twitter filing | yes | 2022 board dissolution after acquisition; no motive or performance inference. |
 | FFL-S15 | https://www.nytimes.com/2018/06/01/technology/google-pentagon-project-maven.html | New York Times / independent journalism | no | Project Maven controversy and Google decision context; attributed reporting, not psychological evidence. |
-| FFL-S16 | https://ai.stanford.edu/~ang/papers/cvpr09-ImageNet.pdf | Stanford-hosted CVPR paper | yes | Redundant scholarly provenance for ImageNet authorship and method. |
-| FFL-S17 | https://www.princeton.edu/news/2024/02/22/fei-fei-li-99-receives-woodrow-wilson-award | Princeton / institutional biography | yes | Career and AI4ALL history; award narrative is not independent impact measurement. |
+| FFL-S16 | https://www.image-net.org/static_files/papers/imagenet_cvpr09.pdf | Stanford-hosted CVPR paper | yes | Redundant scholarly provenance for ImageNet authorship and method. |
+| FFL-S17 | https://www.princeton.edu/news/2024/02/26/alumni-day-princeton-honors-computer-scientist-fei-fei-li-and-ornithologist-john | Princeton / institutional biography | yes | Career and AI4ALL history; award narrative is not independent impact measurement. |
 
 ## Atomic claim register
 

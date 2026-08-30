@@ -15,7 +15,7 @@ Proposed headline: **Miami-Dade’s inaugural Chief Heat Officer built a cross-a
 
 | ID | Source | Type | Primary | Date | Use |
 |---|---|---|---:|---|---|
-| JG-S01 | [Miami-Dade appointment release](https://www.miamidade.gov/releases/2021-04-30-mayor-chief-heat-officer.asp) | government release | Yes | 2021-04-30 | appointment, interim status, host and remit |
+| JG-S01 | [Miami-Dade Extreme Heat Action Plan launch release](https://www.miamidade.gov/global/release.page?Mduid_release=rel1671058592011897) | government release | Yes | 2022-12-14 | appointment as the world's first Chief Heat Officer, Miami Foundation and Resilient305 partners, remit. The original 2021 appointment release is no longer retrievable; announcement date and any interim status are therefore unsourced. |
 | JG-S02 | [Miami-Dade employee profile](https://secure.miamidade.gov/employee/ithrive/archive/ithrive-rer-gilbert.page) | government profile | Yes | accessed 2026-07-26 | county “first person in history” claim and work |
 | JG-S03 | [World Economic Forum interview](https://www.weforum.org/stories/2023/05/chief-heat-officer/) | first-person institutional interview | Yes | 2023 | role origin and global replication |
 | JG-S04 | [Miami-Dade Extreme Heat portal](https://www.miamidade.gov/heat/) | government program record | Yes | accessed 2026-07-26 | current protocol and outcome claims |

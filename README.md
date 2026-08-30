@@ -3,6 +3,8 @@
 Institutions of One is an independent research programme studying how people turn individual
 capability into durable, portable, ownable institutional power.
 
+**Live:** https://ownership-platform.vercel.app
+
 This repository is the programme's working research platform. It contains measurement
 instruments, validation operations, an evidence-governed Observatory, longitudinal research
 infrastructure, public research surfaces, and participation and partnership workflows.

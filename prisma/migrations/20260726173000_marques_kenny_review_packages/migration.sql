@@ -35,7 +35,7 @@ INSERT INTO "ObservatorySource" (
 ('obs_src_kg_s01','https://www.edelman.com/news-awards/kenny-gold-global-chief-creator-officer','Edelman appoints Kenny Gold Global Chief Creator Officer','Edelman','company_record','2026-06-02T00:00:00Z','2026-07-25T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
 ('obs_src_kg_s02','https://www.linkedin.com/posts/edelman_were-excited-to-welcome-kenny-gold-as-edelman-activity-7467636476260962305-nzMJ','Edelman first Global Chief Creator Officer announcement','Edelman','company_record',NULL,'2026-07-25T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
 ('obs_src_kg_s03','https://www.linkedin.com/posts/kennethrgold_edelman-hires-first-global-chief-creator-activity-7467577686572285952-6HcL','Gold first-person Edelman announcement','Kenny Gold','first_person',NULL,'2026-07-25T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
-('obs_src_kg_s04','https://www.deloitte.com/us/en/about/people/profiles.kenny-gold%2B7cf89b84.html','Kenny Gold biography','Deloitte','company_record',NULL,'2026-07-25T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
+('obs_src_kg_s04','https://event.adweek.com/elevate-future-of-shopping-2022/speaker/580928/kenny-gold','Kenny Gold speaker biography: Managing Director, Head of Social, Content and Influencer, Deloitte Digital','Adweek','event_speaker_biography','2022-01-01T00:00:00Z','2026-08-29T00:00:00Z',false,'public',CURRENT_TIMESTAMP),
 ('obs_src_kg_s05','https://www.deloitte.com/us/en/services/consulting/services/creator-influencer-solutions.html','Creator and Influencer Solutions','Deloitte','company_record',NULL,'2026-07-25T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
 ('obs_src_kg_s06','https://www.deloitte.com/us/en/programs/chief-marketing-officer/articles/content-creator-economy.html','Creator Economy in 3D','Deloitte','academic',NULL,'2026-07-25T00:00:00Z',true,'public',CURRENT_TIMESTAMP),
 ('obs_src_kg_s07','https://www.mediapost.com/publications/article/365791/deloitte-digital-hires-kenny-gold-as-first-head-of.html','Deloitte Digital hires first Head of Social, Content and Influencer','MediaPost','journalism','2021-08-06T00:00:00Z','2026-07-25T00:00:00Z',false,'public',CURRENT_TIMESTAMP),
@@ -84,12 +84,12 @@ INSERT INTO "ObservatoryClaimEvidence" (
 ('obs_ev_kg_c02_s02','obs_claim_kg_c02','obs_src_kg_s02','supports',NULL,'Company social announcement','Corroborates first-ever description.',CURRENT_TIMESTAMP),
 ('obs_ev_kg_c03_s01','obs_claim_kg_c03','obs_src_kg_s01','supports',NULL,'Mandate and reporting line','Documents stated authority, not outcomes.',CURRENT_TIMESTAMP),
 ('obs_ev_kg_c03_s02','obs_claim_kg_c03','obs_src_kg_s02','supports',NULL,'Company social announcement','Documents stated global practice scope.',CURRENT_TIMESTAMP),
-('obs_ev_kg_c04_s04','obs_claim_kg_c04','obs_src_kg_s04','supports',NULL,'Deloitte biography','Employer record of 2021 role.',CURRENT_TIMESTAMP),
+('obs_ev_kg_c04_s04','obs_claim_kg_c04','obs_src_kg_s04','supports',NULL,'Speaker biography','Biography of record for the 2021 role.',CURRENT_TIMESTAMP),
 ('obs_ev_kg_c04_s07','obs_claim_kg_c04','obs_src_kg_s07','supports',NULL,'Contemporaneous appointment report','Independent first-role corroboration.',CURRENT_TIMESTAMP),
 ('obs_ev_kg_c05_s05','obs_claim_kg_c05','obs_src_kg_s05','supports',NULL,'Service page','Documents practice surface and listed leadership.',CURRENT_TIMESTAMP),
 ('obs_ev_kg_c05_s06','obs_claim_kg_c05','obs_src_kg_s06','supports',NULL,'Research page','Documents research association.',CURRENT_TIMESTAMP),
 ('obs_ev_kg_c06_s01','obs_claim_kg_c06','obs_src_kg_s01','supports',NULL,'Edelman appointment','Component of classified synthesis.',CURRENT_TIMESTAMP),
-('obs_ev_kg_c06_s04','obs_claim_kg_c06','obs_src_kg_s04','supports',NULL,'Deloitte biography','Component of classified synthesis.',CURRENT_TIMESTAMP)
+('obs_ev_kg_c06_s04','obs_claim_kg_c06','obs_src_kg_s04','supports',NULL,'Speaker biography','Component of classified synthesis.',CURRENT_TIMESTAMP)
 ON CONFLICT ("claimId","sourceId","supportType") DO NOTHING;
 
 INSERT INTO "ObservatoryRelationship" (
@@ -103,8 +103,8 @@ INSERT INTO "ObservatoryRelationship" (
 ('obs_rel_mb_r05',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='marques-brownlee'),'asset','The Studio','publisher',NULL,NULL,'unreviewed','draft','obs_src_mb_s07',NULL,'Current channel page',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
 ('obs_rel_kg_r01',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='kenny-gold'),'organization','Edelman','global_chief_creator_officer','2026-06-02T00:00:00Z',NULL,'unreviewed','draft','obs_src_kg_s01',NULL,'Appointment announcement',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
 ('obs_rel_kg_r02',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='kenny-gold'),'organization','Edelman Creator','global_lead',NULL,NULL,'unreviewed','draft','obs_src_kg_s01',NULL,'Stated mandate',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
-('obs_rel_kg_r03',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='kenny-gold'),'organization','Deloitte Digital','managing_director_head_social_content_influencer','2021-08-06T00:00:00Z','2026-06-02T00:00:00Z','unreviewed','draft','obs_src_kg_s04',NULL,'Employer biography and later transition announcement',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
-('obs_rel_kg_r04',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='kenny-gold'),'organization','Grey Group North America','executive_director_social_media',NULL,'2021-08-06T00:00:00Z','unreviewed','draft','obs_src_kg_s04',NULL,'Employer biography',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_rel_kg_r03',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='kenny-gold'),'organization','Deloitte Digital','managing_director_head_social_content_influencer','2021-08-06T00:00:00Z','2026-06-02T00:00:00Z','unreviewed','draft','obs_src_kg_s04',NULL,'Speaker biography and later transition announcement',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
+('obs_rel_kg_r04',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='kenny-gold'),'organization','Grey Group North America','executive_director_social_media',NULL,'2021-08-06T00:00:00Z','unreviewed','draft','obs_src_kg_s04',NULL,'Speaker biography',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
 ('obs_rel_kg_r05',(SELECT "id" FROM "ObservatoryCase" WHERE "slug"='kenny-gold'),'asset','Creator Economy in 3D','research_contributor_contact',NULL,NULL,'unreviewed','draft','obs_src_kg_s06',NULL,'Research page',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
 ON CONFLICT ("id") DO NOTHING;
 

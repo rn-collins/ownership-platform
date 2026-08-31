@@ -35,14 +35,17 @@ export default function DependencyExplorerPage() {
         position from one that depends on a platform and on an employer.
       </p>
 
-      <h2>What these tags do and do not establish</h2>
+      <h2>What a tag establishes</h2>
       <p>
-        Each tag records what the cited sources support about how an arrangement is organised.
-        A tag is not a claim about ownership, credit, wrongdoing or intent, and the case pages
-        state explicitly where the public record stops. That distinction is deliberate and is
-        maintained throughout: visibility is not authorship, a title is not a mandate, and
-        founder involvement is not sole credit. Open the individual case to see the sources and
-        the limits recorded against each finding before drawing a conclusion from a tag.
+        Each tag records what the cited sources support about how an arrangement is organised,
+        and that is the whole of its scope. Questions of ownership, credit, conduct and intent
+        belong to the case page, where the sources sit alongside an explicit statement of where
+        the public record stops. The case pages hold four distinctions apart throughout:
+        visibility is treated separately from authorship, a title separately from a mandate,
+        founder involvement separately from sole credit, and association with an institution
+        separately from portability of what it produced. Those separations are the reason the
+        set is readable as evidence at all. Open an individual case to see the sources and the
+        recorded limits behind any tag before drawing a conclusion from it.
       </p>
     </section>
 

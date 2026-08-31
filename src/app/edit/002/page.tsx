@@ -10,13 +10,18 @@ export const metadata = {
     description: "Dependence is unavoidable. The real risk is a supply chain you cannot see, replace, negotiate with, or survive without.",
     url: "/edit/002",
     type: "article",
-    images: ["/og.png"],
+    images: [{
+      url: "/og/edit/002.png",
+      width: 1200,
+      height: 630,
+      alt: "Edition 002 — your career has a supply chain.",
+    }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Your Career Has a Supply Chain",
     description: "Dependence is unavoidable. The real risk is a supply chain you cannot see, replace, negotiate with, or survive without.",
-    images: ["/og.png"],
+    images: ["/og/edit/002.png"],
   },
 };
 

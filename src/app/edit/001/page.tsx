@@ -6,14 +6,14 @@ export const metadata = {
   description:
     "Edition 001 of The I/1 Edit introduces Build, Carry, Control, and Continue: four questions for examining when a person’s work begins to function institutionally.",
   alternates: { canonical: "/edit/001" },
-  openGraph: {
+  openGraph: { images: [{ url: "/og/edit/001.png", width: 1200, height: 630, alt: "Edition 001 — when does one person become an institution?" }],
     title: "When Does One Person Become an Institution?",
     description:
       "Six contrasting cases reveal why visibility, ownership, portability, and institutional consequence are not the same thing.",
     url: "/edit/001",
     type: "article",
   },
-  twitter: {
+  twitter: { images: ["/og/edit/001.png"],
     card: "summary_large_image",
     title: "When Does One Person Become an Institution?",
     description:

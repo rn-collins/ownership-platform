@@ -4,8 +4,8 @@ export const metadata = {
   title: "Your Archive Is Not a Backup — The I/1 Edit",
   description: "Edition 003 distinguishes downloaded files from the context, rights, relationships, and routines required to resume the work.",
   alternates: { canonical: "/edit/003" },
-  openGraph: { title: "Your Archive Is Not a Backup", description: "Downloading the files is not the same as preserving the system that made the work usable.", url: "/edit/003", type: "article" },
-  twitter: { card: "summary_large_image", title: "Your Archive Is Not a Backup", description: "Downloading the files is not the same as preserving the system that made the work usable." },
+  openGraph: { images: [{ url: "/og/edit/003.png", width: 1200, height: 630, alt: "Edition 003 — your archive is not a backup." }], title: "Your Archive Is Not a Backup", description: "Downloading the files is not the same as preserving the system that made the work usable.", url: "/edit/003", type: "article" },
+  twitter: { images: ["/og/edit/003.png"], card: "summary_large_image", title: "Your Archive Is Not a Backup", description: "Downloading the files is not the same as preserving the system that made the work usable." },
 };
 
 const layers = [

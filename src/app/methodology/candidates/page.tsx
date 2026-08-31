@@ -53,6 +53,39 @@ export default function CandidateInstrumentsPage() {
         ))}
       </section>
 
+      <section style={{ marginTop: 34 }}>
+        <h2>Why a question is tested before it is scored</h2>
+        <p>
+          A question can be answered consistently by everyone and still measure the wrong thing.
+          If half of the people answering read &ldquo;audience&rdquo; as everyone who follows an
+          account and the other half read it as everyone who reads the work, both groups will
+          answer confidently and the resulting number will mean two different things. That
+          failure is invisible in the response data, because nothing about it looks like an
+          error. It is only visible when someone is asked to say, in their own words, what they
+          thought the question was asking and how they arrived at their answer.
+        </p>
+
+        <h2 style={{ marginTop: 26 }}>What counts as friction</h2>
+        <p>
+          A draft is held back when a word turns out to carry more than one common reading, when
+          the answer choices leave a real situation with nowhere to go, when a question assumes
+          circumstances not everyone has &mdash; a team, a budget, a stable address, a single
+          employer &mdash; or when the format itself is the obstacle rather than the content.
+          Each of those produces an answer, which is why response rates alone never surface
+          them.
+        </p>
+
+        <h2 style={{ marginTop: 26 }}>What a version number means here</h2>
+        <p>
+          A candidate version is a draft under test and is never scored, shown as a result, or
+          compared against a published version. A question only moves into a numbered pilot once
+          it has survived rewriting and a fresh round of participants, and the change is
+          published with the reasoning attached. This is also why a pilot version can go up
+          without any new questions appearing: removing a question that did not survive is as
+          much a version change as adding one.
+        </p>
+      </section>
+
       <section className="candidate-invite">
         <p className="eyebrow">Help us find unclear or unfair questions</p>
         <h2>Tell us where a question is hard to answer.</h2>

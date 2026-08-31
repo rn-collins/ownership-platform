@@ -4,13 +4,13 @@ export const metadata = {
   title: "The I/1 Edit — Institutions of One",
   description: "Original ideas, cases, and evidence about what people build through work, what they can carry, what they control, and what can continue.",
   alternates: { canonical: "/edit" },
-  openGraph: {
+  openGraph: { images: [{ url: "/og/edit/index.png", width: 1200, height: 630, alt: "The I/1 Edit — what people build, carry, control, and continue." }],
     title: "The I/1 Edit",
     description: "Original ideas, cases, and evidence about what people build through work, what they can carry, what they control, and what can continue.",
     url: "/edit",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/og/edit/index.png"],
     card: "summary_large_image",
     title: "The I/1 Edit",
     description: "Original ideas, cases, and evidence about what people build through work, what they can carry, what they control, and what can continue.",

@@ -4,8 +4,8 @@ export const metadata = {
   title: "The Exit Is Part of the Architecture — The I/1 Edit",
   description: "Edition 004 examines transfer, redirect, and export-and-rebuild as different mechanisms for preserving continuity when work changes containers.",
   alternates: { canonical: "/edit/004" },
-  openGraph: { title: "The Exit Is Part of the Architecture", description: "The right to download the parts is not the same as a path for the work to continue somewhere else.", url: "/edit/004", type: "article" },
-  twitter: { card: "summary_large_image", title: "The Exit Is Part of the Architecture", description: "The right to download the parts is not the same as a path for the work to continue somewhere else." },
+  openGraph: { images: [{ url: "/og/edit/004.png", width: 1200, height: 630, alt: "Edition 004 — the exit is part of the architecture." }], title: "The Exit Is Part of the Architecture", description: "The right to download the parts is not the same as a path for the work to continue somewhere else.", url: "/edit/004", type: "article" },
+  twitter: { images: ["/og/edit/004.png"], card: "summary_large_image", title: "The Exit Is Part of the Architecture", description: "The right to download the parts is not the same as a path for the work to continue somewhere else." },
 };
 
 const rehearsal = [

@@ -156,7 +156,7 @@ export default function ApplyToWork() {
     </section>
     <section>
       <div className={styles.step}><span>02</span><div><h2>What is happening that these choices do not capture?</h2><p>Optional. One or two sentences are enough. This stays in your browser and is shown back to you only as context.</p></div></div>
-      <textarea value={context} onChange={(event) => setContext(event.target.value)} maxLength={600} placeholder="For example: I built a program inside my employer, but the method and relationships are associated with me…" />
+      <textarea aria-label="What is happening that these choices do not capture? (optional)" value={context} onChange={(event) => setContext(event.target.value)} maxLength={600} placeholder="For example: I built a program inside my employer, but the method and relationships are associated with me…" />
     </section>
     <button className={styles.submit} disabled={!pressure} type="submit">Show my four cases →</button>
     <p className={styles.formLimit}>This tool chooses among six prepared reading paths. It does not analyze your personality, assess readiness, or predict an outcome.</p>

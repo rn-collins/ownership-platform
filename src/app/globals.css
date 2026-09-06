@@ -110,8 +110,8 @@ button.ghost{background:transparent;color:var(--ink);}
 .fwstep:last-of-type{border-bottom:0;}
 .fwn{width:22px;height:22px;flex:none;border-radius:50%;background:var(--gold);color:var(--ink);font-family:Georgia,serif;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;}
 .fwcta{margin-top:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
-.fwlink{color:var(--gold-lt);font-weight:600;font-size:13px;text-decoration:none;}
-.fwlink:hover{color:#fff;}
+.fwlink{color:var(--gold-ink);font-weight:600;font-size:13px;text-decoration:none;}
+.fwlink:hover{color:var(--ink);}
 .proj{margin:2px 0 16px;}
 .projrow{display:flex;align-items:baseline;gap:12px;font-family:Georgia,serif;font-weight:700;}
 .projnow{font-size:34px;color:#8a92a6;}

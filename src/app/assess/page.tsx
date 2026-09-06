@@ -17,7 +17,7 @@ export default function AssessChooserPage() {
       </p>
 
       <div className="card">
-        <h3>How much of what you create do you control?</h3>
+        <h2>How much of what you create do you control?</h2>
         <p>
           The <b>Ownership Index</b> is designed for creators and independent operators. It examines control of audience,
           intellectual property, income channels, public identity, and business infrastructure.
@@ -26,7 +26,7 @@ export default function AssessChooserPage() {
       </div>
 
       <div className="card">
-        <h3>How portable and influential has your expertise become?</h3>
+        <h2>How portable and influential has your expertise become?</h2>
         <p>
           The <b>Portfolio Professional</b> assessment is designed for people whose work crosses roles, teams, or
           organizations. It examines capability ownership, institutional value, mandate and autonomy, visibility and authority, and whether your work has a coherent thesis.

@@ -530,7 +530,7 @@ h1,h2,h3{letter-spacing:-.025em;}
 .editorial-page .card,.partner-page .card,.about-page .card,.study-page .card,.privacy-page .card{
   display:grid;grid-template-columns:minmax(210px,.7fr) minmax(0,1.7fr);gap:44px;margin:0;padding:34px 0;border:0;border-bottom:1px solid var(--io-black);background:transparent;
 }
-.editorial-page .card h3,.partner-page .card h3,.about-page .card h3,.study-page .card h2,.privacy-page .card h3{
+.editorial-page .card h3,.partner-page .card h3,.about-page .card h2,.study-page .card h2,.privacy-page .card h2{
   font-family:Georgia,serif;font-size:clamp(25px,3vw,38px);line-height:1.05;margin:0;color:var(--io-black);
 }
 .editorial-page .card p,.editorial-page .card ul,.partner-page .card p,.about-page .card p,.study-page .card p,.study-page .card ol,.privacy-page .card p{
@@ -541,7 +541,7 @@ h1,h2,h3{letter-spacing:-.025em;}
 .choice-page .card+.card{border-top:0;background:var(--io-acid);}
 .choice-page .card:before{content:"A";font:900 64px/.8 Arial,sans-serif;letter-spacing:-.08em;}
 .choice-page .card+.card:before{content:"B";}
-.choice-page .card h3{font-size:clamp(30px,4vw,54px);line-height:1;font-family:Georgia,serif;}
+.choice-page .card h2{margin:0 0 4px;font-size:clamp(30px,4vw,54px);line-height:1;font-family:Georgia,serif;}
 .choice-page .card p{font-size:17px;line-height:1.55;max-width:720px;}
 .instrument-page{padding-bottom:40px;}
 .ownership-page{--route-accent:var(--io-rust);}
@@ -566,7 +566,7 @@ h1,h2,h3{letter-spacing:-.025em;}
 .partner-page>.card:first-of-type p{color:#eee;}
 .about-page{--route-accent:var(--io-rust);}
 .about-page>.card:first-of-type{margin-top:70px;border-top:2px solid var(--io-black);}
-.about-page>.card:first-of-type h3:before{content:"The founder";display:block;font:900 10px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--io-rust);margin-bottom:18px;}
+.about-page>.card:first-of-type h2:before{content:"The founder";display:block;font:900 10px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--io-rust);margin-bottom:18px;}
 .study-page{--route-accent:var(--io-acid);}
 .privacy-page{--route-accent:var(--io-blue);}
 .login-page{min-height:650px;}

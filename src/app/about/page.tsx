@@ -18,7 +18,7 @@ export default function AboutPage() {
       </p>
 
       <div className="card">
-        <h3>RN Collins</h3>
+        <h2>RN Collins</h2>
         <p>
           I am an independent researcher, writer, consultant, and J.D. candidate at Northeastern University School of Law.
           My background spans neuroscience, developmental psychology, medical education, qualitative research, emerging
@@ -28,7 +28,7 @@ export default function AboutPage() {
       </div>
 
       <div className="card">
-        <h3>Why this research matters</h3>
+        <h2>Why this research matters</h2>
         <p>
           A large audience does not necessarily mean ownership. Specialized expertise does not necessarily travel outside
           an employer. A personal brand does not necessarily become a durable business. By separating capability, authority,
@@ -37,7 +37,7 @@ export default function AboutPage() {
       </div>
 
       <div className="card">
-        <h3>How the work is supported</h3>
+        <h2>How the work is supported</h2>
         <p>
           Institutions of One is led by RN Collins. Client engagements, research collaborations, and other support
           can fund research, analysis, publication, programs, and events. Each project begins with a clear question, scope,
@@ -46,7 +46,7 @@ export default function AboutPage() {
       </div>
 
       <div className="card">
-        <h3>Current stage</h3>
+        <h2>Current stage</h2>
         <p>
           The project is in active pilot development. Two assessments are collecting exploratory responses, the
           Observatory contains 41 claim-linked comparative case records, and the methods will continue to be tested and

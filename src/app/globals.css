@@ -1,6 +1,6 @@
 :root{
   --ink:#141b2e;--paper:#faf8f4;--line:#e5e0d6;--gold:#b98f4d;--gold-ink:#7D5311;--gold-lt:#c8a468;
-  --muted:#6b7488;--slate:#3a4256;
+  --muted:#626B7F;--slate:#3a4256;
 }
 *{box-sizing:border-box;}
 html,body{margin:0;background:var(--paper);color:#1b2233;
@@ -28,7 +28,7 @@ button.ghost{background:transparent;color:var(--ink);}
 .progressbar{height:6px;background:#e8e2d6;border-radius:6px;overflow:hidden;margin:0 0 20px;}
 .progressfill{height:100%;background:var(--gold);border-radius:6px;transition:width .3s ease;}
 .stepmeta{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 10px;}
-.stepdim{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.stepdim{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);font-weight:700;}
 .stepcount{font-family:Georgia,serif;font-size:14px;color:var(--muted);font-weight:700;}
 .qbig{font-family:Georgia,serif;font-size:24px;line-height:1.25;color:var(--ink);margin:0 0 20px;}
 .optcards{display:flex;flex-direction:column;gap:10px;}
@@ -431,7 +431,7 @@ button.small{padding:6px 12px;font-size:12px;}
 
 /* === Institutions of One editorial system · July 2026 === */
 :root{
-  --io-black:#11100e;--io-cream:#f3efe5;--io-paper:#faf8f2;--io-acid:#d8ff3e;--io-rust:#c9502f;--io-rust-ink:#A9300F;
+  --io-black:#11100e;--io-cream:#f3efe5;--io-paper:#faf8f2;--io-acid:#d8ff3e;--io-rust:#c9502f;--io-rust-ink:#A52C0B;
   --io-blue:#1738d1;--io-rule:rgba(17,16,14,.2);
 }
 html{scroll-behavior:smooth;}
@@ -443,7 +443,7 @@ body{background:var(--io-paper);color:var(--io-black);font-family:Arial,Helvetic
 .brand-name{font-family:Georgia,serif;font-size:18px;line-height:.88;font-weight:700;}
 .site-header .nav{margin:0;gap:24px;flex-wrap:wrap;justify-content:flex-end;}
 .site-header .nav a,.site-header .navlink{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--io-black);font-weight:800;}
-.site-header .nav a:hover{color:var(--io-rust);}
+.site-header .nav a:hover{color:var(--io-rust-ink);}
 .nav-signin{border:1px solid var(--io-black);padding:8px 13px;}
 .wrap{max-width:1440px;padding:0 48px 96px;}
 .home{margin:0 -48px;}
@@ -644,7 +644,7 @@ h1,h2,h3{letter-spacing:-.025em;}
 .edition-thresholds>h2{font-family:Georgia,serif;font-size:clamp(40px,6vw,78px);line-height:.95;letter-spacing:-.045em;max-width:900px;margin:16px 0 44px;}
 .edition-threshold-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--io-black);}
 .edition-threshold-grid article{padding:30px;min-height:440px;border-right:1px solid var(--io-black);display:flex;flex-direction:column;}
-.edition-threshold-grid article:last-child{border-right:0}.edition-threshold-grid span{font-size:11px;font-weight:900;color:var(--io-rust);}
+.edition-threshold-grid article:last-child{border-right:0}.edition-threshold-grid span{font-size:11px;font-weight:900;color:var(--io-rust-ink);}
 .edition-threshold-grid h3{font-family:Georgia,serif;font-size:52px;margin:28px 0 8px}.edition-threshold-grid h4{font-size:16px;line-height:1.35;margin:0 0 32px;}
 .edition-threshold-grid p{font-size:16px;line-height:1.6;margin-top:auto;}
 .edition-distinction{padding:90px 8%;background:var(--io-black);color:white;margin:0 -48px;}
@@ -672,7 +672,7 @@ h1,h2,h3{letter-spacing:-.025em;}
 .partner-help{background:#d9d0ff;}
 .partner-services{border-top:1px solid var(--io-black);}
 .partner-services article{display:grid;grid-template-columns:46px 1fr;gap:22px;padding:28px 0;border-bottom:1px solid var(--io-black);}
-.partner-services article>span{font:900 11px/1 Arial,sans-serif;letter-spacing:.1em;color:var(--io-rust);padding-top:5px;}
+.partner-services article>span{font:900 11px/1 Arial,sans-serif;letter-spacing:.1em;color:var(--io-rust-ink);padding-top:5px;}
 .partner-services h3{font-family:Georgia,serif;font-size:clamp(25px,2.8vw,38px);line-height:1.05;margin:0 0 12px;}
 .partner-services p{font-size:16px;line-height:1.58;margin:0;max-width:760px;}
 .partner-services .partner-outputs{margin-top:12px;font-size:14px;color:#48443e;}
@@ -712,3 +712,7 @@ h1,h2,h3{letter-spacing:-.025em;}
   .partner-form{padding:24px 20px;}
   .partner-form-grid{grid-template-columns:1fr;gap:0;}
 }
+/* Eyebrows on the dark panels. --io-rust-ink is a text colour for the
+   light grounds; on ink it reads at 2.5:1, so these follow the pattern the
+   other dark sections already use. */
+.on-ink .eyebrow,.method-psych .eyebrow,.candidate-rule .eyebrow{color:var(--io-acid)}

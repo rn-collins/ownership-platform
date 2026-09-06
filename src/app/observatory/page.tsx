@@ -70,7 +70,7 @@ export default async function ObservatoryPage({ searchParams }: { searchParams?:
       </section>
     </div>
 
-    <section style={{ margin: "0 0 42px", padding: "34px 32px", border: "1px solid #141b2e", background: "#141b2e", color: "#faf8f4" }} aria-labelledby="organization-heading">
+    <section className="on-ink" style={{ margin: "0 0 42px", padding: "34px 32px", border: "1px solid #141b2e", background: "#141b2e", color: "#faf8f4" }} aria-labelledby="organization-heading">
       <p className="eyebrow">Use this work with your group</p>
       <h2 id="organization-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0", color: "#faf8f4" }}>Understand where valuable work lives, what it depends on, and what could persist when an essential dependency changes.</h2>
       <p style={{ maxWidth: 860, color: "#e5e0d6" }}>RN works with companies, professional firms, universities, research teams, nonprofits, public institutions, creative organizations, communities, and other groups. The framework can support continuity planning, role and partnership design, research, workshops, practical tools, and ongoing decisions.</p>

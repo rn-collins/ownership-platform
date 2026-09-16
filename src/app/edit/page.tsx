@@ -42,17 +42,21 @@ export default function EditPage() {
         </div>
       </section>
 
-      <a className="edit-feature edit-feature-latest" href="/edit/004">
-        <span className="edit-feature-number">004</span>
+      <a className="edit-feature edit-feature-latest" href="/edit/008">
+        <span className="edit-feature-number">008</span>
         <div>
           <p className="eyebrow">Latest edition · August 2026</p>
-          <h2>The exit is part of the architecture.</h2>
-          <p>
-            The right to download the parts is not the same as a path for the work to continue somewhere else.
-          </p>
-          <strong>Read Edition 004 →</strong>
+          <h2>The smallest institution in the campaign.</h2>
+          <p>One post can contain an entire organization.</p>
+          <strong>Read Edition 008 →</strong>
         </div>
       </a>
+
+      <a className="edit-feature" href="/edit/007"><span className="edit-feature-number">007</span><div><p className="eyebrow">Edition 007 · August 2026</p><h2>The asset’s afterlife.</h2><p>The file did not change. Its commercial life did.</p><strong>Read Edition 007 →</strong></div></a>
+      <a className="edit-feature" href="/edit/006"><span className="edit-feature-number">006</span><div><p className="eyebrow">Edition 006 · August 2026</p><h2>The person inside the asset.</h2><p>A finished post can contain a copyrighted work, a performance, an identity, and a future edit.</p><strong>Read Edition 006 →</strong></div></a>
+      <a className="edit-feature" href="/edit/005"><span className="edit-feature-number">005</span><div><p className="eyebrow">Edition 005 · August 2026</p><h2>The $2,000 video.</h2><p>A creator deal is usually several decisions wearing one price tag.</p><strong>Read Edition 005 →</strong></div></a>
+
+      <a className="edit-feature" href="/edit/004"><span className="edit-feature-number">004</span><div><p className="eyebrow">Edition 004 · August 2026</p><h2>The exit is part of the architecture.</h2><p>The right to download the parts is not the same as a path for the work to continue somewhere else.</p><strong>Read Edition 004 →</strong></div></a>
 
       <a className="edit-feature" href="/edit/003">
         <span className="edit-feature-number">003</span>

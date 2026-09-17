@@ -80,7 +80,7 @@ export default function EditionThreePage() {
     <section className="edition-distinction"><p className="eyebrow">Closing question</p><blockquote>If your primary work system disappeared tonight, what would you still possess tomorrow—and what could you actually resume?</blockquote><p>This essay offers a structural framework, not legal advice. Access, retention, transfer, and reuse depend on applicable law, contract, confidentiality duties, and platform terms.</p></section>
 
     <section className="edition-opening" aria-labelledby="source-desk"><p className="eyebrow">Source Desk</p><h2 id="source-desk">Inspect the primary documentation.</h2><ol>{sources.map(([label,href]) => <li key={href}><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>)}</ol><p><strong>Source status:</strong> Primary platform and legal documentation rechecked 7 August 2026. These sources establish described tools and access structures, not identical functionality for every account, region, plan, role, or export. Recheck at publication and application.</p></section>
-    <section className="edition-opening"><p className="eyebrow">Read in sequence</p><p><a href="/edit/002">← Edit 002: the suppliers beneath a career</a></p><p><a href="/edit/004">Next: The Exit Is Part of the Architecture →</a></p></section>
+    <nav className="edition-continuity" aria-label="Edition navigation"><a href="/edit/002">← Edition 002</a><a href="/edit">All editions</a><a href="/edit/004">Edition 004 →</a></nav>
     <section className="closing-call"><p className="eyebrow">The I/1 Edit</p><h2>Follow the research on work, ownership, continuity, and institutional power.</h2><NewsletterSignup source="site" /></section>
   </main>;
 }

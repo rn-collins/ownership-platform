@@ -252,16 +252,16 @@ export default function EditionOnePage() {
         </p>
       </section>
 
-      <nav className="edition-status" aria-label="Edition navigation">
-        <div><p className="eyebrow">Continue the inquiry</p><h2>Continue needs a closer look.</h2><p>Edition 002 examines the suppliers beneath the work and what happens when an essential dependency changes.</p></div>
-        <div><a href="/edit/002"><strong>Edition 002 →</strong><br/>Your career has a supply chain.</a></div>
+      <nav className="edition-continuity" aria-label="Edition navigation">
+        <a href="/edit">All editions</a>
+        <a href="/edit/002">Edition 002 →</a>
       </nav>
 
       <section className="edition-subscribe">
         <p className="eyebrow">The I/1 Edit</p>
         <h2>One original argument, every other week.</h2>
         <p>
-          The inbox edition delivers the central argument and strongest case moments through Beehiiv. This cited, interactive, updateable web edition is the permanent record.
+          Follow publication updates through Beehiiv. This cited, interactive and updateable web edition is the permanent canonical record.
         </p>
         <NewsletterSignup source="site" />
       </section>

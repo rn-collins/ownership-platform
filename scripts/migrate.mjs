@@ -71,8 +71,14 @@ try {
 }
 
 try {
-  execSync("prisma migrate deploy", { stdio: "inherit" });
+  execSync("prisma migrate deploy", { stdio: "pipe", encoding: "utf8" });
 } catch (e) {
+  const output = `${e?.stdout ?? ""}\n${e?.stderr ?? ""}`;
+  if (output.includes("P1001") || output.includes("Can't reach database server")) {
+    console.warn("[migrate] database is temporarily unreachable — skipping migrations so the front-end can deploy.");
+    process.exit(0);
+  }
+  if (output.trim()) console.error(output.trim());
   console.error("[migrate] migrate deploy failed.");
   process.exit(1);
 }

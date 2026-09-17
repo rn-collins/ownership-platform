@@ -30,15 +30,16 @@ export default function EditPage() {
       <section className="edit-promise">
         <div>
           <p className="eyebrow">How to read</p>
-          <h2>Begin with the readable edition, then inspect the evidence.</h2>
+          <h2>Choose the reading path you need.</h2>
         </div>
         <div>
           <p>
             Beehiiv carries the readable newsletter edition on the web: the central argument and strongest case moments in a focused reading experience. The canonical Ownership Platform edition lives here with citations, interactive tools, updates, and related cases.
           </p>
           <p>
-            Every edition has the same intellectual core, while each surface serves a different purpose. Read on Beehiiv for the narrative; use the Ownership Platform when you want to test the idea, inspect the evidence, open a supporting package, or keep exploring.
+            Every edition has the same intellectual core, while each surface serves a different purpose. Read on Beehiiv for the narrative. Use the Ownership Platform for the complete numbered editions and their cited record. The Public Reader extends Editions 005–008 through visual stories, interactive tools, and ready-to-use files.
           </p>
+          <p><a href="https://institutions-of-one-reader.vercel.app/production/cycle-01">Explore the Public Reader’s visual stories →</a></p>
         </div>
       </section>
 

@@ -29,19 +29,37 @@ export default function EditPage() {
 
       <section className="edit-promise">
         <div>
-          <p className="eyebrow">What arrives</p>
-          <h2>Read the argument by email or explore the evidence on the site.</h2>
+          <p className="eyebrow">How to read</p>
+          <h2>Begin with the readable edition, then inspect the evidence.</h2>
         </div>
         <div>
           <p>
-            Subscribers receive a self-contained inbox edition through Beehiiv: the central argument and the strongest case moments, edited for email. The permanent web edition lives here with citations, interactive tools, updates, and related cases. LinkedIn and X introduce one idea at a time and point readers to the edition or subscription.
+            Beehiiv carries the readable newsletter edition on the web: the central argument and strongest case moments in a focused reading experience. The canonical Ownership Platform edition lives here with citations, interactive tools, updates, and related cases.
           </p>
           <p>
-            Every edition has the same intellectual core but uses each channel for a different reading experience. You never need to click away to understand the email; you visit the site when you want to test the idea, inspect the evidence, or keep exploring.
+            Every edition has the same intellectual core, while each surface serves a different purpose. Read on Beehiiv for the narrative; use the Ownership Platform when you want to test the idea, inspect the evidence, open a supporting package, or keep exploring.
           </p>
         </div>
       </section>
 
+      <a className="edit-feature" href="/edit/001">
+        <span className="edit-feature-number">001</span>
+        <div>
+          <p className="eyebrow">Edition 001 · July 2026</p>
+          <h2>When does one person become an institution?</h2>
+          <p>What does a person have to build, carry, and control before their work begins to function like an institution?</p>
+          <strong>Read Edition 001 →</strong>
+        </div>
+      </a>
+      <a className="edit-feature" href="/edit/002"><span className="edit-feature-number">002</span><div><p className="eyebrow">Edition 002 · July 2026</p><h2>Your career has a supply chain.</h2><p>Dependence is unavoidable. The danger is a dependency you cannot see, replace, negotiate with, or survive without.</p><strong>Read Edition 002 →</strong></div></a>
+      <a className="edit-feature" href="/edit/003">
+        <span className="edit-feature-number">003</span>
+        <div><p className="eyebrow">Edition 003 · August 2026</p><h2>Your archive is not a backup.</h2><p>An export can preserve the objects you made while losing the operating memory that made them useful.</p><strong>Read Edition 003 →</strong></div>
+      </a>
+      <a className="edit-feature" href="/edit/004"><span className="edit-feature-number">004</span><div><p className="eyebrow">Edition 004 · August 2026</p><h2>The exit is part of the architecture.</h2><p>The right to download the parts is not the same as a path for the work to continue somewhere else.</p><strong>Read Edition 004 →</strong></div></a>
+      <a className="edit-feature" href="/edit/005"><span className="edit-feature-number">005</span><div><p className="eyebrow">Edition 005 · August 2026</p><h2>The $2,000 video.</h2><p>A creator deal is usually several decisions wearing one price tag.</p><strong>Read Edition 005 →</strong></div></a>
+      <a className="edit-feature" href="/edit/006"><span className="edit-feature-number">006</span><div><p className="eyebrow">Edition 006 · August 2026</p><h2>The person inside the asset.</h2><p>A finished post can contain a copyrighted work, a performance, an identity, and a future edit.</p><strong>Read Edition 006 →</strong></div></a>
+      <a className="edit-feature" href="/edit/007"><span className="edit-feature-number">007</span><div><p className="eyebrow">Edition 007 · August 2026</p><h2>The asset’s afterlife.</h2><p>The file did not change. Its commercial life did.</p><strong>Read Edition 007 →</strong></div></a>
       <a className="edit-feature edit-feature-latest" href="/edit/008">
         <span className="edit-feature-number">008</span>
         <div>
@@ -52,39 +70,11 @@ export default function EditPage() {
         </div>
       </a>
 
-      <a className="edit-feature" href="/edit/007"><span className="edit-feature-number">007</span><div><p className="eyebrow">Edition 007 · August 2026</p><h2>The asset’s afterlife.</h2><p>The file did not change. Its commercial life did.</p><strong>Read Edition 007 →</strong></div></a>
-      <a className="edit-feature" href="/edit/006"><span className="edit-feature-number">006</span><div><p className="eyebrow">Edition 006 · August 2026</p><h2>The person inside the asset.</h2><p>A finished post can contain a copyrighted work, a performance, an identity, and a future edit.</p><strong>Read Edition 006 →</strong></div></a>
-      <a className="edit-feature" href="/edit/005"><span className="edit-feature-number">005</span><div><p className="eyebrow">Edition 005 · August 2026</p><h2>The $2,000 video.</h2><p>A creator deal is usually several decisions wearing one price tag.</p><strong>Read Edition 005 →</strong></div></a>
-
-      <a className="edit-feature" href="/edit/004"><span className="edit-feature-number">004</span><div><p className="eyebrow">Edition 004 · August 2026</p><h2>The exit is part of the architecture.</h2><p>The right to download the parts is not the same as a path for the work to continue somewhere else.</p><strong>Read Edition 004 →</strong></div></a>
-
-      <a className="edit-feature" href="/edit/003">
-        <span className="edit-feature-number">003</span>
-        <div><p className="eyebrow">Edition 003 · August 2026</p><h2>Your archive is not a backup.</h2><p>An export can preserve the objects you made while losing the operating memory that made them useful.</p><strong>Read Edition 003 →</strong></div>
-      </a>
-
-      <a className="edit-feature" href="/edit/002">
-        <span className="edit-feature-number">002</span>
-        <div><p className="eyebrow">Edition 002 · July 2026</p><h2>Your career has a supply chain.</h2><p>Dependence is unavoidable. The danger is a dependency you cannot see, replace, negotiate with, or survive without.</p><strong>Read Edition 002 →</strong></div>
-      </a>
-
-      <a className="edit-feature" href="/edit/001">
-        <span className="edit-feature-number">001</span>
-        <div>
-          <p className="eyebrow">Edition 001 · July 2026</p>
-          <h2>When does one person become an institution?</h2>
-          <p>
-            What does a person have to build, carry, and control before their work begins to function like an institution?
-          </p>
-          <strong>Read Edition 001 →</strong>
-        </div>
-      </a>
-
       <section className="edit-signup">
         <div>
-          <p className="eyebrow">Every other week</p>
-          <h2>Receive the inbox edition.</h2>
-          <p>A self-contained reading experience in your inbox, with a path into the cited, interactive web edition when you want to go deeper.</p>
+          <p className="eyebrow">Follow the series</p>
+          <h2>Keep up with new web editions.</h2>
+          <p>Subscribe for publication updates, then return here for the canonical, cited and interactive record.</p>
         </div>
         <NewsletterSignup source="site" />
       </section>

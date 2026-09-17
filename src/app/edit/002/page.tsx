@@ -216,15 +216,16 @@ export default function EditionTwoPage() {
         <p>Corrections or material primary sources can be submitted through the <a href="/about">About page</a>. Substantive corrections will be dated here.</p>
       </section>
 
-      <nav className="edition-status" aria-label="Edition navigation">
-        <div><p className="eyebrow">Read in sequence</p><h2>Build the idea from the beginning.</h2></div>
-        <div><a href="/edit/001"><strong>← Edition 001</strong><br/>When does one person become an institution?</a><p><a href="/edit/003"><strong>Edition 003 →</strong><br/>Your archive is not a backup.</a></p></div>
+      <nav className="edition-continuity" aria-label="Edition navigation">
+        <a href="/edit/001">← Edition 001</a>
+        <a href="/edit">All editions</a>
+        <a href="/edit/003">Edition 003 →</a>
       </nav>
 
       <section className="edition-subscribe">
         <p className="eyebrow">The I/1 Edit</p>
         <h2>One original argument, every other week.</h2>
-        <p>The inbox edition delivers the argument and strongest case moments through Beehiiv. The cited, interactive, updateable edition lives permanently here.</p>
+        <p>Follow publication updates through Beehiiv. The cited, interactive and updateable edition lives permanently here as the canonical record.</p>
         <NewsletterSignup source="site" />
       </section>
     </main>

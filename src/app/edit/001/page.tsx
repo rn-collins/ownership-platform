@@ -1,5 +1,8 @@
 import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { packageGalleryUrl } from "@/lib/edit-cycle-one";
+
+const packages = ["P18", "P19", "P20", "P21", "P22", "P23"];
 
 export const metadata = {
   title: "When Does One Person Become an Institution? — The I/1 Edit",
@@ -230,6 +233,12 @@ export default function EditionOnePage() {
         <blockquote>
           If the role disappeared, the platform changed its rules, the distributor walked away, or the employer kept the system, what work, systems, relationships, or authority could continue?
         </blockquote>
+      </section>
+
+      <section className="edition-package-map" aria-labelledby="packages-001">
+        <p className="eyebrow">Visual package gallery</p><h2 id="packages-001">Continue through the six cases.</h2>
+        <p>Each package contains the complete carousel, its editable post copy, captions, and source records.</p>
+        <div>{packages.map((id) => <a key={id} href={packageGalleryUrl(id)} target="_blank" rel="noopener noreferrer"><b>{id}</b><span>Open complete package</span><strong>↗</strong></a>)}</div>
       </section>
 
       <EditionLab edition="001" />

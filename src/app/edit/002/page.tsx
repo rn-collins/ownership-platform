@@ -1,5 +1,8 @@
 import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { packageGalleryUrl } from "@/lib/edit-cycle-one";
+
+const packages = ["P24", "P25", "P26", "P27"];
 
 export const metadata = {
   title: "Your Career Has a Supply Chain — The I/1 Edit",
@@ -196,6 +199,12 @@ export default function EditionTwoPage() {
         <p>
           Once a critical supplier is visible, the next question is what must survive its loss. Files may need to remain readable, but continuity can also depend on context, permissions, relationships, evidence, and operating memory. Edition 003 asks whether an archive can recover the capability behind the work—not merely preserve its outputs.
         </p>
+      </section>
+
+      <section className="edition-package-map" aria-labelledby="packages-002">
+        <p className="eyebrow">Visual package gallery</p><h2 id="packages-002">Continue through the four cases.</h2>
+        <p>Each package contains the complete carousel, its editable post copy, captions, and source records.</p>
+        <div>{packages.map((id) => <a key={id} href={packageGalleryUrl(id)} target="_blank" rel="noopener noreferrer"><b>{id}</b><span>Open complete package</span><strong>↗</strong></a>)}</div>
       </section>
 
       <EditionLab edition="002" />

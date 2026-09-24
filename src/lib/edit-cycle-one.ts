@@ -7,8 +7,8 @@ export type EditionMedia = {
 };
 
 export type CanonicalEdition = {
-  number: "005" | "006" | "007" | "008";
-  articleId: 1 | 2 | 3 | 4;
+  number: "005" | "006" | "007" | "008" | "009";
+  articleId: 1 | 2 | 3 | 4 | 5;
   title: string;
   subtitle: string;
   packages: readonly string[];
@@ -16,12 +16,14 @@ export type CanonicalEdition = {
   reader: string;
   experience?: string;
   media: readonly EditionMedia[];
+  gated?: boolean;
 };
 
 const media = (file: string, alt: string, caption: string, credit: string, rights: string): EditionMedia => ({ file, alt, caption, credit, rights });
 
 export const cycleOneEditions: readonly CanonicalEdition[] = [
   {
+    gated: false,
     number: "005", articleId: 1, title: "The $2,000 Video", subtitle: "A creator deal is usually several decisions wearing one price tag",
     packages: ["P01", "P02", "P03"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-2000-video",
     reader: "https://institutions-of-one-reader.vercel.app/stories/edition-005",
@@ -37,6 +39,7 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     ],
   },
   {
+    gated: false,
     number: "006", articleId: 2, title: "The Person Inside the Asset", subtitle: "A finished post can contain a copyrighted work, a performance, an identity, and a future edit.",
     packages: ["P04", "P05", "P06", "P07"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-person-inside-the-asset",
     reader: "https://institutions-of-one-reader.vercel.app/stories/edition-006",
@@ -50,14 +53,16 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     ],
   },
   {
+    gated: false,
     number: "007", articleId: 3, title: "The Asset’s Afterlife", subtitle: "The file did not change. Its commercial life did.",
     packages: ["P08", "P09", "P10", "P11", "P12"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-assets-afterlife",
     reader: "https://institutions-of-one-reader.vercel.app/stories/edition-007",
     experience: "https://institutions-of-one-reader.vercel.app/experiences/asset-afterlife", media: [],
   },
   {
+    gated: false,
     number: "008", articleId: 4, title: "The Smallest Institution in the Campaign", subtitle: "One post can contain an entire organization.",
-    packages: ["P13", "P14"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-smallest-institution-in-the-campaign",
+    packages: ["P13", "P14", "P16"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-smallest-institution-in-the-campaign",
     reader: "https://institutions-of-one-reader.vercel.app/stories/edition-008",
     experience: "https://institutions-of-one-reader.vercel.app/experiences/health-check",
     media: [
@@ -68,6 +73,25 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
       media("My Fair Brady production crew photo Don Ramey Logan.jpg", "Television production crew posed together", "A crew makes the people responsible for building and carrying the work visible.", "Don Ramey Logan", "CC BY-SA 3.0"),
       media("5.1 mixing room for Radio, TV, and Film production, equipt with AVID Pro Tools including ICON D-Command - Control Room B, In Your Ear Studios.jpg", "Audio post-production control room with mixing console", "The mixing room documents a specialized handoff in the post-production workflow.", "In Your Ear Studios", "CC BY-SA 3.0"),
       media("OLUWAFEMI JONATHAN.jpg", "Camera editor working with production equipment", "A named production specialist represents accountable authorship inside a collaborative system.", "Oluwafemi Jonathan", "CC BY-SA 4.0"),
+    ],
+  },
+  // gated: true - counsel review for P15/P16/P17 has not completed. Every consumer of this
+  // array must respect the flag (see generateStaticParams/generateMetadata in
+  // src/app/edit/[number]/page.tsx and any other place that lists all editions) rather than
+  // assume "present in this array" means "safe to publish."
+  {
+    gated: true,
+    number: "009", articleId: 5, title: "All Media, Now Known or Hereafter Devised", subtitle: "A three-word difference in a contract can decide who owns tomorrow's use of today's video",
+    packages: ["P15", "P17"], beehiiv: "https://polymath-rn-collins.beehiiv.com/",
+    reader: "https://institutions-of-one-reader.vercel.app/stories/edition-009",
+    // Reuses the same verified Commons photos already cleared for P15/P17's carousel slides
+    // (institutions-of-one-reader's data/cycle01/render-inputs/live-gallery/p15-*.json,
+    // p17-*.json) rather than sourcing fresh images.
+    media: [
+      media("Signing ceremony (14443611224).jpg", "Formal signing ceremony with participants gathered around a written agreement", "A signature is the moment a negotiated boundary becomes a governing document—the question is always what boundary it actually states.", "Wikimedia Commons contributor", "CC BY-SA 2.0"),
+      media("Signed and witness partnership agreement Wellcome L0040613.jpg", "A signed and witnessed partnership agreement", "The licence-versus-transfer distinction lives in writing like this, not in the price paid or the file delivered.", "Wellcome Library, London", "CC BY 4.0"),
+      media("Agreement signed F. Desloge, November 22, 1883.jpg", "An 1883 agreement with a clause crossed out and rewritten by hand", "A word struck through and replaced is the physical record of a boundary being negotiated—the same negotiation a broad, unread clause skips.", "Firmin Desloge Jr. / Missouri History Museum", "Public domain"),
+      media("Michael D. Antonovich filming Senatorial campaign ad at the California-Mexican border, 1986.jpg", "A 1986 campaign advertisement being filmed on location", "A campaign-specific ad is a bounded deliverable, made for one race, one moment—the opposite of a grant that outlives it.", "Los Angeles Times via UCLA Library Los Angeles Times Photographic Collection", "CC BY 4.0"),
     ],
   },
 ] as const;

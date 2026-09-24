@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { Fragment, type ReactNode } from "react";
 import { Edition007Figure, edition007FigureForHeading } from "@/components/Edition007Figure";
-import { commonsImageUrl, commonsSourceUrl, packageGalleryUrl, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
+import { commonsImageUrl, commonsSourceUrl, cycleOneEditions, packageGalleryUrl, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
 
 const stripFrontMatter = (raw: string) => raw
   .replace(/^---[\s\S]*?---\s*/, "")
@@ -55,8 +55,14 @@ function ArticleBody({ edition }: { edition: Edition }) {
 
 export function CanonicalEditionPage({ edition }: { edition: Edition }) {
   const number = Number(edition.number);
-  const previous = number === 5 ? "/edit/004" : `/edit/${String(number - 1).padStart(3, "0")}`;
-  const next = number === 8 ? undefined : `/edit/${String(number + 1).padStart(3, "0")}`;
+  // Derived from the actual (gate-filtered) edition list rather than hardcoded edges - a
+  // hardcoded "number === 8 is last" broke the moment a 009 entry existed, silently linking
+  // "next" to a nonexistent /edit/010.
+  const freezeRender = process.env.CYCLE01_RENDER_FREEZE === "1";
+  const visible = cycleOneEditions.filter((e) => !e.gated || freezeRender);
+  const index = visible.findIndex((e) => e.number === edition.number);
+  const previous = index === 0 ? "/edit/004" : `/edit/${visible[index - 1].number}`;
+  const next = index === visible.length - 1 ? undefined : `/edit/${visible[index + 1].number}`;
   return <main className="edit-edition-page canonical-edition" data-edition={edition.number}>
     <a className="postback" href="/edit">← All eight editions</a>
     <p className="eyebrow">Edition {edition.number} · August 2026</p>

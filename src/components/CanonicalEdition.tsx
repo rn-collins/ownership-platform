@@ -64,7 +64,7 @@ export function CanonicalEditionPage({ edition }: { edition: Edition }) {
   const previous = index === 0 ? "/edit/004" : `/edit/${visible[index - 1].number}`;
   const next = index === visible.length - 1 ? undefined : `/edit/${visible[index + 1].number}`;
   return <main className="edit-edition-page canonical-edition" data-edition={edition.number}>
-    <a className="postback" href="/edit">← All eight editions</a>
+    <a className="postback" href="/edit">← All editions</a>
     <p className="eyebrow">Edition {edition.number} · August 2026</p>
     <h1>{edition.title}</h1>
     <p className="edition-dek">{edition.subtitle}</p>

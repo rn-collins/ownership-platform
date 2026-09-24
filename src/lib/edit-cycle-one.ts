@@ -75,12 +75,9 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
       media("OLUWAFEMI JONATHAN.jpg", "Camera editor working with production equipment", "A named production specialist represents accountable authorship inside a collaborative system.", "Oluwafemi Jonathan", "CC BY-SA 4.0"),
     ],
   },
-  // gated: true - counsel review for P15/P16/P17 has not completed. Every consumer of this
-  // array must respect the flag (see generateStaticParams/generateMetadata in
-  // src/app/edit/[number]/page.tsx and any other place that lists all editions) rather than
-  // assume "present in this array" means "safe to publish."
+  // Counsel review for P15/P16/P17 completed and all three were signed off 2026-09-24.
   {
-    gated: true,
+    gated: false,
     number: "009", articleId: 5, title: "All Media, Now Known or Hereafter Devised", subtitle: "A three-word difference in a contract can decide who owns tomorrow's use of today's video",
     packages: ["P15", "P17"], beehiiv: "https://polymath-rn-collins.beehiiv.com/",
     reader: "https://institutions-of-one-reader.vercel.app/stories/edition-009",

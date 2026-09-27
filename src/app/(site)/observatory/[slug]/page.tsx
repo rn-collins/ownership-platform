@@ -10,8 +10,6 @@ import { CaseStatus } from "@/components/case/CaseStatus";
 import { buildFramework, collectSources, formatLongDate, isLandingPage, pad, sourceKindLabel } from "@/components/case/caseData";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 
-export const revalidate = 3600;
-
 // Evidence comes from the database; serve a cached render and refresh it hourly
 // so a cold or unavailable database never sits in front of a reader.
 export const revalidate = 3600;

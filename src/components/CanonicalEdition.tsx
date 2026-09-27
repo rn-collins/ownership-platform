@@ -91,7 +91,7 @@ export function CanonicalEditionPage({ edition }: { edition: Edition }) {
 
     <nav className="edition-continuity" aria-label="Edition navigation">
       <a href={previous}>← Edition {String(number - 1).padStart(3, "0")}</a>
-      <a href={edition.beehiiv} target="_blank" rel="noopener noreferrer">Readable Beehiiv edition ↗</a>
+      {edition.beehiiv ? <a href={edition.beehiiv} target="_blank" rel="noopener noreferrer">Readable Beehiiv edition ↗</a> : null}
       {next ? <a href={next}>Edition {String(number + 1).padStart(3, "0")} →</a> : <a href="/edit">All editions →</a>}
     </nav>
   </main>;

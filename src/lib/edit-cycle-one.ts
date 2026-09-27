@@ -17,7 +17,8 @@ export type CanonicalEdition = {
   /** Reader-facing publication month, e.g. "August 2026". */
   published: string;
   packages: readonly string[];
-  beehiiv: string;
+  /** Omit until the edition is published on Beehiiv; the web page then hides the link. */
+  beehiiv?: string;
   reader: string;
   experience?: string;
   media: readonly EditionMedia[];
@@ -84,7 +85,7 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
   {
     gated: false,
     number: "009", articleId: 5, published: "September 2026", title: "All Media, Now Known or Hereafter Devised", subtitle: "A three-word difference in a contract can decide who owns tomorrow's use of today's video",
-    packages: ["P15", "P17"], beehiiv: "https://polymath-rn-collins.beehiiv.com/",
+    packages: ["P15", "P17"],
     reader: "https://institutions-of-one-reader.vercel.app/stories/edition-009",
     // Reuses the same verified Commons photos already cleared for P15/P17's carousel slides
     // (institutions-of-one-reader's data/cycle01/render-inputs/live-gallery/p15-*.json,

@@ -1,6 +1,6 @@
 import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
-import { packageGalleryUrl } from "@/lib/edit-cycle-one";
+import { EditionPackageMap } from "@/components/CanonicalEdition";
 
 const packages = ["P18", "P19", "P20", "P21", "P22", "P23"];
 
@@ -113,7 +113,7 @@ export default function EditionOnePage() {
     <main className="edit-edition-page">
       <a className="postback" href="/edit">← The I/1 Edit</a>
       <p className="eyebrow">Edition 001 · July 2026</p>
-      <h1>When does one person become an institution?</h1>
+      <h1>When Does One Person Become an Institution?</h1>
       <p className="edition-dek">
         Visibility can make a person look powerful. Structure determines whether that power can endure, travel, and be governed.
       </p>
@@ -235,11 +235,7 @@ export default function EditionOnePage() {
         </blockquote>
       </section>
 
-      <section className="edition-package-map" aria-labelledby="packages-001">
-        <p className="eyebrow">Visual package gallery</p><h2 id="packages-001">Continue through the six cases.</h2>
-        <p>Each package contains the complete carousel, its editable post copy, captions, and source records.</p>
-        <div>{packages.map((id) => <a key={id} href={packageGalleryUrl(id)} target="_blank" rel="noopener noreferrer"><b>{id}</b><span>Open complete package</span><strong>↗</strong></a>)}</div>
-      </section>
+      <EditionPackageMap edition="001" packages={packages} heading="Continue through the six cases." />
 
       <EditionLab edition="001" />
 

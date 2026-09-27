@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: { number: string } 
   return {
     title: `${edition.title} — The I/1 Edit`, description: edition.subtitle,
     alternates: { canonical }, robots: { index: true, follow: true },
-    openGraph: { title: `Edition ${edition.number} — ${edition.title}`, description: edition.subtitle, url: canonical, type: "article", images: [{ url: image, width: 1600, height: 2000, alt: edition.media[0]?.alt ?? edition.title }] },
+    openGraph: { title: `Edition ${edition.number} — ${edition.title}`, description: edition.subtitle, url: canonical, type: "article", images: [{ url: image, alt: edition.media[0]?.alt ?? edition.title }] },
     twitter: { card: "summary_large_image", title: `Edition ${edition.number} — ${edition.title}`, description: edition.subtitle, images: [image] },
   };
 }

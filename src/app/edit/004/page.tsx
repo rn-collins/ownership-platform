@@ -1,5 +1,5 @@
 import { NewsletterSignup } from "@/components/NewsletterSignup";
-import { packageGalleryUrl } from "@/lib/edit-cycle-one";
+import { EditionPackageMap } from "@/components/CanonicalEdition";
 
 const packages = ["P32", "P33", "P34"];
 
@@ -24,14 +24,14 @@ export default function EditionFourPage() {
   return <main className="edit-edition-page">
     <a className="postback" href="/edit">← The I/1 Edit</a>
     <p className="eyebrow">Edition 004 · August 2026</p>
-    <h1>The exit is part of the architecture.</h1>
+    <h1>The Exit Is Part of the Architecture</h1>
     <p className="edition-dek">The right to download the parts is not the same as a path for the work to continue somewhere else.</p>
 
     <section className="edition-opening">
       <p className="edition-dropcap">A Git repository can be cloned. It can also be transferred. Both can put code somewhere else, but structurally they are different.</p>
       <p>A mirror clone preserves files and revision history. A qualifying GitHub transfer changes ownership and can carry more of the working environment: issues, pull requests, wiki, stars, watchers, commit information, and redirects from the former location.</p>
       <p>One action copies an object. The other can preserve more of the history, relationships, authority, and address around it.</p>
-      <p>Edit 003 asked whether an archive could recover a capability after loss. Exit architecture asks whether the work can change containers without becoming a disconnected copy of its former self.</p>
+      <p>Edition 003 asked whether an archive could recover a capability after loss. Exit architecture asks whether the work can change containers without becoming a disconnected copy of its former self.</p>
     </section>
 
     <section className="edition-thresholds" aria-labelledby="movement-heading"><p className="eyebrow">Three mechanisms</p><h2 id="movement-heading">What kind of continuity does the work need?</h2><div className="edition-threshold-grid">
@@ -55,11 +55,7 @@ export default function EditionFourPage() {
     <section className="edition-distinction"><p className="eyebrow">Closing question</p><blockquote>If your most important work system had to change containers this month, which part of its continuity would fail first?</blockquote><p>This essay offers a structural framework, not legal advice. Access, retention, transfer, reuse, confidentiality, privacy, intellectual property, deletion, and return depend on the facts, law, contract, role, and platform terms.</p></section>
 
     <section className="edition-opening" aria-labelledby="source-desk"><p className="eyebrow">Source Desk</p><h2 id="source-desk">Inspect the primary documentation.</h2><ol><li><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository" target="_blank" rel="noopener noreferrer">GitHub Docs — Transferring a repository</a></li><li><a href="https://docs.github.com/en/repositories/archiving-a-github-repository/backing-up-a-repository" target="_blank" rel="noopener noreferrer">GitHub Docs — Backing up a repository</a></li><li><a href="https://support.spotify.com/us/creators/article/switching-away-from-spotify-for-creators-with-a-301-redirect/" target="_blank" rel="noopener noreferrer">Spotify for Creators — Switching away with a 301 redirect</a></li></ol><p><strong>Source status:</strong> Primary documentation rechecked 7 August 2026. Functionality can differ by account, plan, organization, jurisdiction, and private arrangement; recheck at implementation.</p></section>
-    <section className="edition-package-map" aria-labelledby="packages-004">
-      <p className="eyebrow">Visual package gallery</p><h2 id="packages-004">Continue through the three mechanisms.</h2>
-      <p>Each package contains the complete carousel, its editable post copy, captions, and source records.</p>
-      <div>{packages.map((id) => <a key={id} href={packageGalleryUrl(id)} target="_blank" rel="noopener noreferrer"><b>{id}</b><span>Open complete package</span><strong>↗</strong></a>)}</div>
-    </section>
+    <EditionPackageMap edition="004" packages={packages} heading="Continue through the three mechanisms." />
 
     <nav className="edition-continuity" aria-label="Edition navigation"><a href="/edit/003">← Edition 003</a><a href="/edit">All editions</a><a href="/edit/005">Edition 005 →</a></nav>
     <section className="closing-call"><p className="eyebrow">The I/1 Edit</p><h2>Follow the research on work, ownership, continuity, and institutional power.</h2><NewsletterSignup source="site" /></section>

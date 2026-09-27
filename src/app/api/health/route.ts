@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { beehiivConfigured } from "@/lib/beehiiv";
 
+export const dynamic = "force-dynamic";
+
 // Which backends are wired, at a glance. No secrets returned — only booleans —
 // so it's safe to hit publicly. Turns "is it configured?" into a URL.
 export async function GET() {
@@ -10,7 +12,7 @@ export async function GET() {
     integrations: {
       database: Boolean(process.env.DATABASE_URL),
       supabaseAuth: Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),
-      ratelimit: Boolean(process.env.UPSTASH_REDIS_REST_URL),
+      ratelimit: Boolean((process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL) && (process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN)),
       email: Boolean(process.env.RESEND_API_KEY),
       beehiiv: beehiivConfigured(),
     },

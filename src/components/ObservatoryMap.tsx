@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { SEED, OBSERVATORY_DOMAINS as DOMAINS, nodeSlug, type Node } from "@/lib/observatory_seed";
 import { CASE_NARRATIVES } from "@/lib/case_narratives";
 import { getCaseResearch } from "@/lib/case_research";
@@ -9,7 +9,6 @@ import styles from "./ObservatoryExplorer.module.css";
 
 type View = "discover" | "patterns" | "compare" | "composition" | "gaps";
 type Pattern = { tension: string; domain: string } | null;
-const ACCENTS = ["#ff6b55", "#20b8a6", "#f2bd3f", "#8b78d1", "#3d9fc1", "#e36e9a", "#ca9840"];
 const VIEW_COPY: Record<View, [string,string]> = {
   discover:["Find a case","Start with a question you recognize."],
   patterns:["Trace a pattern","Follow one tension across different fields."],
@@ -54,6 +53,9 @@ function tally<T extends string>(items:T[]):Array<[T,number]> {
 
 export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "directory" }: { nodes?: Node[]; embed?: boolean; initialView?: View | "directory" | "map" }) {
   const [view,setView] = useState<View>(initialView === "map" ? "patterns" : initialView === "directory" ? "discover" : initialView);
+  // ?mode=compare|patterns deep links are read in the browser so /observatory
+  // can be served as a static page.
+  useEffect(()=>{const mode=new URLSearchParams(window.location.search).get("mode");if(mode==="compare"||mode==="patterns")setView(mode);},[]);
   const [tension,setTension] = useState("all");
   const [domain,setDomain] = useState("all");
   const [query,setQuery] = useState("");
@@ -112,7 +114,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
     {view==="compare"&&<section aria-labelledby="compare-title">
       <div className={styles.intro}><div><p className={styles.kicker}>Case comparator</p><h2 id="compare-title">Compare two careers and identify what differs.</h2></div><p>Choose two people. This does not score either career; it makes their visible structures and unanswered questions easier to contrast.</p></div>
       <div className={styles.comparePicker}>{[0,1].map((slot)=><label key={slot}>Case {slot+1}<select value={compare[slot]??""} onChange={(event)=>setCompare((current)=>{const next=[...current];next[slot]=event.target.value;return next.filter(Boolean).slice(0,2);})}><option value="">Choose a person</option>{nodes.map((n)=><option value={n.name} key={n.name}>{n.name}</option>)}</select></label>)}</div>
-      {selectedCompare.length===2&&selectedCompare[0].name!==selectedCompare[1].name?<div className={styles.comparison}>{selectedCompare.map((n,index)=>{const evidence=evidenceComparison(n);return <article key={n.name} style={{"--accent":ACCENTS[index]} as CSSProperties}><p className={styles.kicker}>{evidence.sourceCount} linked sources{evidence.reviewed?` · reviewed ${evidence.reviewed}`:""}</p><h3>{n.name}</h3><p className={styles.role}>{n.role}</p><p className={styles.caseQuestionLabel}>Question this case helps us investigate</p><blockquote>{n.question}</blockquote><dl><div><dt>What was built</dt><dd>{evidence.built}</dd></div><div><dt>What could travel</dt><dd>{evidence.portable}</dd></div><div><dt>What was controlled</dt><dd>{evidence.controlled}</dd></div><div><dt>What depended on another institution</dt><dd>{evidence.dependencies}</dd></div><div><dt>What could continue</dt><dd>{evidence.continuable}</dd></div><div><dt>Strongest complication</dt><dd>{evidence.complication}</dd></div><div><dt>Most important unknown</dt><dd>{evidence.unknown}</dd></div></dl><Link href={`/observatory/${nodeSlug(n.name)}`}>Open the complete evidence record for {n.name} →</Link></article>})}</div>:<div className={styles.empty}>Choose two different cases to begin.</div>}
+      {selectedCompare.length===2&&selectedCompare[0].name!==selectedCompare[1].name?<div className={styles.comparison}>{selectedCompare.map((n,index)=>{const evidence=evidenceComparison(n);return <article key={n.name}><p className={styles.kicker}>{evidence.sourceCount} linked sources{evidence.reviewed?` · reviewed ${evidence.reviewed}`:""}</p><h3>{n.name}</h3><p className={styles.role}>{n.role}</p><p className={styles.caseQuestionLabel}>Question this case helps us investigate</p><blockquote>{n.question}</blockquote><dl><div><dt>What was built</dt><dd>{evidence.built}</dd></div><div><dt>What could travel</dt><dd>{evidence.portable}</dd></div><div><dt>What was controlled</dt><dd>{evidence.controlled}</dd></div><div><dt>What depended on another institution</dt><dd>{evidence.dependencies}</dd></div><div><dt>What could continue</dt><dd>{evidence.continuable}</dd></div><div><dt>Strongest complication</dt><dd>{evidence.complication}</dd></div><div><dt>Most important unknown</dt><dd>{evidence.unknown}</dd></div></dl><Link href={`/observatory/${nodeSlug(n.name)}`}>Open the complete evidence record for {n.name} →</Link></article>})}</div>:<div className={styles.empty}>Choose two different cases to begin.</div>}
       {selectedCompare.length===2&&selectedCompare[0].name!==selectedCompare[1].name&&<div className={styles.compareQuestions}><h3>Read the contrast carefully</h3><ul><li>Compare documented structures, not fame, field, or title.</li><li>“Not established” means the public evidence cannot support the conclusion yet—not that the asset, right, or capacity does not exist.</li><li>Ask whether the difference comes from career structure or simply from unequal evidence coverage.</li></ul></div>}
     </section>}
 
@@ -132,7 +134,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
 }
 
 function CaseCard({node,index,compareActive=false,onCompare}:{node:Node;index:number;compareActive?:boolean;onCompare?:()=>void}) {
-  return <article className={styles.card} style={{"--accent":ACCENTS[index%ACCENTS.length]} as CSSProperties}><div className={styles.top}><span className={styles.tension}>{node.tension??"Open question"}</span><span className={styles.domain}>{node.domain}</span></div><p className={styles.question}>{node.question??"What does this career make possible—and what makes it fragile?"}</p><div className={styles.identity}><h3>{node.name}</h3><p>{node.role}</p><div className={styles.cardActions}><Link href={`/observatory/${nodeSlug(node.name)}`}>Open the case record →</Link>{onCompare&&<button type="button" className={compareActive?styles.saved:""} onClick={onCompare}>{compareActive?"Saved to compare":"Compare"}</button>}</div></div></article>;
+  return <article className={styles.card}><div className={styles.top}><span className={styles.tension}>{node.tension??"Open question"}</span><span className={styles.domain}>{node.domain}</span></div><p className={styles.question}>{node.question??"What does this career make possible—and what makes it fragile?"}</p><div className={styles.identity}><h3>{node.name}</h3><p>{node.role}</p><div className={styles.cardActions}><Link href={`/observatory/${nodeSlug(node.name)}`}>Open the case record →</Link>{onCompare&&<button type="button" className={compareActive?styles.saved:""} onClick={onCompare}>{compareActive?"Saved to compare":"Compare"}</button>}</div></div></article>;
 }
 
 function BarList({title,items,max}:{title:string;items:Array<[string,number]>;max:number}) {

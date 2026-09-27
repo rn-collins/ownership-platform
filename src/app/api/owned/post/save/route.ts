@@ -52,6 +52,11 @@ export async function POST(req: Request) {
     const excerpt = plainExcerpt(d.body);
     const publishedAt = d.published ? new Date() : null;
 
+    if (d.id) {
+      // Scope the update to this creator's own posts; another creator's id is a 404.
+      const owned = await prisma.post.findFirst({ where: { id: d.id, creatorId: creator.id }, select: { id: true } });
+      if (!owned) return NextResponse.json({ error: "not_found" }, { status: 404 });
+    }
     const post = d.id
       ? await prisma.post.update({
           where: { id: d.id },

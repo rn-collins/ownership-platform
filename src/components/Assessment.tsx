@@ -1,12 +1,15 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { assess, improvementPlan, projectedScore, DIMENSIONS, type DimensionKey } from "@/lib/engine";
 import { INSTRUMENT, OVERALL_COPY, DIMENSION_WHY, ITEM_ACTIONS } from "@/lib/instrument";
 import { RESEARCH_MODULES, APP_RESEARCH_MODULE_KEYS, isResearchItemHidden, type ResearchItem } from "@/lib/research";
 import { Radar } from "./Radar";
 import { ResearchOptIn } from "@/components/ResearchOptIn";
 import { ProjectionDumbbell } from "@/components/ProjectionDumbbell";
+import { QuestionStepper } from "./QuestionStepper";
+import { focusAndReveal } from "./formKit";
+import s from "./forms.module.css";
 
 type Responses = Record<string, number>;
 type ResearchAnswers = Record<string, string | string[]>;
@@ -27,12 +30,15 @@ export function Assessment() {
     typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
   );
 
-  // Pick an option for the current step; auto-advance for a frictionless flow.
-  function chooseCore(index: number, value: number) {
-    const id = CORE[index].id;
+  // Record an answer; the stepper handles auto-advance and focus.
+  function answer(id: string, value: number) {
     setResponses((r) => ({ ...r, [id]: value }));
-    if (index < CORE.length - 1) window.setTimeout(() => setStep(index + 1), 160);
   }
+  const resultsHeadingRef = useRef<HTMLHeadingElement>(null);
+  const [restarted, setRestarted] = useState(false);
+  useEffect(() => {
+    if (submitted) focusAndReveal(resultsHeadingRef.current);
+  }, [submitted]);
   const result = useMemo(() => (submitted ? assess(responses) : null), [submitted, responses]);
 
   // Anonymous capture — no identity, only banded answers, score, and research modules.
@@ -129,42 +135,26 @@ export function Assessment() {
   return (
     <div>
       {!submitted && (
-        <div className="stepper">
-          <div className="progressbar"><div className="progressfill" style={{ width: `${((step + 1) / CORE.length) * 100}%` }} /></div>
-          <div className="stepmeta">
-            <span className="stepdim">{CORE[step].dim}</span>
-            <span className="stepcount">{step + 1} / {CORE.length}</span>
-          </div>
-          <p className="qbig">{CORE[step].q}</p>
-          <div className="optcards">
-            {CORE[step].options.map((opt, s) => (
-              <button
-                key={s}
-                type="button"
-                className={`optcard${responses[CORE[step].id] === s ? " sel" : ""}`}
-                onClick={() => chooseCore(step, s)}
-              >
-                {opt}
-              </button>
-            ))}
-          </div>
-          <div className="stepnav">
-            <button className="ghost" onClick={() => setStep((s) => Math.max(0, s - 1))} disabled={step === 0}>Back</button>
-            {step === CORE.length - 1 ? (
-              <button className="primary" onClick={onSubmit} disabled={responses[CORE[step].id] == null}>See my ownership profile</button>
-            ) : (
-              <button className="ghost" onClick={() => setStep((s) => Math.min(CORE.length - 1, s + 1))} disabled={responses[CORE[step].id] == null}>Next</button>
-            )}
-          </div>
-        </div>
+        <QuestionStepper
+          items={CORE}
+          responses={responses}
+          onAnswer={answer}
+          step={step}
+          onStepChange={setStep}
+          onSubmit={onSubmit}
+          submitLabel="See my ownership profile"
+          focusOnMount={restarted}
+        />
       )}
 
       {submitted && result && (
         <div className="results">
           <div className="scorecard">
             <div>
-              <p className="eyebrow">Your ownership profile</p>
-              <div className="bandlbl">{result.overall.label}</div>
+              <h2 className={s.resultsHeading} ref={resultsHeadingRef} tabIndex={-1}>
+                <span className="eyebrow">Your ownership profile</span>
+                <span className="bandlbl">{result.overall.label}</span>
+              </h2>
               <div className="bandnote">{OVERALL_COPY[result.overall.key]}</div>
               <div className="conf">
                 <span className="pill">Evidence status: {result.confidence.label}</span>
@@ -223,9 +213,9 @@ export function Assessment() {
                 <div className="rmodhead"><span className="rmodname">{mod.name}</span><span className="rmodlens">{mod.lens}</span></div>
                 {items.map((it) => (
                   <fieldset key={it.id} className="q">
-                    <legend className="qt">{it.q}</legend>
+                    <legend className="qt" id={`rq-${it.id}`}>{it.q}</legend>
                     {it.type === "open" ? (
-                      <textarea className="opentext" rows={2} value={(research[it.id] as string) ?? ""} onChange={(e) => setResearchAnswer(it, e.target.value)} />
+                      <textarea className={`opentext ${s.input}`} aria-labelledby={`rq-${it.id}`} rows={2} value={(research[it.id] as string) ?? ""} onChange={(e) => setResearchAnswer(it, e.target.value)} />
                     ) : (
                       <div className="chips">
                         {(it.options ?? []).map((opt) => {
@@ -233,7 +223,7 @@ export function Assessment() {
                             ? ((research[it.id] as string[] | undefined) ?? []).includes(opt)
                             : research[it.id] === opt;
                           return (
-                            <button key={opt} type="button" className={`rchip${selected ? " on" : ""}`} onClick={() => setResearchAnswer(it, opt)}>{opt}</button>
+                            <button key={opt} type="button" aria-pressed={selected} className={`rchip ${s.button}${selected ? " on" : ""}`} onClick={() => setResearchAnswer(it, opt)}>{opt}</button>
                           );
                         })}
                       </div>
@@ -284,8 +274,8 @@ export function Assessment() {
 
           <p className="disc">Your answers are collected anonymously. Result calculated under methodology v{result.methodologyVersion}.</p>
           <div className="actions">
-            <button className="primary" onClick={shareProfile}>{shared ? "Link copied ✓" : "Share my profile"}</button>
-            <button className="ghost" onClick={() => { setSubmitted(false); setResponses({}); setResearch({}); setStep(0); setShared(false); }}>Start again</button>
+            <button className={`primary ${s.button}`} onClick={shareProfile}>{shared ? "Link copied ✓" : "Share my profile"}</button>
+            <button className={`ghost ${s.button}`} onClick={() => { setSubmitted(false); setResponses({}); setResearch({}); setStep(0); setShared(false); setRestarted(true); }}>Start again</button>
           </div>
         </div>
       )}

@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  async redirects() {
+    // Browsers and crawlers request /favicon.ico regardless of <link rel="icon">.
+    return [{ source: "/favicon.ico", destination: "/icon-v2.svg", permanent: true }];
+  },
   async headers() {
     return [
       {
@@ -17,7 +21,7 @@ const nextConfig = {
       {
         // The Observatory embed is meant to be iframed by partners/press.
         source: "/embed/:path*",
-        headers: [{ key: "X-Frame-Options", value: "ALLOWALL" }],
+        headers: [{ key: "Content-Security-Policy", value: "frame-ancestors *" }],
       },
     ];
   },

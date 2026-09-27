@@ -54,6 +54,8 @@ export async function POST(req: Request) {
 
   const beehiiv = await beehiivSubscribe({ email, source: d.source });
   if (!beehiiv.synced) {
+    // The signup is on file; Beehiiv can be backfilled from the database later.
+    if (stored) return NextResponse.json({ ok: true, stored, synced: false });
     return NextResponse.json({ ok: false, stored, synced: false, error: "newsletter_not_connected" }, { status: 503 });
   }
 

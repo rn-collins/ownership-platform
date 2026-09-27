@@ -2,7 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { Fragment, type ReactNode } from "react";
 import { Edition007Figure, edition007FigureForHeading } from "@/components/Edition007Figure";
-import { commonsImageUrl, commonsSourceUrl, cycleOneEditions, packageGalleryUrl, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
+import { commonsImageUrl, commonsSourceUrl, cycleOneEditions, packageGalleryUrl, packageTitle, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
+import styles from "./CanonicalEdition.module.css";
 
 const stripFrontMatter = (raw: string) => raw
   .replace(/^---[\s\S]*?---\s*/, "")
@@ -28,7 +29,7 @@ function EvidenceFigure({ edition, index }: { edition: Edition; index: number })
   const item = edition.media[index];
   if (!item) return null;
   return <figure className="canonical-edition-figure">
-    <img src={commonsImageUrl(item.file)} alt={item.alt} loading={index < 1 ? "eager" : "lazy"} />
+    <img src={commonsImageUrl(item.file)} alt={item.alt} width={item.width} height={item.height} style={{ height: "auto" }} loading={index < 1 ? "eager" : "lazy"} />
     <figcaption><span>{item.caption}</span><small>Credit: {item.credit}. {item.rights}. <a href={commonsSourceUrl(item.file)} target="_blank" rel="noopener noreferrer">Source record ↗</a></small></figcaption>
   </figure>;
 }
@@ -53,6 +54,15 @@ function ArticleBody({ edition }: { edition: Edition }) {
   })}</>;
 }
 
+/** Reader-facing links to an edition's Public Reader visual stories (shared by editions 001-009). */
+export function EditionPackageMap({ edition, packages, heading }: { edition: string; packages: readonly string[]; heading: string }) {
+  return <section className="edition-package-map" aria-labelledby={`packages-${edition}`}>
+    <p className="eyebrow">More from this edition</p><h2 id={`packages-${edition}`}>{heading}</h2>
+    <p>Each visual story walks through one part of the argument, with captions and source records.</p>
+    <div>{packages.map((id) => <a key={id} href={packageGalleryUrl(id)} target="_blank" rel="noopener noreferrer"><b className={styles.storyTitle}>{packageTitle(id)}</b><span>Visual story</span><strong aria-hidden="true">↗</strong></a>)}</div>
+  </section>;
+}
+
 export function CanonicalEditionPage({ edition }: { edition: Edition }) {
   const number = Number(edition.number);
   // Derived from the actual (gate-filtered) edition list rather than hardcoded edges - a
@@ -65,7 +75,7 @@ export function CanonicalEditionPage({ edition }: { edition: Edition }) {
   const next = index === visible.length - 1 ? undefined : `/edit/${visible[index + 1].number}`;
   return <main className="edit-edition-page canonical-edition" data-edition={edition.number}>
     <a className="postback" href="/edit">← All editions</a>
-    <p className="eyebrow">Edition {edition.number} · August 2026</p>
+    <p className="eyebrow">Edition {edition.number} · {edition.published}</p>
     <h1>{edition.title}</h1>
     <p className="edition-dek">{edition.subtitle}</p>
     <div className="canonical-status"><span>Canonical web edition</span><span>Full text · evidence · sources</span></div>
@@ -77,15 +87,11 @@ export function CanonicalEditionPage({ edition }: { edition: Edition }) {
       <a href={edition.experience} target="_blank" rel="noopener noreferrer">Open the interactive ↗</a>
     </section>}
 
-    <section className="edition-package-map" aria-labelledby={`packages-${edition.number}`}>
-      <p className="eyebrow">Visual package gallery</p><h2 id={`packages-${edition.number}`}>Continue through the supporting stories.</h2>
-      <p>Each package contains the complete carousel, its editable post copy, captions, source records, and available downloads.</p>
-      <div>{edition.packages.map((id) => <a key={id} href={packageGalleryUrl(id)} target="_blank" rel="noopener noreferrer"><b>{id}</b><span>Open complete package</span><strong>↗</strong></a>)}</div>
-    </section>
+    <EditionPackageMap edition={edition.number} packages={edition.packages} heading="Continue through the supporting stories." />
 
     <nav className="edition-continuity" aria-label="Edition navigation">
       <a href={previous}>← Edition {String(number - 1).padStart(3, "0")}</a>
-      <a href={edition.beehiiv} target="_blank" rel="noopener noreferrer">Readable Beehiiv edition ↗</a>
+      {edition.beehiiv ? <a href={edition.beehiiv} target="_blank" rel="noopener noreferrer">Readable Beehiiv edition ↗</a> : null}
       {next ? <a href={next}>Edition {String(number + 1).padStart(3, "0")} →</a> : <a href="/edit">All editions →</a>}
     </nav>
   </main>;

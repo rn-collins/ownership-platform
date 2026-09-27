@@ -26,20 +26,26 @@ function tenantRewrite(req: NextRequest): NextResponse | null {
   return NextResponse.rewrite(url);
 }
 
+// Upper bound on the session refresh. Supabase auth is a network call; if it is
+// slow or down, pages must still render (Sep 26 2026: an unbounded call here
+// produced 25s function timeouts / 504s on / and /edit).
+const AUTH_REFRESH_TIMEOUT_MS = 1500;
+
+const hasSessionCookie = (req: NextRequest) =>
+  req.cookies.getAll().some(({ name }) => name.startsWith("sb-") && name.includes("-auth-token"));
+
 export async function middleware(req: NextRequest) {
   // Tenant hosts render a public page; short-circuit before session refresh.
   const rewrite = tenantRewrite(req);
   if (rewrite) return rewrite;
 
-  // Expose the pathname to server components (so the root layout can drop its
-  // chrome for /embed/* without a route-group refactor).
-  const requestHeaders = new Headers(req.headers);
-  requestHeaders.set("x-pathname", req.nextUrl.pathname);
+  const res = NextResponse.next();
 
+  // Anonymous visitors (almost all traffic) have nothing to refresh, so they
+  // never touch Supabase and public pages stay CDN-cacheable.
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  const res = NextResponse.next({ request: { headers: requestHeaders } });
-  if (!url || !key) return res;
+  if (!url || !key || !hasSessionCookie(req)) return res;
 
   const supabase = createServerClient(url, key, {
     cookies: {
@@ -54,7 +60,14 @@ export async function middleware(req: NextRequest) {
       },
     },
   });
-  await supabase.auth.getUser();
+  try {
+    await Promise.race([
+      supabase.auth.getUser(),
+      new Promise((resolve) => setTimeout(resolve, AUTH_REFRESH_TIMEOUT_MS)),
+    ]);
+  } catch {
+    // Auth outage: serve the page; protected routes re-check the user themselves.
+  }
   return res;
 }
 

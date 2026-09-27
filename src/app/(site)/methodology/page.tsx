@@ -1,0 +1,59 @@
+import { METHODOLOGY_VERSION } from "@/lib/engine";
+import { PROFESSIONAL_METHODOLOGY_VERSION } from "@/lib/instrument_professional";
+
+export const metadata = {
+  title: "How Institutions of One works",
+  description: "See the concrete questions, two evidence streams, result calculations, and limits behind Institutions of One.",
+  alternates: { canonical: "/methodology" },
+  openGraph: { title: "How Institutions of One works", description: "See the concrete questions, two evidence streams, result calculations, and limits behind Institutions of One.", url: "/methodology", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "How Institutions of One works", description: "See the concrete questions, two evidence streams, result calculations, and limits behind Institutions of One.", images: ["/og.png"] },
+};
+
+const ownershipDimensions = [["Audience","Can you reach people without asking a platform for permission?"],["Rights","Who can license, reuse, change, or sell the work?"],["Revenue","Could the money move with you if one channel disappeared?"],["Identity","Can you govern the name and reputation people recognize?"],["Infrastructure","Are there systems and relationships beyond one account or project?"]];
+const professionalDimensions = [["Capability ownership","What expertise, methods, or work can you carry beyond an assigned role?"],["Institutional value","Do other people use what you built, and can it continue after a handoff?"],["Mandate and autonomy","How much can you shape your role, priorities, and room to build?"],["Visibility and authority","Are you recognized for this work inside and beyond your organization?"],["Coherent thesis","Can people see how your projects connect and what they are building toward?"]];
+const limits = ["A profile and its secondary composite are not a diagnosis, percentile, ranking, or measure of human worth.","People choose whether to participate, so current responses cannot represent everyone.","The current question weights and result ranges are provisional and still need testing.","A one-time self-report cannot prove that ownership or portability caused an outcome.","Career structure is shaped by occupation, geography, disability, caregiving, discrimination, capital, and organizational power."];
+
+export default function MethodologyPage() {
+  return <main className="method-page method-2">
+    <p className="eyebrow">How the inquiry works</p>
+    <h1>Begin with a career that looks powerful.</h1>
+    <p className="method-hook">Then ask four questions of it: Build · Carry · Control · Continue.</p>
+
+    <section className="method-example"><div><p className="eyebrow">A concrete example</p><h2>A global executive leaves a famous company.</h2></div><div><p>Their reputation may travel immediately. Their team, budget, customer data, patents, distribution, decision rights, and employer-owned work may not.</p><p>Calling the person “successful,” “independent,” or “a personal brand” does not resolve that difference. Institutions of One separates the structure into questions that can be investigated.</p></div></section>
+
+    <section className="method-four" aria-labelledby="four-questions"><p className="eyebrow">The four questions underneath the project</p><h2 id="four-questions" className="display-h2">Build · Carry · Control · Continue</h2><div>
+      <article><span>01</span><h3>Build</h3><p>What the person created: a body of work, method, audience, business, team, or network.</p></article>
+      <article><span>02</span><h3>Carry</h3><p>What can move with them when a role, employer, platform, or client changes.</p></article>
+      <article><span>03</span><h3>Control</h3><p>What they can govern: identity, rights, audience access, revenue, data, and decisions.</p></article>
+      <article><span>04</span><h3>Continue</h3><p>What work, systems, relationships, or authority could persist when an essential dependency—a role, platform, employer, client, collaborator, or source of capital—changes.</p></article>
+    </div></section>
+
+    <section className="method-two-evidence"><p className="eyebrow">Why there are assessments and public cases</p><h2>One reveals lived conditions. The other reveals visible structure.</h2><div className="method-split">
+      <div><span>01</span><h2>People answer questions about their own work.</h2></div><p>The pilot assessments can ask about control, portability, and constraints that no public biography reveals. They create provisional self-reported snapshots—not declarations of who is an “institution.”</p>
+      <div><span>02</span><h2>Public careers complicate the questions.</h2></div><p>The Observatory checks sourced facts, compares arrangements, and records what remains unknowable. It does not score or diagnose the people.</p>
+      <div><span>03</span><h2>Each source answers different questions.</h2></div><p>People can describe conditions that public sources do not show, including private agreements and informal power. Public evidence can verify visible facts across many careers. Reading the two separately helps the project state what is known, what comes from a participant, and what remains unanswered.</p>
+    </div></section>
+
+    <section className="method-example method-evidence" id="evidence-standard" aria-labelledby="evidence-standard-heading"><div><p className="eyebrow">Evidence and fairness standard</p><h2 id="evidence-standard-heading">One published rule for negative evidence.</h2></div><div>
+      <p>The Observatory describes the public careers of real, named people. Adverse material enters a case only when it meets this standard, and the same standard applies to all 41 cases.</p>
+      <p><b>What qualifies.</b> Court findings; court filings, always attributed as allegations unless a court has adjudicated them; findings and rulings of regulators and other public bodies; the subject’s own public statements, acknowledgments, or apologies; and reporting by at least two independent, established news organizations. The material must bear directly on the structural question the case examines.</p>
+      <p><b>What is excluded.</b> Rumour; insinuation or claims resting on a single source; personal relationships, health, and family matters unless they are directly material to the case and sourced; and judgments about character, motive, or psychology. We do not diagnose anyone, and we do not raise an accusation in order to deny it.</p>
+      <p><b>How it is written.</b> Adverse material is attributed to its source: a complaint “alleges,” an outlet “reported,” a finding is stated “according to” the body that made it. Denials, settlements without admission, and unresolved outcomes appear alongside the allegation. Failures an institution documented are attributed to that institution and are not transferred to an individual beyond what the record states. Every item links to its source.</p>
+      <p><b>Right of reply and corrections.</b> Anyone named in a case, or someone acting for them, may request a correction, add context, or respond by writing to <a href="mailto:collins.ra@northeastern.edu">collins.ra@northeastern.edu</a>. Substantiated errors are corrected.</p>
+    </div></section>
+
+    <section className="method-instruments">
+      <article className="method-instrument creator"><p className="eyebrow">For creators and independent operators</p><h2>What can you control?</h2><p>The Ownership Index examines the assets and channels through which your work creates value.</p><ol>{ownershipDimensions.map(([name,question],i)=><li key={name}><span>{String(i+1).padStart(2,"0")}</span><div><b>{name}</b><p>{question}</p></div></li>)}</ol><a href="/assess/creator">Take the Ownership Index →</a></article>
+      <article className="method-instrument professional"><p className="eyebrow">For people working across roles or institutions</p><h2>What can you carry?</h2><p>Portfolio Professional examines capability ownership, institutional value, mandate and autonomy, visibility and authority, and whether your work forms a coherent thesis.</p><ol>{professionalDimensions.map(([name,question],i)=><li key={name}><span>{String(i+1).padStart(2,"0")}</span><div><b>{name}</b><p>{question}</p></div></li>)}</ol><a href="/assess/professional">Take Portfolio Professional →</a></article>
+    </section>
+
+    <section className="method-score"><div><p className="eyebrow">How to read a pilot result</p><h2>Begin with the five-dimensional profile.</h2></div><div><p>Each pilot contains twenty questions: four in each of five dimensions. Responses run from 0 to 5. The result first shows the pattern across those five dimensions so a reader can see where conditions differ.</p><p>A secondary composite out of 100 records how the responses combine under the current provisional calculation. It is included for methodological transparency, not as the main result or a basis for ranking people.</p><p>The profile and composite summarize answers to this version of these questions. They do not measure talent, potential, intelligence, worth, or how a person compares with the population.</p><p>Every result records its version so later revisions never silently rewrite an earlier result.</p><p className="meta">Current versions: Ownership Index v{METHODOLOGY_VERSION} · Portfolio Professional v{PROFESSIONAL_METHODOLOGY_VERSION}</p></div></section>
+
+    <section className="method-psych"><p className="eyebrow">Why psychology belongs here</p><h2>Career structure is lived, not merely owned.</h2><p>Autonomy, confidence, identity, motivation, adaptability, and the ability to imagine a future can influence what someone builds and whether they believe it can move. Disability, caregiving, discrimination, capital, geography, and organizational power can change the options available. These ideas inform the inquiry; the current pilots do not diagnose them and are not validated psychological scales.</p></section>
+
+    <section className="method-limits"><div><p className="eyebrow">Interpret with care</p><h2>What these pilots cannot establish.</h2></div><ol>{limits.map((limit,i)=><li key={limit}><span>{String(i+1).padStart(2,"0")}</span><p>{limit}</p></li>)}</ol></section>
+
+    <section className="method-next"><p className="eyebrow">How the assessments will be tested</p><h2>Ask. Listen. Test. Revise. Repeat.</h2><p>Next come expert review, interviews about how people understand each question, missing-data and item analysis, reliability and factor testing, comparison with established measures, fairness checks, and longitudinal research. Material changes receive new version numbers.</p><a href="/methodology/candidates">See the questions being tested →</a></section>
+    <div className="actions"><a href="/assess" className="primary-link">Choose the question about your work</a><a href="/observatory" className="text-link">See how the framework applies to 41 public careers →</a></div>
+  </main>;
+}

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { beehiivConfigured } from "@/lib/beehiiv";
 
+export const dynamic = "force-dynamic";
+
 // Which backends are wired, at a glance. No secrets returned — only booleans —
 // so it's safe to hit publicly. Turns "is it configured?" into a URL.
 export async function GET() {

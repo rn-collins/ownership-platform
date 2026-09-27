@@ -1,6 +1,6 @@
 import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
-import { packageGalleryUrl } from "@/lib/edit-cycle-one";
+import { EditionPackageMap } from "@/components/CanonicalEdition";
 
 const packages = ["P24", "P25", "P26", "P27"];
 
@@ -57,7 +57,7 @@ export default function EditionTwoPage() {
     <main className="edit-edition-page edition-002">
       <a className="postback" href="/edit">← The I/1 Edit</a>
       <p className="eyebrow">Edition 002 · July 2026</p>
-      <h1>Your career has a supply chain.</h1>
+      <h1>Your Career Has a Supply Chain</h1>
       <p className="edition-dek">
         Dependence is unavoidable. The danger is a dependency you cannot see, replace, negotiate with, or survive without.
       </p>
@@ -201,11 +201,7 @@ export default function EditionTwoPage() {
         </p>
       </section>
 
-      <section className="edition-package-map" aria-labelledby="packages-002">
-        <p className="eyebrow">Visual package gallery</p><h2 id="packages-002">Continue through the four cases.</h2>
-        <p>Each package contains the complete carousel, its editable post copy, captions, and source records.</p>
-        <div>{packages.map((id) => <a key={id} href={packageGalleryUrl(id)} target="_blank" rel="noopener noreferrer"><b>{id}</b><span>Open complete package</span><strong>↗</strong></a>)}</div>
-      </section>
+      <EditionPackageMap edition="002" packages={packages} heading="Continue through the four cases." />
 
       <EditionLab edition="002" />
 

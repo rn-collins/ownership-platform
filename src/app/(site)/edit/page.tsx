@@ -1,4 +1,5 @@
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { publicEditions } from "@/lib/edit-cycle-one";
 
 export const metadata = {
   title: "The I/1 Edit — Institutions of One",
@@ -18,13 +19,16 @@ export const metadata = {
 };
 
 export default function EditPage() {
+  // Derived from the edition data so a newly published edition is listed (and becomes "Latest") automatically.
+  const editions = publicEditions();
+  const latest = editions[editions.length - 1];
   return (
     <main className="findings-page edit-index-page">
       <p className="eyebrow">The publication · The I/1 Edit</p>
       <h1>Research and ideas about the structure behind people’s work.</h1>
       <p className="lede">
-        Every other week, The I/1 Edit takes one question about work, power, and ownership—and follows it far enough
-        to become useful. Each edition examines what makes work portable, durable, controlled, or dependent on an employer, platform, client, partner, or other institution.
+        New editions arrive by email. Each one takes one question about work, power, and ownership—and follows it far enough
+        to become useful, examining what makes work portable, durable, controlled, or dependent on an employer, platform, client, partner, or other institution.
       </p>
 
       <section className="edit-promise">
@@ -34,42 +38,29 @@ export default function EditPage() {
         </div>
         <div>
           <p>
-            Beehiiv carries the readable newsletter edition on the web: the central argument and strongest case moments in a focused reading experience. The canonical Ownership Platform edition lives here with citations, interactive tools, updates, and related cases.
+            Beehiiv carries the readable newsletter edition on the web: the central argument and strongest case moments in a focused reading experience. The canonical edition lives here on this site, with citations, interactive tools, updates, and related cases.
           </p>
           <p>
-            Every edition has the same intellectual core, while each surface serves a different purpose. Read on Beehiiv for the narrative. Use the Ownership Platform for the complete numbered editions and their cited record. The Public Reader extends Editions 005–008 through visual stories, interactive tools, and ready-to-use files.
+            Every edition has the same intellectual core, while each surface serves a different purpose. Read on Beehiiv for the narrative. Use this site for the complete numbered editions and their cited record. The Public Reader extends each edition through visual stories, interactive tools, and ready-to-use files.
           </p>
           <p><a href="https://institutions-of-one-reader.vercel.app/production/cycle-01">Explore the Public Reader’s visual stories →</a></p>
         </div>
       </section>
 
-      <a className="edit-feature" href="/edit/001">
-        <span className="edit-feature-number">001</span>
-        <div>
-          <p className="eyebrow">Edition 001 · July 2026</p>
-          <h2>When does one person become an institution?</h2>
-          <p>What does a person have to build, carry, and control before their work begins to function like an institution?</p>
-          <strong>Read Edition 001 →</strong>
-        </div>
-      </a>
-      <a className="edit-feature" href="/edit/002"><span className="edit-feature-number">002</span><div><p className="eyebrow">Edition 002 · July 2026</p><h2>Your career has a supply chain.</h2><p>Dependence is unavoidable. The danger is a dependency you cannot see, replace, negotiate with, or survive without.</p><strong>Read Edition 002 →</strong></div></a>
-      <a className="edit-feature" href="/edit/003">
-        <span className="edit-feature-number">003</span>
-        <div><p className="eyebrow">Edition 003 · August 2026</p><h2>Your archive is not a backup.</h2><p>An export can preserve the objects you made while losing the operating memory that made them useful.</p><strong>Read Edition 003 →</strong></div>
-      </a>
-      <a className="edit-feature" href="/edit/004"><span className="edit-feature-number">004</span><div><p className="eyebrow">Edition 004 · August 2026</p><h2>The exit is part of the architecture.</h2><p>The right to download the parts is not the same as a path for the work to continue somewhere else.</p><strong>Read Edition 004 →</strong></div></a>
-      <a className="edit-feature" href="/edit/005"><span className="edit-feature-number">005</span><div><p className="eyebrow">Edition 005 · August 2026</p><h2>The $2,000 video.</h2><p>A creator deal is usually several decisions wearing one price tag.</p><strong>Read Edition 005 →</strong></div></a>
-      <a className="edit-feature" href="/edit/006"><span className="edit-feature-number">006</span><div><p className="eyebrow">Edition 006 · August 2026</p><h2>The person inside the asset.</h2><p>A finished post can contain a copyrighted work, a performance, an identity, and a future edit.</p><strong>Read Edition 006 →</strong></div></a>
-      <a className="edit-feature" href="/edit/007"><span className="edit-feature-number">007</span><div><p className="eyebrow">Edition 007 · August 2026</p><h2>The asset’s afterlife.</h2><p>The file did not change. Its commercial life did.</p><strong>Read Edition 007 →</strong></div></a>
-      <a className="edit-feature edit-feature-latest" href="/edit/008">
-        <span className="edit-feature-number">008</span>
-        <div>
-          <p className="eyebrow">Latest edition · August 2026</p>
-          <h2>The smallest institution in the campaign.</h2>
-          <p>One post can contain an entire organization.</p>
-          <strong>Read Edition 008 →</strong>
-        </div>
-      </a>
+      {editions.map((edition) => {
+        const isLatest = edition === latest;
+        return (
+          <a key={edition.number} className={isLatest ? "edit-feature edit-feature-latest" : "edit-feature"} href={`/edit/${edition.number}`}>
+            <span className="edit-feature-number">{edition.number}</span>
+            <div>
+              <p className="eyebrow">{isLatest ? "Latest edition" : `Edition ${edition.number}`} · {edition.published}</p>
+              <h2>{edition.title}</h2>
+              <p>{edition.subtitle}</p>
+              <strong>Read Edition {edition.number} →</strong>
+            </div>
+          </a>
+        );
+      })}
 
       <section className="edit-signup">
         <div>

@@ -1,0 +1,5 @@
+/* Doubled class beats the global `.edition-package-map b` (32px) rule so full story titles fit their tiles. */
+.storyTitle.storyTitle {
+  font: 700 22px/1.15 Georgia, serif;
+  letter-spacing: -0.01em;
+}

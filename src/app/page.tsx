@@ -12,11 +12,11 @@ export default function Home() {
         <p className="eyebrow">A research and editorial project by RN Collins</p>
         <h1 className="hero-h1">What will still be yours when the job, platform, or title changes?</h1>
         <p className="hero-lede">
-          People build valuable work inside companies, platforms, professions, communities, and independent practices. Institutions of One studies what happens to that work when a job, platform, client, or title changes: what the person built, what they can carry, what they control, and what work, systems, relationships, or authority could persist when an essential dependency changes.
+          Your audience, reputation, and expertise feel like yours. Some of it belongs to an employer or a platform. Find out which.
         </p>
         <div className="hero-cta">
-          <a className="button-primary" href="/methodology">Understand the framework</a>
-          <a href="/observatory" className="hero-link">Explore 41 public cases →</a>
+          <a className="cta-next" href="/assess">Take the 5-minute assessment</a>
+          <a href="/observatory" className="hero-link">Or explore 41 public careers →</a>
         </div>
         <p className="hero-note">Creators · employees · executives · independent professionals · researchers · public leaders · the groups working with them</p>
       </section>
@@ -31,15 +31,16 @@ export default function Home() {
       <section className="editorial-section">
         <div className="section-number">02</div>
         <div className="section-intro">
-          <p className="eyebrow">The Build–Carry–Control–Continue framework</p>
-          <h2 className="display-h2">Four questions reveal the structure beneath a career.</h2>
+          <p className="eyebrow">The framework</p>
+          <h2 className="display-h2">Build · Carry · Control · Continue</h2>
         </div>
         <div className="question-grid">
-          <article><span>01</span><h3>Build</h3><p>What body of work, method, audience, product, or operating system did the person create?</p></article>
-          <article><span>02</span><h3>Carry</h3><p>What expertise, reputation, relationships, and opportunities can move with them?</p></article>
-          <article><span>03</span><h3>Control</h3><p>What do they own or govern—and what still belongs to an employer, platform, investor, or collaborator?</p></article>
-          <article><span>04</span><h3>Continue</h3><p>What work, systems, relationships, or authority could persist when an essential dependency changes?</p></article>
+          <article><span>01</span><h3>Build</h3><p>What you made: the work, method, audience, or product.</p></article>
+          <article><span>02</span><h3>Carry</h3><p>What moves with you: expertise, reputation, relationships.</p></article>
+          <article><span>03</span><h3>Control</h3><p>What you own or govern, and what someone else does.</p></article>
+          <article><span>04</span><h3>Continue</h3><p>What keeps working if the job, platform, or title changes.</p></article>
         </div>
+        <p><a href="/methodology" className="sec-link">How the framework is measured →</a></p>
       </section>
 
       <section className="editorial-section split-section">
@@ -47,7 +48,6 @@ export default function Home() {
         <div className="section-intro">
           <p className="eyebrow">Two pilot assessments</p>
           <h2 className="display-h2">Examine what you control.<br/>Examine what you can carry.</h2>
-          <p className="sec-sub">Choose the question that matches your work. One assessment examines what you control; the other examines what you can carry between roles and organizations.</p>
         </div>
         <div className="lensgrid">
           <a className="lenscard creator" href="/assess/creator">
@@ -76,9 +76,6 @@ export default function Home() {
       </section>
 
       <section className="closing-call">
-        <p className="eyebrow">The I/1 Edit</p>
-        <h2>One original idea about work, power, ownership, and how valuable work is structured around people and organizations.</h2>
-        <p>Every other week, the inbox edition gives you the central argument and strongest case moments. The permanent web edition adds sources, case comparisons, updates, and related cases.</p>
         <NewsletterSignup source="site" />
       </section>
     </main>

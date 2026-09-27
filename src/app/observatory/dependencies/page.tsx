@@ -3,7 +3,7 @@ import { DependencyExplorer } from "./DependencyExplorer";
 
 export const metadata: Metadata = {
   title: "Dependency Explorer — The Observatory",
-  description: "Examine which employers, platforms, titles, capital, audiences, mandates, founders, intellectual property, and distribution partners appear structurally relevant across 41 career cases.",
+  description: "Examine which employers, platforms, titles, capital, audiences, mandates, founders, intellectual property, and distribution partners appear structurally relevant across the Observatory cases.",
   alternates: { canonical: "/observatory/dependencies" },
 };
 
@@ -11,14 +11,14 @@ export default function DependencyExplorerPage() {
   return <main className="observatory-page">
     <p className="eyebrow">The Observatory · Dependency Explorer</p>
     <h1>See what each career relies on.</h1>
-    <p className="lede">Filter the 41 cases by the employers, platforms, titles, capital, audiences, founders, rights, and distribution systems that appear relevant. Then open each case to verify what the sources establish.</p>
+    <p className="lede">Filter the cases by the employers, platforms, titles, capital, audiences, founders, rights, and distribution systems that appear relevant. Then open each case to verify what the sources establish.</p>
     <p><a href="/observatory">← The Observatory</a></p>
 
     <section className="explorer-intro">
       <h2>What a dependency means here</h2>
       <p>
         A dependency is something a body of work currently runs through. It is a structural
-        observation about an arrangement, and it carries no judgement about the person in the
+        observation about an arrangement, and it carries no judgment about the person in the
         case. Depending on an employer, a platform, a distributor or a pool of capital is
         ordinary, and in most of these cases it is what made the work possible in the first
         place. What the explorer is for is seeing which of those channels a given career runs
@@ -37,7 +37,7 @@ export default function DependencyExplorerPage() {
 
       <h2>What a tag establishes</h2>
       <p>
-        Each tag records what the cited sources support about how an arrangement is organised,
+        Each tag records what the cited sources support about how an arrangement is organized,
         and that is the whole of its scope. Questions of ownership, credit, conduct and intent
         belong to the case page, where the sources sit alongside an explicit statement of where
         the public record stops. The case pages hold four distinctions apart throughout:

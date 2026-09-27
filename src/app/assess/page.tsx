@@ -10,10 +10,9 @@ export default function AssessChooserPage() {
   return (
     <main className="choice-page">
       <p className="eyebrow">Institutions of One · Assessments</p>
-      <h1>What part of your work do you want to examine?</h1>
+      <h1>Five minutes. No account. See where your work depends on someone else.</h1>
       <p className="lede">
-        The project includes two separate pilot assessments. Choose the one that matches the question you want to answer.
-        You may complete both, but each produces its own result and the results answer different questions and should be read separately.
+        There are two pilot assessments. Choose the one that matches your work. Each produces its own result, so if you take both, read them separately.
       </p>
 
       <div className="card">
@@ -51,14 +50,15 @@ export default function AssessChooserPage() {
         not hold. A low score in one area is not a failing grade; a creator who reaches an audience
         entirely through one platform and knows it may be making a deliberate trade. What the
         instrument is useful for is making that trade explicit, so it can be reviewed rather than
-        discovered during a platform change. The five area scores are meant to be read together
-        and against each other, not summed into a single verdict.
+        discovered during a platform change. Your result leads with a five-area profile; a
+        secondary composite score is shown for transparency. Read the five areas together and
+        against each other before looking at the composite.
       </p>
 
       <h2 style={{ marginTop: 26 }}>Which one to choose</h2>
       <p>
         If your work is published under your own name and your income depends on reaching people
-        directly, the Ownership Index is the closer fit. If your work happens inside organisations
+        directly, the Ownership Index is the closer fit. If your work happens inside organizations
         and the open question is how much of it would travel with you, start with the Portfolio
         Professional. People whose work does both often find it clearest to take them separately
         and compare, rather than trying to answer one set of questions for two situations at once.

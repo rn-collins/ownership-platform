@@ -42,7 +42,7 @@ export default function ApplyPage() {
 
       <h2 style={{ marginTop: 26 }}>How the cases were selected</h2>
       <p>
-        The paths draw on the forty-one public cases in the Observatory, each documented from
+        The paths draw on the public cases in the Observatory, each documented from
         material that is on the public record. They are examined for what the arrangement was
         and how it held up, not to praise or fault the people in them. Nothing you choose or
         write on this page is transmitted or stored; the selection and your note stay in your

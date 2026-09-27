@@ -17,7 +17,7 @@ export default function PrivacyPage() {
 
       <div className="card">
         <h2>The anonymous assessments</h2>
-        <p>When you take an index, the system stores your answers grouped by response range, the five-dimensional profile, a secondary composite total, instrument and methodology
+        <p>When you take an index, the system stores your answers grouped by response range, the five-area profile, the secondary composite score shown for transparency, instrument and methodology
         versions, and a random assessment identifier — no name, email, or account identity. The identifier lets
         later optional research answers update the same assessment instead of creating duplicate respondents; it is not
         used to identify you. Your IP address is used briefly to prevent abuse and is never stored. Optional research
@@ -36,14 +36,14 @@ export default function PrivacyPage() {
         <h2>Your rights</h2>
         <p>You can unsubscribe at any time from the link in any email, or on the{" "}
         <a href="/unsubscribe" className="fwlink">unsubscribe page</a>. You can request a copy of your record or its
-        deletion — the links in your emails are signed so they work without a login, and you can also email me directly
-        and I will process the request. Unsubscribing keeps a minimal consent record for the audit trail; deletion removes the row
+        deletion — the links in your emails are signed so they work without a login, and you can also email RN Collins directly
+        to have the request processed. Unsubscribing keeps a minimal consent record for the audit trail; deletion removes the row
         entirely.</p>
       </div>
 
       <div className="card">
         <h2>The Observatory</h2>
-        <p>The 41 named case records use publicly available evidence. A nomination begins a private review; it does not automatically create a public record. If a case concerns you and you would like to request a correction or raise a privacy concern, contact me and it will be reviewed promptly.</p>
+        <p>The named case records use publicly available evidence. A nomination begins a private review; it does not automatically create a public record. If a case concerns you and you would like to request a correction or raise a privacy concern, contact RN Collins and it will be reviewed promptly.</p>
       </div>
 
       <p className="disc" style={{ marginTop: 16 }}>

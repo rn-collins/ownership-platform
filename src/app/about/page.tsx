@@ -10,17 +10,18 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <p className="eyebrow">Institutions of One · About</p>
-      <h1>A research project about what people create, what can move with them, what they can govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.</h1>
+      <h1>A research project about what people build, carry, control, and continue.</h1>
+      <p className="meta">RN Collins · Independent researcher · J.D. candidate, Northeastern University School of Law</p>
       <p className="lede">
         Institutions of One began with a simple observation: organizations routinely measure reach, productivity, and
         performance, but rarely measure whether the value a person creates becomes portable, durable, and meaningfully
-        theirs. The project studies that question across creators, independent operators, employees, executives, researchers, public leaders, and other professionals.
+        theirs. I study that question across creators, independent operators, employees, executives, researchers, public leaders, and other professionals.
       </p>
 
       <div className="card">
         <h2>RN Collins</h2>
         <p>
-          I am an independent researcher, writer, consultant, and J.D. candidate at Northeastern University School of Law.
+          I am an independent researcher, writer, and consultant, and a J.D. candidate at Northeastern University School of Law.
           My background spans neuroscience, developmental psychology, medical education, qualitative research, emerging
           industries, and the design of research and intelligence systems. That interdisciplinary path shapes this project:
           it examines work through psychological, organizational, economic, technological, and legal questions.
@@ -32,14 +33,14 @@ export default function AboutPage() {
         <p>
           A large audience does not necessarily mean ownership. Specialized expertise does not necessarily travel outside
           an employer. A personal brand does not necessarily become a durable business. By separating capability, authority,
-          portability, ownership, and institutional support, the project aims to give people and organizations clearer language for identifying what the person created, what can move with them, what they can govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.
+          portability, ownership, and institutional support, I want to give people and organizations clearer language for what a person built, what they can carry, what they control, and what would continue if a job, platform, or title changed.
         </p>
       </div>
 
       <div className="card">
         <h2>How the work is supported</h2>
         <p>
-          Institutions of One is led by RN Collins. Client engagements, research collaborations, and other support
+          I lead Institutions of One. Client engagements, research collaborations, and other support
           can fund research, analysis, publication, programs, and events. Each project begins with a clear question, scope,
           role for everyone involved, and explanation of how the resulting work will be used and shared.
         </p>
@@ -49,7 +50,7 @@ export default function AboutPage() {
         <h2>Current stage</h2>
         <p>
           The project is in active pilot development. Two assessments are collecting exploratory responses, the
-          Observatory contains 41 claim-linked comparative case records, and the methods will continue to be tested and
+          Observatory contains claim-linked comparative case records, and the methods will continue to be tested and
           revised. The long-term aim is a public research program that produces useful evidence for workers, creators,
           organizations, policymakers, and the industries redesigning how work happens.
         </p>

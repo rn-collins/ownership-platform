@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   assessProfessional,
   professionalPlan,
@@ -11,6 +11,9 @@ import {
 import { PROFESSIONAL_INSTRUMENT, PROFESSIONAL_DIMENSIONS, type PDimensionKey } from "@/lib/instrument_professional";
 import { ResearchOptIn } from "@/components/ResearchOptIn";
 import { ProjectionDumbbell } from "@/components/ProjectionDumbbell";
+import { QuestionStepper } from "./QuestionStepper";
+import { focusAndReveal } from "./formKit";
+import s from "./forms.module.css";
 
 type Responses = Record<string, number>;
 
@@ -63,11 +66,15 @@ export function ProfessionalAssessment() {
     typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
   );
 
-  function chooseCore(index: number, value: number) {
-    const id = CORE[index].id;
+  // Record an answer; the stepper handles auto-advance and focus.
+  function answer(id: string, value: number) {
     setResponses((r) => ({ ...r, [id]: value }));
-    if (index < CORE.length - 1) window.setTimeout(() => setStep(index + 1), 160);
   }
+  const resultsHeadingRef = useRef<HTMLHeadingElement>(null);
+  const [restarted, setRestarted] = useState(false);
+  useEffect(() => {
+    if (submitted) focusAndReveal(resultsHeadingRef.current);
+  }, [submitted]);
 
   const result = useMemo(() => (submitted ? assessProfessional(responses) : null), [submitted, responses]);
 
@@ -112,35 +119,26 @@ export function ProfessionalAssessment() {
   return (
     <div>
       {!submitted && (
-        <div className="stepper">
-          <div className="progressbar"><div className="progressfill" style={{ width: `${((step + 1) / CORE.length) * 100}%` }} /></div>
-          <div className="stepmeta">
-            <span className="stepdim">{CORE[step].dim}</span>
-            <span className="stepcount">{step + 1} / {CORE.length}</span>
-          </div>
-          <p className="qbig">{CORE[step].q}</p>
-          <div className="optcards">
-            {CORE[step].options.map((opt, s) => (
-              <button key={s} type="button" className={`optcard${responses[CORE[step].id] === s ? " sel" : ""}`} onClick={() => chooseCore(step, s)}>{opt}</button>
-            ))}
-          </div>
-          <div className="stepnav">
-            <button className="ghost" onClick={() => setStep((s) => Math.max(0, s - 1))} disabled={step === 0}>Back</button>
-            {step === CORE.length - 1 ? (
-              <button className="primary" onClick={() => setSubmitted(true)} disabled={responses[CORE[step].id] == null}>See my portability profile</button>
-            ) : (
-              <button className="ghost" onClick={() => setStep((s) => Math.min(CORE.length - 1, s + 1))} disabled={responses[CORE[step].id] == null}>Next</button>
-            )}
-          </div>
-        </div>
+        <QuestionStepper
+          items={CORE}
+          responses={responses}
+          onAnswer={answer}
+          step={step}
+          onStepChange={setStep}
+          onSubmit={() => setSubmitted(true)}
+          submitLabel="See my portability profile"
+          focusOnMount={restarted}
+        />
       )}
 
       {submitted && result && (
         <div className="results">
           <div className="scorecard" style={{ gridTemplateColumns: "1fr 300px" }}>
             <div>
-              <p className="eyebrow">Your portability profile</p>
-              <div className="bandlbl">{result.overall.label}</div>
+              <h2 className={s.resultsHeading} ref={resultsHeadingRef} tabIndex={-1}>
+                <span className="eyebrow">Your portability profile</span>
+                <span className="bandlbl">{result.overall.label}</span>
+              </h2>
               <div className="bandnote">{result.overall.copy}</div>
               <div className="conf"><span className="pill">Evidence status: self-reported</span>This pattern is exploratory and is not a rank or identity verdict.<br />Composite index: {result.total} / 100 under the current methodology.</div>
             </div>
@@ -198,8 +196,8 @@ export function ProfessionalAssessment() {
 
           <p className="disc">Portfolio Professional · methodology v{result.methodologyVersion}. This result was calculated under the current Institutions of One pilot methodology.</p>
           <div className="actions">
-            <button className="primary" onClick={shareProfile}>{shared ? "Link copied ✓" : "Share my profile"}</button>
-            <button className="ghost" onClick={() => { setSubmitted(false); setResponses({}); setStep(0); setShared(false); }}>Start again</button>
+            <button className={`primary ${s.button}`} onClick={shareProfile}>{shared ? "Link copied ✓" : "Share my profile"}</button>
+            <button className={`ghost ${s.button}`} onClick={() => { setSubmitted(false); setResponses({}); setStep(0); setShared(false); setRestarted(true); }}>Start again</button>
           </div>
         </div>
       )}

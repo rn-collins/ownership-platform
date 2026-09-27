@@ -1,0 +1,145 @@
+/* Accessible form + stepper primitives layered on the existing global classes.
+   Errors always sit on paper so --i1-rust-ink keeps 5.9:1 contrast, even inside
+   dark bands. Focus rings are re-asserted because some global input rules
+   remove the outline on :focus. */
+
+.label {
+  display: block;
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.optional {
+  font-weight: 400;
+  font-style: normal;
+  opacity: .85;
+}
+
+.input.input { min-height: 44px; }
+textarea.input.input { min-height: 96px; }
+.input.input:focus-visible,
+.input.input:focus {
+  outline: 3px solid var(--i1-blue);
+  outline-offset: 2px;
+}
+.onDark .input.input:focus-visible,
+.onDark .input.input:focus,
+.onDark .check input:focus-visible,
+.onDark .button:focus-visible {
+  outline-color: var(--i1-acid);
+}
+.input.invalid.invalid {
+  border-color: var(--i1-rust-ink);
+  border-width: 2px;
+}
+
+.error {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 6px 0 0;
+  padding: 4px 8px;
+  background: var(--i1-paper);
+  color: var(--i1-rust-ink);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.alert {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 2px solid var(--i1-rust-ink);
+  background: var(--i1-paper);
+  color: var(--i1-rust-ink);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.alert a { color: var(--i1-rust-ink); text-decoration: underline; }
+
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  min-height: 44px;
+  padding: 6px 0;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.check input {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  cursor: pointer;
+}
+.check input:focus-visible { outline: 3px solid var(--i1-blue); outline-offset: 2px; }
+.checkInvalid input { outline: 2px solid var(--i1-rust-ink); outline-offset: 1px; }
+
+.button { min-height: 44px; min-width: 44px; }
+
+.focusTarget { scroll-margin-top: 96px; }
+.focusTarget:focus-visible { outline: 3px solid var(--i1-blue); outline-offset: 4px; }
+.onDark .focusTarget:focus-visible { outline-color: var(--i1-acid); }
+
+/* ---------- Assessment stepper ---------- */
+
+.fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  scroll-margin-top: 96px;
+}
+.legend:focus-visible { outline: 3px solid var(--i1-blue); outline-offset: 4px; }
+
+.meta {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: .5em;
+}
+
+.card {
+  display: block;
+  position: relative;
+  min-height: 44px;
+  cursor: pointer;
+}
+.card:has(.radio:focus-visible) {
+  outline: 3px solid var(--i1-blue);
+  outline-offset: 3px;
+}
+.radio {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+@media (forced-colors: active) {
+  .card:has(.radio:checked) { outline: 3px solid CanvasText; outline-offset: 2px; }
+}
+
+.inactive, .inactive:hover { opacity: .35; cursor: default; }
+
+.resultsHeading {
+  margin: 0;
+  font: inherit;
+  scroll-margin-top: 96px;
+}
+.resultsHeading > span { display: block; }
+.resultsHeading:focus-visible { outline: 3px solid var(--i1-acid); outline-offset: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}

@@ -6,6 +6,11 @@ import styles from "./profile.module.css";
 import { CASE_NARRATIVES } from "@/lib/case_narratives";
 import { getCaseResearch } from "@/lib/case_research";
 import CaseLab from "./CaseLab";
+import { CaseStatus } from "@/components/case/CaseStatus";
+import { buildFramework, collectSources, formatLongDate, isLandingPage, pad, sourceKindLabel } from "@/components/case/caseData";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
+
+export const revalidate = 3600;
 
 type Evidence = { id: string; supportType: string; exactPassage: string | null; locator: string | null; source: { title: string; url: string; publisher: string | null; publishedAt: Date | null; primarySource: boolean } };
 type Claim = { id: string; statement: string; permissibleLanguage: string | null; claimType: string; verificationStatus: string; contradictionNote: string | null; evidence: Evidence[] };
@@ -20,6 +25,27 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const description = node.question ?? `Explore what ${node.name}'s career reveals about ownership, portability, power, and dependence.`;
   return { title, description, alternates: { canonical }, openGraph: { title, description, url: canonical, images: ["/og.png"] }, twitter: { card: "summary_large_image", title, description, images: ["/og.png"] } };
 }
+
+const tensionGuides: Record<string, { meaning: string; lookFor: string; comparison: string }> = {
+  "Role vs person": { meaning: "whether authority belongs to the office, the person, or the relationship between them", lookFor: "decisions, methods, relationships, and trust associated with the person—not merely the title", comparison: "Ask what remains recognizable if the title disappears." },
+  "One field vs many": { meaning: "how one person creates coherence across work institutions usually separate", lookFor: "a repeated question, method, audience, or point of view connecting the roles", comparison: "Ask whether the range compounds or fragments." },
+  "Owned vs rented": { meaning: "which parts of the work are directly controlled and which depend on access supplied by platforms, distributors, retailers, or partners", lookFor: "rights, customer relationships, audience access, data, products, and operating systems", comparison: "Ask what continues if the largest outside channel changes its rules." },
+  "Portable vs embedded": { meaning: "what travels with the person and what remains inside an employer, client, platform, or other institutional container", lookFor: "portable reputation, methods, relationships, and proof beside employer-controlled teams, rights, budgets, data, and distribution", comparison: "Ask what could move lawfully and practically when the container changes." },
+  "Scale vs dependence": { meaning: "what autonomy gains or loses as the work needs more capital, people, distribution, and infrastructure", lookFor: "dependencies that increase reach while creating obligations or single points of failure", comparison: "Ask which dependencies are visible, substitutable, negotiable, and survivable." },
+  "Public mandate vs personal authority": { meaning: "how individual expertise becomes permission to coordinate public systems without becoming private ownership", lookFor: "formal mandate, cross-agency adoption, budgets, standards, succession, and evidence that institutions act", comparison: "Ask what capacity remains after the officeholder leaves." },
+  "Institution vs individual": { meaning: "how a person stewards, changes, or speaks through an institution whose authority predates and exceeds them", lookFor: "the difference between personal decisions and inherited rules, reputation, resources, and symbolic power", comparison: "Ask what changed because of this leader and what belongs to the institution itself." },
+};
+const fallbackGuide = { meaning: "how ownership, portability, authority, and dependence interact", lookFor: "the assets, relationships, systems, and permissions surrounding the work", comparison: "Ask what changes if the career loses its largest source of support." };
+
+const SECTIONS = [
+  { id: "story", label: "Story" },
+  { id: "framework", label: "Framework" },
+  { id: "chronology", label: "Chronology" },
+  { id: "reading", label: "Reading" },
+  { id: "test", label: "Test" },
+  { id: "compare", label: "Compare" },
+  { id: "sources", label: "Sources" },
+] as const;
 
 export default async function ObservatoryProfile({ params }: { params: { slug: string } }) {
   let node: Node | undefined = findNodeBySlug(params.slug);
@@ -40,98 +66,164 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
     } catch { /* Keep the public seed available if the evidence store is unavailable. */ }
   }
   if (!node) notFound();
+  const person = node;
 
-  const tensionGuides: Record<string, { meaning: string; lookFor: string; comparison: string }> = {
-    "Role vs person": { meaning: "whether authority belongs to the office, the person, or the relationship between them", lookFor: "decisions, methods, relationships, and trust associated with the person—not merely the title", comparison: "Ask what remains recognizable if the title disappears." },
-    "One field vs many": { meaning: "how one person creates coherence across work institutions usually separate", lookFor: "a repeated question, method, audience, or point of view connecting the roles", comparison: "Ask whether the range compounds or fragments." },
-    "Owned vs rented": { meaning: "which parts of the work are directly controlled and which depend on access supplied by platforms, distributors, retailers, or partners", lookFor: "rights, customer relationships, audience access, data, products, and operating systems", comparison: "Ask what continues if the largest outside channel changes its rules." },
-    "Portable vs embedded": { meaning: "what travels with the person and what remains inside an employer, client, platform, or other institutional container", lookFor: "portable reputation, methods, relationships, and proof beside employer-controlled teams, rights, budgets, data, and distribution", comparison: "Ask what could move lawfully and practically when the container changes." },
-    "Scale vs dependence": { meaning: "what autonomy gains or loses as the work needs more capital, people, distribution, and infrastructure", lookFor: "dependencies that increase reach while creating obligations or single points of failure", comparison: "Ask which dependencies are visible, substitutable, negotiable, and survivable." },
-    "Public mandate vs personal authority": { meaning: "how individual expertise becomes permission to coordinate public systems without becoming private ownership", lookFor: "formal mandate, cross-agency adoption, budgets, standards, succession, and evidence that institutions act", comparison: "Ask what capacity remains after the officeholder leaves." },
-    "Institution vs individual": { meaning: "how a person stewards, changes, or speaks through an institution whose authority predates and exceeds them", lookFor: "the difference between personal decisions and inherited rules, reputation, resources, and symbolic power", comparison: "Ask what changed because of this leader and what belongs to the institution itself." },
-  };
-  const guide = tensionGuides[node.tension ?? ""] ?? { meaning: "how ownership, portability, authority, and dependence interact", lookFor: "the assets, relationships, systems, and permissions surrounding the work", comparison: "Ask what changes if the career loses its largest source of support." };
+  const guide = tensionGuides[person.tension ?? ""] ?? fallbackGuide;
   const narrative = CASE_NARRATIVES[params.slug];
-  const researchRecord = getCaseResearch(params.slug);
+  const research = getCaseResearch(params.slug);
   const currentIndex = SEED.findIndex((candidate) => nodeSlug(candidate.name) === params.slug);
   const previous = currentIndex > 0 ? SEED[currentIndex - 1] : undefined;
   const next = currentIndex >= 0 && currentIndex < SEED.length - 1 ? SEED[currentIndex + 1] : undefined;
-  const related = SEED.filter((candidate) => candidate.name !== node!.name && (candidate.tension === node!.tension || candidate.domain === node!.domain)).slice(0, 3);
-  const independentSourceCount = narrative?.sources.filter((source) => source.independent).length ?? 0;
-  const institutionalSourceCount = (narrative?.sources.length ?? 0) - independentSourceCount;
-  const date = (value: Date) => new Intl.DateTimeFormat("en", { year: "numeric", month: "long", day: "numeric" }).format(value);
-  const reviewLabel = reviewedAt ? date(reviewedAt) : "July 2026";
-  // `documentationLevel` is this project's own assessment of how deeply a record has been
-  // researched. It is NOT a verification result: `status` (verificationStatus) is the only
-  // field that records whether the claims have actually cleared review, and no case has yet
-  // reached "verified". Label the two separately so neither is read as the other.
-  const depthLabel = researchRecord?.documentationLevel === "saturated" ? "Research depth: claim-level" : "Research depth: provisional";
-  const verificationLabels: Record<string, string> = { verified: "Verification: verified", partially_supported: "Verification: partially supported", in_review: "Verification: in review", provisional: "Verification: not yet verified", disputed: "Verification: disputed", rejected: "Verification: rejected" };
-  const verificationLabel = verificationLabels[status] ?? "Verification: not yet verified";
+  const related = SEED.filter((candidate) => candidate.name !== person.name && (candidate.tension === person.tension || candidate.domain === person.domain)).slice(0, 3);
+
+  // One source list drives both the status line counts and the sources section.
+  const sources = collectSources(research, narrative);
+  const sourceNumber = new Map(sources.map((source) => [source.id, source.number]));
+  const independentCount = sources.filter((source) => source.kind === "independent").length;
+  const landingPageCount = sources.filter((source) => isLandingPage(source.href)).length;
+
+  const reviewed = reviewedAt ? formatLongDate(reviewedAt) : research ? formatLongDate(research.reviewed) : undefined;
+  const finding = research?.payoff ?? narrative?.whyItMatters;
+  const unknowns = research?.unknowns ?? narrative?.unresolved ?? [];
+  const framework = narrative ? buildFramework({ built: narrative.structuralTurn, unknowns, carryFallback: guide.comparison }) : [];
+  const hasCase = Boolean(narrative && research);
+  const section = (id: (typeof SECTIONS)[number]["id"]) => pad(SECTIONS.findIndex((item) => item.id === id) + 1);
 
   return <main className={styles.page}>
-    <Link href="/observatory" className={styles.back}>← Explore all 41 people</Link>
+    <Link href="/observatory" className={styles.back}>← Explore all {SEED.length} people</Link>
+
     <header className={styles.hero}>
-      <div><p className={styles.kicker}>{node.tension ?? "An open career question"}</p><h1>{node.name}</h1><p className={styles.role}>{node.role}</p></div>
-      <div className={styles.meta}><span>{node.domain}</span><span>{node.kind === "creator" ? "Creator-led work" : "Work built through organizations"}</span><span>Reviewed {reviewLabel}</span><span>{depthLabel}</span><span>{verificationLabel}</span></div>
+      <h1>{person.name}</h1>
+      <p className={styles.role}>{person.role}</p>
+      <ul className={styles.chips} aria-label="Case details">
+        {person.tension && <li>{person.tension}</li>}
+        <li>{person.domain}</li>
+        <li>{person.kind === "creator" ? "Creator case" : "Professional case"}</li>
+        {reviewed && <li>Reviewed {reviewed}</li>}
+      </ul>
+      <div className={styles.question}>
+        <p className={styles.questionLabel}>The case question</p>
+        <p className={styles.questionText}>{person.question ?? "What does this career make possible—and what makes it fragile?"}</p>
+      </div>
+      {finding && <div className={styles.finding}>
+        <p className={styles.findingLabel}>What this case shows</p>
+        <p className={styles.findingText}>{finding}</p>
+      </div>}
+      <CaseStatus total={sources.length} independent={independentCount} status={status} />
     </header>
 
-    <section className={styles.question} aria-labelledby="central-question"><span>What this career helps us understand</span><h2 id="central-question">{node.question ?? "What does this career make possible—and what makes it fragile?"}</h2><p>Follow the story, inspect the structure, test a dependency, compare the case, and verify the evidence. This is analysis of a public record—not a rating of the person.</p></section>
+    {hasCase && narrative && research ? <>
+      <nav className={styles.rail} aria-label="Case sections">
+        <ol>{SECTIONS.map((item, index) => <li key={item.id}><a href={`#${item.id}`}><span aria-hidden="true">{pad(index + 1)}</span>{item.label}</a></li>)}</ol>
+      </nav>
 
-    <nav className={styles.layerNav} aria-label="Case study sections">
-      <a href="#understand"><span>01</span>Understand</a><a href="#trace"><span>02</span>Trace</a><a href="#examine"><span>03</span>Examine</a><a href="#test"><span>04</span>Test</a><a href="#compare"><span>05</span>Compare</a><a href="#verify"><span>06</span>Verify</a>
-    </nav>
-
-    <p className={styles.warning}><strong>Documentation status:</strong> {researchRecord?.documentationLevel === "provisional" ? "This is a provisional research profile, not yet a claim-level record. Use it as a research lead and inspect the source limits below." : "This record has been researched to claim level, meaning each statement is tied to a source."} No case on this site has yet completed independent verification review, so treat every statement as sourced reporting rather than a verified finding. <Link href="/observatory/documentation">See what completion requires →</Link></p>
-
-    {narrative ? <>
-      <section className={styles.section} id="understand" aria-labelledby="career-story">
-        <p className={styles.kicker}>01 · Understand</p><h2 id="career-story">The human story—and the structural question</h2><p>{narrative.careerArc}</p>
-        <div className={styles.payoff}><p className={styles.kicker}>The immediate payoff</p><h3>What this case changes</h3><p>{narrative.whyItMatters}</p></div>
+      <section className={styles.section} id="story" aria-labelledby="story-heading">
+        <p className={styles.num} aria-hidden="true">{section("story")}</p>
+        <h2 id="story-heading">The career in brief</h2>
+        <p className={styles.lede}>{narrative.careerArc}</p>
+        {narrative.whyItMatters !== finding && <div className={styles.turn}><p className={styles.turnLabel}>Why the case matters</p><p>{narrative.whyItMatters}</p></div>}
       </section>
 
-      <section className={styles.section} id="trace" aria-labelledby="career-trace">
-        <p className={styles.kicker}>02 · Trace</p><h2 id="career-trace">The turn that changed the structure</h2>
-        <div className={styles.turn}><div><span>Before</span><p>The career depended on the roles, institutions, platforms, or fields described above.</p></div><div><span>Turning point</span><p>{narrative.structuralTurn}</p></div><div><span>What changed</span><p>The question becomes what {node.name} created, what could move with them, what they could govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.</p></div></div>
-        <p className={styles.methodNote}>This is a structural chronology, not a résumé. Exact dates and claim-level events appear in the verified public record below when available.</p>
-      </section>
-
-      <section className={styles.section} id="examine" aria-labelledby="case-structure">
-        <p className={styles.kicker}>03 · Examine</p><h2 id="case-structure">Build, Carry, Control, Continue</h2>
-        <p>These are four different questions. Public visibility alone does not answer any of them.</p>
+      <section className={styles.section} id="framework" aria-labelledby="framework-heading">
+        <p className={styles.num} aria-hidden="true">{section("framework")}</p>
+        <h2 id="framework-heading">Build · Carry · Control · Continue</h2>
+        <p className={styles.sectionIntro}>Four separate questions. Public visibility alone answers none of them.</p>
         <div className={styles.framework}>
-          <article><span>Build</span><h3>What did the person create?</h3><p>Reputation, methods, relationships, products, teams, companies, public capacity, or a recognizable body of work.</p><strong>Look for: {guide.lookFor}.</strong></article>
-          <article><span>Carry</span><h3>What can move with them?</h3><p>Knowledge, credibility, relationships, proof, or an audience may travel even when data, teams, rights, and budgets do not.</p><strong>{guide.comparison}</strong></article>
-          <article><span>Control</span><h3>What can they govern?</h3><p>Legal ownership, practical decision rights, access, influence, and visibility are not interchangeable.</p><strong>The record must establish control; prominence cannot substitute for evidence.</strong></article>
-          <article><span>Continue</span><h3>What work, systems, relationships, or authority could persist when an essential dependency changes?</h3><p>Examine what remains possible when a role, platform, employer, administration, distributor, founder, or other essential dependency changes.</p><strong>Unknown where succession, contracts, governance, or operating capacity are private.</strong></article>
+          {framework.map((cell) => <article key={cell.key}>
+            <h3>{cell.key}</h3>
+            <p className={styles.frameworkPrompt}>{cell.prompt}</p>
+            <p className={styles.frameworkLabel}>{cell.label}</p>
+            <p>{cell.text}</p>
+          </article>)}
         </div>
-        <div className={styles.storyGrid}><section><h3>The principal interpretation</h3><p>Here, {(node.tension ?? "the career tension").toLowerCase()} means {guide.meaning}.</p></section><aside className={styles.aside}><h3>Complications and unknowns</h3><ul>{narrative.unresolved.map((item) => <li key={item}>{item}</li>)}</ul></aside></div>
+        <p className={styles.sectionIntro}><strong>The tension in this case:</strong> {person.tension ? <>here, {person.tension.toLowerCase()} means {guide.meaning}.</> : <>{guide.meaning}.</>} Look for {guide.lookFor}.</p>
+      </section>
+
+      <section className={styles.section} id="chronology" aria-labelledby="chronology-heading">
+        <p className={styles.num} aria-hidden="true">{section("chronology")}</p>
+        <h2 id="chronology-heading">What happened</h2>
+        <ol className={styles.timeline}>
+          {research.chronology.map((item) => <li className={styles.event} key={item.date + item.event}>
+            <p className={styles.eventDate}>{item.date}</p>
+            <div>
+              <p>{item.event}</p>
+              {item.sourceIds.length > 0 && <p className={styles.cites}>Sources: {item.sourceIds.map((sourceId, index) => {
+                const number = sourceNumber.get(sourceId);
+                return <span key={sourceId}>{index > 0 && ", "}{number ? <a href={`#source-${number}`} aria-label={`Source ${number}`}>{pad(number)}</a> : sourceId}</span>;
+              })}</p>}
+            </div>
+          </li>)}
+        </ol>
+      </section>
+
+      <section className={styles.section} id="reading" aria-labelledby="reading-heading">
+        <p className={styles.num} aria-hidden="true">{section("reading")}</p>
+        <h2 id="reading-heading">What it may mean, and where the evidence stops</h2>
+        <p className={styles.lede}>{research.interpretation}</p>
+        <div className={styles.read}>
+          <section aria-labelledby="complication-heading"><h3 id="complication-heading">Evidence that complicates the first reading</h3><ul>{research.complication.map((item) => <li key={item}>{item}</li>)}</ul></section>
+          <section aria-labelledby="unknowns-heading"><h3 id="unknowns-heading">What remains unknown</h3><ul>{unknowns.map((item) => <li key={item}>{item}</li>)}</ul></section>
+        </div>
       </section>
 
       <section className={styles.section} id="test" aria-labelledby="test-heading">
-        <p className={styles.kicker}>04 · Test</p><h2 id="test-heading">Change one dependency</h2><p>Use a counterfactual to expose the architecture. Your answer stays in this browser; nothing is scored or stored.</p>
-        <CaseLab name={node.name} tension={node.tension ?? ""} unknowns={narrative.unresolved} dependencyPrompt={guide.comparison} />
+        <p className={styles.num} aria-hidden="true">{section("test")}</p>
+        <h2 id="test-heading">Change one dependency</h2>
+        <p className={styles.sectionIntro}>Use a counterfactual to expose the architecture: answer first, then compare your reasoning with the record.</p>
+        <CaseLab slug={params.slug} name={person.name} tension={person.tension ?? ""} unknowns={unknowns} dependencyPrompt={guide.comparison} />
       </section>
 
       <section className={styles.section} id="compare" aria-labelledby="compare-heading">
-        <p className={styles.kicker}>05 · Compare</p><h2 id="compare-heading">Do not interpret this career alone</h2>
-        <p>Compare a shared tension across different careers, or hold the field constant and inspect a different path. A comparison is useful because it can challenge the first explanation.</p>
-        <div className={styles.compareGrid}>{related.map((person) => <Link href={`/observatory/${nodeSlug(person.name)}`} key={person.name}><span>{person.tension === node!.tension ? "Same tension" : "Same field"}</span><strong>{person.name}</strong><small>{person.question ?? "Open the case question"}</small></Link>)}</div>
+        <p className={styles.num} aria-hidden="true">{section("compare")}</p>
+        <h2 id="compare-heading">Read it against another career</h2>
+        <p className={styles.sectionIntro}>Hold the tension constant across different careers, or hold the field constant and inspect a different path. A comparison is useful because it can challenge the first explanation.</p>
+        <ul className={styles.compareGrid}>{related.map((other) => <li key={other.name}><Link href={`/observatory/${nodeSlug(other.name)}`}><span>{other.tension === person.tension ? "Same tension" : "Same field"}</span><strong>{other.name}</strong><small>{other.question ?? "Open the case question"}</small></Link></li>)}</ul>
         <Link className={styles.textLink} href="/observatory?mode=compare">Open the full comparison tool →</Link>
       </section>
 
-      <section className={styles.evidence} id="verify" aria-labelledby="narrative-sources">
-        <p className={styles.kicker}>06 · Verify</p><h2 id="narrative-sources">Inspect the evidence and its limits</h2>
-        <p className={styles.evidenceIntro}>This record uses {narrative.sources.length} linked source{narrative.sources.length === 1 ? "" : "s"}: {independentSourceCount} independent and {institutionalSourceCount} first-party or institutional. First-party sources establish what a person or organization announced; they do not independently prove performance, ownership, causation, or impact.</p>
-        {independentSourceCount === 0 && <p className={styles.warning}><strong>Evidence warning:</strong> No independent source is attached. Treat this as a documented research lead, not an independently corroborated conclusion.</p>}
-        <ol>{narrative.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a>{source.independent ? " · Independent reporting" : " · First-party or institutional source"}</li>)}</ol>
+      <section className={styles.section} id="sources" aria-labelledby="sources-heading">
+        <p className={styles.num} aria-hidden="true">{section("sources")}</p>
+        <h2 id="sources-heading">Sources and their limits</h2>
+        <p className={styles.sectionIntro}>{sources.length} source{sources.length === 1 ? "" : "s"}: {independentCount} independent and {sources.length - independentCount} primary or institutional. First-party sources establish what a person or organization announced; they do not independently prove performance, ownership, causation, or impact. This is analysis of a public record, not a rating of the person.</p>
+        <p className={styles.sourceNote}>Each link was checked by hand when the record was last reviewed{reviewed ? ` (${reviewed})` : ""}; the site does not continuously re-check them. A broken link, or one that does not support its statement, is a defect in the record — please report it.{landingPageCount > 0 && <> {landingPageCount} link{landingPageCount === 1 ? " leads" : "s lead"} to a publisher or organization landing page rather than the exact supporting item, so {landingPageCount === 1 ? "it identifies" : "they identify"} a research lead rather than a claim-level citation.</>}</p>
+        <ol className={styles.sourceList}>{sources.map((source) => <li id={`source-${source.number}`} key={source.id}>
+          <span className={styles.sourceNum} aria-hidden="true">{pad(source.number)}</span>
+          <a href={source.href} target="_blank" rel="noreferrer">{source.label}</a>
+          <span className={styles.sourceMeta}>{[sourceKindLabel(source.kind), source.publisher, source.published ? formatLongDate(source.published) : ""].filter(Boolean).join(" · ")}</span>
+        </li>)}</ol>
+
+        {claims.length > 0 && <div className={styles.claims}>
+          <h3>Claim-to-source record</h3>
+          <p className={styles.sectionIntro}>Open any claim to see how it was established, qualified, or contradicted.</p>
+          {claims.map((claim) => <article className={styles.claim} key={claim.id}>
+            <p className={styles.claimLabel}>{claim.claimType.replaceAll("_", " ")} · {claim.verificationStatus.replaceAll("_", " ")}</p>
+            <h4>{claim.permissibleLanguage || claim.statement}</h4>
+            {claim.contradictionNote && <p><strong>Important qualification:</strong> {claim.contradictionNote}</p>}
+            <details><summary>Inspect the evidence ({claim.evidence.length})</summary>{claim.evidence.length ? <ol>{claim.evidence.map((item) => <li key={item.id}><a href={item.source.url} target="_blank" rel="noreferrer">{item.source.title}</a>{item.source.publisher ? ` — ${item.source.publisher}` : ""}{item.source.publishedAt ? ` (${formatLongDate(item.source.publishedAt)})` : ""}{item.source.primarySource ? " · Primary source" : ""}{item.exactPassage && <blockquote>{item.exactPassage}</blockquote>}{item.locator && <p>Location: {item.locator}</p>}</li>)}</ol> : <p>No public citation is attached yet.</p>}</details>
+          </article>)}
+        </div>}
       </section>
-    </> : <section className={styles.unknown}><h2>This case is not ready for interpretation</h2><p>The role description is present, but the career narrative has not passed source review. We leave the analysis open rather than fill the page with unsupported inference.</p></section>}
+    </> : <section className={styles.unknown} aria-labelledby="not-ready-heading"><h2 id="not-ready-heading">This case is not ready for interpretation</h2><p>The role description is present, but the career narrative has not passed source review. We leave the analysis open rather than fill the page with unsupported inference.</p></section>}
 
-    {claims.length > 0 && <section className={styles.evidence} aria-labelledby="record-heading"><p className={styles.kicker}>Claim-to-source record</p><h2 id="record-heading">What we can responsibly say</h2><p className={styles.evidenceIntro}>Open any claim to see how it was established, qualified, or contradicted.</p>{claims.map((claim) => <article className={styles.claim} key={claim.id}><span className={styles.label}>{claim.claimType.replaceAll("_", " ")} · {claim.verificationStatus.replaceAll("_", " ")}</span><h3>{claim.permissibleLanguage || claim.statement}</h3>{claim.contradictionNote && <p><strong>Important qualification:</strong> {claim.contradictionNote}</p>}<details><summary>Inspect the evidence ({claim.evidence.length})</summary><div className={styles.sources}>{claim.evidence.length ? <ol>{claim.evidence.map((item) => <li key={item.id}><a href={item.source.url} target="_blank" rel="noreferrer">{item.source.title}</a>{item.source.publisher ? ` — ${item.source.publisher}` : ""}{item.source.publishedAt ? ` (${date(item.source.publishedAt)})` : ""}{item.source.primarySource ? " · Primary source" : ""}{item.exactPassage && <blockquote>{item.exactPassage}</blockquote>}{item.locator && <p>Location: {item.locator}</p>}</li>)}</ol> : <p>No public citation is attached yet.</p>}</div></details></article>)}</section>}
+    <section className={styles.lens} aria-labelledby="lens-heading">
+      <h2 id="lens-heading">Turn the lens on your own work</h2>
+      <p>The same four questions — Build, Carry, Control, Continue — apply to any career, including yours.</p>
+      <div className={styles.lensActions}>
+        <Link href="/assess" className={`cta-next ${styles.ctaNext}`}>Take the 5-minute assessment <span aria-hidden="true">→</span></Link>
+        <p className={styles.lensAlt}>Working inside an organization? <Link href="/assess/professional">Take the professional assessment</Link>.</p>
+      </div>
+      <NewsletterSignup source="observatory" variant="inline" />
+    </section>
 
-    {narrative && <section className={styles.ending}><div><span>What this case establishes</span><p>{narrative.whyItMatters}</p></div><div><span>What it cannot yet establish</span><p>{narrative.unresolved[0] ?? "Private contracts, governance, and internal authority may not be publicly knowable."}</p></div><div><span>The question to carry forward</span><p>{next?.question ?? guide.comparison}</p></div></section>}
-
-    <nav className={styles.next} aria-label="Profile navigation"><p className={styles.kicker}>Continue through the Observatory</p><h2>Every case should alter how you read the next one.</h2><div className={styles.links}>{previous && <Link href={`/observatory/${nodeSlug(previous.name)}`}>← Previous: {previous.name}</Link>}<Link href="/observatory">All 41 people</Link>{next && <Link href={`/observatory/${nodeSlug(next.name)}`}>Next: {next.name} →</Link>}</div></nav>
+    <nav className={styles.next} aria-label="More cases">
+      {next && <Link className={styles.nextCase} href={`/observatory/${nodeSlug(next.name)}`}>
+        <span className={styles.nextLabel}>Next case: {next.name}{next.question ? " — " : ""}</span>
+        {next.question && <span className={styles.nextQuestion}>{next.question}</span>}
+      </Link>}
+      <ul className={styles.links}>
+        {previous && <li><Link href={`/observatory/${nodeSlug(previous.name)}`}>← Previous: {previous.name}</Link></li>}
+        <li><Link href="/observatory">All {SEED.length} people</Link></li>
+      </ul>
+    </nav>
   </main>;
 }

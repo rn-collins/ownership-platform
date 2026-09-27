@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import styles from "./profile.module.css";
 
 type Props = {
+  slug: string;
   name: string;
   tension: string;
   unknowns: string[];
@@ -41,24 +42,55 @@ const scenarios: Record<string, { label: string; question: string; interpretatio
   ],
 };
 
-export default function CaseLab({ name, tension, unknowns, dependencyPrompt }: Props) {
+export default function CaseLab({ slug, name, tension, unknowns, dependencyPrompt }: Props) {
   const options = useMemo(() => scenarios[tension] ?? [
     { label: "Remove the largest support", question: dependencyPrompt, interpretation: "This reveals which parts of the career are portable, controlled, or dependent." },
     { label: "Change the context", question: "Which assets, relationships, and permissions still work?", interpretation: "A career can look independent while relying on infrastructure it does not control." },
   ], [tension, dependencyPrompt]);
   const [selected, setSelected] = useState(0);
+  const [answer, setAnswer] = useState("");
+  const [saved, setSaved] = useState(false);
+  const [revealed, setRevealed] = useState(false);
+  const id = useId();
+  const storageKey = `i1-caselab:${slug}`;
   const scenario = options[selected];
 
+  // The answer lives only in this browser's localStorage. Nothing is sent anywhere.
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem(storageKey);
+      if (stored) { setAnswer(stored); setSaved(true); }
+    } catch { /* storage unavailable: the field still works for this visit */ }
+  }, [storageKey]);
+
+  function update(value: string) {
+    setAnswer(value);
+    try {
+      if (value.trim()) window.localStorage.setItem(storageKey, value);
+      else window.localStorage.removeItem(storageKey);
+      setSaved(Boolean(value.trim()));
+    } catch { setSaved(false); }
+  }
+
   return <div className={styles.lab}>
-    <div className={styles.labControls} role="group" aria-label={`Test ${name}'s career structure`}>
-      {options.map((option, index) => <button type="button" key={option.label} aria-pressed={selected === index} onClick={() => setSelected(index)}>{option.label}</button>)}
+    <div className={styles.labAnswer}>
+      <label htmlFor={`${id}-answer`}>What would break first if {name}’s key dependency changed?</label>
+      <p id={`${id}-hint`} className={styles.labHint}>Write a sentence or two before you look at the record. Your answer is kept only in this browser; nothing is sent, scored, or stored on a server.</p>
+      <textarea id={`${id}-answer`} aria-describedby={`${id}-hint`} rows={4} value={answer} onChange={(event) => update(event.target.value)} />
+      <p className={styles.labSaved} aria-live="polite">{saved ? "Saved in this browser." : ""}</p>
+      <button type="button" className={styles.labReveal} aria-expanded={revealed} aria-controls={`${id}-record`} onClick={() => setRevealed((value) => !value)}>{revealed ? "Hide the record" : "Compare with the record"}</button>
     </div>
-    <div className={styles.labResult} aria-live="polite">
-      <p className={styles.kicker}>Thought experiment</p>
-      <h3>{scenario.question}</h3>
-      <p>{scenario.interpretation}</p>
-      <p><strong>Use the record, not intuition:</strong> identify what the sources establish, then check the unresolved questions below. This tool does not predict what {name} will do.</p>
-      {unknowns[0] && <p className={styles.labUnknown}><strong>The missing evidence that matters most:</strong> {unknowns[0]}</p>}
+    <div id={`${id}-record`} className={styles.labRecord} hidden={!revealed}>
+      <div className={styles.labControls} role="group" aria-label={`Choose a dependency to change for ${name}`}>
+        {options.map((option, index) => <button type="button" key={option.label} aria-pressed={selected === index} onClick={() => setSelected(index)}>{option.label}</button>)}
+      </div>
+      <div className={styles.labResult} aria-live="polite">
+        <p className={styles.labKicker}>Thought experiment</p>
+        <h3>{scenario.question}</h3>
+        <p>{scenario.interpretation}</p>
+        <p><strong>Use the record, not intuition:</strong> identify what the sources establish, then check the open questions in this case. This tool does not predict what {name} will do.</p>
+        {unknowns[0] && <p className={styles.labUnknown}><strong>The missing evidence that matters most:</strong> {unknowns[0]}</p>}
+      </div>
     </div>
   </div>;
 }

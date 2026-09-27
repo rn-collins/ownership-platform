@@ -2,9 +2,12 @@ import {
   PUBLIC_PARTICIPANT_INVITATION,
   RECRUITMENT_CHANNELS,
   RESEARCH_RETENTION_RULES,
-  ROUND_ONE_LAUNCH_STATUS,
   SAMPLING_MATRIX,
 } from "@/lib/research-launch";
+
+// Operational rules for the research team; true, but they read as internal
+// notes on a participant-facing page.
+const INTERNAL_ONLY_RULES = ["Synthetic QA records", "A retention schedule must be dated"];
 
 export const metadata = {
   title: "Participate in the research — Institutions of One",
@@ -18,20 +21,9 @@ export default function ResearchRecruitmentPage() {
       <h1>{PUBLIC_PARTICIPANT_INVITATION.title}</h1>
       <p className="lede">{PUBLIC_PARTICIPANT_INVITATION.short}</p>
 
-      <div className="card">
-        <h2>Recruitment status</h2>
-        <p><b>Round 1 is recruiting.</b> No interview evidence has yet been collected or interpreted.</p>
-        <ul>
-          <li>Ownership Index completed interviews: {ROUND_ONE_LAUNCH_STATUS.ownership.completed} of at least {ROUND_ONE_LAUNCH_STATUS.ownership.minimumCompleted}</li>
-          <li>Portfolio Professional completed interviews: {ROUND_ONE_LAUNCH_STATUS.portfolioProfessional.completed} of at least {ROUND_ONE_LAUNCH_STATUS.portfolioProfessional.minimumCompleted}</li>
-          <li>Candidate scoring: disabled</li>
-          <li>Candidate.2 generation: disabled until the Round 1 evidence gate passes</li>
-        </ul>
-      </div>
-
       <h2 className="dimhead">What you would do</h2>
       <div className="card">
-        <p>{PUBLIC_PARTICIPANT_INVITATION.participation}</p>
+        <p>{PUBLIC_PARTICIPANT_INVITATION.participation} It is one 45–60 minute video call, and participation is voluntary and unpaid.</p>
         <p>{PUBLIC_PARTICIPANT_INVITATION.boundaries}</p>
         <p><a className="btn" href="/research/cognitive-interviews">Read the study information and request participation</a></p>
       </div>
@@ -57,7 +49,7 @@ export default function ResearchRecruitmentPage() {
 
       <h2 className="dimhead">Data boundaries</h2>
       <div className="card">
-        <ul>{RESEARCH_RETENTION_RULES.map((rule) => <li key={rule}>{rule}</li>)}</ul>
+        <ul>{RESEARCH_RETENTION_RULES.filter((rule) => !INTERNAL_ONLY_RULES.some((prefix) => rule.startsWith(prefix))).map((rule) => <li key={rule}>{rule}</li>)}</ul>
       </div>
     </main>
   );

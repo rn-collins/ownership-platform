@@ -17,21 +17,29 @@ export default function MethodologyPage() {
   return <main className="method-page method-2">
     <p className="eyebrow">How the inquiry works</p>
     <h1>Begin with a career that looks powerful.</h1>
-    <p className="method-hook">Then ask what the person created, what can move with them, what they can govern, and what work, systems, relationships, or authority could persist when an essential dependency changes.</p>
+    <p className="method-hook">Then ask four questions of it: Build · Carry · Control · Continue.</p>
 
     <section className="method-example"><div><p className="eyebrow">A concrete example</p><h2>A global executive leaves a famous company.</h2></div><div><p>Their reputation may travel immediately. Their team, budget, customer data, patents, distribution, decision rights, and employer-owned work may not.</p><p>Calling the person “successful,” “independent,” or “a personal brand” does not resolve that difference. Institutions of One separates the structure into questions that can be investigated.</p></div></section>
 
-    <section className="method-four" aria-labelledby="four-questions"><p className="eyebrow">The four questions underneath the project</p><h2 id="four-questions" className="display-h2">Build. Carry. Control. Continue.</h2><div>
-      <article><span>01</span><h3>Build: What did the person create?</h3><p>A body of work, method, audience, business, role, relationship network, team, or way of thinking.</p></article>
-      <article><span>02</span><h3>Carry: What can move with them?</h3><p>Reputation, proof, relationships, skills, methods, demand, and opportunities that remain available when a role, employer, platform, client, or work arrangement changes.</p></article>
-      <article><span>03</span><h3>Control: What can they govern?</h3><p>Identity, rights, audience access, revenue channels, data, decisions, and the conditions under which the work is used.</p></article>
-      <article><span>04</span><h3>Continue: What work, systems, relationships, or authority could persist when an essential dependency changes?</h3><p>An essential dependency may be a role, platform, employer, client, collaborator, source of capital, distributor, or other condition the work relies on.</p></article>
+    <section className="method-four" aria-labelledby="four-questions"><p className="eyebrow">The four questions underneath the project</p><h2 id="four-questions" className="display-h2">Build · Carry · Control · Continue</h2><div>
+      <article><span>01</span><h3>Build</h3><p>What the person created: a body of work, method, audience, business, team, or network.</p></article>
+      <article><span>02</span><h3>Carry</h3><p>What can move with them when a role, employer, platform, or client changes.</p></article>
+      <article><span>03</span><h3>Control</h3><p>What they can govern: identity, rights, audience access, revenue, data, and decisions.</p></article>
+      <article><span>04</span><h3>Continue</h3><p>What work, systems, relationships, or authority could persist when an essential dependency—a role, platform, employer, client, collaborator, or source of capital—changes.</p></article>
     </div></section>
 
     <section className="method-two-evidence"><p className="eyebrow">Why there are assessments and public cases</p><h2>One reveals lived conditions. The other reveals visible structure.</h2><div className="method-split">
       <div><span>01</span><h2>People answer questions about their own work.</h2></div><p>The pilot assessments can ask about control, portability, and constraints that no public biography reveals. They create provisional self-reported snapshots—not declarations of who is an “institution.”</p>
       <div><span>02</span><h2>Public careers complicate the questions.</h2></div><p>The Observatory checks sourced facts, compares arrangements, and records what remains unknowable. It does not score or diagnose the people.</p>
       <div><span>03</span><h2>Each source answers different questions.</h2></div><p>People can describe conditions that public sources do not show, including private agreements and informal power. Public evidence can verify visible facts across many careers. Reading the two separately helps the project state what is known, what comes from a participant, and what remains unanswered.</p>
+    </div></section>
+
+    <section className="method-example method-evidence" id="evidence-standard" aria-labelledby="evidence-standard-heading"><div><p className="eyebrow">Evidence and fairness standard</p><h2 id="evidence-standard-heading">One published rule for negative evidence.</h2></div><div>
+      <p>The Observatory describes the public careers of real, named people. Adverse material enters a case only when it meets this standard, and the same standard applies to all 41 cases.</p>
+      <p><b>What qualifies.</b> Court findings; court filings, always attributed as allegations unless a court has adjudicated them; findings and rulings of regulators and other public bodies; the subject’s own public statements, acknowledgments, or apologies; and reporting by at least two independent, established news organizations. The material must bear directly on the structural question the case examines.</p>
+      <p><b>What is excluded.</b> Rumour; insinuation or claims resting on a single source; personal relationships, health, and family matters unless they are directly material to the case and sourced; and judgments about character, motive, or psychology. We do not diagnose anyone, and we do not raise an accusation in order to deny it.</p>
+      <p><b>How it is written.</b> Adverse material is attributed to its source: a complaint “alleges,” an outlet “reported,” a finding is stated “according to” the body that made it. Denials, settlements without admission, and unresolved outcomes appear alongside the allegation. Failures an institution documented are attributed to that institution and are not transferred to an individual beyond what the record states. Every item links to its source.</p>
+      <p><b>Right of reply and corrections.</b> Anyone named in a case, or someone acting for them, may request a correction, add context, or respond by writing to <a href="mailto:collins.ra@northeastern.edu">collins.ra@northeastern.edu</a>. Substantiated errors are corrected.</p>
     </div></section>
 
     <section className="method-instruments">

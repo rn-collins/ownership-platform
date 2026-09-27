@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { SEED, OBSERVATORY_DOMAINS as DOMAINS, nodeSlug, type Node } from "@/lib/observatory_seed";
 import { CASE_NARRATIVES } from "@/lib/case_narratives";
 import { getCaseResearch } from "@/lib/case_research";
@@ -54,6 +54,9 @@ function tally<T extends string>(items:T[]):Array<[T,number]> {
 
 export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "directory" }: { nodes?: Node[]; embed?: boolean; initialView?: View | "directory" | "map" }) {
   const [view,setView] = useState<View>(initialView === "map" ? "patterns" : initialView === "directory" ? "discover" : initialView);
+  // ?mode=compare|patterns deep links are read in the browser so /observatory
+  // can be served as a static page.
+  useEffect(()=>{const mode=new URLSearchParams(window.location.search).get("mode");if(mode==="compare"||mode==="patterns")setView(mode);},[]);
   const [tension,setTension] = useState("all");
   const [domain,setDomain] = useState("all");
   const [query,setQuery] = useState("");

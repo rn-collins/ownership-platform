@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  async redirects() {
+    // Browsers and crawlers request /favicon.ico regardless of <link rel="icon">.
+    return [{ source: "/favicon.ico", destination: "/icon-v2.svg", permanent: true }];
+  },
   async headers() {
     return [
       {

@@ -28,6 +28,15 @@ export function getSupabaseServer() {
 export async function getUser() {
   const supabase = getSupabaseServer();
   if (!supabase) return null;
-  const { data } = await supabase.auth.getUser();
-  return data.user ?? null;
+  // Bounded like the middleware refresh: an auth outage reads as "signed out"
+  // (protected pages redirect to sign-in) instead of hanging the render.
+  try {
+    const result = await Promise.race([
+      supabase.auth.getUser(),
+      new Promise<null>((resolve) => setTimeout(() => resolve(null), 3000)),
+    ]);
+    return result?.data.user ?? null;
+  } catch {
+    return null;
+  }
 }

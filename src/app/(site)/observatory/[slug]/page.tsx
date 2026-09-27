@@ -7,6 +7,10 @@ import { CASE_NARRATIVES } from "@/lib/case_narratives";
 import { getCaseResearch } from "@/lib/case_research";
 import CaseLab from "./CaseLab";
 
+// Evidence comes from the database; serve a cached render and refresh it hourly
+// so a cold or unavailable database never sits in front of a reader.
+export const revalidate = 3600;
+
 type Evidence = { id: string; supportType: string; exactPassage: string | null; locator: string | null; source: { title: string; url: string; publisher: string | null; publishedAt: Date | null; primarySource: boolean } };
 type Claim = { id: string; statement: string; permissibleLanguage: string | null; claimType: string; verificationStatus: string; contradictionNote: string | null; evidence: Evidence[] };
 

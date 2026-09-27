@@ -64,7 +64,7 @@ export function NewsletterSignup({
         <p className="nl-kicker">The I/1 Edit</p>
         <h3 className="nl-title">One sharp idea. New editions arrive by email.</h3>
         <p className="nl-sub">
-          One original argument about work, power, and ownership—made concrete through real careers. One argument, one real case. Sources and tools live on the web edition. The web edition adds sources, interactive tools, updates, and more cases to explore.
+          One argument about work, power, and ownership, made concrete through a real case. Sources and tools live on the web edition.
         </p>
       </div>
       {state === "done" ? (

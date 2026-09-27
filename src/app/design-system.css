@@ -1,6 +1,24 @@
 /* Institutions of One — canonical public design layer
    Loaded last. This file intentionally defines shared primitives while route
-   modules retain layout-specific composition. */
+   modules retain layout-specific composition.
+
+   PALETTE. The --i1-* tokens below are the only palette. Legacy --ink/--gold/
+   --line and --io-* names in globals.css alias these values.
+     --i1-ink        text, 1px rules, dark grounds
+     --i1-paper      page ground
+     --i1-paper-deep secondary/raised panels, hover grounds
+     --i1-lilac      decorative accent panels; accent text on ink/blue
+     --i1-rust-ink   accent TEXT on paper (the only rust that passes AA)
+     --i1-blue       focus ring on light grounds; deep-blue sections
+     --i1-acid       RESERVED: marks the single "do this next" action only.
+
+   ACID DISCIPLINE. Never use --i1-acid for decoration, status, highlights,
+   eyebrows, hover grounds or section backgrounds. The one primary next action
+   on a page (or in a self-contained block) gets class="cta-next":
+     <a className="cta-next" href="/assess">Start the assessment</a>
+     <button className="cta-next" type="submit">Subscribe</button>
+   .cta-next = acid ground, ink text, 1px ink border, ≥44px tall, bold. Other
+   links/buttons use ink (filled) or ink-outline treatments. */
 :root{
   --i1-ink:#11100e;
   --i1-paper:#f4efe5;
@@ -22,8 +40,7 @@
 }
 html{scroll-behavior:smooth;background:var(--i1-paper);color:var(--i1-ink)}
 body{background:var(--i1-paper);color:var(--i1-ink);font-family:Arial,Helvetica,sans-serif}
-::selection{background:var(--i1-acid);color:var(--i1-ink)}
-:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--i1-blue);outline-offset:3px}
+::selection{background:var(--i1-lilac);color:var(--i1-ink)}
 :where(button,input,select,textarea){font:inherit}
 :where(button,a){touch-action:manipulation}
 .wrap{width:min(100%,var(--i1-page));margin-inline:auto;padding-inline:var(--i1-gutter)}
@@ -39,11 +56,9 @@ main :where(a):not([class]){color:inherit;text-decoration-thickness:1px;text-und
 main :where(a):not([class]):hover{text-decoration-thickness:3px}
 :where(.card,.panel,.callout){border-radius:0}
 :where(.btn,.button,button[type="submit"]){border-radius:0;min-height:48px;font-weight:800}
-:where(.eyebrow,.kicker){font-size:11px;line-height:1.2;letter-spacing:.12em;text-transform:uppercase;font-weight:900}
+:where(.eyebrow,.kicker){font-size:12px;line-height:1.2;letter-spacing:.12em;text-transform:uppercase;font-weight:900}
 .foot{width:min(100%,var(--i1-page));margin-inline:auto;padding-inline:var(--i1-gutter);border-top:var(--i1-rule)}
 @media(max-width:860px){
-  .site-header{align-items:flex-start}
-  .nav{gap:4px 12px}
   .wrap{padding-inline:20px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -58,7 +73,7 @@ main :where(a):not([class]):hover{text-decoration-thickness:3px}
   background:var(--i1-ink);
   color:#fff;
 }
-.partner-start .eyebrow{color:var(--i1-acid)}
+.partner-start .eyebrow{color:var(--i1-lilac)}
 .partner-start h2,
 .partner-start>p{color:#fff}
 .partner-start .partner-form,
@@ -68,8 +83,41 @@ main :where(a):not([class]):hover{text-decoration-thickness:3px}
 }
 .partner-start .partner-form :where(label,span,p),
 .partner-start .partner-confirmation :where(h3,p){color:var(--i1-ink)}
-.partner-start :where(input,select,textarea,button,a):focus-visible{
-  outline:3px solid var(--i1-acid);
-  outline-offset:3px;
-  box-shadow:0 0 0 5px var(--i1-ink);
+
+/* ---- The one "do this next" action ---------------------------------- */
+.cta-next,
+a.cta-next,
+button.cta-next{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  min-height:44px;padding:12px 22px;
+  background:var(--i1-acid);color:var(--i1-ink);
+  border:1px solid var(--i1-ink);border-radius:0;
+  font-weight:800;font-size:15px;line-height:1.2;text-decoration:none;
+  cursor:pointer;
+}
+.cta-next:hover{background:var(--i1-ink);color:var(--i1-acid)}
+.cta-next:disabled,.cta-next[aria-disabled="true"]{opacity:.5;cursor:not-allowed}
+
+/* ---- Skip link ------------------------------------------------------ */
+.skip-link{
+  position:absolute;left:12px;top:-200px;z-index:1000;
+  padding:12px 16px;background:var(--i1-ink);color:var(--i1-paper);
+  font-weight:800;text-decoration:none;
+}
+.skip-link:focus,.skip-link:focus-visible{top:12px}
+/* The skip-link target is a non-interactive wrapper; no ring around the whole page. */
+#main:focus,#main:focus-visible{outline:none!important}
+
+/* ---- Focus: one ring, defined once, loaded last ----------------------
+   Blue on light grounds; acid-on-ink on dark grounds. Nothing else in the
+   codebase should set outline on :focus/:focus-visible. */
+:focus-visible{outline:3px solid var(--i1-blue)!important;outline-offset:3px}
+:is(.foot,.manifesto,.closing-call,.partner-start,.edition-interactive,.edition-distinction,.method-psych,.finding-claims,.candidate-rule,.profile-question,.scorecard,.forward,.edit-signup,.edition-subscribe,.on-ink,.obs-panel) :focus-visible{
+  outline-color:var(--i1-acid)!important;
+  box-shadow:0 0 0 6px var(--i1-ink);
+}
+/* Light forms sitting inside dark sections go back to the light ring. */
+:is(.partner-start,.edit-signup,.edition-subscribe) :is(.partner-form,.partner-confirmation,.nl) :focus-visible{
+  outline-color:var(--i1-blue)!important;
+  box-shadow:none;
 }

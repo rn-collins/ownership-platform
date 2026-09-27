@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import "./launch-fixes.css";
 import "./design-system.css";
 
 const SITE_URL = "https://ownership-platform.vercel.app";

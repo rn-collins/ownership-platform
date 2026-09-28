@@ -27,7 +27,7 @@ The map treats Ive as Apple's first Chief Design Officer. Reviewed evidence supp
 | JIV-S07 | https://www.britishmuseum.org/about-us/governance | British Museum / governance record | yes | Current trustee roster and multi-person governance. |
 | JIV-S08 | https://www.britishmuseum.org/about-us/press/press-releases | British Museum / press index | yes | June 2025 trustee appointment. |
 | JIV-S09 | https://www.britishmuseum.org/sites/default/files/2026-07/Annual_Report_and_Accounts_2025-26.pdf | British Museum / annual report | yes | Trustee service from June 10, 2025; charity governance boundaries. |
-| JIV-S10 | https://news.airbnb.com/a-letter-to-hosts/ | Airbnb / founder letter | yes | Reported multi-year LoveFrom collaboration; Airbnb ownership and teams preserved. |
+| JIV-S10 | https://news.airbnb.com/designing-the-future-of-airbnb/ | Airbnb / newsroom post by Brian Chesky | yes | Reported multi-year LoveFrom collaboration; Airbnb ownership and teams preserved. |
 | JIV-S11 | https://www.rca.ac.uk/news-and-events/news/sir-jony-ive-kbe-appointed-chancellor-of-the-royal-college-of-art/ | Royal College of Art / institutional release | yes | Chancellor appointment and institutional role. |
 | JIV-S12 | https://www.nytimes.com/2022/07/12/technology/jony-ive-apple-lovefrom.html | New York Times / reporting | no | Reports Apple consulting agreement ended; contract remains unavailable. |
 | JIV-S13 | https://www.ft.com/content/8ac40343-2fd1-4035-9664-47c77017d0d3 | Financial Times / transaction reporting | no | Reports io transaction value, prior OpenAI interest and team size; not personal proceeds. |
@@ -35,6 +35,9 @@ The map treats Ive as Apple's first Chief Design Officer. Reviewed evidence supp
 | JIV-S15 | https://www.theguardian.com/technology/2025/jun/23/openai-jony-ive-io-amid-trademark-iyo | Guardian / litigation reporting | no | Trademark dispute and temporary content removal; no inference about transaction invalidity. |
 | JIV-S16 | https://time.com/3895749/apple-jonathan-ive-tim-cook/ | Time / contemporaneous reporting | no | Reports 2015 title creation and internal memo; not primary role-design instrument. |
 | JIV-S17 | https://www.wired.com/story/jony-ive-leaves-apple | Wired / contemporaneous reporting | no | Departure, LoveFrom and named Apple successors; no ownership proof. |
+| JIV-S18 | https://www.courtlistener.com/docket/70495566/iyo-inc-v-io-products-inc/ | U.S. District Court, N.D. Cal. / docket, IYO, Inc. v. IO Products, Inc., No. 3:25-cv-04861-TLT (ECF 158, 195, 209) | yes | Primary record of the io-name trademark case through the 25 September 2026 order of dismissal; the text of the dismissal order was not read, so with or without prejudice, the fate of the injunction and the settlement terms are unverified. |
+| JIV-S19 | https://cdn.ca9.uscourts.gov/datastore/memoranda/2025/12/03/25-4028.pdf | U.S. Court of Appeals for the Ninth Circuit / memorandum, No. 25-4028 | yes | Affirmance of the June 2025 temporary restraining order (3 December 2025); preliminary ruling only. |
+| JIV-S20 | https://www.britishmuseum.org/about-us/press/press-releases/sir-jony-ive-appointed-new-trustee-british-museum | British Museum / press release | yes | Trustee appointment announced 18 June 2025; biography still describes Ive as Royal College of Art Chancellor. |
 
 ## Atomic claim register
 
@@ -50,8 +53,8 @@ The map treats Ive as Apple's first Chief Design Officer. Reviewed evidence supp
 | JIV-C08 | OpenAI describes io work as involving hardware and software engineers, technologists, physicists, scientists, researchers and manufacturing experts. | S04 | "Works through a multidisciplinary product-development network." | No sole invention or sole causation. |
 | JIV-C09 | Reported io transaction values and OpenAI interests belong to holder-specific transaction relationships. | S04, S13-S14 | "io was reportedly acquired in a multibillion-dollar transaction." | No conversion to Ive's proceeds, wealth or complete ownership. |
 | JIV-C10 | Product and patent attribution must preserve Apple, co-inventors, engineers, software teams, manufacturers and corporate rights. | S01-S03 | "Design leader associated with named Apple products." | No personal ownership of Apple products, patents, data or revenue. |
-| JIV-C11 | The British Museum records Ive as one trustee within a statutory multi-person board. | S07-S09 | "British Museum trustee from June 2025." | No personal ownership or unilateral control of museum assets. |
-| JIV-C12 | Secondary reporting records a 2025 io-name trademark dispute and content removal. | S15 | "The io name became subject to a reported trademark dispute." | No inference that the merger was invalidated or that liability was finally adjudicated. |
+| JIV-C11 | The British Museum records Ive as one trustee within a statutory multi-person board. | S07-S09, S20 | "British Museum trustee from June 2025." | No personal ownership or unilateral control of museum assets. |
+| JIV-C12 | A reported io-name trademark case reached a preliminary injunction (April 2026) and a settlement and dismissal (July-September 2026); no final judgment on liability appears on the docket. | S15, S18, S19 | "The io name became subject to a trademark case that settled and was dismissed." | No inference that the merger was invalidated, that liability was finally adjudicated, or that settlement terms are known. |
 | JIV-C13 | Royal College, Airbnb, museum and client relationships are institution-specific. | S07-S11 | "Holds separate design, educational and governance relationships." | No unified personally owned portfolio. |
 | JIV-C14 | No reviewed record establishes complete LoveFrom ownership, io cap table or proceeds, Apple title authorship, patent economics, contracts, product causality or psychology. | All | "Those domains remain unverified." | Absence of public evidence is not evidence of absence. |
 

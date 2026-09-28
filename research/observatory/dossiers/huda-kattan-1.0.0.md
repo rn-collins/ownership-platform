@@ -129,9 +129,9 @@ The following must remain distinct:
 
 ## 10. Recommended map representation
 
-**Short label:** Founder-controlled Huda Beauty after 2025 TSG buyback.
+**Short label:** Huda Beauty after the 2025 TSG buyback (company-announced founder ownership).
 
-**Detail text:** Huda Beauty announced that Kattan repurchased TSG Consumer’s minority interest in 2025, returning the company to full founder ownership and her control. Public sources do not disclose the post-buyback cap table among founder holders. KAYALI was separated and is now jointly owned by Mona Kattan and General Atlantic.
+**Detail text:** Kattan announced in June 2025 that she had bought back TSG Consumer’s stake and owns Huda Beauty outright; terms were not disclosed. Public sources do not disclose the post-buyback cap table among founder holders. KAYALI was separated and is now jointly owned by Mona Kattan and General Atlantic.
 
 ## 11. Reviewer fields
 

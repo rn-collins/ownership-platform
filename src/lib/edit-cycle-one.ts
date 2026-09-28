@@ -84,7 +84,7 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
   // Counsel review for P15/P16/P17 completed and all three were signed off 2026-09-24.
   {
     gated: false,
-    number: "009", articleId: 5, published: "September 2026", title: "All Media, Now Known or Hereafter Devised", subtitle: "A three-word difference in a contract can decide who owns tomorrow's use of today's video",
+    number: "009", articleId: 5, published: "September 2026", title: "All Media, Now Known or Hereafter Devised", subtitle: "One clause in a contract can decide who controls tomorrow's use of today's video",
     packages: ["P15", "P17"],
     reader: "https://institutions-of-one-reader.vercel.app/stories/edition-009",
     // Reuses the same verified Commons photos already cleared for P15/P17's carousel slides

@@ -118,7 +118,7 @@ No reviewed source measures psychological constructs. Public accounts of creativ
 | 2019-10 | Shondaland Audio launches with iHeartMedia |
 | 2020-12 | Bridgerton premieres |
 | 2021-07 | Netflix pact expands into films, potential games/VR, merchandise and experiences |
-| 2022 | Netflix enforces Bridgerton-related rights against unauthorized commercial production |
+| 2022 | Netflix sues the creators of "The Unofficial Bridgerton Musical" for copyright and trademark infringement; dismissed with prejudice in September 2022 after a reported settlement |
 | 2025/26 | Shondaland marks 20 years and maintains multi-format public surface |
 
 ## Contradiction, adverse-evidence and limitations register

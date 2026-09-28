@@ -141,7 +141,7 @@ DeepMind’s research, health and applied-AI outputs were institutional and coll
 | MS-S14 | [Greylock biography](https://greylock.com/team/mustafa-suleyman/) | firm biography | prior-role chronology and applied work |
 | MS-S15 | [Greylock welcome announcement](https://greylock.com/firm-news/welcome-mustafa-suleyman/) | firm primary record | Google departure and venture role |
 | MS-S16 | [Engadget: Google departure and apology](https://www.engadget.com/deepmind-ai-mustafa-suleyman-google-greylock-partners-152049755.html) | independent reporting | management-complaint and apology boundary |
-| MS-S17 | [ICO retrospective on DeepMind and Royal Free](https://ico.org.uk/for-the-public/ico-40/google-deepmind-and-class-action-lawsuit/) | regulator | health-data governance controversy |
+| MS-S17 | [ICO retrospective on DeepMind and Royal Free](https://ico.org.uk/for-the-public/ico-40/google-deepmind-and-class-action-lawsuit/) | regulator | ICO 2017 finding that the Royal Free breached data protection law in sharing patient data with DeepMind |
 
 ## Search and inaccessible-source ledger
 

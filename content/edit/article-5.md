@@ -1,13 +1,13 @@
 ---
 title: "All Media, Now Known or Hereafter Devised"
-subtitle: "A three-word difference in a contract can decide who owns tomorrow's use of today's video"
+subtitle: "One clause in a contract can decide who controls tomorrow's use of today's video"
 series: "Institutions of One"
 author: "Rayven-Nikkita Collins"
 ---
 
 # All Media, Now Known or Hereafter Devised
 
-## A three-word difference in a contract can decide who owns tomorrow's use of today's video
+## One clause in a contract can decide who controls tomorrow's use of today's video
 
 **By Rayven-Nikkita Collins**
 
@@ -15,9 +15,9 @@ author: "Rayven-Nikkita Collins"
 
 *A scoped shoot and a broadly worded grant of rights are not the same record. The gap between them is where disputes over "what the contract actually covers" begin. Source: RN-authored composite, based on U.S. Copyright Office Circular 1.*
 
-In 2024, a model named Francheska Pujols shot a catalog job for the clothing retailer Rainbow Shops. According to the court filings, the release she signed let the company alter, crop, distort, or composite her images "whether intact or in part," without restriction as to changes or transformations. Pujols alleges that in 2026 Rainbow used artificial intelligence to generate entirely new, suggestive images of her — pictures, her complaint says, of a moment that was never actually photographed. Rainbow has argued that the release already covered this. Pujols's position is equally straightforward: the release let Rainbow modify photographs she had approved, not create entirely new AI-generated depictions of her. A New York court denied her request for a preliminary injunction in July 2026; it has not ruled on the merits of her claims. The underlying question — whether a broadly worded grant reaches a use neither side described at signing — remains unresolved.
+In 2024, a freelance model named Francheska Pujols signed a release with the retailer Rainbow (sued as Rainbow USA, Inc.). According to the court filings, the release let the company alter, crop, distort, or composite her images "whether intact or in part," without restriction as to changes or transformations. Pujols alleges that starting in March 2026 Rainbow used artificial intelligence to create new images of her in poses and settings she never shot, including at least one in which her undergarments are visible. Rainbow argues the release already covers the images. It does not dispute in its filings that the images were altered; it argues the release covers alteration by any technology. Pujols argues that altering photographs she approved is different from creating new depictions of her. On July 16, 2026, a New York court denied her motion for a preliminary injunction. That ruling did not end the case. The underlying question, whether a broadly worded grant reaches a use neither side described at signing, is unresolved.
 
-That dispute is not exotic. It is the least surprising possible outcome of a sentence creators sign constantly, often without reading it twice: a grant of rights "in any and all media, whether now known or hereafter devised."
+The Pujols release uses different words, but the question has the same shape: how far does a broad grant reach? Many creator contracts ask the question in fewer words: a grant of rights "in any and all media, whether now known or hereafter devised."
 
 ## The sentence sounds like boilerplate. It is a live legal instrument.
 
@@ -25,7 +25,7 @@ Standard contract language has a habit of disappearing into the background. "All
 
 A beverage brand asks a creator for three launch clips, for Instagram and TikTok. The draft agreement also proposes use "in all media now known or hereafter devised." That clause reaches far beyond the three clips and the two platforms named in the brief. It does not expire when the campaign ends, does not stay inside the named placements, and does not require the brand to return and ask again when a new distribution channel — or a new way of generating derivative content from the original footage — appears.
 
-Dave Chappelle described the practical consequence of a similar clause in his 2020 special *Unforgiven*. He explained that an early contract with Comedy Central granted use of his name and likeness "in perpetuity throughout the universe," which is why, years after leaving the show that made him famous, he did not control whether it could be reissued under his name. The clause was not a hypothetical risk. It was the reason a finished, famous body of work kept behaving like someone else's asset.
+Dave Chappelle described a related problem in *Unforgiven*, a 2020 video he posted to Instagram. He said an early contract with Comedy Central gave the network his name and likeness "in perpetuity throughout the universe," and that he was not paid when the show was licensed to streamers. In February 2021 he said he had won back his name and license and been paid millions.
 
 ## License or buyout is the question underneath the clause.
 
@@ -33,7 +33,7 @@ The reason a broad future-use clause matters so much is that most creators never
 
 U.S. copyright law treats these as genuinely different transactions. Ownership can be transferred — in whole or in part — but 17 U.S.C. §204(a) requires that kind of transfer to be in writing and signed by the rights holder. A non-exclusive license carries no such requirement; it can even be implied. The result is a legal system that puts an enormous amount of weight on a distinction that a casual reading of an agreement can easily miss.
 
-*Reinsdorf v. Skechers U.S.A., Inc.* is a useful illustration of what happens when nobody resolves that distinction cleanly before the work starts moving. Photographer Richard Reinsdorf licensed a set of images to Skechers for six months, limited to North America, for use in point-of-sale displays, magazine ads, and outdoor advertising. Skechers used the images for years, internationally, and printed them on packaging — well outside the scope of the license. When sued, Skechers did not simply argue that its use was permitted. It argued that it was a joint author of the modified images, which would have let it use them without any license limitation at all. A federal court rejected that defense: Reinsdorf had granted a limited license, not shared ownership. But the court also declined to award statutory damages, because Reinsdorf had not registered his photographs with the Copyright Office before the infringement began. Both sides lost something. Neither side had treated "what exactly did this deal convey" as a question worth settling precisely, in writing, before the relationship started.
+*Reinsdorf v. Skechers U.S.A., Inc.* is a useful illustration of what happens when nobody resolves that distinction cleanly before the work starts moving. Photographer Richard Reinsdorf shot images for Skechers over several years. He alleged that his invoices licensed them for six months, generally in North America, for point-of-sale displays, magazines, and outdoor ads, and that Skechers kept using them for years, overseas, and on packaging. When sued, Skechers argued that it was a joint author of the finished advertisements, which would have let it use them without license limits. In a February 2013 summary-judgment order, the federal district court denied Skechers' motion on that point. It found a genuine dispute over whether the parties ever intended to be co-authors, pointing to the usage fees and the time and territory limits in Reinsdorf's invoices. The same order barred Reinsdorf from seeking statutory damages and attorney's fees, which he did not contest, because his photographs were not registered in time. It also excluded his damages experts and threw out his claim to a share of Skechers' profits. Neither side had treated "what exactly did this deal convey" as a question worth settling in writing before the relationship started.
 
 ## A brand and a creator need the same answer, not just a price.
 
@@ -63,7 +63,10 @@ Ask what the contract actually says. Then ask whether it says what both sides th
 - [U.S. Copyright Office, Circular 1: Copyright Basics](https://copyright.gov/circs/circ01.pdf)
 - [U.S. Copyright Office, Circular 12: Recordation of Transfers and Other Documents](https://www.copyright.gov/circs/circ12.pdf)
 - [U.S. Copyright Office, FAQ: Assignment of Copyright Ownership](https://www.copyright.gov/help/faq/faq-assignment.html)
-- [*Reinsdorf v. Skechers U.S.A., Inc.*, 922 F. Supp. 2d 866 (C.D. Cal. 2013) — opinion via CourtListener](https://www.courtlistener.com/opinion/8785607/reinsdorf-v-skechers-usa-inc/)
+- [*Reinsdorf v. Skechers U.S.A., Inc.*, 922 F. Supp. 2d 866 (C.D. Cal. 2013) (amended order on summary judgment, Feb. 6, 2013), CourtListener](https://www.courtlistener.com/opinion/8785607/reinsdorf-v-skechers-usa-inc/)
+- [*Reinsdorf v. Skechers U.S.A., Inc.*, No. CV 10-07181 DDP (C.D. Cal.), Amended Order Re: Defendant's Motion for Summary Judgment, Dkt. 225 (Feb. 6, 2013)](https://storage.courtlistener.com/recap/gov.uscourts.cacd.483148.225.0.pdf)
+- [Verified Complaint, *Pujols v. Rainbow USA, Inc.*, Index No. 157543/2026 (N.Y. Sup. Ct. N.Y. County), NYSCEF Doc. 1 (filed June 15, 2026)](https://www.thefashionlaw.com/wp-content/uploads/2026/07/1-157543_2026_Francheska_Pujols_v_Rainbow_USA_Inc_et_al_SUMMONS___COMPLAINT_1.pdf)
+- [Rainbow USA, Inc.'s memorandum of law opposing the preliminary injunction, NYSCEF Doc. 24 (July 8, 2026)](https://www.thefashionlaw.com/wp-content/uploads/2026/07/1-157543_2026_Francheska_Pujols_v_Rainbow_USA_Inc_et_al_MEMORANDUM_IN_OPPOS_24.pdf)
 - [PetaPixel, "Photographer Suing Skechers for $250M for Violating Licensing Agreement" (April 4, 2012)](https://petapixel.com/2012/04/04/photographer-suing-sketchers-for-250m-for-violating-licensing-agreement/)
 - [AI Fashion Law, "Pujols v. Rainbow Shops: The AI Likeness Case Rewriting the Model Release" (July 29, 2026)](https://www.aifashionlaw.com/article/ny-judge-lets-rainbow-shops-keep-running-disputed-ai-model-a-2026-07-29)
 - [PetaPixel, "Model Sues Fashion Brand After It AI-Generated Pictures of Her" (June 1, 2026)](https://petapixel.com/2026/06/01/model-sues-fashion-brand-after-it-ai-generated-pictures-of-her/)
@@ -71,4 +74,4 @@ Ask what the contract actually says. Then ask whether it says what both sides th
 - [Kernochan Center for Law, Media and the Arts, Columbia Law School, "Overreaching Clauses About New Media Rights"](https://kernochan.law.columbia.edu/content/overreaching-clauses-about-new-media-rights)
 - [Digital Media Law Project, "Creating a Written Contract to Transfer or License Rights Under Copyright"](https://www.dmlp.org/legal-guide/creating-written-contract-transfer-or-license-rights-under-copyright)
 
-*General educational information, not legal advice. The* Reinsdorf *and* Pujols *cases are discussed based on court filings and contemporaneous reporting cited above; the* Pujols *litigation was, as of this writing, unresolved on the merits — only a preliminary-injunction motion had been decided. The Chappelle account is drawn from his own public remarks. Contract language, applicable law, and outcomes depend on the specific agreement and jurisdiction.*
+*General educational information, not legal advice. The* Reinsdorf *and* Pujols *cases are discussed based on court filings and contemporaneous reporting cited above; the* Pujols *case was, as of late September 2026, still pending: the court had denied a preliminary injunction and Pujols had reportedly filed an amended complaint, and no court had ruled on the merits of her claims. The Chappelle account is drawn from his own public remarks as reported by news outlets. Contract language, applicable law, and outcomes depend on the specific agreement and jurisdiction.*

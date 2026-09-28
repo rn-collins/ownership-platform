@@ -25,7 +25,7 @@ The component capabilities predated the appointment. Zau had invested for about 
 | CZ11-S03 | [Zau announcement](https://www.linkedin.com/posts/clairezau_im-beyond-excited-to-announce-that-im-joining-activity-7460414042734706688-8Xjn) | first person | Says she was trusted to help build the vision; not sole creation. |
 | CZ11-S04 | [Business Insider profile](https://www.businessinsider.com/why-lightspeed-ventures-hired-first-creator-seed-investor-claire-zau-2026-5) | contemporaneous reporting | Dual reporting, personal-account independence, audience and intended remit; not contractual proof. |
 | CZ11-S05 | [GSV team page](https://gsv.ventures/our-team/) | primary former employer | Partner/AI Lead, investment coverage, newsletter and cross-team work; current page may be stale. |
-| CZ11-S06 | [ASU+GSV profile](https://asugsvsummit.com/leadership/claire-zau) | primary institutional | Prior coverage, programming, thought leadership and advisory description. |
+| CZ11-S06 | [ASU+GSV profile](https://asugsvsummit.com/speakers/claire-zau) | primary institutional | Prior coverage, programming, thought leadership and advisory description. |
 | CZ11-S07 | [Fortune Term Sheet interview](https://fortune.com/media/a9e68e36-f547-4aed-ad61-fcb1ebfff0a9) | editorial interview | Documents media growth and novel-role framing; “never existed” is not registry evidence. |
 | CZ11-S08 | [LinkedIn profile](https://www.linkedin.com/in/clairezau) | first-party professional | Current chronology; self-maintained. |
 | CZ11-S09 | [Instagram account](https://www.instagram.com/zauey.talks/) | platform record | Personal publishing surface; metrics volatile and platform-dependent. |

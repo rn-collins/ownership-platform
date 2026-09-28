@@ -24,7 +24,7 @@ Role-built flag: proposed `false`. The role is unusual and employer-defined, but
 | CZ-S02 | [Lightspeed appointment announcement](https://www.linkedin.com/posts/lightspeed-venture-partners_claire-zau-has-spent-six-years-both-investing-activity-7460417180044623872-fZUl) | employer record | Yes | 2026 | Appointment and stated dual mandate |
 | CZ-S03 | [Zau first-person appointment announcement](https://x.com/clairejyz/status/2054650703231033494) | first-person record | Yes | 2026 | Corroborates early-stage investing and new-media work |
 | CZ-S04 | [GSV Ventures team biography](https://gsv.ventures/our-team/) | former-employer record | Yes | accessed 2026-07-25 | Prior Partner and AI Lead role |
-| CZ-S05 | [ASU+GSV leadership biography](https://asugsvsummit.com/leadership/claire-zau) | institutional record | Yes | accessed 2026-07-25 | Prior AI coverage, program and thought-leadership work |
+| CZ-S05 | [ASU+GSV leadership biography](https://asugsvsummit.com/speakers/claire-zau) | institutional record | Yes | accessed 2026-07-25 | Prior AI coverage, program and thought-leadership work |
 | CZ-S06 | [GSV: AI & Education newsletter](https://aieducation.substack.com/) | first-person publication | Yes | accessed 2026-07-25 | Distinct public knowledge property |
 | CZ-S07 | [Business Insider role report](https://www.businessinsider.com/why-lightspeed-ventures-hired-first-creator-seed-investor-claire-zau-2026-5) | journalism | No | 2026-05-23 | Independent role-novelty and reporting-line context |
 | CZ-S08 | [Stanford education-newsletter directory](https://edupreneurship.stanford.edu/resource/education-innovation-newsletters/) | university record | Yes | accessed 2026-07-25 | Independent institutional recognition of newsletter |

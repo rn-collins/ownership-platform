@@ -83,7 +83,7 @@ A useful production brief can make those decisions visible before work begins:
 - measurement and reporting; and
 - closeout, archive, portfolio, and reuse decisions.
 
-This is an RN-authored checklist, not an industry standard. It is also not a declaration that the brief replaces the governing agreement. Labels do not determine legal effect. The brief can organize the production facts so the agreement, permissions, workflow, and price can be compared against the same proposed campaign.
+This is my own checklist, not an industry standard. It is also not a declaration that the brief replaces the governing agreement. Labels do not determine legal effect. The brief can organize the production facts so the agreement, permissions, workflow, and price can be compared against the same proposed campaign.
 
 IKEA’s official support system offers a modest analogy. Its product pages provide downloadable assembly instructions, and its tutorials make sequence visible step by step. The analogy proves nothing about creator outcomes. It simply clarifies the function of instructions: a box may contain every correct part while still leaving the assembly relation unresolved.
 
@@ -115,7 +115,7 @@ The value is not that a platform remembers everything forever. It is that the pe
 
 A campaign may involve a creator, brand, agency, editor, musician, designer, performer, platform, retailer, affiliate, and audience. Not every project includes every participant. The list matters because the finished post can make distinct contributions look like one undivided object.
 
-The **contribution map** is another RN-authored tool. For each actual participant, ask:
+The **contribution map** is another tool of my own. For each actual participant, ask:
 
 1. **What did they contribute?** A concept, script, performance, recording, design, product, location, approval, audience relationship, distribution route, or money?
 2. **What may they do?** Publish, edit, advertise, archive, display, license, measure, approve, or stop?
@@ -140,7 +140,7 @@ Build identifies the question, audience, deliverables, contributors, production 
 
 What must travel with the operator or project?
 
-Carry includes the files, credits, relationships, knowledge, platform histories, obligations, and explanation that connect one stage to the next. The audience research did not reveal one universal method. It revealed creators trying folders, calendars, routines, automation, and continually changing systems. Carry is not a demand for a perfect second brain. It asks which context becomes dangerous to lose.
+Carry includes the files, credits, relationships, knowledge, platform histories, obligations, and explanation that connect one stage to the next. The creator accounts above did not point to one universal method. They showed creators trying folders, calendars, routines, automation, and continually changing systems. Carry is not a demand for a perfect second brain. It asks which context becomes dangerous to lose.
 
 ### Control
 
@@ -158,7 +158,7 @@ Together, the verbs turn a one-time exchange into something that can be inspecte
 
 ## The campaign decision record
 
-Every project does not need a bureaucracy. It may need one good page.
+Not every project needs a bureaucracy. It may need one good page.
 
 **Build**
 
@@ -226,6 +226,5 @@ The map is not the institution. It is a way to see whether one exists—and wher
 - [Adobe Premiere, Share for Review with Frame.io](https://helpx.adobe.com/in/premiere/desktop/collaborate-with-others/share-for-review-using-frame-io/share-for-review-with-frame-io.html)
 - [Adobe Premiere, Import Frame.io Comments as Markers](https://helpx.adobe.com/premiere/desktop/collaborate-with-others/share-for-review-using-frame-io/import-comments-as-markers.html)
 - [IKEA, Assembly Instructions](https://www.ikea.com/es/en/customer-service/product-support/assembly-guides/)
-- Institutions of One audience-language research record: 15 dated excerpts from six direct creator and writer sources. The cited public sources support the discussion above; the research record is maintained with the project archive.
 
-*General educational information, not legal advice. The maps and checklists are RN-authored preparation and coordination tools, not substitutes for advice about a specific agreement, law, platform, or jurisdiction.*
+*General educational information, not legal advice. The creator quotations in the opening section are individual accounts from the author’s own research notes; they are not linked here and are not evidence of how common any practice is. The maps and checklists in this article are the author’s own preparation and coordination tools, not substitutes for advice about a specific agreement, law, platform, or jurisdiction.*

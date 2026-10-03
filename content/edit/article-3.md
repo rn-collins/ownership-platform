@@ -17,21 +17,15 @@ author: "Rayven-Nikkita Collins"
 
 **Image credit:** Original editorial image created for *Institutions of One* with OpenAI image generation, 2026. No third-party source image, logo, brand interface, or identifiable person was used.
 
-
-
 A self-managed creator negotiates one Instagram Reel. The email is clear: one post, no organic reuse by the brand, no paid use, no exclusivity. Then the contract arrives.
 
-Inside the legal language, the route has expanded. The brand may be able to repost the work, advertise with it, adapt it, move it across platforms, use it through the creator’s account identity, or restrict the creator’s work with other companies. The creator has not made five new deliverables. One file has acquired five new commercial lives.
+Inside the legal language, the route has expanded. The brand may be able to repost the work, advertise with it, adapt it, move it across platforms, use it through the creator’s account identity, or restrict the creator’s work with other companies. The creator has not made six new deliverables. One file has acquired six new commercial lives.
 
 That pattern appears in current first-person creator accounts. It does not prove that every brand uses the same clause or that every mismatch is intentional. It shows why the conversation, contract, media plan, and platform settings have to describe the same arrangement.
 
-Nothing about the pixels had to change.
+Nothing about the pixels had to change. The asset’s mechanism, audience, context, persistence, market, and competitive effect changed around them.
 
-
-
-The asset’s mechanism, audience, context, persistence, market, and competitive effect changed around them.
-
-The phrase *usage rights* can make all of this sound like one abstract legal category. For working creators and campaign teams, it is more useful to treat use as a route with five coordinates: mechanism, placement, duration, territory, and exclusivity.
+The phrase *usage rights* can make all of this sound like one abstract legal category. For working creators and campaign teams, it is more useful to treat use as a route with eight coordinates: mechanism, identity, placement, edits, duration, territory, exclusivity, and evidence.
 
 ## Organic content can acquire an advertising engine
 
@@ -43,7 +37,7 @@ That last distinction matters. When an advertisement appears through or alongsid
 
 > Is the brand advertising from its own account, or is it advertising through the creator’s identity and post?
 
-Meta currently describes partnership ads as a way for brands and creators to collaborate in advertising. Some exact Meta permission pages require login and could not be independently rechecked in the public browser used for this revision, so this article does not treat a particular screen or button as a universal rule. The agreement still needs to identify the authorized account, asset, advertiser, period, market, and changes.
+Meta currently describes partnership ads as a way for brands and creators to collaborate in advertising. Some of Meta’s permission pages require a login and are not publicly viewable, so this article does not treat a particular screen or button as a universal rule. The agreement still needs to identify the authorized account, asset, advertiser, period, market, and changes.
 
 Before amplification, record:
 
@@ -150,7 +144,7 @@ Exclusivity is purchased control over a bounded part of the creator’s opportun
 
 Michael Jordan covering the Reebok logo on his warm-up jacket at the 1992 Olympic medal ceremony remains an unusually literal image of the problem. Contemporary reporting documented the flag covering the Reebok mark; later oral histories describe the collision among the U.S. team uniform, Reebok’s visibility, Jordan’s Nike relationship, and a globally televised ceremony.
 
-The photograph cannot reveal every contract term, and this article does not ask it to. Its value is visual: multiple commercial systems met on one person’s body, and the conflict had to be managed in public.
+A photograph of that moment cannot reveal every contract term, and this article does not ask it to. Its value is visual: multiple commercial systems met on one person’s body, and the conflict had to be managed in public.
 
 A narrow, named, three-week restriction is not economically or operationally equivalent to “no competitors worldwide for one year.” Price follows the actual fence.
 

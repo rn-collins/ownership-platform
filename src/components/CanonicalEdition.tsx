@@ -13,10 +13,12 @@ const stripFrontMatter = (raw: string) => raw
   .trim();
 
 function inline(text: string): ReactNode[] {
-  const parts = text.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|\*[^*]+\*)/g);
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\)|`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*)/g);
   return parts.map((part, index) => {
     let match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-    if (match) return <a key={index} href={match[2]} target="_blank" rel="noopener noreferrer">{match[1]}</a>;
+    if (match) return <a key={index} href={match[2]} target="_blank" rel="noopener noreferrer">{inline(match[1])}</a>;
+    match = part.match(/^`([^`]+)`$/);
+    if (match) return <code key={index}>{match[1]}</code>;
     match = part.match(/^\*\*([^*]+)\*\*$/);
     if (match) return <strong key={index}>{match[1]}</strong>;
     match = part.match(/^\*([^*]+)\*$/);

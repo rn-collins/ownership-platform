@@ -5,8 +5,8 @@ export const metadata = {
   title: "How Institutions of One works",
   description: "See the concrete questions, two evidence streams, result calculations, and limits behind Institutions of One.",
   alternates: { canonical: "/methodology" },
-  openGraph: { title: "How Institutions of One works", description: "See the concrete questions, two evidence streams, result calculations, and limits behind Institutions of One.", url: "/methodology", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "How Institutions of One works", description: "See the concrete questions, two evidence streams, result calculations, and limits behind Institutions of One.", images: ["/og.png"] },
+  openGraph: { title: "How Institutions of One works", description: "See the concrete questions, two evidence streams, result calculations, and limits behind Institutions of One.", url: "/methodology", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "How Institutions of One works", description: "See the concrete questions, two evidence streams, result calculations, and limits behind Institutions of One.", images: ["/opengraph-image"] },
 };
 
 const ownershipDimensions = [["Audience","Can you reach people without asking a platform for permission?"],["Rights","Who can license, reuse, change, or sell the work?"],["Revenue","Could the money move with you if one channel disappeared?"],["Identity","Can you govern the name and reputation people recognize?"],["Infrastructure","Are there systems and relationships beyond one account or project?"]];

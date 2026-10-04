@@ -64,7 +64,7 @@ export function LivingFindings(){
 
     {lens==="support"&&<section className={styles.patterns}>{PATTERNS.map((pattern)=><article key={pattern.tension}>
       <p className={styles.status}>{strength(pattern)}</p><h3>{pattern.tension}</h3>
-      <p className={styles.finding}>{pattern.cases.length} cases currently raise this tension. Together they contain {pattern.sources} standardized sources, {pattern.independentCases} case records with at least one independent source, {pattern.complications} explicit complications, and {pattern.unknowns} unresolved questions.</p>
+      <p className={styles.finding}>{pattern.cases.length} {pattern.cases.length===1?"case currently raises":"cases currently raise"} this tension. Together they contain {pattern.sources} standardized sources, {pattern.independentCases} case records with at least one independent source, {pattern.complications} explicit complications, and {pattern.unknowns} unresolved questions.</p>
       <div className={styles.caseLinks}>{pattern.cases.slice(0,6).map((row)=><Link key={row.slug} href={`/observatory/${row.slug}`}>{row.name}</Link>)}</div>
       <p className={styles.caution}><strong>Do not conclude:</strong> frequency proves causation, success, ownership, or a universal sequence.</p>
     </article>)}</section>}

@@ -7,9 +7,10 @@ export const revalidate = 60; // ISR: public page cached, refreshed within a min
 
 async function load(slug: string, postSlug: string) {
   if (!prisma) return null;
-  const creator = await prisma.creator.findUnique({ where: { slug }, select: { id: true, slug: true, displayName: true, ownedPublished: true } });
+  // A failed lookup is a 404, never a 500.
+  const creator = await prisma.creator.findUnique({ where: { slug }, select: { id: true, slug: true, displayName: true, ownedPublished: true } }).catch(() => null);
   if (!creator || !creator.ownedPublished) return null;
-  const post = await prisma.post.findFirst({ where: { creatorId: creator.id, slug: postSlug, published: true } });
+  const post = await prisma.post.findFirst({ where: { creatorId: creator.id, slug: postSlug, published: true } }).catch(() => null);
   if (!post) return null;
   return { creator, post };
 }

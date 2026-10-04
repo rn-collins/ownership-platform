@@ -2,7 +2,7 @@ import { prisma } from "@/lib/db";
 import { SEED } from "@/lib/observatory_seed";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "The Job That Didn't Exist — The Observatory" };
+export const metadata = { title: "The Job That Didn't Exist — The Observatory", robots: { index: false, follow: false } };
 
 function ytId(url: string): string | null {
   const m = url.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);

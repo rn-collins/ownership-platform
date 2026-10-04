@@ -8,13 +8,14 @@ export const revalidate = 60; // ISR: public page cached, refreshed within a min
 // today and their own domain the moment they connect one.
 export default async function OwnedPage({ params }: { params: { slug: string } }) {
   if (!prisma) notFound();
+  // A failed lookup (unknown or malformed slug, database hiccup) is a 404, never a 500.
   const creator = await prisma.creator.findUnique({
     where: { slug: params.slug },
     include: {
       ownedLinks: { orderBy: { position: "asc" } },
       // published posts, newest first — the content home
     },
-  });
+  }).catch(() => null);
   if (!creator || !creator.ownedPublished) notFound();
   const posts = await prisma.post.findMany({
     where: { creatorId: creator.id, published: true },

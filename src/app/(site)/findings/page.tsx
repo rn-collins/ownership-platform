@@ -5,8 +5,8 @@ export const metadata = {
   title: "What the 41 careers reveal — Institutions of One",
   description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.",
   alternates: { canonical: "/findings" },
-  openGraph: { title: "What the 41 careers reveal — Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", url: "/findings", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "What the 41 careers reveal — Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", images: ["/og.png"] },
+  openGraph: { title: "What the 41 careers reveal — Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", url: "/findings", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "What the 41 careers reveal — Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", images: ["/opengraph-image"] },
 };
 
 const signals = [

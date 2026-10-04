@@ -1,10 +1,17 @@
 import { ObservatoryMap } from "@/components/ObservatoryMap";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { SEED } from "@/lib/observatory_seed";
+import { publicEditions } from "@/lib/edit-cycle-one";
 
 export const metadata = { alternates: { canonical: "/" } };
 
+const COUNT_WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+
 export default function Home() {
+  // Derived from the edition data so a newly published edition appears here automatically.
+  const editions = publicEditions();
+  const first = editions[0];
+  const last = editions[editions.length - 1];
   return (
     <main className="home">
       <section className="hero">
@@ -73,6 +80,22 @@ export default function Home() {
           <a href="/observatory" className="sec-link">Open the Observatory →</a>
         </div>
         <ObservatoryMap embed />
+      </section>
+
+      <section className="edition-strip" aria-labelledby="edition-strip-h">
+        <div className="sec-head">
+          <div>
+            <p className="eyebrow">The I/1 Edit</p>
+            <h2 id="edition-strip-h" className="strip-h2">Editions {first.number}–{last.number}</h2>
+            <p className="sec-sub">There are {COUNT_WORDS[editions.length] ?? editions.length} editions so far, listed oldest first as on the editions page. Each follows one question about work, power, and ownership.</p>
+          </div>
+          <a href="/edit" className="sec-link">All editions →</a>
+        </div>
+        <ol className="strip-list">
+          {editions.map((edition) => (
+            <li key={edition.number}><a href={`/edit/${edition.number}`}><span>{edition.number}</span>{edition.title}</a></li>
+          ))}
+        </ol>
       </section>
 
       <section className="closing-call">

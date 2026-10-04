@@ -14,7 +14,7 @@ const REVIEW_LABELS: Record<string, string> = {
 function Sep() { return <span className={styles.sep} aria-hidden="true">·</span>; }
 
 export function CaseStatus({ total, independent, status }: { total: number; independent: number; status: string }) {
-  const review = REVIEW_LABELS[status] ?? "Independent review in progress";
+  const review = REVIEW_LABELS[status] ?? "Not independently reviewed";
   return <p className={styles.status}>
     <span className={styles.icon} aria-hidden="true">§</span>
     <span className={styles.parts}>

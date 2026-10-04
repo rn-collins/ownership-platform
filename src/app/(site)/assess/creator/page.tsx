@@ -5,8 +5,8 @@ export const metadata = {
   title: "Ownership Index — Institutions of One",
   description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.",
   alternates: { canonical: "/assess/creator" },
-  openGraph: { title: "Ownership Index — Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", url: "/assess/creator", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Ownership Index — Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", images: ["/og.png"] },
+  openGraph: { title: "Ownership Index — Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", url: "/assess/creator", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Ownership Index — Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", images: ["/opengraph-image"] },
 };
 
 export default function CreatorAssessPage() {
@@ -29,7 +29,7 @@ export default function CreatorAssessPage() {
           <b>Audience</b> asks whether you can reach the people who follow your work without a
           platform&apos;s permission. <b>Rights</b> asks who owns what you have made and on what
           terms. <b>Revenue</b> asks how many independent channels your income arrives through.
-          <b> Identity</b> asks whether your public name is yours to move. <b>Infrastructure</b>
+          <b> Identity</b> asks whether your public name is yours to move. <b>Infrastructure</b>{" "}
           asks whether the tools, data and records the work runs on would survive changing
           supplier. They are grouped this way because they fail independently: it is common to
           own your rights outright and still be unable to reach a single reader without one

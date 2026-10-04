@@ -4,8 +4,8 @@ export const metadata = {
   title: "Ways to work together — Institutions of One",
   description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.",
   alternates: { canonical: "/partner" },
-  openGraph: { title: "Ways to work together — Institutions of One", description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.", url: "/partner", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Ways to work together — Institutions of One", description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.", images: ["/og.png"] },
+  openGraph: { title: "Ways to work together — Institutions of One", description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.", url: "/partner", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Ways to work together — Institutions of One", description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.", images: ["/opengraph-image"] },
 };
 
 const problems = [

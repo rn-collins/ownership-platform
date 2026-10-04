@@ -35,9 +35,9 @@ export default function PrivacyPage() {
 
       <div className="card">
         <h2>Email updates and the newsletter</h2>
-        <p>Your email is stored only when you explicitly opt in, and the exact consent statement shown when you subscribe is stored with the date and form version.
+        <p>Your email is stored only when you explicitly opt in, and the version of the consent wording that applied when you subscribed is stored with the date.
         It is used to send occasional updates and, if you asked for it, your report. It is never sold. The on-site signup
-        also adds you to the newsletter on beehiiv so the site and Beehiiv use the same subscriber list.</p>
+        also adds you to the newsletter The Polymath on beehiiv (the I/1 Edit is a series within it) so the site and Beehiiv use the same subscriber list.</p>
       </div>
 
       <div className="card">

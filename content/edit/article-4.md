@@ -25,9 +25,9 @@ Someone had the idea. Someone translated it into instructions. Someone decided w
 
 Sometimes all of those someones are one person.
 
-Creators describe this work in the language of time, scattering, and attention. One current creator wrote that ideas lived in four different places and called the resulting setup “organized chaos.” Another described weeks containing writing, testing, recording, scripting, and research at once. A photographer explained that asset management was not the interesting part of the work—then described losing unbacked-up photographs and building a routine so it would not happen again.
+Creators describe this work in the language of time, scattering, and attention: ideas kept in several places, weeks that mix writing, testing, recording, scripting, and research, and photographs lost because they were never backed up.
 
-These are individual accounts, not prevalence data. They are enough to reveal the practical question underneath this series:
+This is a general description, not prevalence data. It is enough to reveal the practical question underneath this series:
 
 > What does one person need in order to make a multi-role body of work legible, governable, and capable of continuing?
 

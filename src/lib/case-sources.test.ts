@@ -57,7 +57,7 @@ describe("record last updated", () => {
     }
   });
 
-  it("uses the date of the latest cited filing for Nadir Godrej", () => {
-    expect(recordLastUpdated(records.find((row) => row.slug === "nadir-godrej")!.research)).toBe("2026-08-13");
+  it("uses the date of the latest cited source for Nadir Godrej (the 14 August 2026 effective date)", () => {
+    expect(recordLastUpdated(records.find((row) => row.slug === "nadir-godrej")!.research)).toBe("2026-08-14");
   });
 });

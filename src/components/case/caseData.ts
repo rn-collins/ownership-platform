@@ -56,6 +56,7 @@ const KIND_LABELS: Record<CaseResearchSource["kind"], string> = {
   interview: "Subject interview",
   self_authored: "Self-authored",
   derivative: "Republished report",
+  reference: "Reference work (secondary)",
 };
 
 export function sourceKindLabel(kind: CaseResearchSource["kind"]) {

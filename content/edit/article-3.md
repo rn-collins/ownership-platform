@@ -2,14 +2,14 @@
 title: "The Asset’s Afterlife"
 subtitle: "The file did not change. Its commercial life did."
 series: "Institutions of One"
-author: "Rayven-Nikkita Collins"
+author: "RN Collins"
 ---
 
 # The Asset’s Afterlife
 
 ## The file did not change. Its commercial life did.
 
-**By Rayven-Nikkita Collins**
+**By RN Collins**
 
 ![A translucent drawing bridges a warm, handmade studio workspace and a cool system of acrylic files and trays, representing an unchanged creative work entering commercial distribution.](primary-image-final.png)
 

@@ -13,7 +13,7 @@ export const SAMPLING_MATRIX = [
   { id: "platform_dependence", label: "Platform dependence", coverage: ["low", "mixed", "high"], rationale: "Tests whether platform access changes ownership concepts." },
   { id: "jurisdiction", label: "Jurisdiction", coverage: ["United States", "outside United States", "multiple jurisdictions"], rationale: "Surfaces legal, contractual, and terminology differences." },
   { id: "disability_care", label: "Disability, chronic illness, and care", coverage: ["represented", "not disclosed", "not represented"], rationale: "Tests accessibility and whether continuity items misclassify constrained capacity." },
-  { id: "income_structure", label: "Income structure", coverage: ["salary", "project", "recurring", "royalty/licence", "mixed", "variable/seasonal"], rationale: "Tests denominators, reference periods, and not-applicable routing." },
+  { id: "income_structure", label: "Income structure", coverage: ["salary", "project", "recurring", "royalty/license", "mixed", "variable/seasonal"], rationale: "Tests denominators, reference periods, and not-applicable routing." },
   { id: "resource_access", label: "Professional support", coverage: ["limited", "some", "substantial"], rationale: "Separates individual practice from access to legal, financial, technical, or administrative support." },
 ] as const;
 

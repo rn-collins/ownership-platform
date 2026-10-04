@@ -2,14 +2,14 @@
 title: "All Media, Now Known or Hereafter Devised"
 subtitle: "One clause in a contract can decide who controls tomorrow's use of today's video"
 series: "Institutions of One"
-author: "Rayven-Nikkita Collins"
+author: "RN Collins"
 ---
 
 # All Media, Now Known or Hereafter Devised
 
 ## One clause in a contract can decide who controls tomorrow's use of today's video
 
-**By Rayven-Nikkita Collins**
+**By RN Collins**
 
 ![A marked-up contract page shows a broad usage clause circled in red beside the narrower shoot brief it was meant to describe.](primary-image.svg)
 

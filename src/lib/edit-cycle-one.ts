@@ -37,11 +37,11 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     media: [
       media("Rechnung Buntpapier-Fabrik Hennessen & Jansen M.-Gladbach 1903.jpg", "A decorated-paper factory invoice dated 1903, with itemized charges and factory letterhead", "The invoice records a price and transaction; it does not disclose every permission or ownership term.", "Deutsches Buch- und Schriftmuseum / Forschungsstelle Papiergeschichte", "Public domain", 1920, 2486),
       media("Signing the agreement (10442537774).jpg", "Parties signing a written operating agreement", "A documented signing makes the parties, governing instrument, and moment of assent visible.", "Oregon Department of Transportation", "CC BY 2.0", 1920, 1278),
-      media("Video production workers in studio studying bank of monitors showing camera views.jpg", "Production workers studying a bank of studio monitors", "A working crew reveals the multiple contributors behind a finished deliverable.", "National Archives and Records Administration", "Public domain", 1920, 1301),
+      media("Video production workers in studio studying bank of monitors showing camera views.jpg", "Production workers studying a bank of studio monitors", "A working crew reveals the multiple contributors behind a finished deliverable.", "Ryan Hagerty, U.S. Fish and Wildlife Service, via Public-domain-image.com (date not given)", "Public domain (U.S. federal government work)", 1920, 1301),
       media("Graticule.jpg", "Animator’s translucent layout sheet with field guides and peg holes", "A working animation sheet identifies the production format and physical handoff behind a finished frame.", "Popolon", "CC BY-SA 4.0", 1920, 1354),
       media("Group discusses storyboards.jpg", "Three colleagues review illustrated storyboards around a conference table", "A shared storyboard gives the first scope conversation a concrete object: the team can point to what will be made before pricing its uses.", "Bill Branson / National Cancer Institute, NIH", "Public domain", 1920, 1280),
       media("Sales contract Shuruppak Louvre AO3766.jpg", "A Sumerian clay tablet recording the sale of a field and house", "A deal record preserves the exchange outside anyone’s memory—even when the medium changes.", "Marie-Lan Nguyen / Louvre Museum", "Public domain", 1800, 1700),
-      media("PixelMusica - Video Production Team.jpg", "Video production team working together", "A production team demonstrates why deal records must identify people, roles, files and obligations.", "PixelMusica", "CC BY-SA 4.0", 1920, 1280),
+      media("PixelMusica - Video Production Team.jpg", "Video production team working together", "A production team demonstrates why deal records must identify people, roles, files and obligations.", "Le Martel, 2022-03-23 (PixelMusica video production team)", "CC BY-SA 4.0", 1920, 1280),
     ],
   },
   {
@@ -53,8 +53,8 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
       media("Moviola Model D (MOMI).jpg", "A 1927 Moviola film-editing machine with viewing and microscope attachments", "The editing apparatus makes alteration a separate production act, not an invisible extension of permission to post.", "HaeB / Museum of the Moving Image", "CC BY-SA 4.0", 1920, 2880),
       media("WLA LACMA label.jpg", "A museum accession-number label photographed at LACMA", "A label identifies and credits an object; by itself, it is not a permission record.", "Allison Agsten / LACMA", "Public domain", 1920, 1440),
       media("Vocal recording setup & IYE - Studio B, In Your Ear Studios.jpg", "Voice-over recording setup in a professional studio", "A voice recording setup separates the performer, recording, equipment, and later uses carried inside one asset.", "Will Fisher", "CC BY-SA 2.0", 1920, 1280),
-      media("Camera crew setting everything up.jpg", "Camera crew preparing equipment on location", "The crew and equipment make the chain of contribution visible before publication.", "Wikimedia Commons contributor", "CC BY-SA 4.0", 1920, 1280),
-      media("Hardenstein 2014 -- Model Release.png", "Completed model-release document", "A model release is a distinct record of likeness consent, not a substitute for copyright ownership.", "Wikimedia Commons contributor", "CC BY-SA 4.0", 826, 1169),
+      media("Camera crew setting everything up.jpg", "Camera crew preparing equipment on location", "The crew and equipment make the chain of contribution visible before publication.", "Nirvana Studios - Custom Circus, 2026-02-19", "CC BY 4.0", 1920, 1280),
+      media("Hardenstein 2014 -- Model Release.png", "Completed model-release document", "A model release is a distinct record of likeness consent, not a substitute for copyright ownership.", "RalfHuels, based on a template by Joi Ito, 2014-04-19", "CC BY 3.0", 826, 1169),
       media("Camera_crew_Brielle.JPG", "A location camera crew works around a mounted cinema camera", "The crew makes the people, equipment and production roles inside one finished asset visible.", "Peter van der Sluijs via Wikimedia Commons", "CC BY-SA 3.0", 1600, 1067),
     ],
   },
@@ -77,7 +77,7 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
       media("Filming production.jpg", "Crew filming a production on location", "A production set shows multiple roles working from one coordinated plan.", "Yemi Festus", "CC BY-SA 4.0", 1920, 1280),
       media("35MM ARC Lamp, Film Projector, Sound Mixer.jpg", "Film projector, arc lamp, and sound mixer in a studio collection", "Separate technical systems make the production chain visible as more than a single file.", "Nilanjan19", "CC BY-SA 4.0", 1920, 1440),
       media("My Fair Brady production crew photo Don Ramey Logan.jpg", "Television production crew posed together", "A crew makes the people responsible for building and carrying the work visible.", "Don Ramey Logan", "CC BY-SA 3.0", 1920, 1348),
-      media("5.1 mixing room for Radio, TV, and Film production, equipt with AVID Pro Tools including ICON D-Command - Control Room B, In Your Ear Studios.jpg", "Audio post-production control room with mixing console", "The mixing room documents a specialized handoff in the post-production workflow.", "In Your Ear Studios", "CC BY-SA 3.0", 1920, 1280),
+      media("5.1 mixing room for Radio, TV, and Film production, equipt with AVID Pro Tools including ICON D-Command - Control Room B, In Your Ear Studios.jpg", "Audio post-production control room with mixing console", "The mixing room documents a specialized handoff in the post-production workflow.", "Will Fisher, 2014-11-26", "CC BY-SA 2.0", 1920, 1280),
       media("OLUWAFEMI JONATHAN.jpg", "Camera editor working with production equipment", "A named production specialist represents accountable authorship inside a collaborative system.", "Oluwafemi Jonathan", "CC BY-SA 4.0", 1920, 1280),
     ],
   },
@@ -91,7 +91,7 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     // (institutions-of-one-reader's data/cycle01/render-inputs/live-gallery/p15-*.json,
     // p17-*.json) rather than sourcing fresh images.
     media: [
-      media("Signing ceremony (14443611224).jpg", "Formal signing ceremony with participants gathered around a written agreement", "A signature is the moment a negotiated boundary becomes a governing document—the question is always what boundary it actually states.", "Wikimedia Commons contributor", "CC BY-SA 2.0", 1920, 1280),
+      media("Signing ceremony (14443611224).jpg", "Formal signing ceremony with participants gathered around a written agreement", "A signature is the moment a negotiated boundary becomes a governing document—the question is always what boundary it actually states.", "Foreign and Commonwealth Office, 2014-06-17", "CC BY 2.0", 1920, 1280),
       media("Signed and witness partnership agreement Wellcome L0040613.jpg", "A signed and witnessed partnership agreement", "The license-versus-transfer distinction lives in writing like this, not in the price paid or the file delivered.", "Wellcome Library, London", "CC BY 4.0", 1920, 2361),
       media("Agreement signed F. Desloge, November 22, 1883.jpg", "An 1883 agreement with a clause crossed out and rewritten by hand", "A word struck through and replaced is the physical record of a boundary being negotiated—the same negotiation a broad, unread clause skips.", "Firmin Desloge Jr. / Missouri History Museum", "Public domain", 1920, 2948),
       media("Michael D. Antonovich filming Senatorial campaign ad at the California-Mexican border, 1986.jpg", "A 1986 campaign advertisement being filmed on location", "A campaign-specific ad is a bounded deliverable, made for one race, one moment—the opposite of a grant that outlives it.", "Los Angeles Times via UCLA Library Los Angeles Times Photographic Collection", "CC BY 4.0", 1920, 1385),
@@ -137,4 +137,4 @@ const packageTitles: Record<string, string> = {
 export const packageTitle = (id: string) => packageTitles[id] ?? "Visual story";
 export const packageGalleryUrl = (id: string) => `https://institutions-of-one-reader.vercel.app/production/cycle-01/${id.toLowerCase()}`;
 export const commonsImageUrl = (file: string) => `https://institutions-of-one-reader.vercel.app/api/commons-image?file=${encodeURIComponent(file)}&width=1600`;
-export const commonsSourceUrl = (file: string) => `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file)}`;
+export const commonsSourceUrl = (file: string) => `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.replace(/ /g, "_"))}`;

@@ -20,9 +20,17 @@ export default function PrivacyPage() {
         <p>When you take an index, the system stores your answers grouped by response range, the five-area profile, the secondary composite score shown for transparency, instrument and methodology
         versions, and a random assessment identifier — no name, email, or account identity. The identifier lets
         later optional research answers update the same assessment instead of creating duplicate respondents; it is not
-        used to identify you. Your IP address is used briefly to prevent abuse and is never stored. Optional research
+        used to identify you. A copy of your answers also stays in your browser on your device. Optional research
         answers are stored with the same anonymous assessment and are not added to the public findings unless the record
         contains a complete response from a supported assessment version.</p>
+        <p>If you are signed in when you submit the Ownership Index, a second copy of your answers and score is saved
+        to your account, linked to your sign-in. That copy is separate from the anonymous record and is not used
+        in the public findings.</p>
+        <p>Your IP address is not saved with your answers or in our database. To limit abuse, the forms that
+        accept submissions, including assessment submission, count requests per IP address, up to 20 per minute. The address
+        (the first one in the request&rsquo;s forwarding header) is used as an unhashed key in a counter held in Upstash
+        Redis, and the counter expires automatically after about two minutes. Our hosting provider may also keep
+        standard server logs outside this counter.</p>
       </div>
 
       <div className="card">

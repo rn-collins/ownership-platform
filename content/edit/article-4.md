@@ -185,7 +185,7 @@ Not every project needs a bureaucracy. It may need one good page.
 
 I call this record a **memory prosthetic**. That is a metaphor, not a medical claim. The page does not improve memory by magic. It moves selected facts out of one person’s head and into a record another person—or the same person six months later—can inspect.
 
-Until it is field-tested against a neutral project, it should be treated as a proposed tool. The test is simple: can the page reconstruct what was built, carried, controlled, and left to continue without reopening every email, app, drive, and message thread?
+I have not yet tried it on a neutral project, so treat it as a proposed method rather than a proven one. The test is simple: can the page reconstruct what was built, carried, controlled, and left to continue without reopening every email, app, drive, and message thread?
 
 ## Professionalization beyond polish
 

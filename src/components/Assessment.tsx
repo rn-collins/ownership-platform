@@ -190,7 +190,7 @@ export function Assessment() {
 
           <div className="research">
             <h3>Optional research questions</h3>
-            <p className="rsub">These optional questions ask about rights, revenue, public identity, wellbeing, and career direction. Answers are stored anonymously with this assessment response and help improve the research. They do not change the profile shown above.</p>
+            <p className="rsub">These optional questions ask about rights, revenue, public identity, wellbeing, and career direction. Answers are stored with this assessment response, without your name or email, and help improve the research. They do not change the profile shown above.</p>
             {(() => {
               const items = APP_RESEARCH.flatMap((m) => m.items).filter((it) => !isResearchItemHidden(it.id, responses));
               const done = items.filter((it) => {
@@ -272,7 +272,7 @@ export function Assessment() {
 
           <ResearchOptIn source="index_creator" interest="creator" heading="Want your results and what comes next?" report={{ total: result.total, band: result.overall.label, instrument: "ownership" }} />
 
-          <p className="disc">Your answers are collected anonymously. Result calculated under methodology v{result.methodologyVersion}.</p>
+          <p className="disc">Your answers are stored without your name or email unless you are signed in, in which case a copy is also saved to your account. Result calculated under methodology v{result.methodologyVersion}.</p>
           <div className="actions">
             <button className={`primary ${s.button}`} onClick={shareProfile}>{shared ? "Link copied ✓" : "Share my profile"}</button>
             <button className={`ghost ${s.button}`} onClick={() => { setSubmitted(false); setResponses({}); setResearch({}); setStep(0); setShared(false); setRestarted(true); }}>Start again</button>

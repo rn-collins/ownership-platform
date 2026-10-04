@@ -1,8 +1,7 @@
 // Pure helpers for the Observatory case pages. No I/O; everything here derives from
-// the existing case records (src/lib/case_research.ts, src/lib/case_narratives.ts).
+// the existing case records (src/lib/case_research.ts).
 // Nothing in this file adds facts — it only selects, orders, counts, and formats.
 import type { CaseResearchRecord, CaseResearchSource } from "@/lib/case_research";
-import type { CaseNarrative } from "@/lib/case_narratives";
 
 export type CaseSource = CaseResearchSource & { number: number };
 
@@ -26,35 +25,41 @@ export function isLandingPage(href: string): boolean {
 }
 
 /**
- * One source list per case: the research record's sources, followed by any narrative
- * source whose URL the research record does not already cite. The page's counts and
- * its bottom-of-page list are both derived from this, so they cannot disagree.
+ * One numbered source list per case: the research record's sources, in order. The status
+ * line, the sources section, the documentation ledger, and the Evidence Explorer all count
+ * from this list (or from the same record), so the numbers cannot disagree. Headline-only
+ * rows from the older narrative summaries are not added here: a row appears only when the
+ * research record gives its outlet, title, date, and URL and a claim cites it.
  */
-export function collectSources(research: CaseResearchRecord | undefined, narrative: CaseNarrative | undefined): CaseSource[] {
-  const list: CaseResearchSource[] = [...(research?.sources ?? [])];
-  const seen = new Set(list.map((source) => normalizeHref(source.href)));
-  (narrative?.sources ?? []).forEach((source, index) => {
-    const key = normalizeHref(source.href);
-    if (seen.has(key)) return;
-    seen.add(key);
-    list.push({
-      id: `narrative-source-${index + 1}`,
-      label: source.label,
-      href: source.href,
-      publisher: source.label.split(":")[0],
-      published: "",
-      kind: source.independent ? "independent" : "institutional",
-    });
-  });
-  return list.map((source, index) => ({ ...source, number: index + 1 }));
+export function collectSources(research: CaseResearchRecord | undefined): CaseSource[] {
+  return (research?.sources ?? []).map((source, index) => ({ ...source, number: index + 1 }));
 }
 
-function normalizeHref(href: string) {
-  return href.trim().replace(/\/+$/, "").toLowerCase();
+/**
+ * Only independent reporting counts as independent. Sources that are authored or co-authored by
+ * the subject, interviews in which the subject describes their own work, republished reports
+ * that add nothing new, and primary or institutional records are all counted as other sources.
+ */
+export function isIndependent(source: Pick<CaseResearchSource, "kind">): boolean {
+  return source.kind === "independent";
 }
+
+export function countSources(sources: Pick<CaseResearchSource, "kind">[]) {
+  const independent = sources.filter(isIndependent).length;
+  return { total: sources.length, independent, other: sources.length - independent };
+}
+
+const KIND_LABELS: Record<CaseResearchSource["kind"], string> = {
+  independent: "Independent reporting",
+  primary: "Primary source",
+  institutional: "Institutional source",
+  interview: "Subject interview",
+  self_authored: "Self-authored",
+  derivative: "Republished report",
+};
 
 export function sourceKindLabel(kind: CaseResearchSource["kind"]) {
-  return kind === "independent" ? "Independent reporting" : kind === "primary" ? "Primary source" : "Institutional source";
+  return KIND_LABELS[kind];
 }
 
 const LONG_DATE = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });

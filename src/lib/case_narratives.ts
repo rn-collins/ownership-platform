@@ -30,7 +30,7 @@ export const CASE_NARRATIVES: Record<string, CaseNarrative> = {
   "steven-bartlett": {
     careerArc: "Bartlett first became publicly legible through Social Chain, then expanded into podcasting, investing, publishing, and a group of media and venture businesses organized around his name and audience.",
     structuralTurn: "The Diary of a CEO evolved from a founder’s podcast into a production and distribution engine capable of supporting books, events, international versions, partnerships, and adjacent companies.",
-    whyItMatters: "His career tests whether many ventures share a durable operating thesis or remain dependent on one personality’s continuing attention. It also shows why commercial scale and editorial reliability must be examined separately.",
+    whyItMatters: "His career tests whether many ventures share a durable operating thesis or remain dependent on one personality’s continuing attention. It also separates commercial scale from the editorial standards applied to health and science content, which the BBC investigation cited below examined.",
     unresolved: ["Which entities own the program’s intellectual property and audience data?", "How substitutable is Bartlett within the system?", "How are editorial standards governed across health and science content?"],
     sources: [
       { label: "The Guardian: Bartlett’s route from dropout to Dragons’ Den", href: "https://www.theguardian.com/tv-and-radio/2022/jan/06/how-steven-bartlett-went-from-dropout-to-youngest-ever-dragons-den-investor", independent: true },

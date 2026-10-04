@@ -46,6 +46,21 @@ describe("case source lists", () => {
     expect(find("pieter-levels", "lex-transcript").kind).toBe("interview");
     expect(find("kenny-gold", "cmo-podcast").kind).toBe("interview");
     expect(find("gordon-glenister", "bigeye").kind).toBe("interview");
+    // Third round: interviews, as-told-to essays, and republished announcements or statements.
+    for (const [slug, id] of [
+      ["suzie-reider", "modern-retail"], ["ashley-rudder", "muse-interview"], ["klitos-teklos", "cyprus-interview"],
+      ["jack-conte", "wired-2025"], ["marques-brownlee", "bi-2018"], ["marques-brownlee", "stratechery"],
+      ["marques-brownlee", "cortex-workflow"], ["cathy-hackl", "digiday-title"], ["jane-gilbert", "governing"],
+      ["darren-murph", "coo"], ["darren-murph", "running-remote"], ["codie-sanchez", "liberty-2021"],
+      ["brian-may", "space-bennu"], ["emma-chamberlain", "people-pause"], ["emma-chamberlain", "people-cafe"],
+      ["marc-pritchard", "cmo-survey"],
+    ]) expect(find(slug, id).kind, `${slug}:${id}`).toBe("interview");
+    expect(find("ashley-rudder", "bi-whalar").kind).toBe("self_authored");
+    expect(find("klitos-teklos", "comparably-elc").kind).toBe("institutional");
+    for (const [slug, id] of [
+      ["mo-gawdat", "tech-eu-flightstory"], ["mo-gawdat", "businesscloud-flightstory"], ["linda-fisher", "2020-goals"],
+      ["emma-chamberlain", "yahoo-podcast-break"], ["emma-chamberlain", "yahoo-depleted"], ["shonda-rhimes", "playbill-response"],
+    ]) expect(find(slug, id).kind, `${slug}:${id}`).toBe("derivative");
   });
 });
 

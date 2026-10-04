@@ -83,7 +83,7 @@ export const CASE_NARRATIVES: Record<string, CaseNarrative> = {
     whyItMatters: "His case is useful because portability is not synonymous with distance. An independent practice can gain influence through temporary embeddedness while preserving a distinct identity and method.",
     unresolved: ["What intellectual property remains with the studio?", "How are outcomes attributed between resident and client teams?", "Does the model scale without diluting the founder’s judgment?"],
     sources: [
-      { label: "Models.com: Klitos Teklos creative-director profile", href: "https://models.com/people/klitos-teklos", independent: true },
+      { label: "Models.com: Klitos Teklos creative-director profile", href: "https://models.com/people/klitos-teklos" },
       { label: "Tēklos Studio: practice and residency model", href: "https://www.klitosteklos.com/about" },
     ],
   },

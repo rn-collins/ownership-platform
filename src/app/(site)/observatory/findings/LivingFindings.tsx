@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { SEED, nodeSlug } from "@/lib/observatory_seed";
-import { getCaseResearch, type CaseResearchRecord } from "@/lib/case_research";
+import { getCaseResearch, recordLastUpdated, type CaseResearchRecord } from "@/lib/case_research";
+import { countSources, formatLongDate } from "@/components/case/caseData";
 import styles from "./findings.module.css";
 
 type Lens = "support" | "exceptions" | "gaps" | "changed" | "pressure" | "ledger";
@@ -17,14 +18,14 @@ const LENSES:{id:Lens;label:string;question:string}[]=[
   {id:"gaps",label:"Research gaps",question:"Where would more evidence most change what the collection can say?"},
   {id:"changed",label:"Changed interpretations",question:"Can the collection establish that an interpretation changed?"},
   {id:"pressure",label:"Framework pressure",question:"Which cases put the most pressure on the framework itself?"},
-  {id:"ledger",label:"Review ledger",question:"What changed in the standardized record most recently?"},
+  {id:"ledger",label:"Update ledger",question:"Which standardized records were updated most recently?"},
 ];
 
 const ROWS:Row[]=SEED.flatMap((person)=>{
   const slug=nodeSlug(person.name);
   const research=getCaseResearch(slug);
   if(!research) return [];
-  return [{slug,name:person.name,domain:person.domain,tension:person.tension||"Unclassified tension",research,independent:research.sources.filter((s)=>s.kind==="independent").length,linked:research.chronology.filter((e)=>e.sourceIds.length>0).length}];
+  return [{slug,name:person.name,domain:person.domain,tension:person.tension||"Unclassified tension",research,independent:countSources(research.sources).independent,linked:research.chronology.filter((e)=>e.sourceIds.length>0).length}];
 });
 
 function patterns():Pattern[]{
@@ -50,7 +51,7 @@ export function LivingFindings(){
   const exceptionRows=useMemo(()=>ROWS.filter((row)=>row.research.complication.length>=3||row.research.unknowns.length>=3).sort((a,b)=>b.research.complication.length+b.research.unknowns.length-(a.research.complication.length+a.research.unknowns.length)),[]);
   const gapRows=useMemo(()=>ROWS.map((row)=>({...row,gaps:[row.independent===0?"No independent source currently classified":"",row.research.sources.length<3?"Fewer than three standardized sources":"",row.linked<row.research.chronology.length?"Chronology not fully linked to sources":"",row.research.unknowns.length>=3?"Three or more explicit unknowns":"","ownership equity contracts decision rights intellectual property data".split(" ").some((term)=>row.research.unknowns.join(" ").toLowerCase().includes(term))?"Ownership or control remains publicly unresolved":""].filter(Boolean)})).filter((row)=>row.gaps.length).sort((a,b)=>b.gaps.length-a.gaps.length),[]);
   const pressureRows=useMemo(()=>ROWS.filter((row)=>row.research.unknowns.length+row.research.complication.length>=5).sort((a,b)=>b.research.unknowns.length+b.research.complication.length-(a.research.unknowns.length+a.research.complication.length)),[]);
-  const ledger=useMemo(()=>[...ROWS].sort((a,b)=>b.research.reviewed.localeCompare(a.research.reviewed)||a.name.localeCompare(b.name)),[]);
+  const ledger=useMemo(()=>[...ROWS].sort((a,b)=>recordLastUpdated(b.research).localeCompare(recordLastUpdated(a.research))||a.name.localeCompare(b.name)),[]);
 
   const matches=(row:Row)=>!q||`${row.name} ${row.domain} ${row.tension} ${row.research.interpretation} ${row.research.complication.join(" ")} ${row.research.unknowns.join(" ")}`.toLowerCase().includes(q);
 
@@ -77,7 +78,7 @@ export function LivingFindings(){
     </article>)}</section>}
 
     {lens==="gaps"&&<section className={styles.grid}>{gapRows.filter(matches).map((row)=><article key={row.slug}>
-      <p className={styles.meta}>{row.domain} · reviewed {row.research.reviewed}</p><h3>{row.name}</h3>
+      <p className={styles.meta}>{row.domain} · record last updated {formatLongDate(recordLastUpdated(row.research))}</p><h3>{row.name}</h3>
       <p className={styles.label}>Research attention raised by the record</p><ul>{row.gaps.map((gap)=><li key={gap}>{gap}</li>)}</ul>
       <p className={styles.caution}>A gap is not evidence that the underlying asset, right, authority, or relationship does not exist.</p>
       <Link href={`/observatory/${row.slug}`}>Open the evidence record →</Link>
@@ -98,7 +99,7 @@ export function LivingFindings(){
       <Link href={`/observatory/${row.slug}`}>See what the framework must account for →</Link>
     </article>)}</section>}
 
-    {lens==="ledger"&&<section className={styles.ledger}>{ledger.filter(matches).map((row)=><article key={row.slug}><time dateTime={row.research.reviewed}>{row.research.reviewed}</time><div><h3>{row.name}</h3><p>{row.research.sources.length} sources · {row.independent} independent · {row.research.unknowns.length} unknowns</p></div><Link href={`/observatory/${row.slug}`}>Open record →</Link></article>)}</section>}
+    {lens==="ledger"&&<section className={styles.ledger}>{ledger.filter(matches).map((row)=><article key={row.slug}><time dateTime={recordLastUpdated(row.research)}>{formatLongDate(recordLastUpdated(row.research))}</time><div><h3>{row.name}</h3><p>{row.research.sources.length} sources · {row.independent} independent · {row.research.unknowns.length} unknowns</p></div><Link href={`/observatory/${row.slug}`}>Open record →</Link></article>)}</section>}
 
     <aside className={styles.guardrail}><strong>What “living” means here</strong><span>The findings are recomputed from the current standardized records whenever the collection changes. Historical change is reported only after comparable snapshots exist. The generator never converts repetition into causation, an unknown into an absence, or a research flag into a score.</span></aside>
   </div>;

@@ -3,18 +3,19 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { SEED, nodeSlug } from "@/lib/observatory_seed";
-import { getCaseResearch, type CaseResearchRecord } from "@/lib/case_research";
+import { getCaseResearch, recordLastUpdated, type CaseResearchRecord } from "@/lib/case_research";
+import { countSources, formatLongDate, isIndependent } from "@/components/case/caseData";
 import styles from "./evidence.module.css";
 
 type Lens = "documented" | "self-description" | "ownership-unknown" | "competing" | "review" | "sources";
 type CaseRow = { slug:string; name:string; domain:string; tension:string; research:CaseResearchRecord; independent:number; firstParty:number; linkedEvents:number; ownershipUnknown:string[]; competing:string[]; needsReview:string[] };
 
 const LENSES: {id:Lens;label:string;question:string;rule:string}[] = [
-  { id:"documented", label:"Strongly documented", question:"Which interpretations have several public sources, including independent reporting?", rule:"Shows records with at least three linked sources, at least one independent source, and chronology tied to source IDs." },
-  { id:"self-description", label:"Mainly self-described", question:"Which records rely mainly on first-party or institutional descriptions?", rule:"Shows records with no independent source in the standardized record. This is a provenance limitation, not a finding that the account is false." },
+  { id:"documented", label:"Several sources, some independent", question:"Which interpretations have several public sources, including independent reporting?", rule:"Shows records with at least three linked sources, at least one independent source, and chronology tied to source IDs. Subject interviews, self-authored pieces, and republished reports are not counted as independent." },
+  { id:"self-description", label:"Mainly self-described", question:"Which records rely mainly on first-party, institutional, or subject-interview descriptions?", rule:"Shows records with no independent source in the standardized record. This is a provenance limitation, not a finding that the account is false." },
   { id:"ownership-unknown", label:"Ownership private or unknown", question:"Where can the public record not establish ownership or control?", rule:"Finds explicit unknowns and complications involving equity, contracts, rights, control, data, assets, or ownership." },
   { id:"competing", label:"Competing evidence", question:"Which cases contain evidence that complicates the most inviting interpretation?", rule:"Shows explicit complications, conflicts, reversals, or counter-explanations. A complication is not automatically a contradiction." },
-  { id:"review", label:"Needs another review", question:"Which records most need another research pass?", rule:"Flags thin sourcing, no independent source, unlinked chronology, or three or more explicit unknowns. It does not declare the case unreliable." },
+  { id:"review", label:"Open research items", question:"Which records have the most open research items?", rule:"Lists records with thin sourcing, no independent source, unlinked chronology, or three or more explicit unknowns. Most records have several explicit unknowns, so this view lists nearly every case; the order control puts those with the most items first. It does not declare a case unreliable." },
   { id:"sources", label:"Recurring sources", question:"Which publishers support findings across more than one case?", rule:"Counts a publisher once per case and shows only publishers appearing in at least two standardized records." },
 ];
 
@@ -26,8 +27,7 @@ function buildRows(): CaseRow[] {
     const slug=nodeSlug(person.name);
     const research=getCaseResearch(slug);
     if(!research) return [];
-    const independent=research.sources.filter((source)=>source.kind==="independent").length;
-    const firstParty=research.sources.length-independent;
+    const {independent,other:firstParty}=countSources(research.sources);
     const linkedEvents=research.chronology.filter((event)=>event.sourceIds.length>0).length;
     const allCautions=[...research.complication,...research.unknowns];
     const ownershipUnknown=allCautions.filter((line)=>ownershipPattern.test(line));
@@ -54,7 +54,7 @@ export function EvidenceExplorer(){
       const key=source.publisher.trim();
       const current=map.get(key)||{publisher:key,cases:new Set<string>(),independent:0,firstParty:0};
       current.cases.add(row.slug);
-      if(source.kind==="independent") current.independent++; else current.firstParty++;
+      if(isIndependent(source)) current.independent++; else current.firstParty++;
       map.set(key,current);
     }));
     return [...map.values()].filter((row)=>row.cases.size>=2).sort((a,b)=>b.cases.size-a.cases.size||a.publisher.localeCompare(b.publisher));
@@ -76,7 +76,7 @@ export function EvidenceExplorer(){
 
   function evidenceFor(row:CaseRow){
     if(lens==="documented") return row.research.interpretation;
-    if(lens==="self-description") return `The standardized record currently contains ${row.firstParty} first-party or institutional source${row.firstParty===1?"":"s"} and no source classified as independent.`;
+    if(lens==="self-description") return `The standardized record currently contains ${row.firstParty} first-party, institutional, or subject-interview source${row.firstParty===1?"":"s"} and no source classified as independent.`;
     if(lens==="ownership-unknown") return row.ownershipUnknown[0];
     if(lens==="competing") return row.competing[0]||row.research.complication[0];
     if(lens==="review") return row.needsReview.join(" · ");
@@ -91,7 +91,7 @@ export function EvidenceExplorer(){
 
     {lens!=="sources"&&<div className={styles.tools}><input aria-label="Search evidence records" placeholder="Search a case, field, tension, or evidence phrase…" value={query} onChange={(event)=>setQuery(event.target.value)}/><label>Order <select value={sort} onChange={(event)=>setSort(event.target.value as typeof sort)}><option value="review">Research attention</option><option value="sources">Source count</option><option value="name">Case name</option></select></label><strong>{shown.length} {shown.length===1?"case":"cases"}</strong></div>}
 
-    {lens==="sources"?<section className={styles.sourceList} aria-live="polite">{sourceRows.map((source)=><article key={source.publisher}><div><p className={styles.label}>Recurring publisher</p><h3>{source.publisher}</h3></div><p><strong>{source.cases.size} {source.cases.size===1?"case":"cases"}</strong><br/>{source.independent} independent source record{source.independent===1?"":"s"} · {source.firstParty} first-party/institutional</p></article>)}</section>:<section className={styles.grid} aria-live="polite">{shown.map((row)=><article className={styles.card} key={row.slug}><p className={styles.meta}>{row.domain} · {row.tension}</p><h3>{row.name}</h3><div className={styles.metrics}><span><b>{row.research.sources.length}</b> sources</span><span><b>{row.independent}</b> independent</span><span><b>{row.research.unknowns.length}</b> unknowns</span></div><p className={styles.label}>Why this record appears here</p><blockquote>{evidenceFor(row)}</blockquote><p className={styles.reviewed}>Last standardized review: {row.research.reviewed}</p><Link href={`/observatory/${row.slug}`}>Examine the complete evidence record →</Link></article>)}{shown.length===0&&<div className={styles.empty}><strong>No record meets this rule and search.</strong><p>Absence from this view is not proof that the condition does not exist; it may reflect how the public record has been standardized.</p></div>}</section>}
+    {lens==="sources"?<section className={styles.sourceList} aria-live="polite">{sourceRows.map((source)=><article key={source.publisher}><div><p className={styles.label}>Recurring publisher</p><h3>{source.publisher}</h3></div><p><strong>{source.cases.size} {source.cases.size===1?"case":"cases"}</strong><br/>{source.independent} independent source record{source.independent===1?"":"s"} · {source.firstParty} other (first-party, institutional, interview, or republished)</p></article>)}</section>:<section className={styles.grid} aria-live="polite">{shown.map((row)=><article className={styles.card} key={row.slug}><p className={styles.meta}>{row.domain} · {row.tension}</p><h3>{row.name}</h3><div className={styles.metrics}><span><b>{row.research.sources.length}</b> sources</span><span><b>{row.independent}</b> independent</span><span><b>{row.research.unknowns.length}</b> unknowns</span></div><p className={styles.label}>Why this record appears here</p><blockquote>{evidenceFor(row)}</blockquote><p className={styles.reviewed}>Record last updated: {formatLongDate(recordLastUpdated(row.research))}</p><Link href={`/observatory/${row.slug}`}>Examine the complete evidence record →</Link></article>)}{shown.length===0&&<div className={styles.empty}><strong>No record meets this rule and search.</strong><p>Absence from this view is not proof that the condition does not exist; it may reflect how the public record has been standardized.</p></div>}</section>}
 
     <aside className={styles.guardrail}><strong>Classification is visible, reversible, and not a score.</strong><span>Source quantity does not guarantee accuracy. Self-description can be accurate. Independent reporting can repeat the same underlying claim. “Unknown” means the available public record does not establish the point. Every label here is a research routing decision that should change when the evidence changes.</span></aside>
   </div>;

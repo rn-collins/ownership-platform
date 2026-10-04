@@ -72,6 +72,7 @@ export default function PartnerPage() {
             </article>
           ))}
         </div>
+        <p className="disc"><strong>General information, not legal advice.</strong> These deliverables identify issues to discuss. They are not a legal opinion, and questions about legal obligations belong with a licensed attorney.</p>
       </section>
 
       <section className="partner-process" aria-labelledby="research-collaboration-heading">

@@ -70,7 +70,7 @@ export function NewsletterSignup({
       {state === "done" ? (
         <div className={`nl-done ${s.focusTarget}`} role="status" tabIndex={-1} ref={doneRef}>
           <span className="nl-check" aria-hidden="true">✓</span>
-          <div><b>You’re subscribed.</b><p>The next I/1 Edit will arrive by email.</p></div>
+          <div><b>You’re subscribed.</b><p>The next I/1 Edit will arrive by email from The Polymath.</p></div>
         </div>
       ) : (
         <form className="nl-form" noValidate onSubmit={(event) => { event.preventDefault(); void submit(); }}>
@@ -110,7 +110,7 @@ export function NewsletterSignup({
               aria-invalid={errors.consent ? true : undefined}
               aria-describedby={errors.consent ? errId("consent") : undefined}
             />
-            <span>Yes, email me new editions of The I/1 Edit through Beehiiv. I can unsubscribe at any time.</span>
+            <span>Yes, email me new editions of The I/1 Edit, published through the newsletter The Polymath on Beehiiv. I can unsubscribe at any time.</span>
           </label>
           {errors.consent && <p className={s.error} id={errId("consent")}>{errors.consent}</p>}
           <div role="alert">{alert && <p className={s.alert}>{alert}</p>}</div>

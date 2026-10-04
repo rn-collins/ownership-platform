@@ -23,7 +23,7 @@ export default async function EpisodesPage() {
       <p className="eyebrow">Institutions of One · The Show</p>
       <h1>The Job That Didn&apos;t Exist</h1>
       <p className="lede">
-        Conversations with people whose role was built around them — filmed in motion and live on stage. Each one ends
+        Conversations with people whose roles may have been shaped around them — filmed in motion and live on stage. Each one ends
         on the same question: what does this tell us about how everyone will work next?
       </p>
 
@@ -51,11 +51,11 @@ export default async function EpisodesPage() {
       )}
 
       <h2 style={{ fontFamily: "Georgia, serif", fontSize: 22, marginTop: 34, marginBottom: 4 }}>The movement so far</h2>
-      <p className="rsub" style={{ marginBottom: 12 }}>People whose work and roles are being built around them — the shortlist we&apos;re charting on <a href="/observatory" className="fwlink">the map</a>.</p>
+      <p className="rsub" style={{ marginBottom: 12 }}>People whose work and roles may have been shaped around them — the shortlist we&apos;re charting on <a href="/observatory" className="fwlink">the map</a>.</p>
       <div className="roster">
         {SEED.map((n) => (
           <div key={n.name} className="rostercard">
-            <div className="rostername">{n.name}{n.created && <span className="rosterflag">role built around them</span>}</div>
+            <div className="rostername">{n.name}{n.created && <span className="rosterflag">may have shaped the role</span>}</div>
             <div className="rosterrole">{n.role}</div>
             <div className="rosterdomain">{n.domain}</div>
           </div>

@@ -43,7 +43,7 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", fontSize: 20, fontWeight: 900, letterSpacing: "0.16em", textTransform: "uppercase" }}>
-          An independent research and editorial project by RN Collins
+          A research and editorial project by RN Collins
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontFamily: "Georgia, serif", fontSize: 84, lineHeight: 0.92, letterSpacing: "-0.045em" }}>

@@ -50,6 +50,7 @@ export default function ResearchRecruitmentPage() {
 
       <h2 className="dimhead">Data boundaries</h2>
       <div className="card">
+        <p>This study has not been reviewed by an institutional review board.</p>
         <ul>{RESEARCH_RETENTION_RULES.filter((rule) => !INTERNAL_ONLY_RULES.some((prefix) => rule.startsWith(prefix))).map((rule) => <li key={rule}>{rule}</li>)}</ul>
       </div>
     </main>

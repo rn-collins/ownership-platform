@@ -1,6 +1,6 @@
 # Institutions of One
 
-Institutions of One is an independent research programme studying how people turn individual
+Institutions of One is a research programme studying how people turn individual
 capability into durable, portable, ownable institutional power.
 
 **Live:** https://ownership-platform.vercel.app

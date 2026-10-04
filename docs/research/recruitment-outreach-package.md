@@ -77,7 +77,7 @@ Subject: Invitation to help test the Institutions of One research questions
 
 Aloha [Name],
 
-I am conducting the first cognitive-interview round for Institutions of One, an independent research program examining ownership and portfolio professionalization.
+I am conducting the first cognitive-interview round for Institutions of One, a research program examining ownership and portfolio professionalization.
 
 I am inviting you because your experience with [specific, accurate reason] could reveal where the candidate questions work, fail, or carry assumptions that do not fit the way people actually build and manage work.
 

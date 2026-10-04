@@ -10,7 +10,7 @@ const NAV_LINKS: ReadonlyArray<{ href: string; label: string }> = [
   { href: "/methodology", label: "Method" },
   { href: "/observatory", label: "Cases" },
   { href: "/assess", label: "Assessment" },
-  { href: "/edit", label: "Newsletter" },
+  { href: "/edit", label: "Editions" },
   { href: "/partner", label: "Work with RN" },
 ];
 

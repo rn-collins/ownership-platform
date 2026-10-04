@@ -16,7 +16,7 @@ export async function GET(req: Request, { params }: { params: { slug: string } }
   const creator = await prisma.creator.findUnique({
     where: { slug: params.slug },
     select: { id: true, slug: true, displayName: true, ownedHeadline: true, ownedPublished: true },
-  });
+  }).catch(() => null); // a failed lookup is a 404, never a 500
   if (!creator || !creator.ownedPublished) return new Response("Not found", { status: 404 });
 
   const posts = await prisma.post.findMany({

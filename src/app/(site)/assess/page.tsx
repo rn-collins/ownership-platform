@@ -2,8 +2,8 @@ export const metadata = {
   title: "Assessments — Institutions of One",
   description: "Choose one of two pilot assessments exploring ownership or professional portability.",
   alternates: { canonical: "/assess" },
-  openGraph: { title: "Assessments — Institutions of One", description: "Choose one of two pilot assessments exploring ownership or professional portability.", url: "/assess", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Assessments — Institutions of One", description: "Choose one of two pilot assessments exploring ownership or professional portability.", images: ["/og.png"] },
+  openGraph: { title: "Assessments — Institutions of One", description: "Choose one of two pilot assessments exploring ownership or professional portability.", url: "/assess", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Assessments — Institutions of One", description: "Choose one of two pilot assessments exploring ownership or professional portability.", images: ["/opengraph-image"] },
 };
 
 export default function AssessChooserPage() {

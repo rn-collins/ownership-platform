@@ -4,8 +4,8 @@ export const metadata = {
   title: "Help test what a question misses — Institutions of One",
   description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.",
   alternates: { canonical: "/research/cognitive-interviews" },
-  openGraph: { title: "Help test what a question misses — Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", url: "/research/cognitive-interviews", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Help test what a question misses — Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", images: ["/og.png"] },
+  openGraph: { title: "Help test what a question misses — Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", url: "/research/cognitive-interviews", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Help test what a question misses — Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", images: ["/opengraph-image"] },
 };
 
 export default function CognitiveInterviewStudyPage() {

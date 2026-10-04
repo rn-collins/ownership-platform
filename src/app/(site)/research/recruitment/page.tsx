@@ -12,6 +12,7 @@ const INTERNAL_ONLY_RULES = ["Synthetic QA records", "A retention schedule must 
 export const metadata = {
   title: "Participate in the research — Institutions of One",
   description: "Round 1 recruitment for cognitive interviews testing the Ownership Index and Portfolio Professional candidate instruments.",
+  robots: { index: false, follow: false },
 };
 
 export default function ResearchRecruitmentPage() {

@@ -6,7 +6,7 @@ const SITE_URL = "https://ownership-platform.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const publicRoutes = [
-    "", "/methodology", "/methodology/candidates", "/assess", "/assess/creator", "/assess/professional", "/observatory", "/observatory/apply", "/observatory/dependencies", "/observatory/countercases", "/observatory/evidence", "/observatory/documentation", "/edit", ...publicEditions().map(({ number }) => `/edit/${number}`), "/partner", "/about", "/research/cognitive-interviews", "/privacy",
+    "", "/methodology", "/methodology/candidates", "/methodology/pilot", "/findings", "/observatory/findings", "/observatory/timeline", "/assess", "/assess/creator", "/assess/professional", "/observatory", "/observatory/apply", "/observatory/dependencies", "/observatory/countercases", "/observatory/evidence", "/observatory/documentation", "/edit", ...publicEditions().map(({ number }) => `/edit/${number}`), "/partner", "/about", "/research/cognitive-interviews", "/privacy",
   ];
   return [
     ...publicRoutes.map((path) => ({ url: `${SITE_URL}${path}`, changeFrequency: path === "" || path.startsWith("/edit") ? "weekly" as const : "monthly" as const, priority: path === "" ? 1 : path === "/observatory" || path === "/edit" ? 0.9 : 0.7 })),

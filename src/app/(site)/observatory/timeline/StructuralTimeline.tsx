@@ -77,7 +77,7 @@ export function StructuralTimeline() {
     <div className={styles.tools}>
       <label>Time precision <select value={precision} onChange={(event) => setPrecision(event.target.value as "all" | Precision)}><option value="all">All evidence</option><option value="dated">Dated events</option><option value="bounded">Bounded periods</option><option value="sequence">Sequence only</option></select></label>
       <label>Order <select value={order} onChange={(event) => setOrder(event.target.value as "chronological" | "case")}><option value="chronological">Earliest supported year</option><option value="case">Case name</option></select></label>
-      <span className={styles.count}>{events.length} records · {cases} cases</span>
+      <span className={styles.count}>{events.length} records · {cases} {cases===1?"case":"cases"}</span>
     </div>
 
     <div className={styles.legend} aria-label="Time precision legend"><span><i className={styles.dot}/>Dated</span><span><i className={`${styles.dot} ${styles.bounded}`}/>Bounded period</span><span><i className={`${styles.dot} ${styles.sequenceDot}`}/>Sequence only</span></div>

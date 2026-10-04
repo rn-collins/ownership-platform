@@ -2,8 +2,8 @@ export const metadata = {
   title: "Privacy & data use — Institutions of One",
   description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.",
   alternates: { canonical: "/privacy" },
-  openGraph: { title: "Privacy & data use — Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.", url: "/privacy", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Privacy & data use — Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.", images: ["/og.png"] },
+  openGraph: { title: "Privacy & data use — Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.", url: "/privacy", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Privacy & data use — Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.", images: ["/opengraph-image"] },
 };
 
 export default function PrivacyPage() {

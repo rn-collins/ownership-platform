@@ -66,7 +66,7 @@ export default async function ObservatoryPage() {
         <a className="button-primary" href="/observatory/countercases">Challenge a conclusion →</a>
       </section>
 
-      <section style={{ padding: "28px", border: "1px solid #141b2e", background: "#b9d7ce" }} aria-labelledby="apply-heading">
+      <section style={{ padding: "28px", border: "1px solid #141b2e", background: "#cfe6de" }} aria-labelledby="apply-heading">
         <p className="eyebrow">What does this reveal about my work?</p>
         <h3 id="apply-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30, margin: "8px 0" }}>Apply the cases</h3>
         <p>Choose a problem in your own work and receive a private, unscored reading path through three relevant cases and one case that complicates the apparent lesson.</p>
@@ -86,7 +86,7 @@ export default async function ObservatoryPage() {
       <p className="eyebrow">Evidence and methods</p>
       <h2 id="integrity-heading" style={{ fontFamily: "Georgia, serif", fontSize: 34, margin: "8px 0" }}>See what supports each case and what remains unknown.</h2>
       <p style={{ maxWidth: 820 }}>Every public case is built from named, linked sources. The evidence pages show how claims are classified, how thoroughly each case is documented, and which facts the public record cannot establish. Private assessment responses and future participant research remain separate from the named public cases.</p>
-      <p><a href="/observatory/evidence">Examine the evidence →</a> &nbsp; <a href="/observatory/documentation">Check documentation status →</a></p>
+      <p style={{ display: "flex", flexWrap: "wrap", gap: "0 28px" }}><a href="/observatory/evidence" style={{ display: "inline-flex", alignItems: "center", minHeight: 32 }}>Examine the evidence →</a><a href="/observatory/documentation" style={{ display: "inline-flex", alignItems: "center", minHeight: 32 }}>Check documentation status →</a></p>
     </section>
 
     <section id="nominate" style={{ marginTop: 64 }} aria-labelledby="nominate-heading">

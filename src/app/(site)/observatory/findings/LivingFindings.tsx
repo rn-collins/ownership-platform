@@ -85,7 +85,7 @@ export function LivingFindings(){
     </article>)}</section>}
 
     {lens==="changed"&&<section className={styles.changeState}>
-      <p className={styles.status}>Baseline established {BASELINE_DATE}</p><h3>No defensible before-and-after claim yet.</h3>
+      <p className={styles.status}>Baseline established {formatLongDate(BASELINE_DATE)}</p><h3>No defensible before-and-after claim yet.</h3>
       <p>The collection has a current standardized baseline, but it does not yet contain two comparable snapshots of each interpretation. Calling a finding “newly supported,” “weakened,” or “changed” now would manufacture history.</p>
       <p>When a later reviewed snapshot is retained, this view can compare the prior and current interpretation, source mix, complications, unknowns, and case membership. Until then, it reports the absence of longitudinal evidence as a result.</p>
       <div className={styles.diffPlan}><span>Future comparison</span><strong>Prior record</strong><strong>Current record</strong><strong>Reason for change</strong><strong>Evidence added or removed</strong></div>

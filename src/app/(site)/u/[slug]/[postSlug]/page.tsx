@@ -26,7 +26,7 @@ export default async function PostPage({ params }: { params: { slug: string; pos
   if (!data) notFound();
   const { creator, post } = data;
   const name = creator.displayName || creator.slug;
-  const date = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) : "";
+  const date = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" }) : "";
 
   return (
     <main className="postmain">

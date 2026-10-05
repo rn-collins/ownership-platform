@@ -28,7 +28,7 @@ export default function ProfessionalAssessPage() {
         <p>
           <b>Capability ownership</b> asks how much of what you can do was built by you rather
           than assigned to you. <b>Institutional value</b> asks what would be harder for your
-          organisation if you stopped. <b>Mandate and autonomy</b> ask how much you decide
+          organization if you stopped. <b>Mandate and autonomy</b> ask how much you decide
           without seeking permission. <b>Visibility and authority</b> ask whether people outside
           your employer know the work is yours. <b>Thesis</b> asks whether your work adds up to a
           position rather than a sequence of jobs. They are separated because seniority moves
@@ -38,9 +38,9 @@ export default function ProfessionalAssessPage() {
 
         <h2 style={{ marginTop: 26 }}>What portability actually means here</h2>
         <p>
-          Portability is not a plan to leave. It is a measure of how much of your working life
-          is legible outside the place it happens &mdash; which is the same property that
-          determines your position in a reorganisation, your standing in a negotiation, and how
+          Portability measures how much of your working life
+          is legible outside the place it happens, which is the same property that
+          determines your position in a reorganization, your standing in a negotiation, and how
           much of your last five years you can describe to someone who was not there. Work that
           is highly valuable internally and invisible externally scores low here, and that gap is
           usually the most useful thing the instrument surfaces.

@@ -70,7 +70,7 @@ export default function Home() {
             <span className="lensgo">Take the pilot →</span>
           </a>
         </div>
-        <p className="disc">These are exploratory research instruments—not diagnoses, rankings, or measures of human worth.</p>
+        <p className="disc">These are exploratory research instruments. They do not diagnose, rank, or measure human worth.</p>
       </section>
 
       <section className="editorial-section mapsec">

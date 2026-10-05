@@ -42,11 +42,22 @@ const scenarios: Record<string, { label: string; question: string; interpretatio
   ],
 };
 
+// Cases whose tension label has a template that does not fit their situation get scenarios written from
+// the case's own record. Fei-Fei Li's tension is labeled "Public mandate vs personal authority", but her
+// record concerns a dataset, a university institute, a corporate role, and a venture-backed company.
+const caseScenarios: Record<string, { label: string; question: string; interpretation: string }[]> = {
+  "fei-fei-li": [
+    { label: "Step back from World Labs", question: "Which research thesis, relationships, and reputation stay with Li, and which equity, data, models, and employment relationships stay with the company?", interpretation: "The record says World Labs' capital, models, data, compute, and intellectual property are produced and governed through the company. This tests what is personally portable." },
+    { label: "Leave Stanford", question: "What happens to the work of Stanford HAI, and to Li's influence on policy, if her university role ends?", interpretation: "The record describes HAI's research and policy authority as collectively produced by co-directors, faculty, staff, donors, and university governance. This separates her contribution from the institution's." },
+    { label: "Change who governs ImageNet", question: "Who holds the rights and responsibilities for maintaining the dataset, handling removal requests, and approving reuse?", interpretation: "The record lists these rights as an open question. This shows how far shared research infrastructure depends on governance that someone must hold." },
+  ],
+};
+
 export default function CaseLab({ slug, name, tension, unknowns, dependencyPrompt }: Props) {
-  const options = useMemo(() => scenarios[tension] ?? [
+  const options = useMemo(() => caseScenarios[slug] ?? scenarios[tension] ?? [
     { label: "Remove the largest support", question: dependencyPrompt, interpretation: "This reveals which parts of the career are portable, controlled, or dependent." },
     { label: "Change the context", question: "Which assets, relationships, and permissions still work?", interpretation: "A career can look independent while relying on infrastructure it does not control." },
-  ], [tension, dependencyPrompt]);
+  ], [slug, tension, dependencyPrompt]);
   const [selected, setSelected] = useState(0);
   const [answer, setAnswer] = useState("");
   const [saved, setSaved] = useState(false);

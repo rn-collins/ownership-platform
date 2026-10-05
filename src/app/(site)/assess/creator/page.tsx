@@ -50,7 +50,7 @@ export default function CreatorAssessPage() {
         <p>
           Answer for how things stand now rather than how they are meant to stand once a plan
           lands. Where a question could be read two ways, the version that assumes less in your
-          favour will give you the more useful result. No account is required, and nothing is kept
+          favor will give you the more useful result. No account is required, and nothing is kept
           if you close the page before you finish. Unless you are signed in, your answers are stored
           without your name, email, or account. If you are signed in when you submit, a copy is also
           saved to your account. See the <a href="/privacy" className="fwlink">privacy page</a>.

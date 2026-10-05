@@ -29,13 +29,19 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 const tensionGuides: Record<string, { meaning: string; lookFor: string; comparison: string }> = {
-  "Role vs person": { meaning: "whether authority belongs to the office, the person, or the relationship between them", lookFor: "decisions, methods, relationships, and trust associated with the person—not merely the title", comparison: "Ask what remains recognizable if the title disappears." },
+  "Role vs person": { meaning: "whether authority belongs to the office, the person, or the relationship between them", lookFor: "decisions, methods, relationships, and trust associated with the person as well as the title", comparison: "Ask what remains recognizable if the title disappears." },
   "One field vs many": { meaning: "how one person creates coherence across work institutions usually separate", lookFor: "a repeated question, method, audience, or point of view connecting the roles", comparison: "Ask whether the range compounds or fragments." },
   "Owned vs rented": { meaning: "which parts of the work are directly controlled and which depend on access supplied by platforms, distributors, retailers, or partners", lookFor: "rights, customer relationships, audience access, data, products, and operating systems", comparison: "Ask what continues if the largest outside channel changes its rules." },
   "Portable vs embedded": { meaning: "what travels with the person and what remains inside an employer, client, platform, or other institutional container", lookFor: "portable reputation, methods, relationships, and proof beside employer-controlled teams, rights, budgets, data, and distribution", comparison: "Ask what could move lawfully and practically when the container changes." },
   "Scale vs dependence": { meaning: "what autonomy gains or loses as the work needs more capital, people, distribution, and infrastructure", lookFor: "dependencies that increase reach while creating obligations or single points of failure", comparison: "Ask which dependencies are visible, substitutable, negotiable, and survivable." },
   "Public mandate vs personal authority": { meaning: "how individual expertise becomes permission to coordinate public systems without becoming private ownership", lookFor: "formal mandate, cross-agency adoption, budgets, standards, succession, and evidence that institutions act", comparison: "Ask what capacity remains after the officeholder leaves." },
   "Institution vs individual": { meaning: "how a person stewards, changes, or speaks through an institution whose authority predates and exceeds them", lookFor: "the difference between personal decisions and inherited rules, reputation, resources, and symbolic power", comparison: "Ask what changed because of this leader and what belongs to the institution itself." },
+};
+// Per-case guide text where the tension label's template fits a different kind of case. Fei-Fei Li's record
+// concerns a public dataset, a university institute, a corporate role, and a company, so the public-office
+// wording (mandate, cross-agency adoption, budgets) does not describe her situation.
+const caseGuides: Record<string, { meaning: string; lookFor: string; comparison: string }> = {
+  "fei-fei-li": { meaning: "how scientific authority moves with one researcher among a public dataset, a university institute, a corporate role, and a venture-backed company, each of which holds its own rights and decisions", lookFor: "who holds the dataset rights, how the institute is governed, and what equity, control, and decision rights come with each role", comparison: "Ask what stays with the person and what stays with each institution when she changes roles." },
 };
 const fallbackGuide = { meaning: "how ownership, portability, authority, and dependence interact", lookFor: "the assets, relationships, systems, and permissions surrounding the work", comparison: "Ask what changes if the career loses its largest source of support." };
 
@@ -70,12 +76,13 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
   if (!node) notFound();
   const person = node;
 
-  const guide = tensionGuides[person.tension ?? ""] ?? fallbackGuide;
+  const guide = caseGuides[params.slug] ?? tensionGuides[person.tension ?? ""] ?? fallbackGuide;
   const narrative = CASE_NARRATIVES[params.slug];
   const research = getCaseResearch(params.slug);
   const currentIndex = SEED.findIndex((candidate) => nodeSlug(candidate.name) === params.slug);
   const previous = currentIndex > 0 ? SEED[currentIndex - 1] : undefined;
   const next = currentIndex >= 0 && currentIndex < SEED.length - 1 ? SEED[currentIndex + 1] : undefined;
+  const position = currentIndex >= 0 ? currentIndex + 1 : undefined;
   const related = SEED.filter((candidate) => candidate.name !== person.name && (candidate.tension === person.tension || candidate.domain === person.domain)).slice(0, 3);
 
   // One source list drives both the status line counts and the sources section.
@@ -105,6 +112,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
         {person.tension && <li>{person.tension}</li>}
         <li>{person.domain}</li>
         <li>{person.kind === "creator" ? "Creator case" : "Professional case"}</li>
+        {position && <li>Case {position} of {SEED.length}</li>}
         {updated && <li>Record last updated {updated}</li>}
       </ul>
       <div className={styles.question}>
@@ -190,7 +198,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
       <section className={styles.section} id="sources" aria-labelledby="sources-heading">
         <p className={styles.num} aria-hidden="true">{section("sources")}</p>
         <h2 id="sources-heading">Sources and their limits</h2>
-        <p className={styles.sectionIntro}>{sources.length} source{sources.length === 1 ? "" : "s"}: {independentCount} independent and {sources.length - independentCount} other (primary, institutional, subject interviews, self-authored, or republished reports). First-party sources and interviews establish what a person or organization said or announced; they do not independently prove performance, ownership, causation, or impact. This is analysis of a public record, not a rating of the person.</p>
+        <p className={styles.sectionIntro}>{sources.length} source{sources.length === 1 ? "" : "s"}: {independentCount} independent and {sources.length - independentCount} other (primary, institutional, subject interviews, self-authored, or republished reports). First-party sources and interviews establish what a person or organization said or announced; they do not independently prove performance, ownership, causation, or impact. This is analysis of a public record and makes no rating of the person.</p>
         <p className={styles.sourceNote}>Each link was checked by hand during the record’s source review; the site does not continuously re-check them. A broken link, or one that does not support its statement, is a defect in the record — please report it.{landingPageCount > 0 && <> {landingPageCount} link{landingPageCount === 1 ? " leads" : "s lead"} to a publisher or organization landing page rather than the exact supporting item, so {landingPageCount === 1 ? "it identifies" : "they identify"} a research lead rather than a claim-level citation.</>}</p>
         <ol className={styles.sourceList}>{sources.map((source) => <li id={`source-${source.number}`} key={source.id}>
           <span className={styles.sourceNum} aria-hidden="true">{pad(source.number)}</span>
@@ -222,13 +230,14 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
     </section>
 
     <nav className={styles.next} aria-label="More cases">
+      {position && <p className={styles.position}>Case {position} of {SEED.length}. <span>Cases follow the roster order on the Observatory page.</span></p>}
       {next && <Link className={styles.nextCase} href={`/observatory/${nodeSlug(next.name)}`}>
-        <span className={styles.nextLabel}>Next case: {next.name}{next.question ? " — " : ""}</span>
+        <span className={styles.nextLabel}>Next case: {next.name}</span>
         {next.question && <span className={styles.nextQuestion}>{next.question}</span>}
       </Link>}
       <ul className={styles.links}>
-        {previous && <li><Link href={`/observatory/${nodeSlug(previous.name)}`}>← Previous: {previous.name}</Link></li>}
-        <li><Link href="/observatory">All {SEED.length} people</Link></li>
+        {previous && <li><Link href={`/observatory/${nodeSlug(previous.name)}`}>← Previous case: {previous.name}</Link></li>}
+        <li><Link href="/observatory">All cases</Link></li>
       </ul>
     </nav>
   </main>;

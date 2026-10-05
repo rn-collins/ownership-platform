@@ -20,7 +20,7 @@ const topTensions = ["Role vs person", "One field vs many"];
 const topTensionCount = SEED.filter((node) => node.tension && topTensions.includes(node.tension)).length;
 
 const signals = [
-  [`${professionalCount} / ${total}`, "work primarily through organizations", "The pilot is not a founder hall of fame. Most cases help us ask what a person can build and carry while an employer still owns much of the infrastructure."],
+  [`${professionalCount} / ${total}`, "work primarily through organizations", "Most cases help us ask what a person can build and carry while an employer still owns much of the infrastructure."],
   [`${roleShapedCount} / ${total}`, "may have helped shape the role around them", "A distinctive title can signal unusual authority. It does not prove ownership, portability, or that the role would follow the person elsewhere."],
   [`${fields.length}`, "fields are represented", `The same question behaves differently across the fields in this roster: ${fieldList}.`],
   [`${topTensionCount} / ${total}`, "concentrate in two tensions", "More than half of the current roster asks either whether the role depends on the person or whether one person can hold several fields together. That is a feature of this pilot—and a selection bias to correct."],
@@ -32,8 +32,8 @@ export default function FindingsPage() {
       <p className="eyebrow">What the research is showing</p>
       <h1>Fame is easy to see. The structure beneath a career is not.</h1>
       <p className="lede findings-hook">
-        We began with 41 deliberately different careers. The first lesson is not that some people have “become institutions”
-        and others have failed. It is that build, portability, ownership, and dependence can move in different directions.
+        We began with 41 deliberately different careers. The first lesson is that build, portability, ownership, and dependence can move in different directions, with no simple split between people who have “become institutions”
+        and others who have failed.
         A person may be highly influential yet unable to carry the audience, rights, authority, or systems that made the influence possible.
       </p>
 

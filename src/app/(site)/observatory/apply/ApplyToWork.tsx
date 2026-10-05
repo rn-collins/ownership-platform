@@ -64,7 +64,7 @@ const PATHWAYS: Record<RouteKey, Pathway> = {
       "What decisions, budget, staff, standards, and reporting lines belong to the role?",
       "Which authority depends on personal trust rather than formal mandate?",
       "What routines or records would let another person perform the function?",
-      "What evidence would show that the institution changed—not merely its language?"
+      "What evidence would show that the institution changed beyond its language?"
     ]
   },
   platform: {

@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { Fragment, type ReactNode } from "react";
 import { Edition007Figure, edition007FigureForHeading } from "@/components/Edition007Figure";
-import { commonsImageUrl, commonsSourceUrl, cycleOneEditions, packageGalleryUrl, packageTitle, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
+import { commonsSourceUrl, cycleOneEditions, packageGalleryUrl, packageTitle, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
 import styles from "./CanonicalEdition.module.css";
 
 const stripFrontMatter = (raw: string) => raw
@@ -31,7 +31,7 @@ function EvidenceFigure({ edition, index }: { edition: Edition; index: number })
   const item = edition.media[index];
   if (!item) return null;
   return <figure className="canonical-edition-figure">
-    <img src={commonsImageUrl(item.file)} alt={item.alt} width={item.width} height={item.height} style={{ height: "auto" }} loading={index < 1 ? "eager" : "lazy"} />
+    <img src={item.src} alt={item.alt} width={item.width} height={item.height} style={{ height: "auto" }} loading={index < 1 ? "eager" : "lazy"} />
     <figcaption><span>{item.caption}</span><small>Credit: {item.credit}. {item.rights}. <a href={commonsSourceUrl(item.file)} target="_blank" rel="noopener noreferrer">Source record ↗</a></small></figcaption>
   </figure>;
 }

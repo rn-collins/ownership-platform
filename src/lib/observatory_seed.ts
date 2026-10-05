@@ -67,7 +67,7 @@ export const SEED: Node[] = [
 
   // Polymaths (deep mastery across fields) — charted by their primary lens
   { name: "Reid Hoffman", role: "LinkedIn co-founder, venture investor, author, and podcast host", domain: "Venture", kind: "professional", tension: "One field vs many", question: "How can founding, investing, writing, and podcasting reinforce one another instead of competing for attention?" },
-  { name: "Fei-Fei Li", role: "AI scientist, Stanford professor, and World Labs co-founder", domain: "AI", kind: "professional", tension: "Public mandate vs personal authority", question: "How does scientific authority travel across a university, a field-building institute, and a company?" },
+  { name: "Fei-Fei Li", role: "AI scientist, Stanford professor, and World Labs co-founder (AMD agreed in September 2026 to acquire World Labs; Li is to become AMD’s chief scientist after closing)", domain: "AI", kind: "professional", tension: "Public mandate vs personal authority", question: "How does scientific authority travel across a university, a field-building institute, and a company?" },
   { name: "Neri Oxman", role: "Designer, materials researcher, and founder of OXMAN", domain: "Design", kind: "professional", tension: "One field vs many", question: "What moves with a researcher when a university lab becomes a private company?" },
   { name: "Brian May", role: "Musician and astrophysicist", domain: "Science", kind: "professional", tension: "One field vs many", question: "What lets achievement in music and astrophysics coexist as more than a novelty pairing?" },
 ];

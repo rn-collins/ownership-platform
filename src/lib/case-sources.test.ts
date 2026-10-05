@@ -111,7 +111,7 @@ describe("open-facts corrections (October 5, 2026)", () => {
 
   it("pins the source counts of the four corrected cases", () => {
     expect(counts("neri-oxman")).toEqual({ total: 19, independent: 6, other: 13 });
-    expect(counts("jane-gilbert")).toEqual({ total: 13, independent: 4, other: 9 });
+    expect(counts("jane-gilbert")).toEqual({ total: 14, independent: 4, other: 10 });
     expect(counts("gordon-glenister")).toEqual({ total: 13, independent: 1, other: 12 });
     expect(counts("kunal-shah")).toEqual({ total: 10, independent: 8, other: 2 });
   });
@@ -157,6 +157,128 @@ describe("open-facts corrections (October 5, 2026)", () => {
     expect(june.event).toContain("Shah said on X");
     expect(june.event).toContain("No source reviewed states when Shah starts at WhatsApp");
     expect(text("kunal-shah")).not.toContain("facebook.com/zuck");
+  });
+});
+
+describe("main-site fact corrections (October 5, 2026)", () => {
+  const research = (slug: string) => records.find((row) => row.slug === slug)!.research;
+  const find = (slug: string, id: string) => research(slug).sources.find((source) => source.id === id)!;
+  const text = (slug: string) => JSON.stringify(research(slug));
+  const counts = (slug: string) => countSources(research(slug).sources);
+
+  it("pins the source counts of the cases whose sources changed", () => {
+    const expected: Record<string, [number, number]> = {
+      "brad-keywell": [22, 9], "mrbeast": [23, 11], "huda-kattan": [24, 15], "jack-conte": [12, 10], "colin-samir": [12, 2],
+      "alexandr-wang": [16, 10], "darren-murph": [9, 0], "linda-fisher": [14, 2], "simon-cook": [11, 6], "fei-fei-li": [18, 8], "marc-lore": [15, 9],
+    };
+    for (const [slug, [total, independent]] of Object.entries(expected)) expect([counts(slug).total, counts(slug).independent], slug).toEqual([total, independent]);
+    const all = records.reduce((sum, row) => {
+      const c = countSources(row.research.sources);
+      return [sum[0] + c.total, sum[1] + c.independent];
+    }, [0, 0]);
+    expect(all).toEqual([542, 207]);
+  });
+
+  it("states AMD's agreement to acquire World Labs from the 8-K and a second report, and updates the role line", () => {
+    const li = research("fei-fei-li");
+    const row = li.chronology.find((event) => event.date === "September 26, 2026")!;
+    expect(row.event).toContain("about $8.2 billion in AMD common stock");
+    expect(row.event).toContain("expected to close by the end of 2026");
+    expect(find("fei-fei-li", "amd-8k-worldlabs").kind).toBe("primary");
+    expect(find("fei-fei-li", "tnw-amd-worldlabs").kind).toBe("independent");
+    expect(SEED.find((node) => node.name === "Fei-Fei Li")!.role).toContain("AMD agreed in September 2026 to acquire World Labs");
+    expect(text("fei-fei-li")).toContain("deeply against my principles");
+  });
+
+  it("gives Alexandr Wang's record the closed DOL investigation, the settlement, and the CEO change", () => {
+    const wang = research("alexandr-wang");
+    expect(text("alexandr-wang")).toContain("closed that investigation in May 2025 without announcing a finding");
+    expect(text("alexandr-wang")).toContain("$12.5 million class settlement");
+    expect(text("alexandr-wang")).toContain("without admitting wrongdoing");
+    expect(wang.chronology.some((event) => event.date === "July 30, 2026" && /Francis deSouza/.test(event.event))).toBe(true);
+    expect(text("alexandr-wang")).not.toContain("information restrictions");
+    expect(find("alexandr-wang", "mckinney-settlement").kind).toBe("derivative");
+    expect(find("alexandr-wang", "storyboard18-meta").kind).toBe("derivative");
+  });
+
+  it("dates Jane Gilbert's Extreme Heat Action Plan to December 2022", () => {
+    expect(text("jane-gilbert")).not.toContain("May 2022");
+    expect(research("jane-gilbert").chronology.some((event) => event.date === "November 2021–December 2022" && /December 14, 2022/.test(event.event))).toBe(true);
+    expect(find("jane-gilbert", "action-plan").published).toBe("2022-12");
+  });
+
+  it("does not tie Glenister to the IMTB without a source", () => {
+    const record = research("gordon-glenister");
+    expect(record.unknowns.some((line) => /authority did Glenister hold in BCMA Influence\?$/.test(line))).toBe(true);
+    expect(record.unknowns.some((line) => /No cited source places Glenister in a role at the Influencer Marketing Trade Body/.test(line))).toBe(true);
+    expect(text("gordon-glenister")).not.toMatch(/BCMA Influence and the IMTB/);
+  });
+
+  it("reports the WNDR closures and does not name WNDR as continuing", () => {
+    const record = research("brad-keywell");
+    expect(record.chronology.some((event) => event.date === "2018–2026" && /Boston museum would close on August 30/.test(event.event) && /September 7, 2026/.test(event.event))).toBe(true);
+    expect(record.unknowns.join(" ")).not.toMatch(/Chicago Ideas, WNDR/);
+    expect(text("brad-keywell")).toContain("Keywell was not a defendant");
+    expect(text("brad-keywell")).not.toContain("reuters.com/article/us-uptake");
+    expect(find("brad-keywell", "wndr-installation").href).toMatch(/^https:\/\/web\.archive\.org\//);
+  });
+
+  it("keeps Rudder's own-website claim to what the page shows", () => {
+    expect(text("ashley-rudder")).not.toMatch(/updated in September 2026|previous roles|after her tenure/);
+    expect(text("ashley-rudder")).toContain("without saying whether she is still at DNY");
+  });
+
+  it("keeps the Gawdat quotation off the Emma page", () => {
+    expect(text("mo-gawdat")).not.toContain("therapist-backed");
+    expect(text("mo-gawdat")).toContain("not to be mistaken for a human coach or therapist");
+  });
+
+  it("sources the 2021 Patreon valuation to a 2021 report", () => {
+    expect(find("jack-conte", "tubefilter-patreon-2021").published).toBe("2021-04-07");
+    const row = research("jack-conte").chronology.find((event) => /\$4 billion/.test(event.event))!;
+    expect(row.sourceIds).toContain("tubefilter-patreon-2021");
+  });
+
+  it("keeps the single-source Sephora campaign claim out and carries Kattan's response", () => {
+    const text_ = text("huda-kattan");
+    expect(research("huda-kattan").sources.some((source) => source.id === "puck-sephora")).toBe(false);
+    expect(text_).not.toContain("removed Huda Beauty from a planned campaign");
+    expect(text_).toContain("Kattan said she removed it herself");
+    expect(text_).toContain("never condone hate of any kind");
+    expect(text_).not.toContain("$1.2 billion valuation");
+    expect(find("huda-kattan", "khaleej-kattan").kind).toBe("independent");
+  });
+
+  it("adds the company's response to the MrBeast Mexico item and states the Mavromatis suit as filed", () => {
+    const t = text("mrbeast");
+    expect(t).toContain("no advertising material was shot on sites overseen by INAH");
+    expect(t).toContain("On April 22, 2026, a former employee, Lorrayne Mavromatis");
+    expect(t).toContain("Donaldson is not a named defendant");
+    expect(t).not.toContain("February–July 2026");
+    expect(t).not.toContain("August 14, 2023");
+  });
+
+  it("states The Lacrosse Network's founders and Rosenblum's role", () => {
+    const t = text("colin-samir");
+    expect(t).toContain("Julien Berndt co-founded The Lacrosse Network");
+    expect(t).toContain("creative director");
+    expect(t).not.toContain("The pair sold");
+  });
+
+  it("replaces the dead Blue Apron press page and the Grubhub release that now redirects", () => {
+    expect(find("marc-lore", "wonder-blueapron").href).toBe("https://njbiz.com/wonder-continues-pivot-closes-103m-blue-apron-acquisition");
+    expect(find("marc-lore", "wonder-blueapron").kind).toBe("independent");
+    expect(find("marc-lore", "grubhub").href).toMatch(/^https:\/\/web\.archive\.org\//);
+  });
+
+  it("states Linda Fisher's career in order and names her successor", () => {
+    expect(text("linda-fisher")).toContain("Before joining Monsanto she practiced at Latham & Watkins");
+    expect(text("linda-fisher")).toContain("Krysta Harden succeeded Fisher");
+  });
+
+  it("says who ruled against whom in the Bartlett ASA item and uses a working departure link", () => {
+    expect(text("steven-bartlett")).toContain("against Huel and against ZOE, not against Bartlett");
+    expect(text("steven-bartlett")).not.toContain("prolificnorth.co.uk/news/co-founders");
   });
 });
 

@@ -8,6 +8,6 @@ export function SiteFooter() {
       <div className="foot-col"><span className="foot-h">Participate</span><a href="/assess">Assessment</a><a href="/partner">Work with RN</a><a href="/research/cognitive-interviews">Join an interview</a><a href="/edit">Editions</a><a href="/about">About RN Collins</a></div>
       <div className="foot-col"><span className="foot-h">Connect</span><a href="mailto:collins.ra@northeastern.edu">Email</a><a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/privacy">Privacy</a></div>
     </div>
-    <p className="foot-copy">© {new Date().getFullYear()} Rayven-Nikkita Collins · Research and editorial work</p>
+    <p className="foot-copy">© {new Date().getFullYear()} RN Collins · Research and editorial work</p>
   </footer>;
 }

@@ -2,18 +2,18 @@
 title: "The Person Inside the Asset"
 subtitle: "A finished post can contain a copyrighted work, a performance, an identity, and a future edit."
 series: "Institutions of One"
-author: "Rayven-Nikkita Collins"
+author: "RN Collins"
 ---
 
 # The Person Inside the Asset
 
 ## A finished post can contain a copyrighted work, a performance, an identity, and a future edit.
 
-**By Rayven-Nikkita Collins**
+**By RN Collins**
 
 ![Editorial evidence defining a digital replica and distinguishing the person from the asset.](primary-image.png)
 
-*A digital replica can depict a person realistically but falsely—and may be authorized or unauthorized. Source: U.S. Copyright Office, Copyright and Artificial Intelligence, Part 1: Digital Replicas (July 2024), p. 2. Final publication remains subject to confirmation that the selected crop contains no separately credited third-party material.*
+*A digital replica can depict a person realistically but falsely—and may be authorized or unauthorized. Source: U.S. Copyright Office, Copyright and Artificial Intelligence, Part 1: Digital Replicas (July 2024), p. 2.*
 
 The easiest way to misunderstand creator content is to treat it as a flat image.
 

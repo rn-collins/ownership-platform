@@ -2,7 +2,7 @@
 title: "The Smallest Institution in the Campaign"
 subtitle: "One post can contain an entire organization"
 series: "Institutions of One"
-author: "Rayven-Nikkita Collins"
+author: "RN Collins"
 ---
 
 # The Smallest Institution in the Campaign

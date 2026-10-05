@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       <p className="eyebrow">Institutions of One · Privacy</p>
       <h1>Privacy &amp; data use</h1>
       <p className="lede">
-        This page explains what the site collects, why it is collected, how it is used, and how to request access or deletion. Questions can be sent directly to Rayven-Nikkita Collins.
+        This page explains what the site collects, why it is collected, how it is used, and how to request access or deletion. Questions can be sent directly to RN Collins.
       </p>
 
       <div className="card">

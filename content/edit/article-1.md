@@ -2,14 +2,14 @@
 title: "The $2,000 Video"
 subtitle: "A creator deal is usually several decisions wearing one price tag"
 series: "Institutions of One"
-author: "Rayven-Nikkita Collins"
+author: "RN Collins"
 ---
 
 # The $2,000 Video
 
 ## A creator deal is usually several decisions wearing one price tag
 
-**By Rayven-Nikkita Collins**
+**By RN Collins**
 
 ![Documentary board pairing excerpts from 17 U.S.C. sections 106 and 204(a), highlighting exclusive rights and the signed-writing requirement for copyright ownership transfers.](primary-image.svg)
 

@@ -2,8 +2,8 @@ export const metadata = {
   title: "Assessments — Institutions of One",
   description: "Choose one of two pilot assessments exploring ownership or professional portability.",
   alternates: { canonical: "/assess" },
-  openGraph: { title: "Assessments — Institutions of One", description: "Choose one of two pilot assessments exploring ownership or professional portability.", url: "/assess", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Assessments — Institutions of One", description: "Choose one of two pilot assessments exploring ownership or professional portability.", images: ["/og.png"] },
+  openGraph: { title: "Assessments — Institutions of One", description: "Choose one of two pilot assessments exploring ownership or professional portability.", url: "/assess", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Assessments — Institutions of One", description: "Choose one of two pilot assessments exploring ownership or professional portability.", images: ["/opengraph-image"] },
 };
 
 export default function AssessChooserPage() {
@@ -65,7 +65,7 @@ export default function AssessChooserPage() {
       </p>
 
       <p className="meta" style={{ marginTop: 18 }}>
-        No account is required. Responses are anonymous. Both assessments are pilots, so results are exploratory and should not be read as diagnoses, rankings, or standards a person must meet.
+        No account is required. By default your answers are stored without your name, email, or account. If you are signed in when you finish the Ownership Index, a copy is also saved to your account. See the <a href="/privacy" className="fwlink">privacy page</a>. Both assessments are pilots, so results are exploratory and should not be read as diagnoses, rankings, or standards a person must meet.
         The methodology, including how the areas were chosen and what the current version does not
         yet measure, is documented in the <a href="/methodology" className="fwlink">methodology</a>.
       </p>

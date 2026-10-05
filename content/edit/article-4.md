@@ -25,9 +25,9 @@ Someone had the idea. Someone translated it into instructions. Someone decided w
 
 Sometimes all of those someones are one person.
 
-Creators describe this work in the language of time, scattering, and attention. One current creator wrote that ideas lived in four different places and called the resulting setup “organized chaos.” Another described weeks containing writing, testing, recording, scripting, and research at once. A photographer explained that asset management was not the interesting part of the work—then described losing unbacked-up photographs and building a routine so it would not happen again.
+Creators describe this work in the language of time, scattering, and attention: ideas kept in several places, weeks that mix writing, testing, recording, scripting, and research, and photographs lost because they were never backed up.
 
-These are individual accounts, not prevalence data. They are enough to reveal the practical question underneath this series:
+This is a general description, not prevalence data. It is enough to reveal the practical question underneath this series:
 
 > What does one person need in order to make a multi-role body of work legible, governable, and capable of continuing?
 
@@ -185,7 +185,7 @@ Not every project needs a bureaucracy. It may need one good page.
 
 I call this record a **memory prosthetic**. That is a metaphor, not a medical claim. The page does not improve memory by magic. It moves selected facts out of one person’s head and into a record another person—or the same person six months later—can inspect.
 
-Until it is field-tested against a neutral project, it should be treated as a proposed tool. The test is simple: can the page reconstruct what was built, carried, controlled, and left to continue without reopening every email, app, drive, and message thread?
+I have not yet tried it on a neutral project, so treat it as a proposed method rather than a proven one. The test is simple: can the page reconstruct what was built, carried, controlled, and left to continue without reopening every email, app, drive, and message thread?
 
 ## Professionalization beyond polish
 
@@ -227,4 +227,4 @@ The map is not the institution. It is a way to see whether one exists—and wher
 - [Adobe Premiere, Import Frame.io Comments as Markers](https://helpx.adobe.com/premiere/desktop/collaborate-with-others/share-for-review-using-frame-io/import-comments-as-markers.html)
 - [IKEA, Assembly Instructions](https://www.ikea.com/es/en/customer-service/product-support/assembly-guides/)
 
-*General educational information, not legal advice. The creator quotations in the opening section are individual accounts from the author’s own research notes; they are not linked here and are not evidence of how common any practice is. The maps and checklists in this article are the author’s own preparation and coordination tools, not substitutes for advice about a specific agreement, law, platform, or jurisdiction.*
+*General educational information, not legal advice. The description of creator workloads in the opening section is a general illustration. It is not sourced to individual accounts and is not evidence of how common any practice is. The maps and checklists in this article are the author’s own preparation and coordination tools, not substitutes for advice about a specific agreement, law, platform, or jurisdiction.*

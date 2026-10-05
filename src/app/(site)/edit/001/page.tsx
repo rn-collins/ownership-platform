@@ -63,8 +63,8 @@ const sources = [
   },
   {
     id: 2,
-    label: "Shondaland, “Shonda Rhimes”",
-    href: "https://www.shondaland.com/about-us/shonda-rhimes",
+    label: "Shondaland Media, “About us”",
+    href: "https://www.shondalandmedia.com/about-us/",
   },
   {
     id: 3,
@@ -105,6 +105,11 @@ const sources = [
     id: 10,
     label: "Pieter Levels, “How I built Nomad Jobs” (August 31, 2014)",
     href: "https://levels.io/how-i-built-a-remote-jobs-board",
+  },
+  {
+    id: 11,
+    label: "Shondaland, “Shonda Rhimes”",
+    href: "https://www.shondaland.com/about-us/shonda-rhimes",
   },
 ];
 
@@ -161,13 +166,13 @@ export default function EditionOnePage() {
           Build asks what exists because of a person’s work. The answer may be a company, method, public program, body of work, team, audience, operating system, or shared language. Calling something “built” by one person should never erase collaborators. Institutions are collective achievements, even when one person receives most of the public attention.
         </p>
         <p>
-          Shonda Rhimes is a clear example of build becoming legible as an institution. Her own company biography states that she created Shondaland in 2004.<sup><a href="#source-2">2</a></sup> In 2021, Netflix described an expanded agreement with Rhimes and Shondaland Media that covered feature films and potential gaming and virtual-reality content, while adding live events and experiences to an existing branding and merchandise agreement.<sup><a href="#source-3">3</a></sup> The relevant fact is not simply that Rhimes writes successful television. A named organization, production capacity, partnerships, and extensions across formats now sit around the work.
+          Shonda Rhimes is a clear example of build becoming legible as an institution. Shondaland’s company page says it launched in 2005 with <em>Grey’s Anatomy</em>,<sup><a href="#source-2">2</a></sup> and Rhimes’s biography on the company’s site says she created it in 2004.<sup><a href="#source-11">11</a></sup> In 2021, Netflix described an expanded agreement with Rhimes and Shondaland Media that covered feature films and potential gaming and virtual-reality content, while adding live events and experiences to an existing branding and merchandise agreement.<sup><a href="#source-3">3</a></sup> The relevant fact is not simply that Rhimes writes successful television. A named organization, production capacity, partnerships, and extensions across formats now sit around the work.
         </p>
         <p>
           Emma Chamberlain presents a different route. Chamberlain Coffee describes itself as created by Chamberlain, and the brand now markets products, a store network, and a physical café.<sup><a href="#source-6">6</a></sup><sup><a href="#source-7">7</a></sup> That is evidence that attention has been translated into operating activity beyond content. It is not, by itself, evidence of Chamberlain’s precise equity, governance rights, supplier dependence, or control over customer data. “Creator-founded” tells us something important about origin; it does not answer every ownership question.
         </p>
         <p>
-          Jane Gilbert shows why build cannot be restricted to private ownership. Miami-Dade County’s 2022 Extreme Heat Action Plan says Gilbert and physician Cheryl Holder co-chaired a 15-member task force that included government, community, private-sector, and scientific participants. The process included six public workshops with 298 community members.<sup><a href="#source-4">4</a></sup> A county profile says Gilbert works across departments and with external partners to implement the plan.<sup><a href="#source-5">5</a></sup> Her institutional consequence comes through coordination inside public infrastructure. Excluding that case because Gilbert does not personally own the program would confuse ownership with institution-building.
+          Jane Gilbert shows why build cannot be restricted to private ownership. Miami-Dade County’s 2022 Extreme Heat Action Plan says Gilbert and physician Cheryl Holder co-chaired a 15-member task force that included government, community, private-sector, and scientific participants. The process included six virtual public workshops that, according to the plan, engaged 298 individual community members.<sup><a href="#source-4">4</a></sup> A county profile says Gilbert works across departments and with external partners to implement the plan.<sup><a href="#source-5">5</a></sup> Her institutional consequence comes through coordination inside public infrastructure. Excluding that case because Gilbert does not personally own the program would confuse ownership with institution-building.
         </p>
       </section>
 
@@ -180,7 +185,7 @@ export default function EditionOnePage() {
           Jony Ive makes the transition visible. In 2019, Apple announced that its chief design officer would leave as an employee, form an independent design company, and count Apple among that company’s primary clients.<sup><a href="#source-1">1</a></sup> The move demonstrated portability: Ive’s reputation and design capacity could support a new organizational container. It also demonstrated continuing dependence: the former employer remained a primary client at the moment of departure. Portability did not require a fiction of total separation.
         </p>
         <p>
-          Suzie Reider supplies the opposite view. Lyft’s 2024 announcement of her appointment as head of Lyft Business describes 17 years at Google, including leadership at Waze and the founding of YouTube’s revenue and marketing organization.<sup><a href="#source-8">8</a></sup> Her career suggests that capability, reputation, and operating knowledge can travel between major organizations. But the revenue systems she helped build belonged to the companies whose authority, capital, data, and platforms enabled them. That is not a lesser form of work. It is a different relationship between personal capability and organizational ownership.
+          Suzie Reider supplies the opposite view. Lyft’s 2024 announcement of her appointment as executive vice president of Lyft Media and Lyft Business says she spent 17 years at Google, including serving as Global Chief Revenue Officer for Waze and founding YouTube’s Revenue and Marketing Organization.<sup><a href="#source-8">8</a></sup> Her career suggests that capability, reputation, and operating knowledge can travel between major organizations. But the revenue systems she helped build belonged to the companies whose authority, capital, data, and platforms enabled them. That is not a lesser form of work. It is a different relationship between personal capability and organizational ownership.
         </p>
         <p>
           These cases rule out a simple conclusion. Carry does not mean “quit your job” or “start a company.” Ive moved his capacity into a new company while keeping a major institutional dependency. Reider moved her capability through successive executive roles while the systems remained with her employers. The questions are what traveled, what stayed, and who retained decision-making authority.

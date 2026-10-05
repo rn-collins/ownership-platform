@@ -5,6 +5,9 @@ import { beehiivSubscribe } from "@/lib/beehiiv";
 import { limit } from "@/lib/ratelimit";
 import { logError } from "@/lib/log";
 
+// Bump when the consent wording shown in NewsletterSignup changes; stored with each signup.
+const CONSENT_VERSION = "2026-10";
+
 const schema = z.object({
   email: z.string().email().max(200),
   name: z.string().max(120).optional().or(z.literal("")),
@@ -36,6 +39,7 @@ export async function POST(req: Request) {
           source: d.source,
           interest: d.interest || undefined,
           consent: true,
+          consentVersion: CONSENT_VERSION,
         },
         create: {
           email,
@@ -44,6 +48,7 @@ export async function POST(req: Request) {
           source: d.source,
           interest: d.interest || null,
           consent: true,
+          consentVersion: CONSENT_VERSION,
         },
       });
       stored = true;

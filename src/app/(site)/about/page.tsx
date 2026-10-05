@@ -2,8 +2,8 @@ export const metadata = {
   title: "About — Institutions of One",
   description: "The purpose, researcher, and development of Institutions of One.",
   alternates: { canonical: "/about" },
-  openGraph: { title: "About — Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", url: "/about", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "About — Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", images: ["/og.png"] },
+  openGraph: { title: "About — Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", url: "/about", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "About — Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", images: ["/opengraph-image"] },
 };
 
 export default function AboutPage() {
@@ -11,7 +11,7 @@ export default function AboutPage() {
     <main className="about-page">
       <p className="eyebrow">Institutions of One · About</p>
       <h1>A research project about what people build, carry, control, and continue.</h1>
-      <p className="meta">RN Collins · Independent researcher · M.S. in Anatomy &amp; Neurobiology, Boston University School of Medicine · J.D. candidate, Northeastern University School of Law</p>
+      <p className="meta">RN Collins · Researcher · M.S. in Anatomy &amp; Neurobiology, Boston University School of Medicine · J.D. candidate, Northeastern University School of Law</p>
       <p className="lede">
         Institutions of One began with a simple observation: organizations routinely measure reach, productivity, and
         performance, but rarely measure whether the value a person creates becomes portable, durable, and meaningfully
@@ -21,7 +21,7 @@ export default function AboutPage() {
       <div className="card">
         <h2>RN Collins</h2>
         <p>
-          I am an independent researcher, writer, and consultant. I hold an M.S. in Anatomy &amp; Neurobiology from Boston University School of Medicine and am a J.D. candidate at Northeastern University School of Law.
+          I am a researcher, writer, and consultant. I hold an M.S. in Anatomy &amp; Neurobiology from Boston University School of Medicine and am a J.D. candidate at Northeastern University School of Law.
           My background spans neuroscience, developmental psychology, medical education, qualitative research, emerging
           industries, and the design of research and intelligence systems. That interdisciplinary path shapes this project:
           it examines work through psychological, organizational, economic, technological, and legal questions.

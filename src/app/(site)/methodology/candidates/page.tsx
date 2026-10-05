@@ -7,8 +7,8 @@ export const metadata = {
   title: "Questions in development — Institutions of One",
   description: "See how proposed assessment questions are understood, tested, revised, and either adopted or rejected.",
   alternates: { canonical: "/methodology/candidates" },
-  openGraph: { title: "Questions in development — Institutions of One", description: "See how proposed assessment questions are understood, tested, revised, and either adopted or rejected.", url: "/methodology/candidates", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Questions in development — Institutions of One", description: "See how proposed assessment questions are understood, tested, revised, and either adopted or rejected.", images: ["/og.png"] },
+  openGraph: { title: "Questions in development — Institutions of One", description: "See how proposed assessment questions are understood, tested, revised, and either adopted or rejected.", url: "/methodology/candidates", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Questions in development — Institutions of One", description: "See how proposed assessment questions are understood, tested, revised, and either adopted or rejected.", images: ["/opengraph-image"] },
 };
 
 const steps = [

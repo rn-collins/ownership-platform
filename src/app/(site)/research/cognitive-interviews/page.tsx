@@ -4,8 +4,8 @@ export const metadata = {
   title: "Help test what a question misses — Institutions of One",
   description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.",
   alternates: { canonical: "/research/cognitive-interviews" },
-  openGraph: { title: "Help test what a question misses — Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", url: "/research/cognitive-interviews", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Help test what a question misses — Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", images: ["/og.png"] },
+  openGraph: { title: "Help test what a question misses — Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", url: "/research/cognitive-interviews", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Help test what a question misses — Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", images: ["/opengraph-image"] },
 };
 
 export default function CognitiveInterviewStudyPage() {
@@ -29,7 +29,7 @@ export default function CognitiveInterviewStudyPage() {
 
       <section className="study-use"><p className="eyebrow">What your contribution can change</p><h2>Words, answer choices, missing situations, burden, accessibility, and the idea being measured.</h2><p>The conversation covers unscored draft versions of the Ownership Index and Portfolio Professional questions. Feedback may change or remove questions in a future version. It does not alter anyone’s current pilot result.</p><a href="/methodology/candidates" className="fwlink">Visit the Question Lab →</a></section>
 
-      <section className="study-privacy"><h2>Before anything is used, you choose the terms.</h2><p>Contact details are used for screening, scheduling, and study communication. Public reporting uses de-identified themes and combined observations unless you separately agree to attribution. Recording and quotation require separate permission. Consent is reviewed again before the interview begins.</p></section>
+      <section className="study-privacy"><h2>Before anything is used, you choose the terms.</h2><p>Contact details are used for screening, scheduling, and study communication. Public reporting uses de-identified themes and combined observations unless you separately agree to attribution. Recording and quotation require separate permission. Consent is reviewed again before the interview begins.</p><p>This study has not been reviewed by an institutional review board.</p></section>
 
       <section className="study-volunteer"><p className="eyebrow">Volunteer</p><h2>Share enough to see whether this conversation fits.</h2><p>Submitting this form is an expression of interest, not consent to an interview or permission to use your words.</p><IntakeForm /></section>
     </main>

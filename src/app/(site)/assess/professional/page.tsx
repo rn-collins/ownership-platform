@@ -5,8 +5,8 @@ export const metadata = {
   title: "Portfolio Professional — Institutions of One",
   description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.",
   alternates: { canonical: "/assess/professional" },
-  openGraph: { title: "Portfolio Professional — Institutions of One", description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.", url: "/assess/professional", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Portfolio Professional — Institutions of One", description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.", images: ["/og.png"] },
+  openGraph: { title: "Portfolio Professional — Institutions of One", description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.", url: "/assess/professional", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Portfolio Professional — Institutions of One", description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.", images: ["/opengraph-image"] },
 };
 
 export default function ProfessionalAssessPage() {
@@ -19,7 +19,7 @@ export default function ProfessionalAssessPage() {
         visibility and authority, and a coherent thesis across your work.
       </p>
       <p className="meta">
-        Methodology v{PROFESSIONAL_METHODOLOGY_VERSION} · anonymous · approximately five minutes · exploratory, not diagnostic or normed
+        Methodology v{PROFESSIONAL_METHODOLOGY_VERSION} · no account required · approximately five minutes · exploratory, not diagnostic or normed
       </p>
       <ProfessionalAssessment />
 
@@ -52,8 +52,9 @@ export default function ProfessionalAssessPage() {
           and not a recommendation. Scores are not normed against a representative sample, so
           compare your own areas with each other rather than with anyone else. Answer for the
           role you hold today rather than the one you are being considered for, and where a
-          question is ambiguous, choose the reading that assumes less. Responses are anonymous
-          and no account is required.
+          question is ambiguous, choose the reading that assumes less. No account is required,
+          and your answers are stored without your name, email, or account. See the{" "}
+          <a href="/privacy" className="fwlink">privacy page</a>.
         </p>
       </section>
     </main>

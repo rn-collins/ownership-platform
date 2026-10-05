@@ -1,19 +1,29 @@
 import { FindingsView } from "@/components/FindingsView";
 import { MeasuredCounter } from "@/components/MeasuredCounter";
+import { SEED } from "@/lib/observatory_seed";
 
 export const metadata = {
   title: "What the 41 careers reveal — Institutions of One",
   description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.",
   alternates: { canonical: "/findings" },
-  openGraph: { title: "What the 41 careers reveal — Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", url: "/findings", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "What the 41 careers reveal — Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", images: ["/og.png"] },
+  openGraph: { title: "What the 41 careers reveal — Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", url: "/findings", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "What the 41 careers reveal — Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", images: ["/opengraph-image"] },
 };
 
+// Every figure below is counted from the case roster so it cannot drift from the cases.
+const total = SEED.length;
+const professionalCount = SEED.filter((node) => node.kind === "professional").length;
+const roleShapedCount = SEED.filter((node) => node.created).length;
+const fields = Array.from(new Set(SEED.map((node) => node.domain)));
+const fieldList = fields.length > 1 ? `${fields.slice(0, -1).join(", ")}, and ${fields[fields.length - 1]}` : fields.join("");
+const topTensions = ["Role vs person", "One field vs many"];
+const topTensionCount = SEED.filter((node) => node.tension && topTensions.includes(node.tension)).length;
+
 const signals = [
-  ["31 / 41", "work primarily through organizations", "The pilot is not a founder hall of fame. Most cases help us ask what a person can build and carry while an employer still owns much of the infrastructure."],
-  ["19 / 41", "may have helped shape the role around them", "A distinctive title can signal unusual authority. It does not prove ownership, portability, or that the role would follow the person elsewhere."],
-  ["13", "fields are represented", "The same question behaves differently in design, media, science, government, technology, sport, law, and other fields."],
-  ["21 / 41", "concentrate in two tensions", "More than half of the current roster asks either whether the role depends on the person or whether one person can hold several fields together. That is a feature of this pilot—and a selection bias to correct."],
+  [`${professionalCount} / ${total}`, "work primarily through organizations", "The pilot is not a founder hall of fame. Most cases help us ask what a person can build and carry while an employer still owns much of the infrastructure."],
+  [`${roleShapedCount} / ${total}`, "may have helped shape the role around them", "A distinctive title can signal unusual authority. It does not prove ownership, portability, or that the role would follow the person elsewhere."],
+  [`${fields.length}`, "fields are represented", `The same question behaves differently across the fields in this roster: ${fieldList}.`],
+  [`${topTensionCount} / ${total}`, "concentrate in two tensions", "More than half of the current roster asks either whether the role depends on the person or whether one person can hold several fields together. That is a feature of this pilot—and a selection bias to correct."],
 ];
 
 export default function FindingsPage() {

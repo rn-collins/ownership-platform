@@ -4,10 +4,10 @@ import { SEED, nodeSlug, findNodeBySlug, type Node } from "@/lib/observatory_see
 import { prisma } from "@/lib/db";
 import styles from "./profile.module.css";
 import { CASE_NARRATIVES } from "@/lib/case_narratives";
-import { getCaseResearch } from "@/lib/case_research";
+import { getCaseResearch, recordLastUpdated } from "@/lib/case_research";
 import CaseLab from "./CaseLab";
 import { CaseStatus } from "@/components/case/CaseStatus";
-import { buildFramework, collectSources, formatLongDate, isLandingPage, pad, sourceKindLabel } from "@/components/case/caseData";
+import { buildFramework, collectSources, countSources, formatLongDate, isLandingPage, pad, sourceKindLabel } from "@/components/case/caseData";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 // Evidence comes from the database; serve a cached render and refresh it hourly
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const canonical = `/observatory/${params.slug}`;
   const title = `${node.name}: ${node.question ?? "A career worth investigating"} — The Observatory`;
   const description = node.question ?? `Explore what ${node.name}'s career reveals about ownership, portability, power, and dependence.`;
-  return { title, description, alternates: { canonical }, openGraph: { title, description, url: canonical, images: ["/og.png"] }, twitter: { card: "summary_large_image", title, description, images: ["/og.png"] } };
+  return { title, description, alternates: { canonical }, openGraph: { title, description, url: canonical, images: ["/opengraph-image"] }, twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] } };
 }
 
 const tensionGuides: Record<string, { meaning: string; lookFor: string; comparison: string }> = {
@@ -79,12 +79,16 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
   const related = SEED.filter((candidate) => candidate.name !== person.name && (candidate.tension === person.tension || candidate.domain === person.domain)).slice(0, 3);
 
   // One source list drives both the status line counts and the sources section.
-  const sources = collectSources(research, narrative);
+  const sources = collectSources(research);
   const sourceNumber = new Map(sources.map((source) => [source.id, source.number]));
-  const independentCount = sources.filter((source) => source.kind === "independent").length;
+  const { independent: independentCount } = countSources(sources);
   const landingPageCount = sources.filter((source) => isLandingPage(source.href)).length;
 
-  const reviewed = reviewedAt ? formatLongDate(reviewedAt) : research ? formatLongDate(research.reviewed) : undefined;
+  // "Last updated" is when the record was last changed; it is not a claim that anyone independent reviewed it.
+  const reviewedIso = reviewedAt ? reviewedAt.toISOString().slice(0, 10) : undefined;
+  const researchUpdated = research ? recordLastUpdated(research) : undefined;
+  const updatedIso = reviewedIso && researchUpdated ? (reviewedIso > researchUpdated ? reviewedIso : researchUpdated) : reviewedIso ?? researchUpdated;
+  const updated = updatedIso ? formatLongDate(updatedIso) : undefined;
   const finding = research?.payoff ?? narrative?.whyItMatters;
   const unknowns = research?.unknowns ?? narrative?.unresolved ?? [];
   const framework = narrative ? buildFramework({ built: narrative.structuralTurn, unknowns, carryFallback: guide.comparison }) : [];
@@ -101,7 +105,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
         {person.tension && <li>{person.tension}</li>}
         <li>{person.domain}</li>
         <li>{person.kind === "creator" ? "Creator case" : "Professional case"}</li>
-        {reviewed && <li>Reviewed {reviewed}</li>}
+        {updated && <li>Record last updated {updated}</li>}
       </ul>
       <div className={styles.question}>
         <p className={styles.questionLabel}>The case question</p>
@@ -186,8 +190,8 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
       <section className={styles.section} id="sources" aria-labelledby="sources-heading">
         <p className={styles.num} aria-hidden="true">{section("sources")}</p>
         <h2 id="sources-heading">Sources and their limits</h2>
-        <p className={styles.sectionIntro}>{sources.length} source{sources.length === 1 ? "" : "s"}: {independentCount} independent and {sources.length - independentCount} primary or institutional. First-party sources establish what a person or organization announced; they do not independently prove performance, ownership, causation, or impact. This is analysis of a public record, not a rating of the person.</p>
-        <p className={styles.sourceNote}>Each link was checked by hand when the record was last reviewed{reviewed ? ` (${reviewed})` : ""}; the site does not continuously re-check them. A broken link, or one that does not support its statement, is a defect in the record — please report it.{landingPageCount > 0 && <> {landingPageCount} link{landingPageCount === 1 ? " leads" : "s lead"} to a publisher or organization landing page rather than the exact supporting item, so {landingPageCount === 1 ? "it identifies" : "they identify"} a research lead rather than a claim-level citation.</>}</p>
+        <p className={styles.sectionIntro}>{sources.length} source{sources.length === 1 ? "" : "s"}: {independentCount} independent and {sources.length - independentCount} other (primary, institutional, subject interviews, self-authored, or republished reports). First-party sources and interviews establish what a person or organization said or announced; they do not independently prove performance, ownership, causation, or impact. This is analysis of a public record, not a rating of the person.</p>
+        <p className={styles.sourceNote}>Each link was checked by hand during the record’s source review; the site does not continuously re-check them. A broken link, or one that does not support its statement, is a defect in the record — please report it.{landingPageCount > 0 && <> {landingPageCount} link{landingPageCount === 1 ? " leads" : "s lead"} to a publisher or organization landing page rather than the exact supporting item, so {landingPageCount === 1 ? "it identifies" : "they identify"} a research lead rather than a claim-level citation.</>}</p>
         <ol className={styles.sourceList}>{sources.map((source) => <li id={`source-${source.number}`} key={source.id}>
           <span className={styles.sourceNum} aria-hidden="true">{pad(source.number)}</span>
           <a href={source.href} target="_blank" rel="noreferrer">{source.label}</a>

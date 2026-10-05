@@ -57,7 +57,7 @@ export function FindingsView() {
       <Panel title="Ownership Index" audience="creators and independent operators" data={ownership} />
       <Panel title="Portfolio Professional" audience="professionals" data={professional} />
       <p className="disc">
-        Results are anonymous, self-reported, and exploratory. Only complete responses to the current assessment versions
+        These results come only from answers stored without names or accounts. They are self-reported and exploratory. Only complete responses to the current assessment versions
         are included. Score distributions are shown in ten-point ranges. See the <a href="/methodology" className="fwlink">methodology and limitations</a>.
       </p>
     </div>

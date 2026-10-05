@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { SEED, OBSERVATORY_DOMAINS as DOMAINS, nodeSlug, type Node } from "@/lib/observatory_seed";
 import { CASE_NARRATIVES } from "@/lib/case_narratives";
-import { getCaseResearch } from "@/lib/case_research";
+import { getCaseResearch, recordLastUpdated } from "@/lib/case_research";
+import { formatLongDate } from "@/components/case/caseData";
 import styles from "./ObservatoryExplorer.module.css";
 
 type View = "discover" | "patterns" | "compare" | "composition" | "gaps";
@@ -40,7 +41,7 @@ function evidenceComparison(node: Node) {
       : "The record does not yet show what would continue through absence, succession, or platform change.",
     complication: research?.complication[1] ?? research?.complication[0] ?? "No case-level complication has yet been recorded.",
     unknown: unknowns[0] ?? "The most important unknown has not yet been isolated.",
-    reviewed: research?.reviewed,
+    updated: research ? recordLastUpdated(research) : undefined,
     sourceCount: research?.sources.length ?? narrative?.sources.length ?? 0,
   };
 }
@@ -60,7 +61,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
   const [domain,setDomain] = useState("all");
   const [query,setQuery] = useState("");
   const [pattern,setPattern] = useState<Pattern>(null);
-  const [compare,setCompare] = useState<string[]>([nodes[0]?.name,nodes.find((n)=>n.kind==="creator")?.name].filter(Boolean) as string[]);
+  const [compare,setCompare] = useState<string[]>([]); // starts empty: nothing is "saved" until the reader picks a case
   const tensions = useMemo(()=>Array.from(new Set(nodes.map((n)=>n.tension).filter(Boolean))) as string[],[nodes]);
   const domains = useMemo(()=>DOMAINS.filter((item)=>nodes.some((n)=>n.domain===item)),[nodes]);
   const shown = useMemo(()=>{const q=query.trim().toLowerCase();return nodes.filter((n)=>(tension==="all"||n.tension===tension)&&(domain==="all"||n.domain===domain)&&(!q||`${n.name} ${n.role} ${n.domain} ${n.tension??""} ${n.question??""}`.toLowerCase().includes(q)));},[nodes,tension,domain,query]);
@@ -76,7 +77,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
   if (embed) return <div className={styles.grid}>{nodes.slice(0,4).map((n,index)=><CaseCard key={n.name} node={n} index={index}/>)}</div>;
 
   const toggleCompare=(name:string)=>{
-    setCompare((current)=>current.includes(name)?current.filter((item)=>item!==name):current.length<2?[...current,name]:[current[1],name]);
+    setCompare((current)=>{const picked=current.filter(Boolean);return picked.includes(name)?picked.filter((item)=>item!==name):picked.length<2?[...picked,name]:[picked[1],name];});
   };
 
   return <div className={styles.shell}>
@@ -107,14 +108,14 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
       <div className={styles.intro}><div><p className={styles.kicker}>Pattern map</p><h2 id="patterns-title">Where does the same tension appear in a different world?</h2></div><p>Rows are research tensions. Columns are fields. Color and number show how many of these 41 cases sit at the intersection—nothing more.</p></div>
       <div className={styles.mapWrap}><div className={styles.mapLegend}><span><i className={styles.low}/>one case</span><span><i className={styles.high}/>two or more</span><span>Empty = not yet represented</span></div>
         <div className={styles.matrix} style={{"--columns":domains.length} as CSSProperties}><div className={styles.corner}>Tension × field</div>{domains.map((item)=><div className={styles.colHead} key={item}>{item}</div>)}{tensions.flatMap((row)=>[<div className={styles.rowHead} key={`${row}-label`}>{row}</div>,...domains.map((col)=>{const count=nodes.filter((n)=>n.tension===row&&n.domain===col).length;return <button type="button" key={`${row}-${col}`} className={`${styles.cell} ${count>1?styles.cellStrong:""}`} disabled={!count} aria-label={`${count} ${count===1?"case":"cases"} about ${row} in ${col}`} onClick={()=>setPattern({tension:row,domain:col})}>{count||"·"}</button>;})])}</div>
-        {pattern?<div className={styles.mapSelection}><button type="button" onClick={()=>setPattern(null)} aria-label="Close pattern">×</button><p className={styles.kicker}>Selected intersection</p><h3>{pattern.tension} × {pattern.domain}</h3><p>{selectedCases.length===1?"One case begins here. Compare it with another field before treating it as a pattern.":`${selectedCases.length} cases let us compare how the same tension behaves in one field.`}</p><div className={styles.mapList}>{selectedCases.map((n)=><Link className={styles.mapPerson} href={`/observatory/${nodeSlug(n.name)}`} key={n.name}><strong>{n.name}</strong><span>{n.question}</span></Link>)}</div></div>:<p className={styles.prompt}>Choose a numbered cell. The people and questions behind that intersection will open here.</p>}
+        {pattern?<div className={styles.mapSelection}><button type="button" onClick={()=>setPattern(null)} aria-label="Close pattern">×</button><p className={styles.kicker}>Selected intersection</p><h3>{pattern.tension} × {pattern.domain}</h3><p>{selectedCases.length===1?"One case begins here. Compare it with another field before treating it as a pattern.":selectedCases.length===1?"1 case lets us compare how the same tension behaves in one field.":`${selectedCases.length} cases let us compare how the same tension behaves in one field.`}</p><div className={styles.mapList}>{selectedCases.map((n)=><Link className={styles.mapPerson} href={`/observatory/${nodeSlug(n.name)}`} key={n.name}><strong>{n.name}</strong><span>{n.question}</span></Link>)}</div></div>:<p className={styles.prompt}>Choose a numbered cell. The people and questions behind that intersection will open here.</p>}
       </div>
     </section>}
 
     {view==="compare"&&<section aria-labelledby="compare-title">
       <div className={styles.intro}><div><p className={styles.kicker}>Case comparator</p><h2 id="compare-title">Compare two careers and identify what differs.</h2></div><p>Choose two people. This does not score either career; it makes their visible structures and unanswered questions easier to contrast.</p></div>
-      <div className={styles.comparePicker}>{[0,1].map((slot)=><label key={slot}>Case {slot+1}<select value={compare[slot]??""} onChange={(event)=>setCompare((current)=>{const next=[...current];next[slot]=event.target.value;return next.filter(Boolean).slice(0,2);})}><option value="">Choose a person</option>{nodes.map((n)=><option value={n.name} key={n.name}>{n.name}</option>)}</select></label>)}</div>
-      {selectedCompare.length===2&&selectedCompare[0].name!==selectedCompare[1].name?<div className={styles.comparison}>{selectedCompare.map((n,index)=>{const evidence=evidenceComparison(n);return <article key={n.name}><p className={styles.kicker}>{evidence.sourceCount} linked sources{evidence.reviewed?` · reviewed ${evidence.reviewed}`:""}</p><h3>{n.name}</h3><p className={styles.role}>{n.role}</p><p className={styles.caseQuestionLabel}>Question this case helps us investigate</p><blockquote>{n.question}</blockquote><dl><div><dt>What was built</dt><dd>{evidence.built}</dd></div><div><dt>What could travel</dt><dd>{evidence.portable}</dd></div><div><dt>What was controlled</dt><dd>{evidence.controlled}</dd></div><div><dt>What depended on another institution</dt><dd>{evidence.dependencies}</dd></div><div><dt>What could continue</dt><dd>{evidence.continuable}</dd></div><div><dt>Strongest complication</dt><dd>{evidence.complication}</dd></div><div><dt>Most important unknown</dt><dd>{evidence.unknown}</dd></div></dl><Link href={`/observatory/${nodeSlug(n.name)}`}>Open the complete evidence record for {n.name} →</Link></article>})}</div>:<div className={styles.empty}>Choose two different cases to begin.</div>}
+      <div className={styles.comparePicker}>{[0,1].map((slot)=><label key={slot}>Case {slot+1}<select value={compare[slot]??""} onChange={(event)=>setCompare((current)=>{const next=[current[0]??"",current[1]??""];next[slot]=event.target.value;return next;})}><option value="">Choose a person</option>{nodes.map((n)=><option value={n.name} key={n.name}>{n.name}</option>)}</select></label>)}</div>
+      {selectedCompare.length===2&&selectedCompare[0].name!==selectedCompare[1].name?<div className={styles.comparison}>{selectedCompare.map((n,index)=>{const evidence=evidenceComparison(n);return <article key={n.name}><p className={styles.kicker}>{evidence.sourceCount} linked sources{evidence.updated?` · record last updated ${formatLongDate(evidence.updated)}`:""}</p><h3>{n.name}</h3><p className={styles.role}>{n.role}</p><p className={styles.caseQuestionLabel}>Question this case helps us investigate</p><blockquote>{n.question}</blockquote><dl><div><dt>What was built</dt><dd>{evidence.built}</dd></div><div><dt>What could travel</dt><dd>{evidence.portable}</dd></div><div><dt>What was controlled</dt><dd>{evidence.controlled}</dd></div><div><dt>What depended on another institution</dt><dd>{evidence.dependencies}</dd></div><div><dt>What could continue</dt><dd>{evidence.continuable}</dd></div><div><dt>Strongest complication</dt><dd>{evidence.complication}</dd></div><div><dt>Most important unknown</dt><dd>{evidence.unknown}</dd></div></dl><Link href={`/observatory/${nodeSlug(n.name)}`}>Open the complete evidence record for {n.name} →</Link></article>})}</div>:<div className={styles.empty}>Choose two different cases to begin.</div>}
       {selectedCompare.length===2&&selectedCompare[0].name!==selectedCompare[1].name&&<div className={styles.compareQuestions}><h3>Read the contrast carefully</h3><ul><li>Compare documented structures, not fame, field, or title.</li><li>“Not established” means the public evidence cannot support the conclusion yet—not that the asset, right, or capacity does not exist.</li><li>Ask whether the difference comes from career structure or simply from unequal evidence coverage.</li></ul></div>}
     </section>}
 
@@ -127,7 +128,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
 
     {view==="gaps"&&<section aria-labelledby="gaps-title">
       <div className={styles.intro}><div><p className={styles.kicker}>Research agenda</p><h2 id="gaps-title">See which combinations of fields and career questions are missing.</h2></div><p>A blank cell means the current 41 cases do not include that combination of field and career question.</p></div>
-      <div className={styles.gapGrid}>{tensions.map((row)=>{const missing=domains.filter((col)=>!nodes.some((n)=>n.tension===row&&n.domain===col));return <article key={row}><span>{nodes.filter((n)=>n.tension===row).length} current cases</span><h3>{row}</h3><p>Not yet represented in {missing.slice(0,4).join(", ")}{missing.length>4?` + ${missing.length-4} more`:""}.</p><Link href="/observatory#nominate">Nominate a case that changes this →</Link></article>})}</div>
+      <div className={styles.gapGrid}>{tensions.map((row)=>{const missing=domains.filter((col)=>!nodes.some((n)=>n.tension===row&&n.domain===col));return <article key={row}><span>{nodes.filter((n)=>n.tension===row).length} current {nodes.filter((n)=>n.tension===row).length===1?"case":"cases"}</span><h3>{row}</h3><p>Not yet represented in {missing.slice(0,4).join(", ")}{missing.length>4?` + ${missing.length-4} more`:""}.</p><Link href="/observatory#nominate">Nominate a case that changes this →</Link></article>})}</div>
       <div className={styles.analysisNote}><h3>Research methods this collection can support</h3><p>Within-case narrative analysis, cross-case comparison, thematic coding, typology building, negative-case analysis, process tracing, dependency mapping, and evidence-gap analysis. Every interpretation should remain traceable to dated claims and revisable as cases deepen.</p></div>
     </section>}
   </div>;

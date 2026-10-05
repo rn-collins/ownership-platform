@@ -21,8 +21,8 @@ export default function LoginPage() {
   return (
     <main className="login-page">
       <p className="eyebrow">Institutions of One · Sign in</p>
-      <h1>Return to your saved results.</h1>
-      <p className="lede">Enter the email associated with your account. We will send a secure sign-in link.</p>
+      <h1>Sign in to see results saved to your account.</h1>
+      <p className="lede">Signing in is optional. Enter the email associated with your account and we will send a secure sign-in link. A finished Ownership Index result is saved to your account only if you are signed in when you submit it. Results completed without signing in are stored without an account and cannot be retrieved here.</p>
       {state === "sent" ? (
         <div className="card" role="status"><h3>Check your email</h3><p>A sign-in link was sent to {email}.</p></div>
       ) : (

@@ -4,8 +4,8 @@ export const metadata = {
   title: "Ways to work together — Institutions of One",
   description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.",
   alternates: { canonical: "/partner" },
-  openGraph: { title: "Ways to work together — Institutions of One", description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.", url: "/partner", images: ["/og.png"] },
-  twitter: { card: "summary_large_image", title: "Ways to work together — Institutions of One", description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.", images: ["/og.png"] },
+  openGraph: { title: "Ways to work together — Institutions of One", description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.", url: "/partner", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Ways to work together — Institutions of One", description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.", images: ["/opengraph-image"] },
 };
 
 const problems = [
@@ -72,6 +72,7 @@ export default function PartnerPage() {
             </article>
           ))}
         </div>
+        <p className="disc"><strong>General information, not legal advice.</strong> These deliverables identify issues to discuss. They are not a legal opinion, and questions about legal obligations belong with a licensed attorney.</p>
       </section>
 
       <section className="partner-process" aria-labelledby="research-collaboration-heading">

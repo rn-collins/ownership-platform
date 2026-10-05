@@ -55,7 +55,7 @@ export default function PrivacyPage() {
       </div>
 
       <p className="disc" style={{ marginTop: 16 }}>
-        Contact: <a href="mailto:collins.ra@northeastern.edu" className="fwlink">collins.ra@northeastern.edu</a>.
+        Contact: <a href="mailto:rayven.nikkita.collins@gmail.com" className="fwlink">rayven.nikkita.collins@gmail.com</a>.
       </p>
     </main>
   );

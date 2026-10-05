@@ -62,7 +62,7 @@ export default function AboutPage() {
       </div>
 
       <p className="disc" style={{ marginTop: 22 }}>
-        Contact: <a href="mailto:collins.ra@northeastern.edu" className="fwlink">collins.ra@northeastern.edu</a> ·{" "}
+        Contact: <a href="mailto:rayven.nikkita.collins@gmail.com" className="fwlink">rayven.nikkita.collins@gmail.com</a> ·{" "}
         <a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer" className="fwlink">LinkedIn</a>
       </p>
     </main>

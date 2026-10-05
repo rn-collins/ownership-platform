@@ -122,7 +122,7 @@ export function PartnerInquiry() {
         {alert && (
           <p className={s.alert}>
             {alert}
-            {state === "error" && <> You can also email <a href="mailto:collins.ra@northeastern.edu">collins.ra@northeastern.edu</a> and RN will receive it directly.</>}
+            {state === "error" && <> You can also email <a href="mailto:rayven.nikkita.collins@gmail.com">rayven.nikkita.collins@gmail.com</a> and RN will receive it directly.</>}
           </p>
         )}
       </div>

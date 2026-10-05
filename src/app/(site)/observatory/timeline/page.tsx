@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function TimelinePage() {
   return <main className="observatory-page">
     <p className="eyebrow">The Observatory · Cross-case Timeline</p>
-    <h1>See when the structure of the work changed—not only where a career ended up.</h1>
+    <h1>See when the structure of the work changed, along with where a career ended up.</h1>
     <p className="lede">Follow six recurring transitions across the collection. Every event retains the time precision of its source record, so a dated appointment, a multi-year shift, and an inferred sequence do not masquerade as the same kind of evidence.</p>
     <p><a href="/observatory">← The Observatory</a></p>
     <StructuralTimeline />

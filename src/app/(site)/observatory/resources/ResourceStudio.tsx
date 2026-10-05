@@ -151,7 +151,7 @@ function buildArtifact(
     },
     {
       label: "A ready-to-run evidence exercise",
-      promise: "Participants receive a task, record, challenge, and debrief—not a generic lesson plan.",
+      promise: "Participants receive a task, a record, a challenge, and a debrief.",
       eyebrow: "Teaching exercise · 30 minutes",
       title: `Separate association from control in the case of ${name}`,
       sections: [

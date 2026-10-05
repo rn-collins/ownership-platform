@@ -118,6 +118,8 @@
 .lensAlt a{color:var(--i1-ink);font-weight:800;text-underline-offset:4px}
 
 .next{margin-top:var(--i1-space-4);display:grid;gap:var(--i1-space-2)}
+.position{margin:0;font-size:14px;font-weight:900;color:var(--i1-ink)}
+.position span{font-weight:600}
 .nextCase{display:grid;gap:6px;padding:var(--i1-space-3);border:var(--i1-rule);color:var(--i1-ink);text-decoration:none;background:var(--i1-paper-deep)}
 .nextCase:hover .nextQuestion{text-decoration:underline}
 .nextLabel{font-size:14px;font-weight:900}

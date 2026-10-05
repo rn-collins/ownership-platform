@@ -38,7 +38,7 @@ export default async function ObservatoryPage() {
 
     <section className="card" aria-labelledby="purpose-heading" style={{ marginTop: 18, borderLeft: "4px solid #b98f4d" }}>
       <p className="eyebrow">What this is for</p>
-      <h2 id="purpose-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30 }}>This is a comparative research collection—not a ranking or hall of fame.</h2>
+      <h2 id="purpose-heading" style={{ fontFamily: "Georgia, serif", fontSize: 30 }}>This is a comparative research collection that ranks no one.</h2>
       <p>Each career makes a different problem visible: a founder who owns the company but rents the audience; an executive whose authority depends on an employer; a creator whose identity is inseparable from the institution; or a public leader whose mandate may not survive succession.</p>
       <p><strong>Use it to test a conclusion.</strong> Open a case, compare it with another, filter by dependency, then find the countercase that makes the easy lesson harder to claim.</p><p>Every record uses publicly available evidence. The Observatory does not infer private facts or mix participant responses into the public case record.</p>
     </section>

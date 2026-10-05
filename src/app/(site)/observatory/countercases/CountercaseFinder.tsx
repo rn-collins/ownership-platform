@@ -107,7 +107,7 @@ export function CountercaseFinder({ nodes = SEED }: { nodes?: Node[] }) {
         <h2>{anchor.name}</h2>
         <p className={styles.lesson}>This case suggests <strong>{lesson.suggests}.</strong></p>
         <blockquote>{apparentEvidence(anchor)}</blockquote>
-        <Link href={`/observatory/${nodeSlug(anchor.name)}`}>Examine {anchor.name.split(" ")[0]}’s complete record →</Link>
+        <Link href={`/observatory/${nodeSlug(anchor.name)}`}>Examine {anchor.name.replace(/\s*\(.*?\)/g, "")}’s complete record →</Link>
       </div>
 
       <div className={styles.pivot} aria-hidden="true"><span>But examine</span><b>↘</b></div>
@@ -118,13 +118,13 @@ export function CountercaseFinder({ nodes = SEED }: { nodes?: Node[] }) {
         <h2>{counter.name}</h2>
         <p className={styles.lesson}>Examine this case before concluding that the apparent lesson generally follows.</p>
         <blockquote>{complication(counter)}</blockquote>
-        <Link href={`/observatory/${nodeSlug(counter.name)}`}>Examine {counter.name.split(" ")[0]}’s complete record →</Link>
+        <Link href={`/observatory/${nodeSlug(counter.name)}`}>Examine {counter.name.replace(/\s*\(.*?\)/g, "")}’s complete record →</Link>
       </div>
     </section>
 
     <section className={styles.test}>
       <div><p className={styles.kicker}>What the comparison tests</p><h2>{lesson.test}</h2></div>
-      <div><p>The countercase is selected because it changes the field, case type, or governing structural tension. It is a challenge to the inference—not proof that the first case is wrong.</p><button type="button" onClick={() => setCounterIndex((current) => (current + 1) % counters.length)}>Show another countercase →</button></div>
+      <div><p>The countercase is selected because it changes the field, case type, or governing structural tension. It is a challenge to the inference, and the first case may still be right.</p><button type="button" onClick={() => setCounterIndex((current) => (current + 1) % counters.length)}>Show another countercase →</button></div>
     </section>
 
     <aside className={styles.guardrail}><strong>No universal lesson is being scored.</strong><span>The Finder compares public evidence. It cannot establish private contracts, equity, intellectual-property ownership, decision rights, causation, or what would happen if the same choices were made elsewhere.</span></aside>

@@ -63,14 +63,24 @@ export function sourceKindLabel(kind: CaseResearchSource["kind"]) {
   return KIND_LABELS[kind];
 }
 
-const LONG_DATE = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const LONG_DATE = new Intl.DateTimeFormat("en-US", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
-/** "28 July 2026". Accepts a Date or an ISO "YYYY-MM-DD" string; any other string is returned unchanged. */
+/**
+ * Human-readable date in "Month D, YYYY" form, for example "July 28, 2026". Accepts a Date, an ISO
+ * "YYYY-MM-DD" string, or a "YYYY-MM" string (shown as "May 2022"). ISO dates inside a longer string
+ * are converted in place. Anything else, such as a bare year or "Current record", is returned unchanged.
+ */
 export function formatLongDate(value: Date | string): string {
   if (value instanceof Date) return LONG_DATE.format(value);
-  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value.trim());
-  if (!match) return value;
-  return LONG_DATE.format(new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]))));
+  return value.replace(/\b(\d{4})-(\d{2})(?:-(\d{2}))?\b/g, (whole, year: string, month: string, day?: string) => {
+    const monthIndex = Number(month) - 1;
+    if (monthIndex < 0 || monthIndex > 11) return whole;
+    if (day === undefined) return `${MONTHS[monthIndex]} ${year}`;
+    const dayNumber = Number(day);
+    if (dayNumber < 1 || dayNumber > 31) return whole;
+    return `${MONTHS[monthIndex]} ${dayNumber}, ${year}`;
+  });
 }
 
 /** Two-digit display number used for source references, e.g. 3 → "03". */
@@ -87,6 +97,9 @@ const ROUTES: { key: "Continue" | "Carry" | "Control"; tiers: RegExp[] }[] = [
   { key: "Continue", tiers: [
     /\b(continue|continuity|succession|successors?|survive|persist|preserve|sustain)\b/i,
     /\b(beyond|without|leaves?|unavailable|stopped)\b/i,
+    // Inflected forms ("succeeded", "survived", "disappears", "continued") that the exact words above miss.
+    /\b(succe\w+|surviv\w*|outlast\w*|disappear\w*)/i,
+    /\bcontinu\w*/i,
   ] },
   { key: "Carry", tiers: [
     /\b(mov(?:e|ed|es)|carr(?:y|ied)|portab\w*|travel\w*|export\w*|lawfully|reuse)\b/i,
@@ -115,6 +128,6 @@ export function buildFramework(opts: { built: string; unknowns: string[]; carryF
     { key: "Build", prompt: "What was built", label: "Turning point", text: opts.built },
     { key: "Carry", prompt: "What can travel", label: carryQ ? "Open question" : "Test", text: carryQ ?? opts.carryFallback },
     { key: "Control", prompt: "What can be governed", label: controlQ ? "Open question" : "Standard", text: controlQ ?? "The record must establish control; prominence cannot substitute for evidence." },
-    { key: "Continue", prompt: "What persists if a dependency changes", label: continueQ ? "Open question" : "Unknown", text: continueQ ?? "Unknown where succession, contracts, governance, or operating capacity are private." },
+    { key: "Continue", prompt: "What persists if a dependency changes", label: continueQ ? "Open question" : "Not publicly documented", text: continueQ ?? "The public record reviewed for this case does not say what continues if this person's role, employer, or relationship changes." },
   ];
 }

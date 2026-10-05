@@ -8,7 +8,7 @@ export const metadata:Metadata={title:"Case Documentation Ledger — The Observa
 const REQUIREMENTS=[
 ["Identity and scope","Disambiguated person, entities, roles, dates, jurisdictions, and the precise structural question the case is being used to examine."],
 ["Claim inventory","Every factual, causal, comparative, ownership, control, portability, and continuity claim separated into an auditable statement."],
-["Claim-level citations","Each material claim linked to the specific supporting source and, where possible, passage, page, timestamp, filing, or official record—not a shared bibliography attached to a whole section."],
+["Claim-level citations","Each material claim linked to the specific supporting source and, where possible, passage, page, timestamp, filing, or official record, with each source attached to its own claim."],
 ["Source triangulation","Primary records for formal facts; first-party sources for self-description; independent reporting or scholarship for corroboration and context; conflicts preserved rather than averaged away."],
 ["Structural chronology","Dated or honestly bounded events showing what changed, when, and which evidence supports each event. Broad periods remain broad."],
 ["Build–Carry–Control–Continue","Case-specific findings for what was built, what could travel, what was controlled, and what could persist. Visibility, influence, access, and legal ownership remain distinct."],

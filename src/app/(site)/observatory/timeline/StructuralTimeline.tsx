@@ -86,7 +86,7 @@ export function StructuralTimeline() {
       {events.length ? events.map((event) => <article className={styles.event} key={event.key}>
         <div className={styles.date}>{event.date}<span className={styles.precision}>{event.precision === "sequence" ? "Sequence only" : event.precision === "bounded" ? "Bounded period" : "Dated event"}</span></div>
         <div><p className={styles.label}>{event.transition.label}</p><h3>{event.person.name}</h3><p className={styles.meta}>{event.person.domain} · {event.person.tension} · {event.sourceCount} linked source{event.sourceCount === 1 ? "" : "s"}</p><p className={styles.evidence}>{event.evidence}</p><Link href={`/observatory/${event.slug}`}>Examine the complete case record →</Link></div>
-      </article>) : <div className={styles.empty}><strong>No records meet this combination.</strong><p>That is a gap in the standardized public record—not evidence that the transition never occurs.</p></div>}
+      </article>) : <div className={styles.empty}><strong>No records meet this combination.</strong><p>That is a gap in the standardized public record, and the transition may still occur.</p></div>}
     </section>
 
     <section className={styles.sequence}><p className={styles.kicker}>Read sequences, not a single ladder</p><h2>A transition can reverse, repeat, overlap, or remain incomplete.</h2><p>The categories organize observation; they do not claim that every career moves from left to right. A founder can re-enter employment. Direct distribution can remain platform-dependent. A named mandate can disappear before it becomes institutional capacity.</p></section>

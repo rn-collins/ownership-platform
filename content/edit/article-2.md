@@ -13,7 +13,7 @@ author: "RN Collins"
 
 ![Editorial evidence defining a digital replica and distinguishing the person from the asset.](primary-image.png)
 
-*A digital replica can depict a person realistically but falsely—and may be authorized or unauthorized. Source: U.S. Copyright Office, Copyright and Artificial Intelligence, Part 1: Digital Replicas (July 2024), p. 2.*
+*A digital replica can depict a person realistically but falsely, and may be authorized or unauthorized. Source: U.S. Copyright Office, Copyright and Artificial Intelligence, Part 1: Digital Replicas (July 2024), p. 2.*
 
 The easiest way to misunderstand creator content is to treat it as a flat image.
 
@@ -50,11 +50,11 @@ An agreement can identify different lanes:
 
 The goal is not to make every resize a negotiation. It is to prevent a necessary resize and a newly manufactured message from being treated as the same act.
 
-Dove’s campaign archive describes *Evolution* as revealing the construction of a beauty image. That makes it a useful cultural prompt—not evidence about an unrelated creator’s contract. Selection, retouching, sequencing, and context can alter what an image communicates. The lesson is not that every edit is forbidden. It is that an approved file and an approved message are not necessarily the same thing.
+Dove’s campaign archive describes *Evolution* as revealing the construction of a beauty image. That makes it a useful cultural prompt, not evidence about an unrelated creator’s contract. Selection, retouching, sequencing, and context can alter what an image communicates. The lesson is not that every edit is forbidden. It is that an approved file and an approved message are not necessarily the same thing.
 
 A useful workflow makes the difference visible before the edit reaches an audience. The editor knows which changes can be made without another round of review. The creator knows which changes will return for approval. The brand knows which placements or messages would require a new conversation. That is not friction added to the work. It is production information the work already needed.
 
-It also gives approval an object. Instead of “the creator approved the campaign,” the record can identify the exact file, version, caption, placement, territory, and date that were reviewed. When the next edit arrives, the team can compare it with something concrete. The question becomes whether the new version remains inside the recorded lane—not whether somebody can reconstruct an old conversation from a message thread after the campaign has already changed.
+It also gives approval an object. Instead of “the creator approved the campaign,” the record can identify the exact file, version, caption, placement, territory, and date that were reviewed. When the next edit arrives, the team can compare it with something concrete. The question becomes whether the new version remains inside the recorded lane, not whether somebody can reconstruct an old conversation from a message thread after the campaign has already changed.
 
 Permission and platform enforcement are also different layers. A valid license may not prevent an automated claim, so preserve the exact license, asset identifier, approved use, and version record needed to explain the use when a platform asks.
 

@@ -4,9 +4,11 @@ export type EditionMedia = {
   caption: string;
   credit: string;
   rights: string;
-  /** Intrinsic pixel size of the image served by commonsImageUrl(file) - reserves layout space before load. */
+  /** Intrinsic pixel size of the self-hosted image at `src` - reserves layout space before load. */
   width: number;
   height: number;
+  /** Self-hosted copy under public/edit-images/ (re-encoded from the Commons original; `file` still names the Commons source record). */
+  src: string;
 };
 
 export type CanonicalEdition = {
@@ -25,7 +27,7 @@ export type CanonicalEdition = {
   gated?: boolean;
 };
 
-const media = (file: string, alt: string, caption: string, credit: string, rights: string, width: number, height: number): EditionMedia => ({ file, alt, caption, credit, rights, width, height });
+const media = (file: string, alt: string, caption: string, credit: string, rights: string, width: number, height: number, src: string): EditionMedia => ({ file, alt, caption, credit, rights, width, height, src });
 
 export const cycleOneEditions: readonly CanonicalEdition[] = [
   {
@@ -35,13 +37,13 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     reader: "https://institutions-of-one-reader.vercel.app/stories/edition-005",
     experience: "https://institutions-of-one-reader.vercel.app/experiences/ownership-trail",
     media: [
-      media("Rechnung Buntpapier-Fabrik Hennessen & Jansen M.-Gladbach 1903.jpg", "A decorated-paper factory invoice dated 1903, with itemized charges and factory letterhead", "The invoice records a price and transaction; it does not disclose every permission or ownership term.", "Deutsches Buch- und Schriftmuseum / Forschungsstelle Papiergeschichte", "Public domain", 1920, 2486),
-      media("Signing the agreement (10442537774).jpg", "Parties signing a written operating agreement", "A documented signing makes the parties, governing instrument, and moment of assent visible.", "Oregon Department of Transportation", "CC BY 2.0", 1920, 1278),
-      media("Video production workers in studio studying bank of monitors showing camera views.jpg", "Production workers studying a bank of studio monitors", "A working crew reveals the multiple contributors behind a finished deliverable.", "Ryan Hagerty, U.S. Fish and Wildlife Service, via Public-domain-image.com (date not given)", "Public domain (U.S. federal government work)", 1920, 1301),
-      media("Graticule.jpg", "Animator’s translucent layout sheet with field guides and peg holes", "A working animation sheet identifies the production format and physical handoff behind a finished frame.", "Popolon", "CC BY-SA 4.0", 1920, 1354),
-      media("Group discusses storyboards.jpg", "Three colleagues review illustrated storyboards around a conference table", "A shared storyboard gives the first scope conversation a concrete object: the team can point to what will be made before pricing its uses.", "Bill Branson / National Cancer Institute, NIH", "Public domain", 1920, 1280),
-      media("Sales contract Shuruppak Louvre AO3766.jpg", "A Sumerian clay tablet recording the sale of a field and house", "A deal record preserves the exchange outside anyone’s memory—even when the medium changes.", "Marie-Lan Nguyen / Louvre Museum", "Public domain", 1800, 1700),
-      media("PixelMusica - Video Production Team.jpg", "Video production team working together", "A production team demonstrates why deal records must identify people, roles, files and obligations.", "Le Martel, 2022-03-23 (PixelMusica video production team)", "CC BY-SA 4.0", 1920, 1280),
+      media("Rechnung Buntpapier-Fabrik Hennessen & Jansen M.-Gladbach 1903.jpg", "A decorated-paper factory invoice dated 1903, with itemized charges and factory letterhead", "The invoice records a price and transaction; it does not disclose every permission or ownership term.", "Deutsches Buch- und Schriftmuseum / Forschungsstelle Papiergeschichte", "Public domain", 1408, 1823, "/edit-images/005/rechnung-buntpapier-fabrik-hennessen-and-jansen-m-gladbach.jpg"),
+      media("Signing the agreement (10442537774).jpg", "Parties signing a written operating agreement", "A documented signing makes the parties, governing instrument, and moment of assent visible.", "Oregon Department of Transportation", "CC BY 2.0", 1600, 1065, "/edit-images/005/signing-the-agreement-10442537774.jpg"),
+      media("Video production workers in studio studying bank of monitors showing camera views.jpg", "Production workers studying a bank of studio monitors", "A working crew reveals the multiple contributors behind a finished deliverable.", "Ryan Hagerty, U.S. Fish and Wildlife Service, via Public-domain-image.com (date not given)", "Public domain (U.S. federal government work)", 1600, 1084, "/edit-images/005/video-production-workers-in-studio-studying-bank-of.jpg"),
+      media("Graticule.jpg", "Animator’s translucent layout sheet with field guides and peg holes", "A working animation sheet identifies the production format and physical handoff behind a finished frame.", "Popolon", "CC BY-SA 4.0", 1600, 1128, "/edit-images/005/graticule.jpg"),
+      media("Group discusses storyboards.jpg", "Three colleagues review illustrated storyboards around a conference table", "A shared storyboard gives the first scope conversation a concrete object: the team can point to what will be made before pricing its uses.", "Bill Branson / National Cancer Institute, NIH", "Public domain", 1600, 1067, "/edit-images/005/group-discusses-storyboards.jpg"),
+      media("Sales contract Shuruppak Louvre AO3766.jpg", "A Sumerian clay tablet recording the sale of a field and house", "A deal record preserves the exchange outside anyone’s memory—even when the medium changes.", "Marie-Lan Nguyen / Louvre Museum", "Public domain", 1600, 1511, "/edit-images/005/sales-contract-shuruppak-louvre-ao3766.jpg"),
+      media("PixelMusica - Video Production Team.jpg", "Video production team working together", "A production team demonstrates why deal records must identify people, roles, files and obligations.", "Le Martel, 2022-03-23 (PixelMusica video production team)", "CC BY-SA 4.0", 1600, 1067, "/edit-images/005/pixelmusica-video-production-team.jpg"),
     ],
   },
   {
@@ -50,12 +52,12 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     packages: ["P04", "P05", "P06", "P07"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-person-inside-the-asset",
     reader: "https://institutions-of-one-reader.vercel.app/stories/edition-006",
     media: [
-      media("Moviola Model D (MOMI).jpg", "A 1927 Moviola film-editing machine with viewing and microscope attachments", "The editing apparatus makes alteration a separate production act, not an invisible extension of permission to post.", "HaeB / Museum of the Moving Image", "CC BY-SA 4.0", 1920, 2880),
-      media("WLA LACMA label.jpg", "A museum accession-number label photographed at LACMA", "A label identifies and credits an object; by itself, it is not a permission record.", "Allison Agsten / LACMA", "Public domain", 1920, 1440),
-      media("Vocal recording setup & IYE - Studio B, In Your Ear Studios.jpg", "Voice-over recording setup in a professional studio", "A voice recording setup separates the performer, recording, equipment, and later uses carried inside one asset.", "Will Fisher", "CC BY-SA 2.0", 1920, 1280),
-      media("Camera crew setting everything up.jpg", "Camera crew preparing equipment on location", "The crew and equipment make the chain of contribution visible before publication.", "Nirvana Studios - Custom Circus, 2026-02-19", "CC BY 4.0", 1920, 1280),
-      media("Hardenstein 2014 -- Model Release.png", "Completed model-release document", "A model release is a distinct record of likeness consent, not a substitute for copyright ownership.", "RalfHuels, based on a template by Joi Ito, 2014-04-19", "CC BY 3.0", 826, 1169),
-      media("Camera_crew_Brielle.JPG", "A location camera crew works around a mounted cinema camera", "The crew makes the people, equipment and production roles inside one finished asset visible.", "Peter van der Sluijs via Wikimedia Commons", "CC BY-SA 3.0", 1600, 1067),
+      media("Moviola Model D (MOMI).jpg", "A 1927 Moviola film-editing machine with viewing and microscope attachments", "The editing apparatus makes alteration a separate production act, not an invisible extension of permission to post.", "HaeB / Museum of the Moving Image", "CC BY-SA 4.0", 1600, 2400, "/edit-images/006/moviola-model-d-momi.jpg"),
+      media("WLA LACMA label.jpg", "A museum accession-number label photographed at LACMA", "A label identifies and credits an object; by itself, it is not a permission record.", "Allison Agsten / LACMA", "Public domain", 1600, 1200, "/edit-images/006/wla-lacma-label.jpg"),
+      media("Vocal recording setup & IYE - Studio B, In Your Ear Studios.jpg", "Voice-over recording setup in a professional studio", "A voice recording setup separates the performer, recording, equipment, and later uses carried inside one asset.", "Will Fisher", "CC BY-SA 2.0", 1600, 1067, "/edit-images/006/vocal-recording-setup-and-iye-studio-b-in-your-ear-studios.jpg"),
+      media("Camera crew setting everything up.jpg", "Camera crew preparing equipment on location", "The crew and equipment make the chain of contribution visible before publication.", "Nirvana Studios - Custom Circus, 2026-02-19", "CC BY 4.0", 1600, 1067, "/edit-images/006/camera-crew-setting-everything-up.jpg"),
+      media("Hardenstein 2014 -- Model Release.png", "Completed model-release document", "A model release is a distinct record of likeness consent, not a substitute for copyright ownership.", "RalfHuels, based on a template by Joi Ito, 2014-04-19", "CC BY 3.0", 826, 1169, "/edit-images/006/hardenstein-2014-model-release.jpg"),
+      media("Camera_crew_Brielle.JPG", "A location camera crew works around a mounted cinema camera", "The crew makes the people, equipment and production roles inside one finished asset visible.", "Peter van der Sluijs via Wikimedia Commons", "CC BY-SA 3.0", 1600, 1067, "/edit-images/006/camera-crew-brielle.jpg"),
     ],
   },
   {
@@ -72,13 +74,13 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     reader: "https://institutions-of-one-reader.vercel.app/stories/edition-008",
     experience: "https://institutions-of-one-reader.vercel.app/experiences/health-check",
     media: [
-      media("Carl Urbano working on a storyboard, 1967.jpg", "Production supervisor Carl Urbano works over a storyboard in 1967", "The storyboard turns scattered production decisions into a visible sequence; the system exists in the relationships among them.", "Steve Fontanini / Los Angeles Times Photographic Collection at UCLA", "CC BY 4.0", 1920, 2359),
-      media("Asana Data workflow.jpg", "Data workflow documented in Asana", "A production workflow turns decisions into inspectable assignments and dependencies.", "John Cummings", "CC BY-SA 4.0", 1920, 577),
-      media("Filming production.jpg", "Crew filming a production on location", "A production set shows multiple roles working from one coordinated plan.", "Yemi Festus", "CC BY-SA 4.0", 1920, 1280),
-      media("35MM ARC Lamp, Film Projector, Sound Mixer.jpg", "Film projector, arc lamp, and sound mixer in a studio collection", "Separate technical systems make the production chain visible as more than a single file.", "Nilanjan19", "CC BY-SA 4.0", 1920, 1440),
-      media("My Fair Brady production crew photo Don Ramey Logan.jpg", "Television production crew posed together", "A crew makes the people responsible for building and carrying the work visible.", "Don Ramey Logan", "CC BY-SA 3.0", 1920, 1348),
-      media("5.1 mixing room for Radio, TV, and Film production, equipt with AVID Pro Tools including ICON D-Command - Control Room B, In Your Ear Studios.jpg", "Audio post-production control room with mixing console", "The mixing room documents a specialized handoff in the post-production workflow.", "Will Fisher, 2014-11-26", "CC BY-SA 2.0", 1920, 1280),
-      media("OLUWAFEMI JONATHAN.jpg", "Camera editor working with production equipment", "A named production specialist represents accountable authorship inside a collaborative system.", "Oluwafemi Jonathan", "CC BY-SA 4.0", 1920, 1280),
+      media("Carl Urbano working on a storyboard, 1967.jpg", "Production supervisor Carl Urbano works over a storyboard in 1967", "The storyboard turns scattered production decisions into a visible sequence; the system exists in the relationships among them.", "Steve Fontanini / Los Angeles Times Photographic Collection at UCLA", "CC BY 4.0", 1600, 1966, "/edit-images/008/carl-urbano-working-on-a-storyboard-1967.jpg"),
+      media("Asana Data workflow.jpg", "Data workflow documented in Asana", "A production workflow turns decisions into inspectable assignments and dependencies.", "John Cummings", "CC BY-SA 4.0", 1600, 481, "/edit-images/008/asana-data-workflow.jpg"),
+      media("Filming production.jpg", "Crew filming a production on location", "A production set shows multiple roles working from one coordinated plan.", "Yemi Festus", "CC BY-SA 4.0", 1600, 1067, "/edit-images/008/filming-production.jpg"),
+      media("35MM ARC Lamp, Film Projector, Sound Mixer.jpg", "Film projector, arc lamp, and sound mixer in a studio collection", "Separate technical systems make the production chain visible as more than a single file.", "Nilanjan19", "CC BY-SA 4.0", 1600, 1200, "/edit-images/008/35mm-arc-lamp-film-projector-sound-mixer.jpg"),
+      media("My Fair Brady production crew photo Don Ramey Logan.jpg", "Television production crew posed together", "A crew makes the people responsible for building and carrying the work visible.", "Don Ramey Logan", "CC BY-SA 3.0", 1600, 1123, "/edit-images/008/my-fair-brady-production-crew-photo-don-ramey-logan.jpg"),
+      media("5.1 mixing room for Radio, TV, and Film production, equipt with AVID Pro Tools including ICON D-Command - Control Room B, In Your Ear Studios.jpg", "Audio post-production control room with mixing console", "The mixing room documents a specialized handoff in the post-production workflow.", "Will Fisher, 2014-11-26", "CC BY-SA 2.0", 1600, 1067, "/edit-images/008/5-1-mixing-room-for-radio-tv-and-film-production-equipt.jpg"),
+      media("OLUWAFEMI JONATHAN.jpg", "Camera editor working with production equipment", "A named production specialist represents accountable authorship inside a collaborative system.", "Oluwafemi Jonathan", "CC BY-SA 4.0", 1600, 1067, "/edit-images/008/oluwafemi-jonathan.jpg"),
     ],
   },
   // Counsel review for P15/P16/P17 completed and all three were signed off 2026-09-24.
@@ -91,10 +93,10 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     // (institutions-of-one-reader's data/cycle01/render-inputs/live-gallery/p15-*.json,
     // p17-*.json) rather than sourcing fresh images.
     media: [
-      media("Signing ceremony (14443611224).jpg", "Formal signing ceremony with participants gathered around a written agreement", "A signature is the moment a negotiated boundary becomes a governing document—the question is always what boundary it actually states.", "Foreign and Commonwealth Office, 2014-06-17", "CC BY 2.0", 1920, 1280),
-      media("Signed and witness partnership agreement Wellcome L0040613.jpg", "A signed and witnessed partnership agreement", "The license-versus-transfer distinction lives in writing like this, not in the price paid or the file delivered.", "Wellcome Library, London", "CC BY 4.0", 1920, 2361),
-      media("Agreement signed F. Desloge, November 22, 1883.jpg", "An 1883 agreement with a clause crossed out and rewritten by hand", "A word struck through and replaced is the physical record of a boundary being negotiated—the same negotiation a broad, unread clause skips.", "Firmin Desloge Jr. / Missouri History Museum", "Public domain", 1920, 2948),
-      media("Michael D. Antonovich filming Senatorial campaign ad at the California-Mexican border, 1986.jpg", "A 1986 campaign advertisement being filmed on location", "A campaign-specific ad is a bounded deliverable, made for one race, one moment—the opposite of a grant that outlives it.", "Los Angeles Times via UCLA Library Los Angeles Times Photographic Collection", "CC BY 4.0", 1920, 1385),
+      media("Signing ceremony (14443611224).jpg", "Formal signing ceremony with participants gathered around a written agreement", "A signature is the moment a negotiated boundary becomes a governing document—the question is always what boundary it actually states.", "Foreign and Commonwealth Office, 2014-06-17", "CC BY 2.0", 1600, 1067, "/edit-images/009/signing-ceremony-14443611224.jpg"),
+      media("Signed and witness partnership agreement Wellcome L0040613.jpg", "A signed and witnessed partnership agreement", "The license-versus-transfer distinction lives in writing like this, not in the price paid or the file delivered.", "Wellcome Library, London", "CC BY 4.0", 1600, 1968, "/edit-images/009/signed-and-witness-partnership-agreement-wellcome-l0040613.jpg"),
+      media("Agreement signed F. Desloge, November 22, 1883.jpg", "An 1883 agreement with a clause crossed out and rewritten by hand", "A word struck through and replaced is the physical record of a boundary being negotiated—the same negotiation a broad, unread clause skips.", "Firmin Desloge Jr. / Missouri History Museum", "Public domain", 1408, 2162, "/edit-images/009/agreement-signed-f-desloge-november-22-1883.jpg"),
+      media("Michael D. Antonovich filming Senatorial campaign ad at the California-Mexican border, 1986.jpg", "A 1986 campaign advertisement being filmed on location", "A campaign-specific ad is a bounded deliverable, made for one race, one moment—the opposite of a grant that outlives it.", "Los Angeles Times via UCLA Library Los Angeles Times Photographic Collection", "CC BY 4.0", 1600, 1154, "/edit-images/009/michael-d-antonovich-filming-senatorial-campaign-ad-at-the.jpg"),
     ],
   },
 ] as const;
@@ -136,5 +138,4 @@ const packageTitles: Record<string, string> = {
 };
 export const packageTitle = (id: string) => packageTitles[id] ?? "Visual story";
 export const packageGalleryUrl = (id: string) => `https://institutions-of-one-reader.vercel.app/production/cycle-01/${id.toLowerCase()}`;
-export const commonsImageUrl = (file: string) => `https://institutions-of-one-reader.vercel.app/api/commons-image?file=${encodeURIComponent(file)}&width=1600`;
 export const commonsSourceUrl = (file: string) => `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.replace(/ /g, "_"))}`;

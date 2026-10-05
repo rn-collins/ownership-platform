@@ -35,7 +35,7 @@ I use **Institution of One** to describe that operating condition: one person ca
 
 ## A pile of tools is not yet a system
 
-It is possible to have a calendar, cloud drive, task board, notes app, contract folder, invoice platform, editing suite, and client portal—and still be unable to answer a basic question.
+It is possible to have a calendar, cloud drive, task board, notes app, contract folder, invoice platform, editing suite, and client portal, and still be unable to answer a basic question.
 
 Which file did the client approve?
 
@@ -212,7 +212,7 @@ For the next sponsored post—or any project with several people, assets, routes
 - **Memory:** Which files, dates, versions, approvals, and decisions must survive?
 - **Learning:** What result, correction, failure, or audience response should change the next cycle?
 
-The map is not the institution. It is a way to see whether one exists—and where it may fail next.
+The map is not the institution. It is a way to see whether one exists, and where it may fail next.
 
 ### Sources and further reading
 
@@ -228,4 +228,4 @@ The map is not the institution. It is a way to see whether one exists—and wher
 - [Jeremy Bassetti, “Organize, Archive, and Back Up Your Photos | My Workflow + Tips” (October 22, 2024)](https://jeremybassetti.com/fieldnotes/2024/organize-digital-photographs/)
 - [IKEA, Assembly Instructions](https://www.ikea.com/es/en/customer-service/product-support/assembly-guides/)
 
-*General educational information, not legal advice. Apart from the photographer’s account, which is cited in the sources list, the description of creator workloads in the opening section is a general illustration. It is not sourced to individual accounts and is not evidence of how common any practice is. The maps and checklists in this article are the author’s own preparation and coordination tools, not substitutes for advice about a specific agreement, law, platform, or jurisdiction.*
+*General educational information, not legal advice. Apart from the photographer’s account, which is cited in the sources list, the description of creator work in the opening section is general, drawn from the author’s own research notes; it is not linked here and is not evidence of how common any practice is. The maps and checklists in this article are the author’s own preparation and coordination tools, not substitutes for advice about a specific agreement, law, platform, or jurisdiction.*

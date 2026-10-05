@@ -165,7 +165,7 @@ Then ask one final question:
 
 > Does the contract describe the route the campaign team is actually about to build?
 
-The asset’s value is not contained only in the file. Value changes with the route around it—and with the person, account, market, time, and future opportunities the route carries along.
+The asset’s value is not contained only in the file. Value changes with the route around it, and with the person, account, market, time, and future opportunities the route carries along.
 
 ### Sources and further reading
 

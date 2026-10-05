@@ -219,7 +219,7 @@ The map is not the institution. It is a way to see whether one exists, and where
 - [U.S. Copyright Office, Circulars: Copyright Basics and How to Obtain Permission](https://www.copyright.gov/circs/)
 - [17 U.S.C. Chapters 1 and 2](https://www.copyright.gov/title17/)
 - [Federal Trade Commission, Endorsements, Influencers, and Reviews](https://www.ftc.gov/business-guidance/advertising-marketing/endorsements-influencers-reviews)
-- [Meta, Creator Marketplace and Partnership Ads](https://www.facebook.com/business/ads/creator-marketplace)
+- [Meta for Developers, Instagram Creator Marketplace API](https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-facebook-login/creator-marketplace)
 - [Meta Help, Partnership Ads and Branded Content Eligibility](https://www.facebook.com/help/instagram/1372533836927082)
 - [YouTube Help, Embed Videos and Playlists](https://support.google.com/youtube/answer/171780?hl=en)
 - [Google Docs Editors Help, Find Out What’s Changed in a File](https://support.google.com/docs/answer/190843)

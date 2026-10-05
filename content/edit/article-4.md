@@ -25,7 +25,7 @@ Someone had the idea. Someone translated it into instructions. Someone decided w
 
 Sometimes all of those someones are one person.
 
-Creators describe this work in the language of time, scattering, and attention: ideas kept in several places, weeks that mix writing, testing, recording, scripting, and research, and photographs lost because they were never backed up.
+Creators describe this work in the language of time, scattering, and attention: ideas kept in several places, weeks that mix writing, testing, recording, scripting, and research, and photographs lost because they were never backed up. One photographer, Jeremy Bassetti, wrote in October 2024 that managing digital files is “far from the most interesting part of being a photographer,” and described losing a significant amount of unbacked-up work to a hard drive failure before settling on a simple monthly routine.
 
 This is a general description, not prevalence data. It is enough to reveal the practical question underneath this series:
 
@@ -225,6 +225,7 @@ The map is not the institution. It is a way to see whether one exists—and wher
 - [Google Docs Editors Help, Find Out What’s Changed in a File](https://support.google.com/docs/answer/190843)
 - [Adobe Premiere, Share for Review with Frame.io](https://helpx.adobe.com/in/premiere/desktop/collaborate-with-others/share-for-review-using-frame-io/share-for-review-with-frame-io.html)
 - [Adobe Premiere, Import Frame.io Comments as Markers](https://helpx.adobe.com/premiere/desktop/collaborate-with-others/share-for-review-using-frame-io/import-comments-as-markers.html)
+- [Jeremy Bassetti, “Organize, Archive, and Back Up Your Photos | My Workflow + Tips” (October 22, 2024)](https://jeremybassetti.com/fieldnotes/2024/organize-digital-photographs/)
 - [IKEA, Assembly Instructions](https://www.ikea.com/es/en/customer-service/product-support/assembly-guides/)
 
-*General educational information, not legal advice. The description of creator workloads in the opening section is a general illustration. It is not sourced to individual accounts and is not evidence of how common any practice is. The maps and checklists in this article are the author’s own preparation and coordination tools, not substitutes for advice about a specific agreement, law, platform, or jurisdiction.*
+*General educational information, not legal advice. Apart from the photographer’s account, which is cited in the sources list, the description of creator workloads in the opening section is a general illustration. It is not sourced to individual accounts and is not evidence of how common any practice is. The maps and checklists in this article are the author’s own preparation and coordination tools, not substitutes for advice about a specific agreement, law, platform, or jurisdiction.*

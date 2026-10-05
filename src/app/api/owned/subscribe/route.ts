@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     if (creator) {
       await prisma.subscriber.upsert({
         where: { creatorId_email: { creatorId: creator.id, email } },
-        update: {},
+        update: { unsubscribedAt: null }, // signing up again is a fresh opt-in
         create: { creatorId: creator.id, email },
       });
     }

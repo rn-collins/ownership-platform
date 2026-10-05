@@ -50,3 +50,37 @@ export async function beehiivSubscribe(opts: {
     return { ok: false, synced: false };
   }
 }
+
+export type BeehiivUnsubscribeResult = {
+  // unsubscribed: Beehiiv confirmed. not_found: Beehiiv has no subscriber with
+  // this email, so there is nothing to stop. not_configured: env keys missing.
+  // failed: Beehiiv was unreachable or refused the request.
+  outcome: "unsubscribed" | "not_found" | "not_configured" | "failed";
+  status?: number;
+};
+
+// Stops The Polymath emails for one address. Uses Beehiiv's "update subscription
+// by email" endpoint with unsubscribe: true. Never throws; never logs the key.
+export async function beehiivUnsubscribe(email: string): Promise<BeehiivUnsubscribeResult> {
+  if (!beehiivConfigured()) return { outcome: "not_configured" };
+
+  const pub = process.env.BEEHIIV_PUBLICATION_ID as string;
+  const key = process.env.BEEHIIV_API_KEY as string;
+
+  try {
+    const res = await fetch(
+      `https://api.beehiiv.com/v2/publications/${encodeURIComponent(pub)}/subscriptions/by_email/${encodeURIComponent(email)}`,
+      {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ unsubscribe: true }),
+        signal: AbortSignal.timeout(6000),
+      },
+    );
+    if (res.ok) return { outcome: "unsubscribed", status: res.status };
+    if (res.status === 404) return { outcome: "not_found", status: 404 };
+    return { outcome: "failed", status: res.status };
+  } catch {
+    return { outcome: "failed" };
+  }
+}

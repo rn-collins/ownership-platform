@@ -3,6 +3,8 @@ import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { getUser } from "@/lib/supabase/server";
 import { getResend, getFrom, sendBroadcast } from "@/lib/email";
+import { ownedUnsubscribeUrl, renderBroadcast, unsubscribeHeaders } from "@/lib/broadcast";
+import { dataRightsConfigured } from "@/lib/token";
 import { renderMarkdown, plainExcerpt } from "@/lib/markdown";
 import { EVIDENCE_TIER } from "@/lib/engine";
 
@@ -21,6 +23,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "email-not-configured" }, { status: 400 });
   }
 
+  // Every email carries a signed unsubscribe link, so the signing secret must exist.
+  if (!dataRightsConfigured()) {
+    return NextResponse.json({ ok: false, error: "unsubscribe-not-configured" }, { status: 503 });
+  }
+
   const body = await req.json().catch(() => null);
   const parsed = schema.safeParse(body);
   if (!parsed.success) return NextResponse.json({ ok: false, error: "invalid" }, { status: 422 });
@@ -37,23 +44,22 @@ export async function POST(req: Request) {
   if (!post) return NextResponse.json({ ok: false, error: "post-not-published" }, { status: 400 });
   if (post.broadcastAt) return NextResponse.json({ ok: false, error: "already-sent" }, { status: 409 });
 
-  const subs = await prisma.subscriber.findMany({ where: { creatorId: creator.id }, select: { email: true } });
+  const subs = await prisma.subscriber.findMany({ where: { creatorId: creator.id, unsubscribedAt: null }, select: { email: true } });
   if (subs.length === 0) return NextResponse.json({ ok: false, error: "no-subscribers" }, { status: 400 });
 
   const origin = new URL(req.url).origin;
   const url = `${origin}/u/${creator.slug}/${post.slug}`;
   const name = creator.displayName || creator.slug || "";
   const contentHtml = renderMarkdown(post.body);
-  const html = `<div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;color:#1b2233;">
-    <h1 style="font-size:24px;">${post.title}</h1>
-    <div style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;">${contentHtml}</div>
-    <p style="font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#6b7488;margin-top:24px;">
-      You're receiving this because you subscribed to ${name}. <a href="${url}">Read on the web</a>.
-    </p>
-  </div>`;
-  const text = `${post.title}\n\n${plainExcerpt(post.body, 120)}\n\nRead: ${url}`;
+  const contentText = plainExcerpt(post.body, 120);
+  const postalAddress = process.env.BROADCAST_POSTAL_ADDRESS;
 
-  const emails = subs.map((s) => ({ to: s.email, subject: post.title, html, text }));
+  // One email per subscriber, each with that person's own unsubscribe link.
+  const emails = subs.map((s) => {
+    const unsubscribeUrl = ownedUnsubscribeUrl(origin, creator.id, s.email);
+    const { html, text } = renderBroadcast({ title: post.title, contentHtml, contentText, name, url, unsubscribeUrl, postalAddress });
+    return { to: s.email, subject: post.title, html, text, headers: unsubscribeHeaders(unsubscribeUrl) };
+  });
   const { sent, error } = await sendBroadcast(emails);
   if (error) return NextResponse.json({ ok: false, error }, { status: 400 });
 

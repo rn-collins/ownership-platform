@@ -52,6 +52,7 @@ export function Writer({ initialPosts, slug, dbReady, subscriberCount }: { initi
       setSendState("error");
       const map: Record<string, string> = {
         "email-not-configured": "Email isn't set up yet (add RESEND_API_KEY and RESEND_FROM).",
+        "unsubscribe-not-configured": "Sending is paused until the site's unsubscribe link signing key is set (DATA_RIGHTS_SECRET).",
         "already-sent": "This post was already sent.",
         "no-subscribers": "You have no subscribers yet.",
         "post-not-published": "Publish the post before sending.",

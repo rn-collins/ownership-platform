@@ -23,7 +23,7 @@ The Pujols release uses different words, but the question has the same shape: ho
 
 ## The sentence sounds like boilerplate, but it is a live legal instrument
 
-Standard contract language has a habit of disappearing into the background. “All media now known or hereafter devised” reads like throat-clearing—the kind of phrase a lawyer adds out of caution, not intent. But the phrase does real work. It does not describe the deliverables a creator was hired to make. It describes every deliverable a *technology that does not exist yet* could someday make from the same material.
+Standard contract language has a habit of disappearing into the background. “All media now known or hereafter devised” reads like throat-clearing, the kind of phrase a lawyer adds out of caution, not intent. But the phrase does real work. It does not describe the deliverables a creator was hired to make. It describes every deliverable a *technology that does not exist yet* could someday make from the same material.
 
 A beverage brand asks a creator for three launch clips, for Instagram and TikTok. The draft agreement also proposes use “in all media now known or hereafter devised.” Unless the draft limits it elsewhere, that clause reaches far beyond the three clips and the two platforms named in the brief. The phrase says nothing about how long the grant lasts. Unless the draft sets an end date, nothing in it ties the grant to the campaign, and nothing requires the brand to return and ask again when a new distribution channel, or a new way of generating derivative content from the original footage, appears.
 
@@ -33,11 +33,11 @@ Dave Chappelle described a related problem in *Unforgiven*, a 2020 video he post
 
 A broad future-use clause matters partly because it can sit beside a question the deal never settles: did this agreement transfer ownership of the work, or only permission to use it?
 
-U.S. copyright law treats these as genuinely different transactions. Ownership can be transferred—in whole or in part—but 17 U.S.C. §204(a) requires that kind of transfer to be in writing and signed by the rights holder. A non-exclusive license carries no such requirement; it can even be implied. The result is a legal system that puts an enormous amount of weight on a distinction that a casual reading of an agreement can easily miss.
+U.S. copyright law treats these as genuinely different transactions. Ownership can be transferred, in whole or in part, but 17 U.S.C. §204(a) requires that kind of transfer to be in writing and signed by the rights holder. A non-exclusive license carries no such requirement; it can even be implied. The result is a legal system that puts an enormous amount of weight on a distinction that a casual reading of an agreement can easily miss.
 
-*Reinsdorf v. Skechers U.S.A., Inc.* is a useful illustration of what happens when nobody resolves that distinction cleanly before the work starts moving. Photographer Richard Reinsdorf shot images for Skechers over several years. His invoices stated license terms of six months, generally limited to North America, for point-of-sale displays, magazines, and outdoor ads. Reinsdorf alleged that Skechers kept using the images for years beyond that term, overseas, and on packaging—allegations Skechers disputed.
+*Reinsdorf v. Skechers U.S.A., Inc.* is a useful illustration of what happens when nobody resolves that distinction cleanly before the work starts moving. Photographer Richard Reinsdorf shot images for Skechers over several years. His invoices stated license terms of six months, generally limited to North America, for point-of-sale displays, magazines, and outdoor ads. Reinsdorf alleged that Skechers kept using the images for years beyond that term, overseas, and on packaging. Skechers disputed those allegations.
 
-When sued, Skechers argued that it was a joint author of the finished advertisements, which would have let it use them without license limits. In a February 6, 2013 order (922 F. Supp. 2d 866, 2013 WL 454828), the federal district court (C.D. Cal., Judge Dean Pregerson) denied Skechers’ motion for summary judgment on that point, holding that a genuine factual dispute remained over whether the parties intended to be co-authors—pointing to the usage fees and the time-and-territory limits in Reinsdorf’s invoices as evidence cutting against shared authorship.
+When sued, Skechers argued that it was a joint author of the finished advertisements, which would have let it use them without license limits. In a February 6, 2013 order (922 F. Supp. 2d 866, 2013 WL 454828), the federal district court (C.D. Cal., Judge Dean Pregerson) denied Skechers’ motion for summary judgment on that point, holding that a genuine factual dispute remained over whether the parties intended to be co-authors, pointing to the usage fees and the time-and-territory limits in Reinsdorf’s invoices as evidence cutting against shared authorship.
 
 The same order barred Reinsdorf from seeking statutory damages and attorney’s fees, which he did not contest, because his photographs were not registered in time. It also excluded his survey and damages experts’ opinions and rejected his claim to a share of Skechers’ indirect profits.
 
@@ -45,24 +45,24 @@ The terms of the deal lived on invoices, and the parties disagreed about what th
 
 ## A brand and a creator need the same answer, not just a price
 
-None of this is an argument against broad rights, long terms, or generous compensation. A brand may have good reasons to want flexibility across new formats and future campaigns. A creator may be willing to sell exactly that flexibility—for a price that reflects what is actually being sold.
+None of this is an argument against broad rights, long terms, or generous compensation. A brand may have good reasons to want flexibility across new formats and future campaigns. A creator may be willing to sell exactly that flexibility, at a price that reflects what is actually being sold.
 
 The problem is not scope. It is silence about scope. A $2,000 invoice and a five-year, all-media, worldwide license are not the same transaction wearing different clothes; they are different transactions, and a price set for one does not cover the other.
 
 Ask explicitly: license or buyout? Then put the actual boundary in writing:
 
-- **Media**—which formats and platforms, named specifically, not “all media.”
-- **Term**—how long the permission lasts, and what happens at the end.
-- **Territory**—where the work may be used, and whether that means availability or active marketing.
-- **Paid use**—whether organic posting and paid advertising are the same permission or two different ones.
-- **Edits**—whether cropping, translating, dubbing, or algorithmically altering the material is included.
-- **New technology**—whether a use “hereafter devised” needs a separate conversation before it happens.
-- **Sublicensing**—whether the counterparty can hand the rights to someone else.
-- **Renewal and compensation**—what happens, and what is owed, if the relationship or the use continues past the original scope.
+- **Media:** which formats and platforms, named specifically, not “all media.”
+- **Term:** how long the permission lasts, and what happens at the end.
+- **Territory:** where the work may be used, and whether that means availability or active marketing.
+- **Paid use:** whether organic posting and paid advertising are the same permission or two different ones.
+- **Edits:** whether cropping, translating, dubbing, or algorithmically altering the material is included.
+- **New technology:** whether a use “hereafter devised” needs a separate conversation before it happens.
+- **Sublicensing:** whether the counterparty can hand the rights to someone else.
+- **Renewal and compensation:** what happens, and what is owed, if the relationship or the use continues past the original scope.
 
 ## The clause should match the campaign, not outlive it
 
-Institutions of One is not a claim that every broad grant is exploitative, or that every narrow one is fair. It is a reminder that the difference between a scoped deal and an open-ended one is legible in the contract, if anyone reads it that closely before signing—and that “now known or hereafter devised” is not neutral language. It is language that can reach further than either side pictured at signing, and that reach may go unnoticed until a new use, or a new technology, tests it.
+Institutions of One is not a claim that every broad grant is exploitative, or that every narrow one is fair. It is a reminder that the difference between a scoped deal and an open-ended one is legible in the contract, if anyone reads it that closely before signing, and that “now known or hereafter devised” is not neutral language. It is language that can reach further than either side pictured at signing, and that reach may go unnoticed until a new use, or a new technology, tests it.
 
 Ask what the contract actually says. Then ask whether it says what both sides think it says.
 

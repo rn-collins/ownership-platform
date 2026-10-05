@@ -49,7 +49,7 @@ export async function POST(req: Request) {
       const resend = new Resend(resendKey);
       const result = await resend.emails.send({
         from,
-        to: process.env.INQUIRY_TO_EMAIL || "collins.ra@northeastern.edu",
+        to: process.env.INQUIRY_TO_EMAIL || "rayven.nikkita.collins@gmail.com",
         replyTo: d.email,
         subject: `Institutions of One inquiry — ${d.kind}`,
         text: [

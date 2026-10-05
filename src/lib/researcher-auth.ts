@@ -1,7 +1,7 @@
 import { getUser } from "@/lib/supabase/server";
 
 function authorizedEmails() {
-  return new Set((process.env.RESEARCHER_EMAILS ?? "collins.ra@northeastern.edu")
+  return new Set((process.env.RESEARCHER_EMAILS ?? "collins.ra@northeastern.edu,rayven.nikkita.collins@gmail.com")
     .split(",")
     .map((email) => email.trim().toLowerCase())
     .filter(Boolean));

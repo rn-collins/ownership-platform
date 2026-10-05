@@ -16,7 +16,7 @@ export default function UnsubscribePage({ searchParams }: { searchParams: { stat
       <p className="disc" style={{ marginTop: 16 }}>
         Data rights, including a copy or deletion of your record, are on the{" "}
         <a href="/privacy" className="fwlink">privacy page</a>. Contact:{" "}
-        <a href="mailto:collins.ra@northeastern.edu" className="fwlink">collins.ra@northeastern.edu</a>.
+        <a href="mailto:rayven.nikkita.collins@gmail.com" className="fwlink">rayven.nikkita.collins@gmail.com</a>.
       </p>
     </main>
   );

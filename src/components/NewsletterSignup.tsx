@@ -110,7 +110,7 @@ export function NewsletterSignup({
               aria-invalid={errors.consent ? true : undefined}
               aria-describedby={errors.consent ? errId("consent") : undefined}
             />
-            <span>Yes, email me new editions of The I/1 Edit, published through the newsletter The Polymath on Beehiiv. I can unsubscribe at any time.</span>
+            <span>Yes, email me new editions of The I/1 Edit. It is one section of the newsletter The Polymath on Beehiiv, so I will get The Polymath’s emails. I can unsubscribe at any time.</span>
           </label>
           {errors.consent && <p className={s.error} id={errId("consent")}>{errors.consent}</p>}
           <div role="alert">{alert && <p className={s.alert}>{alert}</p>}</div>

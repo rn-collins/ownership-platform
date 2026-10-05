@@ -7,7 +7,7 @@ Case slug: `jane-gilbert`
 
 ## Case definition
 
-This case examines Jane Gilbert’s 2021 appointment as Miami-Dade County’s first Chief Heat Officer, the institutional design of the role, the county’s heat plan and operational response, the 2025 elimination/absorption of the county position, and Gilbert’s subsequent Chief Heat Ambassador role. It distinguishes a well-corroborated program-origin claim from an impossible-to-prove universal negative.
+This case examines Jane Gilbert’s 2021 appointment as Miami-Dade County’s first Chief Heat Officer, the institutional design of the role, the county’s heat plan and operational response, the 2025 consolidation of the county position, and Gilbert’s subsequent Chief Heat Ambassador role. It distinguishes a well-corroborated program-origin claim from an impossible-to-prove universal negative.
 
 Proposed headline: **Miami-Dade’s inaugural Chief Heat Officer built a cross-agency heat-governance model later replicated internationally.**
 
@@ -21,7 +21,9 @@ Proposed headline: **Miami-Dade’s inaugural Chief Heat Officer built a cross-a
 | JG-S04 | [Miami-Dade Extreme Heat portal](https://www.miamidade.gov/heat/) | government program record | Yes | accessed 2026-07-26 | current protocol and outcome claims |
 | JG-S05 | [Miami-Dade Extreme Heat Action Plan](https://www.miamidade.gov/resources/environment/documents/2022-heat-action-plan.pdf) | government plan | Yes | 2022 | three goals and nineteen actions |
 | JG-S06 | [Peer-reviewed BAMS article](https://journals.ametsoc.org/view/journals/bams/105/5/BAMS-D-23-0055.1.xml) | peer-reviewed research | Yes | 2024 | evidence-building and planning method |
-| JG-S07 | [WLRN department reorganization](https://www.wlrn.org/light/government-politics/2025-02-21/miami-dades-resilience-department-rebrand-staff-cuts) | local public-media reporting | No | 2025-02-21 | role elimination/absorption and planned retirement |
+| JG-S07 | [WLRN department reorganization](https://www.wlrn.org/light/government-politics/2025-02-21/miami-dades-resilience-department-rebrand-staff-cuts) | local public-media reporting | No | 2025-02-21 | role consolidation (“absorbing the duties of Chief Heat Officer”), office rename and planned retirement |
+| JG-S11 | [Miami-Dade County restructure release](https://www.miamidade.gov/global/release.page?Mduid_release=rel174008970454488) | government release | Yes | 2025-02-20 | the county’s own word: the three roles “will be consolidated into one position”; Loren Parra named Chief Resilience Officer; does not name Gilbert |
+| JG-S12 | [Governing, “Protecting Miami from extreme heat”](https://www.governing.com/magazine/protecting-miami-from-extreme-heat) | magazine reporting | No | 2026-05-29 | says Gilbert left Miami-Dade “late last year” (2025) to become chief heat ambassador; gives no exact date |
 | JG-S08 | [Climate Resilience Center ambassador appointment](https://onebillionresilient.org/2025/11/06/appoint-chief-heat-ambassador/) | organization release | Yes | 2025-11-06 | post-county role |
 | JG-S09 | [Climate Resilience Center bio](https://onebillionresilient.org/expert/jane-gilbert/) | organization profile | Yes | accessed 2026-07-26 | current title and former role |
 | JG-S10 | [Weather Channel interview](https://weather.com/news/climate/news/2021-06-01-miami-dade-chief-heat-officer) | contemporaneous interview | No | 2021-06-03 | initial scope and implementation intentions |
@@ -59,9 +61,9 @@ Permissible: **Miami-Dade now operates a seasonal heat protocol and reports comp
 Restriction: do not claim the Chief Heat Officer caused those rates without a defined period, denominator, comparison method and causal design.
 
 ### JG-C07 — office transition
-2025 reporting says the standalone Chief Heat Officer position was eliminated, duties were absorbed by the resilience office, and Gilbert planned to retire from county service.  
-Permissible: **Miami-Dade folded Chief Heat Officer duties into a reorganized resilience function in 2025.**  
-Restriction: role elimination does not itself establish program failure, abandonment or political cause.
+On February 20, 2025, Miami-Dade County announced that the Chief Resilience Officer, Chief Bay Officer and Chief Heat Officer roles would be consolidated into one position, held by Loren Parra, and that the Office of Resilience would be renamed the Office of Environmental Risk and Resilience. WLRN reported on February 21, 2025 that Gilbert planned to retire that summer and that the Chief Heat Officer duties would be absorbed. The Climate Resilience Center named her Chief Heat Ambassador on November 6, 2025, and Governing (May 29, 2026) says she left Miami-Dade late in 2025. Public sources do not give her last day in county service, and the county release does not name her.  
+Permissible: **In February 2025 Miami-Dade County announced that its Chief Resilience Officer, Chief Bay Officer and Chief Heat Officer roles would be consolidated into one position, held by Loren Parra.** WLRN reported that Gilbert planned to retire that summer.  
+Restriction: use the county’s word “consolidated,” not “eliminated” or “abolished,” unless a source is named. Consolidation does not itself establish program failure, abandonment or political cause. It is not documented whether the Chief Heat Officer title survives in any form.
 
 ### JG-C08 — ambassador role
 The Climate Resilience Center appointed Gilbert Chief Heat Ambassador in November 2025 to advise communities and support a heat-resilience exchange.  
@@ -78,7 +80,7 @@ Restriction: diffusion does not prove direct causation, effectiveness or identic
 
 | Target | Relationship | Boundary |
 |---|---|---|
-| Miami-Dade County | interim then Chief Heat Officer | exact permanence date and employment transitions require personnel records |
+| Miami-Dade County | interim then Chief Heat Officer; role consolidated by the county in February 2025 | exact permanence date, last day in county service and employment transitions require personnel records |
 | The Miami Foundation | initial host/funding partner | not the county appointing authority |
 | Resilient305 | regional implementation network | shared governance, not Gilbert-owned |
 | Climate and Heat Health Task Force | co-lead with Dr. Cheryl Holder | outcomes are collective |
@@ -92,7 +94,8 @@ Restriction: diffusion does not prove direct causation, effectiveness or identic
 | 2021-06 | work begins around heat season |
 | 2022-12 | county Extreme Heat Action Plan launched |
 | 2024 | peer-reviewed account of plan-development method published |
-| 2025-02 | county reorganization and planned role absorption reported |
+| 2025-02-20 | county announces the three roles will be consolidated into one position held by Loren Parra |
+| 2025-02-21 | WLRN reports planned retirement and absorption of Chief Heat Officer duties |
 | 2025 summer | planned county retirement; exact effective date requires confirmation |
 | 2025-11-06 | Chief Heat Ambassador appointment announced |
 
@@ -103,7 +106,7 @@ Restriction: diffusion does not prove direct causation, effectiveness or identic
 - “Interim” is often omitted in retrospectives.
 - Current county outcome statements lack enough visible methodological detail for causal attribution.
 - City of Miami and Miami-Dade County are distinct jurisdictions; Gilbert’s earlier Chief Resilience Officer role was with the city, while the Chief Heat Officer role was county-level.
-- The 2025 reorganization ended the standalone post but retained duties, so “abolished heat work” would be false.
+- The 2025 reorganization consolidated the standalone post into one position and kept heat duties within it, so “abolished heat work” would be false.
 - No psychological attributes are measured.
 
 ## Publication decision

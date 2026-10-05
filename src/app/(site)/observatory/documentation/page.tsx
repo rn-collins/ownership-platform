@@ -1,10 +1,11 @@
 import type {Metadata} from "next";
+import { withSocial } from "@/lib/page-meta";
 import Link from "next/link";
 import {SEED,nodeSlug} from "@/lib/observatory_seed";
 import {getCaseResearch} from "@/lib/case_research";
 import {countSources} from "@/components/case/caseData";
 import styles from "./documentation.module.css";
-export const metadata:Metadata={title:"Case Documentation Ledger — The Observatory",description:"See how each case record is built, which records remain provisional, and what a complete record requires.",alternates:{canonical:"/observatory/documentation"}};
+export const metadata:Metadata=withSocial({title:"Case Documentation Ledger — The Observatory",description:"See how each case record is built, which records remain provisional, and what a complete record requires.",alternates:{canonical:"/observatory/documentation"}},"/observatory/documentation");
 const REQUIREMENTS=[
 ["Identity and scope","Disambiguated person, entities, roles, dates, jurisdictions, and the precise structural question the case is being used to examine."],
 ["Claim inventory","Every factual, causal, comparative, ownership, control, portability, and continuity claim separated into an auditable statement."],

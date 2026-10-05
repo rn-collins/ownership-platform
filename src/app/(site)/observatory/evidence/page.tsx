@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/page-meta";
 import { EvidenceExplorer } from "./EvidenceExplorer";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Evidence Explorer — The Observatory",
   description: "Examine documentation strength, provenance, unknowns, complications, recurring sources, and review needs across the Institutions of One cases.",
   alternates: { canonical: "/observatory/evidence" },
-};
+}, "/observatory/evidence");
 
 export default function EvidencePage(){
   return <main className="observatory-page">

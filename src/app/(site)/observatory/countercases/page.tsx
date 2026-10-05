@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/page-meta";
 import { CountercaseFinder } from "./CountercaseFinder";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Countercase Finder — The Observatory",
   description: "Test apparent career lessons against cases that complicate them before drawing a general conclusion.",
   alternates: { canonical: "/observatory/countercases" },
-};
+}, "/observatory/countercases");
 
 export default function CountercaseFinderPage() {
   return <main className="observatory-page">

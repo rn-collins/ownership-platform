@@ -6,7 +6,10 @@ import { limit } from "@/lib/ratelimit";
 import { logError } from "@/lib/log";
 
 // Bump when the consent wording shown in NewsletterSignup changes; stored with each signup.
-const CONSENT_VERSION = "2026-10";
+// History: "2026-07" (default in the schema), "2026-10" (names The Polymath),
+// "2026-10-05" (says the I/1 Edit is one section of The Polymath and that
+// subscribers get The Polymath's emails).
+const CONSENT_VERSION = "2026-10-05";
 
 const schema = z.object({
   email: z.string().email().max(200),

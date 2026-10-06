@@ -17,7 +17,7 @@ export default function PrivacyPage() {
 
       <div className="card">
         <h2>The anonymous assessments</h2>
-        <p>When you take an index, the system stores your answers grouped by response range, the five-area profile, the secondary composite score shown for transparency, instrument and methodology
+        <p>When you take an index, the system stores your item-by-item answers on a 0 to 5 scale, the five-area profile, the secondary composite score shown for transparency, instrument and methodology
         versions, and a random assessment identifier — no name, email, or account identity. The identifier lets
         later optional research answers update the same assessment instead of creating duplicate respondents; it is not
         used to identify you. A copy of your answers also stays in your browser on your device. Optional research
@@ -35,18 +35,40 @@ export default function PrivacyPage() {
 
       <div className="card">
         <h2>Email updates and the newsletter</h2>
-        <p>Your email is stored only when you explicitly opt in, and the version of the consent wording that applied when you subscribed is stored with the date.
-        It is used to send occasional updates and, if you asked for it, your report. It is never sold. The on-site signup
-        also adds you to the newsletter The Polymath on beehiiv (the I/1 Edit is a series within it) so the site and Beehiiv use the same subscriber list.</p>
+        <p>Newsletter subscriptions are stored only after you tick the consent box. The site keeps your email address, the date, and the version of the consent wording you saw. It is used to send occasional updates and, if you asked for it, your report. It is never sold.</p>
+        <p>The signup adds you to the newsletter The Polymath on Beehiiv. The I/1 Edit is one section of The Polymath, so you will receive The Polymath&rsquo;s emails. The site and Beehiiv each keep a copy of your address.</p>
+      </div>
+
+      <div className="card">
+        <h2>Contact, nomination, and study forms</h2>
+        <p>These forms store what you submit, for the purpose you submitted it.</p>
+        <ul>
+          <li><b>Partner inquiries.</b> Your name, email, organization, the kind of inquiry, and your message. The site stores them and also emails them to RN Collins through Resend.</li>
+          <li><b>Observatory nominations.</b> The name, organization, and role of the person you are nominating, your reason, and your email if you choose to give one.</li>
+          <li><b>Cognitive interview intake.</b> You must be 18 or older. The form stores your name, email, how you work and your career stage, your location or jurisdiction, your availability and time zone, and your instrument interest. It also stores any access needs you describe, which can include disability, chronic illness, or caregiving context. That information is sensitive. It is used only to plan an interview you can take part in, and you do not have to give it. The form also stores whether you agreed to be recorded and to be quoted, and a withdrawal code so you can withdraw. This study has not been reviewed by an institutional review board.</li>
+          <li><b>Creator pages.</b> If you sign up with your email on a creator&rsquo;s own page, the address is stored for that creator, who can email you. Each of those emails has an unsubscribe link.</li>
+          <li><b>Accounts.</b> If you sign in, Supabase holds your email address and sign-in details, and your saved results are linked to that account.</li>
+        </ul>
+        <p>We keep this information only as long as needed for the purpose it was collected for.</p>
+      </div>
+
+      <div className="card">
+        <h2>Who handles data for this site</h2>
+        <p>These services process data on the site&rsquo;s behalf. They may store or process it in the United States or other countries.</p>
+        <ul>
+          <li><b>Vercel</b> hosts the site and keeps standard server logs.</li>
+          <li><b>Supabase</b> holds the database and handles sign-in.</li>
+          <li><b>Resend</b> sends the emails the site sends, such as partner inquiry notices.</li>
+          <li><b>Upstash</b> holds the short-lived request counter described above.</li>
+          <li><b>Beehiiv</b> sends The Polymath newsletter and keeps its subscriber list.</li>
+        </ul>
+        <p>Data is not sold. RN Collins runs the site and decides what is collected.</p>
       </div>
 
       <div className="card">
         <h2>Your rights</h2>
-        <p>You can unsubscribe at any time from the link in any email, or on the{" "}
-        <a href="/unsubscribe" className="fwlink">unsubscribe page</a>. You can request a copy of your record or its
-        deletion — the links in your emails are signed so they work without a login, and you can also email RN Collins directly
-        to have the request processed. Unsubscribing keeps a minimal consent record for the audit trail; deletion removes the row
-        entirely.</p>
+        <p>Every Beehiiv email has an unsubscribe link at the bottom. Using it stops The Polymath emails. To also have your address removed from the site&rsquo;s own record, email RN Collins.</p>
+        <p>To get a copy of your record, or to have it deleted, email RN Collins at the address below from the address you used. A reply will confirm what was found and what was removed. Deletion covers the site&rsquo;s database, and on request your Beehiiv subscription and any contact, nomination, or study records. Unsubscribing keeps a minimal consent record for the audit trail. Deletion removes the row entirely.</p>
       </div>
 
       <div className="card">

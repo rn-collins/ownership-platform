@@ -150,7 +150,7 @@ A 15-second asset can contain several separate questions. Making the layers visi
 - [YouTube Help, “What is a copyright claim?” — automated Content ID claims and their effects](https://support.google.com/youtube/answer/7002106)
 - [Associated Press, official account of the Fairey proceedings](https://www.ap.org/media-center/ap-in-the-news/2012/obama-hope-poster-artist-shepard-fairey-gets-probation/)
 - [OpenAI, “How the voices for ChatGPT were chosen”](https://openai.com/index/how-the-voices-for-chatgpt-were-chosen/)
-- [Associated Press, Johansson statement and OpenAI response](https://apnews.com/article/532c849ccae3ca9e9325dacfe88e0436)
+- [Associated Press, Johansson statement and OpenAI response](https://apnews.com/article/openai-chatgpt-scarlett-johansson-voice-her-532c849ccae3ca9e9325dacfe88e0436)
 - [Dove, *Evolution* campaign archive](https://www.dove.com/ca/en/stories/campaigns/evolution.html)
 
 *General educational information, not legal advice. Copyright, contract, privacy, publicity, advertising, labor, and platform issues depend on the facts and jurisdiction.*

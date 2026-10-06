@@ -169,7 +169,7 @@ The asset’s value is not contained only in the file. Value changes with the ro
 
 ### Sources and further reading
 
-- [Meta, Creator Marketplace and Partnership Ads](https://www.facebook.com/business/ads/creator-marketplace)
+- [Meta for Developers, Instagram Creator Marketplace API](https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-facebook-login/creator-marketplace)
 - [Meta Help, What is the Meta Ad Library and how do I search it?](https://www.facebook.com/help/259468828226154/)
 - [YouTube Help, Embed Videos and Playlists](https://support.google.com/youtube/answer/171780)
 - [FTC, Endorsements, Influencers, and Reviews](https://www.ftc.gov/business-guidance/advertising-marketing/endorsements-influencers-reviews)

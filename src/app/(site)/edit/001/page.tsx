@@ -69,7 +69,7 @@ const sources = [
   {
     id: 3,
     label: "Netflix, “Netflix and Shonda Rhimes Expand Creative Pact” (July 8, 2021)",
-    href: "https://about.netflix.com/news/netflix-and-shonda-rhimes-expand-creative-pact",
+    href: "https://about.netflix.com/en/news/netflix-and-shonda-rhimes-expand-creative-pact",
   },
   {
     id: 4,

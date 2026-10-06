@@ -16,7 +16,7 @@ export function getFrom(): string | null {
   return process.env.RESEND_FROM ?? null;
 }
 
-export interface BroadcastEmail { to: string; subject: string; html: string; text: string; }
+export interface BroadcastEmail { to: string; subject: string; html: string; text: string; headers?: Record<string, string>; }
 
 // Send one email per subscriber (separate sends, so recipients never see each
 // other) in batches of 100 via Resend's batch API. Returns how many were accepted.
@@ -28,7 +28,7 @@ export async function sendBroadcast(emails: BroadcastEmail[]): Promise<{ sent: n
 
   let sent = 0;
   for (let i = 0; i < emails.length; i += 100) {
-    const chunk = emails.slice(i, i + 100).map((e) => ({ from, to: e.to, subject: e.subject, html: e.html, text: e.text }));
+    const chunk = emails.slice(i, i + 100).map((e) => ({ from, to: e.to, subject: e.subject, html: e.html, text: e.text, ...(e.headers ? { headers: e.headers } : {}) }));
     try {
       const res = await resend.batch.send(chunk);
       if (!res.error) sent += chunk.length;

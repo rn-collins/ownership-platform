@@ -1,8 +1,15 @@
 import { prisma } from "@/lib/db";
 import { SEED } from "@/lib/observatory_seed";
+import { withSocial } from "@/lib/page-meta";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "The Job That Didn't Exist — The Observatory", robots: { index: false, follow: false } };
+export const metadata = {
+  ...withSocial({
+    title: "The Job That Didn't Exist — The Observatory",
+    description: "Conversations with people whose roles may have been shaped around them, each ending on what the story tells us about how everyone will work next.",
+  }, "/observatory/episodes"),
+  robots: { index: false, follow: false },
+};
 
 function ytId(url: string): string | null {
   const m = url.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
@@ -33,7 +40,7 @@ export default async function EpisodesPage() {
             const id = e.youtubeUrl ? ytId(e.youtubeUrl) : null;
             return (
               <article key={e.id} className="episode">
-                <h3 className="eptitle">{e.title}</h3>
+                <h2 className="eptitle">{e.title}</h2>
                 <div className="epmeta">{e.guest?.name}{e.guest?.org ? ` · ${e.guest.org}` : ""} · {e.venue}</div>
                 {id && (
                   <div className="epvideo"><iframe src={`https://www.youtube.com/embed/${id}`} title={e.title} allowFullScreen loading="lazy" /></div>
@@ -45,7 +52,7 @@ export default async function EpisodesPage() {
         </div>
       ) : (
         <div className="card">
-          <h3>The first conversations are being lined up.</h3>
+          <h2 style={{ fontFamily: "Georgia, serif", fontSize: 16, margin: "0 0 4px" }}>The first conversations are being lined up.</h2>
           <p>The show launches with a small set of founding conversations. Want in? <a href="/assess/professional" className="fwlink">Take the index</a> to see if you&apos;re one of them, or <a href="/observatory" className="fwlink">nominate someone</a> whose job didn&apos;t exist until them.</p>
         </div>
       )}

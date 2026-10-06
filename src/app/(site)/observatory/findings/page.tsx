@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/page-meta";
 import { LivingFindings } from "./LivingFindings";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Living Findings — The Observatory",
   description: "Examine evidence-derived patterns, exceptions, research gaps, and framework pressure across 41 Institutions of One cases.",
   alternates: { canonical: "/observatory/findings" },
-};
+}, "/observatory/findings");
 
 export default function LivingFindingsPage(){
   return <main className="observatory-page">

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/page-meta";
 import ApplyToWork from "./ApplyToWork";
 import styles from "./apply.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Apply the cases to your work — The Observatory",
   description: "Choose a structural pressure and receive a private, unscored pathway through four Observatory cases.",
   alternates: { canonical: "/observatory/apply" },
-};
+}, "/observatory/apply");
 
 export default function ApplyPage() {
   return <main className={styles.page}>

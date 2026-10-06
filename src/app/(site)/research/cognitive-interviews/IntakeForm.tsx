@@ -77,7 +77,7 @@ export function IntakeForm() {
         {['Disability or chronic illness','Care responsibilities','Limited professional support','Platform-dependent work','Multiple jurisdictions','Variable or seasonal income'].map((v) => <label key={v}><input type="checkbox" name="structuralContexts" value={v} /> {v}<br /></label>)}
       </fieldset>
       <p><label>Availability and preferred times (required)<br /><textarea name="availability" required rows={3} maxLength={1000} /></label></p>
-      <p><label>Time zone (required)<br /><input name="timezone" required maxLength={80} placeholder="Pacific/Honolulu" /></label></p>
+      <p><label>Time zone (required)<br /><input name="timezone" required maxLength={80} placeholder="Example: America/New_York" /></label></p>
       <p><label>Access needs or preferred interview format (optional)<br /><textarea name="accessNeeds" rows={3} maxLength={2000} /></label></p>
       <fieldset><legend>Consent</legend>
         <label><input name="voluntaryConsent" type="checkbox" required /> I understand participation is voluntary and I may skip questions or stop.</label><br />

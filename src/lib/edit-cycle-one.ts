@@ -139,3 +139,9 @@ const packageTitles: Record<string, string> = {
 export const packageTitle = (id: string) => packageTitles[id] ?? "Visual story";
 export const packageGalleryUrl = (id: string) => `https://institutions-of-one-reader.vercel.app/production/cycle-01/${id.toLowerCase()}`;
 export const commonsSourceUrl = (file: string) => `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.replace(/ /g, "_"))}`;
+
+/** Link to the license deed for a Creative Commons rights label such as "CC BY-SA 4.0"; undefined for public-domain labels. CC BY asks that credit lines link to the license. */
+export const licenseDeedUrl = (rights: string): string | undefined => {
+  const match = /^CC (BY(?:-SA)?) (\d\.\d)$/.exec(rights.trim());
+  return match ? `https://creativecommons.org/licenses/${match[1].toLowerCase()}/${match[2]}/` : undefined;
+};

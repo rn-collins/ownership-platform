@@ -121,3 +121,67 @@ button.cta-next{
   outline-color:var(--i1-blue)!important;
   box-shadow:none;
 }
+
+/* ---- Accessibility and responsive fixes (Oct 2026 audit) -------------- */
+
+/* Visually hidden text that stays in the accessibility tree (unique link and
+   button names, "opens in a new tab"). */
+.sr-only{
+  position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;
+  overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;
+}
+
+/* WCAG 2.5.8: footer links get a 28px-high target instead of 15px lines. */
+.foot-col{gap:0}
+.foot-col a{display:flex;align-items:center;min-height:28px;padding-block:2px}
+.foot-col .foot-h{margin-bottom:6px}
+
+/* Home: the four-part framework is one row of four, not 3 + 1. */
+.question-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.question-grid article{padding-right:24px}
+.question-grid article+article{padding-left:24px}
+@media(max-width:1023.98px) and (min-width:801px){
+  .question-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .question-grid article:nth-child(2n){border-right:0}
+  .question-grid article:nth-child(n+3){border-top:1px solid var(--i1-ink)}
+  .question-grid article:nth-child(2n+1){padding-left:0}
+  .question-grid article:nth-child(2n){padding-left:24px}
+}
+
+/* Section headers with a trailing link stack on narrow screens so the link
+   never runs off the right edge (WCAG 1.4.10 reflow). */
+@media(max-width:800px){
+  .sec-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .sec-head>div{min-width:0;max-width:100%}
+  .sec-link{white-space:normal}
+}
+
+/* ---- Print --------------------------------------------------------------
+   Reading copy prints as plain black on white without the site chrome.
+   (Assessment reports keep their own print rules in globals.css.) */
+@media print{
+  .site-header,.skip-link,.nav,.nav-toggle,.foot,.nl,.edit-signup,.edition-subscribe,.closing-call,.edition-interactive,.obs-controls,
+  .cta-next,form,button{display:none!important}
+  html,body{background:#fff!important;color:#000!important}
+  body{font-size:12pt;line-height:1.45}
+  .wrap,.site-shell{max-width:none!important;width:auto!important;padding-inline:0!important;margin:0!important}
+  main{padding:0!important}
+  h1,h2,h3,h4{break-after:avoid;page-break-after:avoid}
+  p,li,blockquote,figure,tr,dt,dd{break-inside:avoid;page-break-inside:avoid}
+  .question-grid,.strip-list,.lensgrid{break-inside:auto}
+  img,svg,figure{max-width:100%!important;break-inside:avoid}
+  a{color:#000!important;text-decoration:underline}
+  main a[href^="http"]:not([class])::after{content:" (" attr(href) ")";font-size:9pt;word-break:break-all}
+  .hero:after,.hero-index{display:none!important}
+  /* Dark and tinted grounds do not print by default, which would leave their
+     light text invisible. Print everything as black on white; chart bars (<i>,
+     .fill) and images keep their own fills when the reader enables background
+     graphics. */
+  body *{color:#000!important;text-shadow:none!important}
+  body *:not(i):not(.fill):not(.find-bar):not(.progressfill):not(img):not(svg):not(svg *){background:transparent!important}
+  :is(.edition-package-map,.manifesto,.partner-start,.on-ink,.method-psych,.candidate-rule,.edition-distinction,.finding-claims,.profile-question,.obs-panel){border:1px solid #000}
+}
+
+/* Tiles in black-gap grids: keep the focus ring inside the tile so it never
+   lands on the black rules between tiles. */
+:is(.edition-continuity,.edition-package-map>div,.strip-list,.lensgrid) a:focus-visible{outline-offset:-6px}

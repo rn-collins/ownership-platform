@@ -86,7 +86,7 @@ export function CanonicalEditionPage({ edition }: { edition: Edition }) {
     {edition.experience && <section className="edition-interactive" aria-labelledby={`interactive-${edition.number}`}>
       <p className="eyebrow">Interactive companion</p><h2 id={`interactive-${edition.number}`}>Put the edition’s framework to work.</h2>
       <p>The companion opens as a focused tool and does not save or score your answers.</p>
-      <a href={edition.experience} target="_blank" rel="noopener noreferrer">Open the interactive ↗</a>
+      <a className="cta-next" href={edition.experience} target="_blank" rel="noopener noreferrer">Open the interactive <span aria-hidden="true">↗</span><span className="sr-only">(opens in a new tab)</span></a>
     </section>}
 
     <EditionPackageMap edition={edition.number} packages={edition.packages} heading="Continue through the supporting stories." />

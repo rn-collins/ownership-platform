@@ -99,7 +99,64 @@ describe("case source lists", () => {
     expect(counts("huda-kattan")).toBe(15);
     expect(counts("gary-vaynerchuk")).toBe(2);
     expect(counts("emma-chamberlain")).toBe(8);
-    expect(counts("jane-gilbert")).toBe(2);
+    expect(counts("jane-gilbert")).toBe(4);
+  });
+});
+
+describe("open-facts corrections (October 5, 2026)", () => {
+  const research = (slug: string) => records.find((row) => row.slug === slug)!.research;
+  const find = (slug: string, id: string) => research(slug).sources.find((source) => source.id === id)!;
+  const text = (slug: string) => JSON.stringify(research(slug));
+  const counts = (slug: string) => countSources(research(slug).sources);
+
+  it("pins the source counts of the four corrected cases", () => {
+    expect(counts("neri-oxman")).toEqual({ total: 19, independent: 6, other: 13 });
+    expect(counts("jane-gilbert")).toEqual({ total: 13, independent: 4, other: 9 });
+    expect(counts("gordon-glenister")).toEqual({ total: 13, independent: 1, other: 12 });
+    expect(counts("kunal-shah")).toEqual({ total: 10, independent: 8, other: 2 });
+  });
+
+  it("states the Oxman statement with its publication details", () => {
+    expect(text("neri-oxman")).toContain("written statement published by the Boston Globe on September 13, 2019, and sent to Dezeen");
+    expect(text("neri-oxman")).toContain("inadvertent involvement");
+  });
+
+  it("uses the county's word for the 2025 Chief Heat Officer change and dates the 2025 chronology", () => {
+    const gilbert = research("jane-gilbert");
+    expect(text("jane-gilbert")).not.toMatch(/eliminated/i);
+    expect(gilbert.chronology.some((event) => event.date === "February 20, 2025" && /consolidated into one position/.test(event.event) && /Loren Parra/.test(event.event))).toBe(true);
+    expect(gilbert.chronology.some((event) => event.date === "November 6, 2025" && /Chief Heat Ambassador/.test(event.event))).toBe(true);
+    expect(gilbert.chronology.some((event) => /do not give Gilbert’s last day/.test(event.event))).toBe(true);
+    expect(find("jane-gilbert", "county-restructure-2025").kind).toBe("primary");
+    expect(find("jane-gilbert", "governing-2026").published).toBe("2026-05-29");
+  });
+
+  it("expands ISBA on first use and fixes the code chronology", () => {
+    const row = research("gordon-glenister").chronology.find((event) => /ISBA/.test(event.event))!;
+    expect(row.event.indexOf("Incorporated Society of British Advertisers (ISBA), the UK advertiser trade body")).toBeGreaterThanOrEqual(0);
+    expect(row.event).toContain("first published an influencer marketing code in 2021");
+    expect(row.event).toContain("jointly owned by ISBA and the Influencer Marketing Trade Body (IMTB) in 2023");
+    expect(row.event).toContain("November 28, 2024");
+    expect(row.event).not.toMatch(/IMTB and ISBA developed/);
+    expect(find("gordon-glenister", "isba-release-2024").published).toBe("2024-11-28");
+  });
+
+  it("replaces the Kunal Shah Wikipedia rows and flat $400 million claim with dated sources", () => {
+    const ids = research("kunal-shah").sources.map((source) => source.id);
+    expect(ids).not.toContain("wikipedia-freecharge");
+    expect(ids).not.toContain("wikipedia-cred");
+    expect(research("kunal-shah").sources.some((source) => /wikipedia/i.test(source.publisher))).toBe(false);
+    expect(text("kunal-shah")).not.toMatch(/for about \$400 million/);
+    expect(find("kunal-shah", "shah-x").kind).toBe("self_authored");
+    expect(find("kunal-shah", "bloomberg-cred").kind).toBe("independent");
+    expect(find("kunal-shah", "upstox-cred").kind).toBe("independent");
+    expect(find("kunal-shah", "reuters-freecharge").published).toBe("2015-04-08");
+    expect(find("kunal-shah", "outlook-filings").label).toContain("filing not seen");
+    expect(find("kunal-shah", "outlook-filings").published).toBe("2026-07-16");
+    const june = research("kunal-shah").chronology.find((event) => event.date === "June 22, 2026")!;
+    expect(june.event).toContain("Shah said on X");
+    expect(june.event).toContain("No source reviewed states when Shah starts at WhatsApp");
+    expect(text("kunal-shah")).not.toContain("facebook.com/zuck");
   });
 });
 

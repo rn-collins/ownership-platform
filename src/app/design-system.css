@@ -140,6 +140,13 @@ button.cta-next{
 .question-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .question-grid article{padding-right:24px}
 .question-grid article+article{padding-left:24px}
+/* Phones: one column. This file loads after globals.css, so its unscoped four-column rule
+   above would otherwise beat the one-column rule in globals.css (MAIN-005). */
+@media(max-width:800px){
+  .question-grid{grid-template-columns:1fr}
+  .question-grid article,.question-grid article+article{padding:24px 0;border-right:0;border-bottom:1px solid var(--i1-ink)}
+  .question-grid article:last-child{border-bottom:0}
+}
 @media(max-width:1023.98px) and (min-width:801px){
   .question-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .question-grid article:nth-child(2n){border-right:0}

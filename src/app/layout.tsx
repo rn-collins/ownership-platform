@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./design-system.css";
+import { SITE_ORIGIN } from "@/lib/site";
 
-const SITE_URL = "https://ownership-platform.vercel.app";
+const SITE_URL = SITE_ORIGIN;
 const TITLE = "Institutions of One — what people build, carry, control, and continue";
 const DESC = "A research and editorial project examining what people build, what they can carry, what they control, and what work, systems, relationships, or authority could persist when an essential dependency changes.";
 

@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { SEED, nodeSlug } from "@/lib/observatory_seed";
 import { publicEditions } from "@/lib/edit-cycle-one";
+import { SITE_ORIGIN } from "@/lib/site";
 
-const SITE_URL = "https://ownership-platform.vercel.app";
+const SITE_URL = SITE_ORIGIN;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const publicRoutes = [

@@ -1,3 +1,5 @@
+import { READER_ORIGIN } from "@/lib/site";
+
 export type EditionMedia = {
   file: string;
   alt: string;
@@ -34,8 +36,8 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     gated: false,
     number: "005", articleId: 1, published: "August 2026", title: "The $2,000 Video", subtitle: "A creator deal is usually several decisions wearing one price tag",
     packages: ["P01", "P02", "P03"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-2000-video",
-    reader: "https://institutions-of-one-reader.vercel.app/stories/edition-005",
-    experience: "https://institutions-of-one-reader.vercel.app/experiences/ownership-trail",
+    reader: `${READER_ORIGIN}/stories/edition-005`,
+    experience: `${READER_ORIGIN}/experiences/ownership-trail`,
     media: [
       media("Rechnung Buntpapier-Fabrik Hennessen & Jansen M.-Gladbach 1903.jpg", "A decorated-paper factory invoice dated 1903, with itemized charges and factory letterhead", "The invoice records a price and transaction; it does not disclose every permission or ownership term.", "Deutsches Buch- und Schriftmuseum / Forschungsstelle Papiergeschichte", "Public domain", 1408, 1823, "/edit-images/005/rechnung-buntpapier-fabrik-hennessen-and-jansen-m-gladbach.jpg"),
       media("Signing the agreement (10442537774).jpg", "Parties signing a written operating agreement", "A documented signing makes the parties, governing instrument, and moment of assent visible.", "Oregon Department of Transportation", "CC BY 2.0", 1600, 1065, "/edit-images/005/signing-the-agreement-10442537774.jpg"),
@@ -50,7 +52,7 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     gated: false,
     number: "006", articleId: 2, published: "August 2026", title: "The Person Inside the Asset", subtitle: "A finished post can contain a copyrighted work, a performance, an identity, and a future edit.",
     packages: ["P04", "P05", "P06", "P07"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-person-inside-the-asset",
-    reader: "https://institutions-of-one-reader.vercel.app/stories/edition-006",
+    reader: `${READER_ORIGIN}/stories/edition-006`,
     media: [
       media("Moviola Model D (MOMI).jpg", "A 1927 Moviola film-editing machine with viewing and microscope attachments", "The editing apparatus makes alteration a separate production act, not an invisible extension of permission to post.", "HaeB / Museum of the Moving Image", "CC BY-SA 4.0", 1600, 2400, "/edit-images/006/moviola-model-d-momi.jpg"),
       media("WLA LACMA label.jpg", "A museum accession-number label photographed at LACMA", "A label identifies and credits an object; by itself, it is not a permission record.", "Allison Agsten / LACMA", "Public domain", 1600, 1200, "/edit-images/006/wla-lacma-label.jpg"),
@@ -64,15 +66,15 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     gated: false,
     number: "007", articleId: 3, published: "August 2026", title: "The Asset’s Afterlife", subtitle: "The file did not change. Its commercial life did.",
     packages: ["P08", "P09", "P10", "P11", "P12"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-assets-afterlife",
-    reader: "https://institutions-of-one-reader.vercel.app/stories/edition-007",
-    experience: "https://institutions-of-one-reader.vercel.app/experiences/asset-afterlife", media: [],
+    reader: `${READER_ORIGIN}/stories/edition-007`,
+    experience: `${READER_ORIGIN}/experiences/asset-afterlife`, media: [],
   },
   {
     gated: false,
     number: "008", articleId: 4, published: "August 2026", title: "The Smallest Institution in the Campaign", subtitle: "One post can contain an entire organization.",
     packages: ["P13", "P14", "P16"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-smallest-institution-in-the-campaign",
-    reader: "https://institutions-of-one-reader.vercel.app/stories/edition-008",
-    experience: "https://institutions-of-one-reader.vercel.app/experiences/health-check",
+    reader: `${READER_ORIGIN}/stories/edition-008`,
+    experience: `${READER_ORIGIN}/experiences/health-check`,
     media: [
       media("Carl Urbano working on a storyboard, 1967.jpg", "Production supervisor Carl Urbano works over a storyboard in 1967", "The storyboard turns scattered production decisions into a visible sequence; the system exists in the relationships among them.", "Steve Fontanini / Los Angeles Times Photographic Collection at UCLA", "CC BY 4.0", 1600, 1966, "/edit-images/008/carl-urbano-working-on-a-storyboard-1967.jpg"),
       media("Asana Data workflow.jpg", "Data workflow documented in Asana", "A production workflow turns decisions into inspectable assignments and dependencies.", "John Cummings", "CC BY-SA 4.0", 1600, 481, "/edit-images/008/asana-data-workflow.jpg"),
@@ -88,7 +90,7 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     gated: false,
     number: "009", articleId: 5, published: "September 2026", title: "All Media, Now Known or Hereafter Devised", subtitle: "One clause in a contract can decide who controls tomorrow's use of today's video",
     packages: ["P15", "P17"],
-    reader: "https://institutions-of-one-reader.vercel.app/stories/edition-009",
+    reader: `${READER_ORIGIN}/stories/edition-009`,
     // Reuses the same verified Commons photos already cleared for P15/P17's carousel slides
     // (institutions-of-one-reader's data/cycle01/render-inputs/live-gallery/p15-*.json,
     // p17-*.json) rather than sourcing fresh images.

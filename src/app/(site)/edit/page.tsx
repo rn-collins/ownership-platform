@@ -1,5 +1,6 @@
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { publicEditions } from "@/lib/edit-cycle-one";
+import { readerUrl } from "@/lib/site";
 
 export const metadata = {
   title: "The I/1 Edit — Institutions of One",
@@ -43,7 +44,7 @@ export default function EditPage() {
           <p>
             Every edition has the same intellectual core, while each surface serves a different purpose. Read on Beehiiv for the narrative. Use this site for the complete numbered editions and their cited record. The Public Reader extends each edition through visual stories, interactive tools, and ready-to-use files.
           </p>
-          <p><a href="https://institutions-of-one-reader.vercel.app/production/cycle-01">Explore the Public Reader’s visual stories →</a></p>
+          <p><a href={readerUrl("/production/cycle-01")}>Explore the Public Reader’s visual stories →</a></p>
         </div>
       </section>
 

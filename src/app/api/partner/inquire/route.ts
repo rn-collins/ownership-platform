@@ -43,13 +43,14 @@ export async function POST(req: Request) {
 
   let notified = false;
   const resendKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM_EMAIL;
-  if (resendKey && from) {
+  const from = process.env.RESEND_FROM_EMAIL || process.env.RESEND_FROM;
+  const to = process.env.CONTACT_TO || process.env.INQUIRY_TO_EMAIL;
+  if (resendKey && from && to) {
     try {
       const resend = new Resend(resendKey);
       const result = await resend.emails.send({
         from,
-        to: process.env.INQUIRY_TO_EMAIL || "rayven.nikkita.collins@gmail.com",
+        to,
         replyTo: d.email,
         subject: `Institutions of One inquiry — ${d.kind}`,
         text: [

@@ -65,6 +65,10 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
   const tensions = useMemo(()=>Array.from(new Set(nodes.map((n)=>n.tension).filter(Boolean))) as string[],[nodes]);
   const domains = useMemo(()=>DOMAINS.filter((item)=>nodes.some((n)=>n.domain===item)),[nodes]);
   const shown = useMemo(()=>{const q=query.trim().toLowerCase();return nodes.filter((n)=>(tension==="all"||n.tension===tension)&&(domain==="all"||n.domain===domain)&&(!q||`${n.name} ${n.role} ${n.domain} ${n.tension??""} ${n.question??""}`.toLowerCase().includes(q)));},[nodes,tension,domain,query]);
+  // The case list shows 24 at a time so a phone does not scroll through all of them at once (MAIN-031).
+  const [pageSize,setPageSize] = useState(24);
+  useEffect(()=>{setPageSize(24);},[tension,domain,query]);
+  const visible = shown.slice(0,pageSize);
   const selectedCases = pattern ? nodes.filter((n)=>n.tension===pattern.tension&&n.domain===pattern.domain) : [];
   const selectedCompare = compare.map((name)=>nodes.find((n)=>n.name===name)).filter(Boolean) as Node[];
   const tensionCounts = useMemo(()=>tally(nodes.map((n)=>n.tension??"Uncoded")),[nodes]);
@@ -102,7 +106,7 @@ export function ObservatoryMap({ nodes = SEED, embed = false, initialView = "dir
       <div className={styles.controls}><input value={query} onChange={(event)=>setQuery(event.target.value)} aria-label="Search people and questions" placeholder="Try a person, role, field, or idea…"/><select value={domain} onChange={(event)=>setDomain(event.target.value)} aria-label="Choose a field"><option value="all">Every field</option>{domains.map((item)=><option value={item} key={item}>{item}</option>)}</select></div>
       <div className={styles.result}><strong>{shown.length} {shown.length===1?"case":"cases"}</strong><span>Choose two people to see what their careers depend on—and what differs.</span></div>
       <p className={styles.compareStatus} role="status">{selectedCompare.length===0?"":selectedCompare.length===1?`Saved to compare: ${selectedCompare[0].name}. Choose one more person.`:<>Saved to compare: {selectedCompare[0].name} and {selectedCompare[1].name}. <button type="button" onClick={()=>setView("compare")}>See them side by side</button></>}</p>
-      {shown.length?<div className={styles.grid}>{shown.map((n,index)=><CaseCard key={n.name} node={n} index={index} compareActive={compare.includes(n.name)} onCompare={()=>toggleCompare(n.name)}/>)}</div>:<div className={styles.empty}><strong>No cases match these filters.</strong><p>Remove a filter, change the search, or suggest a case for the collection.</p></div>}
+      {shown.length?<><div className={styles.grid}>{visible.map((n,index)=><CaseCard key={n.name} node={n} index={index} compareActive={compare.includes(n.name)} onCompare={()=>toggleCompare(n.name)}/>)}</div>{shown.length>visible.length&&<div className={styles.more}><button type="button" onClick={()=>setPageSize((value)=>value+24)}>Show {Math.min(24,shown.length-visible.length)} more</button><span role="status">Showing {visible.length} of {shown.length} cases</span></div>}<noscript><ul>{shown.slice(visible.length).map((n)=><li key={n.name}><a href={`/observatory/${nodeSlug(n.name)}`}>{n.name}</a></li>)}</ul></noscript></>:<div className={styles.empty}><strong>No cases match these filters.</strong><p>Remove a filter, change the search, or suggest a case for the collection.</p></div>}
     </section>}
 
     {view==="patterns"&&<section aria-labelledby="patterns-title">

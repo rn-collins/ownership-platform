@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import Image from "next/image";
 import { Fragment, type ReactNode } from "react";
 import { Edition007Figure, edition007FigureForHeading } from "@/components/Edition007Figure";
 import { commonsSourceUrl, cycleOneEditions, licenseDeedUrl, packageGalleryUrl, packageTitle, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
@@ -30,9 +31,11 @@ function inline(text: string): ReactNode[] {
 function EvidenceFigure({ edition, index }: { edition: Edition; index: number }) {
   const item = edition.media[index];
   if (!item) return null;
+  const portrait = item.height > item.width;
   return <figure className="canonical-edition-figure">
-    <img src={item.src} alt={item.alt} width={item.width} height={item.height} style={{ height: "auto" }} loading={index < 1 ? "eager" : "lazy"} />
-    <figcaption><span>{item.caption}</span><small>Credit: {item.credit}. {licenseDeedUrl(item.rights) ? <a href={licenseDeedUrl(item.rights)} target="_blank" rel="noopener noreferrer">{item.rights}</a> : item.rights}. <a href={commonsSourceUrl(item.file)} target="_blank" rel="noopener noreferrer">Source record ↗</a></small></figcaption>
+    {/* next/image serves a width that fits the viewer (MAIN-023); tall images (scanned documents, portraits) are shown whole, never cropped (MAIN-006). */}
+    <Image src={item.src} alt={item.alt} width={item.width} height={item.height} sizes="(max-width: 800px) 100vw, 980px" style={{ height: "auto" }} data-portrait={portrait ? "true" : undefined} loading={index < 1 ? "eager" : "lazy"} />
+    <figcaption><span>{item.caption}</span><small>Credit: {item.credit}. {licenseDeedUrl(item.rights) ? <a href={licenseDeedUrl(item.rights)} target="_blank" rel="noopener noreferrer">{item.rights}</a> : item.rights}. <a href={commonsSourceUrl(item.file)} target="_blank" rel="noopener noreferrer">Source record ↗</a>{portrait ? <> <a href={item.src} target="_blank" rel="noopener noreferrer">Open the full image ↗</a></> : null}</small></figcaption>
   </figure>;
 }
 
@@ -47,6 +50,8 @@ function ArticleBody({ edition }: { edition: Edition }) {
       const figureIndex = heading++;
       return <Fragment key={index}><h2>{inline(headingText)}</h2>{figure007 ? <Edition007Figure item={figure007} /> : <EvidenceFigure edition={edition} index={figureIndex} />}</Fragment>;
     }
+    // The sources block closes the article, so it is a second-level heading (MAIN-026); it is not a figure slot.
+    if (block === "### Sources and further reading") return <h2 key={index}>{inline(block.slice(4))}</h2>;
     if (block.startsWith("### ")) return <h3 key={index}>{inline(block.slice(4))}</h3>;
     if (block.startsWith("> ")) return <blockquote key={index}>{inline(block.replace(/^> ?/gm, ""))}</blockquote>;
     const lines = block.split("\n");

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const canonical = `/observatory/${params.slug}`;
   const title = `${node.name}: ${node.question ?? "A career worth investigating"} — The Observatory`;
   const description = node.question ?? `Explore what ${node.name}'s career reveals about ownership, portability, power, and dependence.`;
-  return { title, description, alternates: { canonical }, openGraph: { title, description, url: canonical, images: ["/opengraph-image"] }, twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] } };
+  return { title, description, alternates: { canonical }, openGraph: { title, description, url: canonical }, twitter: { card: "summary_large_image", title, description } };
 }
 
 const tensionGuides: Record<string, { meaning: string; lookFor: string; comparison: string }> = {

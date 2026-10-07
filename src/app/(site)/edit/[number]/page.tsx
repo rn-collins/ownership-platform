@@ -15,11 +15,14 @@ export async function generateMetadata({ params }: { params: { number: string } 
   // hand-generated PNGs at /og/edit/00N.png; editions with article photos use a 1200x630 crop of
   // the edition's first (self-hosted) photo at /og/edit/00N.jpg. Edition 007 has no edition-level
   // photo, so it falls back to the generic site image. Relative URLs resolve against metadataBase.
-  const image = edition.media[0] ? `/og/edit/${edition.number}.jpg` : "/opengraph-image";
+  // 005 opens with a cropped 1903 invoice and 007 has no photograph, so those two get a title card.
+  const titleCard = edition.number === "005" || !edition.media[0];
+  const image = titleCard ? `/og/edit-card/${edition.number}` : `/og/edit/${edition.number}.jpg`;
+  const hasPhoto = !titleCard;
   return {
     title: `${edition.title} — The I/1 Edit`, description: edition.subtitle,
     alternates: { canonical }, robots: { index: true, follow: true },
-    openGraph: { title: `Edition ${edition.number} — ${edition.title}`, description: edition.subtitle, url: canonical, type: "article", images: [{ url: image, ...(edition.media[0] ? { width: 1200, height: 630 } : {}), alt: edition.media[0]?.alt ?? edition.title }] },
+    openGraph: { title: `Edition ${edition.number} — ${edition.title}`, description: edition.subtitle, url: canonical, type: "article", images: [{ url: image, width: 1200, height: 630, alt: hasPhoto ? edition.media[0].alt : edition.title }] },
     twitter: { card: "summary_large_image", title: `Edition ${edition.number} — ${edition.title}`, description: edition.subtitle, images: [image] },
   };
 }

@@ -234,3 +234,6 @@ li[id^="source-"]>a{display:inline-block;padding-block:4px}
 .foot-col a{min-height:28px}
 .about-credential{font-size:16px}
 @media(min-width:1180px){.site-header .nav a,.site-header .navlink{font-size:14px}.site-header .nav{gap:20px}}
+
+.strip-reader{max-width:68ch;margin:28px 0 0;font-size:16px;line-height:1.55}
+.strip-reader a{color:inherit;text-underline-offset:4px}

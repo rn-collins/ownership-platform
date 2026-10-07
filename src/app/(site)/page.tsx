@@ -2,6 +2,7 @@ import { ObservatoryMap } from "@/components/ObservatoryMap";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { SEED } from "@/lib/observatory_seed";
 import { publicEditions } from "@/lib/edit-cycle-one";
+import { readerUrl } from "@/lib/site";
 
 export const metadata = { alternates: { canonical: "/" } };
 
@@ -96,6 +97,7 @@ export default function Home() {
             <li key={edition.number}><a href={`/edit/${edition.number}`}><span>{edition.number}</span>{edition.title}</a></li>
           ))}
         </ol>
+        <p className="strip-reader">This site is the official home of each edition. Visual stories, interactive tools, and the source library for each edition live on the <a href={readerUrl()} target="_blank" rel="noopener noreferrer">Public Reader<span className="sr-only"> (opens in a new tab)</span></a>, the companion site.</p>
       </section>
 
       <section className="who-block" aria-labelledby="who-h">

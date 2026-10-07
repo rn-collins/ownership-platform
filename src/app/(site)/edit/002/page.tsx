@@ -1,6 +1,7 @@
 import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { EditionPackageMap } from "@/components/CanonicalEdition";
+import { NoScriptNote } from "@/components/NoScriptNote";
 
 const packages = ["P24", "P25", "P26", "P27"];
 
@@ -203,6 +204,7 @@ export default function EditionTwoPage() {
 
       <EditionPackageMap edition="002" packages={packages} heading="Continue through the four cases." />
 
+      <NoScriptNote>The interactive questions below need JavaScript to run. The edition text above works without it.</NoScriptNote>
       <EditionLab edition="002" />
 
       <section className="edition-opening" aria-labelledby="sources-heading">

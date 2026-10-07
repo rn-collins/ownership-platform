@@ -1,5 +1,6 @@
 import { ProfessionalAssessment } from "@/components/ProfessionalAssessment";
 import { PROFESSIONAL_METHODOLOGY_VERSION } from "@/lib/instrument_professional";
+import { NoScriptNote } from "@/components/NoScriptNote";
 
 export const metadata = {
   title: "Portfolio Professional — Institutions of One",
@@ -21,6 +22,7 @@ export default function ProfessionalAssessPage() {
       <p className="meta">
         Methodology v{PROFESSIONAL_METHODOLOGY_VERSION} · no account required · approximately five minutes · exploratory, not diagnostic or normed
       </p>
+      <NoScriptNote>The assessment needs JavaScript to run. The method behind it is described on the <a href="/methodology">methodology page</a>.</NoScriptNote>
       <ProfessionalAssessment />
 
       <section className="instrument-notes" style={{ marginTop: 40 }}>

@@ -205,3 +205,6 @@ button.cta-next{
 .about-portrait img{display:block;width:100%;height:auto}
 .about-portrait figcaption{font-size:14px;line-height:1.4;margin-top:8px}
 @media(max-width:800px){.about-intro-portrait{grid-template-columns:1fr}}
+
+/* Shown by <noscript> in place of a tool (MAIN-022). */
+.noscript-note{max-width:72ch;margin:16px 0;padding:14px 16px;border:1px solid var(--i1-ink);background:var(--i1-paper-deep);font-size:16px;line-height:1.5}

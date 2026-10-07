@@ -1,5 +1,6 @@
 import { Assessment } from "@/components/Assessment";
 import { METHODOLOGY_VERSION } from "@/lib/engine";
+import { NoScriptNote } from "@/components/NoScriptNote";
 
 export const metadata = {
   title: "Ownership Index — Institutions of One",
@@ -21,6 +22,7 @@ export default function CreatorAssessPage() {
       <p className="meta">
         Methodology v{METHODOLOGY_VERSION} · no account required · approximately five minutes · exploratory, not diagnostic or normed
       </p>
+      <NoScriptNote>The assessment needs JavaScript to run. The method behind it is described on the <a href="/methodology">methodology page</a>.</NoScriptNote>
       <Assessment />
 
       <section className="instrument-notes" style={{ marginTop: 40 }}>

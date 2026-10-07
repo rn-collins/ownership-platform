@@ -9,11 +9,16 @@ export const metadata = {
 };
 
 
-// Portrait slot (DEC-05). RN has not approved a portrait, so nothing is shown. When she does,
-// fill in the file under public/ and her own alt text; the layout below then places it beside the
-// introduction. Leave it null until then, and never place an AI-generated image here.
-type Portrait = { src: string; alt: string; width: number; height: number; credit?: string };
-const PORTRAIT: Portrait | null = null;
+// Portrait chosen by RN on October 7, 2026 (DEC-05). Alt text exactly as she gave it; no caption and no
+// credit line, and no other image of her is used on the site.
+type Portrait = { src: string; srcSet: string; alt: string; width: number; height: number };
+const PORTRAIT: Portrait | null = {
+  src: "/about/rn-collins-portrait-800x1000.jpg",
+  srcSet: "/about/rn-collins-portrait-480x600.jpg 480w, /about/rn-collins-portrait-800x1000.jpg 800w",
+  alt: "Portrait of RN Collins",
+  width: 800,
+  height: 1000,
+};
 
 export default function AboutPage() {
   return (
@@ -30,8 +35,7 @@ export default function AboutPage() {
       <div className={`card about-intro${PORTRAIT ? " about-intro-portrait" : ""}`}>
         {PORTRAIT && (
           <figure className="about-portrait">
-            <img src={PORTRAIT.src} alt={PORTRAIT.alt} width={PORTRAIT.width} height={PORTRAIT.height} style={{ height: "auto" }} />
-            {PORTRAIT.credit && <figcaption>{PORTRAIT.credit}</figcaption>}
+            <img src={PORTRAIT.src} srcSet={PORTRAIT.srcSet} sizes="(max-width: 800px) 100vw, 260px" alt={PORTRAIT.alt} width={PORTRAIT.width} height={PORTRAIT.height} style={{ height: "auto" }} />
           </figure>
         )}
         <div>

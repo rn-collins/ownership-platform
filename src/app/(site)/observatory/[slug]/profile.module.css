@@ -97,7 +97,7 @@
 .sourceList li{display:grid;grid-template-columns:48px minmax(0,2fr) minmax(0,1fr);gap:12px 24px;padding:16px 0;border-top:var(--i1-rule);font-size:15px;line-height:1.5;scroll-margin-top:72px}
 .sourceList li:target{background:var(--i1-paper-deep)}
 .sourceNum{font-weight:900;color:#5d574f}
-.sourceList a{color:inherit;font-weight:700;text-underline-offset:4px}
+.sourceList a{display:inline-block;padding-block:4px;color:inherit;font-weight:700;text-underline-offset:4px}
 .sourceMeta{font-size:13px;color:#3f3b35;text-align:right}
 .claims{margin-top:var(--i1-space-5)}
 .claim{border-top:var(--i1-rule);padding:var(--i1-space-3) 0}

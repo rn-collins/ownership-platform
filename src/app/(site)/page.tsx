@@ -98,6 +98,16 @@ export default function Home() {
         </ol>
       </section>
 
+      <section className="who-block" aria-labelledby="who-h">
+        <img src="/about/rn-collins-portrait-square-320.jpg" alt="Portrait of RN Collins" width={160} height={160} loading="lazy" />
+        <div>
+          <p className="eyebrow">Who is behind this</p>
+          <h2 id="who-h" className="strip-h2">RN Collins</h2>
+          <p>I&rsquo;m a storyteller and a neuroscientist by training. I make documentaries and short videos about the technology underneath places, and who really owns creative work.</p>
+          <p><a href="/about" className="sec-link">About RN Collins →</a></p>
+        </div>
+      </section>
+
       <section className="closing-call">
         <NewsletterSignup source="site" />
       </section>

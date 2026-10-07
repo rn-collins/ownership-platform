@@ -2,12 +2,16 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { classifyAssessmentRecord, type RecordClass } from "@/lib/research-governance";
 import { logError } from "@/lib/log";
+import { requireResearcher } from "@/lib/researcher-auth";
 
 export const dynamic = "force-dynamic";
 
 const CLASSES: RecordClass[] = ["canonical", "recoverable", "ambiguous", "unusable"];
 
 export async function GET() {
+  // Researchers only: the counts, reasons and timestamps below describe stored Assessment rows (MAIN-003).
+  const researcher = await requireResearcher();
+  if (!researcher) return NextResponse.json({ error: "forbidden" }, { status: 403 });
   if (!prisma) {
     return NextResponse.json(
       { error: "Research-integrity diagnostic is unavailable because the database is not configured." },

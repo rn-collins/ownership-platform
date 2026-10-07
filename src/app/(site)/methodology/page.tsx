@@ -25,7 +25,7 @@ export default function MethodologyPage() {
       <article><span>01</span><h3>Build</h3><p>What the person created: a body of work, method, audience, business, team, or network.</p></article>
       <article><span>02</span><h3>Carry</h3><p>What can move with them when a role, employer, platform, or client changes.</p></article>
       <article><span>03</span><h3>Control</h3><p>What they can govern: identity, rights, audience access, revenue, data, and decisions.</p></article>
-      <article><span>04</span><h3>Continue</h3><p>What work, systems, relationships, or authority could persist when an essential dependency—a role, platform, employer, client, collaborator, or source of capital—changes.</p></article>
+      <article><span>04</span><h3>Continue</h3><p>What work, systems, relationships, or authority could persist when an essential dependency (a role, platform, employer, client, collaborator, or source of capital) changes.</p></article>
     </div></section>
 
     <section className="method-two-evidence"><p className="eyebrow">Why there are assessments and public cases</p><h2>One reveals lived conditions. The other reveals visible structure.</h2><div className="method-split">
@@ -39,7 +39,7 @@ export default function MethodologyPage() {
       <p><b>What qualifies.</b> Court findings; court filings, always attributed as allegations unless a court has adjudicated them; findings and rulings of regulators and other public bodies; the subject’s own public statements, acknowledgments, or apologies; and reporting by at least two independent, established news organizations. The material must bear directly on the structural question the case examines.</p>
       <p><b>What is excluded.</b> Rumor; insinuation or claims resting on a single source; personal relationships, health, and family matters unless they are directly material to the case and sourced; and judgments about character, motive, or psychology. We do not diagnose anyone, and we do not raise an accusation in order to deny it.</p>
       <p><b>How it is written.</b> Adverse material is attributed to its source: a complaint “alleges,” an outlet “reported,” a finding is stated “according to” the body that made it. Denials, settlements without admission, and unresolved outcomes appear alongside the allegation. Failures an institution documented are attributed to that institution and are not transferred to an individual beyond what the record states. Each chronology entry lists the numbered sources it rests on, and each source is linked. Case pages say how many of those links go to a publisher or organization page rather than the exact item.</p>
-      <p><b>Right of reply and corrections.</b> Anyone named in a case, or someone acting for them, may request a correction, add context, or respond by writing to <a href="mailto:rayven.nikkita.collins@gmail.com">rayven.nikkita.collins@gmail.com</a>. Substantiated errors are corrected.</p>
+      <p><b>Right of reply and corrections.</b> Anyone named in a case, or someone acting for them, may request a correction, add context, or respond by using the <a href="/contact">contact form</a> and choosing &ldquo;A correction or reply about a case record.&rdquo; Substantiated errors are corrected.</p>
     </div></section>
 
     <section className="method-instruments">

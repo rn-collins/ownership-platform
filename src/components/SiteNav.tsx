@@ -3,17 +3,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AccountNav } from "@/components/AccountNav";
+import { POLYMATH_SUBSCRIBE_URL, SHARED_NAV } from "@/lib/site";
 
-// Primary site navigation. Client-only concerns (active link, mobile panel)
-// live here so the (site) layout itself stays static.
-const NAV_LINKS: ReadonlyArray<{ href: string; label: string }> = [
-  { href: "/methodology", label: "Method" },
-  { href: "/observatory", label: "Cases" },
-  { href: "/assess", label: "Assessment" },
-  { href: "/edit", label: "Editions" },
-  { href: "/partner", label: "Work with RN" },
-];
-
+// Primary site navigation. Links and order come from SHARED_NAV (src/lib/site.ts), the same labels
+// the Public Reader uses (DEC-02, interim step B).
+// Client-only concerns (active link, mobile panel) live here so the (site) layout itself stays static.
 function isActive(pathname: string | null, href: string) {
   if (!pathname) return false;
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -60,11 +54,18 @@ export function SiteNav() {
           if ((event.target as HTMLElement).closest("a")) close();
         }}
       >
-        {NAV_LINKS.map((link) => (
-          <a key={link.href} href={link.href} aria-current={isActive(pathname, link.href) ? "page" : undefined}>
+        {SHARED_NAV.map((link) => "external" in link && link.external ? (
+          <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">
+            {link.label}<span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        ) : (
+          <a key={link.label} href={link.href} aria-current={isActive(pathname, link.href) ? "page" : undefined}>
             {link.label}
           </a>
         ))}
+        <a className="nav-cta" href={POLYMATH_SUBSCRIBE_URL} target="_blank" rel="noopener noreferrer">
+          Get the newsletter<span className="sr-only"> (opens in a new tab)</span>
+        </a>
         <AccountNav />
       </nav>
     </>

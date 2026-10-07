@@ -9,6 +9,7 @@ import CaseLab from "./CaseLab";
 import { CaseStatus } from "@/components/case/CaseStatus";
 import { buildFramework, collectSources, countSources, formatLongDate, isLandingPage, pad, sourceKindLabel } from "@/components/case/caseData";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { visualStoryForCase } from "@/lib/edit-cycle-one";
 
 // Evidence comes from the database; serve a cached render and refresh it hourly
 // so a cold or unavailable database never sits in front of a reader.
@@ -21,11 +22,11 @@ export function generateStaticParams() { return SEED.map((n) => ({ slug: nodeSlu
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const node = findNodeBySlug(params.slug);
-  if (!node) return { title: "Case — The Observatory" };
+  if (!node) return { title: "Case | The Observatory" };
   const canonical = `/observatory/${params.slug}`;
-  const title = `${node.name}: ${node.question ?? "A career worth investigating"} — The Observatory`;
+  const title = `${node.name}: ${node.question ?? "A career worth investigating"} | The Observatory`;
   const description = node.question ?? `Explore what ${node.name}'s career reveals about ownership, portability, power, and dependence.`;
-  return { title, description, alternates: { canonical }, openGraph: { title, description, url: canonical, images: ["/opengraph-image"] }, twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] } };
+  return { title, description, alternates: { canonical }, openGraph: { title, description, url: canonical }, twitter: { card: "summary_large_image", title, description } };
 }
 
 const tensionGuides: Record<string, { meaning: string; lookFor: string; comparison: string }> = {
@@ -100,6 +101,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
   const unknowns = research?.unknowns ?? narrative?.unresolved ?? [];
   const framework = narrative ? buildFramework({ built: narrative.structuralTurn, unknowns, carryFallback: guide.comparison }) : [];
   const hasCase = Boolean(narrative && research);
+  const visualStory = visualStoryForCase(person.name);
   const section = (id: (typeof SECTIONS)[number]["id"]) => pad(SECTIONS.findIndex((item) => item.id === id) + 1);
 
   return <main className={styles.page}>
@@ -117,7 +119,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
       </ul>
       <div className={styles.question}>
         <p className={styles.questionLabel}>The case question</p>
-        <p className={styles.questionText}>{person.question ?? "What does this career make possible—and what makes it fragile?"}</p>
+        <p className={styles.questionText}>{person.question ?? "What does this career make possible, and what makes it fragile?"}</p>
       </div>
       {finding && <div className={styles.finding}>
         <p className={styles.findingLabel}>What this case shows</p>
@@ -125,6 +127,12 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
       </div>}
       <CaseStatus total={sources.length} independent={independentCount} status={status} />
     </header>
+
+    {visualStory && <aside className={styles.connected} aria-labelledby="connected-heading">
+      <h2 id="connected-heading">Connected to this case</h2>
+      <p>The visual story &ldquo;{visualStory.title}&rdquo; walks through this case in slides, with captions and source records.</p>
+      <a href={visualStory.url} target="_blank" rel="noopener noreferrer">Watch the visual story<span className="sr-only"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+    </aside>}
 
     {hasCase && narrative && research ? <>
       <nav className={styles.rail} aria-label="Case sections">
@@ -199,7 +207,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
         <p className={styles.num} aria-hidden="true">{section("sources")}</p>
         <h2 id="sources-heading">Sources and their limits</h2>
         <p className={styles.sectionIntro}>{sources.length} source{sources.length === 1 ? "" : "s"}: {independentCount} independent and {sources.length - independentCount} other (primary, institutional, subject interviews, self-authored, or republished reports). First-party sources and interviews establish what a person or organization said or announced; they do not independently prove performance, ownership, causation, or impact. This is analysis of a public record and makes no rating of the person.</p>
-        <p className={styles.sourceNote}>Each link was checked by hand during the record’s source review; the site does not continuously re-check them. A broken link, or one that does not support its statement, is a defect in the record — please report it.{landingPageCount > 0 && <> {landingPageCount} link{landingPageCount === 1 ? " leads" : "s lead"} to a publisher or organization landing page rather than the exact supporting item, so {landingPageCount === 1 ? "it identifies" : "they identify"} a research lead rather than a claim-level citation.</>}</p>
+        <p className={styles.sourceNote}>Each link was checked by hand during the record’s source review; the site does not continuously re-check them. A broken link, or one that does not support its statement, is a defect in the record. Please report it.{landingPageCount > 0 && <> {landingPageCount} link{landingPageCount === 1 ? " leads" : "s lead"} to a publisher or organization landing page rather than the exact supporting item, so {landingPageCount === 1 ? "it identifies" : "they identify"} a research lead rather than a claim-level citation.</>}</p>
         <ol className={styles.sourceList}>{sources.map((source) => <li id={`source-${source.number}`} key={source.id}>
           <span className={styles.sourceNum} aria-hidden="true">{pad(source.number)}</span>
           <a href={source.href} target="_blank" rel="noreferrer">{source.label}</a>
@@ -213,7 +221,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
             <p className={styles.claimLabel}>{claim.claimType.replaceAll("_", " ")} · {claim.verificationStatus.replaceAll("_", " ")}</p>
             <h4>{claim.permissibleLanguage || claim.statement}</h4>
             {claim.contradictionNote && <p><strong>Important qualification:</strong> {claim.contradictionNote}</p>}
-            <details><summary>Inspect the evidence ({claim.evidence.length})</summary>{claim.evidence.length ? <ol>{claim.evidence.map((item) => <li key={item.id}><a href={item.source.url} target="_blank" rel="noreferrer">{item.source.title}</a>{item.source.publisher ? ` — ${item.source.publisher}` : ""}{item.source.publishedAt ? ` (${formatLongDate(item.source.publishedAt)})` : ""}{item.source.primarySource ? " · Primary source" : ""}{item.exactPassage && <blockquote>{item.exactPassage}</blockquote>}{item.locator && <p>Location: {item.locator}</p>}</li>)}</ol> : <p>No public citation is attached yet.</p>}</details>
+            <details><summary>Inspect the evidence ({claim.evidence.length})</summary>{claim.evidence.length ? <ol>{claim.evidence.map((item) => <li key={item.id}><a href={item.source.url} target="_blank" rel="noreferrer">{item.source.title}</a>{item.source.publisher ? `, ${item.source.publisher}` : ""}{item.source.publishedAt ? ` (${formatLongDate(item.source.publishedAt)})` : ""}{item.source.primarySource ? " · Primary source" : ""}{item.exactPassage && <blockquote>{item.exactPassage}</blockquote>}{item.locator && <p>Location: {item.locator}</p>}</li>)}</ol> : <p>No public citation is attached yet.</p>}</details>
           </article>)}
         </div>}
       </section>
@@ -221,7 +229,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
 
     <section className={styles.lens} aria-labelledby="lens-heading">
       <h2 id="lens-heading">Turn the lens on your own work</h2>
-      <p>The same four questions — Build, Carry, Control, Continue — apply to any career, including yours.</p>
+      <p>The same four questions (Build, Carry, Control, Continue) apply to any career, including yours.</p>
       <div className={styles.lensActions}>
         <Link href="/assess" className={`cta-next ${styles.ctaNext}`}>Take the 5-minute assessment <span aria-hidden="true">→</span></Link>
         <p className={styles.lensAlt}>Working inside an organization? <Link href="/assess/professional">Take the professional assessment</Link>.</p>

@@ -34,7 +34,8 @@ export function describeFailure(status: number | null): string {
   return "Something went wrong on our side, so this wasn’t sent. Please try again in a moment.";
 }
 
-export type SubmitOutcome = { ok: true } | { ok: false; message: string };
+/** `synced` is present only when the server reports whether the signup reached the outside mailing list. */
+export type SubmitOutcome = { ok: true; synced?: boolean; notified?: boolean } | { ok: false; message: string };
 
 /**
  * Interpret a response body + status. A JSON body with `ok: true` is success
@@ -42,7 +43,11 @@ export type SubmitOutcome = { ok: true } | { ok: false; message: string };
  */
 export function interpretResponse(status: number, body: unknown): SubmitOutcome {
   const flag = body && typeof body === "object" && "ok" in body ? (body as { ok: unknown }).ok : undefined;
-  if (flag === true) return { ok: true };
+  if (flag === true) {
+    const synced = body && typeof body === "object" && "synced" in body ? (body as { synced: unknown }).synced : undefined;
+    const notified = body && typeof body === "object" && "notified" in body ? (body as { notified: unknown }).notified : undefined;
+    return { ok: true, ...(typeof synced === "boolean" ? { synced } : {}), ...(typeof notified === "boolean" ? { notified } : {}) };
+  }
   if (flag === undefined && status >= 200 && status < 300) return { ok: true };
   return { ok: false, message: describeFailure(status >= 200 && status < 300 ? 500 : status) };
 }

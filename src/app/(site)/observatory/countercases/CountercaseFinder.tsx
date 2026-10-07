@@ -97,7 +97,7 @@ export function CountercaseFinder({ nodes = SEED }: { nodes?: Node[] }) {
   return <div className={styles.finder}>
     <section className={styles.selector} aria-labelledby="case-selector-title">
       <div><p className={styles.kicker}>Begin with a case</p><h2 id="case-selector-title">Whose apparent lesson do you want to test?</h2></div>
-      <label><span>Select one of 41 cases</span><select value={anchorSlug} onChange={(event) => selectAnchor(event.target.value)}>{nodes.map((node) => <option key={node.name} value={nodeSlug(node.name)}>{node.name} — {node.domain}</option>)}</select></label>
+      <label><span>Select one of 41 cases</span><select value={anchorSlug} onChange={(event) => selectAnchor(event.target.value)}>{nodes.map((node) => <option key={node.name} value={nodeSlug(node.name)}>{node.name} ({node.domain})</option>)}</select></label>
     </section>
 
     <section className={styles.argument} aria-live="polite">

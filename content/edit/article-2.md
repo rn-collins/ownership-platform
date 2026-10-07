@@ -129,7 +129,7 @@ Before approving a use or edit, run a non-exhaustive production check:
 
 - **Work:** What protected expression is present, and who contributed it?
 - **File:** What exact deliverable or source material was supplied?
-- **Source package:** Were raw, layered, project, or other editable files included—or only the approved final export?
+- **Source package:** Were raw, layered, project, or other editable files included, or only the approved final export?
 - **Permission:** Which acts and changes were authorized?
 - **Credit:** What attribution is required or appropriate?
 - **Person:** Whose identity, voice, likeness, performance, or endorsement appears?
@@ -140,14 +140,14 @@ A 15-second asset can contain several separate questions. Making the layers visi
 
 ## Sources and further reading
 
-- [17 U.S.C. §§ 101 and 106 — definitions and exclusive rights](https://www.copyright.gov/title17/92chap1.html)
-- [17 U.S.C. §§ 201 and 203 — ownership and termination](https://www.copyright.gov/title17/92chap2.html)
-- [17 U.S.C. § 302 — duration](https://www.copyright.gov/title17/92chap3.html)
+- [17 U.S.C. §§ 101 and 106: definitions and exclusive rights](https://www.copyright.gov/title17/92chap1.html)
+- [17 U.S.C. §§ 201 and 203: ownership and termination](https://www.copyright.gov/title17/92chap2.html)
+- [17 U.S.C. § 302: duration](https://www.copyright.gov/title17/92chap3.html)
 - [U.S. Copyright Office, *Works Made for Hire* (Circular 30)](https://www.copyright.gov/circs/circ30.pdf)
 - [U.S. Copyright Office, *Copyright and Artificial Intelligence, Part 1: Digital Replicas*](https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-1-Digital-Replicas-Report.pdf)
 - [*Community for Creative Non-Violence v. Reid*, 490 U.S. 730 (1989), official U.S. Reports record](https://www.govinfo.gov/app/details/USREPORTS-490/USREPORTS-490-730)
 - [Federal Trade Commission, Endorsements, Influencers, and Reviews](https://www.ftc.gov/business-guidance/advertising-marketing/endorsements-influencers-reviews)
-- [YouTube Help, “What is a copyright claim?” — automated Content ID claims and their effects](https://support.google.com/youtube/answer/7002106)
+- [YouTube Help, “What is a copyright claim?”: automated Content ID claims and their effects](https://support.google.com/youtube/answer/7002106)
 - [Associated Press, official account of the Fairey proceedings](https://www.ap.org/media-center/ap-in-the-news/2012/obama-hope-poster-artist-shepard-fairey-gets-probation/)
 - [OpenAI, “How the voices for ChatGPT were chosen”](https://openai.com/index/how-the-voices-for-chatgpt-were-chosen/)
 - [Associated Press, Johansson statement and OpenAI response](https://apnews.com/article/openai-chatgpt-scarlett-johansson-voice-her-532c849ccae3ca9e9325dacfe88e0436)

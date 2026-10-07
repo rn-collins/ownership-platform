@@ -2,3 +2,5 @@
 /* Dark panels: acid-on-ink focus ring (see design-system.css). */
 .mapSelection :focus-visible,.compareQuestions :focus-visible,.analysisNote :focus-visible{outline-color:var(--i1-acid)!important}
 .compareStatus{margin:0 0 13px;min-height:0;font-size:14px;color:#48443e}.compareStatus:empty{margin:0}.compareStatus button{margin-left:4px;padding:6px 10px;min-height:36px;border:1px solid var(--i1-ink);background:var(--i1-paper);color:var(--i1-ink);border-radius:0;font-weight:800;cursor:pointer}.compareStatus button:hover{background:var(--i1-paper-deep)}
+
+.more{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:24px 0}.more button{min-height:44px;padding:0 20px;border:1px solid var(--i1-ink);background:var(--i1-ink);color:var(--i1-paper);font:800 14px/1 Arial,sans-serif;cursor:pointer}.more button:focus-visible{outline:3px solid var(--i1-blue);outline-offset:2px}.more span{font-size:14px}

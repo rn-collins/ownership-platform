@@ -1,12 +1,13 @@
 import { Assessment } from "@/components/Assessment";
 import { METHODOLOGY_VERSION } from "@/lib/engine";
+import { NoScriptNote } from "@/components/NoScriptNote";
 
 export const metadata = {
-  title: "Ownership Index — Institutions of One",
+  title: "Ownership Index | Institutions of One",
   description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.",
   alternates: { canonical: "/assess/creator" },
-  openGraph: { title: "Ownership Index — Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", url: "/assess/creator", images: ["/opengraph-image"] },
-  twitter: { card: "summary_large_image", title: "Ownership Index — Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", images: ["/opengraph-image"] },
+  openGraph: { title: "Ownership Index | Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", url: "/assess/creator", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Ownership Index | Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", images: ["/opengraph-image"] },
 };
 
 export default function CreatorAssessPage() {
@@ -21,6 +22,7 @@ export default function CreatorAssessPage() {
       <p className="meta">
         Methodology v{METHODOLOGY_VERSION} · no account required · approximately five minutes · exploratory, not diagnostic or normed
       </p>
+      <NoScriptNote>The assessment needs JavaScript to run. The method behind it is described on the <a href="/methodology">methodology page</a>.</NoScriptNote>
       <Assessment />
 
       <section className="instrument-notes" style={{ marginTop: 40 }}>
@@ -41,7 +43,7 @@ export default function CreatorAssessPage() {
           The output is five area scores and a short reading of the pattern between them. It is
           not a rank against other people, and there is no threshold anyone is expected to clear.
           Scores are not normed, which means they have not been calibrated against a
-          representative sample &mdash; so the useful comparison is between your own five areas,
+          representative sample, so the useful comparison is between your own five areas,
           or between the same assessment taken at two points in time, rather than against anyone
           else&apos;s number.
         </p>

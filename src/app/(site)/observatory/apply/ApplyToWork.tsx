@@ -31,7 +31,7 @@ const PATHWAYS: Record<RouteKey, Pathway> = {
   attention: {
     title: "Turning attention into owned infrastructure",
     tension: "Owned vs rented",
-    why: "Your description raises the question of whether visibility has become an asset you can govern—or still depends on access another organization can change.",
+    why: "Your description raises the question of whether visibility has become an asset you can govern, or still depends on access another organization can change.",
     cases: ["Emma Chamberlain", "Huda Kattan", "Shonda Rhimes"],
     countercase: "Marques Brownlee",
     questions: [
@@ -50,7 +50,7 @@ const PATHWAYS: Record<RouteKey, Pathway> = {
     questions: [
       "What repeated question or method connects work that looks unrelated from the outside?",
       "Which parts share an audience, operating system, archive, or body of knowledge?",
-      "Where does range create compounding advantage—and where does it divide attention?",
+      "Where does range create compounding advantage, and where does it divide attention?",
       "What is the clearest public artifact that makes the whole legible without flattening it?"
     ]
   },
@@ -90,7 +90,7 @@ const PATHWAYS: Record<RouteKey, Pathway> = {
       "Which functions still require the founder’s judgment, relationships, or public visibility?",
       "Where are method, standards, decision rights, and institutional memory held?",
       "Who can disagree with the founder, and through what governance?",
-      "What would continue unchanged—and what should change—after succession?"
+      "What would continue unchanged, and what should change, after succession?"
     ]
   }
 };
@@ -138,7 +138,7 @@ export default function ApplyToWork() {
     </ol>
     {people[3] && <aside className={styles.counter}>
       <p className={styles.kicker}>The countercase</p><h3>Before accepting the lesson, examine {people[3]!.name}.</h3>
-      <p>This case complicates a simple conclusion from the first three. It may show a different route to authority, portability, scale, or continuation—or reveal that the apparent solution creates another dependency.</p>
+      <p>This case complicates a simple conclusion from the first three. It may show a different route to authority, portability, scale, or continuation, or reveal that the apparent solution creates another dependency.</p>
       <blockquote>{people[3]!.question}</blockquote>
       <a href={"/observatory/" + nodeSlug(people[3]!.name)}>Open the countercase →</a>
     </aside>}

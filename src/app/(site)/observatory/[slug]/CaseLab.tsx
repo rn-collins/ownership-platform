@@ -29,7 +29,7 @@ const scenarios: Record<string, { label: string; question: string; interpretatio
     { label: "Keep only the method", question: "Could the method produce value in another setting?", interpretation: "A portable method may survive even when execution infrastructure does not." },
   ],
   "Scale vs dependence": [
-    { label: "Remove the largest dependency", question: "Which part of the system fails first—and which continues?", interpretation: "Scale can increase capacity while creating a new single point of failure." },
+    { label: "Remove the largest dependency", question: "Which part of the system fails first, and which continues?", interpretation: "Scale can increase capacity while creating a new single point of failure." },
     { label: "Replace outside capital", question: "What changes if growth must be financed or distributed differently?", interpretation: "This distinguishes durable capacity from capacity contingent on one resource provider." },
   ],
   "Public mandate vs personal authority": [

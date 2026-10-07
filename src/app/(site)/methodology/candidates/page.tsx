@@ -4,11 +4,11 @@ import {
 } from "@/lib/candidate-instruments";
 
 export const metadata = {
-  title: "Questions in development — Institutions of One",
+  title: "Questions in development | Institutions of One",
   description: "See how proposed assessment questions are understood, tested, revised, and either adopted or rejected.",
   alternates: { canonical: "/methodology/candidates" },
-  openGraph: { title: "Questions in development — Institutions of One", description: "See how proposed assessment questions are understood, tested, revised, and either adopted or rejected.", url: "/methodology/candidates", images: ["/opengraph-image"] },
-  twitter: { card: "summary_large_image", title: "Questions in development — Institutions of One", description: "See how proposed assessment questions are understood, tested, revised, and either adopted or rejected.", images: ["/opengraph-image"] },
+  openGraph: { title: "Questions in development | Institutions of One", description: "See how proposed assessment questions are understood, tested, revised, and either adopted or rejected.", url: "/methodology/candidates", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Questions in development | Institutions of One", description: "See how proposed assessment questions are understood, tested, revised, and either adopted or rejected.", images: ["/opengraph-image"] },
 };
 
 const steps = [
@@ -69,8 +69,8 @@ export default function CandidateInstrumentsPage() {
         <p>
           A draft is held back when a word turns out to carry more than one common reading, when
           the answer choices leave a real situation with nowhere to go, when a question assumes
-          circumstances not everyone has &mdash; a team, a budget, a stable address, a single
-          employer &mdash; or when the format itself is the obstacle rather than the content.
+          circumstances not everyone has (a team, a budget, a stable address, a single
+          employer), or when the format itself is the obstacle rather than the content.
           Each of those produces an answer, which is why response rates alone never surface
           them.
         </p>

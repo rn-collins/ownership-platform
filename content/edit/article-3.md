@@ -33,7 +33,7 @@ A post and an ad can contain the same video while doing different commercial job
 
 An organic post travels through the creator’s or brand’s ordinary account and the platform’s distribution systems. Paid amplification adds an advertising campaign around the file: budget, audience selection, scheduling, delivery, measurement, and sometimes the creator’s handle or account identity.
 
-That last distinction matters. When an advertisement appears through or alongside a creator’s identity, the brand is not using only the video. It is also using the context created by the person, the account, and the audience’s understanding of who is speaking. Creator communities may call this whitelisting, allow-listing, partnership advertising, or—on TikTok—Spark Ads. Platform terminology changes. The operational question does not:
+That last distinction matters. When an advertisement appears through or alongside a creator’s identity, the brand is not using only the video. It is also using the context created by the person, the account, and the audience’s understanding of who is speaking. Creator communities may call this whitelisting, allow-listing, partnership advertising, or, on TikTok, Spark Ads. Platform terminology changes. The operational question does not:
 
 > Is the brand advertising from its own account, or is it advertising through the creator’s identity and post?
 

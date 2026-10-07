@@ -5,7 +5,7 @@ import {SEED,nodeSlug} from "@/lib/observatory_seed";
 import {getCaseResearch} from "@/lib/case_research";
 import {countSources} from "@/components/case/caseData";
 import styles from "./documentation.module.css";
-export const metadata:Metadata=withSocial({title:"Case Documentation Ledger — The Observatory",description:"See how each case record is built, which records remain provisional, and what a complete record requires.",alternates:{canonical:"/observatory/documentation"}},"/observatory/documentation");
+export const metadata:Metadata=withSocial({title:"Case Documentation Ledger | The Observatory",description:"See how each case record is built, which records remain provisional, and what a complete record requires.",alternates:{canonical:"/observatory/documentation"}},"/observatory/documentation");
 const REQUIREMENTS=[
 ["Identity and scope","Disambiguated person, entities, roles, dates, jurisdictions, and the precise structural question the case is being used to examine."],
 ["Claim inventory","Every factual, causal, comparative, ownership, control, portability, and continuity claim separated into an auditable statement."],
@@ -13,7 +13,7 @@ const REQUIREMENTS=[
 ["Source triangulation","Primary records for formal facts; first-party sources for self-description; independent reporting or scholarship for corroboration and context; conflicts preserved rather than averaged away."],
 ["Structural chronology","Dated or honestly bounded events showing what changed, when, and which evidence supports each event. Broad periods remain broad."],
 ["Build–Carry–Control–Continue","Case-specific findings for what was built, what could travel, what was controlled, and what could persist. Visibility, influence, access, and legal ownership remain distinct."],
-["Dependency and governance map","Employer, platform, title, capital, audience, founder, intellectual property, distribution, partners, public mandate, decision rights, and succession—documented, inferred, private, or unknown."],
+["Dependency and governance map","Employer, platform, title, capital, audience, founder, intellectual property, distribution, partners, public mandate, decision rights, and succession: documented, inferred, private, or unknown."],
 ["Competing explanations","The strongest counterevidence, alternative causal account, team or institutional contribution, and countercase that could weaken the inviting lesson."],
 ["Unknowns and acquisition plan","Important unresolved facts stated as questions, with the public record, filing, interview, contract, dataset, or follow-up review that could answer them."],
 ["Review and version trail","Researcher, review date, source checks, changes from the prior version, evidence added or withdrawn, and the interpretation affected by each change."]

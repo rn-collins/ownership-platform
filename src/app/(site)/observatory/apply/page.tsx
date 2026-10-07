@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/page-meta";
 import ApplyToWork from "./ApplyToWork";
 import styles from "./apply.module.css";
+import { NoScriptNote } from "@/components/NoScriptNote";
 
 export const metadata: Metadata = withSocial({
-  title: "Apply the cases to your work — The Observatory",
+  title: "Apply the cases to your work | The Observatory",
   description: "Choose a structural pressure and receive a private, unscored pathway through four Observatory cases.",
   alternates: { canonical: "/observatory/apply" },
 }, "/observatory/apply");
@@ -18,6 +19,7 @@ export default function ApplyPage() {
       <p>Choose the problem you want to examine. The tool will show one recurring tension, three relevant cases, one case that complicates the apparent lesson, and questions you can apply to your situation. Your selection and optional note stay in your browser.</p>
       <div className={styles.promise}><span>No diagnosis</span><span>No score</span><span>No account required</span><span>Nothing is saved</span></div>
     </header>
+    <NoScriptNote>This tool needs JavaScript to run. Every case it can point to is listed on the <a href="/observatory">Cases page</a>.</NoScriptNote>
     <ApplyToWork />
 
     <section style={{ marginTop: 44 }}>
@@ -36,7 +38,7 @@ export default function ApplyPage() {
         Every path opens with a tension rather than a recommendation, because the six problems
         on this page are not solvable in the sense of going away. Visibility that outruns
         control, a mandate that exists in practice but not on paper, a dependency that is
-        profitable and constraining at once &mdash; these are conditions to be managed and
+        profitable and constraining at once: these are conditions to be managed and
         periodically re-decided. Naming the tension is what makes it possible to notice when the
         trade you accepted two years ago has quietly changed terms.
       </p>

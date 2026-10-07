@@ -1,11 +1,12 @@
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { publicEditions } from "@/lib/edit-cycle-one";
+import { readerUrl } from "@/lib/site";
 
 export const metadata = {
-  title: "The I/1 Edit — Institutions of One",
+  title: "The I/1 Edit | Institutions of One",
   description: "Original ideas, cases, and evidence about what people build through work, what they can carry, what they control, and what can continue.",
   alternates: { canonical: "/edit" },
-  openGraph: { images: [{ url: "/og/edit/index.png", width: 1200, height: 630, alt: "The I/1 Edit — what people build, carry, control, and continue." }],
+  openGraph: { images: [{ url: "/og/edit/index.png", width: 1200, height: 630, alt: "The I/1 Edit: what people build, carry, control, and continue." }],
     title: "The I/1 Edit",
     description: "Original ideas, cases, and evidence about what people build through work, what they can carry, what they control, and what can continue.",
     url: "/edit",
@@ -27,7 +28,7 @@ export default function EditPage() {
       <p className="eyebrow">The publication · The I/1 Edit</p>
       <h1>Research and ideas about the structure behind people’s work.</h1>
       <p className="lede">
-        New editions arrive by email. Each one takes one question about work, power, and ownership—and follows it far enough
+        New editions arrive by email. Each one takes one question about work, power, and ownership, and follows it far enough
         to become useful, examining what makes work portable, durable, controlled, or dependent on an employer, platform, client, partner, or other institution.
       </p>
 
@@ -43,7 +44,7 @@ export default function EditPage() {
           <p>
             Every edition has the same intellectual core, while each surface serves a different purpose. Read on Beehiiv for the narrative. Use this site for the complete numbered editions and their cited record. The Public Reader extends each edition through visual stories, interactive tools, and ready-to-use files.
           </p>
-          <p><a href="https://institutions-of-one-reader.vercel.app/production/cycle-01">Explore the Public Reader’s visual stories →</a></p>
+          <p><a href={readerUrl("/production/cycle-01")}>Explore the Public Reader’s visual stories →</a></p>
         </div>
       </section>
 

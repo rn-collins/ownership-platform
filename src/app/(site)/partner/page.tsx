@@ -1,11 +1,13 @@
 import { PartnerInquiry } from "@/components/PartnerInquiry";
 
+const TITLE = "Work with RN | Institutions of One";
+const DESC = "RN Collins is taking on clients for storytelling strategy and content production and operations. Research and continuity consulting is also available.";
 export const metadata = {
-  title: "Ways to work together — Institutions of One",
-  description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.",
+  title: TITLE,
+  description: DESC,
   alternates: { canonical: "/partner" },
-  openGraph: { title: "Ways to work together — Institutions of One", description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.", url: "/partner", images: ["/opengraph-image"] },
-  twitter: { card: "summary_large_image", title: "Ways to work together — Institutions of One", description: "Research, strategy, workshops, practical tools, and ongoing support for groups examining how expertise, authority, ownership, and continuity are structured.", images: ["/opengraph-image"] },
+  openGraph: { title: TITLE, description: DESC, url: "/partner", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/opengraph-image"] },
 };
 
 const problems = [
@@ -38,10 +40,21 @@ export default function PartnerPage() {
   return (
     <main className="partner-page partner-2">
       <header className="partner-hero">
-        <p className="eyebrow">Ways to work together</p>
-        <h1>Bring a question, decision, or piece of work that needs careful attention.</h1>
-        <p className="lede partner-hook">I help groups see what their people build, carry, control, and continue.</p>
+        <p className="eyebrow">Work with RN</p>
+        <h1>Storytelling strategy and content production and operations.</h1>
+        <p className="lede partner-hook">I&rsquo;m taking on clients for storytelling strategy and content production and operations. DMs are open.</p>
+        <div className="actions">
+          <a href="/contact?from=main-partner"><button className="primary">Send a message</button></a>
+        </div>
       </header>
+
+      <section className="partner-section" aria-labelledby="research-heading">
+        <div className="partner-section-intro">
+          <p className="eyebrow">Also available</p>
+          <h2 id="research-heading" className="display-h2">Research and continuity consulting.</h2>
+          <p>Bring a question, decision, or piece of work that needs careful attention. I help groups see what their people build, carry, control, and continue.</p>
+        </div>
+      </section>
 
       <section className="partner-section" aria-labelledby="who-heading">
         <div className="partner-section-intro">
@@ -92,9 +105,9 @@ export default function PartnerPage() {
       </section>
 
       <section className="partner-start" aria-labelledby="contact-heading">
-        <p className="eyebrow">Contact</p>
+        <p className="eyebrow">Research inquiry</p>
         <h2 id="contact-heading">What would you like help understanding, deciding, or creating?</h2>
-        <p>Share the situation in a few direct sentences. I read every inquiry and reply by email.</p>
+        <p>Share the situation in a few direct sentences. I read every inquiry and reply by email. For anything else, including storytelling and content production, use the <a href="/contact?from=main-partner">contact form</a>.</p>
         <PartnerInquiry />
       </section>
     </main>

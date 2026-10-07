@@ -35,7 +35,7 @@ function validate(email: string, consent: boolean): FieldErrors<Field> {
 export function ResearchOptIn({
   source = "site",
   interest,
-  heading = "Get your results — and join the research",
+  heading = "Get your results and join the research",
   blurb = "New findings, essays, and where the map is headed. No spam; unsubscribe anytime.",
   report,
 }: Props) {
@@ -83,7 +83,7 @@ export function ResearchOptIn({
     return (
       <div className="optin optin-done" role="status">
         <h3 className={`optinh ${s.focusTarget}`} ref={doneRef} tabIndex={-1}>You&rsquo;re in.</h3>
-        <p className="optinsub">Thank you for joining the research — you&rsquo;ll hear from me at Institutions of One.</p>
+        <p className="optinsub">Thank you for joining the research. You&rsquo;ll hear from me at Institutions of One.</p>
         {report && (
           <div className="actions" style={{ marginTop: 4 }}>
             <a href={cardHref!} target="_blank" rel="noopener noreferrer"><button className={`primary ${s.button}`}>Download your score card</button></a>
@@ -137,7 +137,7 @@ export function ResearchOptIn({
           aria-invalid={errors.consent ? true : undefined}
           aria-describedby={errors.consent ? errId("consent") : undefined}
         />
-        <span>Yes — add me to The Observatory research list and email me occasional updates. I can unsubscribe anytime.</span>
+        <span>Yes, add me to The Observatory research list and email me occasional updates. I can unsubscribe anytime.</span>
       </label>
       {errors.consent && <p className={s.error} id={errId("consent")}>{errors.consent}</p>}
       <div className="actions">

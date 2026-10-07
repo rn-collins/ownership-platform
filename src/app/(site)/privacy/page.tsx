@@ -1,9 +1,9 @@
 export const metadata = {
-  title: "Privacy & data use — Institutions of One",
-  description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.",
+  title: "Privacy & data use | Institutions of One",
+  description: "What Institutions of One collects, why, how it is used, and your rights: consent-first, by design.",
   alternates: { canonical: "/privacy" },
-  openGraph: { title: "Privacy & data use — Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.", url: "/privacy", images: ["/opengraph-image"] },
-  twitter: { card: "summary_large_image", title: "Privacy & data use — Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.", images: ["/opengraph-image"] },
+  openGraph: { title: "Privacy & data use | Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights: consent-first, by design.", url: "/privacy", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Privacy & data use | Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights: consent-first, by design.", images: ["/opengraph-image"] },
 };
 
 export default function PrivacyPage() {
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       <div className="card">
         <h2>The anonymous assessments</h2>
         <p>When you take an index, the system stores your item-by-item answers on a 0 to 5 scale, the five-area profile, the secondary composite score shown for transparency, instrument and methodology
-        versions, and a random assessment identifier — no name, email, or account identity. The identifier lets
+        versions, and a random assessment identifier, with no name, email, or account identity. The identifier lets
         later optional research answers update the same assessment instead of creating duplicate respondents; it is not
         used to identify you. A copy of your answers also stays in your browser on your device. Optional research
         answers are stored with the same anonymous assessment and are not added to the public findings unless the record
@@ -44,6 +44,7 @@ export default function PrivacyPage() {
         <p>These forms store what you submit, for the purpose you submitted it.</p>
         <ul>
           <li><b>Partner inquiries.</b> Your name, email, organization, the kind of inquiry, and your message. The site stores them and also emails them to RN Collins through Resend.</li>
+          <li><b>Contact messages.</b> Your name, email, the topic you chose, your message, and which site sent you to the form. The site saves the message when its database is connected and emails it to RN Collins through Resend when email delivery is switched on. If neither is available the form says so and keeps nothing.</li>
           <li><b>Observatory nominations.</b> The name, organization, and role of the person you are nominating, your reason, and your email if you choose to give one.</li>
           <li><b>Cognitive interview intake.</b> You must be 18 or older. The form stores your name, email, how you work and your career stage, your location or jurisdiction, your availability and time zone, and your instrument interest. It also stores any access needs you describe, which can include disability, chronic illness, or caregiving context. That information is sensitive. It is used only to plan an interview you can take part in, and you do not have to give it. The form also stores whether you agreed to be recorded and to be quoted, and a withdrawal code so you can withdraw. This study has not been reviewed by an institutional review board.</li>
           <li><b>Creator pages.</b> If you sign up with your email on a creator&rsquo;s own page, the address is stored for that creator, who can email you. Each of those emails has an unsubscribe link.</li>
@@ -67,8 +68,8 @@ export default function PrivacyPage() {
 
       <div className="card">
         <h2>Your rights</h2>
-        <p>Every Beehiiv email has an unsubscribe link at the bottom. Using it stops The Polymath emails. To also have your address removed from the site&rsquo;s own record, email RN Collins.</p>
-        <p>To get a copy of your record, or to have it deleted, email RN Collins at the address below from the address you used. A reply will confirm what was found and what was removed. Deletion covers the site&rsquo;s database, and on request your Beehiiv subscription and any contact, nomination, or study records. Unsubscribing keeps a minimal consent record for the audit trail. Deletion removes the row entirely.</p>
+        <p>Every Beehiiv email has an unsubscribe link at the bottom. Using it stops The Polymath emails. To also have your address removed from the site&rsquo;s own record, write to RN Collins through the <a href="/contact" className="fwlink">contact form</a>.</p>
+        <p>To get a copy of your record, or to have it deleted, use the <a href="/contact" className="fwlink">contact form</a>, choose &ldquo;A copy or deletion of my data,&rdquo; and give the email address you used on this site. A reply will confirm what was found and what was removed. Deletion covers the site&rsquo;s database, and on request your Beehiiv subscription and any contact, nomination, or study records. Unsubscribing keeps a minimal consent record for the audit trail. Deletion removes the row entirely.</p>
       </div>
 
       <div className="card">
@@ -77,7 +78,7 @@ export default function PrivacyPage() {
       </div>
 
       <p className="disc" style={{ marginTop: 16 }}>
-        Contact: <a href="mailto:rayven.nikkita.collins@gmail.com" className="fwlink">rayven.nikkita.collins@gmail.com</a>.
+        Contact: <a href="/contact" className="fwlink">use the contact form</a>.
       </p>
     </main>
   );

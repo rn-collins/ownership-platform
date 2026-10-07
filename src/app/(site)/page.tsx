@@ -2,6 +2,7 @@ import { ObservatoryMap } from "@/components/ObservatoryMap";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { SEED } from "@/lib/observatory_seed";
 import { publicEditions } from "@/lib/edit-cycle-one";
+import { readerUrl } from "@/lib/site";
 
 export const metadata = { alternates: { canonical: "/" } };
 
@@ -60,7 +61,7 @@ export default function Home() {
           <a className="lenscard creator" href="/assess/creator">
             <span className="lensnum">A</span><span className="lenskick">Ownership Index</span>
             <span className="lensfor">For creators and independent operators</span>
-            <p className="lensdesc">See where your audience, rights, revenue, identity, and infrastructure sit—and how much of that foundation is truly yours.</p>
+            <p className="lensdesc">See where your audience, rights, revenue, identity, and infrastructure sit, and how much of that foundation is truly yours.</p>
             <span className="lensgo">Take the pilot →</span>
           </a>
           <a className="lenscard pro" href="/assess/professional">
@@ -96,6 +97,17 @@ export default function Home() {
             <li key={edition.number}><a href={`/edit/${edition.number}`}><span>{edition.number}</span>{edition.title}</a></li>
           ))}
         </ol>
+        <p className="strip-reader">This site is the official home of each edition. Visual stories, interactive tools, and the source library for each edition live on the <a href={readerUrl()} target="_blank" rel="noopener noreferrer">Public Reader<span className="sr-only"> (opens in a new tab)</span></a>, the companion site.</p>
+      </section>
+
+      <section className="who-block" aria-labelledby="who-h">
+        <img src="/about/rn-collins-portrait-square-320.jpg" alt="Portrait of RN Collins" width={160} height={160} loading="lazy" />
+        <div>
+          <p className="eyebrow">Who is behind this</p>
+          <h2 id="who-h" className="strip-h2">RN Collins</h2>
+          <p>I&rsquo;m a storyteller and a neuroscientist by training. I make documentaries and short videos about the technology underneath places, and who really owns creative work.</p>
+          <p><a href="/about" className="sec-link">About RN Collins →</a></p>
+        </div>
       </section>
 
       <section className="closing-call">

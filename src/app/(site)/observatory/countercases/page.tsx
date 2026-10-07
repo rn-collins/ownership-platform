@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/page-meta";
 import { CountercaseFinder } from "./CountercaseFinder";
+import { NoScriptNote } from "@/components/NoScriptNote";
 
 export const metadata: Metadata = withSocial({
-  title: "Countercase Finder — The Observatory",
+  title: "Countercase Finder | The Observatory",
   description: "Test apparent career lessons against cases that complicate them before drawing a general conclusion.",
   alternates: { canonical: "/observatory/countercases" },
 }, "/observatory/countercases");
@@ -14,6 +15,7 @@ export default function CountercaseFinderPage() {
     <h1>Compare a case with one that challenges its apparent lesson.</h1>
     <p className="lede">Choose any person in the collection. The Finder identifies a conclusion that the first case may suggest, then presents a structurally different case to examine before applying that conclusion elsewhere.</p>
     <p><a href="/observatory">← The Observatory</a></p>
+    <NoScriptNote>This tool needs JavaScript to run. Every case it can point to is listed on the <a href="/observatory">Cases page</a>.</NoScriptNote>
     <CountercaseFinder />
   </main>;
 }

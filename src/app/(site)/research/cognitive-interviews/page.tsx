@@ -1,11 +1,11 @@
 import { IntakeForm } from "./IntakeForm";
 
 export const metadata = {
-  title: "Help test what a question misses — Institutions of One",
+  title: "Help test what a question misses | Institutions of One",
   description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.",
   alternates: { canonical: "/research/cognitive-interviews" },
-  openGraph: { title: "Help test what a question misses — Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", url: "/research/cognitive-interviews", images: ["/opengraph-image"] },
-  twitter: { card: "summary_large_image", title: "Help test what a question misses — Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", images: ["/opengraph-image"] },
+  openGraph: { title: "Help test what a question misses | Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", url: "/research/cognitive-interviews", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Help test what a question misses | Institutions of One", description: "Talk through draft assessment questions and help make them clearer, fairer, and more useful.", images: ["/opengraph-image"] },
 };
 
 export default function CognitiveInterviewStudyPage() {
@@ -22,7 +22,7 @@ export default function CognitiveInterviewStudyPage() {
         <article><strong>Remote</strong><span>Join from a private place where you feel comfortable speaking.</span></article>
         <article><strong>Conversation</strong><span>Read selected questions, choose responses, and explain what you thought they meant.</span></article>
         <article><strong>Your choice</strong><span>Skip any question, decline recording or quotation, pause, or stop.</span></article>
-        <article><strong>Not a test</strong><span>There is no right answer and no score. The questions—not the participant—are under review.</span></article>
+        <article><strong>Not a test</strong><span>There is no right answer and no score. The questions, not the participant, are under review.</span></article>
       </section>
 
       <section className="study-why"><div><p className="eyebrow">Why your perspective matters</p><h2>The same question can behave differently across lives.</h2></div><div><p>A founder, employee, freelancer, caregiver, disabled professional, student, executive, and artist may encounter the same words through different constraints and kinds of power.</p><p>The study is looking for varied career stages, work arrangements, locations, income models, creator businesses, employment and independent work, disability and caregiving experiences, and levels of organizational support. Optional background questions may be skipped.</p></div></section>

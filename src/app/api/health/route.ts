@@ -1,14 +1,18 @@
 import { NextResponse } from "next/server";
 import { beehiivConfigured } from "@/lib/beehiiv";
+import { requireResearcher } from "@/lib/researcher-auth";
 
 export const dynamic = "force-dynamic";
 
-// Which backends are wired, at a glance. No secrets returned — only booleans —
-// so it's safe to hit publicly. Turns "is it configured?" into a URL.
+// Public callers get only a liveness answer. Which backends are wired (database, rate limit,
+// email, Beehiiv) is shown to a signed-in researcher only, because a public list of what is
+// missing is a map for abuse (MAIN-003). Booleans only, never secret values.
 export async function GET() {
+  const base = { ok: true, time: new Date().toISOString() };
+  const researcher = await requireResearcher();
+  if (!researcher) return NextResponse.json(base);
   return NextResponse.json({
-    ok: true,
-    time: new Date().toISOString(),
+    ...base,
     integrations: {
       database: Boolean(process.env.DATABASE_URL),
       supabaseAuth: Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),

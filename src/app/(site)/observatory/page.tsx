@@ -8,11 +8,11 @@ import { SEED, nodeSlug, type Node } from "@/lib/observatory_seed";
 export const revalidate = 3600;
 
 export const metadata = {
-  title: "The Observatory — Institutions of One",
+  title: "The Observatory | Institutions of One",
   description: "Explore and compare 41 evidence-backed career cases through four questions: what each person built, what they could carry, what they controlled, and what could continue.",
   alternates: { canonical: "/observatory" },
-  openGraph: { title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases through four questions: what each person built, what they could carry, what they controlled, and what could continue.", url: "/observatory", images: ["/opengraph-image"] },
-  twitter: { card: "summary_large_image", title: "The Observatory — Institutions of One", description: "Explore and compare 41 evidence-backed career cases through four questions: what each person built, what they could carry, what they controlled, and what could continue.", images: ["/opengraph-image"] },
+  openGraph: { title: "The Observatory | Institutions of One", description: "Explore and compare 41 evidence-backed career cases through four questions: what each person built, what they could carry, what they controlled, and what could continue.", url: "/observatory", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "The Observatory | Institutions of One", description: "Explore and compare 41 evidence-backed career cases through four questions: what each person built, what they could carry, what they controlled, and what could continue.", images: ["/opengraph-image"] },
 };
 
 export default async function ObservatoryPage() {

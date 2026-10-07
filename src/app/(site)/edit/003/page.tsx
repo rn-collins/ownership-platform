@@ -4,10 +4,10 @@ import { EditionPackageMap } from "@/components/CanonicalEdition";
 const packages = ["P28", "P29", "P30", "P31"];
 
 export const metadata = {
-  title: "Your Archive Is Not a Backup — The I/1 Edit",
+  title: "Your Archive Is Not a Backup | The I/1 Edit",
   description: "Edition 003 distinguishes downloaded files from the context, rights, relationships, and routines required to resume the work.",
   alternates: { canonical: "/edit/003" },
-  openGraph: { images: [{ url: "/og/edit/003.png", width: 1200, height: 630, alt: "Edition 003 — your archive is not a backup." }], title: "Your Archive Is Not a Backup", description: "Downloading the files is not the same as preserving the system that made the work usable.", url: "/edit/003", type: "article" },
+  openGraph: { images: [{ url: "/og/edit/003.png", width: 1200, height: 630, alt: "Edition 003: your archive is not a backup." }], title: "Your Archive Is Not a Backup", description: "Downloading the files is not the same as preserving the system that made the work usable.", url: "/edit/003", type: "article" },
   twitter: { images: ["/og/edit/003.png"], card: "summary_large_image", title: "Your Archive Is Not a Backup", description: "Downloading the files is not the same as preserving the system that made the work usable." },
 };
 
@@ -16,7 +16,7 @@ const layers = [
   ["02", "Context", "Dates, versions, source links, captions, status, decisions, authorship, and the reason each item exists.", "Six months from now, could I tell what this is, whether it is final, and what evidence supports it?"],
   ["03", "Rights and permissions", "The legal and practical authority to reuse, revise, publish, transfer, license, or delete the material.", "Does possessing the file mean I may use it? If not, where is the controlling agreement or permission record?"],
   ["04", "Relationships", "Collaborators, sources, readers, clients, vendors, communities, and people who know how the system operates.", "Is the relationship direct and mutually recognized, or only a follower count, username, or platform-mediated history?"],
-  ["05", "Routines", "The repeatable actions that turn stored material back into capacity: research, review, naming, approval, publication, maintenance, and recovery.", "Could another person—or a future version of me—restart this system from its documentation?"],
+  ["05", "Routines", "The repeatable actions that turn stored material back into capacity: research, review, naming, approval, publication, maintenance, and recovery.", "Could another person, or a future version of me, restart this system from its documentation?"],
 ];
 
 const drill = [
@@ -28,20 +28,20 @@ const drill = [
 ];
 
 const sources = [
-  ["Google Account Help — How to download your Google data", "https://support.google.com/accounts/answer/3024190"],
-  ["LinkedIn Help — Download your data", "https://www.linkedin.com/help/linkedin/answer/a1339364/downloading-your-account-data"],
-  ["LinkedIn Help — Export connections", "https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin"],
-  ["Substack Help — Export posts", "https://support.substack.com/hc/en-us/articles/360037466012-How-do-I-export-my-posts"],
-  ["Substack Help — Export an email list", "https://support.substack.com/hc/en-us/articles/6314498343700-How-do-I-export-my-email-list-on-Substack"],
-  ["Instagram Help — Export your Instagram information", "https://help.instagram.com/181231772500920/"],
-  ["Facebook Help — Export your Facebook information", "https://www.facebook.com/help/212802592074644"],
-  ["Facebook Help — Manage Page access", "https://www.facebook.com/help/187316341316631"],
-  ["TikTok Support — Requesting your data", "https://support.tiktok.com/en/account-and-privacy/personalized-ads-and-data/requesting-your-data"],
-  ["YouTube Help — Manage channel permissions", "https://support.google.com/youtube/answer/9481328"],
-  ["Google Account Help — Share a copy with a third party", "https://support.google.com/accounts/answer/14452558"],
-  ["X Help — Access and download your X data", "https://help.x.com/en/managing-your-account/accessing-your-x-data"],
-  ["X Help — Delegate account access", "https://help.x.com/en/managing-your-account/how-to-use-the-delegate-feature"],
-  ["GDPR Article 20 — Right to data portability", "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504"],
+  ["Google Account Help: How to download your Google data", "https://support.google.com/accounts/answer/3024190"],
+  ["LinkedIn Help: Download your data", "https://www.linkedin.com/help/linkedin/answer/a1339364/downloading-your-account-data"],
+  ["LinkedIn Help: Export connections", "https://www.linkedin.com/help/linkedin/answer/a566336/export-connections-from-linkedin"],
+  ["Substack Help: Export posts", "https://support.substack.com/hc/en-us/articles/360037466012-How-do-I-export-my-posts"],
+  ["Substack Help: Export an email list", "https://support.substack.com/hc/en-us/articles/6314498343700-How-do-I-export-my-email-list-on-Substack"],
+  ["Instagram Help: Export your Instagram information", "https://help.instagram.com/181231772500920/"],
+  ["Facebook Help: Export your Facebook information", "https://www.facebook.com/help/212802592074644"],
+  ["Facebook Help: Manage Page access", "https://www.facebook.com/help/187316341316631"],
+  ["TikTok Support: Requesting your data", "https://support.tiktok.com/en/account-and-privacy/personalized-ads-and-data/requesting-your-data"],
+  ["YouTube Help: Manage channel permissions", "https://support.google.com/youtube/answer/9481328"],
+  ["Google Account Help: Share a copy with a third party", "https://support.google.com/accounts/answer/14452558"],
+  ["X Help: Access and download your X data", "https://help.x.com/en/managing-your-account/accessing-your-x-data"],
+  ["X Help: Delegate account access", "https://help.x.com/en/managing-your-account/how-to-use-the-delegate-feature"],
+  ["GDPR Article 20: Right to data portability", "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504"],
 ];
 
 export default function EditionThreePage() {
@@ -80,7 +80,7 @@ export default function EditionThreePage() {
 
     <section className="edition-status"><div><p className="eyebrow">A necessary boundary</p><h2>The point is not to copy everything.</h2></div><div><p>Client confidentiality, research obligations, employment agreements, privacy duties, security requirements, and data-minimization principles may limit what a person can or should carry.</p><p>The goal is deliberate continuity within those boundaries: know what is yours, entrusted, shared, institution-bound, or subject to a destruction schedule. An Institution of One is not a person who takes everything.</p></div></section>
 
-    <section className="edition-distinction"><p className="eyebrow">Closing question</p><blockquote>If your primary work system disappeared tonight, what would you still possess tomorrow—and what could you actually resume?</blockquote><p>This essay offers a structural framework, not legal advice. Access, retention, transfer, and reuse depend on applicable law, contract, confidentiality duties, and platform terms.</p></section>
+    <section className="edition-distinction"><p className="eyebrow">Closing question</p><blockquote>If your primary work system disappeared tonight, what would you still possess tomorrow, and what could you actually resume?</blockquote><p>This essay offers a structural framework, not legal advice. Access, retention, transfer, and reuse depend on applicable law, contract, confidentiality duties, and platform terms.</p></section>
 
     <section className="edition-opening" aria-labelledby="source-desk"><p className="eyebrow">Source Desk</p><h2 id="source-desk">Inspect the primary documentation.</h2><ol>{sources.map(([label,href]) => <li key={href}><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>)}</ol><p><strong>Source status:</strong> Primary platform and legal documentation rechecked 7 August 2026. These sources establish described tools and access structures, not identical functionality for every account, region, plan, role, or export. Platform terms change, so check the current documentation before you rely on any of these tools.</p></section>
     <EditionPackageMap edition="003" packages={packages} heading="Continue through the four themes." />

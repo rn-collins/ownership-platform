@@ -189,7 +189,7 @@ export function ObservatoryStudio() {
         </form>
         {selected.relationshipsFrom.map(r=><div key={r.id} style={{borderTop:"1px solid #e5e0d6",paddingTop:10,marginTop:10}}>
           <p>{r.relationshipType} → {r.targetName} ({r.targetType}) · <b>{r.verificationStatus}</b></p>
-          <p className="meta">{r.source ? <><a href={r.source.url} target="_blank" rel="noreferrer">{r.source.title}</a>{r.source.primarySource?" · primary source":""}</> : "No linked source — publication blocked"}</p>
+          <p className="meta">{r.source ? <><a href={r.source.url} target="_blank" rel="noreferrer">{r.source.title}</a>{r.source.primarySource?" · primary source":""}</> : "No linked source: publication blocked"}</p>
           <form onSubmit={e=>{e.preventDefault();const f=new FormData(e.currentTarget);run({
             action:"review_entity",entityType:"relationship",entityId:r.id,verificationStatus:f.get("verificationStatus"),
             publicStatus:f.get("publicStatus"),note:f.get("note"),
@@ -230,7 +230,7 @@ export function ObservatoryStudio() {
         </form>
         {selected.events.map(r=><div key={r.id} style={{borderTop:"1px solid #e5e0d6",paddingTop:10,marginTop:10}}>
           <p>{r.title} · {r.occurredAt?new Date(r.occurredAt).toLocaleDateString():"date unknown"} · <b>{r.verificationStatus}</b></p>
-          <p className="meta">{r.source ? <><a href={r.source.url} target="_blank" rel="noreferrer">{r.source.title}</a>{r.source.primarySource?" · primary source":""}</> : "No linked source — publication blocked"}</p>
+          <p className="meta">{r.source ? <><a href={r.source.url} target="_blank" rel="noreferrer">{r.source.title}</a>{r.source.primarySource?" · primary source":""}</> : "No linked source: publication blocked"}</p>
           <form onSubmit={e=>{e.preventDefault();const f=new FormData(e.currentTarget);run({
             action:"review_entity",entityType:"event",entityId:r.id,verificationStatus:f.get("verificationStatus"),
             publicStatus:f.get("publicStatus"),note:f.get("note"),

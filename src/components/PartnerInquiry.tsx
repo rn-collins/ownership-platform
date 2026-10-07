@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { errorSummary, firstInvalid, hasErrors, isEmail, postJson, type FieldErrors } from "./formKit";
+import { LINKEDIN_URL } from "@/lib/site";
 import s from "./forms.module.css";
 
 const KINDS = [
@@ -32,6 +33,8 @@ export function PartnerInquiry() {
 
   const [form, setForm] = useState<Form>({ name: "", email: "", organization: "", kind: "research", message: "" });
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  // False when the inquiry is saved but the email to RN is not switched on (MAIN-004).
+  const [notified, setNotified] = useState(true);
   const [errors, setErrors] = useState<FieldErrors<Field>>({});
   const [alert, setAlert] = useState("");
   const doneRef = useRef<HTMLHeadingElement>(null);
@@ -60,6 +63,7 @@ export function PartnerInquiry() {
     setState("sending");
     const outcome = await postJson("/api/partner/inquire", form);
     if (outcome.ok) {
+      setNotified(outcome.notified !== false);
       setState("done");
     } else {
       setState("error");
@@ -78,8 +82,10 @@ export function PartnerInquiry() {
   if (state === "done") {
     return (
       <div className="partner-confirmation" role="status">
-        <h3 ref={doneRef} tabIndex={-1} className={s.focusTarget}>Your inquiry was received.</h3>
-        <p>RN will review your note and reply by email. Your contact information is used only for this conversation.</p>
+        <h3 ref={doneRef} tabIndex={-1} className={s.focusTarget}>{notified ? "Your inquiry was received." : "Your inquiry is saved."}</h3>
+        {notified
+          ? <p>RN will review your note and reply by email. Your contact information is used only for this conversation.</p>
+          : <p>Email notification to RN is not switched on yet, so a reply may take longer than usual. For a faster answer, message RN on <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a>. Your contact information is used only for this conversation.</p>}
       </div>
     );
   }
@@ -122,7 +128,7 @@ export function PartnerInquiry() {
         {alert && (
           <p className={s.alert}>
             {alert}
-            {state === "error" && <> You can also email <a href="mailto:rayven.nikkita.collins@gmail.com">rayven.nikkita.collins@gmail.com</a> and RN will receive it directly.</>}
+            {state === "error" && <> You can also use the <a href="/contact">contact form</a>.</>}
           </p>
         )}
       </div>

@@ -29,6 +29,8 @@ export function NewsletterSignup({
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  // False when the address is on file but the mailing list connection is not live yet (MAIN-001).
+  const [synced, setSynced] = useState(true);
   const [errors, setErrors] = useState<FieldErrors<Field>>({});
   const [alert, setAlert] = useState("");
   const doneRef = useRef<HTMLDivElement>(null);
@@ -51,6 +53,7 @@ export function NewsletterSignup({
     setState("sending");
     const outcome = await postJson("/api/research/subscribe", { email: email.trim(), source, interest: "newsletter", consent: true });
     if (outcome.ok) {
+      setSynced(outcome.synced !== false);
       setState("done");
     } else {
       setState("error");
@@ -70,7 +73,9 @@ export function NewsletterSignup({
       {state === "done" ? (
         <div className={`nl-done ${s.focusTarget}`} role="status" tabIndex={-1} ref={doneRef}>
           <span className="nl-check" aria-hidden="true">✓</span>
-          <div><b>You’re subscribed.</b><p>The next I/1 Edit will arrive by email from The Polymath.</p></div>
+          {synced
+            ? <div><b>You’re subscribed.</b><p>The next I/1 Edit will arrive by email from The Polymath.</p></div>
+            : <div><b>We have your address.</b><p>We will add you to The Polymath, the newsletter that carries The I/1 Edit. You are not on the mailing list yet, so no email has been sent.</p></div>}
         </div>
       ) : (
         <form className="nl-form" noValidate onSubmit={(event) => { event.preventDefault(); void submit(); }}>

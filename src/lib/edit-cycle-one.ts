@@ -147,3 +147,16 @@ export const licenseDeedUrl = (rights: string): string | undefined => {
   const match = /^CC (BY(?:-SA)?) (\d\.\d)$/.exec(rights.trim());
   return match ? `https://creativecommons.org/licenses/${match[1].toLowerCase()}/${match[2]}/` : undefined;
 };
+
+/**
+ * Case records that have a Public Reader visual story. The pairing comes from the reader's own
+ * package data (entity line of each package post): P18 to P27 are the ten careers below.
+ */
+const caseVisualStories: Record<string, string> = {
+  "Jony Ive": "P18", "Shonda Rhimes": "P19", "Jane Gilbert": "P20", "Emma Chamberlain": "P21", "Suzie Reider": "P22",
+  "Pieter Levels": "P23", "Alex Cooper": "P24", "Marques Brownlee": "P25", "MrBeast": "P26", "Jack Conte": "P27",
+};
+export const visualStoryForCase = (name: string) => {
+  const id = caseVisualStories[name];
+  return id ? { id, title: packageTitle(id), url: packageGalleryUrl(id) } : undefined;
+};

@@ -9,6 +9,7 @@ import CaseLab from "./CaseLab";
 import { CaseStatus } from "@/components/case/CaseStatus";
 import { buildFramework, collectSources, countSources, formatLongDate, isLandingPage, pad, sourceKindLabel } from "@/components/case/caseData";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { visualStoryForCase } from "@/lib/edit-cycle-one";
 
 // Evidence comes from the database; serve a cached render and refresh it hourly
 // so a cold or unavailable database never sits in front of a reader.
@@ -100,6 +101,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
   const unknowns = research?.unknowns ?? narrative?.unresolved ?? [];
   const framework = narrative ? buildFramework({ built: narrative.structuralTurn, unknowns, carryFallback: guide.comparison }) : [];
   const hasCase = Boolean(narrative && research);
+  const visualStory = visualStoryForCase(person.name);
   const section = (id: (typeof SECTIONS)[number]["id"]) => pad(SECTIONS.findIndex((item) => item.id === id) + 1);
 
   return <main className={styles.page}>
@@ -125,6 +127,12 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
       </div>}
       <CaseStatus total={sources.length} independent={independentCount} status={status} />
     </header>
+
+    {visualStory && <aside className={styles.connected} aria-labelledby="connected-heading">
+      <h2 id="connected-heading">Connected to this case</h2>
+      <p>The visual story &ldquo;{visualStory.title}&rdquo; walks through this case in slides, with captions and source records.</p>
+      <a href={visualStory.url} target="_blank" rel="noopener noreferrer">Watch the visual story<span className="sr-only"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+    </aside>}
 
     {hasCase && narrative && research ? <>
       <nav className={styles.rail} aria-label="Case sections">

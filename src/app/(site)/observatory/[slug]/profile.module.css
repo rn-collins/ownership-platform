@@ -133,3 +133,9 @@
 @media(max-width:560px){.page{padding-top:var(--i1-space-3)}.hero h1{font-size:52px}.question{padding:var(--i1-space-3) 20px}.framework{grid-template-columns:1fr}.framework article{border-left:0}.framework article+article{border-top:var(--i1-rule)}.rail ol{grid-template-columns:repeat(2,1fr)}.rail li{border-left:0!important;border-top:var(--i1-rule)}.rail li:nth-child(-n+2){border-top:0}.rail li:nth-child(2n){border-left:var(--i1-rule)!important}.lens{padding:var(--i1-space-3) 20px}}
 
 @media print{.question{background:#fff;color:#000;border:1px solid #000}.question .questionLabel,.question .questionText{color:#000}}
+
+/* Link to the matching Public Reader visual story (ALL-012) */
+.connected{margin:var(--i1-space-3) 0;padding:var(--i1-space-3);border:1px solid var(--i1-ink);background:var(--i1-paper-deep);max-width:760px}
+.connected h2{margin:0 0 8px;font:700 22px/1.2 Georgia,serif}
+.connected p{margin:0 0 12px;font-size:16px;line-height:1.5}
+.connected a{display:inline-flex;min-height:44px;align-items:center;font-weight:800;color:var(--i1-ink);text-underline-offset:4px}

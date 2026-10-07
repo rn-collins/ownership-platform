@@ -1,3 +1,5 @@
+import { POLYMATH_URL, LINKEDIN_URL } from "@/lib/site";
+
 export const metadata = {
   title: "About — Institutions of One",
   description: "The purpose, researcher, and development of Institutions of One.",
@@ -6,26 +8,44 @@ export const metadata = {
   twitter: { card: "summary_large_image", title: "About — Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", images: ["/opengraph-image"] },
 };
 
+
+// Portrait slot (DEC-05). RN has not approved a portrait, so nothing is shown. When she does,
+// fill in the file under public/ and her own alt text; the layout below then places it beside the
+// introduction. Leave it null until then, and never place an AI-generated image here.
+type Portrait = { src: string; alt: string; width: number; height: number; credit?: string };
+const PORTRAIT: Portrait | null = null;
+
 export default function AboutPage() {
   return (
     <main className="about-page">
       <p className="eyebrow">Institutions of One · About</p>
       <h1>A research project about what people build, carry, control, and continue.</h1>
-      <p className="meta">RN Collins · Researcher · M.S. in Anatomy &amp; Neurobiology, Boston University School of Medicine</p>
+      <p className="about-credential">RN Collins · storytelling strategist, content and experiential producer, resident neuroscientist and design technologist · M.S. Anatomy &amp; Neurobiology, Boston University</p>
       <p className="lede">
         Institutions of One began with a simple observation: organizations routinely measure reach, productivity, and
         performance, but rarely measure whether the value a person creates becomes portable, durable, and meaningfully
         theirs. I study that question across creators, independent operators, employees, executives, researchers, public leaders, and other professionals.
       </p>
 
-      <div className="card">
-        <h2>RN Collins</h2>
-        <p>
-          I am a researcher, writer, and consultant. I hold an M.S. in Anatomy &amp; Neurobiology from Boston University School of Medicine.
-          My background spans neuroscience, developmental psychology, medical education, qualitative research, emerging
-          industries, and the design of research and intelligence systems. That interdisciplinary path shapes this project:
-          it examines work through psychological, organizational, economic, technological, and legal questions.
-        </p>
+      <div className={`card about-intro${PORTRAIT ? " about-intro-portrait" : ""}`}>
+        {PORTRAIT && (
+          <figure className="about-portrait">
+            <img src={PORTRAIT.src} alt={PORTRAIT.alt} width={PORTRAIT.width} height={PORTRAIT.height} style={{ height: "auto" }} />
+            {PORTRAIT.credit && <figcaption>{PORTRAIT.credit}</figcaption>}
+          </figure>
+        )}
+        <div>
+          <h2>RN Collins</h2>
+          <p>
+            I&rsquo;m a storyteller and a neuroscientist by training. I make documentaries and short videos about the technology underneath places, and who really owns creative work.
+          </p>
+          <p>
+            My background spans neuroscience, developmental psychology, medical education, qualitative research, emerging
+            industries, and the design of research and intelligence systems. That interdisciplinary path shapes this project:
+            it examines work through psychological, organizational, economic, technological, and legal questions.
+          </p>
+          <p className="about-brandline">Curious about everything. Precise about all of it.</p>
+        </div>
       </div>
 
       <div className="card">
@@ -47,6 +67,14 @@ export default function AboutPage() {
       </div>
 
       <div className="card">
+        <h2>Where else to find the work</h2>
+        <p>
+          <a href={POLYMATH_URL} target="_blank" rel="noopener noreferrer">The Polymath</a> is my newsletter, for questions too messy for one discipline. The I/1 Edit, the editions of Institutions of One, arrives there.
+          You can also follow my work on <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+        </p>
+      </div>
+
+      <div className="card">
         <h2>Current stage</h2>
         <p>
           The project is in active pilot development. Two assessments are collecting exploratory responses, the
@@ -62,8 +90,8 @@ export default function AboutPage() {
       </div>
 
       <p className="disc" style={{ marginTop: 22 }}>
-        Contact: <a href="mailto:rayven.nikkita.collins@gmail.com" className="fwlink">rayven.nikkita.collins@gmail.com</a> ·{" "}
-        <a href="https://www.linkedin.com/in/rn-collins" target="_blank" rel="noopener noreferrer" className="fwlink">LinkedIn</a>
+        <a href="/contact" className="fwlink">Contact RN Collins</a> ·{" "}
+        <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="fwlink">LinkedIn</a>
       </p>
     </main>
   );

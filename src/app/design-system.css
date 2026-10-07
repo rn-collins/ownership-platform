@@ -228,3 +228,9 @@ li[id^="source-"]>a{display:inline-block;padding-block:4px}
   .home{margin-inline:calc(50% - 50vw)}
   .home>section{padding-inline:var(--band-pad)}
 }
+
+/* Type floor (MAIN-030): labels and small print are at least 14px, reading text 16px. */
+.eyebrow,.meta,.disc,.fwlink,.postback,.foot-h,.foot-copy,.foot-col a{font-size:14px}
+.foot-col a{min-height:28px}
+.about-credential{font-size:16px}
+@media(min-width:1180px){.site-header .nav a,.site-header .navlink{font-size:14px}.site-header .nav{gap:20px}}

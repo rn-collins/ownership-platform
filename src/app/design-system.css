@@ -192,3 +192,16 @@ button.cta-next{
 /* Tiles in black-gap grids: keep the focus ring inside the tile so it never
    lands on the black rules between tiles. */
 :is(.edition-continuity,.edition-package-map>div,.strip-list,.lensgrid) a:focus-visible{outline-offset:-6px}
+
+/* ---- Shared header/footer additions and About (DEC-02 step B, DEC-05) ---- */
+.site-header .nav .nav-cta{border:1px solid var(--i1-ink);padding:8px 13px;white-space:nowrap}
+.site-header .nav .nav-cta:hover{background:var(--i1-ink);color:var(--i1-paper);text-decoration:none}
+.foot-reader{max-width:60ch;margin:-24px 0 40px;font-size:16px;line-height:1.55;color:#ddd6c8}
+.foot-reader a{color:var(--i1-paper)}
+.about-credential{font-size:16px;line-height:1.5;font-weight:600;color:var(--i1-ink);margin:0 0 20px;max-width:72ch}
+.about-brandline{font-family:Georgia,serif;font-size:20px;font-style:italic;margin-top:20px}
+.about-intro-portrait{display:grid;grid-template-columns:minmax(160px,260px) 1fr;gap:28px;align-items:start}
+.about-portrait{margin:0}
+.about-portrait img{display:block;width:100%;height:auto}
+.about-portrait figcaption{font-size:14px;line-height:1.4;margin-top:8px}
+@media(max-width:800px){.about-intro-portrait{grid-template-columns:1fr}}

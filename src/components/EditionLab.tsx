@@ -11,11 +11,11 @@ const MODELS = {
   "001": {
     eyebrow:"Interactive model · Build–Carry–Control",
     title:"Where does your work become structurally yours?",
-    intro:"Answer from the work you have now—not the career you hope to have. Your answers stay in this browser and produce a reflection, not a score or diagnosis.",
+    intro:"Answer from the work you have now, not the career you hope to have. Your answers stay in this browser and produce a reflection, not a score or diagnosis.",
     groups:[
       {name:"Build",prompt:"A recognizable body of work or method exists beyond any single assignment.",why:"Build asks whether there is something coherent enough to recognize, repeat, and develop."},
       {name:"Carry",prompt:"Your reputation, relationships, methods, and useful records can survive a change of employer or platform.",why:"Carry asks what travels when the surrounding institution changes."},
-      {name:"Control",prompt:"You can meaningfully decide how key identity, rights, access, revenue, and continuation conditions are used.",why:"Control asks where authority actually sits—not where visibility makes it appear to sit."},
+      {name:"Control",prompt:"You can meaningfully decide how key identity, rights, access, revenue, and continuation conditions are used.",why:"Control asks where authority actually sits, not where visibility makes it appear to sit."},
     ],
     result:(values:number[])=>{
       const labels=["Build","Carry","Control"]; const low=Math.min(...values); const high=Math.max(...values);
@@ -37,7 +37,7 @@ const MODELS = {
     result:(values:number[])=>{
       const labels=["visibility","substitutability","negotiability","survivability"]; const low=Math.min(...values); const lows=labels.filter((_,i)=>values[i]===low);
       if(low===2) return "This dependency looks legible and manageable from your answers. Stress-test the assumption: what event would make all four answers false at once?";
-      return `Begin with ${lows.join(" and ")}. The point is not to eliminate the dependency; it is to understand whether you can redesign, distribute, or survive it.`;
+      return `Begin with ${lows.length > 1 ? `${lows.slice(0, -1).join(", ")} and ${lows[lows.length - 1]}` : lows[0]}. Then ask whether you can redesign, distribute, or survive it.`;
     }
   }
 } as const;

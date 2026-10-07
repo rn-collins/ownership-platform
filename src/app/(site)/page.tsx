@@ -60,7 +60,7 @@ export default function Home() {
           <a className="lenscard creator" href="/assess/creator">
             <span className="lensnum">A</span><span className="lenskick">Ownership Index</span>
             <span className="lensfor">For creators and independent operators</span>
-            <p className="lensdesc">See where your audience, rights, revenue, identity, and infrastructure sit—and how much of that foundation is truly yours.</p>
+            <p className="lensdesc">See where your audience, rights, revenue, identity, and infrastructure sit, and how much of that foundation is truly yours.</p>
             <span className="lensgo">Take the pilot →</span>
           </a>
           <a className="lenscard pro" href="/assess/professional">

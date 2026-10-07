@@ -3,7 +3,7 @@ import { requireResearcher } from "@/lib/researcher-auth";
 import { ObservatoryStudio } from "./ObservatoryStudio";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Observatory Studio — Institutions of One", robots: { index: false, follow: false } };
+export const metadata = { title: "Observatory Studio | Institutions of One", robots: { index: false, follow: false } };
 
 export default async function ObservatoryStudioPage() {
   const researcher = await requireResearcher();

@@ -3,11 +3,11 @@ import { PROFESSIONAL_METHODOLOGY_VERSION } from "@/lib/instrument_professional"
 import { NoScriptNote } from "@/components/NoScriptNote";
 
 export const metadata = {
-  title: "Portfolio Professional — Institutions of One",
+  title: "Portfolio Professional | Institutions of One",
   description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.",
   alternates: { canonical: "/assess/professional" },
-  openGraph: { title: "Portfolio Professional — Institutions of One", description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.", url: "/assess/professional", images: ["/opengraph-image"] },
-  twitter: { card: "summary_large_image", title: "Portfolio Professional — Institutions of One", description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.", images: ["/opengraph-image"] },
+  openGraph: { title: "Portfolio Professional | Institutions of One", description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.", url: "/assess/professional", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Portfolio Professional | Institutions of One", description: "A pilot assessment of how expertise becomes visible, reusable, portable, and influential.", images: ["/opengraph-image"] },
 };
 
 export default function ProfessionalAssessPage() {

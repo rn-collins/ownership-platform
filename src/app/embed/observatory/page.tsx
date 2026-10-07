@@ -2,7 +2,7 @@ import { ObservatoryMap } from "@/components/ObservatoryMap";
 import { SEED } from "@/lib/observatory_seed";
 
 export const metadata = {
-  title: "The Observatory — Institutions of One",
+  title: "The Observatory | Institutions of One",
   robots: { index: false }, // the canonical map lives at /observatory
 };
 

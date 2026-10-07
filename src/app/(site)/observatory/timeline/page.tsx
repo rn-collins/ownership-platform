@@ -3,7 +3,7 @@ import { withSocial } from "@/lib/page-meta";
 import { StructuralTimeline } from "./StructuralTimeline";
 
 export const metadata: Metadata = withSocial({
-  title: "Cross-case Timeline — The Observatory",
+  title: "Cross-case Timeline | The Observatory",
   description: "Examine when six kinds of structural career change appear across the 41 Institutions of One cases.",
   alternates: { canonical: "/observatory/timeline" },
 }, "/observatory/timeline");

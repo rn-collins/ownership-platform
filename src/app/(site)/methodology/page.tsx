@@ -25,7 +25,7 @@ export default function MethodologyPage() {
       <article><span>01</span><h3>Build</h3><p>What the person created: a body of work, method, audience, business, team, or network.</p></article>
       <article><span>02</span><h3>Carry</h3><p>What can move with them when a role, employer, platform, or client changes.</p></article>
       <article><span>03</span><h3>Control</h3><p>What they can govern: identity, rights, audience access, revenue, data, and decisions.</p></article>
-      <article><span>04</span><h3>Continue</h3><p>What work, systems, relationships, or authority could persist when an essential dependency—a role, platform, employer, client, collaborator, or source of capital—changes.</p></article>
+      <article><span>04</span><h3>Continue</h3><p>What work, systems, relationships, or authority could persist when an essential dependency (a role, platform, employer, client, collaborator, or source of capital) changes.</p></article>
     </div></section>
 
     <section className="method-two-evidence"><p className="eyebrow">Why there are assessments and public cases</p><h2>One reveals lived conditions. The other reveals visible structure.</h2><div className="method-split">

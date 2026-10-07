@@ -3,7 +3,7 @@ import { requireResearcher } from "@/lib/researcher-auth";
 import { ResearchConsole } from "./ResearchConsole";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Research operations — Institutions of One", robots: { index: false, follow: false } };
+export const metadata = { title: "Research operations | Institutions of One", robots: { index: false, follow: false } };
 
 export default async function ResearchAdminPage() {
   const researcher = await requireResearcher();

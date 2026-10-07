@@ -201,7 +201,7 @@ export function Assessment() {
               return (
                 <div className="meter">
                   <div className="meter-track"><div className="meter-fill" style={{ width: `${pct}%` }} /></div>
-                  <div className="meter-label">{done} of {items.length} shared{pct >= 100 ? " — complete, thank you" : ""}</div>
+                  <div className="meter-label">{done} of {items.length} shared{pct >= 100 ? ": complete, thank you" : ""}</div>
                 </div>
               );
             })()}

@@ -4,7 +4,7 @@ import { CountercaseFinder } from "./CountercaseFinder";
 import { NoScriptNote } from "@/components/NoScriptNote";
 
 export const metadata: Metadata = withSocial({
-  title: "Countercase Finder — The Observatory",
+  title: "Countercase Finder | The Observatory",
   description: "Test apparent career lessons against cases that complicate them before drawing a general conclusion.",
   alternates: { canonical: "/observatory/countercases" },
 }, "/observatory/countercases");

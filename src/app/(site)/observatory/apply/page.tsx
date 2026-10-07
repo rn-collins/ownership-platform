@@ -5,7 +5,7 @@ import styles from "./apply.module.css";
 import { NoScriptNote } from "@/components/NoScriptNote";
 
 export const metadata: Metadata = withSocial({
-  title: "Apply the cases to your work — The Observatory",
+  title: "Apply the cases to your work | The Observatory",
   description: "Choose a structural pressure and receive a private, unscored pathway through four Observatory cases.",
   alternates: { canonical: "/observatory/apply" },
 }, "/observatory/apply");
@@ -38,7 +38,7 @@ export default function ApplyPage() {
         Every path opens with a tension rather than a recommendation, because the six problems
         on this page are not solvable in the sense of going away. Visibility that outruns
         control, a mandate that exists in practice but not on paper, a dependency that is
-        profitable and constraining at once &mdash; these are conditions to be managed and
+        profitable and constraining at once: these are conditions to be managed and
         periodically re-decided. Naming the tension is what makes it possible to notice when the
         trade you accepted two years ago has quietly changed terms.
       </p>

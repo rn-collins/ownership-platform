@@ -1,9 +1,9 @@
 export const metadata = {
-  title: "Privacy & data use — Institutions of One",
-  description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.",
+  title: "Privacy & data use | Institutions of One",
+  description: "What Institutions of One collects, why, how it is used, and your rights: consent-first, by design.",
   alternates: { canonical: "/privacy" },
-  openGraph: { title: "Privacy & data use — Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.", url: "/privacy", images: ["/opengraph-image"] },
-  twitter: { card: "summary_large_image", title: "Privacy & data use — Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights — consent-first, by design.", images: ["/opengraph-image"] },
+  openGraph: { title: "Privacy & data use | Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights: consent-first, by design.", url: "/privacy", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Privacy & data use | Institutions of One", description: "What Institutions of One collects, why, how it is used, and your rights: consent-first, by design.", images: ["/opengraph-image"] },
 };
 
 export default function PrivacyPage() {
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       <div className="card">
         <h2>The anonymous assessments</h2>
         <p>When you take an index, the system stores your item-by-item answers on a 0 to 5 scale, the five-area profile, the secondary composite score shown for transparency, instrument and methodology
-        versions, and a random assessment identifier — no name, email, or account identity. The identifier lets
+        versions, and a random assessment identifier, with no name, email, or account identity. The identifier lets
         later optional research answers update the same assessment instead of creating duplicate respondents; it is not
         used to identify you. A copy of your answers also stays in your browser on your device. Optional research
         answers are stored with the same anonymous assessment and are not added to the public findings unless the record

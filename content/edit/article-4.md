@@ -183,7 +183,7 @@ Not every project needs a bureaucracy. It may need one good page.
 - What must be removed, archived, renewed, measured, paid, returned, or revisited?
 - Where is the final record, and who can access it?
 
-I call this record a **memory prosthetic**. That is a metaphor, not a medical claim. The page does not improve memory by magic. It moves selected facts out of one person’s head and into a record another person—or the same person six months later—can inspect.
+I call this record a **memory prosthetic**. That is a metaphor, not a medical claim. The page does not improve memory by magic. It moves selected facts out of one person’s head and into a record another person, or the same person six months later, can inspect.
 
 I have not yet tried it on a neutral project, so treat it as a proposed method rather than a proven one. The test is simple: can the page reconstruct what was built, carried, controlled, and left to continue without reopening every email, app, drive, and message thread?
 
@@ -201,7 +201,7 @@ The system remembers only what the person chose to make legible.
 
 ### Keepable tool: the one-post institution map
 
-For the next sponsored post—or any project with several people, assets, routes, or future obligations—test this map:
+For the next sponsored post, or any project with several people, assets, routes, or future obligations, test this map:
 
 - **Purpose:** What change is the work meant to create, for whom?
 - **People:** Who contributes, appears, approves, publishes, receives, and pays?

@@ -36,7 +36,7 @@ export function BenchmarkBadge({ instrument, score }: { instrument: "ownership" 
   return (
     <div className="bench">
       <span className="bench-sub">
-        {d.n > 0 ? `${d.n.toLocaleString()} measured so far` : "You're among the first to be measured"} — percentiles unlock as the dataset grows.
+        {d.n > 0 ? `${d.n.toLocaleString()} measured so far` : "You're among the first to be measured"}: percentiles unlock as the dataset grows.
       </span>
     </div>
   );

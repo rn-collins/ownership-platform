@@ -57,7 +57,7 @@ export const SEED: Node[] = [
   { name: "Jony Ive", role: "Designer and former Chief Design Officer at Apple", domain: "Design", kind: "professional", created: true, tension: "Portable vs embedded", question: "What can a celebrated designer carry when he leaves the company that made his work globally legible?" },
 
   // Founders-turned-operators / intrapreneurs
-  { name: "Astro Teller", role: "Captain of Moonshots at X", domain: "Tech", kind: "professional", created: true, tension: "Role vs person", question: "Does an unusual title create permission to work differently—or merely signal it?" },
+  { name: "Astro Teller", role: "Captain of Moonshots at X", domain: "Tech", kind: "professional", created: true, tension: "Role vs person", question: "Does an unusual title create permission to work differently, or merely signal it?" },
   { name: "Marc Lore", role: "Entrepreneur and former head of Walmart U.S. e-commerce", domain: "Business", kind: "professional", created: true, tension: "Portable vs embedded", question: "What does a founder retain when entrepreneurial capability moves inside a retail giant?" },
   { name: "Shonda Rhimes", role: "Writer, producer, and founder of Shondaland", domain: "Media", kind: "professional", created: true, tension: "Owned vs rented", question: "How does an owned creative institution negotiate with the distributor that gives it global reach?" },
 

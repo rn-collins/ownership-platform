@@ -11,7 +11,7 @@ const INTERNAL_ONLY_RULES = ["Synthetic QA records", "A retention schedule must 
 
 export const metadata = {
   ...withSocial({
-    title: "Participate in the research — Institutions of One",
+    title: "Participate in the research | Institutions of One",
     description: "Recruiting adults for remote cognitive interviews testing the Ownership Index and Portfolio Professional candidate instruments.",
   }, "/research/recruitment"),
   robots: { index: false, follow: false },

@@ -6,7 +6,7 @@ import { NoScriptNote } from "@/components/NoScriptNote";
 const packages = ["P24", "P25", "P26", "P27"];
 
 export const metadata = {
-  title: "Your Career Has a Supply Chain — The I/1 Edit",
+  title: "Your Career Has a Supply Chain | The I/1 Edit",
   description: "Edition 002 examines the platforms, employers, distributors, clients, and infrastructure between a person and their ability to continue.",
   alternates: { canonical: "/edit/002" },
   openGraph: {
@@ -18,7 +18,7 @@ export const metadata = {
       url: "/og/edit/002.png",
       width: 1200,
       height: 630,
-      alt: "Edition 002 — your career has a supply chain.",
+      alt: "Edition 002: your career has a supply chain.",
     }],
   },
   twitter: {
@@ -68,7 +68,7 @@ export default function EditionTwoPage() {
           A creator loses access to an account. An executive leaves and discovers that the team, data, budget, and authority belonged to the title. A founder owns the company but not the channel that finds its customers. A writer controls the copyright and still cannot reach a reader without a distributor.
         </p>
         <p>
-          We usually describe these events separately—as platform risk, career risk, client concentration, or bad luck. Structurally, they share one problem: individual work also has a supply chain.
+          We usually describe these events separately, as platform risk, career risk, client concentration, or bad luck. Structurally, they share one problem: individual work also has a supply chain.
         </p>
         <p>
           A person’s ability to continue may depend on employers, platforms, distributors, clients, retailers, payment systems, manufacturers, collaborators, capital, software, data, reputation, and permission. Some dependencies are chosen. Others come with a role or industry. Some become visible only when they fail.
@@ -139,13 +139,13 @@ export default function EditionTwoPage() {
           Amazon describes <em>Beast Games</em> as a competition series created and hosted by Jimmy Donaldson and distributed through Prime Video; in 2025 it announced two additional seasons.<sup><a href="#source-5">5</a></sup> Feastables separately operates a consumer-products business with its own sourcing commitments, products, retail relationships, and corporate identity.<sup><a href="#source-6">6</a></sup>
         </p>
         <p>
-          Moving from videos into a streaming production and packaged goods creates forms of capacity that are not reducible to a social account. Activities at that scale generally require different supplier categories—including distribution, production, insurance, retail, manufacturing, logistics, agricultural sourcing, and certification—even though the cited public materials do not establish every private supplier or term in Donaldson’s actual stack.
+          Moving from videos into a streaming production and packaged goods creates forms of capacity that are not reducible to a social account. Activities at that scale generally require different supplier categories, including distribution, production, insurance, retail, manufacturing, logistics, agricultural sourcing, and certification, even though the cited public materials do not establish every private supplier or term in Donaldson’s actual stack.
         </p>
         <p>
           Diversification requires more than having several businesses. A portfolio can reduce reliance on one revenue source while creating operational exposure across several supply chains. That trade may be worthwhile. The public materials cannot tell us how Donaldson, his entities, Amazon, retailers, and other partners privately divide ownership, control, liability, or bargaining power.
         </p>
         <p>
-          The case is useful because scale can hide fragility. The more spectacular the output, the easier it is to assume the person controls the system. A supply-chain view asks what must coordinate successfully before the spectacle can exist—and who can stop it.
+          The case is useful because scale can hide fragility. The more spectacular the output, the easier it is to assume the person controls the system. A supply-chain view asks what must coordinate successfully before the spectacle can exist, and who can stop it.
         </p>
       </section>
 
@@ -191,14 +191,14 @@ export default function EditionTwoPage() {
       <section className="edition-distinction">
         <p className="eyebrow">The question to carry forward</p>
         <blockquote>
-          If your most important supplier disappeared tomorrow, which part of your work would stop first—and what could you move before it did?
+          If your most important supplier disappeared tomorrow, which part of your work would stop first, and what could you move before it did?
         </blockquote>
       </section>
 
       <section className="edition-opening">
         <h2>Seeing a dependency creates the next problem.</h2>
         <p>
-          Once a critical supplier is visible, the next question is what must survive its loss. Files may need to remain readable, but continuity can also depend on context, permissions, relationships, evidence, and operating memory. Edition 003 asks whether an archive can recover the capability behind the work—not merely preserve its outputs.
+          Once a critical supplier is visible, the next question is what must survive its loss. Files may need to remain readable, but continuity can also depend on context, permissions, relationships, evidence, and operating memory. Edition 003 asks whether an archive can recover the capability behind the work, not merely preserve its outputs.
         </p>
       </section>
 

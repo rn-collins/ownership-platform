@@ -1,11 +1,11 @@
 import { POLYMATH_URL, LINKEDIN_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "About — Institutions of One",
+  title: "About | Institutions of One",
   description: "The purpose, researcher, and development of Institutions of One.",
   alternates: { canonical: "/about" },
-  openGraph: { title: "About — Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", url: "/about", images: ["/opengraph-image"] },
-  twitter: { card: "summary_large_image", title: "About — Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", images: ["/opengraph-image"] },
+  openGraph: { title: "About | Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", url: "/about", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "About | Institutions of One", description: "The purpose, researcher, and development of Institutions of One.", images: ["/opengraph-image"] },
 };
 
 

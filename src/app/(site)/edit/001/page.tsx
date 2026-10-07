@@ -6,11 +6,11 @@ import { NoScriptNote } from "@/components/NoScriptNote";
 const packages = ["P18", "P19", "P20", "P21", "P22", "P23"];
 
 export const metadata = {
-  title: "When Does One Person Become an Institution? — The I/1 Edit",
+  title: "When Does One Person Become an Institution? | The I/1 Edit",
   description:
     "Edition 001 of The I/1 Edit introduces Build, Carry, Control, and Continue: four questions for examining when a person’s work begins to function institutionally.",
   alternates: { canonical: "/edit/001" },
-  openGraph: { images: [{ url: "/og/edit/001.png", width: 1200, height: 630, alt: "Edition 001 — when does one person become an institution?" }],
+  openGraph: { images: [{ url: "/og/edit/001.png", width: 1200, height: 630, alt: "Edition 001: when does one person become an institution?" }],
     title: "When Does One Person Become an Institution?",
     description:
       "Six contrasting cases reveal why visibility, ownership, portability, and institutional consequence are not the same thing.",
@@ -31,7 +31,7 @@ const thresholds = [
     name: "Build",
     question: "What exists because this person made it exist?",
     body:
-      "Look for a recognizable body of work, methods, relationships, audience, and operating capacity—not merely output or attention.",
+      "Look for a recognizable body of work, methods, relationships, audience, and operating capacity, not merely output or attention.",
   },
   {
     number: "02",
@@ -162,7 +162,7 @@ export default function EditionOnePage() {
       </section>
 
       <section className="edition-opening">
-        <h2>Build is the easiest dimension to see—and the easiest to overstate.</h2>
+        <h2>Build is the easiest dimension to see, and the easiest to overstate.</h2>
         <p>
           Build asks what exists because of a person’s work. The answer may be a company, method, public program, body of work, team, audience, operating system, or shared language. Calling something “built” by one person should never erase collaborators. Institutions are collective achievements, even when one person receives most of the public attention.
         </p>

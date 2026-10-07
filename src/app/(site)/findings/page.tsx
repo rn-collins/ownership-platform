@@ -3,11 +3,11 @@ import { MeasuredCounter } from "@/components/MeasuredCounter";
 import { SEED } from "@/lib/observatory_seed";
 
 export const metadata = {
-  title: "What the 41 careers reveal — Institutions of One",
+  title: "What the 41 careers reveal | Institutions of One",
   description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.",
   alternates: { canonical: "/findings" },
-  openGraph: { title: "What the 41 careers reveal — Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", url: "/findings", images: ["/opengraph-image"] },
-  twitter: { card: "summary_large_image", title: "What the 41 careers reveal — Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", images: ["/opengraph-image"] },
+  openGraph: { title: "What the 41 careers reveal | Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", url: "/findings", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "What the 41 careers reveal | Institutions of One", description: "The patterns, tensions, limits, and open questions emerging from the 41-case Institutions of One pilot.", images: ["/opengraph-image"] },
 };
 
 // Every figure below is counted from the case roster so it cannot drift from the cases.
@@ -23,7 +23,7 @@ const signals = [
   [`${professionalCount} / ${total}`, "work primarily through organizations", "Most cases help us ask what a person can build and carry while an employer still owns much of the infrastructure."],
   [`${roleShapedCount} / ${total}`, "may have helped shape the role around them", "A distinctive title can signal unusual authority. It does not prove ownership, portability, or that the role would follow the person elsewhere."],
   [`${fields.length}`, "fields are represented", `The same question behaves differently across the fields in this roster: ${fieldList}.`],
-  [`${topTensionCount} / ${total}`, "concentrate in two tensions", "More than half of the current roster asks either whether the role depends on the person or whether one person can hold several fields together. That is a feature of this pilot—and a selection bias to correct."],
+  [`${topTensionCount} / ${total}`, "concentrate in two tensions", "More than half of the current roster asks either whether the role depends on the person or whether one person can hold several fields together. That is a feature of this pilot, and a selection bias to correct."],
 ];
 
 export default function FindingsPage() {
@@ -38,7 +38,7 @@ export default function FindingsPage() {
       </p>
 
       <section className="finding-example">
-        <div><p className="eyebrow">Start with a contrast</p><h2>Two people can look equally powerful from the outside—and have completely different continuation risks.</h2></div>
+        <div><p className="eyebrow">Start with a contrast</p><h2>Two people can look equally powerful from the outside, and have completely different continuation risks.</h2></div>
         <div>
           <p>One may own the company name, customer relationship, archive, and distribution list. Another may have a celebrated title, large budget, and global reach while the employer controls every one of those assets.</p>
           <p>Neither arrangement is automatically better. The meaningful questions are: what did the person build, what can move with them, what do they control, and which dependencies could stop the work?</p>
@@ -48,7 +48,7 @@ export default function FindingsPage() {
 
       <section aria-labelledby="pilot-readout">
         <p className="eyebrow">A descriptive read of this pilot</p>
-        <h2 id="pilot-readout" className="display-h2">What is inside the 41—and what that does not prove.</h2>
+        <h2 id="pilot-readout" className="display-h2">What is inside the 41, and what that does not prove.</h2>
         <div className="finding-signals">{signals.map(([number, label, meaning]) => <article key={label}><strong>{number}</strong><h3>{label}</h3><p>{meaning}</p></article>)}</div>
         <p className="disc">These are counts within a purposefully selected pilot, not estimates of the wider workforce. An empty or crowded category tells us about this roster before it tells us anything about the world.</p>
       </section>

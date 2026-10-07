@@ -92,7 +92,7 @@ export function ObservatoryNominate() {
       </div>
       <div className="fld">
         <label className={s.label} htmlFor={id("nomineeRole")}>How would you describe what they do? {optional}</label>
-        <input {...fieldProps("nomineeRole")} onChange={(event) => set("nomineeRole", event.target.value)} placeholder="Use your own words—no perfect title needed" />
+        <input {...fieldProps("nomineeRole")} onChange={(event) => set("nomineeRole", event.target.value)} placeholder="Use your own words. No perfect title is needed." />
       </div>
       <div className="fld">
         <label className={s.label} htmlFor={id("why")}>What would their career help us understand?</label>

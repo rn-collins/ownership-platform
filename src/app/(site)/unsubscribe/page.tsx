@@ -1,4 +1,4 @@
-export const metadata = { title: "Unsubscribe — Institutions of One", robots: { index: false } };
+export const metadata = { title: "Unsubscribe | Institutions of One", robots: { index: false } };
 
 export default function UnsubscribePage({ searchParams }: { searchParams: { status?: string } }) {
   const status = searchParams.status;

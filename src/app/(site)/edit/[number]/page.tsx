@@ -20,10 +20,10 @@ export async function generateMetadata({ params }: { params: { number: string } 
   const image = titleCard ? `/og/edit-card/${edition.number}` : `/og/edit/${edition.number}.jpg`;
   const hasPhoto = !titleCard;
   return {
-    title: `${edition.title} — The I/1 Edit`, description: edition.subtitle,
+    title: `${edition.title} | The I/1 Edit`, description: edition.subtitle,
     alternates: { canonical }, robots: { index: true, follow: true },
-    openGraph: { title: `Edition ${edition.number} — ${edition.title}`, description: edition.subtitle, url: canonical, type: "article", images: [{ url: image, width: 1200, height: 630, alt: hasPhoto ? edition.media[0].alt : edition.title }] },
-    twitter: { card: "summary_large_image", title: `Edition ${edition.number} — ${edition.title}`, description: edition.subtitle, images: [image] },
+    openGraph: { title: `Edition ${edition.number}: ${edition.title}`, description: edition.subtitle, url: canonical, type: "article", images: [{ url: image, width: 1200, height: 630, alt: hasPhoto ? edition.media[0].alt : edition.title }] },
+    twitter: { card: "summary_large_image", title: `Edition ${edition.number}: ${edition.title}`, description: edition.subtitle, images: [image] },
   };
 }
 

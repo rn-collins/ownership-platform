@@ -3,10 +3,10 @@ import { publicEditions } from "@/lib/edit-cycle-one";
 import { readerUrl } from "@/lib/site";
 
 export const metadata = {
-  title: "The I/1 Edit — Institutions of One",
+  title: "The I/1 Edit | Institutions of One",
   description: "Original ideas, cases, and evidence about what people build through work, what they can carry, what they control, and what can continue.",
   alternates: { canonical: "/edit" },
-  openGraph: { images: [{ url: "/og/edit/index.png", width: 1200, height: 630, alt: "The I/1 Edit — what people build, carry, control, and continue." }],
+  openGraph: { images: [{ url: "/og/edit/index.png", width: 1200, height: 630, alt: "The I/1 Edit: what people build, carry, control, and continue." }],
     title: "The I/1 Edit",
     description: "Original ideas, cases, and evidence about what people build through work, what they can carry, what they control, and what can continue.",
     url: "/edit",
@@ -28,7 +28,7 @@ export default function EditPage() {
       <p className="eyebrow">The publication · The I/1 Edit</p>
       <h1>Research and ideas about the structure behind people’s work.</h1>
       <p className="lede">
-        New editions arrive by email. Each one takes one question about work, power, and ownership—and follows it far enough
+        New editions arrive by email. Each one takes one question about work, power, and ownership, and follows it far enough
         to become useful, examining what makes work portable, durable, controlled, or dependent on an employer, platform, client, partner, or other institution.
       </p>
 

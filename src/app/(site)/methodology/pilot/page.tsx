@@ -3,7 +3,7 @@ import { ACTIVATION_DECISION_TEMPLATE, LIMITATIONS_TEMPLATE } from "@/lib/resear
 import { withSocial } from "@/lib/page-meta";
 
 export const metadata = withSocial({
-  title: "Candidate pilot protocol — Institutions of One",
+  title: "Candidate pilot protocol | Institutions of One",
   description: "Sampling, preregistration, analysis, fairness, and activation rules for candidate-instrument pilots.",
 }, "/methodology/pilot");
 

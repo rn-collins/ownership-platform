@@ -5,7 +5,7 @@ import { withSocial } from "@/lib/page-meta";
 export const dynamic = "force-dynamic";
 export const metadata = {
   ...withSocial({
-    title: "The Job That Didn't Exist — The Observatory",
+    title: "The Job That Didn't Exist | The Observatory",
     description: "Conversations with people whose roles may have been shaped around them, each ending on what the story tells us about how everyone will work next.",
   }, "/observatory/episodes"),
   robots: { index: false, follow: false },
@@ -30,7 +30,7 @@ export default async function EpisodesPage() {
       <p className="eyebrow">Institutions of One · The Show</p>
       <h1>The Job That Didn&apos;t Exist</h1>
       <p className="lede">
-        Conversations with people whose roles may have been shaped around them — filmed in motion and live on stage. Each one ends
+        Conversations with people whose roles may have been shaped around them, filmed in motion and live on stage. Each one ends
         on the same question: what does this tell us about how everyone will work next?
       </p>
 
@@ -58,7 +58,7 @@ export default async function EpisodesPage() {
       )}
 
       <h2 style={{ fontFamily: "Georgia, serif", fontSize: 22, marginTop: 34, marginBottom: 4 }}>The movement so far</h2>
-      <p className="rsub" style={{ marginBottom: 12 }}>People whose work and roles may have been shaped around them — the shortlist we&apos;re charting on <a href="/observatory" className="fwlink">the map</a>.</p>
+      <p className="rsub" style={{ marginBottom: 12 }}>People whose work and roles may have been shaped around them: the shortlist we&apos;re charting on <a href="/observatory" className="fwlink">the map</a>.</p>
       <div className="roster">
         {SEED.map((n) => (
           <div key={n.name} className="rostercard">

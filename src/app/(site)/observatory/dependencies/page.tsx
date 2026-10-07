@@ -3,7 +3,7 @@ import { withSocial } from "@/lib/page-meta";
 import { DependencyExplorer } from "./DependencyExplorer";
 
 export const metadata: Metadata = withSocial({
-  title: "Dependency Explorer — The Observatory",
+  title: "Dependency Explorer | The Observatory",
   description: "Examine which employers, platforms, titles, capital, audiences, mandates, founders, intellectual property, and distribution partners appear structurally relevant across the Observatory cases.",
   alternates: { canonical: "/observatory/dependencies" },
 }, "/observatory/dependencies");

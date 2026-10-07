@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { errorSummary, firstInvalid, hasErrors, isEmail, postJson, type FieldErrors } from "./formKit";
+import { POLYMATH_SUBSCRIBE_URL } from "@/lib/site";
 import s from "./forms.module.css";
 
 type Field = "email" | "consent";
@@ -75,7 +76,7 @@ export function NewsletterSignup({
           <span className="nl-check" aria-hidden="true">✓</span>
           {synced
             ? <div><b>You’re subscribed.</b><p>The next I/1 Edit will arrive by email from The Polymath.</p></div>
-            : <div><b>We have your address.</b><p>We will add you to The Polymath, the newsletter that carries The I/1 Edit. You are not on the mailing list yet, so no email has been sent.</p></div>}
+            : <div><b>We have your address.</b><p>We will add you to The Polymath, the newsletter that carries The I/1 Edit. You are not on the mailing list yet, so no email has been sent. To get The Polymath now, <a href={POLYMATH_SUBSCRIBE_URL} target="_blank" rel="noopener noreferrer">subscribe on Beehiiv<span className="sr-only"> (opens in a new tab)</span></a>.</p></div>}
         </div>
       ) : (
         <form className="nl-form" noValidate onSubmit={(event) => { event.preventDefault(); void submit(); }}>
@@ -118,7 +119,7 @@ export function NewsletterSignup({
             <span>Yes, email me new editions of The I/1 Edit. It is one section of the newsletter The Polymath on Beehiiv, so I will get The Polymath’s emails. I can unsubscribe at any time.</span>
           </label>
           {errors.consent && <p className={s.error} id={errId("consent")}>{errors.consent}</p>}
-          <div role="alert">{alert && <p className={s.alert}>{alert}</p>}</div>
+          <div role="alert">{alert && <p className={s.alert}>{alert}{state === "error" && <> You can also <a href={POLYMATH_SUBSCRIBE_URL} target="_blank" rel="noopener noreferrer">subscribe to The Polymath directly on Beehiiv<span className="sr-only"> (opens in a new tab)</span></a>.</>}</p>}</div>
         </form>
       )}
     </section>

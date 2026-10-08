@@ -1,0 +1,2322 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mechanic/figure/1",
+  "title": "Figure: one branch per tool that uses this mechanic. A spec's data must match at least one branch.",
+  "description": "Merged as anyOf branches (kit 0.2.0). Branches: c14-05, framework-strip, ed007-figure-01, ed007-figure-02, ed007-figure-03, ed007-figure-04, ed007-figure-05, ed007-figure-06. The validator's schema-lite reports the first error of each branch when none match.",
+  "anyOf": [
+    {
+      "title": "c14-05",
+      "description": "c14-05 (built/htw/c14-05, schema file mechanic-figure-1.json, id mechanic/figure/1). Figure (record card): examples shown whole with a caption, a field table and a note form (c14-05 seven fields). Proposed for kit/schema/mechanics/figure-1.json; it is kept beside the tool because tool folders may not edit kit/. If Edition 007 figures need figure-1 for another shape, rename this one record-1 and set mechanic to record.",
+      "type": "object",
+      "required": [
+        "fields",
+        "items",
+        "figures",
+        "notFound"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "notFound": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "hint",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "title",
+                  "date",
+                  "page",
+                  "author",
+                  "genre",
+                  "context",
+                  "text"
+                ]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 3
+              },
+              "hint": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "kind",
+              "captionClaimId",
+              "countClaimId",
+              "figureId",
+              "stated",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "page",
+                  "photograph"
+                ]
+              },
+              "captionClaimId": {
+                "type": "string"
+              },
+              "creditClaimId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "countClaimId": {
+                "type": "string"
+              },
+              "figureId": {
+                "type": "string"
+              },
+              "extraFigureId": {
+                "type": "string"
+              },
+              "standIn": {
+                "type": "boolean"
+              },
+              "stated": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "date",
+                  "page",
+                  "author",
+                  "genre",
+                  "context",
+                  "text"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "page": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "author": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "genre": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "context": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "text": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "recordLink": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "figures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "file",
+              "w",
+              "h",
+              "claimId",
+              "sourceId",
+              "credit",
+              "role",
+              "illustrative",
+              "alt",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "file": {
+                "type": "string",
+                "pattern": "^images/"
+              },
+              "w": {
+                "type": "integer"
+              },
+              "h": {
+                "type": "integer"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "sourceId": {
+                "type": "string"
+              },
+              "credit": {
+                "type": "string",
+                "minLength": 5
+              },
+              "role": {
+                "enum": [
+                  "lead",
+                  "stand-in",
+                  "object",
+                  "companion",
+                  "record",
+                  "note"
+                ]
+              },
+              "illustrative": {
+                "type": "boolean"
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 20
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "framework-strip",
+      "description": "framework-strip (built/main/framework-strip, schema file data.schema.json, id mechanic/figure-strip/1). Figure, four-cell strip with a photograph, a question and a link in each cell (X3 Framework strip). Proposed as an anyOf branch of kit/schema/mechanics/figure-1.json; the kit has no file for it yet.",
+      "type": "object",
+      "required": [
+        "imageBase",
+        "images",
+        "cells",
+        "map",
+        "edition008"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "imageBase": {
+          "type": "string",
+          "pattern": "^/.*/$"
+        },
+        "images": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "$ref": "#/$defs/framework-strip__image"
+          }
+        },
+        "cells": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "number",
+              "name",
+              "question",
+              "claimId",
+              "imageId",
+              "href",
+              "linkLabel",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "imageId": {
+                "type": "string"
+              },
+              "href": {
+                "type": "string",
+                "pattern": "^/"
+              },
+              "linkLabel": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "map": {
+          "type": "object",
+          "required": [
+            "label",
+            "href"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "href": {
+              "type": "string",
+              "pattern": "^/"
+            }
+          }
+        },
+        "edition008": {
+          "type": "object",
+          "required": [
+            "claimId",
+            "href",
+            "linkLabel",
+            "wordingId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "claimId": {
+              "type": "string"
+            },
+            "href": {
+              "type": "string",
+              "pattern": "^/"
+            },
+            "linkLabel": {
+              "type": "string"
+            },
+            "wordingId": {
+              "type": "string"
+            },
+            "futureToolId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "ed007-figure-01",
+      "description": "ed007-figure-01 (built/figures/ed007-figure-01, schema file data.schema.json, id mechanic/figure/1/ed007-figure-01). Figure, Edition 007 figure 1: a parallel-records table for two platforms. The kit has no figure schema yet, so this file stands in for kit/schema/mechanics/figure-1.json.",
+      "type": "object",
+      "required": [
+        "figure",
+        "images",
+        "platforms",
+        "rows",
+        "cells",
+        "table"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "figure": {
+          "type": "object",
+          "required": [
+            "number",
+            "anchor",
+            "heading",
+            "title",
+            "label"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "number": {
+              "type": "string"
+            },
+            "anchor": {
+              "type": "string",
+              "pattern": "^figure-0[1-6]$"
+            },
+            "heading": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "slot",
+              "file",
+              "width",
+              "height",
+              "alt",
+              "caption",
+              "creator",
+              "licence",
+              "licenceUrl",
+              "sourcePage",
+              "precision",
+              "sourceId",
+              "status"
+            ],
+            "properties": {
+              "slot": {
+                "type": "string"
+              },
+              "file": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 10
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 10
+              },
+              "creator": {
+                "type": "string"
+              },
+              "licence": {
+                "type": "string"
+              },
+              "licenceUrl": {
+                "type": "string"
+              },
+              "sourcePage": {
+                "type": "string"
+              },
+              "precision": {
+                "enum": [
+                  "precise",
+                  "illustrative"
+                ]
+              },
+              "sourceId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "platforms": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "claimId",
+              "imageSlot",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "meta",
+                  "tiktok"
+                ]
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "imageSlot": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "cells": {
+          "type": "array",
+          "minItems": 9,
+          "maxItems": 9,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "row",
+              "platform",
+              "claimIds",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "row": {
+                "type": "string"
+              },
+              "platform": {
+                "enum": [
+                  "meta",
+                  "tiktok",
+                  "both"
+                ]
+              },
+              "claimIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "table": {
+          "type": "object",
+          "required": [
+            "leadSlot",
+            "questionClaimId",
+            "termClaimId",
+            "captionClaimId",
+            "limitClaimId",
+            "countClaimId",
+            "notCovered",
+            "eitherLabel"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "leadSlot": {
+              "type": "string"
+            },
+            "questionClaimId": {
+              "type": "string"
+            },
+            "termClaimId": {
+              "type": "string"
+            },
+            "captionClaimId": {
+              "type": "string"
+            },
+            "limitClaimId": {
+              "type": "string"
+            },
+            "countClaimId": {
+              "type": "string"
+            },
+            "notCovered": {
+              "type": "string"
+            },
+            "eitherLabel": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "ed007-figure-02",
+      "description": "ed007-figure-02 (built/figures/ed007-figure-02, schema file data.schema.json, id mechanic/figure-chain/1). Figure, two answers and a chain of photographed links (Edition 007, Figure 2). Proposed as an anyOf branch of kit/schema/mechanics/figure-1.json; the kit has no file for it yet.",
+      "type": "object",
+      "required": [
+        "imageBase",
+        "images",
+        "figure",
+        "lead",
+        "questionClaimId",
+        "options",
+        "chains",
+        "record",
+        "sideNote",
+        "credit"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "imageBase": {
+          "type": "string",
+          "pattern": "^/.*/$"
+        },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ed007-figure-02__image"
+          }
+        },
+        "figure": {
+          "type": "object",
+          "required": [
+            "number",
+            "plate",
+            "anchor",
+            "headingClaimId",
+            "titleClaimId",
+            "captionClaimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "number": {
+              "type": "string"
+            },
+            "plate": {
+              "type": "string"
+            },
+            "anchor": {
+              "type": "string",
+              "pattern": "^figure-0[1-6]$"
+            },
+            "headingClaimId": {
+              "type": "string"
+            },
+            "titleClaimId": {
+              "type": "string"
+            },
+            "captionClaimId": {
+              "type": "string"
+            }
+          }
+        },
+        "lead": {
+          "type": "object",
+          "required": [
+            "imageId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "imageId": {
+              "type": "string"
+            }
+          }
+        },
+        "questionClaimId": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "both",
+                  "brand",
+                  "creator"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "imageId": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "chains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "claimId",
+              "nodes",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "brand",
+                  "creator"
+                ]
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "label",
+                    "imageId",
+                    "status"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "imageId": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "enum": [
+                        "approved",
+                        "needs-rn"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "record": {
+          "type": "object",
+          "required": [
+            "headingClaimId",
+            "itemClaimIds"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "headingClaimId": {
+              "type": "string"
+            },
+            "itemClaimIds": {
+              "type": "array",
+              "minItems": 7,
+              "maxItems": 7,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "linkRecords": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "nodeId",
+              "claimIds",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "nodeId": {
+                "type": "string"
+              },
+              "claimIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              },
+              "why": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "sideNote": {
+          "type": "object",
+          "required": [
+            "headingLabel",
+            "embedClaimId",
+            "nativeClaimId",
+            "routeClaimId",
+            "nativeImageId",
+            "schematic"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "headingLabel": {
+              "type": "string"
+            },
+            "embedClaimId": {
+              "type": "string"
+            },
+            "nativeClaimId": {
+              "type": "string"
+            },
+            "routeClaimId": {
+              "type": "string"
+            },
+            "nativeImageId": {
+              "type": "string"
+            },
+            "schematic": {
+              "type": "object",
+              "required": [
+                "id",
+                "caption",
+                "title",
+                "desc",
+                "top",
+                "bottom"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "desc": {
+                  "type": "string"
+                },
+                "top": {
+                  "$ref": "#/$defs/ed007-figure-02__row"
+                },
+                "bottom": {
+                  "$ref": "#/$defs/ed007-figure-02__row"
+                }
+              }
+            }
+          }
+        },
+        "credit": {
+          "type": "object",
+          "required": [
+            "facts",
+            "diagram"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "facts": {
+              "type": "string"
+            },
+            "diagram": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "ed007-figure-03",
+      "description": "ed007-figure-03 (built/figures/ed007-figure-03, schema file data.schema.json, id mechanic/figure-months/1). Figure, month scale with a closeout list that opens at month four (Edition 007, Figure 3). Proposed as an anyOf branch of kit/schema/mechanics/figure-1.json; the kit has no file for it yet.",
+      "type": "object",
+      "required": [
+        "imageBase",
+        "images",
+        "figure",
+        "lead",
+        "months",
+        "defaultMonth",
+        "termMonths",
+        "termClaimId",
+        "closeout",
+        "items",
+        "routeCard",
+        "credit"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "imageBase": {
+          "type": "string",
+          "pattern": "^/.*/$"
+        },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ed007-figure-03__image"
+          }
+        },
+        "figure": {
+          "type": "object",
+          "required": [
+            "number",
+            "plate",
+            "anchor",
+            "headingClaimId",
+            "titleClaimId",
+            "captionClaimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "number": {
+              "type": "string"
+            },
+            "plate": {
+              "type": "string"
+            },
+            "anchor": {
+              "type": "string",
+              "pattern": "^figure-0[1-6]$"
+            },
+            "headingClaimId": {
+              "type": "string"
+            },
+            "titleClaimId": {
+              "type": "string"
+            },
+            "captionClaimId": {
+              "type": "string"
+            }
+          }
+        },
+        "lead": {
+          "type": "object",
+          "required": [
+            "imageId",
+            "claimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "imageId": {
+              "type": "string"
+            },
+            "claimId": {
+              "type": "string"
+            }
+          }
+        },
+        "months": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "imageId",
+              "label",
+              "phase",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "imageId": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "phase": {
+                "enum": [
+                  "in",
+                  "after"
+                ]
+              },
+              "note": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "defaultMonth": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "termMonths": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "termClaimId": {
+          "type": "string"
+        },
+        "closeout": {
+          "type": "object",
+          "required": [
+            "questionClaimId",
+            "recordClaimId",
+            "adLibraryClaimId",
+            "waitClaimId",
+            "distinctClaimId",
+            "labelsClaimId",
+            "opensAtMonth",
+            "waitFromMonth"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "questionClaimId": {
+              "type": "string"
+            },
+            "recordClaimId": {
+              "type": "string"
+            },
+            "adLibraryClaimId": {
+              "type": "string"
+            },
+            "waitClaimId": {
+              "type": "string"
+            },
+            "distinctClaimId": {
+              "type": "string"
+            },
+            "labelsClaimId": {
+              "type": "string"
+            },
+            "opensAtMonth": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "waitFromMonth": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            }
+          }
+        },
+        "items": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "hintClaimId",
+              "questionClaimId",
+              "imageId",
+              "wordingId",
+              "routeCardAnchor",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "hintClaimId": {
+                "type": "string"
+              },
+              "questionClaimId": {
+                "type": "string"
+              },
+              "imageId": {
+                "type": "string"
+              },
+              "wordingId": {
+                "const": "KW-13"
+              },
+              "routeCardAnchor": {
+                "type": "string",
+                "pattern": "^month-four-"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "routeCard": {
+          "type": "object",
+          "required": [
+            "path",
+            "modeAnchor",
+            "label"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^/tools/"
+            },
+            "modeAnchor": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        "credit": {
+          "type": "object",
+          "required": [
+            "facts",
+            "diagram"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "facts": {
+              "type": "string"
+            },
+            "diagram": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "ed007-figure-04",
+      "description": "ed007-figure-04 (built/figures/ed007-figure-04, schema file data.schema.json, id mechanic/figure-layers/1). Figure, six meanings of one word shown as bands with a picker (Edition 007, Figure 4). Proposed as an anyOf branch of kit/schema/mechanics/figure-1.json; the kit has no file for it yet.",
+      "type": "object",
+      "required": [
+        "imageBase",
+        "images",
+        "figure",
+        "lead",
+        "intro",
+        "layers",
+        "defaultLayer",
+        "schematic",
+        "example",
+        "credit"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "imageBase": {
+          "type": "string",
+          "pattern": "^/.*/$"
+        },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ed007-figure-04__image"
+          }
+        },
+        "figure": {
+          "type": "object",
+          "required": [
+            "number",
+            "plate",
+            "anchor",
+            "headingClaimId",
+            "titleClaimId",
+            "captionClaimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "number": {
+              "type": "string"
+            },
+            "plate": {
+              "type": "string"
+            },
+            "anchor": {
+              "type": "string",
+              "pattern": "^figure-0[1-6]$"
+            },
+            "headingClaimId": {
+              "type": "string"
+            },
+            "titleClaimId": {
+              "type": "string"
+            },
+            "captionClaimId": {
+              "type": "string"
+            }
+          }
+        },
+        "lead": {
+          "type": "object",
+          "required": [
+            "imageId",
+            "claimId",
+            "viewableClaimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "imageId": {
+              "type": "string"
+            },
+            "claimId": {
+              "type": "string"
+            },
+            "viewableClaimId": {
+              "type": "string"
+            }
+          }
+        },
+        "intro": {
+          "type": "object",
+          "required": [
+            "severalClaimId",
+            "notIdenticalClaimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "severalClaimId": {
+              "type": "string"
+            },
+            "notIdenticalClaimId": {
+              "type": "string"
+            }
+          }
+        },
+        "layers": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "claimId",
+              "label",
+              "band",
+              "imageId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "tag": {
+                "type": "string"
+              },
+              "band": {
+                "enum": [
+                  "wide",
+                  "bounded"
+                ]
+              },
+              "imageId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "defaultLayer": {
+          "type": "string"
+        },
+        "schematic": {
+          "type": "object",
+          "required": [
+            "caption",
+            "noteClaimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "caption": {
+              "type": "string"
+            },
+            "noteClaimId": {
+              "type": "string"
+            }
+          }
+        },
+        "example": {
+          "type": "object",
+          "required": [
+            "leadClaimId",
+            "claimId",
+            "vagueClaimId",
+            "imageId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "leadClaimId": {
+              "type": "string"
+            },
+            "claimId": {
+              "type": "string"
+            },
+            "vagueClaimId": {
+              "type": "string"
+            },
+            "imageId": {
+              "type": "string"
+            }
+          }
+        },
+        "credit": {
+          "type": "object",
+          "required": [
+            "facts",
+            "diagram"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "facts": {
+              "type": "string"
+            },
+            "diagram": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "ed007-figure-05",
+      "description": "ed007-figure-05 (built/figures/ed007-figure-05, schema file data.schema.json, id mechanic/figure/1/ed007-figure-05). Figure, Edition 007 figure 5: a photograph panel and five narrow-or-broad switches. The kit has no figure schema yet, so this file stands in for kit/schema/mechanics/figure-1.json.",
+      "type": "object",
+      "required": [
+        "figure",
+        "images",
+        "systems",
+        "dimensions",
+        "moment",
+        "fence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "figure": {
+          "type": "object",
+          "required": [
+            "number",
+            "anchor",
+            "heading",
+            "title",
+            "label"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "number": {
+              "type": "string"
+            },
+            "anchor": {
+              "type": "string",
+              "pattern": "^figure-0[1-6]$"
+            },
+            "heading": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "slot",
+              "file",
+              "width",
+              "height",
+              "alt",
+              "caption",
+              "creator",
+              "licence",
+              "licenceUrl",
+              "sourcePage",
+              "precision",
+              "sourceId",
+              "status"
+            ],
+            "properties": {
+              "slot": {
+                "type": "string"
+              },
+              "file": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 10
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 10
+              },
+              "creator": {
+                "type": "string"
+              },
+              "licence": {
+                "type": "string"
+              },
+              "licenceUrl": {
+                "type": "string"
+              },
+              "sourcePage": {
+                "type": "string"
+              },
+              "precision": {
+                "enum": [
+                  "precise",
+                  "illustrative"
+                ]
+              },
+              "sourceId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "moment": {
+          "type": "object",
+          "required": [
+            "leadSlot",
+            "leadCaptionClaimId",
+            "limitClaimId",
+            "introClaimIds",
+            "afterClaimIds",
+            "jacketClaimId",
+            "jacketSourceId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "leadSlot": {
+              "type": "string"
+            },
+            "leadCaptionClaimId": {
+              "type": "string"
+            },
+            "limitClaimId": {
+              "type": "string"
+            },
+            "introClaimIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "afterClaimIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "jacketClaimId": {
+              "type": "string"
+            },
+            "jacketSourceId": {
+              "type": "string"
+            }
+          }
+        },
+        "fence": {
+          "type": "object",
+          "required": [
+            "introClaimIds",
+            "fiveClaimId",
+            "pairClaimId",
+            "closingClaimId",
+            "countClaimId",
+            "butter",
+            "templates"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "introClaimIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "fiveClaimId": {
+              "type": "string"
+            },
+            "pairClaimId": {
+              "type": "string"
+            },
+            "closingClaimId": {
+              "type": "string"
+            },
+            "countClaimId": {
+              "type": "string"
+            },
+            "butter": {
+              "type": "object",
+              "required": [
+                "claimIds",
+                "imageSlot"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "claimIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "imageSlot": {
+                  "type": "string"
+                }
+              }
+            },
+            "templates": {
+              "type": "object",
+              "required": [
+                "none",
+                "some",
+                "all",
+                "notDrawn"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "none": {
+                  "type": "string"
+                },
+                "some": {
+                  "type": "string"
+                },
+                "all": {
+                  "type": "string"
+                },
+                "notDrawn": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "systems": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "claimId",
+              "imageSlot",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "imageSlot": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "dimensions": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "claimId",
+              "imageSlot",
+              "narrow",
+              "broad",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "imageSlot": {
+                "type": "string"
+              },
+              "narrow": {
+                "type": "object",
+                "required": [
+                  "label",
+                  "quote"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "quote": {
+                    "type": "string"
+                  }
+                }
+              },
+              "broad": {
+                "type": "object",
+                "required": [
+                  "label",
+                  "quote"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "quote": {
+                    "type": "string"
+                  }
+                }
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "ed007-figure-06",
+      "description": "ed007-figure-06 (built/figures/ed007-figure-06, schema file data.schema.json, id mechanic/figure/1/ed007-figure-06). Figure, Edition 007 figure 6: a static eight-cell card. The kit has no figure schema yet, so this file stands in for kit/schema/mechanics/figure-1.json.",
+      "type": "object",
+      "required": [
+        "figure",
+        "images",
+        "coordinates",
+        "card",
+        "routeCard"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "figure": {
+          "type": "object",
+          "required": [
+            "number",
+            "anchor",
+            "heading",
+            "title",
+            "label"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "number": {
+              "type": "string"
+            },
+            "anchor": {
+              "type": "string",
+              "pattern": "^figure-0[1-6]$"
+            },
+            "heading": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "slot",
+              "file",
+              "width",
+              "height",
+              "alt",
+              "caption",
+              "creator",
+              "licence",
+              "licenceUrl",
+              "sourcePage",
+              "precision",
+              "sourceId",
+              "status"
+            ],
+            "properties": {
+              "slot": {
+                "type": "string"
+              },
+              "file": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 10
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 10
+              },
+              "creator": {
+                "type": "string"
+              },
+              "licence": {
+                "type": "string"
+              },
+              "licenceUrl": {
+                "type": "string"
+              },
+              "sourcePage": {
+                "type": "string"
+              },
+              "precision": {
+                "enum": [
+                  "precise",
+                  "illustrative"
+                ]
+              },
+              "sourceId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "coordinates": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "claimId",
+              "imageSlot",
+              "anchor",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 8
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "imageSlot": {
+                "type": "string"
+              },
+              "anchor": {
+                "type": "string",
+                "pattern": "^route-[a-z]+$"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "card": {
+          "type": "object",
+          "required": [
+            "leadSlot",
+            "leadClaimId",
+            "eightClaimId",
+            "captionClaimId",
+            "limitClaimId",
+            "finalClaimId",
+            "sampleIntroClaimId",
+            "sampleClaimId",
+            "fillLabel"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "leadSlot": {
+              "type": "string"
+            },
+            "leadClaimId": {
+              "type": "string"
+            },
+            "eightClaimId": {
+              "type": "string"
+            },
+            "captionClaimId": {
+              "type": "string"
+            },
+            "limitClaimId": {
+              "type": "string"
+            },
+            "finalClaimId": {
+              "type": "string"
+            },
+            "sampleIntroClaimId": {
+              "type": "string"
+            },
+            "sampleClaimId": {
+              "type": "string"
+            },
+            "fillLabel": {
+              "type": "string"
+            }
+          }
+        },
+        "routeCard": {
+          "type": "object",
+          "required": [
+            "path",
+            "anchorsFrom",
+            "linkStatus"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^/"
+            },
+            "anchorsFrom": {
+              "type": "string"
+            },
+            "linkStatus": {
+              "enum": [
+                "built-not-published",
+                "published",
+                "placeholder"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "framework-strip__image": {
+      "type": "object",
+      "required": [
+        "id",
+        "file",
+        "width",
+        "height",
+        "alt",
+        "creator",
+        "licence",
+        "sourcePage",
+        "precision",
+        "kind",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string",
+          "pattern": "\\.jpg$"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 20
+        },
+        "creator": {
+          "type": "string",
+          "minLength": 2
+        },
+        "licence": {
+          "enum": [
+            "CC0",
+            "CC BY 2.0",
+            "CC BY 3.0",
+            "CC BY 4.0",
+            "CC BY-SA 2.0",
+            "CC BY-SA 3.0",
+            "CC BY-SA 4.0",
+            "Public domain"
+          ]
+        },
+        "licenceUrl": {
+          "type": "string"
+        },
+        "sourcePage": {
+          "type": "string",
+          "pattern": "^https://commons\\.wikimedia\\.org/wiki/File:"
+        },
+        "precision": {
+          "enum": [
+            "precise",
+            "illustrative"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "photo"
+          ]
+        },
+        "status": {
+          "enum": [
+            "approved",
+            "needs-rn"
+          ]
+        }
+      }
+    },
+    "ed007-figure-02__row": {
+      "type": "object",
+      "required": [
+        "from",
+        "to",
+        "arrow"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "arrow": {
+          "type": "string"
+        }
+      }
+    },
+    "ed007-figure-02__image": {
+      "type": "object",
+      "required": [
+        "id",
+        "file",
+        "width",
+        "height",
+        "alt",
+        "creator",
+        "licence",
+        "sourcePage",
+        "precision",
+        "kind",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string",
+          "pattern": "\\.jpg$"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 20
+        },
+        "creator": {
+          "type": "string",
+          "minLength": 2
+        },
+        "licence": {
+          "enum": [
+            "CC0",
+            "CC BY 2.0",
+            "CC BY 3.0",
+            "CC BY 4.0",
+            "CC BY-SA 2.0",
+            "CC BY-SA 3.0",
+            "CC BY-SA 4.0",
+            "Public domain"
+          ]
+        },
+        "licenceUrl": {
+          "type": "string"
+        },
+        "sourcePage": {
+          "type": "string",
+          "pattern": "^https://commons\\.wikimedia\\.org/wiki/File:"
+        },
+        "precision": {
+          "enum": [
+            "precise",
+            "illustrative"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "photo"
+          ]
+        },
+        "status": {
+          "enum": [
+            "approved",
+            "needs-rn"
+          ]
+        }
+      }
+    },
+    "ed007-figure-03__image": {
+      "type": "object",
+      "required": [
+        "id",
+        "file",
+        "width",
+        "height",
+        "alt",
+        "creator",
+        "licence",
+        "sourcePage",
+        "precision",
+        "kind",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string",
+          "pattern": "\\.jpg$"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 20
+        },
+        "creator": {
+          "type": "string",
+          "minLength": 2
+        },
+        "licence": {
+          "enum": [
+            "CC0",
+            "CC BY 2.0",
+            "CC BY 3.0",
+            "CC BY 4.0",
+            "CC BY-SA 2.0",
+            "CC BY-SA 3.0",
+            "CC BY-SA 4.0",
+            "Public domain"
+          ]
+        },
+        "licenceUrl": {
+          "type": "string"
+        },
+        "sourcePage": {
+          "type": "string",
+          "pattern": "^https://commons\\.wikimedia\\.org/wiki/File:"
+        },
+        "precision": {
+          "enum": [
+            "precise",
+            "illustrative"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "photo"
+          ]
+        },
+        "status": {
+          "enum": [
+            "approved",
+            "needs-rn"
+          ]
+        }
+      }
+    },
+    "ed007-figure-04__image": {
+      "type": "object",
+      "required": [
+        "id",
+        "file",
+        "width",
+        "height",
+        "alt",
+        "creator",
+        "licence",
+        "sourcePage",
+        "precision",
+        "kind",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string",
+          "pattern": "\\.jpg$"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 20
+        },
+        "creator": {
+          "type": "string",
+          "minLength": 2
+        },
+        "licence": {
+          "enum": [
+            "CC0",
+            "CC BY 2.0",
+            "CC BY 3.0",
+            "CC BY 4.0",
+            "CC BY-SA 2.0",
+            "CC BY-SA 3.0",
+            "CC BY-SA 4.0",
+            "Public domain"
+          ]
+        },
+        "licenceUrl": {
+          "type": "string"
+        },
+        "sourcePage": {
+          "type": "string",
+          "pattern": "^https://commons\\.wikimedia\\.org/wiki/File:"
+        },
+        "precision": {
+          "enum": [
+            "precise",
+            "illustrative"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "photo"
+          ]
+        },
+        "status": {
+          "enum": [
+            "approved",
+            "needs-rn"
+          ]
+        }
+      }
+    }
+  }
+}

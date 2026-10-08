@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mechanic/ledger/1",
+  "title": "Ledger: a dated table with status words, sort and filter, readable with no scripting (Sources ledger)",
+  "type": "object",
+  "required": ["statuses", "rows", "lastFullCheck", "defaultSort"],
+  "additionalProperties": false,
+  "properties": {
+    "lastFullCheck": { "type": "string", "pattern": "^[A-Z][a-z]+ \\d{1,2}, \\d{4}$" },
+    "defaultSort": { "enum": ["checked-oldest", "issuer", "title"] },
+    "statuses": {
+      "type": "array", "minItems": 3,
+      "items": { "type": "object", "required": ["id", "label", "means"], "additionalProperties": false, "properties": { "id": { "type": "string" }, "label": { "type": "string" }, "means": { "type": "string" } } }
+    },
+    "rows": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "sourceId", "issuer", "titleAsShown", "lastChecked", "state", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "sourceId": { "type": "string" },
+          "issuer": { "type": "string" },
+          "titleAsShown": { "type": "string" },
+          "dateShown": { "type": "string", "description": "The date the page itself shows, as Month D, YYYY or Month YYYY. Absent when the page shows none." },
+          "dateNote": { "type": "string" },
+          "lastChecked": { "type": "string", "pattern": "^[A-Z][a-z]+ \\d{1,2}, \\d{4}$" },
+          "state": { "type": "string", "description": "A status id from data.statuses." },
+          "stateNote": { "type": "string" },
+          "oldCardTitle": { "type": "string" },
+          "citedIn": { "type": "array", "items": { "type": "string" } },
+          "summary": { "type": "object", "required": ["text", "status"], "additionalProperties": false, "properties": { "text": { "type": "string" }, "status": { "enum": ["approved", "needs-rn"] }, "why": { "type": "string" } } },
+          "status": { "enum": ["approved", "needs-rn"] }
+        }
+      }
+    },
+    "routine": { "type": "object", "required": ["text", "status"], "additionalProperties": false, "properties": { "text": { "type": "string" }, "status": { "enum": ["approved", "needs-rn"] }, "why": { "type": "string" } } }
+  }
+}

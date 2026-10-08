@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "relations/1",
+  "title": "relations/1: the only source for the related-tools rail",
+  "type": "object",
+  "required": [
+    "schema",
+    "relations"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "relations/1"
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "a",
+          "b",
+          "kind",
+          "strength",
+          "reasonA",
+          "reasonB",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "a": {
+            "type": "string"
+          },
+          "b": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "same-source",
+              "same-story",
+              "same-edition",
+              "same-question"
+            ]
+          },
+          "strength": {
+            "enum": [
+              "hard",
+              "soft"
+            ]
+          },
+          "reasonA": {
+            "type": "string",
+            "minLength": 10
+          },
+          "reasonB": {
+            "type": "string",
+            "minLength": 10
+          },
+          "status": {
+            "enum": [
+              "approved",
+              "needs-rn"
+            ]
+          },
+          "checked": {
+            "type": "string"
+          },
+          "approvedOn": {
+            "type": "string"
+          },
+          "basis": {
+            "type": "string",
+            "description": "The text each side relies on. Not rendered."
+          },
+          "wordingId": {
+            "type": "string",
+            "description": "Id of the RN-approved sentence in wording-decisions.json. The reasons must equal that sentence."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,513 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mechanic/chart/1",
+  "title": "Chart: one branch per tool that uses this mechanic. A spec's data must match at least one branch.",
+  "description": "Merged as anyOf branches (kit 0.2.0). Branches: c14-02, c14-03, c14-13. The validator's schema-lite reports the first error of each branch when none match.",
+  "anyOf": [
+    {
+      "title": "c14-02",
+      "description": "c14-02 (built/htw/c14-02, schema file mechanic.schema.json, id mechanic/chart/1 (c14-02 shape)). Chart: a curve with a seeded simulation (c14-02). Proposed for kit/schema/mechanics/chart-1.json. c14-03 uses the same mechanic name with a different data shape, so the integrator should merge the two with anyOf or give c14-03 its own mechanic name.",
+      "type": "object",
+      "required": [
+        "defaults",
+        "images"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "defaults": {
+          "type": "object",
+          "required": [
+            "g",
+            "k",
+            "seed",
+            "wait"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "g": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 60
+            },
+            "k": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "seed": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 999999
+            },
+            "wait": {
+              "type": "boolean"
+            }
+          }
+        },
+        "images": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "place",
+              "file",
+              "width",
+              "height",
+              "alt",
+              "caption",
+              "illustrative",
+              "creator",
+              "license",
+              "sourcePage",
+              "credit"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "place": {
+                "enum": [
+                  "lead",
+                  "rule",
+                  "sim",
+                  "satellite"
+                ]
+              },
+              "file": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 20
+              },
+              "caption": {
+                "type": "string"
+              },
+              "illustrative": {
+                "type": "boolean"
+              },
+              "creator": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "licenseUrl": {
+                "type": "string"
+              },
+              "sourcePage": {
+                "type": "string"
+              },
+              "credit": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "c14-03",
+      "description": "c14-03 (built/htw/c14-03, schema file mechanic.schema.json, id mechanic/chart/1 (c14-03 shape)). Chart: a clock bar with a slider, layers and a 1946 or after switch (c14-03). Proposed for kit/schema/mechanics/chart-1.json. c14-02 uses the same mechanic name with a different data shape, so the integrator should merge the two with anyOf or give one its own mechanic name.",
+      "type": "object",
+      "required": [
+        "defaults",
+        "images"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "defaults": {
+          "type": "object",
+          "required": [
+            "pos",
+            "year",
+            "layers"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "pos": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 30
+            },
+            "year": {
+              "enum": [
+                "1946",
+                "after"
+              ]
+            },
+            "layers": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "gauges",
+                  "links",
+                  "institution"
+                ]
+              }
+            }
+          }
+        },
+        "images": {
+          "type": "array",
+          "minItems": 6,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "place",
+              "file",
+              "width",
+              "height",
+              "alt",
+              "caption",
+              "illustrative",
+              "creator",
+              "license",
+              "sourcePage",
+              "credit"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "place": {
+                "enum": [
+                  "lead",
+                  "toll",
+                  "start",
+                  "end",
+                  "gauges",
+                  "links",
+                  "after"
+                ]
+              },
+              "file": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 20
+              },
+              "caption": {
+                "type": "string"
+              },
+              "illustrative": {
+                "type": "boolean"
+              },
+              "creator": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "licenseUrl": {
+                "type": "string"
+              },
+              "sourcePage": {
+                "type": "string"
+              },
+              "credit": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "c14-13",
+      "description": "c14-13 (built/htw/c14-13, schema file data.schema.json, id mechanic/chart/1). Chart: a drawn bar with ranges, a native slider and a table with the same numbers (c14-13 OTEC gross to net). To use the real validator, copy this file to kit/schema/mechanics/chart-1.json. Other chart tools may need a different shape.",
+      "type": "object",
+      "required": [
+        "lead",
+        "gross",
+        "pumps",
+        "defs",
+        "note",
+        "facts",
+        "scale",
+        "dates",
+        "images"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "lead": {
+          "type": "object",
+          "required": [
+            "imageId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "imageId": {
+              "type": "string"
+            }
+          }
+        },
+        "gross": {
+          "type": "object",
+          "required": [
+            "kw",
+            "claimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "kw": {
+              "type": "number",
+              "minimum": 1
+            },
+            "claimId": {
+              "type": "string"
+            }
+          }
+        },
+        "pumps": {
+          "type": "object",
+          "required": [
+            "low",
+            "high",
+            "start",
+            "claimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "low": {
+              "type": "number"
+            },
+            "high": {
+              "type": "number"
+            },
+            "start": {
+              "type": "number"
+            },
+            "claimId": {
+              "type": "string"
+            }
+          }
+        },
+        "defs": {
+          "type": "object",
+          "required": [
+            "storyClaimId",
+            "defClaimId",
+            "marginClaimId",
+            "firstClaimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "storyClaimId": {
+              "type": "string"
+            },
+            "defClaimId": {
+              "type": "string"
+            },
+            "marginClaimId": {
+              "type": "string"
+            },
+            "firstClaimId": {
+              "type": "string"
+            }
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "facts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "value",
+              "claimId",
+              "imageId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "imageId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "scale": {
+          "type": "object",
+          "required": [
+            "offshoreM",
+            "depthM",
+            "px",
+            "claimIds",
+            "note"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "offshoreM": {
+              "type": "number"
+            },
+            "depthM": {
+              "type": "number"
+            },
+            "px": {
+              "type": "integer"
+            },
+            "claimIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "dates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "when",
+              "claimId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "when": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "file",
+              "width",
+              "height",
+              "alt",
+              "caption",
+              "creditLine",
+              "license",
+              "sourceId",
+              "precision",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "file": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 20
+              },
+              "caption": {
+                "type": "string"
+              },
+              "creditLine": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "licenseUrl": {
+                "type": "string"
+              },
+              "sourceId": {
+                "type": "string"
+              },
+              "precision": {
+                "enum": [
+                  "precise",
+                  "illustrative"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

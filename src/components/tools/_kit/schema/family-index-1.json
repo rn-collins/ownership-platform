@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "family-index/1",
+  "title": "family-index/1: every tool id with its address, so a link to a tool that does not exist cannot be built",
+  "type": "object",
+  "required": ["schema", "tools"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "family-index/1" },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "url", "site", "siteName"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" }, "title": { "type": "string" }, "url": { "type": "string" },
+          "site": { "enum": ["htw", "ioo-reader", "ioo-main"] }, "siteName": { "type": "string" },
+          "built": { "type": "boolean" }, "existing": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

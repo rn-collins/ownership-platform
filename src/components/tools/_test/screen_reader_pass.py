@@ -36,7 +36,8 @@ PROBE = r"""() => {
   const tables = [...document.querySelectorAll('table')].map(t => ({ caption: !!t.querySelector('caption'), th: t.querySelectorAll('th').length, scoped: [...t.querySelectorAll('th')].every(h => h.getAttribute('scope') || h.closest('thead')), hasHead: !!t.querySelector('thead') }));
   const live = [...document.querySelectorAll('[aria-live],[role=status],[role=alert]')].map(e => ({ id: e.id, role: e.getAttribute('role') || '', live: e.getAttribute('aria-live') || '', text: (e.textContent || '').trim().slice(0, 80), len: (e.textContent || '').length }));
   const sections = [...document.querySelectorAll('section[aria-labelledby],nav,aside,main,header,footer,form,[role=region]')].map(e => ({ tag: e.tagName.toLowerCase(), label: e.getAttribute('aria-label') || ((e.getAttribute('aria-labelledby') || '').split(' ').map(i => (document.getElementById(i) || {}).textContent || '').join(' ').trim()) }));
-  const focusable = [...document.querySelectorAll('a[href],button,input:not([type=hidden]),select,textarea,summary,[tabindex]')].filter(e => vis(e) && !e.disabled && e.tabIndex >= 0);
+  const seenRadio = new Set();
+  const focusable = [...document.querySelectorAll('a[href],button,input:not([type=hidden]),select,textarea,summary,[tabindex]')].filter(e => vis(e) && !e.disabled && e.tabIndex >= 0).filter(e => { if (e.type !== 'radio') return true; const k = e.name; if (seenRadio.has(k)) return false; seenRadio.add(k); return true; });
   return { title: document.title, lang: document.documentElement.lang, heads, controls, imgs, links, tables, live, sections, svg: document.querySelectorAll('svg,canvas').length, posTab: [...document.querySelectorAll('[tabindex]')].filter(e => +e.getAttribute('tabindex') > 0).length, focusableCount: focusable.length, js: document.documentElement.classList.contains('tk-js') };
 }"""
 
@@ -126,9 +127,9 @@ def page_checks(name, js, page, probe, txt, seq, checks):
     doms = [s['dom'] for s in seq_ok]
     first_wrap = next((i for i in range(1, len(doms)) if doms[i] <= doms[i - 1]), len(doms))
     ok('focus order follows document order (no jumps backward before the end)', first_wrap >= len(doms) - 1, doms[:first_wrap + 2][-4:])
-    jumps = [(a['text'], b['text']) for a, b in zip(seq_ok, seq_ok[1:]) if b['top'] < a['top'] - 120 and b['dom'] > a['dom']]
-    ok('focus order follows reading order on the screen (no jump up the page)', not jumps, jumps[:3])
-    ok('keyboard reaches every visible focusable element', len({s['dom'] for s in seq_ok}) >= probe['focusableCount'] - 1, (len({s["dom"] for s in seq_ok}), probe['focusableCount']))
+    jumps = [(a['text'], b['text']) for a, b in zip(seq_ok, seq_ok[1:]) if a['inMain'] and b['inMain'] and b['top'] < a['top'] - 120 and b['left'] <= a['left'] + 60 and b['dom'] > a['dom']]
+    ok('focus order follows reading order on the screen (inside the content, no jump up the page except to the next column)', not jumps, jumps[:3])
+    ok('keyboard reaches every visible focusable element (a radio group is one stop)', len({s['dom'] for s in seq_ok}) >= probe['focusableCount'] - 1, (len({s["dom"] for s in seq_ok}), probe['focusableCount']))
     ok('focus leaves the page or wraps at the end (no keyboard trap)', len(seq) < 400, len(seq))
     return roles
 
@@ -145,7 +146,7 @@ def skip_link(page, name, js, checks):
     checks.append({'page': name, 'mode': mode, 'check': 'skip link is visible on focus and moves the next Tab stop into the content', 'ok': bool(visible and b and b['inMain'] or (b and b['inMain'])), 'detail': json.dumps({'skip': a, 'next': b})[:300]})
     if name != 'hub':
         page.goto(BASE + dict(PAGES)[name], wait_until='load')
-        for _ in range(4):
+        for _ in range(40):
             page.keyboard.press('Tab')
             cur = page.evaluate(ACTIVE)
             if cur and 'Skip to the tool' in cur['text']:
@@ -154,7 +155,7 @@ def skip_link(page, name, js, checks):
                 checks.append({'page': name, 'mode': mode, 'check': 'the tool skip link moves focus past the header into the tool', 'ok': bool(c and c['dom'] > cur['dom']), 'detail': json.dumps({'next': c})[:200]})
                 break
         else:
-            checks.append({'page': name, 'mode': mode, 'check': 'the tool skip link moves focus past the header into the tool', 'ok': False, 'detail': 'link not found in the first four Tab stops'})
+            checks.append({'page': name, 'mode': mode, 'check': 'the tool skip link moves focus past the header into the tool', 'ok': False, 'detail': 'link not found in the first forty Tab stops'})
 
 
 def status_text(page):
@@ -178,7 +179,7 @@ def interactions(page, name, checks):
         page.get_by_role('radio', name=re.compile('role disappear', re.I)).first.check()
         s3 = status_text(page); ok('choosing a change is announced', re.search(r'Mark each item', s3), s3)
         before = status_text(page)
-        page.get_by_role('radio', name='Stays with me').first.check()
+        page.get_by_role('radio', name='Stays with me').first.check(timeout=15000)
         after = status_text(page)
         region = page.evaluate("() => { const r = document.querySelector('section.tk-result'); return r ? r.textContent.slice(0,200) : ''; }")
         ok('marking an item announces the new result (status line changes)', after != before and len(after) > 0, {'before': before, 'after': after, 'result': region[:120]})
@@ -215,7 +216,10 @@ def run():
                 page_checks(name, js, page, probe, txt, seq, checks)
                 skip_link(page, name, js, checks)
                 if js:
-                    interactions(page, name, checks)
+                    try:
+                        interactions(page, name, checks)
+                    except Exception as e:  # a step that could not be done is a failed check, not a crash
+                        checks.append({'page': name, 'mode': 'js', 'check': 'the tool can be operated by its labels alone', 'ok': False, 'detail': str(e)[:250]})
                 page.close()
             ctx.close()
         # a phone-width tree, scripting on

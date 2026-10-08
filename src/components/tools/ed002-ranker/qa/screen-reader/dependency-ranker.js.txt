@@ -1,0 +1,451 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "Institutions of One, home":
+    - /url: /
+    - text: Institutions of One
+  - navigation "Primary":
+    - link "Read":
+      - /url: /edit
+    - link "Visual stories (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/production/cycle-01
+    - link "Cases":
+      - /url: /observatory
+    - link "Tools (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/experiences
+    - link "Sources (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/resources
+    - link "Work with RN":
+      - /url: /partner
+    - link "Get the newsletter (opens in a new tab)":
+      - /url: https://polymath-rn-collins.beehiiv.com/subscribe
+- article:
+  - link "Skip to the tool":
+    - /url: "#tk-main"
+  - navigation "Breadcrumb":
+    - paragraph:
+      - link "Institutions of One":
+        - /url: /
+      - text: ›
+      - link "Tools":
+        - /url: /tools
+      - text: › dependency-ranker
+  - paragraph: TOOL ED 002
+  - heading "Which dependency could stop my work first?" [level=1]
+  - paragraph: Rank up to five of your own dependencies by how many of Edition 002’s four tests each one fails.
+  - term: You will learn
+  - definition:
+    - list:
+      - listitem: Where your work depends on someone else, in the edition’s four layers
+      - listitem: Which of your dependencies fails the most of the four tests
+      - listitem: The question the edition asks you to carry forward
+  - term: Time
+  - definition: 5 minutes
+  - term: You leave with
+  - definition: A ranked list you can copy, print or save as a text file
+  - term: Your answers
+  - definition: Nothing you enter leaves your browser.
+  - paragraph:
+    - text: By RN Collins · Based on
+    - link "Your Career Has a Supply Chain":
+      - /url: /edit/002
+  - main:
+    - status
+    - region "The four layers":
+      - heading "The four layers" [level=2]
+      - paragraph:
+        - text: The four layers are supplied functions. They are distinct from the four practical questions used to test any one dependency.
+        - superscript:
+          - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+      - list:
+        - listitem:
+          - strong: "Discovery:"
+          - text: Who decides whether new people can find you?
+          - superscript:
+            - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+        - listitem:
+          - strong: "Relationship:"
+          - text: Who can reach the people who already chose you?
+          - superscript:
+            - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+        - listitem:
+          - strong: "Revenue:"
+          - text: Who can interrupt the money?
+          - superscript:
+            - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+        - listitem:
+          - strong: "Continuation:"
+          - text: What would have to remain for the work to continue?
+          - superscript:
+            - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+    - region "The four tests":
+      - heading "The four tests" [level=2]
+      - list:
+        - listitem:
+          - strong: "Visible:"
+          - text: Can you name the dependency and explain exactly what it supplies?
+          - superscript:
+            - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+        - listitem:
+          - strong: "Substitutable:"
+          - text: Could another supplier perform the same job without destroying the work?
+          - superscript:
+            - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+        - listitem:
+          - strong: "Negotiable:"
+          - text: Can you change price, access, rights, timing, or exit terms?
+          - superscript:
+            - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+        - listitem:
+          - strong: "Survivable:"
+          - text: If it disappeared tomorrow, could you keep operating long enough to adapt?
+          - superscript:
+            - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+      - paragraph:
+        - text: Independence is not the absence of dependence. It is the ability to see your dependencies, distribute them, negotiate them, and survive when one changes.
+        - superscript:
+          - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+    - region "List your dependencies":
+      - heading "List your dependencies" [level=2]
+      - paragraph: Add up to 5. Tick a box when your answer to that test is yes. Nothing you type leaves this page.
+      - paragraph: Nothing to rank yet. Add a dependency to see which one fails the most tests.
+      - button "Add a dependency"
+      - button "Start over" [disabled]
+    - region "Weakest first":
+      - heading "Weakest first" [level=2]
+      - region "Nothing to rank yet. Add a dependency to see which one fails the most tests.":
+        - heading "Nothing to rank yet. Add a dependency to see which one fails the most tests." [level=3]
+        - button "Copy as text"
+        - button "Download .txt"
+        - button "Print or save as PDF"
+    - region "Cases in the edition":
+      - heading "Cases in the edition" [level=2]
+      - paragraph:
+        - text: The seven cases are first-party company announcements and representations, and they support bounded facts about announced arrangements.
+        - superscript:
+          - 'button "Source 2: ‘Call Her Daddy’ Is Making It Exclusive With Spotify"': "2"
+      - list:
+        - listitem:
+          - text: Spotify and Call Her Daddy, 2021
+          - superscript:
+            - 'button "Source 2: ‘Call Her Daddy’ Is Making It Exclusive With Spotify"': "2"
+        - listitem:
+          - text: SiriusXM and Alex Cooper, 2024
+          - superscript:
+            - 'button "Source 3: SiriusXM Inks New Multi-Year Agreement with Alex Cooper, the World''s Leading Female Podcaster; \"Call Her Daddy\" Finds a New Home"': "3"
+        - listitem:
+          - text: Marques Brownlee and YouTube, 2022
+          - superscript:
+            - 'button "Source 4: Marques Brownlee shares how podcasting can help creators succeed in today’s creator economy"': "4"
+        - listitem:
+          - text: YouTube’s 2026 letter
+          - superscript:
+            - 'button "Source 5: From the CEO: What’s coming to YouTube in 2026"': "5"
+        - listitem:
+          - text: Beast Games on Prime Video, 2025
+          - superscript:
+            - 'button "Source 6: ‘Beast Games’ renewed for two more seasons after record-breaking Prime Video debut"': "6"
+        - listitem:
+          - text: Feastables sourcing
+          - superscript:
+            - 'button "Source 7: Feastables’ Commitment To Ethical Sourcing"': "7"
+        - listitem:
+          - text: Patreon’s story
+          - superscript:
+            - 'button "Source 8: The story of Patreon"': "8"
+      - paragraph:
+        - text: The ranking counts unticked boxes. Ties keep the order you entered them.
+        - superscript:
+          - 'button "Source 1: Your Career Has a Supply Chain"': "1"
+  - region "What this tool shows and what it does not":
+    - heading "What this tool shows and what it does not" [level=2]
+    - heading "Shows" [level=3]
+    - list:
+      - listitem: Your own list, sorted by how many of the four tests each dependency fails
+      - listitem: The edition’s four layers and four tests in the edition’s words
+    - heading "Does not show" [level=3]
+    - list:
+      - listitem: A score, a weight or a risk rating. The sort counts unticked boxes and nothing else.
+      - listitem: Private contract terms, ownership shares or bargaining power in any case the edition names. The edition says its sources do not establish them.
+      - listitem: Whether a dependency is a problem for you. The tests ask questions and your answers stay yours.
+  - region "Where this comes from":
+    - heading "Where this comes from" [level=2]
+    - paragraph:
+      - text: Every statement carries a small number. The number points to the source that supports it. This tool is based on
+      - link "Your Career Has a Supply Chain":
+        - /url: /edit/002
+      - text: .
+    - list:
+      - listitem:
+        - heading "1. Your Career Has a Supply Chain" [level=3]:
+          - text: "1."
+          - link "Your Career Has a Supply Chain":
+            - /url: /edit/002
+        - term: Publisher
+        - definition: RN Collins, The I/1 Edit, Edition 002
+        - term: Published
+        - definition: July 2026
+        - term: Checked
+        - definition: October 7, 2026
+        - term: Supports
+        - definition: The four layers, the four tests, the argument and the closing question
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: Who decides whether new people can find you?
+            - listitem: Who can reach the people who already chose you?
+            - listitem: Who can interrupt the money?
+            - listitem: What would have to remain for the work to continue?
+            - listitem: Can you name the dependency and explain exactly what it supplies?
+            - listitem: Could another supplier perform the same job without destroying the work?
+            - listitem: Can you change price, access, rights, timing, or exit terms?
+            - listitem: If it disappeared tomorrow, could you keep operating long enough to adapt?
+            - listitem: Independence is not the absence of dependence. It is the ability to see your dependencies, distribute them, negotiate them, and survive when one changes.
+            - listitem: "The edition’s closing question begins: if your most important supplier disappeared tomorrow, which part of your work would stop first?"
+            - listitem: The four layers are supplied functions. They are distinct from the four practical questions used to test any one dependency.
+            - listitem: The ranking counts unticked boxes. Ties keep the order you entered them.
+            - listitem: What event would make all four answers false at once?
+        - term: Does not show
+        - definition: The question about an event that would make all four answers false at once. The edition text does not contain it.
+        - button "Copy citation"
+      - listitem:
+        - heading "2. ‘Call Her Daddy’ Is Making It Exclusive With Spotify" [level=3]:
+          - text: "2."
+          - link "‘Call Her Daddy’ Is Making It Exclusive With Spotify":
+            - /url: https://newsroom.spotify.com/2021-06-15/call-her-daddy-is-making-it-exclusive-with-spotify/
+        - term: Publisher
+        - definition: Spotify Newsroom
+        - term: Published
+        - definition: June 15, 2021
+        - term: Checked
+        - definition: October 7, 2026
+        - term: Supports
+        - definition: A case in the edition. Shown as a case only.
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: The seven cases are first-party company announcements and representations, and they support bounded facts about announced arrangements.
+        - term: Does not show
+        - definition: Any answer you give in this tool
+        - button "Copy citation"
+      - listitem:
+        - heading "3. SiriusXM Inks New Multi-Year Agreement with Alex Cooper, the World's Leading Female Podcaster; \"Call Her Daddy\" Finds a New Home" [level=3]:
+          - text: "3."
+          - link "SiriusXM Inks New Multi-Year Agreement with Alex Cooper, the World's Leading Female Podcaster; \"Call Her Daddy\" Finds a New Home":
+            - /url: https://investor.siriusxm.com/news-events/press-releases/detail/2096/siriusxm-inks-new-multi-year-agreement-with-alex-cooper
+        - term: Publisher
+        - definition: SiriusXM
+        - term: Published
+        - definition: August 20, 2024
+        - term: Checked
+        - definition: October 7, 2026
+        - term: Supports
+        - definition: A case in the edition. Shown as a case only.
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: The seven cases are first-party company announcements and representations, and they support bounded facts about announced arrangements.
+        - term: Does not show
+        - definition: Any answer you give in this tool
+        - button "Copy citation"
+      - listitem:
+        - heading "4. Marques Brownlee shares how podcasting can help creators succeed in today’s creator economy" [level=3]:
+          - text: "4."
+          - link "Marques Brownlee shares how podcasting can help creators succeed in today’s creator economy":
+            - /url: https://blog.youtube/creator-and-artist-stories/marques-brownlee-podcasting-youtube-creator-economy/
+        - term: Publisher
+        - definition: YouTube Blog
+        - term: Published
+        - definition: June 6, 2022
+        - term: Checked
+        - definition: October 7, 2026
+        - term: Supports
+        - definition: A case in the edition. Shown as a case only.
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: The seven cases are first-party company announcements and representations, and they support bounded facts about announced arrangements.
+        - term: Does not show
+        - definition: Any answer you give in this tool
+        - button "Copy citation"
+      - listitem:
+        - 'heading "5. From the CEO: What’s coming to YouTube in 2026" [level=3]':
+          - text: "5."
+          - 'link "From the CEO: What’s coming to YouTube in 2026"':
+            - /url: https://blog.youtube/inside-youtube/the-future-of-youtube-2026/
+        - term: Publisher
+        - definition: YouTube Blog
+        - term: Published
+        - definition: January 21, 2026
+        - term: Checked
+        - definition: October 7, 2026
+        - term: Supports
+        - definition: A case in the edition. Shown as a case only.
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: The seven cases are first-party company announcements and representations, and they support bounded facts about announced arrangements.
+        - term: Does not show
+        - definition: Any answer you give in this tool
+        - button "Copy citation"
+      - listitem:
+        - heading "6. ‘Beast Games’ renewed for two more seasons after record-breaking Prime Video debut" [level=3]:
+          - text: "6."
+          - link "‘Beast Games’ renewed for two more seasons after record-breaking Prime Video debut":
+            - /url: https://www.aboutamazon.com/news/entertainment/mrbeast-prime-video-beast-games-season-2-and-3
+        - term: Publisher
+        - definition: Amazon, About Amazon
+        - term: Published
+        - definition: May 12, 2025
+        - term: Checked
+        - definition: October 7, 2026
+        - term: Supports
+        - definition: A case in the edition. Shown as a case only.
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: The seven cases are first-party company announcements and representations, and they support bounded facts about announced arrangements.
+        - term: Does not show
+        - definition: Any answer you give in this tool
+        - button "Copy citation"
+      - listitem:
+        - heading "7. Feastables’ Commitment To Ethical Sourcing" [level=3]:
+          - text: "7."
+          - link "Feastables’ Commitment To Ethical Sourcing":
+            - /url: https://feastables.com/pages/ethicalsourcing
+        - term: Publisher
+        - definition: Feastables
+        - term: Checked
+        - definition: October 7, 2026
+        - term: Supports
+        - definition: A case in the edition. Shown as a case only.
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: The seven cases are first-party company announcements and representations, and they support bounded facts about announced arrangements.
+        - term: Does not show
+        - definition: Any answer you give in this tool
+        - button "Copy citation"
+      - listitem:
+        - heading "8. The story of Patreon" [level=3]:
+          - text: "8."
+          - link "The story of Patreon":
+            - /url: https://www.patreon.com/about
+        - term: Publisher
+        - definition: Patreon
+        - term: Checked
+        - definition: October 7, 2026
+        - term: Supports
+        - definition: A case in the edition. Shown as a case only.
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: The seven cases are first-party company announcements and representations, and they support bounded facts about announced arrangements.
+        - term: Does not show
+        - definition: Any answer you give in this tool
+        - button "Copy citation"
+  - navigation "Back to the story":
+    - heading "Back to the story" [level=2]
+    - list:
+      - listitem:
+        - text: Story
+        - link "Read the story":
+          - /url: /edit/002
+  - complementary "Related tools":
+    - heading "Related tools" [level=2]
+    - list:
+      - listitem:
+        - text: Same story
+        - link "Where does your work become structurally yours?":
+          - /url: /tools/four-questions-map
+        - text: Edition 002 takes the last of Edition 001's four questions, what could continue, and tests one dependency four ways.
+      - listitem:
+        - text: Same source
+        - link "The Observatory dependency explorer":
+          - /url: /observatory/dependencies
+        - text: The Dependency Explorer filters 41 career cases by ten kinds of dependency and shows which each case runs through.
+  - paragraph:
+    - text: By RN Collins.
+    - link "About this site":
+      - /url: /about
+- contentinfo:
+  - link "Institutions of One, home":
+    - /url: /
+    - text: Institutions of One
+  - paragraph: Research on what people own in their working lives.
+  - paragraph:
+    - text: This site is the official home of each edition. Visual stories, interactive tools, and the source library for each edition live on the
+    - link "Public Reader (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app
+    - text: ", the companion site."
+  - text: Explore
+  - link "Method":
+    - /url: /methodology
+  - link "Pilot protocol":
+    - /url: /methodology/pilot
+  - link "Cases":
+    - /url: /observatory
+  - link "Explore dependencies":
+    - /url: /observatory/dependencies
+  - link "What the 41 careers reveal":
+    - /url: /findings
+  - link "Living findings":
+    - /url: /observatory/findings
+  - link "Cross-case timeline":
+    - /url: /observatory/timeline
+  - link "Find a countercase":
+    - /url: /observatory/countercases
+  - link "Apply the cases to your work":
+    - /url: /observatory/apply
+  - link "Inspect the evidence":
+    - /url: /observatory/evidence
+  - link "Research documentation":
+    - /url: /observatory/documentation
+  - text: Participate
+  - link "Assessment":
+    - /url: /assess
+  - link "Work with RN":
+    - /url: /partner
+  - link "Join an interview":
+    - /url: /research/cognitive-interviews
+  - link "Editions":
+    - /url: /edit
+  - link "About RN Collins":
+    - /url: /about
+  - text: On the Public Reader
+  - link "Visual stories (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/production/cycle-01
+  - link "Interactive tools (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/experiences
+  - link "Source Desk (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/resources
+  - text: Connect
+  - link "Connect with RN":
+    - /url: /contact
+  - link "Privacy":
+    - /url: /privacy
+  - text: Connect with RN Collins
+  - list "RN Collins on other platforms":
+    - listitem:
+      - link "LinkedIn (opens in a new tab)":
+        - /url: https://www.linkedin.com/in/rn-collins
+    - listitem:
+      - link "Instagram (opens in a new tab)":
+        - /url: https://www.instagram.com/rn_collins/
+    - listitem:
+      - link "X (opens in a new tab)":
+        - /url: https://x.com/renaissancex2m3
+    - listitem:
+      - link "TikTok (opens in a new tab)":
+        - /url: https://www.tiktok.com/@renaissancex2m3
+    - listitem:
+      - link "Bluesky (opens in a new tab)":
+        - /url: https://bsky.app/profile/rncollins.bsky.social
+    - listitem:
+      - link "YouTube (opens in a new tab)":
+        - /url: https://www.youtube.com/@Renaissance-Woman-3000
+    - listitem:
+      - link "The Polymath (opens in a new tab)":
+        - /url: https://polymath-rn-collins.beehiiv.com/subscribe
+  - paragraph: © 2026 RN Collins · Research and editorial work
+- alert

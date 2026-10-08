@@ -1,0 +1,289 @@
+[
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "exactly one h1",
+  "ok": true,
+  "detail": "['Tools']"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "heading order never skips a level",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "one banner, one main, one contentinfo",
+  "ok": true,
+  "detail": "{'banner': 1, 'main': 1, 'contentinfo': 1}"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "navigation landmarks have unique names",
+  "ok": true,
+  "detail": "['Primary', 'Breadcrumb']"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "every control, link and image in the accessibility tree has a name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "every visible control has a computed name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "every image has meaningful alt (no filename, no \"image of\")",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "every image has width and height",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "tables have captions and header cells",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "no schematic or simulation drawing on the page (nothing to label)",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "no link reads \"here\" or \"more\", and none is empty",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "no two links share a name and go to different places",
+  "ok": true,
+  "detail": "{}"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "page title and language are set",
+  "ok": true,
+  "detail": "('Tools | Institutions of One', 'en')"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "no positive tabindex",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "first Tab stop is the skip link",
+  "ok": true,
+  "detail": "{'tag': 'a', 'id': '', 'text': 'Skip to content', 'dom': 44, 'top': 12, 'left': 12, 'inMain': False, 'y': 12, 'hash': ''}"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "focus order follows document order (no jumps backward before the end)",
+  "ok": true,
+  "detail": "[177, 180, 183, 186]"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "focus order follows reading order on the screen (inside the content, no jump up the page except to the next column)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "keyboard reaches every visible focusable element (a radio group is one stop)",
+  "ok": true,
+  "detail": "(49, 49)"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "focus leaves the page or wraps at the end (no keyboard trap)",
+  "ok": true,
+  "detail": "50"
+ },
+ {
+  "page": "hub",
+  "mode": "js",
+  "check": "skip link is visible on focus and moves the next Tab stop into the content",
+  "ok": true,
+  "detail": "{\"skip\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Skip to content\", \"dom\": 44, \"top\": 12, \"left\": 12, \"inMain\": false, \"y\": 12, \"hash\": \"\"}, \"next\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Institutions of One\", \"dom\": 69, \"top\": 132, \"left\": 148, \"inMain\": true, \"y\": 20, \"hash\": \"#main\"}}"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "exactly one h1",
+  "ok": true,
+  "detail": "['Tools']"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "heading order never skips a level",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "one banner, one main, one contentinfo",
+  "ok": true,
+  "detail": "{'banner': 1, 'main': 1, 'contentinfo': 1}"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "navigation landmarks have unique names",
+  "ok": true,
+  "detail": "['Primary', 'Breadcrumb']"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "every control, link and image in the accessibility tree has a name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "every visible control has a computed name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "every image has meaningful alt (no filename, no \"image of\")",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "every image has width and height",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "tables have captions and header cells",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "no schematic or simulation drawing on the page (nothing to label)",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "no link reads \"here\" or \"more\", and none is empty",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "no two links share a name and go to different places",
+  "ok": true,
+  "detail": "{}"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "page title and language are set",
+  "ok": true,
+  "detail": "('Tools | Institutions of One', 'en')"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "no positive tabindex",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "first Tab stop is the skip link",
+  "ok": true,
+  "detail": "{'tag': 'a', 'id': '', 'text': 'Skip to content', 'dom': 44, 'top': 12, 'left': 12, 'inMain': False, 'y': 12, 'hash': ''}"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "focus order follows document order (no jumps backward before the end)",
+  "ok": true,
+  "detail": "[178, 181, 184, 187]"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "focus order follows reading order on the screen (inside the content, no jump up the page except to the next column)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "keyboard reaches every visible focusable element (a radio group is one stop)",
+  "ok": true,
+  "detail": "(49, 49)"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "focus leaves the page or wraps at the end (no keyboard trap)",
+  "ok": true,
+  "detail": "50"
+ },
+ {
+  "page": "hub",
+  "mode": "nojs",
+  "check": "skip link is visible on focus and moves the next Tab stop into the content",
+  "ok": true,
+  "detail": "{\"skip\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Skip to content\", \"dom\": 44, \"top\": 12, \"left\": 12, \"inMain\": false, \"y\": 12, \"hash\": \"\"}, \"next\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Institutions of One\", \"dom\": 70, \"top\": 132, \"left\": 148, \"inMain\": true, \"y\": 132, \"hash\": \"#main\"}}"
+ },
+ {
+  "page": "hub",
+  "mode": "js-375",
+  "check": "no horizontal page scroll at 375 px",
+  "ok": true,
+  "detail": "0"
+ }
+]

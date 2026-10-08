@@ -1,6 +1,8 @@
 import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { EditionPackageMap } from "@/components/CanonicalEdition";
+import { EditionDateline } from "@/components/EditionDateline";
+import { editionMonth, ogArticleTimes } from "@/lib/publication-dates";
 import { NoScriptNote } from "@/components/NoScriptNote";
 
 const packages = ["P18", "P19", "P20", "P21", "P22", "P23"];
@@ -15,7 +17,7 @@ export const metadata = {
     description:
       "Six contrasting cases reveal why visibility, ownership, portability, and institutional consequence are not the same thing.",
     url: "/edit/001",
-    type: "article",
+    type: "article", ...ogArticleTimes("001"),
   },
   twitter: { images: ["/og/edit/001.png"],
     card: "summary_large_image",
@@ -118,8 +120,9 @@ export default function EditionOnePage() {
   return (
     <main className="edit-edition-page">
       <a className="postback" href="/edit">← The I/1 Edit</a>
-      <p className="eyebrow">Edition 001 · July 2026</p>
+      <p className="eyebrow">Edition 001 · {editionMonth("001", "July 2026")}</p>
       <h1>When Does One Person Become an Institution?</h1>
+    <EditionDateline number="001" />
       <p className="edition-dek">
         Visibility can make a person look powerful. Structure determines whether that power can endure, travel, and be governed.
       </p>

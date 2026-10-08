@@ -1,5 +1,7 @@
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { EditionPackageMap } from "@/components/CanonicalEdition";
+import { EditionDateline } from "@/components/EditionDateline";
+import { editionMonth, ogArticleTimes } from "@/lib/publication-dates";
 
 const packages = ["P32", "P33", "P34"];
 
@@ -7,7 +9,7 @@ export const metadata = {
   title: "The Exit Is Part of the Architecture | The I/1 Edit",
   description: "Edition 004 examines transfer, redirect, and export-and-rebuild as different mechanisms for preserving continuity when work changes containers.",
   alternates: { canonical: "/edit/004" },
-  openGraph: { images: [{ url: "/og/edit/004.png", width: 1200, height: 630, alt: "Edition 004: the exit is part of the architecture." }], title: "The Exit Is Part of the Architecture", description: "The right to download the parts is not the same as a path for the work to continue somewhere else.", url: "/edit/004", type: "article" },
+  openGraph: { images: [{ url: "/og/edit/004.png", width: 1200, height: 630, alt: "Edition 004: the exit is part of the architecture." }], title: "The Exit Is Part of the Architecture", description: "The right to download the parts is not the same as a path for the work to continue somewhere else.", url: "/edit/004", type: "article", ...ogArticleTimes("004") },
   twitter: { images: ["/og/edit/004.png"], card: "summary_large_image", title: "The Exit Is Part of the Architecture", description: "The right to download the parts is not the same as a path for the work to continue somewhere else." },
 };
 
@@ -23,8 +25,9 @@ const rehearsal = [
 export default function EditionFourPage() {
   return <main className="edit-edition-page">
     <a className="postback" href="/edit">← The I/1 Edit</a>
-    <p className="eyebrow">Edition 004 · August 2026</p>
+    <p className="eyebrow">Edition 004 · {editionMonth("004", "August 2026")}</p>
     <h1>The Exit Is Part of the Architecture</h1>
+    <EditionDateline number="004" />
     <p className="edition-dek">The right to download the parts is not the same as a path for the work to continue somewhere else.</p>
 
     <section className="edition-opening">

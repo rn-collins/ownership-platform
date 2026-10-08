@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CanonicalEditionPage } from "@/components/CanonicalEdition";
 import { cycleOneEditions, editionByNumber } from "@/lib/edit-cycle-one";
+import { ogArticleTimes } from "@/lib/publication-dates";
 
 const freezeRender = process.env.CYCLE01_RENDER_FREEZE === "1";
 export function generateStaticParams() { return cycleOneEditions.filter((e) => !e.gated || freezeRender).map(({ number }) => ({ number })); }
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: { number: string } 
   return {
     title: `${edition.title} | The I/1 Edit`, description: edition.subtitle,
     alternates: { canonical }, robots: { index: true, follow: true },
-    openGraph: { title: `Edition ${edition.number}: ${edition.title}`, description: edition.subtitle, url: canonical, type: "article", images: [{ url: image, width: 1200, height: 630, alt: hasPhoto ? edition.media[0].alt : edition.title }] },
+    openGraph: { title: `Edition ${edition.number}: ${edition.title}`, description: edition.subtitle, url: canonical, type: "article", ...ogArticleTimes(edition.number), images: [{ url: image, width: 1200, height: 630, alt: hasPhoto ? edition.media[0].alt : edition.title }] },
     twitter: { card: "summary_large_image", title: `Edition ${edition.number}: ${edition.title}`, description: edition.subtitle, images: [image] },
   };
 }

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Fragment, type ReactNode } from "react";
 import { Edition007Figure, edition007FigureForHeading } from "@/components/Edition007Figure";
 import { commonsSourceUrl, cycleOneEditions, licenseDeedUrl, packageGalleryUrl, packageTitle, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
+import { EditionDateline } from "@/components/EditionDateline";
+import { editionMonth } from "@/lib/publication-dates";
 import styles from "./CanonicalEdition.module.css";
 
 const stripFrontMatter = (raw: string) => raw
@@ -82,8 +84,9 @@ export function CanonicalEditionPage({ edition }: { edition: Edition }) {
   const next = index === visible.length - 1 ? undefined : `/edit/${visible[index + 1].number}`;
   return <main className="edit-edition-page canonical-edition" data-edition={edition.number}>
     <a className="postback" href="/edit">← All editions</a>
-    <p className="eyebrow">Edition {edition.number} · {edition.published}</p>
+    <p className="eyebrow">Edition {edition.number} · {editionMonth(edition.number, edition.published)}</p>
     <h1>{edition.title}</h1>
+    <EditionDateline number={edition.number} />
     <p className="edition-dek">{edition.subtitle}</p>
     <div className="canonical-status"><span>Canonical web edition</span><span>Full text · evidence · sources</span></div>
     <article className="canonical-edition-copy"><ArticleBody edition={edition} /></article>

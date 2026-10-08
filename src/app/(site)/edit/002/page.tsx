@@ -1,6 +1,8 @@
 import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { EditionPackageMap } from "@/components/CanonicalEdition";
+import { EditionDateline } from "@/components/EditionDateline";
+import { editionMonth, ogArticleTimes } from "@/lib/publication-dates";
 import { NoScriptNote } from "@/components/NoScriptNote";
 
 const packages = ["P24", "P25", "P26", "P27"];
@@ -13,7 +15,7 @@ export const metadata = {
     title: "Your Career Has a Supply Chain",
     description: "Dependence is unavoidable. The real risk is a supply chain you cannot see, replace, negotiate with, or survive without.",
     url: "/edit/002",
-    type: "article",
+    type: "article", ...ogArticleTimes("002"),
     images: [{
       url: "/og/edit/002.png",
       width: 1200,
@@ -57,8 +59,9 @@ export default function EditionTwoPage() {
   return (
     <main className="edit-edition-page edition-002">
       <a className="postback" href="/edit">← The I/1 Edit</a>
-      <p className="eyebrow">Edition 002 · July 2026</p>
+      <p className="eyebrow">Edition 002 · {editionMonth("002", "July 2026")}</p>
       <h1>Your Career Has a Supply Chain</h1>
+    <EditionDateline number="002" />
       <p className="edition-dek">
         Dependence is unavoidable. The danger is a dependency you cannot see, replace, negotiate with, or survive without.
       </p>

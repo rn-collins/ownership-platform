@@ -4,7 +4,7 @@
 // The page or layout imports ./tool.css once. Image files in ./images are served at spec.data.imageBase.
 import React, { useState, useRef, useEffect } from 'react';
 import { ToolShell, ResultCard, ClaimRef, SourceRef, BasisTag, h, announce, claimText } from '../_kit/react/index.mjs';
-import { newState, addItem, removeItem, setChange, setMark, markOf, allItems, result, acrossChanges, asText } from './core.mjs';
+import { newState, addItem, removeItem, setChange, setMark, markOf, allItems, result, acrossChanges, asText, markAnnouncement } from './core.mjs';
 import { Photo } from './photo.mjs';
 
 const REASONS = { empty: 'Type a few words first.', full: 'That column is full. Remove one to add another.' };
@@ -37,7 +37,7 @@ export default function Tool({ spec, related = [], crumbs = [], siteLinks = {} }
   };
   const remove = (col, item) => { setState(s => removeItem(s, col.id, item.id)); setFocus(col.id); announce(`Removed ${item.text} from ${col.name}.`); };
   const pick = id => { setState(s => setChange(s, id)); announce(`${D.changes.find(c => c.id === id).label}. Mark each item below.`); };
-  const mark = (item, value) => setState(s => setMark(s, item.id, value));
+  const mark = (item, value) => { setState(s => setMark(s, item.id, value)); announce(markAnnouncement(state, item, value, D)); };
   const reset = () => { setState(newState(D)); setDrafts({}); announce('Started over. The map is empty.'); };
 
   const spot = (item, col) => `${item.text} (${col.name})`;

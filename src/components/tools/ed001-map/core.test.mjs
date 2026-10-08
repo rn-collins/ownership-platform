@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { newState, cleanText, addItem, removeItem, setChange, setMark, markOf, allItems, summarize, staysEverywhere, result, acrossChanges, asText, derivations } from './core.mjs';
+import { newState, cleanText, addItem, removeItem, setChange, setMark, markOf, allItems, summarize, staysEverywhere, result, acrossChanges, asText, derivations, markAnnouncement } from './core.mjs';
 
 const spec = JSON.parse(fs.readFileSync(new URL('spec.json', import.meta.url), 'utf8'));
 const D = spec.data;
@@ -109,4 +109,14 @@ test('state is never mutated', () => {
   const s0 = newState(D); const frozen = JSON.stringify(s0);
   const s1 = addItem(s0, 'build', 'A', D).state; setChange(s1, 'role');
   assert.equal(JSON.stringify(s0), frozen);
+});
+
+test('the status line sentence after a mark names the item, the mark and the new counts, and adds no verdict', () => {
+  let st = newState(spec.data);
+  st = addItem(st, 'build', 'Ceramics studio', spec.data).state;
+  st = setChange(st, spec.data.changes[0].id);
+  const item = allItems(st, spec.data)[0];
+  const said = markAnnouncement(st, item, 'stays', spec.data);
+  assert.equal(said, 'Ceramics studio marked Stays with me. Stays with me: 1. Goes with the container: 0. Not sure: 0.');
+  assert.equal(markAnnouncement(st, item, '', spec.data), 'Ceramics studio marked not marked yet. Stays with me: 0. Goes with the container: 0. Not sure: 0.');
 });

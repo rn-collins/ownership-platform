@@ -53,6 +53,14 @@ export function summarize(state, data) {
   return { total: items.length, items, groups, counts: Object.fromEntries(Object.entries(groups).map(([k, v]) => [k, v.length])), emptyColumns: data.columns.filter(c => !state.cols[c.id].length) };
 }
 
+/** One short sentence for the status line after a mark changes, so a screen reader hears the new counts. Only the visitor's own words and counts. */
+export function markAnnouncement(state, item, value, data) {
+  const next = setMark(state, item.id, value);
+  const counts = summarize(next, data).counts;
+  const picked = data.marks.find(m => m.id === value);
+  return `${item.text} marked ${picked ? picked.label : 'not marked yet'}. ${data.marks.map(m => `${m.label}: ${counts[m.id]}`).join('. ')}.`;
+}
+
 /** Items marked "stays" under every one of the four changes. Needs all four changes marked for that item. */
 export function staysEverywhere(state, data) {
   return allItems(state, data).filter(it => data.changes.every(ch => (state.marks[ch.id] || {})[it.id] === 'stays'));

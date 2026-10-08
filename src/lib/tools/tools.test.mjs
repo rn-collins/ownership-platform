@@ -31,7 +31,7 @@ test('the three tool folders are the ones the registry imports, and each one has
     assert.ok(files.some(f => /spec\.test\.mjs$/.test(f)) || d === 'framework-strip' || true);
     const qa = path.join(src, 'components/tools', d, 'qa');
     assert.ok(fs.existsSync(qa), `${d} has no qa folder`);
-    for (const f of fs.readdirSync(qa)) assert.match(f, /\.jpe?g$/, `${d}/qa/${f}: only JPEG screenshots belong in qa/ (the screen-reader notes sit in qa/screen-reader/)`);
+    for (const f of fs.readdirSync(qa).filter(f => f !== 'screen-reader')) assert.match(f, /\.jpe?g$/, `${d}/qa/${f}: only JPEG screenshots belong in qa/ (the screen-reader notes sit in qa/screen-reader/)`);
   }
 });
 

@@ -1,0 +1,451 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "Institutions of One, home":
+    - /url: /
+    - text: Institutions of One
+  - navigation "Primary":
+    - link "Read":
+      - /url: /edit
+    - link "Visual stories (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/production/cycle-01
+    - link "Cases":
+      - /url: /observatory
+    - link "Tools (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/experiences
+    - link "Sources (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/resources
+    - link "Work with RN":
+      - /url: /partner
+    - link "Get the newsletter (opens in a new tab)":
+      - /url: https://polymath-rn-collins.beehiiv.com/subscribe
+- article:
+  - link "Skip to the tool":
+    - /url: "#tk-main"
+  - navigation "Breadcrumb":
+    - paragraph:
+      - link "Institutions of One":
+        - /url: /
+      - text: ›
+      - link "Tools":
+        - /url: /tools
+      - text: › four-questions-map
+  - paragraph: TOOL ED 001
+  - heading "Where does your work become structurally yours?" [level=1]
+  - paragraph: For the work you have now, what have you built, what travels with you, who decides, and what could continue if the container changed?
+  - term: You will learn
+  - definition:
+    - list:
+      - listitem: "The edition’s four questions: Build, Carry, Control and Continue"
+      - listitem: What stays with you when one container changes
+      - listitem: Which items you are not sure about yet
+  - term: Time
+  - definition: 8 minutes
+  - term: You leave with
+  - definition: A one-page map you can copy, print or save as a text file
+  - term: Your answers
+  - definition: Nothing you enter leaves your browser.
+  - paragraph:
+    - text: By RN Collins · Based on
+    - link "When Does One Person Become an Institution?":
+      - /url: /edit/001
+  - main:
+    - status
+    - region "The edition’s four questions":
+      - 'figure "Illustrative photo. Photo: Roy Egloff, CC BY-SA 4.0 , via Wikimedia Commons, photo page for the picture by Roy Egloff ."':
+        - 'img "Illustrative photo: a shoemaker''s workbench from around 1930 in a Swiss museum, its drawers, pliers, hammers and awls laid out as the maker left them. It stands for one person''s practice that outlasted the person; it is not a case from Edition 001."'
+        - text: "Illustrative photo. Photo: Roy Egloff,"
+        - link "CC BY-SA 4.0":
+          - /url: https://creativecommons.org/licenses/by-sa/4.0
+        - text: ", via"
+        - link "Wikimedia Commons, photo page for the picture by Roy Egloff":
+          - /url: https://commons.wikimedia.org/wiki/File:CH.ZG.Zug_Museum-Burg-Zug_shoemaker%27s-workbench-around-1930.jpg
+          - text: Wikimedia Commons
+        - text: .
+      - heading "The edition’s four questions" [level=2]
+      - paragraph:
+        - text: "The edition says: The model should therefore produce a map of relationships, not a halo."
+        - superscript:
+          - 'link "Source 1: When Does One Person Become an Institution?"':
+            - /url: "#src-s-edition"
+            - text: "1"
+    - region "Build, Carry, Control, Continue":
+      - heading "Build, Carry, Control, Continue" [level=2]
+      - list:
+        - listitem:
+          - 'figure "Illustrative photo. Photo: Mutney, CC BY 4.0 , via Wikimedia Commons, photo page for the picture by Mutney ."':
+            - 'img "Illustrative photo: a small ceramics studio with large finished vases on a wooden worktable, shelves of materials behind and clay buckets underneath."'
+            - text: "Illustrative photo. Photo: Mutney,"
+            - link "CC BY 4.0":
+              - /url: https://creativecommons.org/licenses/by/4.0
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by Mutney":
+              - /url: https://commons.wikimedia.org/wiki/File:Ceramics_studio,_Epworth_Studios,_Liskeard,_Cornwall_-_September_2026_(2).jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - text: "01"
+            - strong: Build
+          - paragraph:
+            - text: What exists because this person made it exist?
+            - superscript:
+              - 'link "Source 1: When Does One Person Become an Institution?"':
+                - /url: "#src-s-edition"
+                - text: "1"
+          - paragraph:
+            - text: Look for a recognizable body of work, methods, relationships, audience, and operating capacity, not merely output or attention.
+            - superscript:
+              - 'link "Source 1: When Does One Person Become an Institution?"':
+                - /url: "#src-s-edition"
+                - text: "1"
+        - listitem:
+          - 'figure "Illustrative photo. Photo: Tim Sheerman-Chase, CC BY 4.0 , via Wikimedia Commons, photo page for the picture by Tim Sheerman-Chase ."':
+            - 'img "Illustrative photo: an open wooden shipwright''s tool chest holding saws, planes, pliers and hand tools, on display in a museum."'
+            - text: "Illustrative photo. Photo: Tim Sheerman-Chase,"
+            - link "CC BY 4.0":
+              - /url: https://creativecommons.org/licenses/by/4.0
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by Tim Sheerman-Chase":
+              - /url: https://commons.wikimedia.org/wiki/File:Shipwrights_Toolbox_in_Calvin_Sims.jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - text: "02"
+            - strong: Carry
+          - paragraph:
+            - text: What survives when the container changes?
+            - superscript:
+              - 'link "Source 1: When Does One Person Become an Institution?"':
+                - /url: "#src-s-edition"
+                - text: "1"
+          - paragraph:
+            - text: Look for capability, reputation, systems, relationships, and opportunities that can travel across an employer, platform, client, format, or moment.
+            - superscript:
+              - 'link "Source 1: When Does One Person Become an Institution?"':
+                - /url: "#src-s-edition"
+                - text: "1"
+        - listitem:
+          - 'figure "Illustrative photo. Photo: Pittigrilli, CC BY-SA 4.0 , via Wikimedia Commons, photo page for the picture by Pittigrilli ."':
+            - 'img "Illustrative photo: a metal door key on a key ring against a dark background."'
+            - text: "Illustrative photo. Photo: Pittigrilli,"
+            - link "CC BY-SA 4.0":
+              - /url: https://creativecommons.org/licenses/by-sa/4.0
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by Pittigrilli":
+              - /url: https://commons.wikimedia.org/wiki/File:Door_key_for_lock_type_BKS_Janus_on_keyring.jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - text: "03"
+            - strong: Control
+          - paragraph:
+            - text: Who can decide what happens next?
+            - superscript:
+              - 'link "Source 1: When Does One Person Become an Institution?"':
+                - /url: "#src-s-edition"
+                - text: "1"
+          - paragraph:
+            - text: Look for meaningful authority over identity, access, rights, revenue, data, and the conditions under which the work is used.
+            - superscript:
+              - 'link "Source 1: When Does One Person Become an Institution?"':
+                - /url: "#src-s-edition"
+                - text: "1"
+        - listitem:
+          - 'figure "Illustrative photo. Photo: Frank Schulenburg, CC BY-SA 4.0 , via Wikimedia Commons, photo page for the picture by Frank Schulenburg ."':
+            - 'img "Illustrative photo: the Point Reyes Lighthouse and its keeper''s building on a rocky headland above the Pacific, a structure that keeps working on its own."'
+            - text: "Illustrative photo. Photo: Frank Schulenburg,"
+            - link "CC BY-SA 4.0":
+              - /url: https://creativecommons.org/licenses/by-sa/4.0
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by Frank Schulenburg":
+              - /url: https://commons.wikimedia.org/wiki/File:Point_Reyes_Lighthouse_in_December_2019.jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - text: "04"
+            - strong: Continue
+          - paragraph:
+            - text: What could persist if an essential dependency changed?
+            - superscript:
+              - 'link "Source 1: When Does One Person Become an Institution?"':
+                - /url: "#src-s-edition"
+                - text: "1"
+          - paragraph:
+            - text: Look for work, systems, relationships, or authority that could keep functioning if a role, platform, employer, client, or other essential dependency changed.
+            - superscript:
+              - 'link "Source 1: When Does One Person Become an Institution?"':
+                - /url: "#src-s-edition"
+                - text: "1"
+    - region "Four changes to the container":
+      - heading "Four changes to the container" [level=2]
+      - paragraph:
+        - text: If the role disappeared, the platform changed its rules, the distributor walked away, or the employer kept the system, what work, systems, relationships, or authority could continue?
+        - superscript:
+          - 'link "Source 1: When Does One Person Become an Institution?"':
+            - /url: "#src-s-edition"
+            - text: "1"
+      - list:
+        - listitem:
+          - 'figure "Illustrative photo. Photo: Kullatan Kin, CC0 , via Wikimedia Commons, photo page for the picture by Kullatan Kin ."':
+            - 'img "Illustrative photo: two empty black chairs and a small round table beside a white office wall."'
+            - text: "Illustrative photo. Photo: Kullatan Kin,"
+            - link "CC0":
+              - /url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by Kullatan Kin":
+              - /url: https://commons.wikimedia.org/wiki/File:Empty_Chairs.jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - strong: The role disappears
+        - listitem:
+          - 'figure "Illustrative photo. Photo: Michał Beim, CC BY-SA 4.0 , via Wikimedia Commons, photo page for the picture by Michał Beim ."':
+            - 'img "Illustrative photo: a roadside sign announcing new pandemic rules, mask required, at a mountain village in the Harz."'
+            - text: "Illustrative photo. Photo: Michał Beim,"
+            - link "CC BY-SA 4.0":
+              - /url: https://creativecommons.org/licenses/by-sa/4.0
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by Michał Beim":
+              - /url: https://commons.wikimedia.org/wiki/File:Warning_road_sign_on_the_COVID-19_rules_in_Torfhaus_(Harz)_-_mask_required.jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - strong: The platform changes its rules
+        - listitem:
+          - 'figure "Illustrative photo. Photo: citytransportinfo, CC0 , via Wikimedia Commons, photo page for the picture by citytransportinfo ."':
+            - 'img "Illustrative photo: nearly empty vegetable shelves in a supermarket during a 2020 supply shortage."'
+            - text: "Illustrative photo. Photo: citytransportinfo,"
+            - link "CC0":
+              - /url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by citytransportinfo":
+              - /url: https://commons.wikimedia.org/wiki/File:Empty-Shelves-P1630832.jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - strong: The distributor walks away
+        - listitem:
+          - 'figure "Illustrative photo. Photo: Carl Lender (Sunrise, USA), CC BY 2.0 , via Wikimedia Commons, photo page for the picture by Carl Lender (Sunrise, USA) ."':
+            - 'img "Illustrative photo: a room of black server cabinets with cables and monitors, the kind of equipment an employer owns and runs."'
+            - text: "Illustrative photo. Photo: Carl Lender (Sunrise, USA),"
+            - link "CC BY 2.0":
+              - /url: https://creativecommons.org/licenses/by/2.0
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by Carl Lender (Sunrise, USA)":
+              - /url: https://commons.wikimedia.org/wiki/File:Server_Room_(22397102849).jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - strong: The employer keeps the system
+    - region "A blank sheet to print":
+      - heading "A blank sheet to print" [level=2]
+      - paragraph: "Scripting is off, so the map builder is hidden. Print this sheet. Write up to 5 short items in each column. Then pick one of the four changes above and mark each item: Stays with me, Goes with the container, Not sure."
+      - table "Four columns, up to five items each":
+        - caption: Four columns, up to five items each
+        - rowgroup:
+          - row "Build Carry Control Continue":
+            - columnheader "Build"
+            - columnheader "Carry"
+            - columnheader "Control"
+            - columnheader "Continue"
+        - rowgroup:
+          - row:
+            - cell
+            - cell
+            - cell
+            - cell
+          - row:
+            - cell
+            - cell
+            - cell
+            - cell
+          - row:
+            - cell
+            - cell
+            - cell
+            - cell
+          - row:
+            - cell
+            - cell
+            - cell
+            - cell
+          - row:
+            - cell
+            - cell
+            - cell
+            - cell
+    - region "What the edition says it does not do":
+      - heading "What the edition says it does not do" [level=2]
+      - paragraph:
+        - text: It does not certify that a person has crossed a binary threshold or earned an institutional status.
+        - superscript:
+          - 'link "Source 1: When Does One Person Become an Institution?"':
+            - /url: "#src-s-edition"
+            - text: "1"
+      - paragraph:
+        - text: No private contract, cap table, or participant interview was reviewed for this edition.
+        - superscript:
+          - 'link "Source 1: When Does One Person Become an Institution?"':
+            - /url: "#src-s-edition"
+            - text: "1"
+      - paragraph:
+        - link "See the six cases and their sources in the edition":
+          - /url: /edit/001#sources-heading
+  - region "What this tool shows and what it does not":
+    - heading "What this tool shows and what it does not" [level=2]
+    - heading "Shows" [level=3]
+    - list:
+      - listitem: Your own list, sorted under the edition’s four questions in your words
+      - listitem: Which items you mark as staying with you, going with the container or not sure, for each of the edition’s four changes
+    - heading "Does not show" [level=3]
+    - list:
+      - listitem: A score, a grade or a verdict. The map lists and counts what you marked and nothing else.
+      - listitem: Whether you own, may keep or may reuse any item. The map holds your answers and does not check a contract, a platform’s terms or a record.
+      - listitem: Who you are like. The edition’s cases are not matched to your answers.
+  - region "Where this comes from":
+    - heading "Where this comes from" [level=2]
+    - paragraph:
+      - text: Every statement carries a small number. The number points to the source that supports it. This tool is based on
+      - link "When Does One Person Become an Institution?":
+        - /url: /edit/001
+      - text: .
+    - list:
+      - listitem:
+        - heading "1. When Does One Person Become an Institution?" [level=3]:
+          - text: "1."
+          - link "When Does One Person Become an Institution?":
+            - /url: /edit/001
+        - term: Publisher
+        - definition: RN Collins, The I/1 Edit, Edition 001
+        - term: Published
+        - definition: July 2026
+        - term: Checked
+        - definition: October 8, 2026
+        - term: Supports
+        - definition: The four questions, the four changes in the closing question and the edition’s statement of what the pilot does and does not do
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: What exists because this person made it exist?
+            - listitem: Look for a recognizable body of work, methods, relationships, audience, and operating capacity, not merely output or attention.
+            - listitem: What survives when the container changes?
+            - listitem: Look for capability, reputation, systems, relationships, and opportunities that can travel across an employer, platform, client, format, or moment.
+            - listitem: Who can decide what happens next?
+            - listitem: Look for meaningful authority over identity, access, rights, revenue, data, and the conditions under which the work is used.
+            - listitem: What could persist if an essential dependency changed?
+            - listitem: Look for work, systems, relationships, or authority that could keep functioning if a role, platform, employer, client, or other essential dependency changed.
+            - listitem: If the role disappeared, the platform changed its rules, the distributor walked away, or the employer kept the system, what work, systems, relationships, or authority could continue?
+            - listitem: The model should therefore produce a map of relationships, not a halo.
+            - listitem: It does not certify that a person has crossed a binary threshold or earned an institutional status.
+            - listitem: No private contract, cap table, or participant interview was reviewed for this edition.
+            - listitem: The counts under your map add up to the marks you made. Nothing is weighted.
+        - term: Does not show
+        - definition: Anything about your own work, or the private terms of any case the edition names. The edition says it reviewed no private contract.
+        - term: The page says
+        - definition: “Build. Carry. Control. Continue.”
+        - term: Where
+        - definition: The working model
+  - navigation "Back to the story":
+    - heading "Back to the story" [level=2]
+    - list:
+      - listitem:
+        - text: Story
+        - link "Read the story":
+          - /url: /edit/001
+  - complementary "Related tools":
+    - heading "Related tools" [level=2]
+    - list:
+      - listitem:
+        - text: Same story
+        - link "Which dependency could stop my work first?":
+          - /url: /tools/dependency-ranker
+        - text: Edition 002 takes the last of Edition 001's four questions, what could continue, and tests one dependency four ways.
+      - listitem:
+        - text: Same question
+        - link "The Ownership Index":
+          - /url: /assess/creator
+        - text: For a longer self-check, the Ownership Index asks twenty questions across five areas and shows a five-area profile.
+  - paragraph:
+    - text: By RN Collins.
+    - link "About this site":
+      - /url: /about
+- contentinfo:
+  - link "Institutions of One, home":
+    - /url: /
+    - text: Institutions of One
+  - paragraph: Research on what people own in their working lives.
+  - paragraph:
+    - text: This site is the official home of each edition. Visual stories, interactive tools, and the source library for each edition live on the
+    - link "Public Reader (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app
+    - text: ", the companion site."
+  - text: Explore
+  - link "Method":
+    - /url: /methodology
+  - link "Pilot protocol":
+    - /url: /methodology/pilot
+  - link "Cases":
+    - /url: /observatory
+  - link "Explore dependencies":
+    - /url: /observatory/dependencies
+  - link "What the 41 careers reveal":
+    - /url: /findings
+  - link "Living findings":
+    - /url: /observatory/findings
+  - link "Cross-case timeline":
+    - /url: /observatory/timeline
+  - link "Find a countercase":
+    - /url: /observatory/countercases
+  - link "Apply the cases to your work":
+    - /url: /observatory/apply
+  - link "Inspect the evidence":
+    - /url: /observatory/evidence
+  - link "Research documentation":
+    - /url: /observatory/documentation
+  - text: Participate
+  - link "Assessment":
+    - /url: /assess
+  - link "Work with RN":
+    - /url: /partner
+  - link "Join an interview":
+    - /url: /research/cognitive-interviews
+  - link "Editions":
+    - /url: /edit
+  - link "About RN Collins":
+    - /url: /about
+  - text: On the Public Reader
+  - link "Visual stories (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/production/cycle-01
+  - link "Interactive tools (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/experiences
+  - link "Source Desk (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/resources
+  - text: Connect
+  - link "Connect with RN":
+    - /url: /contact
+  - link "Privacy":
+    - /url: /privacy
+  - text: Connect with RN Collins
+  - list "RN Collins on other platforms":
+    - listitem:
+      - link "LinkedIn (opens in a new tab)":
+        - /url: https://www.linkedin.com/in/rn-collins
+    - listitem:
+      - link "Instagram (opens in a new tab)":
+        - /url: https://www.instagram.com/rn_collins/
+    - listitem:
+      - link "X (opens in a new tab)":
+        - /url: https://x.com/renaissancex2m3
+    - listitem:
+      - link "TikTok (opens in a new tab)":
+        - /url: https://www.tiktok.com/@renaissancex2m3
+    - listitem:
+      - link "Bluesky (opens in a new tab)":
+        - /url: https://bsky.app/profile/rncollins.bsky.social
+    - listitem:
+      - link "YouTube (opens in a new tab)":
+        - /url: https://www.youtube.com/@Renaissance-Woman-3000
+    - listitem:
+      - link "The Polymath (opens in a new tab)":
+        - /url: https://polymath-rn-collins.beehiiv.com/subscribe
+  - paragraph: © 2026 RN Collins · Research and editorial work

@@ -5,5 +5,7 @@ import relations from "./relations.json";
 import familyIndex from "./family-index.json";
 
 export function relatedFor(toolId: string): RelatedItem[] {
-  return selectRelated({ relations: relations.relations, familyIndex, toolId }).items as RelatedItem[];
+  // The JSON files are checked against their schemas by the tools tests; here they are handed to the kit as the types it declares.
+  const input = { relations: relations.relations, familyIndex, toolId } as unknown as Parameters<typeof selectRelated>[0];
+  return selectRelated(input).items as RelatedItem[];
 }

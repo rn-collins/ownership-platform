@@ -3,7 +3,7 @@
 @media(min-width:760px){.tkh-cards{grid-template-columns:repeat(2,1fr)}}
 .tkh-card{background:#fff;border:3px solid var(--tk-ink);display:flex;flex-direction:column;height:100%}
 .tkh-card figure{margin:0}
-.tkh-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--tk-field);border-bottom:3px solid var(--tk-ink)}
+.tkh-card img{display:block;width:100%;height:auto;background:var(--tk-field);border-bottom:3px solid var(--tk-ink)}
 .tkh-card figcaption{font:400 13px/1.45 var(--tk-mono);color:var(--tk-muted);padding:8px 14px 0;overflow-wrap:anywhere}
 .tkh-card figcaption a{display:inline-block;min-height:24px;min-width:24px;color:var(--tk-muted)}
 .tkh-body{padding:12px 14px 16px;display:flex;flex-direction:column;gap:8px}

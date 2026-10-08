@@ -241,7 +241,7 @@ li[id^="source-"]>a{display:inline-block;padding-block:4px}
 /* ---- Connect page (/contact) and footer profile row (October 8, 2026) -------------- */
 .connect-page .connect-h{font-family:Georgia,serif;font-size:clamp(28px,3.4vw,40px);line-height:1.05;letter-spacing:-.02em;margin:0 0 28px}
 .profile-list{list-style:none;margin:0;padding:0;border-top:var(--i1-rule);max-width:760px}
-.profile-list li{border-bottom:var(--i1-rule)}
+.profile-list li{max-width:none;border-bottom:var(--i1-rule)}
 .profile-list a{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 24px;min-height:56px;padding:14px 4px;color:var(--i1-ink);text-decoration:none}
 .profile-list a:hover{background:var(--i1-paper-deep)}
 .profile-list a:hover .profile-platform{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}

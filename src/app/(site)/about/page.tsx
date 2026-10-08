@@ -94,7 +94,7 @@ export default function AboutPage() {
       </div>
 
       <p className="disc" style={{ marginTop: 22 }}>
-        <a href="/contact" className="fwlink">Contact RN Collins</a> ·{" "}
+        <a href="/contact" className="fwlink">Connect with RN Collins</a> ·{" "}
         <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="fwlink">LinkedIn</a>
       </p>
     </main>

@@ -40,11 +40,10 @@ export default function PrivacyPage() {
       </div>
 
       <div className="card">
-        <h2>Contact, nomination, and study forms</h2>
+        <h2>Inquiry, nomination, and study forms</h2>
         <p>These forms store what you submit, for the purpose you submitted it.</p>
         <ul>
-          <li><b>Partner inquiries.</b> Your name, email, organization, the kind of inquiry, and your message. The site stores them and also emails them to RN Collins through Resend.</li>
-          <li><b>Contact messages.</b> Your name, email, the topic you chose, your message, and which site sent you to the form. The site saves the message when its database is connected and emails it to RN Collins through Resend when email delivery is switched on. If neither is available the form says so and keeps nothing.</li>
+          <li><b>Partner inquiries.</b> Your name, email, organization, the kind of inquiry, and your message. The site stores them so RN Collins can review and respond.</li>
           <li><b>Observatory nominations.</b> The name, organization, and role of the person you are nominating, your reason, and your email if you choose to give one.</li>
           <li><b>Cognitive interview intake.</b> You must be 18 or older. The form stores your name, email, how you work and your career stage, your location or jurisdiction, your availability and time zone, and your instrument interest. It also stores any access needs you describe, which can include disability, chronic illness, or caregiving context. That information is sensitive. It is used only to plan an interview you can take part in, and you do not have to give it. The form also stores whether you agreed to be recorded and to be quoted, and a withdrawal code so you can withdraw. This study has not been reviewed by an institutional review board.</li>
           <li><b>Creator pages.</b> If you sign up with your email on a creator&rsquo;s own page, the address is stored for that creator, who can email you. Each of those emails has an unsubscribe link.</li>
@@ -59,7 +58,7 @@ export default function PrivacyPage() {
         <ul>
           <li><b>Vercel</b> hosts the site and keeps standard server logs.</li>
           <li><b>Supabase</b> holds the database and handles sign-in.</li>
-          <li><b>Resend</b> sends the emails the site sends, such as partner inquiry notices.</li>
+          <li><b>Resend</b> sends the emails a creator sends to their own subscribers from a creator page.</li>
           <li><b>Upstash</b> holds the short-lived request counter described above.</li>
           <li><b>Beehiiv</b> sends The Polymath newsletter and keeps its subscriber list.</li>
         </ul>
@@ -68,17 +67,17 @@ export default function PrivacyPage() {
 
       <div className="card">
         <h2>Your rights</h2>
-        <p>Every Beehiiv email has an unsubscribe link at the bottom. Using it stops The Polymath emails. To also have your address removed from the site&rsquo;s own record, write to RN Collins through the <a href="/contact" className="fwlink">contact form</a>.</p>
-        <p>To get a copy of your record, or to have it deleted, use the <a href="/contact" className="fwlink">contact form</a>, choose &ldquo;A copy or deletion of my data,&rdquo; and give the email address you used on this site. A reply will confirm what was found and what was removed. Deletion covers the site&rsquo;s database, and on request your Beehiiv subscription and any contact, nomination, or study records. Unsubscribing keeps a minimal consent record for the audit trail. Deletion removes the row entirely.</p>
+        <p>Every Beehiiv email has an unsubscribe link at the bottom. Using it stops The Polymath emails. To also have your address removed from the site&rsquo;s own record, message RN Collins on Instagram or LinkedIn. Both are linked on the <a href="/contact" className="fwlink">Connect page</a>.</p>
+        <p>To get a copy of your record, or to have it deleted, send RN Collins a direct message on Instagram or LinkedIn, linked on the <a href="/contact" className="fwlink">Connect page</a>. Say that you want a copy or a deletion, and give the email address you used on this site. A reply will confirm what was found and what was removed. Deletion covers the site&rsquo;s database, and on request your Beehiiv subscription and any contact, nomination, or study records. Unsubscribing keeps a minimal consent record for the audit trail. Deletion removes the row entirely.</p>
       </div>
 
       <div className="card">
         <h2>The Observatory</h2>
-        <p>The named case records use publicly available evidence. A nomination begins a private review; it does not automatically create a public record. If a case concerns you and you would like to request a correction or raise a privacy concern, contact RN Collins and it will be reviewed promptly.</p>
+        <p>The named case records use publicly available evidence. A nomination begins a private review; it does not automatically create a public record. If a case concerns you and you would like to request a correction or raise a privacy concern, connect with RN Collins on the <a href="/contact" className="fwlink">Connect page</a> and it will be reviewed promptly.</p>
       </div>
 
       <p className="disc" style={{ marginTop: 16 }}>
-        Contact: <a href="/contact" className="fwlink">use the contact form</a>.
+        To reach RN Collins: <a href="/contact" className="fwlink">Connect with RN Collins</a>.
       </p>
     </main>
   );

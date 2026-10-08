@@ -44,7 +44,7 @@ export default function PartnerPage() {
         <h1>Storytelling strategy and content production and operations.</h1>
         <p className="lede partner-hook">I&rsquo;m taking on clients for storytelling strategy and content production and operations. DMs are open.</p>
         <div className="actions">
-          <a href="/contact?from=main-partner"><button className="primary">Send a message</button></a>
+          <a href="/contact"><button className="primary">Connect with RN</button></a>
         </div>
       </header>
 
@@ -107,7 +107,7 @@ export default function PartnerPage() {
       <section className="partner-start" aria-labelledby="contact-heading">
         <p className="eyebrow">Research inquiry</p>
         <h2 id="contact-heading">What would you like help understanding, deciding, or creating?</h2>
-        <p>Share the situation in a few direct sentences. I read every inquiry and reply by email. For anything else, including storytelling and content production, use the <a href="/contact?from=main-partner">contact form</a>.</p>
+        <p>Share the situation in a few direct sentences. I read every inquiry and reply by email. For anything else, including storytelling and content production, <a href="/contact">connect with RN on her platforms</a>.</p>
         <PartnerInquiry />
       </section>
     </main>

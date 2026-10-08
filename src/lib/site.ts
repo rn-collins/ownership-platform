@@ -15,6 +15,20 @@ export const POLYMATH_SUBSCRIBE_URL = `${POLYMATH_URL}/subscribe`;
 export const LINKEDIN_URL = "https://www.linkedin.com/in/rn-collins";
 
 /**
+ * RN's public profiles, in the order shown on the Connect page (/contact) and in the site footer.
+ * Only handles RN has given are listed (no Threads or Pinterest yet).
+ */
+export const PROFILE_LINKS = [
+  { id: "linkedin", platform: "LinkedIn", handle: "RN Collins", href: LINKEDIN_URL },
+  { id: "instagram", platform: "Instagram", handle: "@rn_collins", href: "https://www.instagram.com/rn_collins/" },
+  { id: "x", platform: "X", handle: "@renaissancex2m3", href: "https://x.com/renaissancex2m3" },
+  { id: "tiktok", platform: "TikTok", handle: "@renaissancex2m3", href: "https://www.tiktok.com/@renaissancex2m3" },
+  { id: "bluesky", platform: "Bluesky", handle: "@rncollins.bsky.social", href: "https://bsky.app/profile/rncollins.bsky.social" },
+  { id: "youtube", platform: "YouTube", handle: "@Renaissance-Woman-3000", href: "https://www.youtube.com/@Renaissance-Woman-3000" },
+  { id: "polymath", platform: "The Polymath", handle: "Newsletter", href: POLYMATH_SUBSCRIBE_URL },
+] as const;
+
+/**
  * Header and footer links shared in wording and order by the main site and the Public Reader
  * (DEC-02, interim step B). Each entry names where it goes on this site; the reader repo uses the
  * same labels. Labels follow the plain-English navigation proposed in the October 7 audit.

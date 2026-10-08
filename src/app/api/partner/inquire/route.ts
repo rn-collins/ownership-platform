@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { Resend } from "resend";
 import { prisma } from "@/lib/db";
 import { limit } from "@/lib/ratelimit";
 import { logError } from "@/lib/log";
@@ -41,36 +40,9 @@ export async function POST(req: Request) {
     }
   }
 
-  let notified = false;
-  const resendKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM_EMAIL || process.env.RESEND_FROM;
-  const to = process.env.CONTACT_TO || process.env.INQUIRY_TO_EMAIL;
-  if (resendKey && from && to) {
-    try {
-      const resend = new Resend(resendKey);
-      const result = await resend.emails.send({
-        from,
-        to,
-        replyTo: d.email,
-        subject: `Institutions of One inquiry — ${d.kind}`,
-        text: [
-          `Name: ${d.name}`,
-          `Email: ${d.email}`,
-          `Organization: ${d.organization || "Not provided"}`,
-          `Interest: ${d.kind}`,
-          "",
-          d.message,
-        ].join("\n"),
-      });
-      notified = !result.error;
-    } catch (err) {
-      logError("partner.inquire.notify", err);
-    }
+  if (!stored) {
+    return NextResponse.json({ ok: false, stored: false, error: "not_received" }, { status: 503 });
   }
 
-  if (!stored && !notified) {
-    return NextResponse.json({ ok: false, stored: false, notified: false, error: "not_received" }, { status: 503 });
-  }
-
-  return NextResponse.json({ ok: true, stored, notified });
+  return NextResponse.json({ ok: true, stored });
 }

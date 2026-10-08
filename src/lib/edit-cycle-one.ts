@@ -1,4 +1,5 @@
 import { READER_ORIGIN } from "@/lib/site";
+import { editionMonth } from "@/lib/publication-dates";
 
 export type EditionMedia = {
   file: string;
@@ -119,7 +120,8 @@ export const earlyEditions: readonly EditionListing[] = [
 /** Every publicly visible edition, oldest first. Gated cycle-one editions are excluded unless the render freeze is on. */
 export const publicEditions = (): EditionListing[] => {
   const freezeRender = process.env.CYCLE01_RENDER_FREEZE === "1";
-  return [...earlyEditions, ...cycleOneEditions.filter((e) => !e.gated || freezeRender)];
+  // Where an edition's Beehiiv post states a date, the month listed is that post's month (DEC-18).
+  return [...earlyEditions, ...cycleOneEditions.filter((e) => !e.gated || freezeRender)].map((e) => ({ ...e, published: editionMonth(e.number, e.published) }));
 };
 
 /** Reader-facing titles of the Public Reader visual stories (institutions-of-one-reader /production/cycle-01/pNN). */

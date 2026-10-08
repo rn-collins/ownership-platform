@@ -1,0 +1,46 @@
+{
+ "_note": "Dates come from each edition's own Beehiiv post page (the published and modified dates the page states). An edition with no entry (009: no Beehiiv post yet) shows the byline only. lastChecked is the day these dates were last compared with the Beehiiv pages; change it by hand when you recheck. Nothing here is guessed.",
+ "lastChecked": "2026-10-08",
+ "editions": {
+  "001": {
+   "published": "2026-09-16",
+   "modified": "2026-10-05",
+   "beehiiv": "https://polymath-rn-collins.beehiiv.com/p/001-when-does-one-person-become-an-institution"
+  },
+  "002": {
+   "published": "2026-09-16",
+   "modified": "2026-10-05",
+   "beehiiv": "https://polymath-rn-collins.beehiiv.com/p/002-your-career-has-a-supply-chain"
+  },
+  "003": {
+   "published": "2026-09-16",
+   "modified": "2026-10-05",
+   "beehiiv": "https://polymath-rn-collins.beehiiv.com/p/003-your-archive-is-not-a-backup"
+  },
+  "004": {
+   "published": "2026-09-16",
+   "modified": "2026-10-05",
+   "beehiiv": "https://polymath-rn-collins.beehiiv.com/p/004-the-exit-is-part-of-the-architecture"
+  },
+  "005": {
+   "published": "2026-08-21",
+   "modified": "2026-10-05",
+   "beehiiv": "https://polymath-rn-collins.beehiiv.com/p/the-2000-video"
+  },
+  "006": {
+   "published": "2026-08-21",
+   "modified": "2026-10-05",
+   "beehiiv": "https://polymath-rn-collins.beehiiv.com/p/the-person-inside-the-asset"
+  },
+  "007": {
+   "published": "2026-08-21",
+   "modified": "2026-10-05",
+   "beehiiv": "https://polymath-rn-collins.beehiiv.com/p/the-assets-afterlife"
+  },
+  "008": {
+   "published": "2026-08-21",
+   "modified": "2026-10-05",
+   "beehiiv": "https://polymath-rn-collins.beehiiv.com/p/the-smallest-institution-in-the-campaign"
+  }
+ }
+}

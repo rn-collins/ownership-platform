@@ -1162,3 +1162,10 @@ h1,h2,h3{letter-spacing:-.025em;}
   .partner-paths article { grid-template-columns:34px 1fr; }
   .partner-paths article p { grid-column:2; }
 }
+
+/* Byline and dates under an edition title (DEC-18): small, readable at 375 px, wraps instead of scrolling */
+.edition-dateline{margin:14px 0 22px;max-width:900px}
+.edition-dateline p{margin:0}
+.edition-byline{font-size:17px;line-height:1.5;font-weight:700;color:var(--ink)}
+.edition-dates{display:flex;flex-wrap:wrap;gap:2px 20px;font-size:15px;line-height:1.6;color:var(--muted)}
+.edition-dates time{font-weight:700}

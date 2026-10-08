@@ -1,0 +1,37 @@
+{
+ "schema": "family-index/1",
+ "tools": [
+  {
+   "id": "m1-four-questions-map",
+   "title": "Where does your work become structurally yours?",
+   "url": "/tools/four-questions-map",
+   "site": "ioo-main",
+   "siteName": "Institutions of One",
+   "built": true
+  },
+  {
+   "id": "m2-dependency-ranker",
+   "title": "Which dependency could stop my work first?",
+   "url": "/tools/dependency-ranker",
+   "site": "ioo-main",
+   "siteName": "Institutions of One",
+   "built": true
+  },
+  {
+   "id": "obs-dependency-explorer",
+   "title": "The Observatory dependency explorer",
+   "url": "/observatory/dependencies",
+   "site": "ioo-main",
+   "siteName": "Institutions of One",
+   "existing": true
+  },
+  {
+   "id": "ioo-ownership-index",
+   "title": "The Ownership Index",
+   "url": "/assess/creator",
+   "site": "ioo-main",
+   "siteName": "Institutions of One",
+   "existing": true
+  }
+ ]
+}

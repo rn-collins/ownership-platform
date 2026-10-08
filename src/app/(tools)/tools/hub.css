@@ -1,0 +1,17 @@
+/* The /tools page. Uses the kit's tokens and header strip; classes here are namespaced tkh-. */
+.tkh-cards{list-style:none;margin:0;padding:0;display:grid;gap:20px}
+@media(min-width:760px){.tkh-cards{grid-template-columns:repeat(2,1fr)}}
+.tkh-card{background:#fff;border:3px solid var(--tk-ink);display:flex;flex-direction:column;height:100%}
+.tkh-card figure{margin:0}
+.tkh-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--tk-field);border-bottom:3px solid var(--tk-ink)}
+.tkh-card figcaption{font:400 13px/1.45 var(--tk-mono);color:var(--tk-muted);padding:8px 14px 0;overflow-wrap:anywhere}
+.tkh-card figcaption a{display:inline-block;min-height:24px;min-width:24px;color:var(--tk-muted)}
+.tkh-body{padding:12px 14px 16px;display:flex;flex-direction:column;gap:8px}
+.tkh-body h3,.tkh-body h2{font:800 22px/1.2 var(--tk-sans);margin:0}
+.tkh-body p{margin:0}
+.tkh-meta{font:400 14px/1.4 var(--tk-mono);color:var(--tk-muted)}
+.tkh-theme{display:inline-block;font:400 12px/1 var(--tk-mono);text-transform:uppercase;padding:4px 6px;border:2px solid var(--tk-ink);background:var(--tk-kraft);align-self:flex-start}
+.tkh-note{border:3px dashed var(--tk-ink);background:var(--tk-paper);padding:10px 14px;margin:0 0 20px;max-width:62ch}
+.tkh-section{margin:32px 0 0}
+.tkh-section>h2{font:800 clamp(22px,3.4vw,30px)/1.15 var(--tk-sans);margin:0 0 10px}
+.tkh-foot{padding:0 0 36px}

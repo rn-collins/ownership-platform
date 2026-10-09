@@ -113,7 +113,7 @@ describe("open-facts corrections (October 5, 2026)", () => {
     expect(counts("neri-oxman")).toEqual({ total: 19, independent: 6, other: 13 });
     expect(counts("jane-gilbert")).toEqual({ total: 14, independent: 4, other: 10 });
     expect(counts("gordon-glenister")).toEqual({ total: 13, independent: 1, other: 12 });
-    expect(counts("kunal-shah")).toEqual({ total: 10, independent: 8, other: 2 });
+    expect(counts("kunal-shah")).toEqual({ total: 37, independent: 22, other: 15 });
   });
 
   it("states the Oxman statement with its publication details", () => {
@@ -141,22 +141,23 @@ describe("open-facts corrections (October 5, 2026)", () => {
     expect(find("gordon-glenister", "isba-release-2024").published).toBe("2024-11-28");
   });
 
-  it("replaces the Kunal Shah Wikipedia rows and flat $400 million claim with dated sources", () => {
+  it("rebuilds the Kunal Shah record on dated sources and corrects the FreeCharge and filing claims", () => {
     const ids = research("kunal-shah").sources.map((source) => source.id);
     expect(ids).not.toContain("wikipedia-freecharge");
     expect(ids).not.toContain("wikipedia-cred");
     expect(research("kunal-shah").sources.some((source) => /wikipedia/i.test(source.publisher))).toBe(false);
     expect(text("kunal-shah")).not.toMatch(/for about \$400 million/);
-    expect(find("kunal-shah", "shah-x").kind).toBe("self_authored");
-    expect(find("kunal-shah", "bloomberg-cred").kind).toBe("independent");
-    expect(find("kunal-shah", "upstox-cred").kind).toBe("independent");
-    expect(find("kunal-shah", "reuters-freecharge").published).toBe("2015-04-08");
-    expect(find("kunal-shah", "outlook-filings").label).toContain("filing not seen");
-    expect(find("kunal-shah", "outlook-filings").published).toBe("2026-07-16");
-    const june = research("kunal-shah").chronology.find((event) => event.date === "June 22, 2026")!;
-    expect(june.event).toContain("Shah said on X");
-    expect(june.event).toContain("No source reviewed states when Shah starts at WhatsApp");
     expect(text("kunal-shah")).not.toContain("facebook.com/zuck");
+    expect(research("kunal-shah").documentationLevel).toBe("saturated");
+    expect(find("kunal-shah", "bloomberg").kind).toBe("independent");
+    expect(find("kunal-shah", "forbes-2015").published).toBe("2015-04-08");
+    expect(find("kunal-shah", "foundingfuel").kind).toBe("interview");
+    expect(find("kunal-shah", "upstox-cred").kind).toBe("derivative");
+    expect(find("kunal-shah", "mint-filings").kind).toBe("independent");
+    expect(find("kunal-shah", "mint-filings").published).toBe("2026-07-16");
+    expect(find("kunal-shah", "outlook-filings").kind).toBe("derivative");
+    expect(research("kunal-shah").chronology[0].event).toContain("Sandeep Tandon");
+    expect(text("kunal-shah")).toContain("no Meta page reviewed gives the formal title or a start date");
   });
 });
 
@@ -176,7 +177,7 @@ describe("main-site fact corrections (October 5, 2026)", () => {
       const c = countSources(row.research.sources);
       return [sum[0] + c.total, sum[1] + c.independent];
     }, [0, 0]);
-    expect(all).toEqual([542, 207]);
+    expect(all).toEqual([569, 221]);
   });
 
   it("states AMD's agreement to acquire World Labs from the 8-K and a second report, and updates the role line", () => {

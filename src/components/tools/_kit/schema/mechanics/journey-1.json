@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mechanic/journey/1",
+  "title": "Journey: one branch per tool that uses this mechanic. A spec's data must match at least one branch.",
+  "description": "Merged as anyOf branches (kit 0.2.0). Branches: c14-11. The validator's schema-lite reports the first error of each branch when none match.",
+  "anyOf": [
+    {
+      "title": "c14-11",
+      "description": "c14-11 (built/htw/c14-11, schema file data.schema.json, id mechanic/journey/1). Journey: ordered steps, each with media and the story's own lines (c14-11 parcel chain). To use the real validator, copy this file to kit/schema/mechanics/journey-1.json.",
+      "type": "object",
+      "required": [
+        "lead",
+        "chain",
+        "steps",
+        "across",
+        "readTwice",
+        "images"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "lead": {
+          "type": "object",
+          "required": [
+            "imageId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "imageId": {
+              "type": "string"
+            }
+          }
+        },
+        "chain": {
+          "type": "object",
+          "required": [
+            "claimId",
+            "leadClaimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "claimId": {
+              "type": "string"
+            },
+            "leadClaimId": {
+              "type": "string"
+            }
+          }
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "label",
+              "short",
+              "phrase",
+              "imageId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "label": {
+                "type": "string"
+              },
+              "short": {
+                "type": "string",
+                "maxLength": 34
+              },
+              "phrase": {
+                "type": "string"
+              },
+              "imageId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "across": {
+          "type": "object",
+          "required": [
+            "restatedClaimId",
+            "addsClaimId",
+            "recordClaimId",
+            "hidesClaimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "restatedClaimId": {
+              "type": "string"
+            },
+            "addsClaimId": {
+              "type": "string"
+            },
+            "recordClaimId": {
+              "type": "string"
+            },
+            "hidesClaimId": {
+              "type": "string"
+            }
+          }
+        },
+        "readTwice": {
+          "type": "object",
+          "required": [
+            "claimId",
+            "first",
+            "second"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "claimId": {
+              "type": "string"
+            },
+            "first": {
+              "type": "object",
+              "required": [
+                "id",
+                "label",
+                "claimId"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "claimId": {
+                  "type": "string"
+                }
+              }
+            },
+            "second": {
+              "type": "object",
+              "required": [
+                "id",
+                "label",
+                "claimId"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "claimId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "file",
+              "width",
+              "height",
+              "alt",
+              "caption",
+              "creditLine",
+              "license",
+              "sourceId",
+              "precision",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "file": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 20
+              },
+              "caption": {
+                "type": "string"
+              },
+              "creditLine": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "licenseUrl": {
+                "type": "string"
+              },
+              "sourceId": {
+                "type": "string"
+              },
+              "precision": {
+                "enum": [
+                  "precise",
+                  "illustrative"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

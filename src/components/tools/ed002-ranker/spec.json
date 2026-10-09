@@ -1,0 +1,99 @@
+{
+  "schema": "tool-spec/1",
+  "id": "m2-dependency-ranker",
+  "slug": "dependency-ranker",
+  "site": "ioo-main",
+  "program": "IOO",
+  "release": "review",
+  "mechanic": "sheet",
+  "title": "Which dependency could stop my work first?",
+  "question": "Rank up to five of your own dependencies by how many of Edition 002’s four tests each one fails.",
+  "promise": {
+    "learn": [
+      "Where your work depends on someone else, in the edition’s four layers",
+      "Which of your dependencies fails the most of the four tests",
+      "The question the edition asks you to carry forward"
+    ],
+    "minutes": 5,
+    "leaveWith": "A ranked list you can copy, print or save as a text file",
+    "privacy": "Nothing you enter leaves your browser."
+  },
+  "origin": { "kind": "edition", "id": "ED 002", "title": "Your Career Has a Supply Chain", "path": "/edit/002" },
+  "sources": [
+    { "id": "s-edition", "kind": "story", "title": "Your Career Has a Supply Chain", "publisher": "RN Collins, The I/1 Edit, Edition 002", "date": "July 2026", "accessed": "October 7, 2026", "url": "/edit/002", "supports": "The four layers, the four tests, the argument and the closing question", "doesNotSupport": "The question about an event that would make all four answers false at once. The edition text does not contain it.", "check": "verified", "status": "approved" },
+    { "id": "s-spotify", "kind": "institutional", "title": "‘Call Her Daddy’ Is Making It Exclusive With Spotify", "publisher": "Spotify Newsroom", "date": "June 15, 2021", "accessed": "October 7, 2026", "url": "https://newsroom.spotify.com/2021-06-15/call-her-daddy-is-making-it-exclusive-with-spotify/", "supports": "A case in the edition. Shown as a case only.", "doesNotSupport": "Any answer you give in this tool", "check": "verified", "status": "approved" },
+    { "id": "s-siriusxm", "kind": "institutional", "title": "SiriusXM Inks New Multi-Year Agreement with Alex Cooper, the World's Leading Female Podcaster; \"Call Her Daddy\" Finds a New Home", "publisher": "SiriusXM", "date": "August 20, 2024", "accessed": "October 7, 2026", "url": "https://investor.siriusxm.com/news-events/press-releases/detail/2096/siriusxm-inks-new-multi-year-agreement-with-alex-cooper", "supports": "A case in the edition. Shown as a case only.", "doesNotSupport": "Any answer you give in this tool", "check": "verified", "status": "approved" },
+    { "id": "s-yt-brownlee", "kind": "institutional", "title": "Marques Brownlee shares how podcasting can help creators succeed in today’s creator economy", "publisher": "YouTube Blog", "date": "June 6, 2022", "accessed": "October 7, 2026", "url": "https://blog.youtube/creator-and-artist-stories/marques-brownlee-podcasting-youtube-creator-economy/", "supports": "A case in the edition. Shown as a case only.", "doesNotSupport": "Any answer you give in this tool", "check": "verified", "status": "approved" },
+    { "id": "s-yt-ceo", "kind": "institutional", "title": "From the CEO: What’s coming to YouTube in 2026", "publisher": "YouTube Blog", "date": "January 21, 2026", "accessed": "October 7, 2026", "url": "https://blog.youtube/inside-youtube/the-future-of-youtube-2026/", "supports": "A case in the edition. Shown as a case only.", "doesNotSupport": "Any answer you give in this tool", "check": "verified", "status": "approved" },
+    { "id": "s-amazon", "kind": "institutional", "title": "‘Beast Games’ renewed for two more seasons after record-breaking Prime Video debut", "publisher": "Amazon, About Amazon", "date": "May 12, 2025", "accessed": "October 7, 2026", "url": "https://www.aboutamazon.com/news/entertainment/mrbeast-prime-video-beast-games-season-2-and-3", "supports": "A case in the edition. Shown as a case only.", "doesNotSupport": "Any answer you give in this tool", "check": "verified", "status": "approved" },
+    { "id": "s-feastables", "kind": "institutional", "title": "Feastables’ Commitment To Ethical Sourcing", "publisher": "Feastables", "accessed": "October 7, 2026", "url": "https://feastables.com/pages/ethicalsourcing", "supports": "A case in the edition. Shown as a case only.", "doesNotSupport": "Any answer you give in this tool", "check": "verified", "status": "approved" },
+    { "id": "s-patreon", "kind": "institutional", "title": "The story of Patreon", "publisher": "Patreon", "accessed": "October 7, 2026", "url": "https://www.patreon.com/about", "supports": "A case in the edition. Shown as a case only.", "doesNotSupport": "Any answer you give in this tool", "check": "verified", "status": "approved" }
+  ],
+  "claims": [
+    { "id": "l1", "text": "Who decides whether new people can find you?", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "Who decides whether new people can find you?", "status": "approved" },
+    { "id": "l2", "text": "Who can reach the people who already chose you?", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "Who can reach the people who already chose you?", "status": "approved" },
+    { "id": "l3", "text": "Who can interrupt the money?", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "Who can interrupt the money?", "status": "approved" },
+    { "id": "l4", "text": "What would have to remain for the work to continue?", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "What would have to remain for the work to continue?", "status": "approved" },
+    { "id": "t1", "text": "Can you name the dependency and explain exactly what it supplies?", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "Can you name the dependency and explain exactly what it supplies?", "status": "approved" },
+    { "id": "t2", "text": "Could another supplier perform the same job without destroying the work?", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "Could another supplier perform the same job without destroying the work?", "status": "approved" },
+    { "id": "t3", "text": "Can you change price, access, rights, timing, or exit terms?", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "Can you change price, access, rights, timing, or exit terms?", "status": "approved" },
+    { "id": "t4", "text": "If it disappeared tomorrow, could you keep operating long enough to adapt?", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "If it disappeared tomorrow, could you keep operating long enough to adapt?", "status": "approved" },
+    { "id": "arg", "text": "Independence is not the absence of dependence. It is the ability to see your dependencies, distribute them, negotiate them, and survive when one changes.", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "Independence is not the absence of dependence. It is the ability to see your dependencies, distribute them, negotiate them, and survive when one changes.", "status": "approved" },
+    { "id": "close", "text": "The edition’s closing question begins: if your most important supplier disappeared tomorrow, which part of your work would stop first?", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "If your most important supplier disappeared tomorrow, which part of your work would stop first", "status": "approved" },
+    { "id": "tests-vs-layers", "text": "The four layers are supplied functions. They are distinct from the four practical questions used to test any one dependency.", "basis": "story", "sourceIds": ["s-edition"], "storyQuote": "These are supplied functions. They are distinct from the four practical questions used later to test any one dependency.", "status": "approved" },
+    { "id": "cases", "text": "The seven cases are first-party company announcements and representations, and they support bounded facts about announced arrangements.", "basis": "story", "sourceIds": ["s-spotify", "s-siriusxm", "s-yt-brownlee", "s-yt-ceo", "s-amazon", "s-feastables", "s-patreon"], "storyQuote": "The sources are first-party company announcements and representations.", "status": "approved" },
+    { "id": "sort", "text": "The ranking counts unticked boxes. Ties keep the order you entered them.", "basis": "arithmetic", "sourceIds": ["s-edition"], "derivation": "number of the four tests whose box is not ticked", "check": { "fn": "failCount", "args": { "met": { "visible": true, "substitutable": false, "negotiable": false, "survivable": true } }, "expect": 2 }, "status": "approved" },
+    { "id": "extra", "text": "What event would make all four answers false at once?", "basis": "editorial", "sourceIds": ["s-edition"], "status": "approved" }
+  ],
+  "limits": {
+    "shows": [
+      "Your own list, sorted by how many of the four tests each dependency fails",
+      "The edition’s four layers and four tests in the edition’s words"
+    ],
+    "doesNotShow": [
+      "A score, a weight or a risk rating. The sort counts unticked boxes and nothing else.",
+      "Private contract terms, ownership shares or bargaining power in any case the edition names. The edition says its sources do not establish them.",
+      "Whether a dependency is a problem for you. The tests ask questions and your answers stay yours."
+    ]
+  },
+  "share": { "text": true, "link": "never", "image": false, "print": true, "files": ["txt"] },
+  "card": { "name": "Dependency ranker", "sourceShort": "Edition 002, The I/1 Edit" },
+  "data": {
+    "maxItems": 5,
+    "layers": [
+      { "id": "discovery", "number": "01", "name": "Discovery", "question": "Who decides whether new people can find you?", "claimId": "l1", "status": "approved" },
+      { "id": "relationship", "number": "02", "name": "Relationship", "question": "Who can reach the people who already chose you?", "claimId": "l2", "status": "approved" },
+      { "id": "revenue", "number": "03", "name": "Revenue", "question": "Who can interrupt the money?", "claimId": "l3", "status": "approved" },
+      { "id": "continuation", "number": "04", "name": "Continuation", "question": "What would have to remain for the work to continue?", "claimId": "l4", "status": "approved" }
+    ],
+    "tests": [
+      { "id": "visible", "name": "Visible", "question": "Can you name the dependency and explain exactly what it supplies?", "claimId": "t1", "status": "approved" },
+      { "id": "substitutable", "name": "Substitutable", "question": "Could another supplier perform the same job without destroying the work?", "claimId": "t2", "status": "approved" },
+      { "id": "negotiable", "name": "Negotiable", "question": "Can you change price, access, rights, timing, or exit terms?", "claimId": "t3", "status": "approved" },
+      { "id": "survivable", "name": "Survivable", "question": "If it disappeared tomorrow, could you keep operating long enough to adapt?", "claimId": "t4", "status": "approved" }
+    ],
+    "templates": {
+      "empty": "Nothing to rank yet. Add a dependency to see which one fails the most tests.",
+      "allMet": "all four tests are met.",
+      "tiedWord": "tied",
+      "closing": { "text": "If your most important supplier disappeared tomorrow, which part of your work would stop first?", "claimId": "close", "status": "approved" },
+      "closingExtra": { "text": "What event would make all four answers false at once?", "claimId": "extra", "status": "approved" }
+    },
+    "cases": [
+      { "sourceId": "s-spotify", "label": "Spotify and Call Her Daddy, 2021", "status": "approved" },
+      { "sourceId": "s-siriusxm", "label": "SiriusXM and Alex Cooper, 2024", "status": "approved" },
+      { "sourceId": "s-yt-brownlee", "label": "Marques Brownlee and YouTube, 2022", "status": "approved" },
+      { "sourceId": "s-yt-ceo", "label": "YouTube’s 2026 letter", "status": "approved" },
+      { "sourceId": "s-amazon", "label": "Beast Games on Prime Video, 2025", "status": "approved" },
+      { "sourceId": "s-feastables", "label": "Feastables sourcing", "status": "approved" },
+      { "sourceId": "s-patreon", "label": "Patreon’s story", "status": "approved" }
+    ]
+  },
+  "review": {
+    "culturalReview": "not-required",
+    "rnReview": [
+      "Open Graph card image (not drawn yet)"
+    ]
+  },
+  "og": { "image": "/tools/dependency-ranker/og.png", "alt": "Graph-paper card reading: Which dependency could stop my work first?" }
+}

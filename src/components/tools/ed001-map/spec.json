@@ -1,0 +1,739 @@
+{
+  "schema": "tool-spec/1",
+  "id": "m1-four-questions-map",
+  "slug": "four-questions-map",
+  "site": "ioo-main",
+  "program": "IOO",
+  "release": "review",
+  "mechanic": "sheet",
+  "title": "Where does your work become structurally yours?",
+  "question": "For the work you have now, what have you built, what travels with you, who decides, and what could continue if the container changed?",
+  "promise": {
+    "learn": [
+      "The edition’s four questions: Build, Carry, Control and Continue",
+      "What stays with you when one container changes",
+      "Which items you are not sure about yet"
+    ],
+    "minutes": 8,
+    "leaveWith": "A one-page map you can copy, print or save as a text file",
+    "privacy": "Nothing you enter leaves your browser."
+  },
+  "origin": {
+    "kind": "edition",
+    "id": "ED 001",
+    "title": "When Does One Person Become an Institution?",
+    "path": "/edit/001"
+  },
+  "sources": [
+    {
+      "id": "s-edition",
+      "kind": "story",
+      "title": "When Does One Person Become an Institution?",
+      "publisher": "RN Collins, The I/1 Edit, Edition 001",
+      "date": "July 2026",
+      "accessed": "October 8, 2026",
+      "url": "/edit/001",
+      "supports": "The four questions, the four changes in the closing question and the edition’s statement of what the pilot does and does not do",
+      "doesNotSupport": "Anything about your own work, or the private terms of any case the edition names. The edition says it reviewed no private contract.",
+      "check": "verified",
+      "status": "approved",
+      "quote": "Build. Carry. Control. Continue.",
+      "locator": "The working model"
+    },
+    {
+      "id": "s-apple",
+      "kind": "institutional",
+      "title": "Apple Newsroom, “Jony Ive to form independent design company with Apple as client” (June 27, 2019)",
+      "publisher": "Apple Newsroom",
+      "url": "https://www.apple.com/newsroom/2019/06/jony-ive-to-form-independent-design-company-with-apple-as-client/",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    },
+    {
+      "id": "s-shondaland",
+      "kind": "institutional",
+      "title": "Shondaland Media, “About us”",
+      "publisher": "Shondaland Media",
+      "url": "https://www.shondalandmedia.com/about-us/",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    },
+    {
+      "id": "s-netflix",
+      "kind": "institutional",
+      "title": "Netflix, “Netflix and Shonda Rhimes Expand Creative Pact” (July 8, 2021)",
+      "publisher": "Netflix",
+      "url": "https://about.netflix.com/en/news/netflix-and-shonda-rhimes-expand-creative-pact",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    },
+    {
+      "id": "s-heatplan",
+      "kind": "institutional",
+      "title": "Miami-Dade County, “Heat Action Plan 2022”",
+      "publisher": "Miami-Dade County",
+      "url": "https://www.miamidade.gov/resources/environment/documents/2022-heat-action-plan.pdf",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    },
+    {
+      "id": "s-gilbert",
+      "kind": "institutional",
+      "title": "Miami-Dade County, employee profile of Jane Gilbert",
+      "publisher": "Miami-Dade County",
+      "url": "https://secure.miamidade.gov/employee/ithrive/archive/ithrive-rer-gilbert.page",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    },
+    {
+      "id": "s-chamberlain",
+      "kind": "institutional",
+      "title": "Chamberlain Coffee, “About Chamberlain”",
+      "publisher": "Chamberlain Coffee",
+      "url": "https://chamberlaincoffee.com/pages/about-us",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    },
+    {
+      "id": "s-cafe",
+      "kind": "institutional",
+      "title": "Chamberlain Coffee, café page",
+      "publisher": "Chamberlain Coffee",
+      "url": "https://chamberlaincoffee.com/pages/chamberlain-coffee-cafe",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    },
+    {
+      "id": "s-lyft",
+      "kind": "institutional",
+      "title": "Lyft, “Lyft welcomes Suzie Reider” (December 4, 2024)",
+      "publisher": "Lyft",
+      "url": "https://www.lyft.com/blog/posts/lyft-welcomes-suzie-reider",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    },
+    {
+      "id": "s-nomad",
+      "kind": "institutional",
+      "title": "Pieter Levels, “Nomad List Founder” (January 7, 2017)",
+      "publisher": "levels.io",
+      "url": "https://levels.io/nomad-list-founder",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    },
+    {
+      "id": "s-jobs",
+      "kind": "institutional",
+      "title": "Pieter Levels, “How I built Nomad Jobs” (August 31, 2014)",
+      "publisher": "levels.io",
+      "url": "https://levels.io/how-i-built-a-remote-jobs-board",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    },
+    {
+      "id": "s-rhimes",
+      "kind": "institutional",
+      "title": "Shondaland, “Shonda Rhimes”",
+      "publisher": "Shondaland",
+      "url": "https://www.shondaland.com/about-us/shonda-rhimes",
+      "supports": "A case in Edition 001. Would be shown as a case only.",
+      "doesNotSupport": "Any answer you give in this tool",
+      "check": "needs-lookup",
+      "status": "needs-rn",
+      "why": "Listed in the edition’s sources. Nobody has opened it for this tool, so it does not render."
+    }
+  ],
+  "claims": [
+    {
+      "id": "q-build",
+      "text": "What exists because this person made it exist?",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "What exists because this person made it exist?",
+      "status": "approved"
+    },
+    {
+      "id": "b-build",
+      "text": "Look for a recognizable body of work, methods, relationships, audience, and operating capacity, not merely output or attention.",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "Look for a recognizable body of work, methods, relationships, audience, and operating capacity, not merely output or attention.",
+      "status": "approved"
+    },
+    {
+      "id": "q-carry",
+      "text": "What survives when the container changes?",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "What survives when the container changes?",
+      "status": "approved"
+    },
+    {
+      "id": "b-carry",
+      "text": "Look for capability, reputation, systems, relationships, and opportunities that can travel across an employer, platform, client, format, or moment.",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "Look for capability, reputation, systems, relationships, and opportunities that can travel across an employer, platform, client, format, or moment.",
+      "status": "approved"
+    },
+    {
+      "id": "q-control",
+      "text": "Who can decide what happens next?",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "Who can decide what happens next?",
+      "status": "approved"
+    },
+    {
+      "id": "b-control",
+      "text": "Look for meaningful authority over identity, access, rights, revenue, data, and the conditions under which the work is used.",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "Look for meaningful authority over identity, access, rights, revenue, data, and the conditions under which the work is used.",
+      "status": "approved"
+    },
+    {
+      "id": "q-continue",
+      "text": "What could persist if an essential dependency changed?",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "What could persist if an essential dependency changed?",
+      "status": "approved"
+    },
+    {
+      "id": "b-continue",
+      "text": "Look for work, systems, relationships, or authority that could keep functioning if a role, platform, employer, client, or other essential dependency changed.",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "Look for work, systems, relationships, or authority that could keep functioning if a role, platform, employer, client, or other essential dependency changed.",
+      "status": "approved"
+    },
+    {
+      "id": "close",
+      "text": "If the role disappeared, the platform changed its rules, the distributor walked away, or the employer kept the system, what work, systems, relationships, or authority could continue?",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "If the role disappeared, the platform changed its rules, the distributor walked away, or the employer kept the system, what work, systems, relationships, or authority could continue?",
+      "status": "approved"
+    },
+    {
+      "id": "map",
+      "text": "The model should therefore produce a map of relationships, not a halo.",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "The model should therefore produce a map of relationships, not a halo.",
+      "status": "approved"
+    },
+    {
+      "id": "nocert",
+      "text": "It does not certify that a person has crossed a binary threshold or earned an institutional status.",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "It does not certify that a person has crossed a binary threshold or earned an institutional status.",
+      "status": "approved"
+    },
+    {
+      "id": "nocontract",
+      "text": "No private contract, cap table, or participant interview was reviewed for this edition.",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "No private contract, cap table, or participant interview was reviewed for this edition.",
+      "status": "approved"
+    },
+    {
+      "id": "counts",
+      "text": "The counts under your map add up to the marks you made. Nothing is weighted.",
+      "basis": "arithmetic",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "derivation": "number of items carrying each mark",
+      "check": {
+        "fn": "markCount",
+        "args": {
+          "marks": {
+            "1": "stays",
+            "2": "stays",
+            "3": "goes"
+          },
+          "items": [
+            1,
+            2,
+            3
+          ],
+          "mark": "stays"
+        },
+        "expect": 2
+      },
+      "status": "approved"
+    }
+  ],
+  "limits": {
+    "shows": [
+      "Your own list, sorted under the edition’s four questions in your words",
+      "Which items you mark as staying with you, going with the container or not sure, for each of the edition’s four changes"
+    ],
+    "doesNotShow": [
+      "A score, a grade or a verdict. The map lists and counts what you marked and nothing else.",
+      "Whether you own, may keep or may reuse any item. The map holds your answers and does not check a contract, a platform’s terms or a record.",
+      "Who you are like. The edition’s cases are not matched to your answers."
+    ]
+  },
+  "share": {
+    "text": true,
+    "link": "never",
+    "image": false,
+    "print": true,
+    "files": [
+      "txt"
+    ]
+  },
+  "card": {
+    "name": "Four questions map",
+    "sourceShort": "Edition 001, The I/1 Edit"
+  },
+  "data": {
+    "imageBase": "/tools/four-questions-map/images/",
+    "maxPerColumn": 5,
+    "maxItemLength": 60,
+    "images": [
+      {
+        "id": "lead",
+        "file": "lead-shoemakers-workbench-roy-egloff-2021.jpg",
+        "width": 1000,
+        "height": 750,
+        "alt": "Illustrative photo: a shoemaker's workbench from around 1930 in a Swiss museum, its drawers, pliers, hammers and awls laid out as the maker left them. It stands for one person's practice that outlasted the person; it is not a case from Edition 001.",
+        "creator": "Roy Egloff",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:CH.ZG.Zug_Museum-Burg-Zug_shoemaker%27s-workbench-around-1930.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "col-build",
+        "file": "col-build-ceramics-studio-mutney-2026.jpg",
+        "width": 900,
+        "height": 763,
+        "alt": "Illustrative photo: a small ceramics studio with large finished vases on a wooden worktable, shelves of materials behind and clay buckets underneath.",
+        "creator": "Mutney",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Ceramics_studio,_Epworth_Studios,_Liskeard,_Cornwall_-_September_2026_(2).jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "col-carry",
+        "file": "col-carry-shipwrights-toolbox-tim-sheerman-chase-2025.jpg",
+        "width": 900,
+        "height": 675,
+        "alt": "Illustrative photo: an open wooden shipwright's tool chest holding saws, planes, pliers and hand tools, on display in a museum.",
+        "creator": "Tim Sheerman-Chase",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Shipwrights_Toolbox_in_Calvin_Sims.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "col-control",
+        "file": "col-control-door-key-pittigrilli-2022.jpg",
+        "width": 900,
+        "height": 675,
+        "alt": "Illustrative photo: a metal door key on a key ring against a dark background.",
+        "creator": "Pittigrilli",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Door_key_for_lock_type_BKS_Janus_on_keyring.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "col-continue",
+        "file": "col-continue-lighthouse-frank-schulenburg-2019.jpg",
+        "width": 900,
+        "height": 720,
+        "alt": "Illustrative photo: the Point Reyes Lighthouse and its keeper's building on a rocky headland above the Pacific, a structure that keeps working on its own.",
+        "creator": "Frank Schulenburg",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Point_Reyes_Lighthouse_in_December_2019.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "chg-role",
+        "file": "chg-role-empty-chairs-kullatan-kin-2024.jpg",
+        "width": 727,
+        "height": 900,
+        "alt": "Illustrative photo: two empty black chairs and a small round table beside a white office wall.",
+        "creator": "Kullatan Kin",
+        "licence": "CC0",
+        "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Empty_Chairs.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "chg-platform",
+        "file": "chg-platform-rules-sign-micha-beim-2021.jpg",
+        "width": 900,
+        "height": 675,
+        "alt": "Illustrative photo: a roadside sign announcing new pandemic rules, mask required, at a mountain village in the Harz.",
+        "creator": "Michał Beim",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Warning_road_sign_on_the_COVID-19_rules_in_Torfhaus_(Harz)_-_mask_required.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "chg-distributor",
+        "file": "chg-distributor-empty-shelves-citytransportinfo-2020.jpg",
+        "width": 900,
+        "height": 675,
+        "alt": "Illustrative photo: nearly empty vegetable shelves in a supermarket during a 2020 supply shortage.",
+        "creator": "citytransportinfo",
+        "licence": "CC0",
+        "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Empty-Shelves-P1630832.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "chg-employer",
+        "file": "chg-employer-server-room-carl-lender-from-sunrise-usa-2015.jpg",
+        "width": 900,
+        "height": 600,
+        "alt": "Illustrative photo: a room of black server cabinets with cables and monitors, the kind of equipment an employer owns and runs.",
+        "creator": "Carl Lender (Sunrise, USA)",
+        "licence": "CC BY 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Server_Room_(22397102849).jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "mark-stays",
+        "file": "mark-stays-anchor-diego-delso-2021.jpg",
+        "width": 900,
+        "height": 600,
+        "alt": "Illustrative photo: an old iron anchor lying on the seabed in clear shallow water at Anchor Bay, Malta.",
+        "creator": "Diego Delso",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Ancla,_Anchor_Bay,_Malta,_Malta,_2021-08-24,_DD_12.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "mark-goes",
+        "file": "mark-goes-container-on-trailer-xnatedawgx-2021.jpg",
+        "width": 900,
+        "height": 629,
+        "alt": "Illustrative photo: an intermodal shipping container on a truck and trailer in Denver.",
+        "creator": "Xnatedawgx",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:CSX_Intermodal_container_with_truck_and_trailer,_Denver,_CO_2021-03-24.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "mark-unsure",
+        "file": "mark-unsure-foggy-path-dr-matthias-ripp-2015.jpg",
+        "width": 900,
+        "height": 605,
+        "alt": "Illustrative photo: a dirt track curving through grassland toward a valley filled with mist at sunset, the far end out of sight.",
+        "creator": "Dr. Matthias Ripp",
+        "licence": "CC BY 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Winding_path_with_foggy_landscape_and_sunset_in_Bavaria.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "result",
+        "file": "result-moving-boxes-boivie-2023.jpg",
+        "width": 900,
+        "height": 675,
+        "alt": "Illustrative photo: a stack of cardboard moving boxes in a room, some marked for overseas shipping.",
+        "creator": "Boivie",
+        "licence": "CC BY 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Some_old_moving_boxes_from_Sweden.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "state-empty",
+        "file": "state-empty-empty-racks-fumikas-sagisavas-2024.jpg",
+        "width": 675,
+        "height": 900,
+        "alt": "Illustrative photo: a stack of empty wire shelving racks wrapped in clear film on a shop floor.",
+        "creator": "Fumikas Sagisavas",
+        "licence": "CC0",
+        "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Empty_shelves_ready_to_be_moved.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      }
+    ],
+    "lead": {
+      "imageId": "lead"
+    },
+    "columns": [
+      {
+        "id": "build",
+        "number": "01",
+        "name": "Build",
+        "question": "What exists because this person made it exist?",
+        "body": "Look for a recognizable body of work, methods, relationships, audience, and operating capacity, not merely output or attention.",
+        "claimId": "q-build",
+        "bodyClaimId": "b-build",
+        "imageId": "col-build",
+        "status": "approved"
+      },
+      {
+        "id": "carry",
+        "number": "02",
+        "name": "Carry",
+        "question": "What survives when the container changes?",
+        "body": "Look for capability, reputation, systems, relationships, and opportunities that can travel across an employer, platform, client, format, or moment.",
+        "claimId": "q-carry",
+        "bodyClaimId": "b-carry",
+        "imageId": "col-carry",
+        "status": "approved"
+      },
+      {
+        "id": "control",
+        "number": "03",
+        "name": "Control",
+        "question": "Who can decide what happens next?",
+        "body": "Look for meaningful authority over identity, access, rights, revenue, data, and the conditions under which the work is used.",
+        "claimId": "q-control",
+        "bodyClaimId": "b-control",
+        "imageId": "col-control",
+        "status": "approved"
+      },
+      {
+        "id": "continue",
+        "number": "04",
+        "name": "Continue",
+        "question": "What could persist if an essential dependency changed?",
+        "body": "Look for work, systems, relationships, or authority that could keep functioning if a role, platform, employer, client, or other essential dependency changed.",
+        "claimId": "q-continue",
+        "bodyClaimId": "b-continue",
+        "imageId": "col-continue",
+        "status": "approved"
+      }
+    ],
+    "changes": [
+      {
+        "id": "role",
+        "label": "The role disappears",
+        "ifPhrase": "the role disappears",
+        "imageId": "chg-role",
+        "status": "approved"
+      },
+      {
+        "id": "platform",
+        "label": "The platform changes its rules",
+        "ifPhrase": "the platform changes its rules",
+        "imageId": "chg-platform",
+        "status": "approved"
+      },
+      {
+        "id": "distributor",
+        "label": "The distributor walks away",
+        "ifPhrase": "the distributor walks away",
+        "imageId": "chg-distributor",
+        "status": "approved"
+      },
+      {
+        "id": "employer",
+        "label": "The employer keeps the system",
+        "ifPhrase": "the employer keeps the system",
+        "imageId": "chg-employer",
+        "status": "approved"
+      }
+    ],
+    "changesClaimId": "close",
+    "marks": [
+      {
+        "id": "stays",
+        "label": "Stays with me",
+        "imageId": "mark-stays",
+        "status": "approved"
+      },
+      {
+        "id": "goes",
+        "label": "Goes with the container",
+        "imageId": "mark-goes",
+        "status": "approved"
+      },
+      {
+        "id": "unsure",
+        "label": "Not sure",
+        "imageId": "mark-unsure",
+        "status": "approved"
+      }
+    ],
+    "templates": {
+      "empty": "Nothing listed yet. Add items under the four questions to see your map.",
+      "headlineChange": "Your map if {change}.",
+      "headlineNone": "Your map so far.",
+      "stays": "These items stay:",
+      "goes": "These go with the container:",
+      "unsure": "Look first at:",
+      "unmarked": "Not marked yet:",
+      "everywhere": "These stay under all four changes:",
+      "none": "none yet",
+      "emptyColumn": "Nothing listed under {column}.",
+      "pickChange": "Pick one of the four changes to mark your items.",
+      "resultImageId": "result",
+      "emptyImageId": "state-empty"
+    },
+    "cases": [
+      {
+        "sourceId": "s-apple",
+        "label": "Apple Newsroom, “Jony Ive to form independent design company with Apple as client” (June 27, 2019)",
+        "status": "needs-rn"
+      },
+      {
+        "sourceId": "s-shondaland",
+        "label": "Shondaland Media, “About us”",
+        "status": "needs-rn"
+      },
+      {
+        "sourceId": "s-netflix",
+        "label": "Netflix, “Netflix and Shonda Rhimes Expand Creative Pact” (July 8, 2021)",
+        "status": "needs-rn"
+      },
+      {
+        "sourceId": "s-heatplan",
+        "label": "Miami-Dade County, “Heat Action Plan 2022”",
+        "status": "needs-rn"
+      },
+      {
+        "sourceId": "s-gilbert",
+        "label": "Miami-Dade County, employee profile of Jane Gilbert",
+        "status": "needs-rn"
+      },
+      {
+        "sourceId": "s-chamberlain",
+        "label": "Chamberlain Coffee, “About Chamberlain”",
+        "status": "needs-rn"
+      },
+      {
+        "sourceId": "s-cafe",
+        "label": "Chamberlain Coffee, café page",
+        "status": "needs-rn"
+      },
+      {
+        "sourceId": "s-lyft",
+        "label": "Lyft, “Lyft welcomes Suzie Reider” (December 4, 2024)",
+        "status": "needs-rn"
+      },
+      {
+        "sourceId": "s-nomad",
+        "label": "Pieter Levels, “Nomad List Founder” (January 7, 2017)",
+        "status": "needs-rn"
+      },
+      {
+        "sourceId": "s-jobs",
+        "label": "Pieter Levels, “How I built Nomad Jobs” (August 31, 2014)",
+        "status": "needs-rn"
+      },
+      {
+        "sourceId": "s-rhimes",
+        "label": "Shondaland, “Shonda Rhimes”",
+        "status": "needs-rn"
+      }
+    ],
+    "edition": {
+      "claimId": "map"
+    }
+  },
+  "review": {
+    "culturalReview": "not-required",
+    "rnReview": [
+      "Result sentences and the Look first at line (microcopy, no edition behind them)",
+      "The eleven case sources the edition lists, held until someone opens them",
+      "Open Graph card image (not drawn yet)"
+    ]
+  },
+  "og": {
+    "image": "/tools/four-questions-map/og.png",
+    "alt": "Graph-paper card reading: Where does your work become structurally yours?"
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "schema": "tool-spec/1",
+  "id": "x3-framework-strip",
+  "slug": "framework-strip",
+  "site": "ioo-main",
+  "program": "IOO",
+  "release": "review",
+  "mechanic": "figure",
+  "title": "The four questions behind the framework",
+  "question": "What are the four questions that Edition 001 asks, one for each of Build, Carry, Control and Continue?",
+  "promise": {
+    "learn": [
+      "The edition’s question for each of Build, Carry, Control and Continue",
+      "Where each one is explained in Edition 001"
+    ],
+    "minutes": 1,
+    "leaveWith": "A way into the edition and into a map of your own work",
+    "privacy": "Nothing to enter."
+  },
+  "origin": {
+    "kind": "edition",
+    "id": "ED 001",
+    "title": "When Does One Person Become an Institution?",
+    "path": "/edit/001"
+  },
+  "sources": [
+    {
+      "id": "s-edition",
+      "kind": "story",
+      "title": "When Does One Person Become an Institution?",
+      "publisher": "RN Collins, The I/1 Edit, Edition 001",
+      "date": "July 2026",
+      "accessed": "October 8, 2026",
+      "url": "/edit/001",
+      "supports": "The four questions, in the edition’s words",
+      "doesNotSupport": "Anything about your own work",
+      "check": "verified",
+      "status": "approved",
+      "quote": "Build. Carry. Control. Continue.",
+      "locator": "The working model"
+    },
+    {
+      "id": "s-edition-008",
+      "kind": "story",
+      "title": "The Smallest Institution in the Campaign",
+      "publisher": "RN Collins, Institutions of One, Edition 008",
+      "date": "August 2026",
+      "accessed": "October 8, 2026",
+      "url": "/edit/008",
+      "supports": "That Edition 008 organizes its system through the same four verbs",
+      "doesNotSupport": "Anything about Edition 001’s cases, or about your own work",
+      "check": "verified",
+      "status": "approved",
+      "quote": "I organize this system through four verbs.",
+      "locator": "Section: Build, Carry, Control, Continue"
+    }
+  ],
+  "claims": [
+    {
+      "id": "q-build",
+      "text": "What exists because this person made it exist?",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "What exists because this person made it exist?",
+      "status": "approved"
+    },
+    {
+      "id": "q-carry",
+      "text": "What survives when the container changes?",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "What survives when the container changes?",
+      "status": "approved"
+    },
+    {
+      "id": "q-control",
+      "text": "Who can decide what happens next?",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "Who can decide what happens next?",
+      "status": "approved"
+    },
+    {
+      "id": "q-continue",
+      "text": "What could persist if an essential dependency changed?",
+      "basis": "story",
+      "sourceIds": [
+        "s-edition"
+      ],
+      "storyQuote": "What could persist if an essential dependency changed?",
+      "status": "approved"
+    },
+    {
+      "id": "e008",
+      "text": "Edition 008 applies the same four verbs, Build, Carry, Control and Continue, to a single campaign.",
+      "basis": "editorial",
+      "sourceIds": [
+        "s-edition",
+        "s-edition-008"
+      ],
+      "status": "approved"
+    }
+  ],
+  "limits": {
+    "shows": [
+      "The four questions in the words of Edition 001",
+      "One photograph for each question, each labeled as a stand-in for an idea"
+    ],
+    "doesNotShow": [
+      "How any of the four is measured. The framework page explains the pilot method.",
+      "Anything about your own work. The Four questions map is where you list it."
+    ]
+  },
+  "share": {
+    "text": false,
+    "link": "never",
+    "image": false,
+    "print": false,
+    "files": []
+  },
+  "card": {
+    "name": "Framework strip",
+    "sourceShort": "Edition 001, The I/1 Edit"
+  },
+  "data": {
+    "imageBase": "/images/framework-strip/",
+    "images": [
+      {
+        "id": "cell-build",
+        "file": "cell-build-blacksmith-forge-l-estrange-robert-augustus-h-1900.jpg",
+        "width": 900,
+        "height": 743,
+        "alt": "Illustrative photo: a historic black-and-white photograph of a stone blacksmith's forge with an arched doorway, a cart outside and workers at the entrance, Enniskerry, Ireland.",
+        "creator": "L'Estrange, Robert Augustus Henry",
+        "licence": "CC0",
+        "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Horseshoe_Forge,_Blacksmith_Workshop_-_Enniskerry,_Wicklow_(County)_-_Ireland.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "cell-carry",
+        "file": "cell-carry-belt-multitool-jenny-bergensten-livrustkamm-2006.jpg",
+        "width": 900,
+        "height": 527,
+        "alt": "Illustrative photo: a nineteenth-century leather belt with pouches and a built-in tool, laid out on a white ground in a Swedish museum.",
+        "creator": "Jenny Bergensten (Livrustkammaren/SHM)",
+        "licence": "Public domain",
+        "licenceUrl": "https://commons.wikimedia.org/wiki/File:Circassian_warrior_belt_with_multi-tool_(19th_century,_Livrustkammaren,_18716_LRK).jpg",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Circassian_warrior_belt_with_multi-tool_(19th_century,_Livrustkammaren,_18716_LRK).jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "cell-control",
+        "file": "cell-control-switchboard-arnoldreinhold-2019.jpg",
+        "width": 675,
+        "height": 900,
+        "alt": "Illustrative photo: an old manual telephone switchboard with rows of jacks and cords at the Telephone Museum in Waltham, Massachusetts.",
+        "creator": "ArnoldReinhold",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Switchboard_1_TMW.agr.jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      },
+      {
+        "id": "cell-continue",
+        "file": "cell-continue-windmill-frank-schulenburg-2018.jpg",
+        "width": 720,
+        "height": 900,
+        "alt": "Illustrative photo: the historic Amrum windmill near Nebel, a mill that runs on wind alone.",
+        "creator": "Frank Schulenburg",
+        "licence": "CC BY-SA 4.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Amrumer_Windm%C3%BChle_(2018).jpg",
+        "precision": "illustrative",
+        "kind": "photo",
+        "status": "approved"
+      }
+    ],
+    "cells": [
+      {
+        "id": "build",
+        "number": "01",
+        "name": "Build",
+        "question": "What exists because this person made it exist?",
+        "claimId": "q-build",
+        "imageId": "cell-build",
+        "href": "/edit/001#thresholds-heading",
+        "linkLabel": "Read about Build in Edition 001",
+        "status": "approved"
+      },
+      {
+        "id": "carry",
+        "number": "02",
+        "name": "Carry",
+        "question": "What survives when the container changes?",
+        "claimId": "q-carry",
+        "imageId": "cell-carry",
+        "href": "/edit/001#thresholds-heading",
+        "linkLabel": "Read about Carry in Edition 001",
+        "status": "approved"
+      },
+      {
+        "id": "control",
+        "number": "03",
+        "name": "Control",
+        "question": "Who can decide what happens next?",
+        "claimId": "q-control",
+        "imageId": "cell-control",
+        "href": "/edit/001#thresholds-heading",
+        "linkLabel": "Read about Control in Edition 001",
+        "status": "approved"
+      },
+      {
+        "id": "continue",
+        "number": "04",
+        "name": "Continue",
+        "question": "What could persist if an essential dependency changed?",
+        "claimId": "q-continue",
+        "imageId": "cell-continue",
+        "href": "/edit/001#thresholds-heading",
+        "linkLabel": "Read about Continue in Edition 001",
+        "status": "approved"
+      }
+    ],
+    "map": {
+      "label": "Make your own map",
+      "href": "/tools/four-questions-map"
+    },
+    "edition008": {
+      "claimId": "e008",
+      "href": "/edit/008",
+      "linkLabel": "Read Edition 008",
+      "wordingId": "LK-19",
+      "futureToolId": "r3-institution-map"
+    }
+  },
+  "review": {
+    "culturalReview": "not-required",
+    "rnReview": [
+      "Link target for each cell: Edition 001 has no anchor for each verb, so all four go to the working model heading",
+      "Edition 008 line links to the edition until the Institution Map is built",
+      "Cell text now uses the edition’s four questions instead of the home page’s one-line glosses",
+      "Open Graph card image (not needed: a page section, not a page)"
+    ]
+  },
+  "og": {
+    "image": "/images/framework-strip/og.png",
+    "alt": "Four cells reading Build, Carry, Control and Continue, each with the edition’s question."
+  }
+}

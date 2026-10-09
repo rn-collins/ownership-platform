@@ -1,0 +1,21 @@
+/* X3 Framework strip. Written for the main site's own design layer (design-system.css): uses its --i1-* tokens, with fallbacks.
+   Four cells in a row, two columns on tablets, one column on phones. No rule-order tricks: one set of breakpoints, mobile first. */
+.fs{margin:24px 0 0}
+.fs-cells{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;border-top:1px solid var(--i1-ink,#11100e)}
+.fs-cell{padding:24px 0;border-bottom:1px solid var(--i1-ink,#11100e);min-width:0}
+.fs-photo{margin:0 0 14px}
+.fs-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--i1-paper-deep,#e9e0d1);border:1px solid var(--i1-ink,#11100e)}
+.fs-photo figcaption{font:400 13px/1.45 Arial,Helvetica,sans-serif;padding-top:6px;color:#4a4540;overflow-wrap:anywhere}
+.fs-photo figcaption a{display:inline-block;min-height:24px;min-width:24px;color:inherit}
+.fs-num{display:flex;gap:12px;align-items:baseline;margin:0 0 8px;font-size:22px}
+.fs-num span{font-size:14px;letter-spacing:.12em}
+.fs-q{margin:0 0 12px;font-size:18px;line-height:1.4}
+.fs-link{display:inline-flex;align-items:center;min-height:44px;color:var(--i1-rust-ink,#A33616);font-weight:700}
+.fs-map{margin:24px 0 8px}
+.fs-maplink{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:1px solid var(--i1-ink,#11100e);background:var(--i1-ink,#11100e);color:var(--i1-paper,#f4efe5);font-weight:800;text-decoration:none}
+.fs-e008{margin:8px 0 0}
+.fs-e008 a{display:inline-block;min-height:24px;color:inherit}
+.fs a:focus-visible{outline:3px solid var(--i1-blue,#173f8f);outline-offset:2px}
+@media(min-width:640px){.fs-cells{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}}
+@media(min-width:1024px){.fs-cells{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:24px;border-top:0}.fs-cell{border-bottom:0;border-top:1px solid var(--i1-ink,#11100e)}}
+@media print{.fs-cells{grid-template-columns:repeat(2,1fr)}.fs-photo img{max-height:2in}.fs-maplink{border:1px solid #000;background:#fff;color:#000}}

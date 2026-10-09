@@ -1,0 +1,1992 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mechanic/sheet/1",
+  "title": "Sheet: one branch per tool that uses this mechanic. A spec's data must match at least one branch.",
+  "description": "Merged as anyOf branches (kit 0.2.0). Branches: Dependency, four-questions-map, route-card, deal-record, institution-map, clause-reader. The validator's schema-lite reports the first error of each branch when none match.",
+  "anyOf": [
+    {
+      "title": "ed002-ranker",
+      "description": "ed002-ranker (pilots/main/src/components/tools/ed002-ranker). Sheet: labeled fields to a live preview to an export. Dependency ranker variant: a list with four tests.",
+      "type": "object",
+      "required": [
+        "maxItems",
+        "layers",
+        "tests",
+        "templates",
+        "cases"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "maxItems": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "layers": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "number",
+              "name",
+              "question",
+              "claimId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "tests": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "question",
+              "claimId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "templates": {
+          "type": "object",
+          "required": [
+            "empty",
+            "allMet",
+            "tiedWord",
+            "closing"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "empty": {
+              "type": "string"
+            },
+            "allMet": {
+              "type": "string"
+            },
+            "tiedWord": {
+              "type": "string"
+            },
+            "closing": {
+              "type": "object",
+              "required": [
+                "text",
+                "claimId",
+                "status"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "claimId": {
+                  "type": "string"
+                },
+                "status": {
+                  "enum": [
+                    "approved",
+                    "needs-rn"
+                  ]
+                }
+              }
+            },
+            "closingExtra": {
+              "type": "object",
+              "required": [
+                "text",
+                "claimId",
+                "status"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "claimId": {
+                  "type": "string"
+                },
+                "status": {
+                  "enum": [
+                    "approved",
+                    "needs-rn"
+                  ]
+                },
+                "why": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "sourceId",
+              "label",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "sourceId": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "four-questions-map",
+      "description": "four-questions-map (built/main/four-questions-map, schema file data.schema.json, id mechanic/sheet-map/1). Sheet, four-column map with one container change (M1 Four questions map). Proposed addition to kit/schema/mechanics/sheet-1.json as an anyOf branch; the kit has no file for it yet.",
+      "type": "object",
+      "required": [
+        "imageBase",
+        "maxPerColumn",
+        "maxItemLength",
+        "images",
+        "columns",
+        "changes",
+        "marks",
+        "templates"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "imageBase": {
+          "type": "string",
+          "pattern": "^/.*/$"
+        },
+        "maxPerColumn": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "maxItemLength": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 200
+        },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/four-questions-map__image"
+          }
+        },
+        "lead": {
+          "type": "object",
+          "required": [
+            "imageId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "imageId": {
+              "type": "string"
+            }
+          }
+        },
+        "columns": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "number",
+              "name",
+              "question",
+              "body",
+              "claimId",
+              "bodyClaimId",
+              "imageId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "number": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "bodyClaimId": {
+                "type": "string"
+              },
+              "imageId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "changes": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "ifPhrase",
+              "imageId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "ifPhrase": {
+                "type": "string"
+              },
+              "imageId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "changesClaimId": {
+          "type": "string"
+        },
+        "marks": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "imageId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "stays",
+                  "goes",
+                  "unsure"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "imageId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "templates": {
+          "type": "object",
+          "required": [
+            "empty",
+            "headlineChange",
+            "headlineNone",
+            "stays",
+            "goes",
+            "unsure",
+            "unmarked",
+            "everywhere",
+            "none",
+            "emptyColumn",
+            "pickChange",
+            "resultImageId",
+            "emptyImageId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "empty": {
+              "type": "string"
+            },
+            "headlineChange": {
+              "type": "string"
+            },
+            "headlineNone": {
+              "type": "string"
+            },
+            "stays": {
+              "type": "string"
+            },
+            "goes": {
+              "type": "string"
+            },
+            "unsure": {
+              "type": "string"
+            },
+            "unmarked": {
+              "type": "string"
+            },
+            "everywhere": {
+              "type": "string"
+            },
+            "none": {
+              "type": "string"
+            },
+            "emptyColumn": {
+              "type": "string"
+            },
+            "pickChange": {
+              "type": "string"
+            },
+            "resultImageId": {
+              "type": "string"
+            },
+            "emptyImageId": {
+              "type": "string"
+            }
+          }
+        },
+        "cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "sourceId",
+              "label",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "sourceId": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "edition": {
+          "type": "object",
+          "required": [
+            "claimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "claimId": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "route-card",
+      "description": "route-card (built/reader/route-card, schema file data.schema.json, id mechanic/sheet/route-card/1). Sheet: Route Card. Three modes (route, month four, compare), each a FormSheet. Lives beside the spec until an integrator copies it into kit/schema/mechanics.",
+      "type": "object",
+      "required": [
+        "lead",
+        "modes",
+        "mechanismOptions",
+        "coordinates",
+        "record",
+        "sample",
+        "finalClaimId",
+        "frameClaimId",
+        "closeout",
+        "compare",
+        "images",
+        "closeoutRows"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "lead": {
+          "type": "string"
+        },
+        "modes": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "anchor",
+              "image",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "route",
+                  "month-four",
+                  "compare"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "anchor": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "mechanismOptions": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "coordinates": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "name",
+              "hint",
+              "claimId",
+              "anchor",
+              "image",
+              "keywords",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "hint": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "anchor": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "keywords": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 2
+                }
+              },
+              "byHand": {
+                "type": "boolean"
+              },
+              "records": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "label",
+                    "path"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string",
+                      "pattern": "^/"
+                    }
+                  }
+                }
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "record": {
+          "type": "object",
+          "required": [
+            "introClaimId",
+            "claimIds"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "introClaimId": {
+              "type": "string"
+            },
+            "claimIds": {
+              "type": "array",
+              "minItems": 7,
+              "maxItems": 7,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "sample": {
+          "type": "object",
+          "required": [
+            "leadClaimId",
+            "claimId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "leadClaimId": {
+              "type": "string"
+            },
+            "claimId": {
+              "type": "string"
+            }
+          }
+        },
+        "finalClaimId": {
+          "type": "string"
+        },
+        "frameClaimId": {
+          "type": "string"
+        },
+        "fig6LimitClaimId": {
+          "type": "string"
+        },
+        "closeout": {
+          "type": "object",
+          "required": [
+            "promptClaimId",
+            "prompt",
+            "editorialClaimId",
+            "lastDayClaimId",
+            "readout",
+            "readoutNote"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "promptClaimId": {
+              "type": "string"
+            },
+            "prompt": {
+              "type": "string"
+            },
+            "editorialClaimId": {
+              "type": "string"
+            },
+            "lastDayClaimId": {
+              "type": "string"
+            },
+            "readout": {
+              "type": "string"
+            },
+            "readoutNote": {
+              "type": "string"
+            }
+          }
+        },
+        "compare": {
+          "type": "object",
+          "required": [
+            "introClaimIds",
+            "maxChars",
+            "boxes",
+            "states",
+            "heading",
+            "evidenceRow",
+            "footer",
+            "needBoth"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "introClaimIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "maxChars": {
+              "type": "integer",
+              "minimum": 1000
+            },
+            "boxes": {
+              "type": "object",
+              "required": [
+                "email",
+                "contract"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "contract": {
+                  "type": "string"
+                }
+              }
+            },
+            "states": {
+              "type": "object",
+              "required": [
+                "both",
+                "email",
+                "contract",
+                "neither"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "both": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "contract": {
+                  "type": "string"
+                },
+                "neither": {
+                  "type": "string"
+                }
+              }
+            },
+            "heading": {
+              "type": "string"
+            },
+            "evidenceRow": {
+              "type": "string"
+            },
+            "footer": {
+              "type": "string"
+            },
+            "needBoth": {
+              "type": "string"
+            }
+          }
+        },
+        "images": {
+          "type": "object"
+        },
+        "closeoutRows": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "label",
+              "hint",
+              "claimId",
+              "anchor",
+              "image",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer"
+              },
+              "label": {
+                "type": "string"
+              },
+              "hint": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "anchor": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "deal-record",
+      "description": "deal-record (built/reader/deal-record, schema file data.schema.json, id mechanic/sheet/deal-record/1). Sheet: Deal Record. Five fields, a decoder of shorthand terms, and the seven earlier stages. Lives beside the spec until an integrator copies it into kit/schema/mechanics.",
+      "type": "object",
+      "required": [
+        "lead",
+        "maxChars",
+        "keepIntroClaimId",
+        "keepCloseClaimId",
+        "paidClaimId",
+        "groups",
+        "fields",
+        "tiers",
+        "stages",
+        "stagesHeld",
+        "stagesNoteClaimId",
+        "images",
+        "texts",
+        "ownershipChoices",
+        "ownershipPrompt",
+        "decoderFrame",
+        "decoderTerms"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "lead": {
+          "type": "string"
+        },
+        "maxChars": {
+          "type": "integer",
+          "minimum": 100
+        },
+        "keepIntroClaimId": {
+          "type": "string"
+        },
+        "keepCloseClaimId": {
+          "type": "string"
+        },
+        "paidClaimId": {
+          "type": "string"
+        },
+        "stagesNoteClaimId": {
+          "type": "string"
+        },
+        "groups": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "claimId"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "fields": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "label",
+              "kind",
+              "group",
+              "image",
+              "questionClaimId",
+              "claimId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer"
+              },
+              "label": {
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "text",
+                  "ownership",
+                  "tier"
+                ]
+              },
+              "group": {
+                "type": "string"
+              },
+              "image": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "questionClaimId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "extraClaimIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "records": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "label",
+                    "path"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string",
+                      "pattern": "^/"
+                    }
+                  }
+                }
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "tiers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "means",
+              "image",
+              "claimId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "finished",
+                  "clean",
+                  "package"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "means": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "stages": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "label",
+              "verb",
+              "title",
+              "decision",
+              "question",
+              "image",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "verb": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "decision": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "stagesHeld": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "lede",
+              "evidence",
+              "rights",
+              "status",
+              "why"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "lede": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "rights": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "needs-rn"
+                ]
+              },
+              "why": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "images": {
+          "type": "object"
+        },
+        "texts": {
+          "type": "object",
+          "required": [
+            "empty",
+            "cutNote"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "empty": {
+              "type": "string"
+            },
+            "cutNote": {
+              "type": "string"
+            }
+          }
+        },
+        "ownershipChoices": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "image",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "none",
+                  "named",
+                  "undecided"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "ownershipPrompt": {
+          "type": "string"
+        },
+        "decoderFrame": {
+          "type": "object",
+          "required": [
+            "heading",
+            "footer",
+            "statusOne",
+            "statusMany",
+            "source"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "heading": {
+              "type": "string"
+            },
+            "footer": {
+              "type": "string"
+            },
+            "statusOne": {
+              "type": "string"
+            },
+            "statusMany": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            }
+          }
+        },
+        "decoderTerms": {
+          "type": "array",
+          "minItems": 12,
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "term",
+              "also",
+              "meaning",
+              "claimId",
+              "questions",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "term": {
+                "type": "string",
+                "minLength": 3
+              },
+              "also": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 3
+                }
+              },
+              "meaning": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "routeLinks": {
+                "type": "boolean"
+              },
+              "questions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "ed",
+                    "text",
+                    "quote"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "ed": {
+                      "enum": [
+                        "005",
+                        "006",
+                        "007",
+                        "008",
+                        "009"
+                      ]
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "reworded": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "institution-map",
+      "description": "institution-map (built/reader/institution-map, schema file data.schema.json, id mechanic/sheet/institution-map/1). Sheet: Institution Map. Six records, a loop of six links marked intact, broken or unsure, eight prompts, and an optional decision record. Lives beside the spec until an integrator copies it into kit/schema/mechanics.",
+      "type": "object",
+      "required": [
+        "lead",
+        "maxChars",
+        "locationMax",
+        "frameClaimIds",
+        "problemClaimId",
+        "mapClaimId",
+        "decisionTestClaimId",
+        "decisionProposedClaimId",
+        "decisionOneClaimId",
+        "records",
+        "links",
+        "linkStates",
+        "prompts",
+        "decision",
+        "relationNotes",
+        "texts",
+        "images"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "lead": {
+          "type": "string"
+        },
+        "maxChars": {
+          "type": "integer",
+          "minimum": 100
+        },
+        "locationMax": {
+          "type": "integer",
+          "minimum": 20
+        },
+        "frameClaimIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "problemClaimId": {
+          "type": "string"
+        },
+        "mapClaimId": {
+          "type": "string"
+        },
+        "decisionTestClaimId": {
+          "type": "string"
+        },
+        "decisionProposedClaimId": {
+          "type": "string"
+        },
+        "decisionOneClaimId": {
+          "type": "string"
+        },
+        "records": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "label",
+              "statement",
+              "claimId",
+              "image",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer"
+              },
+              "label": {
+                "type": "string"
+              },
+              "statement": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "image": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "a",
+              "b",
+              "question",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer"
+              },
+              "a": {
+                "type": "string"
+              },
+              "b": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "linkStates": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "image",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "intact",
+                  "broken",
+                  "unsure"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "prompts": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "label",
+              "question",
+              "image",
+              "claimId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer"
+              },
+              "label": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "decision": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "question",
+              "claimId",
+              "image",
+              "items",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              },
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "text",
+                    "claimId"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "claimId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "relationNotes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "linkId",
+              "sentence",
+              "status",
+              "why"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "linkId": {
+                "type": "string"
+              },
+              "sentence": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "needs-rn"
+                ]
+              },
+              "why": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "texts": {
+          "type": "object",
+          "required": [
+            "step1",
+            "step2",
+            "step3",
+            "noneYet",
+            "startHere",
+            "locationLabel",
+            "nothingMarked",
+            "cutNote",
+            "schematic",
+            "notMarked",
+            "chainLabel"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "step1": {
+              "type": "string"
+            },
+            "step2": {
+              "type": "string"
+            },
+            "step3": {
+              "type": "string"
+            },
+            "noneYet": {
+              "type": "string"
+            },
+            "startHere": {
+              "type": "string"
+            },
+            "locationLabel": {
+              "type": "string"
+            },
+            "nothingMarked": {
+              "type": "string"
+            },
+            "cutNote": {
+              "type": "string"
+            },
+            "schematic": {
+              "type": "string"
+            },
+            "notMarked": {
+              "type": "string"
+            },
+            "chainLabel": {
+              "type": "string"
+            }
+          }
+        },
+        "images": {
+          "type": "object"
+        }
+      }
+    },
+    {
+      "title": "clause-reader",
+      "description": "clause-reader (built/reader/clause-reader, schema file data.schema.json, id mechanic/sheet/clause-reader/1). Sheet: Clause reader. Three phrases from Edition 009 or a pasted clause, and eight boundaries marked named, left open or not sure. Lives beside the spec until an integrator copies it into kit/schema/mechanics.",
+      "type": "object",
+      "required": [
+        "lead",
+        "maxChars",
+        "askClaimId",
+        "endAskClaimId",
+        "neutralClaimId",
+        "notClaimId",
+        "phrases",
+        "boundaries",
+        "matcherKeywords",
+        "answers",
+        "texts",
+        "images"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "lead": {
+          "type": "string"
+        },
+        "maxChars": {
+          "type": "integer",
+          "minimum": 100
+        },
+        "askClaimId": {
+          "type": "string"
+        },
+        "endAskClaimId": {
+          "type": "string"
+        },
+        "neutralClaimId": {
+          "type": "string"
+        },
+        "notClaimId": {
+          "type": "string"
+        },
+        "phrases": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "image",
+              "claimIds",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "media",
+                  "universe",
+                  "intact"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "claimIds": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "boundaries": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "n",
+              "label",
+              "question",
+              "claimId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "n": {
+                "type": "integer"
+              },
+              "label": {
+                "type": "string"
+              },
+              "question": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "matcherKeywords": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "boundaryId",
+              "keywords",
+              "status",
+              "why"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "boundaryId": {
+                "type": "string"
+              },
+              "keywords": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 2
+                }
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              },
+              "why": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "answers": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "enum": [
+                  "named",
+                  "open",
+                  "unsure"
+                ]
+              },
+              "label": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "texts": {
+          "type": "object",
+          "required": [
+            "pickPrompt",
+            "pasteLabel",
+            "pasteOption",
+            "cutNote",
+            "markHeading",
+            "markHelp",
+            "empty"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "pickPrompt": {
+              "type": "string"
+            },
+            "pasteLabel": {
+              "type": "string"
+            },
+            "pasteOption": {
+              "type": "string"
+            },
+            "cutNote": {
+              "type": "string"
+            },
+            "markHeading": {
+              "type": "string"
+            },
+            "markHelp": {
+              "type": "string"
+            },
+            "empty": {
+              "type": "string"
+            }
+          }
+        },
+        "images": {
+          "type": "object"
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "four-questions-map__image": {
+      "type": "object",
+      "required": [
+        "id",
+        "file",
+        "width",
+        "height",
+        "alt",
+        "creator",
+        "licence",
+        "sourcePage",
+        "precision",
+        "kind",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string",
+          "pattern": "\\.jpg$"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 20
+        },
+        "creator": {
+          "type": "string",
+          "minLength": 2
+        },
+        "licence": {
+          "enum": [
+            "CC0",
+            "CC BY 2.0",
+            "CC BY 3.0",
+            "CC BY 4.0",
+            "CC BY-SA 2.0",
+            "CC BY-SA 3.0",
+            "CC BY-SA 4.0",
+            "Public domain"
+          ]
+        },
+        "licenceUrl": {
+          "type": "string"
+        },
+        "sourcePage": {
+          "type": "string",
+          "pattern": "^https://commons\\.wikimedia\\.org/wiki/File:"
+        },
+        "precision": {
+          "enum": [
+            "precise",
+            "illustrative"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "photo"
+          ]
+        },
+        "status": {
+          "enum": [
+            "approved",
+            "needs-rn"
+          ]
+        }
+      }
+    }
+  }
+}

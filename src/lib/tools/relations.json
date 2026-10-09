@@ -1,0 +1,53 @@
+{
+ "schema": "relations/1",
+ "relations": [
+  {
+   "a": "m2-dependency-ranker",
+   "b": "m1-four-questions-map",
+   "kind": "same-edition",
+   "strength": "hard",
+   "status": "approved",
+   "checked": "October 7, 2026",
+   "reasonA": "Edition 002 takes the last of Edition 001's four questions, what could continue, and tests one dependency four ways.",
+   "reasonB": "Edition 002 takes the last of Edition 001's four questions, what could continue, and tests one dependency four ways.",
+   "basis": "Edition 002 text: \"Edition 001 introduced four questions: what did you Build, what can you Carry, what can you Control, and what could Continue? This edition looks closely at Continue\". Opened October 7, 2026. Sentence approved by RN Collins on October 7, 2026 as LK-18.",
+   "wordingId": "LK-18"
+  },
+  {
+   "a": "m2-dependency-ranker",
+   "b": "obs-dependency-explorer",
+   "kind": "same-source",
+   "strength": "hard",
+   "status": "approved",
+   "checked": "October 7, 2026",
+   "reasonA": "The Dependency Explorer filters 41 career cases by ten kinds of dependency and shows which each case runs through.",
+   "reasonB": "The Dependency Explorer filters 41 career cases by ten kinds of dependency and shows which each case runs through.",
+   "basis": "Page at /observatory/dependencies opened October 7, 2026 (HTTP 200): the page describes filtering cases by dependency. Sentence approved by RN Collins on October 7, 2026 as LK-20.",
+   "wordingId": "LK-20"
+  },
+  {
+   "a": "m1-four-questions-map",
+   "b": "r3-institution-map",
+   "kind": "same-edition",
+   "strength": "hard",
+   "status": "approved",
+   "checked": "October 8, 2026",
+   "reasonA": "Edition 008 applies the same four verbs, Build, Carry, Control and Continue, to a single campaign.",
+   "reasonB": "Edition 008 applies the same four verbs, Build, Carry, Control and Continue, to a single campaign.",
+   "basis": "Edition 001, The working model: \"Build. Carry. Control. Continue.\" Edition 008, section Build, Carry, Control, Continue: \"I organize this system through four verbs.\" Both found in the saved page texts on October 8, 2026. Sentence approved by RN Collins on October 7, 2026 as LK-19. The Institution Map is not built yet, so this relation waits and does not render.",
+   "wordingId": "LK-19"
+  },
+  {
+   "a": "m1-four-questions-map",
+   "b": "ioo-ownership-index",
+   "kind": "same-question",
+   "strength": "soft",
+   "status": "approved",
+   "approvedOn": "October 7, 2026",
+   "reasonA": "For a longer self-check, the Ownership Index asks twenty questions across five areas and shows a five-area profile.",
+   "reasonB": "For a longer self-check, the Ownership Index asks twenty questions across five areas and shows a five-area profile.",
+   "basis": "Editorial pairing from the design, section 6.3. The /assess page text: \"Each is twenty questions across five areas, four questions to an area\" and \"Your result leads with a five-area profile\". Sentence approved by RN Collins on October 7, 2026 as LK-21. Only the Four questions map page shows this link.",
+   "wordingId": "LK-21"
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "kit-contract/1",
+  "note": "Per block: landmarks and attributes that must exist in the HTML from both the string renderers and the React components. Each site's check reads its own generated HTML. Counts may use the placeholders {sources}, {limitsShows}, {limitsNot}.",
+  "blocks": {
+    "ToolShell": [
+      { "selector": "div.tk[data-program]", "min": 1, "max": 1 },
+      { "selector": "a.tk-skip[href=#tk-main]", "min": 1, "max": 1 },
+      { "selector": "nav[aria-label=Breadcrumb]", "min": 1, "max": 1 },
+      { "selector": "header.tk-head h1", "min": 1, "max": 1 },
+      { "selector": "main#tk-main", "min": 1, "max": 1 },
+      { "selector": "p#tk-status[role=status][aria-live=polite]", "min": 1, "max": 1 },
+      { "selector": "footer.tk-foot", "min": 1, "max": 1 }
+    ],
+    "ToolHeader": [
+      { "selector": "dl.tk-facts dt", "min": 4, "max": 4, "texts": ["You will learn", "Time", "You leave with", "Your answers"] },
+      { "selector": "span.tk-plate", "min": 2, "max": 2 }
+    ],
+    "LimitsBand": [
+      { "selector": "section.tk-limits[aria-labelledby=tk-limits-h] h2#tk-limits-h", "min": 1, "max": 1 },
+      { "selector": "section.tk-limits div.bar li", "min": "{limitsShows}", "max": "{limitsShows}" },
+      { "selector": "section.tk-limits div.dash li", "min": "{limitsNot}", "max": "{limitsNot}" }
+    ],
+    "SourceDrawer": [
+      { "selector": "section.tk-sources li.tk-src[id^=src-]", "min": "{sources}", "max": "{sources}" },
+      { "selector": "section.tk-sources li.tk-src dt", "min": 1, "texts": ["Supports"] },
+      { "selector": "section.tk-sources button[data-tk=cite]", "min": "{sources}", "max": "{sources}" }
+    ],
+    "ClaimRef": [
+      { "selector": "sup.tk-ref a[href^=#src-][data-source][aria-label]", "min": 1 }
+    ],
+    "OriginBar": [
+      { "selector": "nav.tk-origin[aria-labelledby=tk-origin-h] ul li a", "min": 1 }
+    ],
+    "ResultCard": [
+      { "selector": "section.tk-result[aria-labelledby] h3", "min": 1, "max": 1 },
+      { "selector": "section.tk-result div.tk-actions.js-only button", "min": 1 }
+    ],
+    "RelatedRail": [
+      { "selector": "aside.tk-rail[aria-labelledby=tk-rail-h] ul li a", "min": 0, "max": 4 }
+    ]
+  }
+}

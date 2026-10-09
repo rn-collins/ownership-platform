@@ -1,0 +1,38 @@
+{
+ "schema": "wording-decisions/1",
+ "note": "The relation sentences RN Collins approved on October 7, 2026 that this site uses (LK-18 to LK-21). Tests use this file so an approved relation must use the approved sentence word for word. Copied from the tools kit wording decisions.",
+ "items": [
+  {
+   "id": "LK-18",
+   "kind": "relation",
+   "status": "approved",
+   "approved_by": "RN Collins",
+   "approved_on": "October 7, 2026",
+   "text": "Edition 002 takes the last of Edition 001's four questions, what could continue, and tests one dependency four ways."
+  },
+  {
+   "id": "LK-19",
+   "kind": "relation",
+   "status": "approved",
+   "approved_by": "RN Collins",
+   "approved_on": "October 7, 2026",
+   "text": "Edition 008 applies the same four verbs, Build, Carry, Control and Continue, to a single campaign."
+  },
+  {
+   "id": "LK-20",
+   "kind": "relation",
+   "status": "approved",
+   "approved_by": "RN Collins",
+   "approved_on": "October 7, 2026",
+   "text": "The Dependency Explorer filters 41 career cases by ten kinds of dependency and shows which each case runs through."
+  },
+  {
+   "id": "LK-21",
+   "kind": "relation",
+   "status": "approved",
+   "approved_by": "RN Collins",
+   "approved_on": "October 7, 2026",
+   "text": "For a longer self-check, the Ownership Index asks twenty questions across five areas and shows a five-area profile."
+  }
+ ]
+}

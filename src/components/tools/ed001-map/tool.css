@@ -1,0 +1,30 @@
+/* M1 Four questions map: photographs and the small layouts the kit has no block for. Namespaced tkp- (photo) and tkm- (this tool).
+   Import once from the page or layout that renders the tool. Uses only kit tokens. */
+.tkp{margin:0}
+.tkp img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--tk-field);border:3px solid var(--tk-ink)}
+.tkp-cap{font:400 13px/1.45 var(--tk-mono);color:var(--tk-muted);padding:6px 0 0;overflow-wrap:anywhere}
+.tkp-cap a{display:inline-block;min-height:24px;min-width:24px;color:var(--tk-muted)}
+.tkm-lead{display:grid;gap:16px}
+.tkm-hero img{aspect-ratio:16/9}
+.tkm-cols,.tkm-changes,.tkm-marks{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.tkm-cols>li,.tkm-changes>li,.tkm-marks>li{background:#fff;border:3px solid var(--tk-ink);padding:12px}
+.tkm-cols p,.tkm-changes p,.tkm-marks p{margin:8px 0 0}
+.tkm-num{display:flex;align-items:center;gap:8px;font-size:20px}
+.tkm-q{font-weight:600}
+.tkm-b{font-size:16px}
+.tkm-items{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:8px}
+.tkm-items>li{display:flex;gap:12px;align-items:center;justify-content:space-between;border:2px solid var(--tk-kraft-line);background:var(--tk-paper);padding:6px 6px 6px 12px;overflow-wrap:anywhere}
+.tkm-items .tk-btn.small{margin-top:0;flex:none}
+.tkm-opts{display:grid;gap:14px}
+.tkm-opt{border:2px solid var(--tk-kraft-line);padding:10px;background:var(--tk-paper)}
+.tkm-markset .tkm-radios{display:grid;gap:0 18px}
+.tkm-res{max-width:520px;margin:16px 0}
+@media(min-width:640px){
+  .tkm-lead{grid-template-columns:1.1fr 1fr;align-items:start}
+  .tkm-cols,.tkm-changes{grid-template-columns:repeat(2,1fr)}
+  .tkm-marks{grid-template-columns:repeat(3,1fr)}
+  .tkm-opts{grid-template-columns:repeat(2,1fr)}
+  .tkm-markset .tkm-radios{grid-template-columns:repeat(4,auto);justify-content:start}
+}
+@media(min-width:1000px){.tkm-cols{grid-template-columns:repeat(4,1fr)}.tkm-changes{grid-template-columns:repeat(4,1fr)}.tkm-opts{grid-template-columns:repeat(4,1fr)}}
+@media print{.tkp img{max-height:2.4in;object-fit:cover}.tkm-cols,.tkm-changes{grid-template-columns:repeat(2,1fr)}}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mechanic/figure-strip/1",
+  "title": "Figure, four-cell strip with a photograph, a question and a link in each cell (X3 Framework strip). Proposed as an anyOf branch of kit/schema/mechanics/figure-1.json; the kit has no file for it yet.",
+  "type": "object",
+  "required": ["imageBase", "images", "cells", "map", "edition008"],
+  "additionalProperties": false,
+  "properties": {
+    "imageBase": { "type": "string", "pattern": "^/.*/$" },
+    "images": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "$ref": "#/$defs/image" } },
+    "cells": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "object", "required": ["id", "number", "name", "question", "claimId", "imageId", "href", "linkLabel", "status"], "additionalProperties": false,
+      "properties": { "id": { "type": "string" }, "number": { "type": "string" }, "name": { "type": "string" }, "question": { "type": "string" }, "claimId": { "type": "string" }, "imageId": { "type": "string" }, "href": { "type": "string", "pattern": "^/" }, "linkLabel": { "type": "string" }, "status": { "enum": ["approved", "needs-rn"] } } } },
+    "map": { "type": "object", "required": ["label", "href"], "additionalProperties": false, "properties": { "label": { "type": "string" }, "href": { "type": "string", "pattern": "^/" } } },
+    "edition008": { "type": "object", "required": ["claimId", "href", "linkLabel", "wordingId"], "additionalProperties": false, "properties": { "claimId": { "type": "string" }, "href": { "type": "string", "pattern": "^/" }, "linkLabel": { "type": "string" }, "wordingId": { "type": "string" }, "futureToolId": { "type": "string" } } }
+  },
+  "$defs": {
+    "image": { "type": "object", "required": ["id", "file", "width", "height", "alt", "creator", "licence", "sourcePage", "precision", "kind", "status"], "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" }, "file": { "type": "string", "pattern": "\\.jpg$" }, "width": { "type": "integer", "minimum": 200 }, "height": { "type": "integer", "minimum": 200 },
+        "alt": { "type": "string", "minLength": 20 }, "creator": { "type": "string", "minLength": 2 },
+        "licence": { "enum": ["CC0", "CC BY 2.0", "CC BY 3.0", "CC BY 4.0", "CC BY-SA 2.0", "CC BY-SA 3.0", "CC BY-SA 4.0", "Public domain"] },
+        "licenceUrl": { "type": "string" }, "sourcePage": { "type": "string", "pattern": "^https://commons\\.wikimedia\\.org/wiki/File:" },
+        "precision": { "enum": ["precise", "illustrative"] }, "kind": { "enum": ["photo"] }, "status": { "enum": ["approved", "needs-rn"] } } }
+  }
+}

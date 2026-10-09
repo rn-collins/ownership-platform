@@ -1,0 +1,57 @@
+{
+ "title": "Tools",
+ "lede": "Short tools that go with the editions. Each one links back to the edition it comes from and lists the sources behind what it says.",
+ "previewNote": "Preview. These pages are not in the site menu or in search results yet.",
+ "themes": {
+  "who": "Who does the work"
+ },
+ "items": [
+  {
+   "id": "m1-four-questions-map",
+   "theme": "who",
+   "image": {
+    "file": "/tools/four-questions-map/images/lead-shoemakers-workbench-roy-egloff-2021.jpg",
+    "width": 1000,
+    "height": 750,
+    "alt": "Illustrative photo: a shoemaker's workbench from around 1930 in a Swiss museum, its drawers, pliers, hammers and awls laid out as the maker left them. It stands for one person's practice that outlasted the person; it is not a case from Edition 001.",
+    "creator": "Roy Egloff",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:CH.ZG.Zug_Museum-Burg-Zug_shoemaker%27s-workbench-around-1930.jpg"
+   }
+  },
+  {
+   "id": "m2-dependency-ranker",
+   "theme": "who",
+   "image": {
+    "file": "/tools/dependency-ranker/images/lead-container-terminal-h-zell-2022.jpg",
+    "width": 900,
+    "height": 551,
+    "alt": "Illustrative photo: container cranes loading a ship at the container terminal in Bremerhaven, Germany, a working link in a physical supply chain.",
+    "creator": "H. Zell",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Container-Terminal_Bremerhaven_01.jpg"
+   }
+  }
+ ],
+ "pageSections": {
+  "heading": "Page section preview",
+  "note": "A section for the Institutions of One home page, shown here on its own page.",
+  "items": [
+   {
+    "id": "x3-framework-strip",
+    "image": {
+     "file": "/images/framework-strip/cell-build-blacksmith-forge-l-estrange-robert-augustus-h-1900.jpg",
+     "width": 900,
+     "height": 743,
+     "alt": "Illustrative photo: a historic black-and-white photograph of a stone blacksmith's forge with an arched doorway, a cart outside and workers at the entrance, Enniskerry, Ireland.",
+     "creator": "L'Estrange, Robert Augustus Henry",
+     "licence": "CC0",
+     "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+     "sourcePage": "https://commons.wikimedia.org/wiki/File:Horseshoe_Forge,_Blacksmith_Workshop_-_Enniskerry,_Wicklow_(County)_-_Ireland.jpg"
+    }
+   }
+  ]
+ }
+}

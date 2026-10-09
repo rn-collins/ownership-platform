@@ -1,0 +1,170 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "Institutions of One, home":
+    - /url: /
+    - text: Institutions of One
+  - navigation "Primary":
+    - link "Read":
+      - /url: /edit
+    - link "Visual stories (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/production/cycle-01
+    - link "Cases":
+      - /url: /observatory
+    - link "Tools (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/experiences
+    - link "Sources (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/resources
+    - link "Work with RN":
+      - /url: /partner
+    - link "Get the newsletter (opens in a new tab)":
+      - /url: https://polymath-rn-collins.beehiiv.com/subscribe
+- navigation "Breadcrumb":
+  - paragraph:
+    - link "Institutions of One":
+      - /url: /
+    - text: › Tools
+- main:
+  - paragraph: TOOLS IOO
+  - heading "Tools" [level=1]
+  - paragraph: Short tools that go with the editions. Each one links back to the edition it comes from and lists the sources behind what it says.
+  - paragraph: By RN Collins
+  - note: Preview. These pages are not in the site menu or in search results yet.
+  - region "The tools":
+    - heading "The tools" [level=2]
+    - list:
+      - listitem:
+        - 'figure "Illustrative photo. Photo: Roy Egloff, CC BY-SA 4.0 , via Wikimedia Commons, photo page for the picture by Roy Egloff ."':
+          - 'img "Illustrative photo: a shoemaker''s workbench from around 1930 in a Swiss museum, its drawers, pliers, hammers and awls laid out as the maker left them. It stands for one person''s practice that outlasted the person; it is not a case from Edition 001."'
+          - text: "Illustrative photo. Photo: Roy Egloff,"
+          - link "CC BY-SA 4.0":
+            - /url: https://creativecommons.org/licenses/by-sa/4.0
+          - text: ", via"
+          - link "Wikimedia Commons, photo page for the picture by Roy Egloff":
+            - /url: https://commons.wikimedia.org/wiki/File:CH.ZG.Zug_Museum-Burg-Zug_shoemaker%27s-workbench-around-1930.jpg
+            - text: Wikimedia Commons
+          - text: .
+        - text: Who does the work
+        - heading "Where does your work become structurally yours?" [level=3]:
+          - link "Where does your work become structurally yours?":
+            - /url: /tools/four-questions-map
+        - paragraph: For the work you have now, what have you built, what travels with you, who decides, and what could continue if the container changed?
+        - paragraph: "8 minutes · You leave with: A one-page map you can copy, print or save as a text file"
+      - listitem:
+        - 'figure "Illustrative photo. Photo: H. Zell, CC BY-SA 3.0 , via Wikimedia Commons, photo page for the picture by H. Zell ."':
+          - 'img "Illustrative photo: container cranes loading a ship at the container terminal in Bremerhaven, Germany, a working link in a physical supply chain."'
+          - text: "Illustrative photo. Photo: H. Zell,"
+          - link "CC BY-SA 3.0":
+            - /url: https://creativecommons.org/licenses/by-sa/3.0
+          - text: ", via"
+          - link "Wikimedia Commons, photo page for the picture by H. Zell":
+            - /url: https://commons.wikimedia.org/wiki/File:Container-Terminal_Bremerhaven_01.jpg
+            - text: Wikimedia Commons
+          - text: .
+        - text: Who does the work
+        - heading "Which dependency could stop my work first?" [level=3]:
+          - link "Which dependency could stop my work first?":
+            - /url: /tools/dependency-ranker
+        - paragraph: Rank up to five of your own dependencies by how many of Edition 002’s four tests each one fails.
+        - paragraph: "5 minutes · You leave with: A ranked list you can copy, print or save as a text file"
+  - region "Page section preview":
+    - heading "Page section preview" [level=2]
+    - paragraph: A section for the Institutions of One home page, shown here on its own page.
+    - list:
+      - listitem:
+        - 'figure "Illustrative photo. Photo: L''Estrange, Robert Augustus Henry, CC0 , via Wikimedia Commons, photo page for the picture by L''Estrange, Robert Augustus Henry ."':
+          - 'img "Illustrative photo: a historic black-and-white photograph of a stone blacksmith''s forge with an arched doorway, a cart outside and workers at the entrance, Enniskerry, Ireland."'
+          - text: "Illustrative photo. Photo: L'Estrange, Robert Augustus Henry,"
+          - link "CC0":
+            - /url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+          - text: ", via"
+          - link "Wikimedia Commons, photo page for the picture by L'Estrange, Robert Augustus Henry":
+            - /url: https://commons.wikimedia.org/wiki/File:Horseshoe_Forge,_Blacksmith_Workshop_-_Enniskerry,_Wicklow_(County)_-_Ireland.jpg
+            - text: Wikimedia Commons
+          - text: .
+        - heading "The four questions behind the framework" [level=3]:
+          - link "The four questions behind the framework":
+            - /url: /tools/framework-strip
+        - paragraph: What are the four questions that Edition 001 asks, one for each of Build, Carry, Control and Continue?
+        - paragraph: "1 minute · You leave with: A way into the edition and into a map of your own work"
+- contentinfo:
+  - link "Institutions of One, home":
+    - /url: /
+    - text: Institutions of One
+  - paragraph: Research on what people own in their working lives.
+  - paragraph:
+    - text: This site is the official home of each edition. Visual stories, interactive tools, and the source library for each edition live on the
+    - link "Public Reader (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app
+    - text: ", the companion site."
+  - text: Explore
+  - link "Method":
+    - /url: /methodology
+  - link "Pilot protocol":
+    - /url: /methodology/pilot
+  - link "Cases":
+    - /url: /observatory
+  - link "Explore dependencies":
+    - /url: /observatory/dependencies
+  - link "What the 41 careers reveal":
+    - /url: /findings
+  - link "Living findings":
+    - /url: /observatory/findings
+  - link "Cross-case timeline":
+    - /url: /observatory/timeline
+  - link "Find a countercase":
+    - /url: /observatory/countercases
+  - link "Apply the cases to your work":
+    - /url: /observatory/apply
+  - link "Inspect the evidence":
+    - /url: /observatory/evidence
+  - link "Research documentation":
+    - /url: /observatory/documentation
+  - text: Participate
+  - link "Assessment":
+    - /url: /assess
+  - link "Work with RN":
+    - /url: /partner
+  - link "Join an interview":
+    - /url: /research/cognitive-interviews
+  - link "Editions":
+    - /url: /edit
+  - link "About RN Collins":
+    - /url: /about
+  - text: On the Public Reader
+  - link "Visual stories (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/production/cycle-01
+  - link "Interactive tools (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/experiences
+  - link "Source Desk (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/resources
+  - text: Connect
+  - link "Connect with RN":
+    - /url: /contact
+  - link "Privacy":
+    - /url: /privacy
+  - text: Connect with RN Collins
+  - list "RN Collins on other platforms":
+    - listitem:
+      - link "LinkedIn (opens in a new tab)":
+        - /url: https://www.linkedin.com/in/rn-collins
+    - listitem:
+      - link "Instagram (opens in a new tab)":
+        - /url: https://www.instagram.com/rn_collins/
+    - listitem:
+      - link "X (opens in a new tab)":
+        - /url: https://x.com/renaissancex2m3
+    - listitem:
+      - link "TikTok (opens in a new tab)":
+        - /url: https://www.tiktok.com/@renaissancex2m3
+    - listitem:
+      - link "Bluesky (opens in a new tab)":
+        - /url: https://bsky.app/profile/rncollins.bsky.social
+    - listitem:
+      - link "YouTube (opens in a new tab)":
+        - /url: https://www.youtube.com/@Renaissance-Woman-3000
+    - listitem:
+      - link "The Polymath (opens in a new tab)":
+        - /url: https://polymath-rn-collins.beehiiv.com/subscribe
+  - paragraph: © 2026 RN Collins · Research and editorial work
+- alert

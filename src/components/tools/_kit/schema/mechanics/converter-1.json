@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mechanic/converter/1",
+  "title": "Converter: typed inputs to a computed result with edge states (c14-14 Honolulu clock)",
+  "type": "object",
+  "required": ["defaultPreset", "yearRange", "eraRows", "dateFacts"],
+  "additionalProperties": false,
+  "properties": {
+    "defaultPreset": { "type": "string" },
+    "yearRange": { "type": "object", "required": ["min", "max"], "additionalProperties": false, "properties": { "min": { "type": "integer", "minimum": 1000 }, "max": { "type": "integer", "maximum": 3000 } } },
+    "eraRows": {
+      "type": "array", "minItems": 3,
+      "items": { "type": "object", "required": ["id", "when", "rule", "offset", "says", "status"], "additionalProperties": false,
+        "properties": { "id": { "type": "string" }, "when": { "type": "string" }, "rule": { "type": "string" }, "offset": { "type": "string" }, "says": { "type": "string" }, "claimIds": { "type": "array", "items": { "type": "string" } }, "status": { "enum": ["approved", "needs-rn"] } } }
+    },
+    "dateFacts": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "object", "required": ["id", "what", "value", "where", "sourceId", "status"], "additionalProperties": false,
+        "properties": { "id": { "type": "string" }, "what": { "type": "string" }, "value": { "type": "string" }, "where": { "type": "string" }, "sourceId": { "type": "string" }, "status": { "enum": ["approved", "needs-rn"] } } }
+    }
+  }
+}

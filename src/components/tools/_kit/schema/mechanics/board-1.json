@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mechanic/board/1",
+  "title": "Board: one branch per tool that uses this mechanic. A spec's data must match at least one branch.",
+  "description": "Merged as anyOf branches (kit 0.2.0). Branches: c14-09. The validator's schema-lite reports the first error of each branch when none match.",
+  "anyOf": [
+    {
+      "title": "c14-09",
+      "description": "c14-09 (built/htw/c14-09, schema file data.schema.json, id mechanic/board/1). Board: toggle cards that feed a lookup of fixed sentences (c14-09 volcano signals). To use the real validator, copy this file to kit/schema/mechanics/board-1.json.",
+      "type": "object",
+      "required": [
+        "lead",
+        "streams",
+        "station",
+        "sentences",
+        "fallback",
+        "ladder",
+        "images"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "lead": {
+          "type": "object",
+          "required": [
+            "imageId"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "imageId": {
+              "type": "string"
+            }
+          }
+        },
+        "streams": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "claimId",
+              "imageIds",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "imageIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "station": {
+          "type": "object",
+          "required": [
+            "id",
+            "label",
+            "claimId",
+            "imageIds"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "claimId": {
+              "type": "string"
+            },
+            "imageIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "sentences": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "on",
+              "broken",
+              "claimId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "on": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "broken": {
+                "type": "boolean"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "fallback": {
+          "type": "object",
+          "required": [
+            "silentClaimId",
+            "methodClaimId",
+            "pickOne",
+            "silentShort"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "silentClaimId": {
+              "type": "string"
+            },
+            "methodClaimId": {
+              "type": "string"
+            },
+            "pickOne": {
+              "type": "string"
+            },
+            "silentShort": {
+              "type": "string"
+            }
+          }
+        },
+        "ladder": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "when",
+              "claimId",
+              "imageId",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "when": {
+                "type": "string"
+              },
+              "claimId": {
+                "type": "string"
+              },
+              "imageId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "file",
+              "width",
+              "height",
+              "alt",
+              "caption",
+              "creditLine",
+              "license",
+              "sourceId",
+              "precision",
+              "status"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "file": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 20
+              },
+              "caption": {
+                "type": "string"
+              },
+              "creditLine": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "licenseUrl": {
+                "type": "string"
+              },
+              "sourceId": {
+                "type": "string"
+              },
+              "precision": {
+                "enum": [
+                  "precise",
+                  "illustrative"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-rn"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

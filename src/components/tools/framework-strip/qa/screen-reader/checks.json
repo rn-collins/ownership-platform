@@ -1,0 +1,317 @@
+[
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "exactly one h1",
+  "ok": true,
+  "detail": "['The four questions behind the framework']"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "heading order never skips a level",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "one banner, one main, one contentinfo",
+  "ok": true,
+  "detail": "{'banner': 1, 'main': 1, 'contentinfo': 1}"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "navigation landmarks have unique names",
+  "ok": true,
+  "detail": "['Primary', 'Breadcrumb', 'Back to the story']"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "every control, link and image in the accessibility tree has a name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "every visible control has a computed name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "every image has meaningful alt (no filename, no \"image of\")",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "every image has width and height",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "tables have captions and header cells",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "no schematic or simulation drawing on the page (nothing to label)",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "no link reads \"here\" or \"more\", and none is empty",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "no two links share a name and go to different places",
+  "ok": true,
+  "detail": "{}"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "page title and language are set",
+  "ok": true,
+  "detail": "('The four questions behind the framework | Institutions of One', 'en')"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "no positive tabindex",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "one polite status line (role=status, aria-live=polite) is present",
+  "ok": true,
+  "detail": "[{'id': 'tk-status', 'role': 'status', 'live': 'polite', 'text': '', 'len': 0}]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "no large live region that would be re-read",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "first Tab stop is the skip link",
+  "ok": true,
+  "detail": "{'tag': 'a', 'id': '', 'text': 'Skip to content', 'dom': 39, 'top': 12, 'left': 12, 'inMain': False, 'y': 12, 'hash': ''}"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "focus order follows document order (no jumps backward before the end)",
+  "ok": true,
+  "detail": "[282, 285, 288, 291]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "focus order follows reading order on the screen (inside the content, no jump up the page except to the next column)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "keyboard reaches every visible focusable element (a radio group is one stop)",
+  "ok": true,
+  "detail": "(64, 64)"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "focus leaves the page or wraps at the end (no keyboard trap)",
+  "ok": true,
+  "detail": "65"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "skip link is visible on focus and moves the next Tab stop into the content",
+  "ok": true,
+  "detail": "{\"skip\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Skip to content\", \"dom\": 42, \"top\": 12, \"left\": 12, \"inMain\": false, \"y\": 12, \"hash\": \"\"}, \"next\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Skip to the tool\", \"dom\": 66, \"top\": 8, \"left\": 8, \"inMain\": true, \"y\": -11, \"hash\": \"#main\"}}"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js",
+  "check": "the tool skip link moves focus past the header into the tool",
+  "ok": true,
+  "detail": "{\"next\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"CC0\", \"dom\": 108, \"top\": 957, \"left\": 289, \"inMain\": true, \"y\": 350, \"hash\": \"#tk-main\"}}"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "exactly one h1",
+  "ok": true,
+  "detail": "['The four questions behind the framework']"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "heading order never skips a level",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "one banner, one main, one contentinfo",
+  "ok": true,
+  "detail": "{'banner': 1, 'main': 1, 'contentinfo': 1}"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "navigation landmarks have unique names",
+  "ok": true,
+  "detail": "['Primary', 'Breadcrumb', 'Back to the story']"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "every control, link and image in the accessibility tree has a name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "every visible control has a computed name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "every image has meaningful alt (no filename, no \"image of\")",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "every image has width and height",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "tables have captions and header cells",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "no schematic or simulation drawing on the page (nothing to label)",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "no link reads \"here\" or \"more\", and none is empty",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "no two links share a name and go to different places",
+  "ok": true,
+  "detail": "{}"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "page title and language are set",
+  "ok": true,
+  "detail": "('The four questions behind the framework | Institutions of One', 'en')"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "no positive tabindex",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "first Tab stop is the skip link",
+  "ok": true,
+  "detail": "{'tag': 'a', 'id': '', 'text': 'Skip to content', 'dom': 42, 'top': 12, 'left': 12, 'inMain': False, 'y': 12, 'hash': ''}"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "focus order follows document order (no jumps backward before the end)",
+  "ok": true,
+  "detail": "[286, 289, 292, 295]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "focus order follows reading order on the screen (inside the content, no jump up the page except to the next column)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "keyboard reaches every visible focusable element (a radio group is one stop)",
+  "ok": true,
+  "detail": "(62, 62)"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "focus leaves the page or wraps at the end (no keyboard trap)",
+  "ok": true,
+  "detail": "63"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "skip link is visible on focus and moves the next Tab stop into the content",
+  "ok": true,
+  "detail": "{\"skip\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Skip to content\", \"dom\": 42, \"top\": 12, \"left\": 12, \"inMain\": false, \"y\": 12, \"hash\": \"\"}, \"next\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Skip to the tool\", \"dom\": 67, \"top\": 8, \"left\": 8, \"inMain\": true, \"y\": 8, \"hash\": \"#main\"}}"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "nojs",
+  "check": "the tool skip link moves focus past the header into the tool",
+  "ok": true,
+  "detail": "{\"next\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"CC0\", \"dom\": 109, \"top\": 957, \"left\": 289, \"inMain\": true, \"y\": 957, \"hash\": \"#tk-main\"}}"
+ },
+ {
+  "page": "framework-strip",
+  "mode": "js-375",
+  "check": "no horizontal page scroll at 375 px",
+  "ok": true,
+  "detail": "0"
+ }
+]

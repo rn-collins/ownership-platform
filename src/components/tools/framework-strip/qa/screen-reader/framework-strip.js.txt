@@ -1,0 +1,289 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "Institutions of One, home":
+    - /url: /
+    - text: Institutions of One
+  - navigation "Primary":
+    - link "Read":
+      - /url: /edit
+    - link "Visual stories (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/production/cycle-01
+    - link "Cases":
+      - /url: /observatory
+    - link "Tools (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/experiences
+    - link "Sources (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app/resources
+    - link "Work with RN":
+      - /url: /partner
+    - link "Get the newsletter (opens in a new tab)":
+      - /url: https://polymath-rn-collins.beehiiv.com/subscribe
+- article:
+  - link "Skip to the tool":
+    - /url: "#tk-main"
+  - navigation "Breadcrumb":
+    - paragraph:
+      - link "Institutions of One":
+        - /url: /
+      - text: ›
+      - link "Tools":
+        - /url: /tools
+      - text: › framework-strip
+  - paragraph: TOOL ED 001
+  - heading "The four questions behind the framework" [level=1]
+  - paragraph: What are the four questions that Edition 001 asks, one for each of Build, Carry, Control and Continue?
+  - term: You will learn
+  - definition:
+    - list:
+      - listitem: The edition’s question for each of Build, Carry, Control and Continue
+      - listitem: Where each one is explained in Edition 001
+  - term: Time
+  - definition: 1 minute
+  - term: You leave with
+  - definition: A way into the edition and into a map of your own work
+  - term: Your answers
+  - definition: Nothing to enter.
+  - paragraph:
+    - text: By RN Collins · Based on
+    - link "When Does One Person Become an Institution?":
+      - /url: /edit/001
+  - main:
+    - status
+    - region "The strip as it would sit on the home page":
+      - heading "The strip as it would sit on the home page" [level=2]
+      - list "The four questions of Edition 001":
+        - listitem:
+          - 'figure "Illustrative photo. Photo: L''Estrange, Robert Augustus Henry, CC0 , via Wikimedia Commons, photo page for the picture by L''Estrange, Robert Augustus Henry ."':
+            - 'img "Illustrative photo: a historic black-and-white photograph of a stone blacksmith''s forge with an arched doorway, a cart outside and workers at the entrance, Enniskerry, Ireland."'
+            - text: "Illustrative photo. Photo: L'Estrange, Robert Augustus Henry,"
+            - link "CC0":
+              - /url: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by L'Estrange, Robert Augustus Henry":
+              - /url: https://commons.wikimedia.org/wiki/File:Horseshoe_Forge,_Blacksmith_Workshop_-_Enniskerry,_Wicklow_(County)_-_Ireland.jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - strong: Build
+          - paragraph: What exists because this person made it exist?
+          - link "Read about Build in Edition 001":
+            - /url: /edit/001#thresholds-heading
+        - listitem:
+          - 'figure "Illustrative photo. Photo: Jenny Bergensten (Livrustkammaren/SHM), Public domain , via Wikimedia Commons, photo page for the picture by Jenny Bergensten (Livrustkammaren/SHM) ."':
+            - 'img "Illustrative photo: a nineteenth-century leather belt with pouches and a built-in tool, laid out on a white ground in a Swedish museum."'
+            - text: "Illustrative photo. Photo: Jenny Bergensten (Livrustkammaren/SHM),"
+            - link "Public domain":
+              - /url: https://commons.wikimedia.org/wiki/File:Circassian_warrior_belt_with_multi-tool_(19th_century,_Livrustkammaren,_18716_LRK).jpg
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by Jenny Bergensten (Livrustkammaren/SHM)":
+              - /url: https://commons.wikimedia.org/wiki/File:Circassian_warrior_belt_with_multi-tool_(19th_century,_Livrustkammaren,_18716_LRK).jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - strong: Carry
+          - paragraph: What survives when the container changes?
+          - link "Read about Carry in Edition 001":
+            - /url: /edit/001#thresholds-heading
+        - listitem:
+          - 'figure "Illustrative photo. Photo: ArnoldReinhold, CC BY-SA 4.0 , via Wikimedia Commons, photo page for the picture by ArnoldReinhold ."':
+            - 'img "Illustrative photo: an old manual telephone switchboard with rows of jacks and cords at the Telephone Museum in Waltham, Massachusetts."'
+            - text: "Illustrative photo. Photo: ArnoldReinhold,"
+            - link "CC BY-SA 4.0":
+              - /url: https://creativecommons.org/licenses/by-sa/4.0
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by ArnoldReinhold":
+              - /url: https://commons.wikimedia.org/wiki/File:Switchboard_1_TMW.agr.jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - strong: Control
+          - paragraph: Who can decide what happens next?
+          - link "Read about Control in Edition 001":
+            - /url: /edit/001#thresholds-heading
+        - listitem:
+          - 'figure "Illustrative photo. Photo: Frank Schulenburg, CC BY-SA 4.0 , via Wikimedia Commons, photo page for the picture by Frank Schulenburg ."':
+            - 'img "Illustrative photo: the historic Amrum windmill near Nebel, a mill that runs on wind alone."'
+            - text: "Illustrative photo. Photo: Frank Schulenburg,"
+            - link "CC BY-SA 4.0":
+              - /url: https://creativecommons.org/licenses/by-sa/4.0
+            - text: ", via"
+            - link "Wikimedia Commons, photo page for the picture by Frank Schulenburg":
+              - /url: https://commons.wikimedia.org/wiki/File:Amrumer_Windm%C3%BChle_(2018).jpg
+              - text: Wikimedia Commons
+            - text: .
+          - paragraph:
+            - strong: Continue
+          - paragraph: What could persist if an essential dependency changed?
+          - link "Read about Continue in Edition 001":
+            - /url: /edit/001#thresholds-heading
+      - paragraph:
+        - link "Make your own map":
+          - /url: /tools/four-questions-map
+      - paragraph:
+        - text: Edition 008 applies the same four verbs, Build, Carry, Control and Continue, to a single campaign.
+        - link "Read Edition 008":
+          - /url: /edit/008
+        - text: .
+  - region "What this tool shows and what it does not":
+    - heading "What this tool shows and what it does not" [level=2]
+    - heading "Shows" [level=3]
+    - list:
+      - listitem: The four questions in the words of Edition 001
+      - listitem: One photograph for each question, each labeled as a stand-in for an idea
+    - heading "Does not show" [level=3]
+    - list:
+      - listitem: How any of the four is measured. The framework page explains the pilot method.
+      - listitem: Anything about your own work. The Four questions map is where you list it.
+  - region "Where this comes from":
+    - heading "Where this comes from" [level=2]
+    - paragraph:
+      - text: Every statement carries a small number. The number points to the source that supports it. This tool is based on
+      - link "When Does One Person Become an Institution?":
+        - /url: /edit/001
+      - text: .
+    - list:
+      - listitem:
+        - heading "1. When Does One Person Become an Institution?" [level=3]:
+          - text: "1."
+          - link "When Does One Person Become an Institution?":
+            - /url: /edit/001
+        - term: Publisher
+        - definition: RN Collins, The I/1 Edit, Edition 001
+        - term: Published
+        - definition: July 2026
+        - term: Checked
+        - definition: October 8, 2026
+        - term: Supports
+        - definition: The four questions, in the edition’s words
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: What exists because this person made it exist?
+            - listitem: What survives when the container changes?
+            - listitem: Who can decide what happens next?
+            - listitem: What could persist if an essential dependency changed?
+            - listitem: Edition 008 applies the same four verbs, Build, Carry, Control and Continue, to a single campaign.
+        - term: Does not show
+        - definition: Anything about your own work
+        - term: The page says
+        - definition: “Build. Carry. Control. Continue.”
+        - term: Where
+        - definition: The working model
+        - button "Copy citation"
+      - listitem:
+        - heading "2. The Smallest Institution in the Campaign" [level=3]:
+          - text: "2."
+          - link "The Smallest Institution in the Campaign":
+            - /url: /edit/008
+        - term: Publisher
+        - definition: RN Collins, Institutions of One, Edition 008
+        - term: Published
+        - definition: August 2026
+        - term: Checked
+        - definition: October 8, 2026
+        - term: Supports
+        - definition: That Edition 008 organizes its system through the same four verbs
+        - term: Used for
+        - definition:
+          - list:
+            - listitem: Edition 008 applies the same four verbs, Build, Carry, Control and Continue, to a single campaign.
+        - term: Does not show
+        - definition: Anything about Edition 001’s cases, or about your own work
+        - term: The page says
+        - definition: “I organize this system through four verbs.”
+        - term: Where
+        - definition: "Section: Build, Carry, Control, Continue"
+        - button "Copy citation"
+  - navigation "Back to the story":
+    - heading "Back to the story" [level=2]
+    - list:
+      - listitem:
+        - text: Story
+        - link "Read the story":
+          - /url: /edit/001
+  - paragraph:
+    - text: By RN Collins.
+    - link "About this site":
+      - /url: /about
+- contentinfo:
+  - link "Institutions of One, home":
+    - /url: /
+    - text: Institutions of One
+  - paragraph: Research on what people own in their working lives.
+  - paragraph:
+    - text: This site is the official home of each edition. Visual stories, interactive tools, and the source library for each edition live on the
+    - link "Public Reader (opens in a new tab)":
+      - /url: https://institutions-of-one-reader.vercel.app
+    - text: ", the companion site."
+  - text: Explore
+  - link "Method":
+    - /url: /methodology
+  - link "Pilot protocol":
+    - /url: /methodology/pilot
+  - link "Cases":
+    - /url: /observatory
+  - link "Explore dependencies":
+    - /url: /observatory/dependencies
+  - link "What the 41 careers reveal":
+    - /url: /findings
+  - link "Living findings":
+    - /url: /observatory/findings
+  - link "Cross-case timeline":
+    - /url: /observatory/timeline
+  - link "Find a countercase":
+    - /url: /observatory/countercases
+  - link "Apply the cases to your work":
+    - /url: /observatory/apply
+  - link "Inspect the evidence":
+    - /url: /observatory/evidence
+  - link "Research documentation":
+    - /url: /observatory/documentation
+  - text: Participate
+  - link "Assessment":
+    - /url: /assess
+  - link "Work with RN":
+    - /url: /partner
+  - link "Join an interview":
+    - /url: /research/cognitive-interviews
+  - link "Editions":
+    - /url: /edit
+  - link "About RN Collins":
+    - /url: /about
+  - text: On the Public Reader
+  - link "Visual stories (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/production/cycle-01
+  - link "Interactive tools (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/experiences
+  - link "Source Desk (opens in a new tab)":
+    - /url: https://institutions-of-one-reader.vercel.app/resources
+  - text: Connect
+  - link "Connect with RN":
+    - /url: /contact
+  - link "Privacy":
+    - /url: /privacy
+  - text: Connect with RN Collins
+  - list "RN Collins on other platforms":
+    - listitem:
+      - link "LinkedIn (opens in a new tab)":
+        - /url: https://www.linkedin.com/in/rn-collins
+    - listitem:
+      - link "Instagram (opens in a new tab)":
+        - /url: https://www.instagram.com/rn_collins/
+    - listitem:
+      - link "X (opens in a new tab)":
+        - /url: https://x.com/renaissancex2m3
+    - listitem:
+      - link "TikTok (opens in a new tab)":
+        - /url: https://www.tiktok.com/@renaissancex2m3
+    - listitem:
+      - link "Bluesky (opens in a new tab)":
+        - /url: https://bsky.app/profile/rncollins.bsky.social
+    - listitem:
+      - link "YouTube (opens in a new tab)":
+        - /url: https://www.youtube.com/@Renaissance-Woman-3000
+    - listitem:
+      - link "The Polymath (opens in a new tab)":
+        - /url: https://polymath-rn-collins.beehiiv.com/subscribe
+  - paragraph: © 2026 RN Collins · Research and editorial work
+- alert

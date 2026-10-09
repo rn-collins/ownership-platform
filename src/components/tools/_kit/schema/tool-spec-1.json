@@ -1,0 +1,627 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tool-spec/1",
+  "title": "tool-spec/1: one format for every tool on all three sites",
+  "type": "object",
+  "required": [
+    "schema",
+    "id",
+    "slug",
+    "site",
+    "program",
+    "release",
+    "mechanic",
+    "title",
+    "question",
+    "promise",
+    "origin",
+    "sources",
+    "claims",
+    "limits",
+    "share",
+    "card",
+    "data",
+    "review",
+    "og"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "tool-spec/1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "maxLength": 60
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "maxLength": 40
+    },
+    "site": {
+      "enum": [
+        "htw",
+        "ioo-reader",
+        "ioo-main"
+      ]
+    },
+    "program": {
+      "enum": [
+        "TFH",
+        "IOO"
+      ]
+    },
+    "release": {
+      "enum": [
+        "draft",
+        "review",
+        "public"
+      ],
+      "description": "draft and review pages are noindex and left out of hubs and sitemaps. Only RN moves a tool to public."
+    },
+    "mechanic": {
+      "enum": [
+        "converter",
+        "dateline",
+        "compare",
+        "journey",
+        "chart",
+        "annotated",
+        "inspector",
+        "board",
+        "sort",
+        "sheet",
+        "choice",
+        "ledger",
+        "figure"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 90,
+      "description": "The visitor's question or a plain verb phrase."
+    },
+    "question": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 200
+    },
+    "promise": {
+      "type": "object",
+      "required": [
+        "learn",
+        "minutes",
+        "leaveWith",
+        "privacy"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "learn": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 140
+          }
+        },
+        "minutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "leaveWith": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 160
+        },
+        "privacy": {
+          "enum": [
+            "Nothing to enter.",
+            "Nothing you enter leaves your browser.",
+            "Nothing you enter leaves your browser. A shared link carries only the date and time you chose.",
+            "Nothing you enter leaves your browser. A shared link carries only the sort and filter you chose."
+          ]
+        }
+      }
+    },
+    "origin": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "title",
+        "path"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "story",
+            "edition",
+            "site"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 30
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 140
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "package": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "carouselZip": {
+              "type": "string",
+              "pattern": "^/"
+            },
+            "linkedinPdf": {
+              "type": "string",
+              "pattern": "^/"
+            },
+            "pin": {
+              "type": "string",
+              "pattern": "^/"
+            }
+          }
+        },
+        "live": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "beehiiv": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "linkedin": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "pinterest": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "liveChecked": {
+          "type": "string",
+          "pattern": "^[A-Z][a-z]+ \\d{1,2}, \\d{4}$"
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "limits": {
+      "type": "object",
+      "required": [
+        "shows",
+        "doesNotShow"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "shows": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/textOrHeld"
+          }
+        },
+        "doesNotShow": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/textOrHeld"
+          }
+        },
+        "notAdvice": {
+          "type": "boolean"
+        }
+      }
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "claimIds",
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "claimIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "$ref": "#/$defs/status"
+          }
+        }
+      }
+    },
+    "share": {
+      "type": "object",
+      "required": [
+        "text",
+        "link",
+        "image",
+        "print",
+        "files"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "boolean"
+        },
+        "link": {
+          "enum": [
+            "fragment",
+            "never"
+          ]
+        },
+        "image": {
+          "type": "boolean"
+        },
+        "print": {
+          "type": "boolean"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "txt",
+              "csv"
+            ]
+          }
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "required": [
+        "name",
+        "sourceShort"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 36,
+          "description": "Panel line 'Tool: <name>' must be 42 characters or fewer."
+        },
+        "sourceShort": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 34,
+          "description": "Panel line 'Source: <short>' must be 42 characters or fewer."
+        },
+        "urlShort": {
+          "type": "string",
+          "maxLength": 60
+        }
+      }
+    },
+    "data": {
+      "type": "object",
+      "description": "Mechanic-specific. Validated by schema/mechanics/<mechanic>-1.json."
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "rnReview"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "culturalReview": {
+          "enum": [
+            "not-required",
+            "required-pending",
+            "confirmed-by-rn"
+          ]
+        },
+        "culturalNote": {
+          "type": "string"
+        },
+        "rnReview": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "og": {
+      "type": "object",
+      "required": [
+        "image",
+        "alt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "image": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 8
+        }
+      }
+    },
+    "voiceExceptions": {
+      "type": "array",
+      "description": "Exact strings the voice linter may pass, each with the reason (an official name or a verbatim title).",
+      "items": {
+        "type": "object",
+        "required": [
+          "text",
+          "reason"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 2
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 8
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "status": {
+      "enum": [
+        "approved",
+        "needs-rn"
+      ]
+    },
+    "textOrHeld": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 5
+        },
+        {
+          "type": "object",
+          "required": [
+            "text",
+            "status"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string",
+              "minLength": 5
+            },
+            "status": {
+              "$ref": "#/$defs/status"
+            },
+            "why": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "publisher",
+        "url",
+        "supports",
+        "check",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "kind": {
+          "enum": [
+            "story",
+            "primary",
+            "institutional",
+            "dataset",
+            "image",
+            "derived"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3
+        },
+        "publisher": {
+          "type": "string",
+          "minLength": 2
+        },
+        "date": {
+          "type": "string",
+          "description": "The date the source itself shows, in Month D, YYYY (or Month YYYY when the source gives only that)."
+        },
+        "accessed": {
+          "type": "string",
+          "pattern": "^[A-Z][a-z]+ \\d{1,2}, \\d{4}$"
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "archiveUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "supports": {
+          "type": "string",
+          "minLength": 5
+        },
+        "doesNotSupport": {
+          "type": "string"
+        },
+        "quote": {
+          "type": "string",
+          "description": "Verbatim words from the source, under 15 words."
+        },
+        "locator": {
+          "type": "string",
+          "description": "Where the quote sits: heading, section, paragraph or page."
+        },
+        "license": {
+          "type": "object",
+          "required": [
+            "label"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "deedUrl": {
+              "type": "string"
+            }
+          }
+        },
+        "check": {
+          "enum": [
+            "verified",
+            "blocked",
+            "needs-lookup"
+          ],
+          "description": "verified: opened and read. blocked: the host refuses automated checks. needs-lookup: nobody has opened it."
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "recordId": {
+          "type": "string"
+        },
+        "why": {
+          "type": "string",
+          "description": "Why the item is held (needs-rn): what RN must decide or what nobody has opened."
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "required": [
+        "id",
+        "text",
+        "basis",
+        "sourceIds",
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 5
+        },
+        "basis": {
+          "enum": [
+            "story",
+            "source",
+            "dataset",
+            "arithmetic",
+            "simulation",
+            "editorial",
+            "input",
+            "rule"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "storyQuote": {
+          "type": "string"
+        },
+        "derivation": {
+          "type": "string"
+        },
+        "check": {
+          "type": "object",
+          "required": [
+            "fn",
+            "expect"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "fn": {
+              "type": "string"
+            },
+            "args": {},
+            "expect": {}
+          }
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "why": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,352 @@
+[
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "exactly one h1",
+  "ok": true,
+  "detail": "['Where does your work become structurally yours?']"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "heading order never skips a level",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "one banner, one main, one contentinfo",
+  "ok": true,
+  "detail": "{'banner': 1, 'main': 1, 'contentinfo': 1}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "navigation landmarks have unique names",
+  "ok": true,
+  "detail": "['Primary', 'Breadcrumb', 'Back to the story']"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "every control, link and image in the accessibility tree has a name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "every visible control has a computed name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "every image has meaningful alt (no filename, no \"image of\")",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "every image has width and height",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "tables have captions and header cells",
+  "ok": true,
+  "detail": "[{'caption': True, 'th': 4, 'scoped': True, 'hasHead': True}]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "no schematic or simulation drawing on the page (nothing to label)",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "no link reads \"here\" or \"more\", and none is empty",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "no two links share a name and go to different places",
+  "ok": true,
+  "detail": "{}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "page title and language are set",
+  "ok": true,
+  "detail": "('Where does your work become structurally yours? | Institutions of One', 'en')"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "no positive tabindex",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "one polite status line (role=status, aria-live=polite) is present",
+  "ok": true,
+  "detail": "[{'id': 'tk-status', 'role': 'status', 'live': 'polite', 'text': '', 'len': 0}]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "no large live region that would be re-read",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "first Tab stop is the skip link",
+  "ok": true,
+  "detail": "{'tag': 'a', 'id': '', 'text': 'Skip to content', 'dom': 40, 'top': 12, 'left': 12, 'inMain': False, 'y': 12, 'hash': ''}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "focus order follows document order (no jumps backward before the end)",
+  "ok": true,
+  "detail": "[482, 485, 488, 491]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "focus order follows reading order on the screen (inside the content, no jump up the page except to the next column)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "keyboard reaches every visible focusable element (a radio group is one stop)",
+  "ok": true,
+  "detail": "(103, 103)"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "focus leaves the page or wraps at the end (no keyboard trap)",
+  "ok": true,
+  "detail": "104"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "skip link is visible on focus and moves the next Tab stop into the content",
+  "ok": true,
+  "detail": "{\"skip\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Skip to content\", \"dom\": 42, \"top\": 12, \"left\": 12, \"inMain\": false, \"y\": 12, \"hash\": \"\"}, \"next\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Skip to the tool\", \"dom\": 66, \"top\": 8, \"left\": 8, \"inMain\": true, \"y\": 5, \"hash\": \"#main\"}}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "the tool skip link moves focus past the header into the tool",
+  "ok": true,
+  "detail": "{\"next\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"CC BY-SA 4.0\", \"dom\": 105, \"top\": 1020, \"left\": 452, \"inMain\": true, \"y\": 992, \"hash\": \"#tk-main\"}}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "adding an item is announced",
+  "ok": true,
+  "detail": "Added to Build. 1 of 5."
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "an empty add is announced as a plain error",
+  "ok": true,
+  "detail": "Build: Type a few words first."
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "choosing a change is announced",
+  "ok": true,
+  "detail": "The role disappears. Mark each item below."
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "marking an item announces the new result (status line changes)",
+  "ok": true,
+  "detail": "{'before': 'The role disappears. Mark each item below.', 'after': 'Ceramics studio marked Stays with me. Stays with me: 1. Goes with the container: 0. Not sure: 0.', 'result': 'Your map if the role disappears.Your inputNothing listed under Control.Your inputNothing listed under Continue.Your inpu'}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js",
+  "check": "result card is a labelled region",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "exactly one h1",
+  "ok": true,
+  "detail": "['Where does your work become structurally yours?']"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "heading order never skips a level",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "one banner, one main, one contentinfo",
+  "ok": true,
+  "detail": "{'banner': 1, 'main': 1, 'contentinfo': 1}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "navigation landmarks have unique names",
+  "ok": true,
+  "detail": "['Primary', 'Breadcrumb', 'Back to the story']"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "every control, link and image in the accessibility tree has a name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "every visible control has a computed name",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "every image has meaningful alt (no filename, no \"image of\")",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "every image has width and height",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "tables have captions and header cells",
+  "ok": true,
+  "detail": "[{'caption': True, 'th': 4, 'scoped': True, 'hasHead': True}]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "no schematic or simulation drawing on the page (nothing to label)",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "no link reads \"here\" or \"more\", and none is empty",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "no two links share a name and go to different places",
+  "ok": true,
+  "detail": "{}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "page title and language are set",
+  "ok": true,
+  "detail": "('Where does your work become structurally yours? | Institutions of One', 'en')"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "no positive tabindex",
+  "ok": true,
+  "detail": "0"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "first Tab stop is the skip link",
+  "ok": true,
+  "detail": "{'tag': 'a', 'id': '', 'text': 'Skip to content', 'dom': 42, 'top': 12, 'left': 12, 'inMain': False, 'y': 12, 'hash': ''}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "focus order follows document order (no jumps backward before the end)",
+  "ok": true,
+  "detail": "[485, 488, 491, 494]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "focus order follows reading order on the screen (inside the content, no jump up the page except to the next column)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "keyboard reaches every visible focusable element (a radio group is one stop)",
+  "ok": true,
+  "detail": "(80, 80)"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "focus leaves the page or wraps at the end (no keyboard trap)",
+  "ok": true,
+  "detail": "81"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "skip link is visible on focus and moves the next Tab stop into the content",
+  "ok": true,
+  "detail": "{\"skip\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Skip to content\", \"dom\": 42, \"top\": 12, \"left\": 12, \"inMain\": false, \"y\": 12, \"hash\": \"\"}, \"next\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"Skip to the tool\", \"dom\": 67, \"top\": 8, \"left\": 8, \"inMain\": true, \"y\": -103, \"hash\": \"#main\"}}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "nojs",
+  "check": "the tool skip link moves focus past the header into the tool",
+  "ok": true,
+  "detail": "{\"next\": {\"tag\": \"a\", \"id\": \"\", \"text\": \"CC BY-SA 4.0\", \"dom\": 106, \"top\": 1020, \"left\": 452, \"inMain\": true, \"y\": 957, \"hash\": \"#tk-main\"}}"
+ },
+ {
+  "page": "four-questions-map",
+  "mode": "js-375",
+  "check": "no horizontal page scroll at 375 px",
+  "ok": true,
+  "detail": "0"
+ }
+]

@@ -1169,3 +1169,5 @@ h1,h2,h3{letter-spacing:-.025em;}
 .edition-byline{font-size:17px;line-height:1.5;font-weight:700;color:var(--ink)}
 .edition-dates{display:flex;flex-wrap:wrap;gap:2px 20px;font-size:15px;line-height:1.6;color:var(--muted)}
 .edition-dates time{font-weight:700}
+.portfolio-line{margin:18px 0 0;font-size:15px;line-height:1.5;color:var(--muted)}
+.portfolio-line a{display:inline-block;padding:8px 0}

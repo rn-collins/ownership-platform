@@ -9,6 +9,7 @@ import CaseLab from "./CaseLab";
 import { CaseStatus } from "@/components/case/CaseStatus";
 import { buildFramework, collectSources, countSources, formatLongDate, isLandingPage, pad, sourceKindLabel } from "@/components/case/caseData";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { PortfolioLine } from "@/components/PortfolioLine";
 import { visualStoryForCase } from "@/lib/edit-cycle-one";
 
 // Evidence comes from the database; serve a cached render and refresh it hourly
@@ -213,6 +214,7 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
           <a href={source.href} target="_blank" rel="noreferrer">{source.label}</a>
           <span className={styles.sourceMeta}>{[sourceKindLabel(source.kind), source.publisher, source.published ? formatLongDate(source.published) : ""].filter(Boolean).join(" · ")}</span>
         </li>)}</ol>
+        <PortfolioLine />
 
         {claims.length > 0 && <div className={styles.claims}>
           <h3>Claim-to-source record</h3>

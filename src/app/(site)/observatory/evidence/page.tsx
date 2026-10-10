@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/page-meta";
+import { PortfolioLine } from "@/components/PortfolioLine";
 import { EvidenceExplorer } from "./EvidenceExplorer";
 
 export const metadata: Metadata = withSocial({
@@ -15,5 +16,6 @@ export default function EvidencePage(){
     <p className="lede">Search the sources used for each case. See which claims rely on a person or organization describing itself, what remains private or unknown, which evidence complicates an interpretation, which publishers recur, and which records would benefit most from another review.</p>
     <p><a href="/observatory">← The Observatory</a></p>
     <EvidenceExplorer/>
+    <PortfolioLine/>
   </main>;
 }

@@ -14,6 +14,10 @@ export const POLYMATH_SUBSCRIBE_URL = `${POLYMATH_URL}/subscribe`;
 
 export const LINKEDIN_URL = "https://www.linkedin.com/in/rn-collins";
 
+/** RN Collins' portfolio, shown as a plain link in the footer and under source lists (October 10, 2026). */
+export const PORTFOLIO_URL = "https://rn-selected-work.vercel.app";
+export const PORTFOLIO_LABEL = "RN Collins, selected work";
+
 /**
  * RN's public profiles, in the order shown on the Connect page (/contact) and in the site footer.
  * Only handles RN has given are listed (no Threads or Pinterest yet).

@@ -1,7 +1,7 @@
 import { PartnerInquiry } from "@/components/PartnerInquiry";
 
 const TITLE = "Work with RN | Institutions of One";
-const DESC = "RN Collins is taking on clients for storytelling strategy and content production and operations. Research and continuity consulting is also available.";
+const DESC = "Research and continuity consulting is available.";
 export const metadata = {
   title: TITLE,
   description: DESC,
@@ -42,7 +42,6 @@ export default function PartnerPage() {
       <header className="partner-hero">
         <p className="eyebrow">Work with RN</p>
         <h1>Storytelling strategy and content production and operations.</h1>
-        <p className="lede partner-hook">I&rsquo;m taking on clients for storytelling strategy and content production and operations. DMs are open.</p>
         <div className="actions">
           <a href="/contact"><button className="primary">Connect with RN</button></a>
         </div>

@@ -1,6 +1,7 @@
 import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { EditionPackageMap } from "@/components/CanonicalEdition";
+import { PortfolioLine } from "@/components/PortfolioLine";
 import { EditionDateline } from "@/components/EditionDateline";
 import { editionMonth, ogArticleTimes } from "@/lib/publication-dates";
 import { NoScriptNote } from "@/components/NoScriptNote";
@@ -266,6 +267,7 @@ export default function EditionOnePage() {
           Corrections or material primary sources can be submitted through the <a href="/about">About page</a>. Substantive corrections will be dated on this page.
         </p>
       </section>
+      <PortfolioLine />
 
       <nav className="edition-continuity" aria-label="Edition navigation">
         <a href="/edit">All editions</a>

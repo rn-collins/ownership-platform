@@ -5,6 +5,7 @@ import { Fragment, type ReactNode } from "react";
 import { Edition007Figure, edition007FigureForHeading } from "@/components/Edition007Figure";
 import { commonsSourceUrl, cycleOneEditions, licenseDeedUrl, packageGalleryUrl, packageTitle, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
 import { EditionDateline } from "@/components/EditionDateline";
+import { PortfolioLine } from "@/components/PortfolioLine";
 import { editionMonth } from "@/lib/publication-dates";
 import styles from "./CanonicalEdition.module.css";
 
@@ -90,6 +91,7 @@ export function CanonicalEditionPage({ edition }: { edition: Edition }) {
     <p className="edition-dek">{edition.subtitle}</p>
     <div className="canonical-status"><span>Canonical web edition</span><span>Full text · evidence · sources</span></div>
     <article className="canonical-edition-copy"><ArticleBody edition={edition} /></article>
+    <PortfolioLine />
 
     {edition.experience && <section className="edition-interactive" aria-labelledby={`interactive-${edition.number}`}>
       <p className="eyebrow">Interactive companion</p><h2 id={`interactive-${edition.number}`}>Put the edition’s framework to work.</h2>

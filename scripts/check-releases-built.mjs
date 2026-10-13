@@ -59,7 +59,8 @@ for (const p of held) {
   }
 }
 
-const indexFor = { edition: "/edit", case: "/observatory", tool: "/tools" };
+const indexFor = { edition: "/edit", case: "/observatory", tool: "/tools", interactive: "/observatory" };
+const indexOf = (p) => p.indexPath ?? indexFor[p.kind];
 const byKind = (kind) => released.filter((p) => p.kind === kind);
 for (const p of released) {
   const where = `released ${p.id}`;
@@ -69,20 +70,25 @@ for (const p of released) {
   if (!html) continue;
   const has = (href) => html.includes(`href="${href}"`) || html.includes(`href="${escapeHtml(href)}"`);
   for (const post of p.postUrls) expect(where, has(post.url), `no link to its post ${post.url}`);
+  // Every released piece has a sources page on RN Collins, selected work, and links it.
+  expect(where, /^https:\/\/rn-selected-work\.vercel\.app\/sources\/ioo\/[a-z0-9-]+$/.test(p.sourcePageUrl), `no sources page address (${p.sourcePageUrl || "empty"})`);
   if (p.sourcePageUrl) expect(where, has(p.sourcePageUrl), `no link to its source page ${p.sourcePageUrl}`);
+  expect(where, Boolean(p.longFormUrl), "no long-form piece in its record");
   if (p.longFormUrl && p.longFormUrl !== `${releases.siteOrigin}${p.path}`) {
     const local = p.longFormUrl.replace(releases.siteOrigin, "");
     expect(where, has(local) || has(p.longFormUrl), `no link to its long-form ${p.longFormUrl}`);
+  } else if (p.longFormUrl && p.kind === "case") {
+    expect(where, html.includes("This case record is the long-form piece."), "its own record is its long-form, and the page does not say so");
   }
-  expect(where, has(indexFor[p.kind]), `no link to the gallery index ${indexFor[p.kind]}`);
+  expect(where, has(indexOf(p)), `no link to the gallery index ${indexOf(p)}`);
   const list = byKind(p.kind);
   const i = list.indexOf(p);
-  if (p.kind === "edition" || p.kind === "case") {
+  if (p.kind === "edition" || p.kind === "case" || p.kind === "interactive") {
     if (i > 0) expect(where, has(list[i - 1].path), `no link to the previous piece ${list[i - 1].path}`);
     if (i < list.length - 1) expect(where, has(list[i + 1].path), `no link to the next piece ${list[i + 1].path}`);
   }
-  const indexFile = pageFile(indexFor[p.kind]);
-  if (p.kind === "edition") expect(where, fs.existsSync(indexFile) && read(indexFile).includes(`href="${p.path}"`), `the gallery index ${indexFor[p.kind]} does not link it`);
+  const indexFile = pageFile(indexOf(p));
+  if (p.kind !== "tool") expect(where, fs.existsSync(indexFile) && read(indexFile).includes(`href="${p.path}"`), `the gallery index ${indexOf(p)} does not link it`);
 }
 
 for (const story of releases.related) {

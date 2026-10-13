@@ -59,8 +59,32 @@ describe("data/releases.json, the one release record", () => {
   });
 
   it("never links a home or subscribe page as a long-form piece", () => {
-    for (const p of pieces) if (p.longFormUrl) expect(p.longFormUrl).toMatch(/\/edit\/\d{3}$/);
+    // An edition, a case record that is its own long-form, or the methodology page behind the Ownership Index.
+    for (const p of pieces) if (p.longFormUrl) expect(p.longFormUrl).toMatch(/^https:\/\/ownership-platform\.vercel\.app\/(edit\/\d{3}|observatory\/[a-z0-9-]+|methodology)$/);
     for (const p of pieces) expect(p.longFormUrl).not.toMatch(/subscribe|beehiiv\.com\/?$/);
+  });
+
+  it("gives every case a long-form piece: the edition that discusses it, or the case record itself", () => {
+    const discussed = new Set(Object.values(editionCases).flat());
+    for (const p of pieces.filter((x) => x.kind === "case")) {
+      const slug = p.id.replace("ioo/case-", "");
+      if (!discussed.has(slug)) expect(p.longFormUrl).toBe(`https://ownership-platform.vercel.app${p.path}`);
+    }
+  });
+
+  it("links every released piece to its sources page on RN Collins, selected work, and no held piece", () => {
+    const today = "2026-10-13";
+    for (const p of pieces) {
+      if (isReleasedRecord(p, today)) expect(p.sourcePageUrl).toBe(`https://rn-selected-work.vercel.app/sources/${p.id}`);
+      else expect(p.sourcePageUrl).toBe("");
+    }
+  });
+
+  it("records the two interactive tools already on the site, dated by the main commit that added each page", () => {
+    const explorer = pieces.find((p) => p.id === "ioo/tool-dependency-explorer");
+    const index = pieces.find((p) => p.id === "ioo/tool-ownership-index");
+    expect(explorer).toMatchObject({ kind: "interactive", path: "/observatory/dependencies", indexPath: "/observatory", releasedAt: "2026-07-27", hold: false });
+    expect(index).toMatchObject({ kind: "interactive", path: "/assess/creator", indexPath: "/assess", releasedAt: "2026-07-23", hold: false });
   });
 
   it("points each case discussed in an edition at that edition as its long-form", () => {

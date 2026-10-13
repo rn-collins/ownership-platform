@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { withSocial } from "@/lib/page-meta";
+import { interactiveIsPublic } from "@/lib/releases";
+import { InteractiveLinks } from "@/components/GalleryLinks";
 import { DependencyExplorer } from "./DependencyExplorer";
 
-export const metadata: Metadata = withSocial({
+const PATH = "/observatory/dependencies";
+
+// Release gate (data/releases.json, id ioo/tool-dependency-explorer): until the tool is released its address returns 404.
+const pageMetadata: Metadata = withSocial({
   title: "Dependency Explorer | The Observatory",
   description: "Examine which employers, platforms, titles, capital, audiences, mandates, founders, intellectual property, and distribution partners appear structurally relevant across the Observatory cases.",
   alternates: { canonical: "/observatory/dependencies" },
 }, "/observatory/dependencies");
+export function generateMetadata(): Metadata { return interactiveIsPublic(PATH) ? pageMetadata : {}; }
 
 export default function DependencyExplorerPage() {
+  if (!interactiveIsPublic(PATH)) notFound();
   return <main className="observatory-page">
     <p className="eyebrow">The Observatory · Dependency Explorer</p>
     <h1>See what each career relies on.</h1>
@@ -51,5 +59,6 @@ export default function DependencyExplorerPage() {
     </section>
 
     <DependencyExplorer />
+    <InteractiveLinks path={PATH} />
   </main>;
 }

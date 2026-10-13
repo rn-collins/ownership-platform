@@ -113,7 +113,7 @@ integration. Do not deploy with the Vercel CLI.
 
 ## Release gate
 
-`data/releases.json` is the one record of what is public. Each edition, case record and tool has one entry:
+`data/releases.json` is the one record of what is public. Each edition, case record and tool (including the interactive tools) has one entry:
 `id` (the same id across RN's repos, such as `ioo/edit-005` or `ioo/case-mrbeast`), `releasedAt` (a date in
 Pacific/Honolulu, or empty), `hold`, `postUrls`, `longFormUrl`, `sourcePageUrl`, and `dateSource` (where the date
 came from). A piece is public only when `releasedAt` is today or earlier and `hold` is false. Anything else returns
@@ -133,6 +133,17 @@ rn-selected-work `data/sources-ioo.json`; a link to one appears only from its da
   apply to the production deployment.
 - To release a piece, set its `releasedAt` and `hold: false`. Never guess a date: a piece without a verifiable date
   stays held with an empty `releasedAt`.
+- Pieces include the two interactive tools already on the site (`kind: "interactive"`): the Dependency Explorer
+  (`/observatory/dependencies`) and the Ownership Index (`/assess/creator`). Each carries the link set and previous and
+  next between the two.
+- Every released piece has a sources page on RN Collins, selected work, at
+  `https://rn-selected-work.vercel.app/sources/ioo/<id after ioo/>`, and links it (`sourcePageUrl`). The pages come
+  from this repo: `scripts/export-selected-work-sources.ts` writes rn-selected-work `data/sources-ioo-site.json` from
+  the edition source lists, the case records' sources and the release dates here (how to run it is in the script).
+  When you release a piece, run it, commit that file in rn-selected-work, run its `npm run releases:sync`, set the new entry's `galleryUrl` and `postUrls` there, and set
+  `sourcePageUrl` here. The build check fails while a released piece has no sources page address.
+- Long-form: an edition is its own long-form piece; a case discussed in an edition points at that edition; any other
+  case record is its own long-form piece and says so on the page.
 
 ## Optional services
 

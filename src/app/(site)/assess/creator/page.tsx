@@ -1,8 +1,14 @@
 import { Assessment } from "@/components/Assessment";
 import { METHODOLOGY_VERSION } from "@/lib/engine";
 import { NoScriptNote } from "@/components/NoScriptNote";
+import { notFound } from "next/navigation";
+import { interactiveIsPublic } from "@/lib/releases";
+import { InteractiveLinks } from "@/components/GalleryLinks";
 
-export const metadata = {
+const PATH = "/assess/creator";
+
+// Release gate (data/releases.json, id ioo/tool-ownership-index): until the tool is released its address returns 404.
+const pageMetadata = {
   title: "Ownership Index | Institutions of One",
   description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.",
   alternates: { canonical: "/assess/creator" },
@@ -10,7 +16,10 @@ export const metadata = {
   twitter: { card: "summary_large_image", title: "Ownership Index | Institutions of One", description: "A pilot assessment of control over audience, rights, revenue, identity, and business infrastructure.", images: ["/opengraph-image"] },
 };
 
+export function generateMetadata() { return interactiveIsPublic(PATH) ? pageMetadata : {}; }
+
 export default function CreatorAssessPage() {
+  if (!interactiveIsPublic(PATH)) notFound();
   return (
     <main className="instrument-page ownership-page">
       <p className="eyebrow">Institutions of One · Ownership Index</p>
@@ -58,6 +67,7 @@ export default function CreatorAssessPage() {
           saved to your account. See the <a href="/privacy" className="fwlink">privacy page</a>.
         </p>
       </section>
+      <InteractiveLinks path={PATH} />
     </main>
   );
 }

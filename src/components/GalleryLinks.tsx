@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { publicEditions } from "@/lib/edit-cycle-one";
-import { editionId, pieceById, type Piece } from "@/lib/releases";
+import { editionId, pieceById, publicInteractives, type Piece } from "@/lib/releases";
 import { SITE_ORIGIN } from "@/lib/site";
 
 // The link set every released piece carries (data/releases.json): its posts, its source page on RN Collins, selected work,
@@ -14,21 +14,25 @@ const localHref = (url: string) => (url.startsWith(SITE_ORIGIN) ? url.slice(SITE
 /** Posts, source page and long-form for a piece. Renders nothing when the record has none of them. */
 export function GalleryLinks({ piece, selfPath, omit = [] }: { piece: Piece; selfPath: string; omit?: string[] }) {
   const longForm = piece.longFormUrl && !sameAsSelf(piece.longFormUrl, selfPath) && !omit.includes(localHref(piece.longFormUrl)) ? piece.longFormUrl : "";
+  // A case record that no edition discusses is itself the long-form piece: say so instead of linking the page to itself.
+  const selfIsLongForm = Boolean(piece.longFormUrl) && sameAsSelf(piece.longFormUrl, selfPath);
   const items = [
     ...piece.postUrls.map((post) => ({ key: post.url, href: post.url, label: `Read the post on ${platformLabel(post.platform)}`, external: true })),
     ...(piece.sourcePageUrl ? [{ key: piece.sourcePageUrl, href: piece.sourcePageUrl, label: "Sources for this piece on RN Collins, selected work", external: true }] : []),
     ...(longForm ? [{ key: longForm, href: localHref(longForm), label: longFormLabel(longForm), external: !longForm.startsWith(SITE_ORIGIN) }] : []),
   ];
-  if (!items.length) return null;
+  if (!items.length && !selfIsLongForm) return null;
   return <nav className="gallery-links" aria-label="Where this piece lives">
     <p className="eyebrow">Where this piece lives</p>
     <ul>{items.map((item) => <li key={item.key}>{item.external
       ? <a href={item.href} target="_blank" rel="noopener noreferrer">{item.label}<span className="sr-only"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
-      : <a href={item.href}>{item.label}</a>}</li>)}</ul>
+      : <a href={item.href}>{item.label}</a>}</li>)}
+      {selfIsLongForm ? <li>This case record is the long-form piece.</li> : null}</ul>
   </nav>;
 }
 
 function longFormLabel(url: string) {
+  if (localHref(url) === "/methodology") return "Read the method behind it";
   const match = /\/edit\/(\d{3})$/.exec(url);
   if (!match) return "Read the long-form piece";
   const edition = publicEditions().find((e) => e.number === match[1]);
@@ -51,11 +55,19 @@ export function EditionNav({ number }: { number: string }) {
   for (const post of piece?.postUrls ?? []) links.push({ key: post.url, href: post.url, label: `Read it on ${platformLabel(post.platform)}`, external: true });
   if (piece?.sourcePageUrl) links.push({ key: "sources", href: piece.sourcePageUrl, label: "Sources on RN Collins, selected work", external: true });
   if (next) links.push({ key: "next", href: `/edit/${next.number}`, label: `Edition ${next.number} →` });
-  return <nav className="edition-continuity" aria-label="Edition navigation" style={{ "--cols": links.length } as CSSProperties}>
-    {links.map((link) => link.external
-      ? <a key={link.key} href={link.href} target="_blank" rel="noopener noreferrer">{link.label} <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
-      : <a key={link.key} href={link.href}>{link.label}</a>)}
-  </nav>;
+  // Released interactive tools whose long-form is this edition link back from it.
+  const tools = publicInteractives().filter((p) => p.longFormUrl === `${SITE_ORIGIN}/edit/${number}`);
+  return <>
+    {tools.length > 0 && <nav className="gallery-links" aria-label="Tools built on this edition">
+      <p className="eyebrow">Tools built on this edition</p>
+      <ul>{tools.map((t) => <li key={t.id}><a href={t.path}>{t.title}</a></li>)}</ul>
+    </nav>}
+    <nav className="edition-continuity" aria-label="Edition navigation" style={{ "--cols": links.length } as CSSProperties}>
+      {links.map((link) => link.external
+        ? <a key={link.key} href={link.href} target="_blank" rel="noopener noreferrer">{link.label} <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
+        : <a key={link.key} href={link.href}>{link.label}</a>)}
+    </nav>
+  </>;
 }
 
 /** "Cases in this edition": links to the released case records an edition is built on. */
@@ -67,4 +79,24 @@ export function EditionCases({ number, cases }: { number: string; cases: { slug:
     <p>Each case record sets out the chronology, the sources and what the evidence does not show.</p>
     <ul>{cases.map((c) => <li key={c.slug}><a href={`/observatory/${c.slug}`}><b>{c.name}</b>{c.question ? <span>{c.question}</span> : null}</a></li>)}</ul>
   </section>;
+}
+
+/** Interactive tools (the Dependency Explorer, the Ownership Index): where the piece lives, then previous, its index and next. */
+export function InteractiveLinks({ path }: { path: string }) {
+  const list = publicInteractives();
+  const index = list.findIndex((p) => p.path === path);
+  const piece = list[index];
+  if (!piece) return null;
+  const previous = index > 0 ? list[index - 1] : undefined;
+  const next = index < list.length - 1 ? list[index + 1] : undefined;
+  const indexPath = piece.indexPath ?? "/observatory";
+  const indexLabel = indexPath === "/assess" ? "All self-checks" : "The Observatory";
+  return <>
+    <GalleryLinks piece={piece} selfPath={path} />
+    <nav className="edition-continuity" aria-label="Tool navigation" style={{ "--cols": 1 + (previous ? 1 : 0) + (next ? 1 : 0) } as CSSProperties}>
+      {previous ? <a href={previous.path}>← {previous.title}</a> : null}
+      <a href={indexPath}>{indexLabel}</a>
+      {next ? <a href={next.path}>{next.title} →</a> : null}
+    </nav>
+  </>;
 }

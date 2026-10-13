@@ -11,7 +11,7 @@ import { idIsPublic } from "./released-ids";
 export type PostUrl = { platform: string; url: string };
 export type Piece = {
   id: string;
-  kind: "edition" | "case" | "tool";
+  kind: "edition" | "case" | "tool" | "interactive";
   title: string;
   path: string;
   releasedAt: string;
@@ -21,6 +21,8 @@ export type Piece = {
   sourcePageUrl: string;
   dateSource: string;
   toolId?: string;
+  /** Interactive tools: the gallery index the page belongs to (/observatory, /assess). */
+  indexPath?: string;
   /** Public paths (a folder when it ends in "/") that belong to the piece and must 404 while it is held. */
   assets?: string[];
 };
@@ -54,6 +56,10 @@ export const isPublic = (id: string, today?: string) => (today ? isReleasedRecor
 export const editionIsPublic = (number: string) => isPublic(editionId(number));
 export const caseIsPublic = (slug: string) => isPublic(caseId(slug));
 export const toolIsPublic = (slug: string) => isPublic(toolPieceId(slug));
+/** Interactive tools already on the site (the Dependency Explorer, the Ownership Index), by their page address. */
+export const interactiveAt = (path: string) => pieces.find((p) => p.kind === "interactive" && p.path === path);
+export const interactiveIsPublic = (path: string) => { const p = interactiveAt(path); return Boolean(p && isPublic(p.id)); };
+export const publicInteractives = () => pieces.filter((p) => p.kind === "interactive" && isPublic(p.id));
 
 /** Public Reader visual story (P01 to P34) by its package id, only once released. */
 export function storyIfReleased(story: string, today?: string): RelatedStory | undefined {

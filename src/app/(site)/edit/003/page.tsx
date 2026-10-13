@@ -1,3 +1,6 @@
+import { notFound } from "next/navigation";
+import { editionIsPublic } from "@/lib/releases";
+import { EditionNav } from "@/components/GalleryLinks";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { EditionPackageMap } from "@/components/CanonicalEdition";
 import { PortfolioLine } from "@/components/PortfolioLine";
@@ -6,7 +9,7 @@ import { editionMonth, ogArticleTimes } from "@/lib/publication-dates";
 
 const packages = ["P28", "P29", "P30", "P31"];
 
-export const metadata = {
+const editionMetadata = {
   title: "Your Archive Is Not a Backup | The I/1 Edit",
   description: "Edition 003 distinguishes downloaded files from the context, rights, relationships, and routines required to resume the work.",
   alternates: { canonical: "/edit/003" },
@@ -47,7 +50,11 @@ const sources = [
   ["GDPR Article 20: Right to data portability", "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504"],
 ];
 
+// Release gate (data/releases.json): until this edition is released its address returns 404 and it has no metadata.
+export function generateMetadata() { return editionIsPublic("003") ? editionMetadata : {}; }
+
 export default function EditionThreePage() {
+  if (!editionIsPublic("003")) notFound();
   return <main className="edit-edition-page">
     <a className="postback" href="/edit">← The I/1 Edit</a>
     <p className="eyebrow">Edition 003 · {editionMonth("003", "August 2026")}</p>
@@ -90,7 +97,7 @@ export default function EditionThreePage() {
     <PortfolioLine />
     <EditionPackageMap edition="003" packages={packages} heading="Continue through the four themes." />
 
-    <nav className="edition-continuity" aria-label="Edition navigation"><a href="/edit/002">← Edition 002</a><a href="/edit">All editions</a><a href="/edit/004">Edition 004 →</a></nav>
+    <EditionNav number="003" />
     <section className="closing-call"><p className="eyebrow">The I/1 Edit</p><h2>Follow the research on work, ownership, continuity, and institutional power.</h2><NewsletterSignup source="site" /></section>
   </main>;
 }

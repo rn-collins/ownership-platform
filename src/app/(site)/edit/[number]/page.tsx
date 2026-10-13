@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CanonicalEditionPage } from "@/components/CanonicalEdition";
-import { cycleOneEditions, editionByNumber } from "@/lib/edit-cycle-one";
+import { editionByNumber, publicCycleOneEditions } from "@/lib/edit-cycle-one";
 import { ogArticleTimes } from "@/lib/publication-dates";
+import { editionIsPublic } from "@/lib/releases";
 
-const freezeRender = process.env.CYCLE01_RENDER_FREEZE === "1";
-export function generateStaticParams() { return cycleOneEditions.filter((e) => !e.gated || freezeRender).map(({ number }) => ({ number })); }
+// Only released editions (data/releases.json) get a page; any other number returns 404, including by direct address.
+export const dynamicParams = false;
+export function generateStaticParams() { return publicCycleOneEditions().map(({ number }) => ({ number })); }
 
 export async function generateMetadata({ params }: { params: { number: string } }): Promise<Metadata> {
   const edition = editionByNumber(params.number);
-  if (!edition || (edition.gated && !freezeRender)) return {};
+  if (!edition || !editionIsPublic(edition.number)) return {};
   const canonical = `/edit/${edition.number}`;
   // Next.js does not deep-merge a route's openGraph/twitter objects with the root layout's -
   // omitting images here loses the root's site-wide fallback entirely. Editions 001-004 have
@@ -30,6 +32,6 @@ export async function generateMetadata({ params }: { params: { number: string } 
 
 export default function EditionPage({ params }: { params: { number: string } }) {
   const edition = editionByNumber(params.number);
-  if (!edition || (edition.gated && !freezeRender)) notFound();
+  if (!edition || !editionIsPublic(edition.number)) notFound();
   return <CanonicalEditionPage edition={edition} />;
 }

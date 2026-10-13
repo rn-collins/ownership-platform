@@ -111,6 +111,29 @@ The production build runs database migrations, tests, and the Next.js build.
 Production deploys only through commits pushed to `main` and the repository's Vercel
 integration. Do not deploy with the Vercel CLI.
 
+## Release gate
+
+`data/releases.json` is the one record of what is public. Each edition, case record and tool has one entry:
+`id` (the same id across RN's repos, such as `ioo/edit-005` or `ioo/case-mrbeast`), `releasedAt` (a date in
+Pacific/Honolulu, or empty), `hold`, `postUrls`, `longFormUrl`, `sourcePageUrl`, and `dateSource` (where the date
+came from). A piece is public only when `releasedAt` is today or earlier and `hold` is false. Anything else returns
+404: its page, its place in every list, the sitemap, its share image and its files, including through the image
+optimizer. The `related` list holds the Public Reader visual stories this site links to, with the dates from
+rn-selected-work `data/sources-ioo.json`; a link to one appears only from its date.
+
+- The rule lives in `src/lib/release-rule.mjs`. `next.config.mjs` fixes "today" to the build day in Hawaii and inlines
+  the list of public ids, so pages, browser code and `src/middleware.ts` agree and nothing about a held piece reaches
+  the browser. The `/tools` routes (`page.tools.tsx`) join the build only once a tool is public.
+- `npm run build` ends with `scripts/check-releases-built.mjs`, which fails the build if a held piece has a page, a
+  sitemap entry, or its title or address in any served page or script, or if a released piece is missing its page,
+  sitemap entry or links (posts, source page, long-form, gallery index, previous and next).
+- `.github/workflows/daily-release.yml` runs at 00:05 in Hawaii. On a release day it pushes an empty commit to `main`,
+  and Vercel rebuilds as for any push. `npm run releases:today` shows what goes live today.
+- Review renders (`RELEASE_REVIEW=1` or `CYCLE01_RENDER_FREEZE=1`) show held pieces for checking by eye. They never
+  apply to the production deployment.
+- To release a piece, set its `releasedAt` and `hold: false`. Never guess a date: a piece without a verifiable date
+  stays held with an empty `releasedAt`.
+
 ## Optional services
 
 - **Postgres / Prisma** — research records, evidence, consent, reviews, and immutable events.

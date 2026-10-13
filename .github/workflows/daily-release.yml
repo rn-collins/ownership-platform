@@ -1,0 +1,47 @@
+# Daily release rebuild for the release gate (data/releases.json).
+# The site fixes "today" at build time, so a piece goes live only when the site is rebuilt on or after its releasedAt day.
+# Every day at 00:05 in Hawaii (10:05 UTC) this checks data/releases.json. On a release day it pushes an empty commit to
+# main, and Vercel's Git integration rebuilds and redeploys the site the same way it does for any push (see CLAUDE.md).
+# Run it by hand from the Actions tab (Run workflow, force: true) to rebuild on any day.
+name: Daily release rebuild
+
+on:
+  schedule:
+    - cron: "5 10 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Rebuild even if nothing is released today"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-release
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - id: check
+        run: node scripts/release-day.mjs
+      - name: Push an empty commit so Vercel rebuilds
+        if: steps.check.outputs.release == 'true' || inputs.force
+        env:
+          RELEASE_DATE: ${{ steps.check.outputs.date }}
+          RELEASE_IDS: ${{ steps.check.outputs.ids }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "Release day ${RELEASE_DATE}: rebuild the site" -m "Released today: ${RELEASE_IDS:-none (manual rebuild)}"
+          git pull --rebase origin main
+          git push origin HEAD:main

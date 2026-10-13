@@ -1,5 +1,6 @@
 import { READER_ORIGIN } from "@/lib/site";
 import { editionMonth } from "@/lib/publication-dates";
+import { editionIsPublic, storyIfReleased } from "@/lib/releases";
 
 export type EditionMedia = {
   file: string;
@@ -27,14 +28,12 @@ export type CanonicalEdition = {
   reader: string;
   experience?: string;
   media: readonly EditionMedia[];
-  gated?: boolean;
 };
 
 const media = (file: string, alt: string, caption: string, credit: string, rights: string, width: number, height: number, src: string): EditionMedia => ({ file, alt, caption, credit, rights, width, height, src });
 
 export const cycleOneEditions: readonly CanonicalEdition[] = [
   {
-    gated: false,
     number: "005", articleId: 1, published: "August 2026", title: "The $2,000 Video", subtitle: "A creator deal is usually several decisions wearing one price tag",
     packages: ["P01", "P02", "P03"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-2000-video",
     reader: `${READER_ORIGIN}/stories/edition-005`,
@@ -50,7 +49,6 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     ],
   },
   {
-    gated: false,
     number: "006", articleId: 2, published: "August 2026", title: "The Person Inside the Asset", subtitle: "A finished post can contain a copyrighted work, a performance, an identity, and a future edit.",
     packages: ["P04", "P05", "P06", "P07"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-person-inside-the-asset",
     reader: `${READER_ORIGIN}/stories/edition-006`,
@@ -64,14 +62,12 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
     ],
   },
   {
-    gated: false,
     number: "007", articleId: 3, published: "August 2026", title: "The Asset’s Afterlife", subtitle: "The file did not change. Its commercial life did.",
     packages: ["P08", "P09", "P10", "P11", "P12"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-assets-afterlife",
     reader: `${READER_ORIGIN}/stories/edition-007`,
     experience: `${READER_ORIGIN}/experiences/asset-afterlife`, media: [],
   },
   {
-    gated: false,
     number: "008", articleId: 4, published: "August 2026", title: "The Smallest Institution in the Campaign", subtitle: "One post can contain an entire organization.",
     packages: ["P13", "P14", "P16"], beehiiv: "https://polymath-rn-collins.beehiiv.com/p/the-smallest-institution-in-the-campaign",
     reader: `${READER_ORIGIN}/stories/edition-008`,
@@ -88,7 +84,6 @@ export const cycleOneEditions: readonly CanonicalEdition[] = [
   },
   // Counsel review for P15/P16/P17 completed and all three were signed off 2026-09-24.
   {
-    gated: false,
     number: "009", articleId: 5, published: "September 2026", title: "All Media, Now Known or Hereafter Devised", subtitle: "One clause in a contract can decide who controls tomorrow's use of today's video",
     packages: ["P15", "P17"],
     reader: `${READER_ORIGIN}/stories/edition-009`,
@@ -117,12 +112,14 @@ export const earlyEditions: readonly EditionListing[] = [
   { number: "004", published: "August 2026", title: "The Exit Is Part of the Architecture", subtitle: "The right to download the parts is not the same as a path for the work to continue somewhere else." },
 ];
 
-/** Every publicly visible edition, oldest first. Gated cycle-one editions are excluded unless the render freeze is on. */
+/** Every released edition, oldest first. data/releases.json decides (src/lib/releases.ts); a review render shows held editions too. */
 export const publicEditions = (): EditionListing[] => {
-  const freezeRender = process.env.CYCLE01_RENDER_FREEZE === "1";
   // Where an edition's Beehiiv post states a date, the month listed is that post's month (DEC-18).
-  return [...earlyEditions, ...cycleOneEditions.filter((e) => !e.gated || freezeRender)].map((e) => ({ ...e, published: editionMonth(e.number, e.published) }));
+  return [...earlyEditions, ...cycleOneEditions].filter((e) => editionIsPublic(e.number)).map((e) => ({ ...e, published: editionMonth(e.number, e.published) }));
 };
+
+/** Released cycle-one editions (005 onward), oldest first. */
+export const publicCycleOneEditions = () => cycleOneEditions.filter((e) => editionIsPublic(e.number));
 
 /** Reader-facing titles of the Public Reader visual stories (institutions-of-one-reader /production/cycle-01/pNN). */
 const packageTitles: Record<string, string> = {
@@ -141,6 +138,8 @@ const packageTitles: Record<string, string> = {
   P32: "Transfer", P33: "Redirect", P34: "Export and rebuild",
 };
 export const packageTitle = (id: string) => packageTitles[id] ?? "Visual story";
+/** Package ids whose visual story is released (rn-selected-work data/sources-ioo.json dates, copied into data/releases.json). */
+export const releasedPackages = (ids: readonly string[]) => ids.filter((id) => storyIfReleased(id));
 export const packageGalleryUrl = (id: string) => `https://institutions-of-one-reader.vercel.app/production/cycle-01/${id.toLowerCase()}`;
 export const commonsSourceUrl = (file: string) => `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.replace(/ /g, "_"))}`;
 
@@ -151,14 +150,26 @@ export const licenseDeedUrl = (rights: string): string | undefined => {
 };
 
 /**
- * Case records that have a Public Reader visual story. The pairing comes from the reader's own
- * package data (entity line of each package post): P18 to P27 are the ten careers below.
+ * Case records that have a Public Reader visual story, keyed by case slug. The pairing comes from the reader's own
+ * package data (entity line of each package post): P18 to P27 are the ten careers below. Keyed by slug so a seed
+ * name with a parenthetical, such as "MrBeast (Jimmy Donaldson)", still matches.
  */
 const caseVisualStories: Record<string, string> = {
-  "Jony Ive": "P18", "Shonda Rhimes": "P19", "Jane Gilbert": "P20", "Emma Chamberlain": "P21", "Suzie Reider": "P22",
-  "Pieter Levels": "P23", "Alex Cooper": "P24", "Marques Brownlee": "P25", "MrBeast": "P26", "Jack Conte": "P27",
+  "jony-ive": "P18", "shonda-rhimes": "P19", "jane-gilbert": "P20", "emma-chamberlain": "P21", "suzie-reider": "P22",
+  "pieter-levels": "P23", "alex-cooper": "P24", "marques-brownlee": "P25", "mrbeast": "P26", "jack-conte": "P27",
 };
-export const visualStoryForCase = (name: string) => {
-  const id = caseVisualStories[name];
-  return id ? { id, title: packageTitle(id), url: packageGalleryUrl(id) } : undefined;
+/** The case's visual story, only once that story is released. */
+export const visualStoryForCase = (slug: string) => {
+  const id = caseVisualStories[slug];
+  return id && storyIfReleased(id) ? { id, title: packageTitle(id), url: packageGalleryUrl(id) } : undefined;
 };
+/** The visual story paired with a case, released or not (for tests and the release record). */
+export const visualStoryIdForCase = (slug: string) => caseVisualStories[slug];
+
+/** Case records each edition is built on. Edition 001 reads six careers and 002 reads four; the other editions name no Observatory case. */
+export const editionCases: Record<string, readonly string[]> = {
+  "001": ["jony-ive", "shonda-rhimes", "jane-gilbert", "emma-chamberlain", "suzie-reider", "pieter-levels"],
+  "002": ["alex-cooper", "marques-brownlee", "mrbeast", "jack-conte"],
+};
+/** The edition numbers that discuss a case. */
+export const editionsForCase = (slug: string) => Object.keys(editionCases).filter((number) => editionCases[number].includes(slug));

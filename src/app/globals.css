@@ -1171,3 +1171,20 @@ h1,h2,h3{letter-spacing:-.025em;}
 .edition-dates time{font-weight:700}
 .portfolio-line{margin:18px 0 0;font-size:15px;line-height:1.5;color:var(--muted)}
 .portfolio-line a{display:inline-block;padding:8px 0}
+
+/* Release gate link sets (src/components/GalleryLinks.tsx): edition navigation columns follow the number of links,
+   "Cases in this edition", and "Where this piece lives" on case records. */
+.edition-continuity{grid-template-columns:repeat(var(--cols,3),minmax(0,1fr))}
+@media(max-width:800px){.edition-continuity{grid-template-columns:1fr}}
+.edition-cases{margin:88px 0 0;padding:54px;background:var(--i1-paper,#f4f1ea);color:var(--io-black,#111);border:1px solid var(--io-black,#111)}
+.edition-cases h2{max-width:900px;margin:12px 0 20px;font:700 clamp(32px,4.5vw,56px)/1.05 Georgia,serif;letter-spacing:-.03em}
+.edition-cases>p:not(.eyebrow){max-width:760px;font-size:18px;line-height:1.55}
+.edition-cases ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;margin:30px 0 0;padding:0;list-style:none;background:var(--io-black,#111);border:1px solid var(--io-black,#111)}
+.edition-cases li a{display:grid;gap:10px;height:100%;min-height:120px;padding:22px;background:white;color:var(--io-black,#111);text-decoration:none}
+.edition-cases li a:hover{background:var(--i1-paper-deep,#e9e4d8)}
+.edition-cases b{font-size:22px}
+.edition-cases span{font-size:15px;line-height:1.45}
+@media(max-width:800px){.edition-cases{margin-left:-20px;margin-right:-20px;padding:42px 20px}}
+.gallery-links{margin:48px 0;padding:24px 0;border-top:1px solid currentColor;border-bottom:1px solid currentColor}
+.gallery-links ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:4px}
+.gallery-links a{display:inline-block;padding:8px 0;font-weight:700}

@@ -15,6 +15,7 @@ const { readingPath, structure } = await imp("_test/pilot-checks.mjs");
 const { checkContract, deadControls } = await imp("_test/contract.mjs");
 const { lintHtml, errorsOnly, format } = await imp("_kit/check/voice-lint.mjs");
 const { filterApproved, collectNeedsRn } = await imp("_kit/core/approved.mjs");
+const { toolReleased, buildDate, reviewRender } = await import(pathToFileURL(path.join(root, "scripts/release-state.mjs")).href);
 
 const appDir = path.join(root, ".next/server/app");
 const read = (f) => fs.readFileSync(f, "utf8");
@@ -48,9 +49,20 @@ const sitemapFile = path.join(appDir, "sitemap.xml.body");
 if (fs.existsSync(sitemapFile)) expect("sitemap", !/\/tools/.test(read(sitemapFile)), "a /tools address is in the sitemap");
 else console.log("note: sitemap body not found, skipped");
 
-const pages = [{ name: "hub", file: path.join(appDir, "tools.html"), url: "/tools" }, ...tools.map((t) => ({ ...t, name: t.slug, file: path.join(appDir, "tools", `${t.slug}.html`), url: `/tools/${t.slug}` }))];
+// Release gate (data/releases.json): a held tool has no page at all, and the hub has none while no tool is released.
+const releasedTools = tools.filter((t) => toolReleased(t.slug));
+console.log(`release gate: build date ${buildDate || "unknown"}${reviewRender ? " (review render)" : ""}; released tools: ${releasedTools.map((t) => t.slug).join(", ") || "none"}`);
+const pages = [{ name: "hub", file: path.join(appDir, "tools.html"), url: "/tools", released: releasedTools.length > 0 }, ...tools.map((t) => ({ ...t, name: t.slug, file: path.join(appDir, "tools", `${t.slug}.html`), url: `/tools/${t.slug}`, released: toolReleased(t.slug) }))];
 for (const p of pages) {
   const where = p.url;
+  if (!p.released) {
+    // Either no file, or Next prerendered the 404 for it (status 404 in the .meta file next to it).
+    const meta = p.file.replace(/\.html$/, ".meta");
+    const is404 = fs.existsSync(meta) && JSON.parse(read(meta)).status === 404;
+    expect(where, !fs.existsSync(p.file) || is404, `held, but a page was built at ${path.relative(root, p.file)}`);
+    if (!failed) console.log(`held ${where} (no page built)`);
+    continue;
+  }
   if (!fs.existsSync(p.file)) { fail(where, `no prerendered page at ${path.relative(root, p.file)}`); continue; }
   const html = read(p.file);
   const doc = parse(html);
@@ -87,7 +99,8 @@ for (const p of pages) {
     expect(where, !/work with rn/i.test(frag), "client line on a tool page");
   } else {
     const links = select(doc, "main a").map((a) => a.attrs.href);
-    for (const t of tools) expect(where, links.includes(`/tools/${t.slug}`), `hub does not link /tools/${t.slug}`);
+    for (const t of releasedTools) expect(where, links.includes(`/tools/${t.slug}`), `hub does not link /tools/${t.slug}`);
+    for (const t of tools.filter((x) => !releasedTools.includes(x))) expect(where, !links.includes(`/tools/${t.slug}`), `hub links held /tools/${t.slug}`);
     for (const img of select(doc, "main img")) expect(where, img.attrs.alt && img.attrs.width && img.attrs.height && !/\.(jpe?g|png)/i.test(img.attrs.alt), "hub image needs alt, width and height");
   }
   if (!failed) console.log(`ok   ${where}`);

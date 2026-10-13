@@ -10,7 +10,10 @@ import { CaseStatus } from "@/components/case/CaseStatus";
 import { buildFramework, collectSources, countSources, formatLongDate, isLandingPage, pad, sourceKindLabel } from "@/components/case/caseData";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { PortfolioLine } from "@/components/PortfolioLine";
-import { visualStoryForCase } from "@/lib/edit-cycle-one";
+import { visualStoryForCase, editionsForCase } from "@/lib/edit-cycle-one";
+import { publicEditions } from "@/lib/edit-cycle-one";
+import { caseId, caseIsPublic, editionIsPublic, pieceById } from "@/lib/releases";
+import { GalleryLinks } from "@/components/GalleryLinks";
 
 // Evidence comes from the database; serve a cached render and refresh it hourly
 // so a cold or unavailable database never sits in front of a reader.
@@ -19,9 +22,11 @@ export const revalidate = 3600;
 type Evidence = { id: string; supportType: string; exactPassage: string | null; locator: string | null; source: { title: string; url: string; publisher: string | null; publishedAt: Date | null; primarySource: boolean } };
 type Claim = { id: string; statement: string; permissibleLanguage: string | null; claimType: string; verificationStatus: string; contradictionNote: string | null; evidence: Evidence[] };
 
+// SEED holds only released cases (data/releases.json), so held cases get no page.
 export function generateStaticParams() { return SEED.map((n) => ({ slug: nodeSlug(n.name) })); }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
+  if (!caseIsPublic(params.slug)) return {};
   const node = findNodeBySlug(params.slug);
   if (!node) return { title: "Case | The Observatory" };
   const canonical = `/observatory/${params.slug}`;
@@ -58,6 +63,8 @@ const SECTIONS = [
 ] as const;
 
 export default async function ObservatoryProfile({ params }: { params: { slug: string } }) {
+  // The release gate comes first: a case that is not released returns 404 even when the evidence store has a record for it.
+  if (!caseIsPublic(params.slug)) notFound();
   let node: Node | undefined = findNodeBySlug(params.slug);
   let status = "provisional";
   let reviewedAt: Date | null = null;
@@ -102,7 +109,10 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
   const unknowns = research?.unknowns ?? narrative?.unresolved ?? [];
   const framework = narrative ? buildFramework({ built: narrative.structuralTurn, unknowns, carryFallback: guide.comparison }) : [];
   const hasCase = Boolean(narrative && research);
-  const visualStory = visualStoryForCase(person.name);
+  const visualStory = visualStoryForCase(params.slug);
+  const editionTitles = new Map(publicEditions().map((e) => [e.number, e.title]));
+  const discussedIn = editionsForCase(params.slug).filter((number) => editionIsPublic(number));
+  const piece = pieceById(caseId(params.slug));
   const section = (id: (typeof SECTIONS)[number]["id"]) => pad(SECTIONS.findIndex((item) => item.id === id) + 1);
 
   return <main className={styles.page}>
@@ -133,6 +143,11 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
       <h2 id="connected-heading">Connected to this case</h2>
       <p>The visual story &ldquo;{visualStory.title}&rdquo; walks through this case in slides, with captions and source records.</p>
       <a href={visualStory.url} target="_blank" rel="noopener noreferrer">Watch the visual story<span className="sr-only"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+    </aside>}
+
+    {discussedIn.length > 0 && <aside className={styles.connected} aria-labelledby="discussed-heading">
+      <h2 id="discussed-heading">Discussed in the I/1 Edit</h2>
+      {discussedIn.map((number) => <p key={number}><a href={`/edit/${number}`}>Edition {number}: {editionTitles.get(number)}</a></p>)}
     </aside>}
 
     {hasCase && narrative && research ? <>
@@ -238,6 +253,8 @@ export default async function ObservatoryProfile({ params }: { params: { slug: s
       </div>
       <NewsletterSignup source="observatory" variant="inline" />
     </section>
+
+    {piece && <GalleryLinks piece={piece} selfPath={`/observatory/${params.slug}`} omit={discussedIn.map((number) => `/edit/${number}`)} />}
 
     <nav className={styles.next} aria-label="More cases">
       {position && <p className={styles.position}>Case {position} of {SEED.length}. <span>Cases follow the roster order on the Observatory page.</span></p>}

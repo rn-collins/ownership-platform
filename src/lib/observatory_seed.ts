@@ -4,6 +4,8 @@
 // Only public figures with publicly-documented roles/ownership are seeded here;
 // lesser-known individuals are added only via consented nominations.
 
+import { caseIsPublic } from "@/lib/released-ids";
+
 export type Node = {
   name: string;
   role: string;
@@ -16,7 +18,8 @@ export type Node = {
   question?: string;
 };
 
-export const SEED: Node[] = [
+/** Every case record in the repository, released or not. Pages and lists use SEED, which holds only released cases. */
+export const SEED_RECORDS: Node[] = [
   // --- original founding roster ---
   { name: "Suzie Reider", role: "Media executive who helped build YouTube’s revenue organization", domain: "Media", kind: "professional", created: true, tension: "Portable vs embedded", question: "When an executive builds a system inside a giant company, what can actually travel with her?" },
   { name: "Kenny Gold", role: "Global Chief Creator Officer at Edelman", domain: "Media", kind: "professional", created: true, tension: "Role vs person", question: "What changes when a company creates a C-suite role around creator culture?" },
@@ -71,6 +74,10 @@ export const SEED: Node[] = [
   { name: "Neri Oxman", role: "Designer, materials researcher, and founder of OXMAN", domain: "Design", kind: "professional", tension: "One field vs many", question: "What moves with a researcher when a university lab becomes a private company?" },
   { name: "Brian May", role: "Musician and astrophysicist", domain: "Science", kind: "professional", tension: "One field vs many", question: "What lets achievement in music and astrophysics coexist as more than a novelty pairing?" },
 ];
+
+// The release gate (data/releases.json via src/lib/releases.ts): a case that is not released is left out of every list,
+// map, sitemap and page, and its address returns 404.
+export const SEED: Node[] = SEED_RECORDS.filter((node) => caseIsPublic(nodeSlug(node.name)));
 
 export const OBSERVATORY_DOMAINS = [
   "Media", "Creator Economy", "Consumer", "Fashion & Brand", "Agency", "Venture",

@@ -1,0 +1,1077 @@
+{
+ "_note": "The one release record for this site. A piece is public only when releasedAt (a date in Pacific/Honolulu) is today or earlier and hold is false. An empty releasedAt means unreleased. Every page, list, sitemap entry, share image and file of a piece that is not released returns 404. Change a date or hold here; the daily rebuild publishes the piece on its day. Dates come only from the sources named in each dateSource. 'related' holds the Public Reader visual stories this site links to; a link to one appears only once that story is released. sourcePageUrl is empty where rn-selected-work has no sources page for the piece yet.",
+ "timezone": "Pacific/Honolulu",
+ "siteOrigin": "https://ownership-platform.vercel.app",
+ "pieces": [
+  {
+   "id": "ioo/edit-001",
+   "kind": "edition",
+   "title": "When Does One Person Become an Institution?",
+   "path": "/edit/001",
+   "releasedAt": "2026-09-16",
+   "hold": false,
+   "postUrls": [
+    {
+     "platform": "beehiiv",
+     "url": "https://polymath-rn-collins.beehiiv.com/p/001-when-does-one-person-become-an-institution"
+    }
+   ],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/001",
+   "sourcePageUrl": "",
+   "dateSource": "src/lib/publication-dates.json (published date stated on the edition's own Beehiiv post page)"
+  },
+  {
+   "id": "ioo/edit-002",
+   "kind": "edition",
+   "title": "Your Career Has a Supply Chain",
+   "path": "/edit/002",
+   "releasedAt": "2026-09-16",
+   "hold": false,
+   "postUrls": [
+    {
+     "platform": "beehiiv",
+     "url": "https://polymath-rn-collins.beehiiv.com/p/002-your-career-has-a-supply-chain"
+    }
+   ],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/002",
+   "sourcePageUrl": "",
+   "dateSource": "src/lib/publication-dates.json (published date stated on the edition's own Beehiiv post page)"
+  },
+  {
+   "id": "ioo/edit-003",
+   "kind": "edition",
+   "title": "Your Archive Is Not a Backup",
+   "path": "/edit/003",
+   "releasedAt": "2026-09-16",
+   "hold": false,
+   "postUrls": [
+    {
+     "platform": "beehiiv",
+     "url": "https://polymath-rn-collins.beehiiv.com/p/003-your-archive-is-not-a-backup"
+    }
+   ],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/003",
+   "sourcePageUrl": "",
+   "dateSource": "src/lib/publication-dates.json (published date stated on the edition's own Beehiiv post page)"
+  },
+  {
+   "id": "ioo/edit-004",
+   "kind": "edition",
+   "title": "The Exit Is Part of the Architecture",
+   "path": "/edit/004",
+   "releasedAt": "2026-09-16",
+   "hold": false,
+   "postUrls": [
+    {
+     "platform": "beehiiv",
+     "url": "https://polymath-rn-collins.beehiiv.com/p/004-the-exit-is-part-of-the-architecture"
+    }
+   ],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/004",
+   "sourcePageUrl": "",
+   "dateSource": "src/lib/publication-dates.json (published date stated on the edition's own Beehiiv post page)"
+  },
+  {
+   "id": "ioo/edit-005",
+   "kind": "edition",
+   "title": "The $2,000 Video",
+   "path": "/edit/005",
+   "releasedAt": "2026-08-21",
+   "hold": false,
+   "postUrls": [
+    {
+     "platform": "beehiiv",
+     "url": "https://polymath-rn-collins.beehiiv.com/p/the-2000-video"
+    }
+   ],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/005",
+   "sourcePageUrl": "",
+   "dateSource": "src/lib/publication-dates.json (published date stated on the edition's own Beehiiv post page)"
+  },
+  {
+   "id": "ioo/edit-006",
+   "kind": "edition",
+   "title": "The Person Inside the Asset",
+   "path": "/edit/006",
+   "releasedAt": "2026-08-21",
+   "hold": false,
+   "postUrls": [
+    {
+     "platform": "beehiiv",
+     "url": "https://polymath-rn-collins.beehiiv.com/p/the-person-inside-the-asset"
+    }
+   ],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/006",
+   "sourcePageUrl": "",
+   "dateSource": "src/lib/publication-dates.json (published date stated on the edition's own Beehiiv post page)"
+  },
+  {
+   "id": "ioo/edit-007",
+   "kind": "edition",
+   "title": "The Asset’s Afterlife",
+   "path": "/edit/007",
+   "releasedAt": "2026-08-21",
+   "hold": false,
+   "postUrls": [
+    {
+     "platform": "beehiiv",
+     "url": "https://polymath-rn-collins.beehiiv.com/p/the-assets-afterlife"
+    }
+   ],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/007",
+   "sourcePageUrl": "",
+   "dateSource": "src/lib/publication-dates.json (published date stated on the edition's own Beehiiv post page)"
+  },
+  {
+   "id": "ioo/edit-008",
+   "kind": "edition",
+   "title": "The Smallest Institution in the Campaign",
+   "path": "/edit/008",
+   "releasedAt": "2026-08-21",
+   "hold": false,
+   "postUrls": [
+    {
+     "platform": "beehiiv",
+     "url": "https://polymath-rn-collins.beehiiv.com/p/the-smallest-institution-in-the-campaign"
+    }
+   ],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/008",
+   "sourcePageUrl": "",
+   "dateSource": "src/lib/publication-dates.json (published date stated on the edition's own Beehiiv post page)"
+  },
+  {
+   "id": "ioo/edit-009",
+   "kind": "edition",
+   "title": "All Media, Now Known or Hereafter Devised",
+   "path": "/edit/009",
+   "releasedAt": "",
+   "hold": true,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/009",
+   "sourcePageUrl": "",
+   "dateSource": "None: src/lib/publication-dates.json records no Beehiiv post for 009. Held until RN gives a date.",
+   "assets": [
+    "/edit-images/009/",
+    "/og/edit/009.jpg",
+    "/og/edit-card/009"
+   ]
+  },
+  {
+   "id": "ioo/case-suzie-reider",
+   "kind": "case",
+   "title": "Suzie Reider",
+   "path": "/observatory/suzie-reider",
+   "releasedAt": "2026-07-27",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/001",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit f841622, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-kenny-gold",
+   "kind": "case",
+   "title": "Kenny Gold",
+   "path": "/observatory/kenny-gold",
+   "releasedAt": "2026-07-27",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit f841622, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-steven-bartlett",
+   "kind": "case",
+   "title": "Steven Bartlett",
+   "path": "/observatory/steven-bartlett",
+   "releasedAt": "2026-07-27",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 882032c, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-ashley-rudder",
+   "kind": "case",
+   "title": "Ashley Rudder",
+   "path": "/observatory/ashley-rudder",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-gordon-glenister",
+   "kind": "case",
+   "title": "Gordon Glenister",
+   "path": "/observatory/gordon-glenister",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-claire-zau",
+   "kind": "case",
+   "title": "Claire Zau",
+   "path": "/observatory/claire-zau",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-brad-keywell",
+   "kind": "case",
+   "title": "Brad Keywell",
+   "path": "/observatory/brad-keywell",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-klitos-teklos",
+   "kind": "case",
+   "title": "Klitos Teklos",
+   "path": "/observatory/klitos-teklos",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-charlotte-tansill",
+   "kind": "case",
+   "title": "Charlotte Tansill",
+   "path": "/observatory/charlotte-tansill",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-kunal-shah",
+   "kind": "case",
+   "title": "Kunal Shah",
+   "path": "/observatory/kunal-shah",
+   "releasedAt": "2026-10-08",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 803e200, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-mo-gawdat",
+   "kind": "case",
+   "title": "Mo Gawdat",
+   "path": "/observatory/mo-gawdat",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-josephus-allmond",
+   "kind": "case",
+   "title": "Josephus Allmond",
+   "path": "/observatory/josephus-allmond",
+   "releasedAt": "2026-07-27",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 935e515, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-peter-diamandis",
+   "kind": "case",
+   "title": "Peter Diamandis",
+   "path": "/observatory/peter-diamandis",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-noubar-afeyan",
+   "kind": "case",
+   "title": "Noubar Afeyan",
+   "path": "/observatory/noubar-afeyan",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-nadir-godrej",
+   "kind": "case",
+   "title": "Nadir Godrej",
+   "path": "/observatory/nadir-godrej",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-mrbeast",
+   "kind": "case",
+   "title": "MrBeast (Jimmy Donaldson)",
+   "path": "/observatory/mrbeast",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/002",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-emma-chamberlain",
+   "kind": "case",
+   "title": "Emma Chamberlain",
+   "path": "/observatory/emma-chamberlain",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/001",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-huda-kattan",
+   "kind": "case",
+   "title": "Huda Kattan",
+   "path": "/observatory/huda-kattan",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-marques-brownlee",
+   "kind": "case",
+   "title": "Marques Brownlee",
+   "path": "/observatory/marques-brownlee",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/002",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-pieter-levels",
+   "kind": "case",
+   "title": "Pieter Levels",
+   "path": "/observatory/pieter-levels",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/001",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-jack-conte",
+   "kind": "case",
+   "title": "Jack Conte",
+   "path": "/observatory/jack-conte",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/002",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-colin-samir",
+   "kind": "case",
+   "title": "Colin & Samir",
+   "path": "/observatory/colin-samir",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-alex-cooper",
+   "kind": "case",
+   "title": "Alex Cooper",
+   "path": "/observatory/alex-cooper",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/002",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-codie-sanchez",
+   "kind": "case",
+   "title": "Codie Sanchez",
+   "path": "/observatory/codie-sanchez",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-gary-vaynerchuk",
+   "kind": "case",
+   "title": "Gary Vaynerchuk",
+   "path": "/observatory/gary-vaynerchuk",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-alexandr-wang",
+   "kind": "case",
+   "title": "Alexandr Wang",
+   "path": "/observatory/alexandr-wang",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-mustafa-suleyman",
+   "kind": "case",
+   "title": "Mustafa Suleyman",
+   "path": "/observatory/mustafa-suleyman",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-cathy-hackl",
+   "kind": "case",
+   "title": "Cathy Hackl",
+   "path": "/observatory/cathy-hackl",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-jane-gilbert",
+   "kind": "case",
+   "title": "Jane Gilbert",
+   "path": "/observatory/jane-gilbert",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/001",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-darren-murph",
+   "kind": "case",
+   "title": "Darren Murph",
+   "path": "/observatory/darren-murph",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-linda-fisher",
+   "kind": "case",
+   "title": "Linda Fisher",
+   "path": "/observatory/linda-fisher",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-jony-ive",
+   "kind": "case",
+   "title": "Jony Ive",
+   "path": "/observatory/jony-ive",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/001",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-astro-teller",
+   "kind": "case",
+   "title": "Astro Teller",
+   "path": "/observatory/astro-teller",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-marc-lore",
+   "kind": "case",
+   "title": "Marc Lore",
+   "path": "/observatory/marc-lore",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-shonda-rhimes",
+   "kind": "case",
+   "title": "Shonda Rhimes",
+   "path": "/observatory/shonda-rhimes",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/001",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-simon-cook",
+   "kind": "case",
+   "title": "Simon Cook",
+   "path": "/observatory/simon-cook",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-marc-pritchard",
+   "kind": "case",
+   "title": "Marc Pritchard",
+   "path": "/observatory/marc-pritchard",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-reid-hoffman",
+   "kind": "case",
+   "title": "Reid Hoffman",
+   "path": "/observatory/reid-hoffman",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-fei-fei-li",
+   "kind": "case",
+   "title": "Fei-Fei Li",
+   "path": "/observatory/fei-fei-li",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-neri-oxman",
+   "kind": "case",
+   "title": "Neri Oxman",
+   "path": "/observatory/neri-oxman",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/case-brian-may",
+   "kind": "case",
+   "title": "Brian May",
+   "path": "/observatory/brian-may",
+   "releasedAt": "2026-07-28",
+   "hold": false,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "main branch commit 3efcd8b, which published the saturated case record (main deploys to the live site); date in Pacific/Honolulu"
+  },
+  {
+   "id": "ioo/tool-four-questions-map",
+   "kind": "tool",
+   "toolId": "m1-four-questions-map",
+   "title": "Where does your work become structurally yours?",
+   "path": "/tools/four-questions-map",
+   "releasedAt": "",
+   "hold": true,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/001",
+   "sourcePageUrl": "",
+   "dateSource": "None: src/components/tools/*/NEEDS_RN.md marks these as a review release with nothing published. Held until RN gives a date.",
+   "assets": [
+    "/tools/four-questions-map"
+   ]
+  },
+  {
+   "id": "ioo/tool-dependency-ranker",
+   "kind": "tool",
+   "toolId": "m2-dependency-ranker",
+   "title": "Which dependency could stop my work first?",
+   "path": "/tools/dependency-ranker",
+   "releasedAt": "",
+   "hold": true,
+   "postUrls": [],
+   "longFormUrl": "https://ownership-platform.vercel.app/edit/002",
+   "sourcePageUrl": "",
+   "dateSource": "None: src/components/tools/*/NEEDS_RN.md marks these as a review release with nothing published. Held until RN gives a date.",
+   "assets": [
+    "/tools/dependency-ranker"
+   ]
+  },
+  {
+   "id": "ioo/tool-framework-strip",
+   "kind": "tool",
+   "toolId": "x3-framework-strip",
+   "title": "Framework strip (page section preview)",
+   "path": "/tools/framework-strip",
+   "releasedAt": "",
+   "hold": true,
+   "postUrls": [],
+   "longFormUrl": "",
+   "sourcePageUrl": "",
+   "dateSource": "None: src/components/tools/*/NEEDS_RN.md marks these as a review release with nothing published. Held until RN gives a date.",
+   "assets": [
+    "/tools/framework-strip",
+    "/images/framework-strip/"
+   ]
+  }
+ ],
+ "related": [
+  {
+   "id": "ioo/c01-p01",
+   "kind": "visual-story",
+   "story": "P01",
+   "title": "The $35 invoice",
+   "releasedAt": "2026-10-26",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p01",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p01",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p02",
+   "kind": "visual-story",
+   "story": "P02",
+   "title": "What does “buy” mean?",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p02",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p02",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p03",
+   "kind": "visual-story",
+   "story": "P03",
+   "title": "The source-file question",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p03",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p03",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p04",
+   "kind": "visual-story",
+   "story": "P04",
+   "title": "Permission to post is not permission to change",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p04",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p04",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p05",
+   "kind": "visual-story",
+   "story": "P05",
+   "title": "Credit is not clearance",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p05",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p05",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p06",
+   "kind": "visual-story",
+   "story": "P06",
+   "title": "A voice can sound like someone who said no, and the company can say it doesn’t",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p06",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p06",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p07",
+   "kind": "visual-story",
+   "story": "P07",
+   "title": "Paid work is not automatically work made for hire",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p07",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p07",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p08",
+   "kind": "visual-story",
+   "story": "P08",
+   "title": "Partnership Ads and Spark Ads: two permission trails",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p08",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p08",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p09",
+   "kind": "visual-story",
+   "story": "P09",
+   "title": "Embed, host or repost? Big Buck Bunny on YouTube",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p09",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p09",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p10",
+   "kind": "visual-story",
+   "story": "P10",
+   "title": "The license expired. The episodes didn’t.",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p10",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p10",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p11",
+   "kind": "visual-story",
+   "story": "P11",
+   "title": "Menu Heist, two campaigns, two years",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p11",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p11",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p12",
+   "kind": "visual-story",
+   "story": "P12",
+   "title": "Jordan, Nike, Reebok and the 1992 podium",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p12",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p12",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p13",
+   "kind": "visual-story",
+   "story": "P13",
+   "title": "The BILLY instructions and the creator brief",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p13",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p13",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p14",
+   "kind": "visual-story",
+   "story": "P14",
+   "title": "Many roles, visible collaborators",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p14",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p14",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p15",
+   "kind": "visual-story",
+   "story": "P15",
+   "title": "License or buyout?",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p15",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p15",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p16",
+   "kind": "visual-story",
+   "story": "P16",
+   "title": "An audience can become a company",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p16",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p16",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p17",
+   "kind": "visual-story",
+   "story": "P17",
+   "title": "All Media, Now Known or Hereafter Devised",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p17",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p17",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p18",
+   "kind": "visual-story",
+   "story": "P18",
+   "title": "Portable capacity, a client named up front",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p18",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p18",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p19",
+   "kind": "visual-story",
+   "story": "P19",
+   "title": "A name above the title is not the institution",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p19",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p19",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p20",
+   "kind": "visual-story",
+   "story": "P20",
+   "title": "Institution-building without personal ownership",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p20",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p20",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p21",
+   "kind": "visual-story",
+   "story": "P21",
+   "title": "When attention becomes a supply chain",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p21",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p21",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p22",
+   "kind": "visual-story",
+   "story": "P22",
+   "title": "Capability that travels, systems that stay",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p22",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p22",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p23",
+   "kind": "visual-story",
+   "story": "P23",
+   "title": "Direct operation, no corporate buffer",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p23",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p23",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p24",
+   "kind": "visual-story",
+   "story": "P24",
+   "title": "Portability and distribution are not the same thing",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p24",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p24",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p25",
+   "kind": "visual-story",
+   "story": "P25",
+   "title": "Multi-format is not multi-supplier",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p25",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p25",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p26",
+   "kind": "visual-story",
+   "story": "P26",
+   "title": "Scale can hide fragility",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p26",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p26",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p27",
+   "kind": "visual-story",
+   "story": "P27",
+   "title": "Patreon: one person’s escape route, another’s infrastructure",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p27",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p27",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p28",
+   "kind": "visual-story",
+   "story": "P28",
+   "title": "Ownership is not authorship",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p28",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p28",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p29",
+   "kind": "visual-story",
+   "story": "P29",
+   "title": "What posting on a platform does and does not license",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p29",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p29",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p30",
+   "kind": "visual-story",
+   "story": "P30",
+   "title": "One credited name, many contributors",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p30",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p30",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p31",
+   "kind": "visual-story",
+   "story": "P31",
+   "title": "Without a will, a court decides",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p31",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p31",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p32",
+   "kind": "visual-story",
+   "story": "P32",
+   "title": "A copyright transfer needs a signed writing",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p32",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p32",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p33",
+   "kind": "visual-story",
+   "story": "P33",
+   "title": "Two sales, a re-recording and a buyback",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p33",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p33",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  },
+  {
+   "id": "ioo/c01-p34",
+   "kind": "visual-story",
+   "story": "P34",
+   "title": "Google Reader shut down: export and rebuild",
+   "releasedAt": "2026-11-02",
+   "hold": false,
+   "url": "https://institutions-of-one-reader.vercel.app/production/cycle-01/p34",
+   "sourcePageUrl": "https://rn-selected-work.vercel.app/sources/ioo/c01-p34",
+   "dateSource": "rn-collins/rn-selected-work data/sources-ioo.json (generated 2026-10-10)"
+  }
+ ]
+}

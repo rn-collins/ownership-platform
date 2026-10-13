@@ -104,7 +104,7 @@ test('review release: not in the sitemap, not in the site menu or footer links, 
   assert.ok(!/href: "\/tools/.test(nav), 'the menu must not link to /tools');
   assert.ok(!/href="\/tools/.test(read(path.join(src, 'components/SiteFooter.tsx'))) && !/href="\/tools/.test(read(path.join(src, 'components/SiteHeader.tsx'))));
   assert.match(read(path.join(here, 'seo.ts')), /spec\.release === "public" \? \{\} : \{ robots: \{ index: false, follow: false \} \}/);
-  assert.match(read(path.join(src, 'app/(tools)/tools/page.tsx')), /robots: \{ index: false, follow: false \}/);
+  assert.match(read(path.join(src, 'app/(tools)/tools/page.tools.tsx')), /robots: \{ index: false, follow: false \}/);
   for (const [d, s] of Object.entries(specs)) assert.ok(!/(work with RN|hire (me|RN)|available for (client|hire)|book RN)/i.test(JSON.stringify(s)), d);
   assert.ok(!/(work with RN|cultural review|rights cleared)/i.test(JSON.stringify(hub)));
 });

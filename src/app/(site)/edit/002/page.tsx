@@ -1,3 +1,8 @@
+import { notFound } from "next/navigation";
+import { editionIsPublic } from "@/lib/releases";
+import { EditionNav, EditionCases } from "@/components/GalleryLinks";
+import { editionCases } from "@/lib/edit-cycle-one";
+import { SEED, nodeSlug } from "@/lib/observatory_seed";
 import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { EditionPackageMap } from "@/components/CanonicalEdition";
@@ -8,7 +13,7 @@ import { NoScriptNote } from "@/components/NoScriptNote";
 
 const packages = ["P24", "P25", "P26", "P27"];
 
-export const metadata = {
+const editionMetadata = {
   title: "Your Career Has a Supply Chain | The I/1 Edit",
   description: "Edition 002 examines the platforms, employers, distributors, clients, and infrastructure between a person and their ability to continue.",
   alternates: { canonical: "/edit/002" },
@@ -56,7 +61,11 @@ const sources = [
   { id: 7, label: "Patreon, “The story of Patreon”", href: "https://www.patreon.com/about" },
 ];
 
+// Release gate (data/releases.json): until this edition is released its address returns 404 and it has no metadata.
+export function generateMetadata() { return editionIsPublic("002") ? editionMetadata : {}; }
+
 export default function EditionTwoPage() {
+  if (!editionIsPublic("002")) notFound();
   return (
     <main className="edit-edition-page edition-002">
       <a className="postback" href="/edit">← The I/1 Edit</a>
@@ -207,6 +216,7 @@ export default function EditionTwoPage() {
       </section>
 
       <EditionPackageMap edition="002" packages={packages} heading="Continue through the four cases." />
+      <EditionCases number="002" cases={SEED.filter((c) => editionCases["002"].includes(nodeSlug(c.name))).map((c) => ({ slug: nodeSlug(c.name), name: c.name, question: c.question }))} />
 
       <NoScriptNote>The interactive questions below need JavaScript to run. The edition text above works without it.</NoScriptNote>
       <EditionLab edition="002" />
@@ -228,11 +238,7 @@ export default function EditionTwoPage() {
       </section>
       <PortfolioLine />
 
-      <nav className="edition-continuity" aria-label="Edition navigation">
-        <a href="/edit/001">← Edition 001</a>
-        <a href="/edit">All editions</a>
-        <a href="/edit/003">Edition 003 →</a>
-      </nav>
+      <EditionNav number="002" />
 
       <section className="edition-subscribe">
         <p className="eyebrow">The I/1 Edit</p>

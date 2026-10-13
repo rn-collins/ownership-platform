@@ -3,12 +3,14 @@ import type { Metadata } from "next";
 import hub from "@/lib/tools/hub.json";
 import { tools } from "@/lib/tools/registry";
 import type { ToolSpec } from "@/components/tools/_kit/types.d.mts";
+import { notFound } from "next/navigation";
+import { toolIsPublic } from "@/lib/releases";
 
 const TITLE = `${hub.title} | Institutions of One`;
 const DESC = hub.lede;
 
 // The hub stays noindex until RN moves a tool to public.
-export const metadata: Metadata = {
+const hubMetadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/tools" },
@@ -16,6 +18,12 @@ export const metadata: Metadata = {
   openGraph: { type: "website", siteName: "Institutions of One", title: TITLE, description: DESC, url: "/tools", images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Institutions of One: what people build, carry, control, and continue" }] },
   twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/opengraph-image"] },
 };
+
+// Release gate (data/releases.json): the hub lists released tools only and returns 404 while none is released.
+const releasedSlug = (id: string) => { const tool = tools.find((t) => t.id === id); return tool && toolIsPublic(tool.slug) ? tool : undefined; };
+const hubItems = () => hub.items.filter((item) => releasedSlug(item.id));
+const sectionItems = () => hub.pageSections.items.filter((item) => releasedSlug(item.id));
+export function generateMetadata(): Metadata { return hubItems().length + sectionItems().length ? hubMetadata : {}; }
 
 type HubImage = (typeof hub.items)[number]["image"];
 
@@ -38,6 +46,9 @@ function Card({ spec, slug, image, theme, level }: { spec: ToolSpec; slug: strin
 }
 
 export default function ToolsHub() {
+  const items = hubItems();
+  const sectionList = sectionItems();
+  if (!items.length && !sectionList.length) notFound();
   const themes = hub.themes as Record<string, string>;
   const sections = hub.pageSections;
   return <div className="tk" data-program="IOO">
@@ -52,25 +63,25 @@ export default function ToolsHub() {
       </div></header>
       <div className="tk-wrap">
         <p className="tkh-note" role="note">{hub.previewNote}</p>
-        <section aria-labelledby="tkh-tools-h">
+        {items.length > 0 && <section aria-labelledby="tkh-tools-h">
           <h2 id="tkh-tools-h" className="tk-sr">The tools</h2>
           <ul className="tkh-cards">
-            {hub.items.map((item) => {
+            {items.map((item) => {
               const tool = tools.find((t) => t.id === item.id)!;
               return <Card key={item.id} spec={tool.spec} slug={tool.slug} image={item.image} theme={themes[item.theme]} level="h3" />;
             })}
           </ul>
-        </section>
-        <section className="tkh-section tkh-foot" aria-labelledby="tkh-sections-h">
+        </section>}
+        {sectionList.length > 0 && <section className="tkh-section tkh-foot" aria-labelledby="tkh-sections-h">
           <h2 id="tkh-sections-h">{sections.heading}</h2>
           <p>{sections.note}</p>
           <ul className="tkh-cards">
-            {sections.items.map((item) => {
+            {sectionList.map((item) => {
               const tool = tools.find((t) => t.id === item.id)!;
               return <Card key={item.id} spec={tool.spec} slug={tool.slug} image={item.image} level="h3" />;
             })}
           </ul>
-        </section>
+        </section>}
       </div>
     </main>
   </div>;

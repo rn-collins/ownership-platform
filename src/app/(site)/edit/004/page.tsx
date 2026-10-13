@@ -1,3 +1,6 @@
+import { notFound } from "next/navigation";
+import { editionIsPublic } from "@/lib/releases";
+import { EditionNav } from "@/components/GalleryLinks";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { EditionPackageMap } from "@/components/CanonicalEdition";
 import { EditionDateline } from "@/components/EditionDateline";
@@ -5,7 +8,7 @@ import { editionMonth, ogArticleTimes } from "@/lib/publication-dates";
 
 const packages = ["P32", "P33", "P34"];
 
-export const metadata = {
+const editionMetadata = {
   title: "The Exit Is Part of the Architecture | The I/1 Edit",
   description: "Edition 004 examines transfer, redirect, and export-and-rebuild as different mechanisms for preserving continuity when work changes containers.",
   alternates: { canonical: "/edit/004" },
@@ -22,7 +25,11 @@ const rehearsal = [
   ["Replacement", "What supplies the function next?", "Compatible alternative, operator, cost, capacity, and reversible test", "Ready / Possible / Unknown"],
 ];
 
+// Release gate (data/releases.json): until this edition is released its address returns 404 and it has no metadata.
+export function generateMetadata() { return editionIsPublic("004") ? editionMetadata : {}; }
+
 export default function EditionFourPage() {
+  if (!editionIsPublic("004")) notFound();
   return <main className="edit-edition-page">
     <a className="postback" href="/edit">← The I/1 Edit</a>
     <p className="eyebrow">Edition 004 · {editionMonth("004", "August 2026")}</p>
@@ -60,7 +67,7 @@ export default function EditionFourPage() {
     <section className="edition-opening" aria-labelledby="source-desk"><p className="eyebrow">Source Desk</p><h2 id="source-desk">Inspect the primary documentation.</h2><ol><li><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository" target="_blank" rel="noopener noreferrer">GitHub Docs: Transferring a repository</a></li><li><a href="https://docs.github.com/en/repositories/archiving-a-github-repository/backing-up-a-repository" target="_blank" rel="noopener noreferrer">GitHub Docs: Backing up a repository</a></li><li><a href="https://support.spotify.com/us/creators/article/switching-away-from-spotify-for-creators-with-a-301-redirect/" target="_blank" rel="noopener noreferrer">Spotify for Creators: Switching away with a 301 redirect</a></li></ol><p><strong>Source status:</strong> Primary documentation rechecked 7 August 2026. Functionality can differ by account, plan, organization, jurisdiction, and private arrangement; recheck at implementation.</p></section>
     <EditionPackageMap edition="004" packages={packages} heading="Continue through the three mechanisms." />
 
-    <nav className="edition-continuity" aria-label="Edition navigation"><a href="/edit/003">← Edition 003</a><a href="/edit">All editions</a><a href="/edit/005">Edition 005 →</a></nav>
+    <EditionNav number="004" />
     <section className="closing-call"><p className="eyebrow">The I/1 Edit</p><h2>Follow the research on work, ownership, continuity, and institutional power.</h2><NewsletterSignup source="site" /></section>
   </main>;
 }

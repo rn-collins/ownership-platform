@@ -3,7 +3,8 @@ import path from "node:path";
 import Image from "next/image";
 import { Fragment, type ReactNode } from "react";
 import { Edition007Figure, edition007FigureForHeading } from "@/components/Edition007Figure";
-import { commonsSourceUrl, cycleOneEditions, licenseDeedUrl, packageGalleryUrl, packageTitle, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
+import { commonsSourceUrl, licenseDeedUrl, packageGalleryUrl, packageTitle, releasedPackages, type CanonicalEdition as Edition } from "@/lib/edit-cycle-one";
+import { EditionNav } from "@/components/GalleryLinks";
 import { EditionDateline } from "@/components/EditionDateline";
 import { PortfolioLine } from "@/components/PortfolioLine";
 import { editionMonth } from "@/lib/publication-dates";
@@ -64,8 +65,10 @@ function ArticleBody({ edition }: { edition: Edition }) {
   })}</>;
 }
 
-/** Reader-facing links to an edition's Public Reader visual stories (shared by editions 001-009). */
-export function EditionPackageMap({ edition, packages, heading }: { edition: string; packages: readonly string[]; heading: string }) {
+/** Reader-facing links to an edition's Public Reader visual stories (shared by editions 001-009). Only released stories are linked. */
+export function EditionPackageMap({ edition, packages: all, heading }: { edition: string; packages: readonly string[]; heading: string }) {
+  const packages = releasedPackages(all);
+  if (!packages.length) return null;
   return <section className="edition-package-map" aria-labelledby={`packages-${edition}`}>
     <p className="eyebrow">More from this edition</p><h2 id={`packages-${edition}`}>{heading}</h2>
     <p>Each visual story walks through one part of the argument, with captions and source records.</p>
@@ -74,15 +77,6 @@ export function EditionPackageMap({ edition, packages, heading }: { edition: str
 }
 
 export function CanonicalEditionPage({ edition }: { edition: Edition }) {
-  const number = Number(edition.number);
-  // Derived from the actual (gate-filtered) edition list rather than hardcoded edges - a
-  // hardcoded "number === 8 is last" broke the moment a 009 entry existed, silently linking
-  // "next" to a nonexistent /edit/010.
-  const freezeRender = process.env.CYCLE01_RENDER_FREEZE === "1";
-  const visible = cycleOneEditions.filter((e) => !e.gated || freezeRender);
-  const index = visible.findIndex((e) => e.number === edition.number);
-  const previous = index === 0 ? "/edit/004" : `/edit/${visible[index - 1].number}`;
-  const next = index === visible.length - 1 ? undefined : `/edit/${visible[index + 1].number}`;
   return <main className="edit-edition-page canonical-edition" data-edition={edition.number}>
     <a className="postback" href="/edit">← All editions</a>
     <p className="eyebrow">Edition {edition.number} · {editionMonth(edition.number, edition.published)}</p>
@@ -101,10 +95,6 @@ export function CanonicalEditionPage({ edition }: { edition: Edition }) {
 
     <EditionPackageMap edition={edition.number} packages={edition.packages} heading="Continue through the supporting stories." />
 
-    <nav className="edition-continuity" aria-label="Edition navigation">
-      <a href={previous}>← Edition {String(number - 1).padStart(3, "0")}</a>
-      {edition.beehiiv ? <a href={edition.beehiiv} target="_blank" rel="noopener noreferrer">Readable Beehiiv edition ↗</a> : null}
-      {next ? <a href={next}>Edition {String(number + 1).padStart(3, "0")} →</a> : <a href="/edit">All editions →</a>}
-    </nav>
+    <EditionNav number={edition.number} />
   </main>;
 }

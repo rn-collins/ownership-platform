@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import { isHeldPath } from "@/lib/releases";
 
 // Subdomains that are the app itself, never a creator tenant.
 const RESERVED = new Set(["www", "app", "api", "admin", "dashboard", "auth", "assets", "cdn", "mail"]);
@@ -34,7 +35,25 @@ const AUTH_REFRESH_TIMEOUT_MS = 1500;
 const hasSessionCookie = (req: NextRequest) =>
   req.cookies.getAll().some(({ name }) => name.startsWith("sb-") && name.includes("-auth-token"));
 
+// Release gate for files (data/releases.json): images, share images and other files of a piece that is not released
+// answer 404, including through the image optimizer. Held pages already 404 in the app itself, with the site's 404 page.
+const FILE_LIKE = /\.[a-z0-9]+$/i;
+const IMAGE_FILE = /\.(?:svg|png|jpg|jpeg|gif|webp)$/i;
+function heldFile(req: NextRequest): boolean {
+  const { pathname, searchParams, origin } = req.nextUrl;
+  if (pathname === "/_next/image") {
+    const target = searchParams.get("url");
+    if (!target) return false;
+    try { return isHeldPath(new URL(target, origin).pathname); } catch { return true; }
+  }
+  return (FILE_LIKE.test(pathname) || pathname.startsWith("/og/")) && isHeldPath(pathname);
+}
+
 export async function middleware(req: NextRequest) {
+  if (heldFile(req)) return new NextResponse("Not found", { status: 404, headers: { "cache-control": "no-store", "x-robots-tag": "noindex" } });
+  // Requests the release gate added to the matcher (the image optimizer and image files) go on unchanged, as before.
+  if (req.nextUrl.pathname === "/_next/image" || IMAGE_FILE.test(req.nextUrl.pathname)) return NextResponse.next();
+
   // Tenant hosts render a public page; short-circuit before session refresh.
   const rewrite = tenantRewrite(req);
   if (rewrite) return rewrite;
@@ -72,5 +91,13 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    // Release gate: the folders that hold files of pieces that can be held, and the image optimizer.
+    "/_next/image",
+    "/edit-images/:path*",
+    "/og/:path*",
+    "/tools/:path*",
+    "/images/:path*",
+  ],
 };

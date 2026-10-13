@@ -5,20 +5,22 @@ import type { ToolSpec } from "@/components/tools/_kit/types.d.mts";
 import { bySlug, tools } from "@/lib/tools/registry";
 import { relatedFor } from "@/lib/tools/related";
 import { toolJsonLd, toolMetadata } from "@/lib/tools/seo";
+import { toolIsPublic } from "@/lib/releases";
 
 export const dynamicParams = false;
-export const generateStaticParams = () => tools.map(({ slug }) => ({ slug }));
+// Release gate (data/releases.json): only released tools get a page; every other address returns 404.
+export const generateStaticParams = () => tools.filter(({ slug }) => toolIsPublic(slug)).map(({ slug }) => ({ slug }));
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const tool = bySlug(params.slug);
-  return tool ? toolMetadata(tool.spec, `/tools/${tool.slug}`) : {};
+  return tool && toolIsPublic(tool.slug) ? toolMetadata(tool.spec, `/tools/${tool.slug}`) : {};
 }
 
 const crumbs = [{ label: "Institutions of One", href: "/" }, { label: "Tools", href: "/tools" }];
 
 export default function ToolPage({ params }: { params: { slug: string } }) {
   const tool = bySlug(params.slug);
-  if (!tool) notFound();
+  if (!tool || !toolIsPublic(tool.slug)) notFound();
   // Only approved content ever reaches the browser: held items are removed here, on the server.
   const spec = filterApproved(tool.spec) as unknown as ToolSpec;
   const { Tool } = tool;

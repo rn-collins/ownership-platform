@@ -1,3 +1,8 @@
+import { notFound } from "next/navigation";
+import { editionIsPublic } from "@/lib/releases";
+import { EditionNav, EditionCases } from "@/components/GalleryLinks";
+import { editionCases } from "@/lib/edit-cycle-one";
+import { SEED, nodeSlug } from "@/lib/observatory_seed";
 import { EditionLab } from "@/components/EditionLab";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { EditionPackageMap } from "@/components/CanonicalEdition";
@@ -8,7 +13,7 @@ import { NoScriptNote } from "@/components/NoScriptNote";
 
 const packages = ["P18", "P19", "P20", "P21", "P22", "P23"];
 
-export const metadata = {
+const editionMetadata = {
   title: "When Does One Person Become an Institution? | The I/1 Edit",
   description:
     "Edition 001 of The I/1 Edit introduces Build, Carry, Control, and Continue: four questions for examining when a person’s work begins to function institutionally.",
@@ -117,7 +122,11 @@ const sources = [
   },
 ];
 
+// Release gate (data/releases.json): until this edition is released its address returns 404 and it has no metadata.
+export function generateMetadata() { return editionIsPublic("001") ? editionMetadata : {}; }
+
 export default function EditionOnePage() {
+  if (!editionIsPublic("001")) notFound();
   return (
     <main className="edit-edition-page">
       <a className="postback" href="/edit">← The I/1 Edit</a>
@@ -246,6 +255,7 @@ export default function EditionOnePage() {
       </section>
 
       <EditionPackageMap edition="001" packages={packages} heading="Continue through the six cases." />
+      <EditionCases number="001" cases={SEED.filter((c) => editionCases["001"].includes(nodeSlug(c.name))).map((c) => ({ slug: nodeSlug(c.name), name: c.name, question: c.question }))} />
 
       <NoScriptNote>The interactive questions below need JavaScript to run. The edition text above works without it.</NoScriptNote>
       <EditionLab edition="001" />
@@ -269,10 +279,7 @@ export default function EditionOnePage() {
       </section>
       <PortfolioLine />
 
-      <nav className="edition-continuity" aria-label="Edition navigation">
-        <a href="/edit">All editions</a>
-        <a href="/edit/002">Edition 002 →</a>
-      </nav>
+      <EditionNav number="001" />
 
       <section className="edition-subscribe">
         <p className="eyebrow">The I/1 Edit</p>

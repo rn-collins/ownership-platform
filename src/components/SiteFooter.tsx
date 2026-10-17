@@ -15,5 +15,5 @@ export function SiteFooter() {
     </div>
     <div className="foot-connect"><span className="foot-h">Connect with RN Collins</span><ProfileLinks variant="row" /></div>
     <p className="foot-copy">© {new Date().getFullYear()} RN Collins · Research and editorial work</p>
-  </footer>;
+  <p><a href="https://github.com/rn-collins/ownership-platform" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a></p></footer>;
 }

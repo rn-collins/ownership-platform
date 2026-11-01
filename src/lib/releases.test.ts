@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import raw from "../../data/releases.json";
-import { caseId, editionId, isHeldPath, isReleasedRecord, pieces, relatedStories, reviewRenderFor, storyIfReleased, todayInHawaii } from "./releases";
+import { caseId, editionId, isHeldPath, isReleasedRecord, NO_PAUSE, pieces, RELEASE_PAUSE, relatedStories, reviewRenderFor, storyIfReleased, todayInHawaii } from "./releases";
 import { SEED_RECORDS, nodeSlug } from "./observatory_seed";
 import { cycleOneEditions, earlyEditions, editionCases, visualStoryForCase, visualStoryIdForCase } from "./edit-cycle-one";
 import publicationDates from "./publication-dates.json";
@@ -109,12 +109,20 @@ describe("data/releases.json, the one release record", () => {
 describe("the release rule", () => {
   it("releases a piece on its Hawaii date and not a day before", () => {
     const r = { releasedAt: "2026-11-02", hold: false };
-    expect(isReleasedRecord(r, "2026-11-01")).toBe(false);
-    expect(isReleasedRecord(r, "2026-11-02")).toBe(true);
-    expect(isReleasedRecord(r, "2026-12-01")).toBe(true);
-    expect(isReleasedRecord({ releasedAt: "2026-01-01", hold: true }, "2026-12-01")).toBe(false);
-    expect(isReleasedRecord({ releasedAt: "", hold: false }, "2026-12-01")).toBe(false);
-    expect(isReleasedRecord(undefined, "2026-12-01")).toBe(false);
+    expect(isReleasedRecord(r, "2026-11-01", NO_PAUSE)).toBe(false);
+    expect(isReleasedRecord(r, "2026-11-02", NO_PAUSE)).toBe(true);
+    expect(isReleasedRecord(r, "2026-12-01", NO_PAUSE)).toBe(true);
+    expect(isReleasedRecord({ releasedAt: "2026-01-01", hold: true }, "2026-12-01", NO_PAUSE)).toBe(false);
+    expect(isReleasedRecord({ releasedAt: "", hold: false }, "2026-12-01", NO_PAUSE)).toBe(false);
+    expect(isReleasedRecord(undefined, "2026-12-01", NO_PAUSE)).toBe(false);
+  });
+
+  it("opens nothing new while the RN Collins release pause is on (RN, Oct 30, 2026)", () => {
+    if (!RELEASE_PAUSE.on) return;
+    const later = [...pieces, ...relatedStories].filter((p) => isReleasedRecord(p, "2099-12-31")).map((p) => p.id).sort();
+    expect(later).toEqual([...RELEASE_PAUSE.live].sort());
+    expect(isReleasedRecord({ id: "ioo/c01-p26", releasedAt: "2026-11-02", hold: false }, "2026-12-01")).toBe(false);
+    for (const id of RELEASE_PAUSE.live) expect(isReleasedRecord([...pieces, ...relatedStories].find((p) => p.id === id), "2026-11-01")).toBe(true);
   });
 
   it("counts the day in Pacific/Honolulu", () => {
@@ -145,7 +153,9 @@ describe("the release rule", () => {
   it("links a case's visual story only once the story is released", () => {
     expect(visualStoryIdForCase("mrbeast")).toBe("P26");
     expect(storyIfReleased("P26", "2026-11-01")).toBeUndefined();
-    expect(storyIfReleased("P26", "2026-11-02")?.url).toBe("https://institutions-of-one-reader.vercel.app/production/cycle-01/p26");
+    // While the RN Collins release pause is on, P26 stays held on its date too.
+    if (RELEASE_PAUSE.on) expect(storyIfReleased("P26", "2026-11-02")).toBeUndefined();
+    else expect(storyIfReleased("P26", "2026-11-02")?.url).toBe("https://institutions-of-one-reader.vercel.app/production/cycle-01/p26");
     // Before Nov 2, 2026 (the P18 to P27 date), no case page links its story.
     if (todayInHawaii() < "2026-11-02") expect(visualStoryForCase("mrbeast")).toBeUndefined();
   });

@@ -153,3 +153,12 @@ rn-selected-work `data/sources-ioo.json`; a link to one appears only from its da
 
 See `.env.example`, `MIGRATIONS.md`, and the source-level architecture rules for configuration
 and operational constraints.
+
+## RN Collins release pause (RN, Oct 30, 2026)
+
+No edition, case, tool or visual-story link opens on its own until every RN Collins content package is complete.
+`RELEASE_PAUSE` in `src/lib/release-rule.mjs` is on: while it is, only the 52 records live on Nov 1, 2026 (51 pieces
+and 1 visual story) can be public, whatever `data/releases.json` says. A push, a manual run of the daily release
+workflow or a later build date opens nothing new, and `scripts/release-day.mjs` reports nothing due, so the workflow
+pushes no rebuild. `data/releases.json` and its dates are unchanged (4 pieces held, 33 visual stories held).
+To undo, set `on: false` in `RELEASE_PAUSE` and push; the normal date-and-hold rule then applies again.

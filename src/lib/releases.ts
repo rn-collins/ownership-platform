@@ -1,5 +1,5 @@
 import raw from "../../data/releases.json";
-import { isReleasedRecord as rule, reviewRenderFor, todayInHawaii, RELEASE_TIMEZONE } from "./release-rule.mjs";
+import { isReleasedRecord as rule, reviewRenderFor, todayInHawaii, RELEASE_TIMEZONE, RELEASE_PAUSE, NO_PAUSE, type ReleasePause } from "./release-rule.mjs";
 import { idIsPublic } from "./released-ids";
 
 // The release gate for every piece on this site: editions, case records and tools. Server code only; browser code uses
@@ -43,8 +43,9 @@ export { RELEASE_TIMEZONE, todayInHawaii, reviewRenderFor };
 export const pieces: readonly Piece[] = data.pieces;
 export const relatedStories: readonly RelatedStory[] = data.related;
 
-/** True when the record is released on `today` (YYYY-MM-DD, Hawaii). */
-export const isReleasedRecord = (record: { releasedAt: string; hold: boolean } | undefined, today: string): boolean => rule(record, today);
+export { RELEASE_PAUSE, NO_PAUSE };
+/** True when the record is released on `today` (YYYY-MM-DD, Hawaii), under the RN Collins release pause unless told otherwise. */
+export const isReleasedRecord = (record: { id?: string; releasedAt: string; hold: boolean } | undefined, today: string, pause: ReleasePause = RELEASE_PAUSE): boolean => rule(record, today, pause);
 
 export const pieceById = (id: string) => pieces.find((p) => p.id === id);
 export const editionId = (number: string) => `ioo/edit-${number}`;
